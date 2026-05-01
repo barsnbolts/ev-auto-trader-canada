@@ -93,6 +93,7 @@ export const IncentiveSchema = z.object({
   effectiveUntil: z.string().optional(),      // ISO
   stackableWith: z.array(z.string()).optional(), // ids of other incentives
   source: z.string().optional(),              // URL or note for verification
+  notes: z.string().optional(),               // eligibility caveats, restrictions
   lastVerified: z.string(),                   // ISO
 });
 export type Incentive = z.infer<typeof IncentiveSchema>;

@@ -1,220 +1,349 @@
 [
   {
-    "id": "fed-izev-2025",
+    "id": "fed-izev-closed-2025",
     "scope": "federal",
-    "name": "iZEV federal rebate (PAUSED)",
+    "name": "iZEV federal rebate",
     "appliesTo": {
       "models": ["EV6", "Ioniq5", "Ioniq6"]
     },
     "amountCad": 5000,
-    "status": "paused",
+    "status": "ended",
     "effectiveFrom": "2019-05-01",
-    "effectiveUntil": "2025-01-12",
-    "source": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/light-duty-zero-emission-vehicles/eligible-vehicles",
-    "lastVerified": "2025-01-15",
-    "stackableWith": []
+    "effectiveUntil": "2025-03-31",
+    "source": "https://tc.canada.ca/en/road-transportation/innovative-technologies/electric-vehicles/incentives-zero-emission-vehicles-izev",
+    "notes": "Program closed. It has not been reinstated as iZEV. Transport Canada now points users to EVAP (Electric Vehicle Affordability Program) for current federal light-duty EV incentives.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "qc-roulez-vert",
-    "scope": "provincial",
-    "name": "Roulez vert (Quebec)",
+    "id": "fed-evap-2026",
+    "scope": "federal",
+    "name": "Electric Vehicle Affordability Program (EVAP)",
     "appliesTo": {
-      "models": ["EV6", "Ioniq5", "Ioniq6"],
-      "provinces": ["QC"]
+      "models": ["EV6"]
     },
-    "amountCad": 4000,
+    "amountCad": 5000,
     "status": "active",
-    "effectiveUntil": "2026-12-31",
-    "source": "https://vehiculeselectriques.gouv.qc.ca/",
-    "lastVerified": "2025-01-15",
-    "stackableWith": ["fed-izev-2025"]
+    "effectiveFrom": "2026-02-16",
+    "effectiveUntil": "2031-03-31",
+    "source": "https://tc.canada.ca/en/road-transportation/innovative-technologies/electric-vehicles/electric-vehicle-affordability-program-evap/electric-vehicle-affordability-program-vehicle-list",
+    "notes": "BEV/FCEV incentive up to $5,000 in 2026. Final transaction value must be $50,000 or less unless the EV is Canadian-made. Vehicle must be made in Canada or in a country with a free-trade agreement with Canada. Transport Canada list currently shows 2025 Kia EV6 Light RWD among the requested models; unlisted vehicles may still qualify if all criteria are met.",
+    "stackableWith": ["bc-cleanbc-passenger-paused", "qc-roulez-vert-2026", "mb-ev-rebate-2026", "pei-ev-incentive-2025"],
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "bc-cevfp",
+    "id": "fed-zevip-2026",
+    "scope": "charger_install",
+    "name": "Zero Emission Vehicle Infrastructure Program (ZEVIP)",
+    "status": "active",
+    "source": "https://natural-resources.canada.ca/energy-efficiency/transportation-energy-efficiency/zero-emission-vehicle-infrastructure-program",
+    "notes": "Infrastructure contribution funding for eligible organizations/projects, not a direct individual home-charger rebate. Funding stream, intake, charger type, and applicant category determine the amount.",
+    "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "bc-cleanbc-passenger-paused",
     "scope": "provincial",
-    "name": "BC CleanBC Go Electric",
+    "name": "CleanBC Go Electric passenger vehicle rebate",
     "appliesTo": {
       "models": ["EV6", "Ioniq5", "Ioniq6"],
       "provinces": ["BC"]
     },
-    "amountCad": 4000,
-    "status": "active",
-    "source": "https://goelectricbc.gov.bc.ca/",
-    "lastVerified": "2025-01-15",
-    "stackableWith": ["fed-izev-2025"]
+    "status": "paused",
+    "source": "https://goelectricbc.gov.bc.ca/rebates-and-programs/for-individuals/explore-personal-rebate-offers/",
+    "notes": "Passenger vehicle rebate page states the program is currently paused.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "ns-evrebate",
-    "scope": "provincial",
-    "name": "Nova Scotia Electrify Rebate",
+    "id": "bc-cleanbc-home-charger-2026",
+    "scope": "charger_install",
+    "name": "CleanBC Go Electric home charger rebate",
     "appliesTo": {
-      "provinces": ["NS"]
+      "provinces": ["BC"]
     },
-    "amountCad": 3000,
+    "amountCad": 350,
     "status": "active",
-    "source": "https://efficiencyns.ca/electric-vehicles/",
-    "lastVerified": "2025-01-15"
+    "source": "https://goelectricbc.gov.bc.ca/rebates-and-programs/for-individuals/save-on-home-and-workplace-charging/",
+    "notes": "Up to 50% of eligible Level 2 charger installation cost, capped at $350, for single-family homes, duplexes, triplexes, or other semi-detached housing. Eligible charger and utility-provider application rules apply.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "nb-evrebate",
+    "id": "qc-roulez-vert-2026",
     "scope": "provincial",
-    "name": "New Brunswick EV Rebate",
+    "name": "Roulez vert new BEV rebate",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["QC"]
+    },
+    "amountCad": 2000,
+    "status": "active",
+    "effectiveFrom": "2026-01-01",
+    "effectiveUntil": "2026-12-31",
+    "source": "https://www.quebec.ca/transports/transport-electrique/aide-financiere-vehicule-electrique/programme-roulez-vert",
+    "notes": "Fully electric vehicles registered in 2026 are listed at $2,000. Program ends December 31, 2026. Eligibility depends on vehicle/version and registration date. Vehicles registered during the February 1 to March 31, 2025 suspension period were not eligible.",
+    "stackableWith": ["fed-evap-2026"],
+    "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "nb-plugin-nb-ended-2025",
+    "scope": "provincial",
+    "name": "Plug-In NB EV rebate",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["NB"]
+    },
+    "status": "ended",
+    "effectiveFrom": "2021-07-08",
+    "effectiveUntil": "2025-06-30",
+    "source": "https://www.nbpower.com/media/1493661/plug-in_nb_program_guidelines-03-27-2025.pdf",
+    "notes": "Program guidelines state Plug-In NB closed June 30, 2025 and would not be extended. Former BEV amount was $5,000 for eligible purchases or 48-month leases.",
+    "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "nb-plugin-nb-charger-ended-2025",
+    "scope": "charger_install",
+    "name": "Plug-In NB Level 2 home charging station rebate",
     "appliesTo": {
       "provinces": ["NB"]
     },
-    "amountCad": 5000,
-    "status": "active",
-    "source": "https://www.nbpower.com/en/save-energy/total-home-energy-savings/electric-vehicle-rebate",
-    "lastVerified": "2025-01-15"
+    "status": "ended",
+    "effectiveFrom": "2021-07-08",
+    "effectiveUntil": "2025-06-30",
+    "source": "https://www.nbpower.com/media/1493661/plug-in_nb_program_guidelines-03-27-2025.pdf",
+    "notes": "Former rebate was 50% of eligible purchase + installation cost before taxes/delivery, capped at $750, only for participants in the Plug-In NB EV rebate program. Program has ended.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "yt-evrebate",
+    "id": "ns-electrify-light-duty-ended-2025",
     "scope": "provincial",
-    "name": "Yukon Good Energy Rebate",
+    "name": "Electrify Nova Scotia light-duty EV rebate",
     "appliesTo": {
-      "provinces": ["YT"]
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["NS"]
     },
-    "amountCad": 5000,
-    "status": "active",
-    "source": "https://yukon.ca/en/good-energy",
-    "lastVerified": "2025-01-15"
+    "status": "ended",
+    "effectiveUntil": "2025-05-22",
+    "source": "https://novascotia.ca/nse/progress-report/docs/ns-climate-change-plan-progress-report-appendix-a-2025.pdf",
+    "notes": "Nova Scotia government progress report states Electrify NS has ended rebates for light-duty EVs and e-bikes. Medium- and heavy-duty zero-emission vehicle rebates are separate and not applicable to EV6/Ioniq5/Ioniq6 personal light-duty purchases.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "nl-evrebate",
+    "id": "nl-takecharge-nlcu-loan-rebate-2026",
     "scope": "provincial",
-    "name": "Newfoundland Take Charge EV Rebate",
+    "name": "TakeCharge listed NLCU Eco-Friendly Vehicle Loan Rebate",
     "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
       "provinces": ["NL"]
     },
-    "amountCad": 2500,
+    "amountCad": 1500,
     "status": "active",
-    "source": "https://takechargenl.ca/",
-    "lastVerified": "2025-01-15"
+    "source": "https://takechargenl.ca/evs/choosing-an-ev/available-incentives/",
+    "notes": "TakeCharge currently lists an NLCU loan rebate, not a provincial point-of-sale vehicle rebate. Hybrid or electric vehicle must be five years old or newer; rebate is 2.5% or 3% depending on NLCU banking setup, capped at $1,500.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "pe-evrebate",
+    "id": "pei-ev-incentive-2025",
     "scope": "provincial",
-    "name": "PEI Electric Vehicle Incentive",
+    "name": "PEI Universal EV Incentive",
     "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
       "provinces": ["PE"]
     },
-    "amountCad": 5000,
+    "amountCad": 4000,
     "status": "active",
-    "source": "https://www.princeedwardisland.ca/en/information/finance/electric-vehicle-incentive",
-    "lastVerified": "2025-01-15"
+    "effectiveFrom": "2025-06-02",
+    "source": "https://www.princeedwardisland.ca/en/information/land-and-environment/electric-vehicle-incentive",
+    "notes": "Eligible BEVs receive $4,000 and PHEVs receive $2,000 as of June 2, 2025. Lease amounts are prorated: BEV 48+ months $4,000, 36 months $3,000, 24 months $2,000, 12 months $1,000. Teslas no longer eligible as of March 25, 2025.",
+    "stackableWith": ["fed-evap-2026"],
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "kia-ev6-loyalty",
-    "scope": "loyalty",
-    "name": "Kia Loyalty Bonus (EV6)",
-    "appliesTo": { "models": ["EV6"] },
-    "amountCad": 750,
-    "status": "active",
-    "source": "VERIFY: kia.ca current offers page",
-    "lastVerified": "2025-01-15"
+    "id": "yt-good-energy-light-duty-ended-2026",
+    "scope": "provincial",
+    "name": "Yukon Good Energy light-duty zero-emission vehicle rebate",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["YT"]
+    },
+    "status": "ended",
+    "effectiveUntil": "2026-03-31",
+    "source": "https://yukon.ca/en/driving-and-transportation/clean-energy-rebates/apply-rebate-new-light-duty-zero-emission-vehicle",
+    "notes": "Electric transportation rebates ended March 31, 2026. Applications remain possible only for purchases made on or before March 31, 2026. Former BEV / long-range PHEV amount was $5,000.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "kia-ev6-conquest",
-    "scope": "conquest",
-    "name": "Kia Conquest Cash (EV6)",
-    "appliesTo": { "models": ["EV6"] },
-    "amountCad": 1000,
+    "id": "mb-ev-rebate-2026",
+    "scope": "provincial",
+    "name": "Manitoba Electric Vehicle Rebate Program",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["MB"]
+    },
+    "amountCad": 4000,
     "status": "active",
-    "source": "VERIFY: kia.ca current offers page",
-    "lastVerified": "2025-01-15"
+    "source": "https://www.gov.mb.ca/lowercosts/evrebate/index.html",
+    "notes": "Manitoba is not a no-rebate province. Official program page lists $4,000 for eligible new EVs and $2,500 for eligible pre-owned EVs. Model and transaction eligibility must be checked against Manitoba program criteria.",
+    "stackableWith": ["fed-evap-2026"],
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "hyundai-ioniq-loyalty",
-    "scope": "loyalty",
-    "name": "Hyundai Owner Loyalty (Ioniq 5/6)",
-    "appliesTo": { "models": ["Ioniq5", "Ioniq6"] },
-    "amountCad": 500,
-    "status": "active",
-    "source": "VERIFY: hyundaicanada.com offers",
-    "lastVerified": "2025-01-15"
+    "id": "on-vehicle-rebate-ended-2018",
+    "scope": "provincial",
+    "name": "Ontario Electric and Hydrogen Vehicle Incentive Program",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["ON"]
+    },
+    "status": "ended",
+    "effectiveUntil": "2018-07-11",
+    "source": "https://news.ontario.ca/mto/en/2018/08/statement-by-minister-john-yakabuski-on-the-electric-and-hydrogen-vehicle-incentive-program.html",
+    "notes": "Ontario cancelled the Electric and Hydrogen Vehicle Incentive Program on July 11, 2018. No current Ontario provincial light-duty EV purchase rebate was found on official Ontario / IESO sources.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "kia-ev6-lease-2025",
-    "scope": "lease_promo",
-    "name": "EV6 lease promo example",
-    "appliesTo": { "models": ["EV6"] },
-    "aprPercent": 4.99,
-    "termMonths": 48,
-    "residualPercent": 52,
-    "monthlyPaymentExample": 619,
-    "downPaymentExample": 4995,
-    "status": "active",
-    "source": "VERIFY: kia.ca current offers",
-    "lastVerified": "2025-01-15"
+    "id": "ab-vehicle-rebate-none-2026",
+    "scope": "provincial",
+    "name": "Alberta light-duty EV purchase rebate",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["AB"]
+    },
+    "status": "ended",
+    "source": "https://www.alberta.ca/taxes-levies-overview",
+    "notes": "No active Alberta light-duty EV purchase rebate identified. Official Alberta page instead lists a $200 annual electric vehicle tax for battery electric vehicles.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "kia-ev6-finance-2025",
-    "scope": "finance_promo",
-    "name": "EV6 finance promo example",
-    "appliesTo": { "models": ["EV6"] },
-    "aprPercent": 3.99,
-    "termMonths": 84,
-    "monthlyPaymentExample": 689,
-    "downPaymentExample": 0,
-    "status": "active",
-    "source": "VERIFY: kia.ca current offers",
-    "lastVerified": "2025-01-15"
+    "id": "sk-vehicle-rebate-none-2026",
+    "scope": "provincial",
+    "name": "Saskatchewan light-duty EV purchase rebate",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["SK"]
+    },
+    "status": "ended",
+    "source": "https://www.saskatchewan.ca/business/taxes-licensing-and-reporting/provincial-taxes-policies-and-bulletins/fuel-tax/road-use-charge-on-electric-vehicles",
+    "notes": "No active Saskatchewan light-duty EV purchase rebate identified. Official Saskatchewan page lists an annual road-use charge on Class LV EVs: $300 from June 1, 2025 to December 31, 2026.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "hyundai-ioniq5-lease-2025",
-    "scope": "lease_promo",
-    "name": "Ioniq 5 lease promo example",
-    "appliesTo": { "models": ["Ioniq5"] },
-    "aprPercent": 4.49,
-    "termMonths": 48,
-    "residualPercent": 53,
-    "monthlyPaymentExample": 569,
-    "downPaymentExample": 4995,
-    "status": "active",
-    "source": "VERIFY: hyundaicanada.com offers",
-    "lastVerified": "2025-01-15"
+    "id": "nt-vehicle-rebate-ended-2026",
+    "scope": "provincial",
+    "name": "Northwest Territories light-duty EV rebate",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["NT"]
+    },
+    "status": "ended",
+    "effectiveUntil": "2025-03-31",
+    "source": "https://www.inf.gov.nt.ca/en/services/energy/electric-vehicle-corridor",
+    "notes": "GNWT page states that as of 2025-26, GNWT core funding for rebates has ended. Rebates may still be available directly through Arctic Energy Alliance, but a current official AEA vehicle-rebate amount was not confirmed from the current rebate index.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "hyundai-ioniq6-lease-2025",
-    "scope": "lease_promo",
-    "name": "Ioniq 6 lease promo example",
-    "appliesTo": { "models": ["Ioniq6"] },
-    "aprPercent": 4.49,
-    "termMonths": 48,
-    "residualPercent": 51,
-    "monthlyPaymentExample": 549,
-    "downPaymentExample": 4995,
-    "status": "active",
-    "source": "VERIFY: hyundaicanada.com offers",
-    "lastVerified": "2025-01-15"
-  },
-  {
-    "id": "save-on-energy-evcrp",
+    "id": "nt-ev-infrastructure-program-2026",
     "scope": "charger_install",
-    "name": "Save On Energy EV Charger Rebate (Ontario)",
-    "appliesTo": { "provinces": ["ON"] },
-    "amountCad": 600,
+    "name": "Northwest Territories Electric Vehicle Infrastructure Program",
+    "appliesTo": {
+      "provinces": ["NT"]
+    },
     "status": "active",
-    "source": "https://saveonenergy.ca/For-Your-Home/Advice-and-Tips/Electric-vehicle-charging",
-    "lastVerified": "2025-01-15"
+    "source": "https://www.inf.gov.nt.ca/en/ev-infrastructure-program",
+    "notes": "Infrastructure program supports charging installations in public places, street parking, multi-unit residential buildings, workplaces, and light-duty fleet facilities. Search result lists maximum of $99,999 per Level 3 fast charger. Not a direct personal home-charger rebate.",
+    "stackableWith": ["fed-zevip-2026"],
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "enbridge-ev-charger",
-    "scope": "charger_install",
-    "name": "Enbridge Smart Home Rebate (charger eligible)",
-    "appliesTo": { "provinces": ["ON"] },
-    "amountCad": 350,
-    "status": "active",
-    "source": "VERIFY: enbridgegas.com rebates",
-    "lastVerified": "2025-01-15"
+    "id": "nu-vehicle-rebate-none-2026",
+    "scope": "provincial",
+    "name": "Nunavut light-duty EV purchase rebate",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["NU"]
+    },
+    "status": "ended",
+    "source": "https://www.gov.nu.ca/",
+    "notes": "No active Nunavut government light-duty EV purchase or EV-charger installation rebate was found on official Nunavut government sources. Search results returned carbon/electricity rebate material, not an EV purchase incentive.",
+    "lastVerified": "2026-05-01"
   },
   {
-    "id": "fed-evci",
+    "id": "on-saveonenergy-ev-charger-none-2026",
     "scope": "charger_install",
-    "name": "Federal EVCi (charger install grant)",
-    "amountCad": 5000,
+    "name": "Save On Energy EV charger installation rebate",
+    "appliesTo": {
+      "provinces": ["ON"]
+    },
+    "status": "ended",
+    "source": "https://saveonenergy.ca/en/For-Business-and-Industry/Programs-and-incentives",
+    "notes": "No current Save On Energy direct EV-charger installation rebate found. Current Save On Energy business programs list energy-efficiency programs; EV-charger fact sheets point to other funding sources rather than a Save On Energy EV charger rebate.",
+    "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "on-enbridge-ev-charger-none-2026",
+    "scope": "charger_install",
+    "name": "Enbridge Smart Home EV charger eligibility",
+    "appliesTo": {
+      "provinces": ["ON"]
+    },
+    "status": "ended",
+    "source": "https://www.enbridgegas.com/ontario/rebates-energy-conservation",
+    "notes": "No EV-charger eligibility found on Enbridge Ontario rebate pages. Home Efficiency Rebate intake ended January 27, 2025 and current Enbridge / Home Renovation Savings materials focus on home energy-efficiency upgrades, not EV chargers.",
+    "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "oem-kia-ev6-2026-05",
+    "scope": "manufacturer_cash",
+    "name": "Kia EV6 — current monthly offers (verify on kia.ca)",
+    "appliesTo": {
+      "models": ["EV6"]
+    },
     "status": "active",
-    "source": "https://natural-resources.canada.ca/energy-efficiency/transportation-alternative-fuels/zero-emission-vehicle-infrastructure-program",
-    "lastVerified": "2025-01-15"
+    "effectiveFrom": "2026-05-01",
+    "source": "https://www.kia.ca/en/shopping-tools/special-offers",
+    "notes": "Kia Canada special-offers page is current but EV6 cash / APR / residual / monthly fields were not exposed in retrievable official text. Check the source URL for the live offer; values change monthly.",
+    "stackableWith": ["fed-evap-2026", "qc-roulez-vert-2026", "mb-ev-rebate-2026", "pei-ev-incentive-2025"],
+    "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "oem-hyundai-ioniq5-2026-05",
+    "scope": "manufacturer_cash",
+    "name": "Hyundai Ioniq 5 — current monthly offers (verify on hyundaicanada.com)",
+    "appliesTo": {
+      "models": ["Ioniq5"]
+    },
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "source": "https://www.hyundaicanada.com/en/special-offers",
+    "notes": "Hyundai Canada special-offers page did not expose Ioniq 5 cash / APR / residual / monthly fields in retrievable official text. Check the source URL for the live offer; values change monthly.",
+    "stackableWith": ["fed-evap-2026", "qc-roulez-vert-2026", "mb-ev-rebate-2026", "pei-ev-incentive-2025"],
+    "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "oem-hyundai-ioniq6-preferred-2026-05",
+    "scope": "manufacturer_cash",
+    "name": "Hyundai Ioniq 6 Preferred — current monthly offers",
+    "appliesTo": {
+      "models": ["Ioniq6"]
+    },
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "source": "https://www.hyundaicanada.com/en/evhub/incentives",
+    "notes": "Hyundai Canada EV incentives page lists Ioniq 6 eligible models and total incentive ranges, but only explicitly identifies the $16,000 Hyundai Special Offer Bonus as available on the Ultimate Package. Exact Preferred non-Ultimate manufacturer cash / APR / residual / monthly fields were not exposed in retrievable text — verify at the source.",
+    "stackableWith": ["fed-evap-2026", "qc-roulez-vert-2026", "mb-ev-rebate-2026", "pei-ev-incentive-2025"],
+    "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "oem-hyundai-ioniq6-ultimate-bonus-2026-05",
+    "scope": "manufacturer_cash",
+    "name": "Hyundai Ioniq 6 Ultimate Package Special Offer Bonus",
+    "appliesTo": {
+      "models": ["Ioniq6"],
+      "trims": ["Limited AWD"]
+    },
+    "amountCad": 16000,
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "source": "https://www.hyundaicanada.com/en/evhub/incentives",
+    "notes": "Hyundai Canada EV incentives page states the Ioniq 6 incentive amount is based on EVAP $5,000, Hyundai Special Offer Bonus $16,000 available on the Ultimate Package, and provincial incentive available in Manitoba and PEI ($4,000). APR / residual / monthly lease and finance examples were not exposed in official retrievable text. Note: 'Ultimate Package' in Hyundai marketing maps closely to the 'Limited AWD' trim in the dealer inventory taxonomy — verify at delivery.",
+    "stackableWith": ["fed-evap-2026", "mb-ev-rebate-2026", "pei-ev-incentive-2025"],
+    "lastVerified": "2026-05-01"
   }
 ]

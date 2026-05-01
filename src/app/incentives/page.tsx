@@ -76,12 +76,17 @@ export default async function IncentivesPage() {
                     )}
                     <span>Verified {fmtDate(inc.lastVerified)}</span>
                   </div>
+                  {inc.notes && (
+                    <p className="text-xxs text-fg-muted mt-1.5 leading-relaxed max-w-2xl">
+                      {inc.notes}
+                    </p>
+                  )}
                   {inc.source && (
                     <a
                       href={inc.source.startsWith("http") ? inc.source : undefined}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-xxs text-accent hover:text-accent-strong mt-0.5 inline-block"
+                      className="text-xxs text-accent hover:text-accent-strong mt-1 inline-block break-all"
                     >
                       {inc.source}
                     </a>
