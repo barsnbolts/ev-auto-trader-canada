@@ -291,6 +291,16 @@ Total LOC src/: 1,535 (per `wc -l` 2026-05-01).
     aren't filtered away.
   - `f270c4c` active-filter chip readout on /inventory with one-click
     clear-all.
+  - `242021c` drawer ←/→ keyboard nav + position counter (i / total).
+  - `435cbc2` /incentives "Expiring Nd" chip when active program ends
+    within 30 days.
+  - `da92f0e` compare per-column × button to drop a unit.
+  - `b264436` /inventory model breakdown next to filter count.
+  - `4c2149b` highlight active inventory row when its drawer is open.
+  - `a2ef787` compare clear-all button.
+  - `9eb5c76` /dealer/[id] route (SSG via generateStaticParams),
+    linked from drawer + dashboard high-pressure list.
+  - `7151d82` /map dealer popup links into /dealer/[id].
 - **2026-05-01 — Specs scaffold + URL filter state (`de996dd`).**
   Added `SpecSchema` + `loadSpecs/specMap/specKey`; CompareGrid now
   surfaces range/kWh/charge/0–100/cargo/weight/seats when
@@ -314,10 +324,11 @@ Total LOC src/: 1,535 (per `wc -l` 2026-05-01).
 
 ### Status as of HEAD
 
-- Routes: 6 (`/`, `/inventory`, `/compare`, `/incentives`,
-  `/history`, `/map`). All `force-static`, build clean (8/8
-  prerender count includes Next internals).
-- Components: 10 in `src/components/`.
+- Routes: 7 (`/`, `/inventory`, `/compare`, `/incentives`,
+  `/history`, `/map`, `/dealer/[id]`). All static-prerendered;
+  `/dealer/[id]` uses `generateStaticParams` so each dealer becomes
+  one prerendered page.
+- Components: 11 in `src/components/`.
 - Deps added beyond original scaffold: `react-leaflet`, `leaflet`,
   `@types/leaflet`.
 - Sample data unchanged (22 dealers / 28 units / 18 incentives /
