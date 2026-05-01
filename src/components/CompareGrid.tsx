@@ -173,6 +173,18 @@ function CompareTable({
       rank: { value: (u) => u.otdCad, lowerIsBetter: true },
     },
     {
+      label: "EVAP eligible",
+      render: (u) => {
+        const eligible = u.applicableIncentives.some((i) => i.id.startsWith("fed-evap"));
+        if (eligible) return <span className="chip-accent">$5,000 ✓</span>;
+        const preTax = u.dealerAskingPrice + u.freightPdi + 100;
+        const over = Math.round(preTax - 50000);
+        if (over > 0 && over <= 1500) return <span className="chip-warn">+${over} cliff</span>;
+        return <span className="text-fg-subtle text-xs">${over.toLocaleString("en-CA")} over cap</span>;
+      },
+      rank: { value: (u) => (u.applicableIncentives.some((i) => i.id.startsWith("fed-evap")) ? 1 : 0) },
+    },
+    {
       label: "Deal score",
       render: (u) => <DealScoreBadge score={u.dealScore} />,
       rank: { value: (u) => u.dealScore },

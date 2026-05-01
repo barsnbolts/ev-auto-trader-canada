@@ -269,6 +269,21 @@ function buildEmailDraft(
     ? `Looking to match or beat ${fmtCad(comparable.otdCad)} OTD.`
     : `Looking for OTD under ${fmtCad(Math.round(unit.otdCad * 0.97))}.`;
 
+  // EVAP context. The cap is the central 2026 negotiation handle. If unit
+  // is just over the cap, ask the dealer to trim accessories/admin. If
+  // already under, mention the rebate so the dealer doesn't try to "find"
+  // it again as a closing tactic.
+  const preTax = unit.dealerAskingPrice + unit.freightPdi + 100;
+  const evapEligible = unit.applicableIncentives.some((i) => i.id.startsWith("fed-evap"));
+  const overCap = preTax - 50000;
+  const evapLine = evapEligible
+    ? `Pre-tax transaction value of ${fmtCad(preTax)} qualifies for the $5,000 federal EVAP rebate — that's already in the OTD figure above.`
+    : overCap > 0 && overCap <= 1500
+      ? `Pre-tax transaction value of ${fmtCad(preTax)} sits ${fmtCad(overCap)} over the $50,000 EVAP cap. Trimming admin/wheel-locks/prep to bring it under the cap unlocks $5,000 in federal rebate (~${fmtCad(Math.round(5000 * 1.13))} after Ontario HST).`
+      : overCap > 1500
+        ? `Note this trim is ${fmtCad(overCap)} over the federal EVAP cap, so it doesn't get the $5,000 rebate. Equivalent post-rebate competitor: Equinox EV 2LT AWD at ${fmtCad(44699)} OTD-ish (Chevy MSRP $49,699 minus $5,000 EVAP).`
+        : "";
+
   const lines = [
     greet,
     "",
@@ -277,6 +292,7 @@ function buildEmailDraft(
     aging,
     pressureNote,
     compLine,
+    evapLine,
     "",
     askDelta,
     "Cash deal, financing pre-approved, ready to sign this week if numbers work.",

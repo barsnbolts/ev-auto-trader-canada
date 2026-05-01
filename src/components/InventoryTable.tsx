@@ -74,6 +74,15 @@ function isAgingOutgoing(year: number, daysOnLot?: number): boolean {
   return year < CURRENT_MY && (daysOnLot ?? 0) > 90;
 }
 
+// E-GMP ICCU recall family. Ioniq 5 spans 2025; EV6 + Ioniq 6 stop at 2024.
+// Source: data/market-intel.json (kept in sync there).
+function iccuAffected(model: Model, year: number): boolean {
+  if (model === "EV6" && year >= 2022 && year <= 2024) return true;
+  if (model === "Ioniq5" && year >= 2022 && year <= 2025) return true;
+  if (model === "Ioniq6" && year >= 2023 && year <= 2024) return true;
+  return false;
+}
+
 const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "newest", "oldest"];
 
 const CSV_COLS = [
@@ -449,6 +458,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
                     <StatusChip status={u.status} />
                     {isAgingOutgoing(u.year, u.daysOnLot) && (
                       <span className="chip-warn block w-fit">Aging MY{String(u.year).slice(-2)}</span>
+                    )}
+                    {iccuAffected(u.model, u.year) && (
+                      <span
+                        className="chip-bad block w-fit"
+                        title="E-GMP ICCU recall family. Demand written confirmation that ICCU software flash + module inspection have been completed before contracting. 15-yr/290k-km warranty extension applies."
+                      >
+                        ICCU recall
+                      </span>
                     )}
                   </td>
                   <td className="px-3 py-2 text-xs">
