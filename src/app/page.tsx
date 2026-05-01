@@ -3,6 +3,7 @@ import { loadScoredUnits, loadMeta } from "@/lib/data";
 import { computeKpis, dealerPressureMap, inGGH, provinceRollup } from "@/lib/aggregations";
 import { MODELS, MODEL_LABEL, MODEL_BRAND, PROVINCE_NAMES } from "@/lib/constants";
 import { fmtCad, relativeDays } from "@/lib/format";
+import { effectivePreTaxValue } from "@/lib/scoring";
 import { KpiTile } from "@/components/KpiTile";
 import { DealScoreBadge } from "@/components/DealScoreBadge";
 import type { ModelKpis } from "@/lib/aggregations";
@@ -27,8 +28,8 @@ export default async function Dashboard() {
   const evapEligibleUnits = units.filter((u) => u.applicableIncentives.some((i) => i.id.startsWith("fed-evap")));
   const cliffUnits = units.filter((u) => {
     if (u.applicableIncentives.some((i) => i.id.startsWith("fed-evap"))) return false;
-    const preTax = u.dealerAskingPrice + u.freightPdi + 100;
-    return preTax > 50000 && preTax - 50000 <= 1500;
+    const effective = effectivePreTaxValue(u, u.applicableIncentives);
+    return effective > 50000 && effective - 50000 <= 1500;
   });
   const lowestEvapOtd = evapEligibleUnits.length
     ? Math.min(...evapEligibleUnits.map((u) => u.otdCad))
@@ -102,8 +103,8 @@ export default async function Dashboard() {
           <ul className="mt-3 grid md:grid-cols-2 gap-2 text-xs">
             {cliffUnits.slice(0, 6).map((u) => {
               const d = dealerById.get(u.dealerId);
-              const preTax = u.dealerAskingPrice + u.freightPdi + 100;
-              const over = Math.round(preTax - 50000);
+              const effective = effectivePreTaxValue(u, u.applicableIncentives);
+              const over = Math.round(effective - 50000);
               return (
                 <li key={u.id} className="flex items-baseline justify-between gap-2 border-t border-border pt-1.5">
                   <Link href={`/inventory?u=${u.id}&region=all`} className="hover:text-accent-strong truncate">
@@ -244,9 +245,9 @@ export default async function Dashboard() {
             <tr>
               <th className="px-3 py-2">Province</th>
               <th className="px-3 py-2 text-right">Total</th>
-              <th className="px-3 py-2 text-right">EV6</th>
-              <th className="px-3 py-2 text-right">Ioniq 5</th>
-              <th className="px-3 py-2 text-right">Ioniq 6</th>
+              {MODELS.map((m) => (
+                <th key={m} className="px-3 py-2 text-right">{MODEL_LABEL[m]}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
@@ -254,9 +255,9 @@ export default async function Dashboard() {
               <tr key={p.province} className="border-t border-border">
                 <td className="px-3 py-2">{PROVINCE_NAMES[p.province as keyof typeof PROVINCE_NAMES] ?? p.province}</td>
                 <td className="px-3 py-2 text-right num font-medium">{p.count}</td>
-                <td className="px-3 py-2 text-right num">{p.countByModel.EV6}</td>
-                <td className="px-3 py-2 text-right num">{p.countByModel.Ioniq5}</td>
-                <td className="px-3 py-2 text-right num">{p.countByModel.Ioniq6}</td>
+                {MODELS.map((m) => (
+                  <td key={m} className="px-3 py-2 text-right num">{p.countByModel[m]}</td>
+                ))}
               </tr>
             ))}
           </tbody>

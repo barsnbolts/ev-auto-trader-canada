@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Dealer, Incentive, ScoredUnit, Spec } from "@/lib/types";
 import { MODEL_LABEL } from "@/lib/constants";
 import { fmtCad, fmtPercent } from "@/lib/format";
+import { effectivePreTaxValue } from "@/lib/scoring";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
 
@@ -177,12 +178,34 @@ function CompareTable({
       render: (u) => {
         const eligible = u.applicableIncentives.some((i) => i.id.startsWith("fed-evap"));
         if (eligible) return <span className="chip-accent">$5,000 ✓</span>;
-        const preTax = u.dealerAskingPrice + u.freightPdi + 100;
-        const over = Math.round(preTax - 50000);
+        const effective = effectivePreTaxValue(u, u.applicableIncentives);
+        const over = Math.round(effective - 50000);
         if (over > 0 && over <= 1500) return <span className="chip-warn">+${over} cliff</span>;
         return <span className="text-fg-subtle text-xs">${over.toLocaleString("en-CA")} over cap</span>;
       },
       rank: { value: (u) => (u.applicableIncentives.some((i) => i.id.startsWith("fed-evap")) ? 1 : 0) },
+    },
+    {
+      label: "Cash incentives",
+      render: (u) => {
+        const lines = u.otdBreakdown.incentivesApplied;
+        if (lines.length === 0) return <span className="text-fg-subtle">none</span>;
+        return (
+          <div className="space-y-0.5">
+            {lines.map((l) => (
+              <div key={l.id} className="text-xs flex justify-between gap-2">
+                <span className="text-fg-muted truncate" title={l.name}>{l.name}</span>
+                <span className="num text-accent">−{fmtCad(l.amountCad)}</span>
+              </div>
+            ))}
+            <div className="text-xs flex justify-between border-t border-border/50 pt-0.5 mt-0.5">
+              <span className="text-fg-muted font-medium">Total off OTD</span>
+              <span className="num font-medium text-accent">−{fmtCad(u.otdBreakdown.incentivesTotalCad)}</span>
+            </div>
+          </div>
+        );
+      },
+      rank: { value: (u) => u.otdBreakdown.incentivesTotalCad },
     },
     {
       label: "Deal score",

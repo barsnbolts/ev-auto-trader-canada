@@ -1,13 +1,40 @@
 import { ON_DEALER_FEES, PROVINCE_TAX, bcPstRateFor } from "./constants";
-import type { Dealer, Incentive, InventoryUnit, ScoredUnit } from "./types";
+import type {
+  Dealer,
+  Incentive,
+  IncentiveLine,
+  IncentiveScope,
+  InventoryUnit,
+  ScoredUnit,
+} from "./types";
+
+export type { IncentiveLine } from "./types";
 
 // E-GMP cars are assembled in Korea (and US for some Ioniq 5 trims) so they
 // are NOT Canadian-made. EVAP cap applies in full to every unit we track.
 const E_GMP_IS_IMPORTED = true;
 
+// Cash incentive scopes that come off the OTD as a contract-level deduction.
+// lease_promo / finance_promo are APR-based (modeled as monthly payment, not
+// price), and charger_install is a separate budget line.
+const OTD_ELIGIBLE_SCOPES: ReadonlySet<IncentiveScope> = new Set([
+  "federal",
+  "provincial",
+  "manufacturer_cash",
+  "loyalty",
+  "conquest",
+]);
+
+// Programs that are scoped "provincial" or similar but that pay out as a
+// loan-rate or post-purchase reimbursement, not as a contract-line rebate.
+// These should not be subtracted from OTD even though appliesTo matches.
+const NON_OTD_INCENTIVE_IDS: ReadonlySet<string> = new Set([
+  "nl-takecharge-nlcu-loan-rebate-2026",
+]);
+
 // Pre-tax transaction value used for cap eligibility. Excludes sales tax
 // (matches Transport Canada's EVAP rule).
-function preTaxTransactionValue(unit: InventoryUnit): number {
+export function preTaxTransactionValue(unit: InventoryUnit): number {
   return (
     unit.dealerAskingPrice +
     unit.freightPdi +
@@ -15,14 +42,62 @@ function preTaxTransactionValue(unit: InventoryUnit): number {
   );
 }
 
-export function evapEligibleAmount(unit: InventoryUnit, evap: Incentive | undefined): number {
+// Pre-tax value AFTER manufacturer cash has been applied. EVAP's $50k cap is
+// measured against the contract value at signing — a $58k Ioniq 6 with a
+// $16k OEM bonus is a $42k contract and therefore EVAP-eligible.
+export function effectivePreTaxValue(
+  unit: InventoryUnit,
+  applicable: Incentive[] = [],
+): number {
+  const oemCash = applicable
+    .filter(
+      (i) =>
+        i.scope === "manufacturer_cash" &&
+        i.status === "active" &&
+        i.amountCad !== undefined,
+    )
+    .reduce((s, i) => s + (i.amountCad ?? 0), 0);
+  return Math.max(0, preTaxTransactionValue(unit) - oemCash);
+}
+
+export function evapEligibleAmount(
+  unit: InventoryUnit,
+  evap: Incentive | undefined,
+  applicable: Incentive[] = [],
+): number {
   if (!evap || evap.status !== "active") return 0;
   const cap = evap.transactionValueCapCad;
   if (cap !== undefined && evap.capAppliesToImported && E_GMP_IS_IMPORTED) {
-    if (preTaxTransactionValue(unit) > cap) return 0;
+    if (effectivePreTaxValue(unit, applicable) > cap) return 0;
   }
   // Cash/finance/48mo+ lease assumption (default in the dashboard view).
   return evap.leaseTermProration?.["48"] ?? evap.amountCad ?? 0;
+}
+
+// Walks the matched-applicable list and returns the per-line dollar amounts
+// that come off the OTD, plus the total. EVAP's lease-term proration and
+// post-OEM-cash cap check live inside evapEligibleAmount.
+export function stackedOtdIncentives(
+  unit: InventoryUnit,
+  applicable: Incentive[],
+): { lines: IncentiveLine[]; totalCad: number } {
+  const lines: IncentiveLine[] = [];
+  for (const inc of applicable) {
+    if (NON_OTD_INCENTIVE_IDS.has(inc.id)) continue;
+    if (!OTD_ELIGIBLE_SCOPES.has(inc.scope)) continue;
+    if (inc.status !== "active") continue;
+    let amount = 0;
+    if (inc.id.startsWith("fed-evap")) {
+      amount = evapEligibleAmount(unit, inc, applicable);
+    } else if (inc.amountCad !== undefined) {
+      amount = inc.amountCad;
+    }
+    if (amount > 0) {
+      lines.push({ id: inc.id, name: inc.name, scope: inc.scope, amountCad: amount });
+    }
+  }
+  const totalCad = +lines.reduce((s, l) => s + l.amountCad, 0).toFixed(2);
+  return { lines, totalCad };
 }
 
 // Sales tax handler. ON: flat HST. BC: 5% GST + progressive PST bracket
@@ -38,10 +113,12 @@ function salesTaxFor(province: string, preTaxBase: number, vehiclePrice: number)
 }
 
 // True out-the-door math for a single unit. The buyer-relevant total.
-// EVAP rebate is subtracted from the OTD when the unit qualifies (per-unit
-// transaction-value test). Sales tax stacks on top of the pre-tax base
-// (vehicle + freight + AC excise) per CRA guidance; OMVIC, RDPRM, tire
-// stewardship, and licensing are typically post-tax line items.
+// All cash-equivalent incentives (federal EVAP, provincial rebates,
+// manufacturer cash, loyalty/conquest) are subtracted as contract-line
+// deductions. APR-based promos and charger-install programs are excluded.
+// Sales tax stacks on top of the pre-tax base (vehicle + freight + AC
+// excise) per CRA guidance; OMVIC, RDPRM, tire stewardship, and licensing
+// are typically post-tax line items.
 export function computeOtd(
   unit: InventoryUnit,
   dealer: Dealer,
@@ -51,8 +128,7 @@ export function computeOtd(
   const preTaxBase = preTaxTransactionValue(unit);
   const salesTax = salesTaxFor(dealer.province, preTaxBase, unit.dealerAskingPrice);
 
-  const evap = applicable.find((i) => i.id.startsWith("fed-evap"));
-  const evapRebate = evapEligibleAmount(unit, evap);
+  const stack = stackedOtdIncentives(unit, applicable);
 
   const total =
     preTaxBase +
@@ -61,7 +137,7 @@ export function computeOtd(
     ON_DEALER_FEES.omvicFee +
     ON_DEALER_FEES.tireStewardshipFee +
     ON_DEALER_FEES.govLicensingEstimate -
-    evapRebate;
+    stack.totalCad;
 
   return {
     msrp: unit.msrp,
@@ -73,6 +149,8 @@ export function computeOtd(
     tireStewardship: ON_DEALER_FEES.tireStewardshipFee,
     govLicensing: ON_DEALER_FEES.govLicensingEstimate,
     salesTax,
+    incentivesApplied: stack.lines,
+    incentivesTotalCad: stack.totalCad,
     total: +total.toFixed(2),
   };
 }
@@ -80,13 +158,15 @@ export function computeOtd(
 // Filter incentives down to ones that match this unit + dealer. Used both
 // for the deal-score stack term and for the per-unit detail panel. EVAP
 // transaction-value cap is enforced here so over-cap units don't show the
-// rebate as "applicable."
+// rebate as "applicable." Cap is measured against the post-OEM-cash contract
+// value, so a $58k Limited AWD with a $16k OEM bonus still gets EVAP.
 export function applicableIncentives(
   unit: InventoryUnit,
   dealer: Dealer,
   incentives: Incentive[],
 ): Incentive[] {
-  return incentives.filter((inc) => {
+  // First pass: filter on appliesTo + status (no cap check yet).
+  const matched = incentives.filter((inc) => {
     if (inc.status === "ended") return false;
     const a = inc.appliesTo;
     if (a) {
@@ -95,24 +175,34 @@ export function applicableIncentives(
       if (a.years && !a.years.includes(unit.year)) return false;
       if (a.provinces && !a.provinces.includes(dealer.province)) return false;
     }
-    // EVAP cap: drop the rebate from "applicable" if this unit is over the
-    // cap. Keeps the inventory-row chip honest and prevents the deal-score
-    // stack term from inflating for over-cap units.
+    return true;
+  });
+
+  // Second pass: drop incentives that fail the post-OEM-cash transaction-
+  // value cap. Computed once over the matched set.
+  const adjustedPreTax = effectivePreTaxValue(unit, matched);
+  return matched.filter((inc) => {
     if (
       inc.transactionValueCapCad !== undefined &&
       inc.capAppliesToImported &&
-      E_GMP_IS_IMPORTED
+      E_GMP_IS_IMPORTED &&
+      adjustedPreTax > inc.transactionValueCapCad
     ) {
-      if (preTaxTransactionValue(unit) > inc.transactionValueCapCad) return false;
+      return false;
     }
     return true;
   });
 }
 
 // Helper exposed for UI: how far over the cap is this unit (0 if eligible)?
-export function evapCapDeltaCad(unit: InventoryUnit, evap: Incentive | undefined): number {
+// Uses post-OEM-cash value so it matches the eligibility check.
+export function evapCapDeltaCad(
+  unit: InventoryUnit,
+  evap: Incentive | undefined,
+  applicable: Incentive[] = [],
+): number {
   if (!evap || evap.transactionValueCapCad === undefined) return 0;
-  const delta = preTaxTransactionValue(unit) - evap.transactionValueCapCad;
+  const delta = effectivePreTaxValue(unit, applicable) - evap.transactionValueCapCad;
   return delta > 0 ? +delta.toFixed(2) : 0;
 }
 

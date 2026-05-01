@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { Dealer, ScoredUnit } from "@/lib/types";
 import { MODEL_LABEL } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
+import { effectivePreTaxValue } from "@/lib/scoring";
 import { StatusChip } from "./StatusChip";
 import { DealScoreBadge } from "./DealScoreBadge";
 
@@ -114,6 +115,19 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
             <Row label="Tire stewardship" value={unit.otdBreakdown.tireStewardship} />
             <Row label="Gov licensing" value={unit.otdBreakdown.govLicensing} />
             <Row label="Sales tax" value={unit.otdBreakdown.salesTax} />
+            {unit.otdBreakdown.incentivesApplied.length > 0 && (
+              <div className="pt-1 mt-1 border-t border-border/50">
+                <div className="text-xxs text-fg-subtle mb-1">Cash incentives applied</div>
+                {unit.otdBreakdown.incentivesApplied.map((line) => (
+                  <div key={line.id} className="flex justify-between text-xs">
+                    <dt className="text-fg-muted truncate pr-2" title={line.name}>
+                      {line.name}
+                    </dt>
+                    <dd className="num text-accent">−{fmtCad(line.amountCad)}</dd>
+                  </div>
+                ))}
+              </div>
+            )}
             <div className="border-t border-border pt-2 mt-2 flex justify-between">
               <dt className="font-semibold">OTD total</dt>
               <dd className="num font-semibold">{fmtCad(unit.otdBreakdown.total)}</dd>
@@ -269,17 +283,17 @@ function buildEmailDraft(
     ? `Looking to match or beat ${fmtCad(comparable.otdCad)} OTD.`
     : `Looking for OTD under ${fmtCad(Math.round(unit.otdCad * 0.97))}.`;
 
-  // EVAP context. The cap is the central 2026 negotiation handle. If unit
-  // is just over the cap, ask the dealer to trim accessories/admin. If
-  // already under, mention the rebate so the dealer doesn't try to "find"
-  // it again as a closing tactic.
-  const preTax = unit.dealerAskingPrice + unit.freightPdi + 100;
+  // EVAP context. The cap is the central 2026 negotiation handle. Effective
+  // contract value subtracts known OEM cash so a $58k Limited AWD with $16k
+  // bonus reads as a $42k contract (and qualifies for EVAP). If unit is
+  // just over the cap post-bonus, ask the dealer to trim accessories/admin.
+  const effectivePreTax = effectivePreTaxValue(unit, unit.applicableIncentives);
   const evapEligible = unit.applicableIncentives.some((i) => i.id.startsWith("fed-evap"));
-  const overCap = preTax - 50000;
+  const overCap = effectivePreTax - 50000;
   const evapLine = evapEligible
-    ? `Pre-tax transaction value of ${fmtCad(preTax)} qualifies for the $5,000 federal EVAP rebate — that's already in the OTD figure above.`
+    ? `Effective pre-tax contract value of ${fmtCad(effectivePreTax)} qualifies for the $5,000 federal EVAP rebate — already in the OTD figure above.`
     : overCap > 0 && overCap <= 1500
-      ? `Pre-tax transaction value of ${fmtCad(preTax)} sits ${fmtCad(overCap)} over the $50,000 EVAP cap. Trimming admin/wheel-locks/prep to bring it under the cap unlocks $5,000 in federal rebate (~${fmtCad(Math.round(5000 * 1.13))} after Ontario HST).`
+      ? `Effective pre-tax contract value of ${fmtCad(effectivePreTax)} sits ${fmtCad(overCap)} over the $50,000 EVAP cap. Trimming admin/wheel-locks/prep to bring it under the cap unlocks $5,000 in federal rebate (~${fmtCad(Math.round(5000 * 1.13))} after Ontario HST).`
       : overCap > 1500
         ? `Note this trim is ${fmtCad(overCap)} over the federal EVAP cap, so it doesn't get the $5,000 rebate. Equivalent post-rebate competitor: Equinox EV 2LT AWD at ${fmtCad(44699)} OTD-ish (Chevy MSRP $49,699 minus $5,000 EVAP).`
         : "";

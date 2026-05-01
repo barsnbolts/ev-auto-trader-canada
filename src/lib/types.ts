@@ -235,6 +235,13 @@ export const SnapshotSchema = z.object({
 });
 export type Snapshot = z.infer<typeof SnapshotSchema>;
 
+export type IncentiveLine = {
+  id: string;
+  name: string;
+  scope: IncentiveScope;
+  amountCad: number;
+};
+
 export type ScoredUnit = InventoryUnit & {
   otdCad: number;
   otdBreakdown: {
@@ -247,6 +254,8 @@ export type ScoredUnit = InventoryUnit & {
     tireStewardship: number;
     govLicensing: number;
     salesTax: number;
+    incentivesApplied: IncentiveLine[]; // per-line cash deductions
+    incentivesTotalCad: number;         // sum of incentivesApplied
     total: number;
   };
   dealScore: number;                // 0-100

@@ -5,6 +5,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Dealer, ScoredUnit } from "@/lib/types";
 import { MODEL_LABEL, GGH_CITIES, MODELS, SUPPORTED_YEARS, type Model } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
+import { effectivePreTaxValue } from "@/lib/scoring";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
@@ -19,9 +20,9 @@ const CLIFF_BAND_CAD = 1500;
 function evapStateFor(unit: ScoredUnit): EvapState {
   const hasEvap = unit.applicableIncentives.some((i) => i.id.startsWith("fed-evap"));
   if (hasEvap) return "eligible";
-  // Same pre-tax-base formula as the OTD calc — keep in sync if either changes.
-  const preTax = unit.dealerAskingPrice + unit.freightPdi + 100;
-  if (preTax - CAP_CAD <= CLIFF_BAND_CAD) return "cliff";
+  // Post-OEM-cash effective contract value — matches scoring.ts cap check.
+  const effective = effectivePreTaxValue(unit, unit.applicableIncentives);
+  if (effective - CAP_CAD <= CLIFF_BAND_CAD) return "cliff";
   return "over";
 }
 
@@ -37,8 +38,8 @@ function EvapChip({ state, unit }: { state: EvapState; unit: ScoredUnit }) {
     );
   }
   if (state === "cliff") {
-    const preTax = unit.dealerAskingPrice + unit.freightPdi + 100;
-    const over = Math.round(preTax - CAP_CAD);
+    const effective = effectivePreTaxValue(unit, unit.applicableIncentives);
+    const over = Math.round(effective - CAP_CAD);
     return (
       <div
         className="text-xxs text-warn mt-0.5 font-normal"

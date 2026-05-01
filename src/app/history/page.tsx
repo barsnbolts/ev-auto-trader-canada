@@ -70,6 +70,8 @@ export default async function HistoryPage() {
             { key: "EV6", label: MODEL_LABEL.EV6, color: "#6ee7b7" },
             { key: "Ioniq5", label: MODEL_LABEL.Ioniq5, color: "#fbbf24" },
             { key: "Ioniq6", label: MODEL_LABEL.Ioniq6, color: "#60a5fa" },
+            { key: "EV9", label: MODEL_LABEL.EV9, color: "#a78bfa" },
+            { key: "Ioniq9", label: MODEL_LABEL.Ioniq9, color: "#f87171" },
           ]}
         />
       </section>
@@ -90,9 +92,9 @@ export default async function HistoryPage() {
               <th className="px-3 py-2 text-right">Total units</th>
               <th className="px-3 py-2 text-right">Δ count</th>
               <th className="px-3 py-2 text-right">Δ avg price</th>
-              <th className="px-3 py-2 text-right">EV6</th>
-              <th className="px-3 py-2 text-right">Ioniq 5</th>
-              <th className="px-3 py-2 text-right">Ioniq 6</th>
+              {MODELS.map((m) => (
+                <th key={m} className="px-3 py-2 text-right">{MODEL_LABEL[m]}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
