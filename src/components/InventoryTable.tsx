@@ -354,10 +354,11 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
             {filtered.map((u) => {
               const dealer = dealerById.get(u.dealerId);
               const pressure = dealerPressureByDealer[u.dealerId] ?? 0;
+              const isActive = u.id === selectedId;
               return (
                 <tr
                   key={u.id}
-                  className="border-t border-border card-hover cursor-pointer"
+                  className={`border-t border-border cursor-pointer ${isActive ? "bg-accent-dim/20" : "card-hover"}`}
                   onClick={() => setSelectedId(u.id)}
                 >
                   <td className="px-3 py-2"><DealScoreBadge score={u.dealScore} /></td>
