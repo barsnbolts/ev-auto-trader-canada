@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { loadSnapshots, loadMeta } from "@/lib/data";
-import { fmtDate } from "@/lib/format";
+import { fmtCad, fmtDate } from "@/lib/format";
 import { MODELS, MODEL_LABEL } from "@/lib/constants";
 import { HistoryCountChart, HistoryPriceChart, type SeriesPoint } from "@/components/HistoryCharts";
 import { UpdatedStamp } from "@/components/UpdatedStamp";
+import type { Snapshot } from "@/lib/types";
 
 export const dynamic = "force-static";
 
@@ -87,23 +88,32 @@ export default async function HistoryPage() {
             <tr>
               <th className="px-3 py-2">Date</th>
               <th className="px-3 py-2 text-right">Total units</th>
+              <th className="px-3 py-2 text-right">Δ count</th>
+              <th className="px-3 py-2 text-right">Δ avg price</th>
               <th className="px-3 py-2 text-right">EV6</th>
               <th className="px-3 py-2 text-right">Ioniq 5</th>
               <th className="px-3 py-2 text-right">Ioniq 6</th>
             </tr>
           </thead>
           <tbody>
-            {snapshots.slice().reverse().map((s) => (
-              <tr key={s.takenAt} className="border-t border-border">
-                <td className="px-3 py-2">{fmtDate(s.takenAt)}</td>
-                <td className="px-3 py-2 text-right num font-medium">{s.unitCount}</td>
-                {MODELS.map((m) => (
-                  <td key={m} className="px-3 py-2 text-right num">
-                    {s.units.filter((u) => u.model === m).length}
-                  </td>
-                ))}
-              </tr>
-            ))}
+            {snapshots.slice().reverse().map((s, i, arr) => {
+              const prior = arr[i + 1];
+              const dCount = prior ? s.unitCount - prior.unitCount : null;
+              const dAvg = prior ? avgPrice(s) - avgPrice(prior) : null;
+              return (
+                <tr key={s.takenAt} className="border-t border-border">
+                  <td className="px-3 py-2">{fmtDate(s.takenAt)}</td>
+                  <td className="px-3 py-2 text-right num font-medium">{s.unitCount}</td>
+                  <td className="px-3 py-2 text-right num"><Delta value={dCount} /></td>
+                  <td className="px-3 py-2 text-right num"><Delta value={dAvg} cad /></td>
+                  {MODELS.map((m) => (
+                    <td key={m} className="px-3 py-2 text-right num">
+                      {s.units.filter((u) => u.model === m).length}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </section>
@@ -114,4 +124,18 @@ export default async function HistoryPage() {
       </p>
     </div>
   );
+}
+
+function avgPrice(s: Snapshot): number {
+  if (s.units.length === 0) return 0;
+  return Math.round(s.units.reduce((sum, u) => sum + u.askingPrice, 0) / s.units.length);
+}
+
+function Delta({ value, cad }: { value: number | null; cad?: boolean }) {
+  if (value === null) return <span className="text-fg-subtle">—</span>;
+  if (value === 0) return <span className="text-fg-subtle">0</span>;
+  const cls = value > 0 ? "text-accent" : "text-warn";
+  const sign = value > 0 ? "+" : "−";
+  const abs = Math.abs(value);
+  return <span className={cls}>{sign}{cad ? fmtCad(abs) : abs}</span>;
 }
