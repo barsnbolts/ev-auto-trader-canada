@@ -49,6 +49,26 @@ function csvEscape(val: string | number | undefined | null): string {
   return s;
 }
 
+function activeFilterChips(s: {
+  model: Model | "all";
+  year: number | "all";
+  drivetrain: "RWD" | "AWD" | "all";
+  region: "ggh" | "on" | "all";
+  maxPrice: number | "";
+  pressureOnly: boolean;
+  query: string;
+}): { key: string; label: string }[] {
+  const out: { key: string; label: string }[] = [];
+  if (s.model !== "all") out.push({ key: "model", label: MODEL_LABEL[s.model] });
+  if (s.year !== "all") out.push({ key: "year", label: `MY ${s.year}` });
+  if (s.drivetrain !== "all") out.push({ key: "drivetrain", label: s.drivetrain });
+  if (s.region !== "ggh") out.push({ key: "region", label: s.region === "on" ? "All Ontario" : "All Canada" });
+  if (s.maxPrice !== "") out.push({ key: "maxPrice", label: `≤ $${s.maxPrice.toLocaleString("en-CA")}` });
+  if (s.pressureOnly) out.push({ key: "pressureOnly", label: "High pressure" });
+  if (s.query.trim()) out.push({ key: "query", label: `"${s.query.trim()}"` });
+  return out;
+}
+
 function exportCsv(
   units: ScoredUnit[],
   dealerById: Map<string, Dealer>,
@@ -267,6 +287,39 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
           Export CSV
         </button>
       </div>
+      {activeFilterChips({ model, year, drivetrain, region, maxPrice, pressureOnly, query }).length > 0 && (
+        <div className="px-3 py-2 border-b border-border flex flex-wrap items-center gap-1.5 text-xxs">
+          <span className="text-fg-subtle uppercase tracking-wide">Active:</span>
+          {activeFilterChips({ model, year, drivetrain, region, maxPrice, pressureOnly, query }).map((c) => (
+            <button
+              key={c.key}
+              type="button"
+              onClick={() => {
+                if (c.key === "model") setModel("all");
+                else if (c.key === "year") setYear("all");
+                else if (c.key === "drivetrain") setDrivetrain("all");
+                else if (c.key === "region") setRegion("ggh");
+                else if (c.key === "maxPrice") setMaxPrice("");
+                else if (c.key === "pressureOnly") setPressureOnly(false);
+                else if (c.key === "query") setQuery("");
+              }}
+              className="chip-neutral hover:bg-bg-hover"
+            >
+              {c.label} ×
+            </button>
+          ))}
+          <button
+            type="button"
+            onClick={() => {
+              setModel("all"); setYear("all"); setDrivetrain("all"); setRegion("ggh");
+              setMaxPrice(""); setPressureOnly(false); setQuery("");
+            }}
+            className="text-fg-muted hover:text-fg ml-1 underline"
+          >
+            Clear all
+          </button>
+        </div>
+      )}
 
       <div className="overflow-x-auto">
         <table className="w-full">
