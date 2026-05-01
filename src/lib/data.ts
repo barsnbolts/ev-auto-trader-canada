@@ -154,8 +154,8 @@ export async function loadScoredUnits(): Promise<{
     if (!dealer) {
       throw new Error(`Unit ${unit.id} references unknown dealer ${unit.dealerId}`);
     }
-    const otdBreakdown = computeOtd(unit, dealer);
     const applicable = applicableIncentives(unit, dealer, incentives);
+    const otdBreakdown = computeOtd(unit, dealer, applicable);
     const { score, breakdown } = computeDealScore({
       unit,
       dealer,
