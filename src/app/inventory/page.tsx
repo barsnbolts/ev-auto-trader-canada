@@ -1,13 +1,15 @@
 import { loadScoredUnits, loadMeta } from "@/lib/data";
 import { dealerPressureMap } from "@/lib/aggregations";
+import { getBuyerProvince } from "@/lib/buyerProvinceServer";
 import { InventoryTable } from "@/components/InventoryTable";
 import { UpdatedStamp } from "@/components/UpdatedStamp";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function InventoryPage() {
+  const buyerProvince = await getBuyerProvince();
   const [{ units, dealers, dealerById }, meta] = await Promise.all([
-    loadScoredUnits(),
+    loadScoredUnits(buyerProvince),
     loadMeta(),
   ]);
   const pressure = dealerPressureMap(units, dealers);

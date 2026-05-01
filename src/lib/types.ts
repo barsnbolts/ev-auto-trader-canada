@@ -285,6 +285,8 @@ export type ScoredUnit = InventoryUnit & {
     tireStewardship: number;
     govLicensing: number;
     salesTax: number;
+    transportCost: number;          // 0 if buyer-province == dealer-province
+    salesTaxProvince: string;       // which province's tax we used (= buyer's)
     incentivesApplied: IncentiveLine[]; // per-line cash deductions
     incentivesTotalCad: number;         // sum of incentivesApplied
     total: number;

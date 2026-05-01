@@ -1,4 +1,5 @@
-import { ON_DEALER_FEES, PROVINCE_TAX, bcPstRateFor } from "./constants";
+import { ON_DEALER_FEES, PROVINCE_TAX, bcPstRateFor, type Province } from "./constants";
+import transportBandsData from "../../data/transport-bands.json";
 import type {
   Dealer,
   Incentive,
@@ -7,6 +8,33 @@ import type {
   InventoryUnit,
   ScoredUnit,
 } from "./types";
+
+type TransportBands = {
+  sameProvince: number;
+  neighbour: number;
+  regional: number;
+  crossCountry: number;
+  neighbours: Record<string, string[]>;
+  regionalGroups: Record<string, string[]>;
+};
+const TRANSPORT_BANDS = transportBandsData as unknown as TransportBands;
+
+// Flat-rate transport heuristic. NOT a quote — just enough to make
+// cross-province deals comparable on the dashboard. Adds a separate line
+// to the OTD breakdown so the buyer can see why an Alberta deal isn't
+// actually $2k cheaper.
+export function transportCost(dealerProv: Province, buyerProv: Province): number {
+  if (dealerProv === buyerProv) return TRANSPORT_BANDS.sameProvince;
+  if (TRANSPORT_BANDS.neighbours[buyerProv]?.includes(dealerProv)) {
+    return TRANSPORT_BANDS.neighbour;
+  }
+  for (const group of Object.values(TRANSPORT_BANDS.regionalGroups)) {
+    if (group.includes(dealerProv) && group.includes(buyerProv)) {
+      return TRANSPORT_BANDS.regional;
+    }
+  }
+  return TRANSPORT_BANDS.crossCountry;
+}
 
 export type { IncentiveLine } from "./types";
 
@@ -119,20 +147,30 @@ function salesTaxFor(province: string, preTaxBase: number, vehiclePrice: number)
 // Sales tax stacks on top of the pre-tax base (vehicle + freight + AC
 // excise) per CRA guidance; OMVIC, RDPRM, tire stewardship, and licensing
 // are typically post-tax line items.
+//
+// buyerProvince is what the buyer pays sales tax in (NOT the dealer's
+// province) — cross-province purchases pay tax at the buyer's destination
+// rate, not the seller's. Defaults to the dealer's province for backward
+// compat, but every caller in the app should pass the real buyer province.
+// Transport cost line added when buyer != dealer province.
 export function computeOtd(
   unit: InventoryUnit,
   dealer: Dealer,
   applicable: Incentive[] = [],
+  buyerProvince?: Province,
 ): ScoredUnit["otdBreakdown"] {
+  const taxProv = buyerProvince ?? dealer.province;
   const dealerAdjustment = unit.dealerAskingPrice - unit.msrp;
   const preTaxBase = preTaxTransactionValue(unit);
-  const salesTax = salesTaxFor(dealer.province, preTaxBase, unit.dealerAskingPrice);
+  const salesTax = salesTaxFor(taxProv, preTaxBase, unit.dealerAskingPrice);
+  const transport = transportCost(dealer.province, taxProv);
 
   const stack = stackedOtdIncentives(unit, applicable);
 
   const total =
     preTaxBase +
     salesTax +
+    transport +
     ON_DEALER_FEES.rdprmFee +
     ON_DEALER_FEES.omvicFee +
     ON_DEALER_FEES.tireStewardshipFee +
@@ -149,6 +187,8 @@ export function computeOtd(
     tireStewardship: ON_DEALER_FEES.tireStewardshipFee,
     govLicensing: ON_DEALER_FEES.govLicensingEstimate,
     salesTax,
+    transportCost: transport,
+    salesTaxProvince: taxProv,
     incentivesApplied: stack.lines,
     incentivesTotalCad: stack.totalCad,
     total: +total.toFixed(2),

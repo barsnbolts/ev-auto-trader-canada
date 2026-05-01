@@ -125,7 +125,16 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
             <Row label="OMVIC" value={unit.otdBreakdown.omvic} />
             <Row label="Tire stewardship" value={unit.otdBreakdown.tireStewardship} />
             <Row label="Gov licensing" value={unit.otdBreakdown.govLicensing} />
-            <Row label="Sales tax" value={unit.otdBreakdown.salesTax} />
+            <Row
+              label={`Sales tax (${unit.otdBreakdown.salesTaxProvince})`}
+              value={unit.otdBreakdown.salesTax}
+            />
+            {unit.otdBreakdown.transportCost > 0 && (
+              <Row
+                label={`Transport (${dealer?.province ?? "?"} → ${unit.otdBreakdown.salesTaxProvince}, est)`}
+                value={unit.otdBreakdown.transportCost}
+              />
+            )}
             {unit.otdBreakdown.incentivesApplied.length > 0 && (
               <div className="pt-1 mt-1 border-t border-border/50">
                 <div className="text-xxs text-fg-subtle mb-1">Cash incentives applied</div>

@@ -1,22 +1,23 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { loadDealers, loadScoredUnits } from "@/lib/data";
+import { loadScoredUnits } from "@/lib/data";
 import { dealerPressureMap } from "@/lib/aggregations";
+import { getBuyerProvince } from "@/lib/buyerProvinceServer";
 import { MODEL_LABEL, PROVINCE_NAMES } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { DealScoreBadge } from "@/components/DealScoreBadge";
 import { StatusChip } from "@/components/StatusChip";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
-export async function generateStaticParams() {
-  const dealers = await loadDealers();
-  return dealers.map((d) => ({ id: d.id }));
-}
+// Dropped generateStaticParams in favor of per-request rendering: dealer
+// pages now read the buyer-province cookie + recompute OTD live. Personal-
+// use site, 80 dealers — perf cost is negligible.
 
 export default async function DealerPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const { units, dealers } = await loadScoredUnits();
+  const buyerProvince = await getBuyerProvince();
+  const { units, dealers } = await loadScoredUnits(buyerProvince);
   const dealer = dealers.find((d) => d.id === id);
   if (!dealer) notFound();
 

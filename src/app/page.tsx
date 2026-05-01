@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { loadScoredUnits, loadMeta, loadUsedListings, loadSpecs, computeUsedMarketStats } from "@/lib/data";
+import { getBuyerProvince } from "@/lib/buyerProvinceServer";
 import { computeKpis, dealerPressureMap, inGGH, provinceRollup } from "@/lib/aggregations";
 import { MODELS, MODEL_LABEL, MODEL_BRAND, PROVINCE_NAMES } from "@/lib/constants";
 import { fmtCad, relativeDays } from "@/lib/format";
@@ -9,10 +10,11 @@ import { DealScoreBadge } from "@/components/DealScoreBadge";
 import { UsedMarketPanel } from "@/components/UsedMarketPanel";
 import type { ModelKpis } from "@/lib/aggregations";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default async function Dashboard() {
-  const { units, dealers, dealerById, incentives } = await loadScoredUnits();
+  const buyerProvince = await getBuyerProvince();
+  const { units, dealers, dealerById, incentives } = await loadScoredUnits(buyerProvince);
   const meta = await loadMeta();
   const [usedListings, specs] = await Promise.all([loadUsedListings(), loadSpecs()]);
   const usedStatsLongRange = computeUsedMarketStats(usedListings, specs, false);
@@ -66,6 +68,10 @@ export default async function Dashboard() {
           <h1 className="text-2xl font-semibold tracking-tight">EV market dashboard — Canada</h1>
           <p className="text-sm text-fg-muted">
             Kia EV6, EV9 · Hyundai Ioniq 5, 6, 9 (all trims incl. GT / N / Performance). GTA-prioritized.
+          </p>
+          <p className="text-xxs text-fg-subtle mt-1">
+            All OTD math assumes you&rsquo;re buying as a <span className="text-accent">{buyerProvince}</span> resident
+            (sales tax + cross-province transport line). Switch via the selector top-right.
           </p>
         </div>
         <div className="text-xxs text-fg-subtle text-right space-y-0.5">
