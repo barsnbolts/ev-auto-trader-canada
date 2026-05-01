@@ -269,6 +269,41 @@ Total LOC src/: 1,535 (per `wc -l` 2026-05-01).
 
 ## 10. Run log (newest first)
 
+- **2026-05-01 — DR-merge + EVAP cap modeling autopilot
+  (commits `3e599c2` … `2556719`, 5 commits).** User pasted both the
+  ChatGPT and Gemini Deep Research outputs (cross-checked in
+  `research-output/`). Gemini caught the EVAP $50,000 transaction-value
+  cap structure that ChatGPT missed entirely — that's the central
+  2026 buyer-decision tool and got modeled into the schema.
+  - `3e599c2` extended `IncentiveSchema` with `transactionValueCapCad`,
+    `capAppliesToImported`, `leaseTermProration`, `yearTierAmounts`,
+    `effectiveByRegistrationDate`. New `TaxesAndFeesSchema` and
+    `MarketIntelSchema`. New `data/taxes-and-fees.json` (BC progressive
+    PST brackets, federal luxury tax, Ontario per-deal fees with
+    OMVIC $22 / tire $22.76 corrections). New `data/market-intel.json`
+    (ICCU recall family with 15-yr/290k-km extension, competing-EV
+    EVAP eligibility, May 2026 OEM subventions). `MODELS` extended
+    with `EV9` and `Ioniq9`.
+  - `703a299` rewrote `computeOtd` to apply the EVAP rebate per-unit
+    (cap test against pre-tax transaction value), use BC progressive
+    bracket lookup for BC dealers, exposed `evapEligibleAmount` /
+    `evapCapDeltaCad` helpers. Refactored `fed-evap-2026` and
+    `qc-roulez-vert-2026` into the new typed fields.
+  - `152e779` UI: new EVAP chip in inventory OTD column (eligible /
+    cliff / over-cap states), `?evap=1` filter, dashboard EVAP-eligible
+    KPI tile, dashboard trim-cliff alert section, incentives page
+    rendering of cap + lease-proration + year-tier grids. Added
+    `data/specs.json` with 20 rows including hand-seeded EV9/Ioniq 9
+    specs flagged `verifyPending` for next DR pass.
+  - `01c2461` ICCU recall chip in inventory Status column for
+    affected year ranges. New EVAP-eligible row in compare grid.
+    Unit-drawer negotiation draft now injects EVAP-aware lines
+    (eligible/cliff/over with Equinox EV competitor benchmark for
+    over-cap units).
+  - `2556719` new `/intel` route surfacing recall families,
+    competitor benchmarks (post-EVAP effective MSRP), warranty
+    terms, sales-tax matrix, BC PST bracket table, OEM May 2026
+    subventions, end-of-month timing signal.
 - **2026-05-01 — Polish batch (commits `c57f6a4` … `f270c4c`).**
   - `c57f6a4` per-unit detail drawer (`src/components/UnitDrawer.tsx`)
     with full OTD breakdown, applicable incentives, dealer block,
@@ -324,15 +359,24 @@ Total LOC src/: 1,535 (per `wc -l` 2026-05-01).
 
 ### Status as of HEAD
 
-- Routes: 7 (`/`, `/inventory`, `/compare`, `/incentives`,
-  `/history`, `/map`, `/dealer/[id]`). All static-prerendered;
+- Routes: 8 (`/`, `/inventory`, `/compare`, `/incentives`,
+  `/history`, `/map`, `/dealer/[id]`, `/intel`). All static-prerendered;
   `/dealer/[id]` uses `generateStaticParams` so each dealer becomes
   one prerendered page.
 - Components: 11 in `src/components/`.
+- Models tracked: 5 (EV6, Ioniq5, Ioniq6, EV9, Ioniq9). EV9 and
+  Ioniq9 specs are hand-seeded with `verifyPending` notes — needs
+  follow-up DR pass against kia.ca and hyundaicanada.com.
 - Deps added beyond original scaffold: `react-leaflet`, `leaflet`,
   `@types/leaflet`.
-- Sample data unchanged (22 dealers / 28 units / 18 incentives /
-  2 snapshots) — waiting for DR JSON to wholesale-replace.
+- Sample data: 22 dealers / 28 units / 27 incentives (EVAP +
+  Roulez vert now use typed cap/tier fields) / 3 snapshots /
+  20 spec rows / new `taxes-and-fees.json` / new `market-intel.json`.
+- EVAP cap modeling fully wired: per-unit eligibility check,
+  $5,000 rebate subtracted from OTD when sub-cap, cliff alert on
+  dashboard for units within $1,500 over the cap, EVAP filter on
+  inventory, EVAP-aware negotiation draft copy in unit drawer,
+  `/intel` competitor table showing post-rebate effective MSRP.
 
 ---
 
