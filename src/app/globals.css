@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html, body {
+    @apply bg-bg text-fg antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  ::selection {
+    @apply bg-accent-dim text-accent;
+  }
+  input, select, button, textarea {
+    @apply bg-bg-subtle border border-border text-fg rounded-md;
+  }
+  input:focus, select:focus, textarea:focus, button:focus-visible {
+    @apply outline-none ring-1 ring-accent border-accent;
+  }
+  table {
+    @apply text-sm;
+  }
+  th, td {
+    @apply text-left;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-bg-elevated border border-border rounded-lg;
+  }
+  .card-hover {
+    @apply hover:bg-bg-hover transition-colors;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xxs uppercase tracking-wide font-medium border;
+  }
+  .chip-accent {
+    @apply chip bg-accent-dim/40 border-accent-dim text-accent;
+  }
+  .chip-warn {
+    @apply chip bg-warn-dim/40 border-warn-dim text-warn;
+  }
+  .chip-bad {
+    @apply chip bg-bad-dim/40 border-bad-dim text-bad;
+  }
+  .chip-neutral {
+    @apply chip bg-bg-hover border-border-strong text-fg-muted;
+  }
+  .num {
+    @apply font-mono tabular-nums;
+  }
+  .nav-link {
+    @apply px-3 py-1.5 rounded-md text-sm text-fg-muted hover:text-fg hover:bg-bg-hover transition-colors;
+  }
+  .nav-link-active {
+    @apply text-fg bg-bg-hover;
+  }
+}

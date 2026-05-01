@@ -1,0 +1,23 @@
+{
+  "takenAt": "2025-04-01T12:00:00.000Z",
+  "unitCount": 21,
+  "units": [
+    { "id": "u-001", "dealerId": "kia-pickering", "model": "EV6", "trim": "Wind RWD", "askingPrice": 56995, "daysOnLot": 12, "status": "in_stock" },
+    { "id": "u-003", "dealerId": "kia-pickering", "model": "EV6", "trim": "GT-Line AWD", "askingPrice": 67995, "daysOnLot": 58, "status": "in_stock" },
+    { "id": "u-005", "dealerId": "kia-mississauga", "model": "EV6", "trim": "GT", "askingPrice": 79995, "daysOnLot": 80, "status": "in_stock" },
+    { "id": "u-007", "dealerId": "kia-vaughan", "model": "EV6", "trim": "Wind AWD", "askingPrice": 60495, "daysOnLot": 65, "status": "demo" },
+    { "id": "u-009", "dealerId": "kia-hamilton", "model": "EV6", "trim": "GT-Line AWD", "askingPrice": 64995, "daysOnLot": 135, "status": "in_stock" },
+    { "id": "u-010", "dealerId": "hyundai-pickering", "model": "Ioniq5", "trim": "Preferred RWD Long Range", "askingPrice": 54999, "daysOnLot": 5, "status": "in_stock" },
+    { "id": "u-012", "dealerId": "hyundai-mississauga", "model": "Ioniq5", "trim": "Limited AWD", "askingPrice": 64999, "daysOnLot": 40, "status": "in_stock" },
+    { "id": "u-013", "dealerId": "hyundai-mississauga", "model": "Ioniq5", "trim": "N", "askingPrice": 79999, "daysOnLot": 100, "status": "in_stock" },
+    { "id": "u-016", "dealerId": "hyundai-pickering", "model": "Ioniq6", "trim": "Preferred RWD Long Range", "askingPrice": 53999, "daysOnLot": 18, "status": "in_stock" },
+    { "id": "u-017", "dealerId": "hyundai-mississauga", "model": "Ioniq6", "trim": "Limited AWD", "askingPrice": 63499, "daysOnLot": 62, "status": "in_stock" },
+    { "id": "u-019", "dealerId": "hyundai-hamilton", "model": "Ioniq6", "trim": "Limited AWD", "askingPrice": 58999, "daysOnLot": 158, "status": "in_stock" },
+    { "id": "u-021", "dealerId": "kia-vaughan", "model": "EV6", "trim": "Wind AWD", "askingPrice": 60995, "daysOnLot": 37, "status": "in_stock" },
+    { "id": "u-022", "dealerId": "kia-vaughan", "model": "EV6", "trim": "Wind AWD", "askingPrice": 60995, "daysOnLot": 50, "status": "in_stock" },
+    { "id": "u-024", "dealerId": "kia-montreal", "model": "EV6", "trim": "Wind AWD", "askingPrice": 61495, "daysOnLot": 0, "status": "in_transit" },
+    { "id": "u-025", "dealerId": "hyundai-vancouver", "model": "Ioniq5", "trim": "Preferred AWD Long Range", "askingPrice": 58999, "daysOnLot": 10, "status": "in_stock" },
+    { "id": "u-026", "dealerId": "kia-vancouver", "model": "EV6", "trim": "GT-Line AWD", "askingPrice": 67995, "daysOnLot": 25, "status": "in_stock" },
+    { "id": "u-027", "dealerId": "hyundai-calgary", "model": "Ioniq5", "trim": "Limited AWD", "askingPrice": 64999, "daysOnLot": 2, "status": "in_stock" }
+  ]
+}

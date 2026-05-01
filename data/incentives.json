@@ -1,0 +1,220 @@
+[
+  {
+    "id": "fed-izev-2025",
+    "scope": "federal",
+    "name": "iZEV federal rebate (PAUSED)",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"]
+    },
+    "amountCad": 5000,
+    "status": "paused",
+    "effectiveFrom": "2019-05-01",
+    "effectiveUntil": "2025-01-12",
+    "source": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/light-duty-zero-emission-vehicles/eligible-vehicles",
+    "lastVerified": "2025-01-15",
+    "stackableWith": []
+  },
+  {
+    "id": "qc-roulez-vert",
+    "scope": "provincial",
+    "name": "Roulez vert (Quebec)",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["QC"]
+    },
+    "amountCad": 4000,
+    "status": "active",
+    "effectiveUntil": "2026-12-31",
+    "source": "https://vehiculeselectriques.gouv.qc.ca/",
+    "lastVerified": "2025-01-15",
+    "stackableWith": ["fed-izev-2025"]
+  },
+  {
+    "id": "bc-cevfp",
+    "scope": "provincial",
+    "name": "BC CleanBC Go Electric",
+    "appliesTo": {
+      "models": ["EV6", "Ioniq5", "Ioniq6"],
+      "provinces": ["BC"]
+    },
+    "amountCad": 4000,
+    "status": "active",
+    "source": "https://goelectricbc.gov.bc.ca/",
+    "lastVerified": "2025-01-15",
+    "stackableWith": ["fed-izev-2025"]
+  },
+  {
+    "id": "ns-evrebate",
+    "scope": "provincial",
+    "name": "Nova Scotia Electrify Rebate",
+    "appliesTo": {
+      "provinces": ["NS"]
+    },
+    "amountCad": 3000,
+    "status": "active",
+    "source": "https://efficiencyns.ca/electric-vehicles/",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "nb-evrebate",
+    "scope": "provincial",
+    "name": "New Brunswick EV Rebate",
+    "appliesTo": {
+      "provinces": ["NB"]
+    },
+    "amountCad": 5000,
+    "status": "active",
+    "source": "https://www.nbpower.com/en/save-energy/total-home-energy-savings/electric-vehicle-rebate",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "yt-evrebate",
+    "scope": "provincial",
+    "name": "Yukon Good Energy Rebate",
+    "appliesTo": {
+      "provinces": ["YT"]
+    },
+    "amountCad": 5000,
+    "status": "active",
+    "source": "https://yukon.ca/en/good-energy",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "nl-evrebate",
+    "scope": "provincial",
+    "name": "Newfoundland Take Charge EV Rebate",
+    "appliesTo": {
+      "provinces": ["NL"]
+    },
+    "amountCad": 2500,
+    "status": "active",
+    "source": "https://takechargenl.ca/",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "pe-evrebate",
+    "scope": "provincial",
+    "name": "PEI Electric Vehicle Incentive",
+    "appliesTo": {
+      "provinces": ["PE"]
+    },
+    "amountCad": 5000,
+    "status": "active",
+    "source": "https://www.princeedwardisland.ca/en/information/finance/electric-vehicle-incentive",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "kia-ev6-loyalty",
+    "scope": "loyalty",
+    "name": "Kia Loyalty Bonus (EV6)",
+    "appliesTo": { "models": ["EV6"] },
+    "amountCad": 750,
+    "status": "active",
+    "source": "VERIFY: kia.ca current offers page",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "kia-ev6-conquest",
+    "scope": "conquest",
+    "name": "Kia Conquest Cash (EV6)",
+    "appliesTo": { "models": ["EV6"] },
+    "amountCad": 1000,
+    "status": "active",
+    "source": "VERIFY: kia.ca current offers page",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "hyundai-ioniq-loyalty",
+    "scope": "loyalty",
+    "name": "Hyundai Owner Loyalty (Ioniq 5/6)",
+    "appliesTo": { "models": ["Ioniq5", "Ioniq6"] },
+    "amountCad": 500,
+    "status": "active",
+    "source": "VERIFY: hyundaicanada.com offers",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "kia-ev6-lease-2025",
+    "scope": "lease_promo",
+    "name": "EV6 lease promo example",
+    "appliesTo": { "models": ["EV6"] },
+    "aprPercent": 4.99,
+    "termMonths": 48,
+    "residualPercent": 52,
+    "monthlyPaymentExample": 619,
+    "downPaymentExample": 4995,
+    "status": "active",
+    "source": "VERIFY: kia.ca current offers",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "kia-ev6-finance-2025",
+    "scope": "finance_promo",
+    "name": "EV6 finance promo example",
+    "appliesTo": { "models": ["EV6"] },
+    "aprPercent": 3.99,
+    "termMonths": 84,
+    "monthlyPaymentExample": 689,
+    "downPaymentExample": 0,
+    "status": "active",
+    "source": "VERIFY: kia.ca current offers",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "hyundai-ioniq5-lease-2025",
+    "scope": "lease_promo",
+    "name": "Ioniq 5 lease promo example",
+    "appliesTo": { "models": ["Ioniq5"] },
+    "aprPercent": 4.49,
+    "termMonths": 48,
+    "residualPercent": 53,
+    "monthlyPaymentExample": 569,
+    "downPaymentExample": 4995,
+    "status": "active",
+    "source": "VERIFY: hyundaicanada.com offers",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "hyundai-ioniq6-lease-2025",
+    "scope": "lease_promo",
+    "name": "Ioniq 6 lease promo example",
+    "appliesTo": { "models": ["Ioniq6"] },
+    "aprPercent": 4.49,
+    "termMonths": 48,
+    "residualPercent": 51,
+    "monthlyPaymentExample": 549,
+    "downPaymentExample": 4995,
+    "status": "active",
+    "source": "VERIFY: hyundaicanada.com offers",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "save-on-energy-evcrp",
+    "scope": "charger_install",
+    "name": "Save On Energy EV Charger Rebate (Ontario)",
+    "appliesTo": { "provinces": ["ON"] },
+    "amountCad": 600,
+    "status": "active",
+    "source": "https://saveonenergy.ca/For-Your-Home/Advice-and-Tips/Electric-vehicle-charging",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "enbridge-ev-charger",
+    "scope": "charger_install",
+    "name": "Enbridge Smart Home Rebate (charger eligible)",
+    "appliesTo": { "provinces": ["ON"] },
+    "amountCad": 350,
+    "status": "active",
+    "source": "VERIFY: enbridgegas.com rebates",
+    "lastVerified": "2025-01-15"
+  },
+  {
+    "id": "fed-evci",
+    "scope": "charger_install",
+    "name": "Federal EVCi (charger install grant)",
+    "amountCad": 5000,
+    "status": "active",
+    "source": "https://natural-resources.canada.ca/energy-efficiency/transportation-alternative-fuels/zero-emission-vehicle-infrastructure-program",
+    "lastVerified": "2025-01-15"
+  }
+]
