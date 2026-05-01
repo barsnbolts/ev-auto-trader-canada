@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Dealer, ScoredUnit } from "@/lib/types";
-import { MODEL_LABEL, GGH_CITIES, MODELS, type Model } from "@/lib/constants";
+import { MODEL_LABEL, GGH_CITIES, MODELS, SUPPORTED_YEARS, type Model } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
@@ -27,7 +27,7 @@ const SORTS: { key: SortKey; label: string }[] = [
 
 // Aging signal: any prior-MY unit that's been sitting >90 days. Shoppers can
 // usually negotiate hardest on these.
-const CURRENT_MY = 2026;
+const CURRENT_MY = Math.max(...SUPPORTED_YEARS);
 function isAgingOutgoing(year: number, daysOnLot?: number): boolean {
   return year < CURRENT_MY && (daysOnLot ?? 0) > 90;
 }
@@ -89,14 +89,16 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
     const mp = searchParams.get("maxOtd");
     const po = searchParams.get("pressure");
     const so = searchParams.get("sort");
+    const q = searchParams.get("q");
     return {
       model: (m && (MODELS as readonly string[]).includes(m) ? (m as Model) : "all") as Model | "all",
-      year: (y && ["2024", "2025", "2026"].includes(y) ? Number(y) : "all") as number | "all",
+      year: (y && SUPPORTED_YEARS.map(String).includes(y) ? Number(y) : "all") as number | "all",
       drivetrain: (dt === "RWD" || dt === "AWD" ? dt : "all") as "RWD" | "AWD" | "all",
       region: (rg === "on" || rg === "all" ? rg : "ggh") as "ggh" | "on" | "all",
       maxPrice: (mp && !Number.isNaN(Number(mp)) ? Number(mp) : "") as number | "",
       pressureOnly: po === "1",
       sort: ((so && VALID_SORTS.includes(so as SortKey)) ? (so as SortKey) : "deal") as SortKey,
+      query: q ?? "",
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -108,6 +110,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
   const [maxPrice, setMaxPrice] = useState<number | "">(initial.maxPrice);
   const [pressureOnly, setPressureOnly] = useState(initial.pressureOnly);
   const [sort, setSort] = useState<SortKey>(initial.sort);
+  const [query, setQuery] = useState<string>(initial.query);
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -119,11 +122,13 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
     if (maxPrice !== "") p.set("maxOtd", String(maxPrice));
     if (pressureOnly) p.set("pressure", "1");
     if (sort !== "deal") p.set("sort", sort);
+    if (query.trim()) p.set("q", query.trim());
     const qs = p.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-  }, [model, year, drivetrain, region, maxPrice, pressureOnly, sort, pathname, router]);
+  }, [model, year, drivetrain, region, maxPrice, pressureOnly, sort, query, pathname, router]);
 
   const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase();
     return units
       .filter((u) => {
         if (model !== "all" && u.model !== model) return false;
@@ -135,6 +140,10 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
         if (region === "on" && dealer.province !== "ON") return false;
         if (maxPrice && u.otdCad > Number(maxPrice)) return false;
         if (pressureOnly && (dealerPressureByDealer[dealer.id] ?? 0) < 50) return false;
+        if (q) {
+          const hay = `${u.trim} ${u.exteriorColor} ${u.interiorColor} ${u.vin ?? ""} ${u.stockNumber ?? ""} ${dealer.name} ${dealer.city}`.toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
         return true;
       })
       .sort((a, b) => {
@@ -148,7 +157,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
         if (sort === "newest") return new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime();
         return new Date(a.firstSeen).getTime() - new Date(b.firstSeen).getTime();
       });
-  }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, sort]);
+  }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, sort, query]);
 
   const selected = useMemo(
     () => (selectedId ? units.find((u) => u.id === selectedId) ?? null : null),
@@ -172,6 +181,13 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
   return (
     <div className="card overflow-hidden">
       <div className="p-3 border-b border-border flex flex-wrap items-center gap-2 text-xs">
+        <input
+          type="search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search trim, color, dealer, VIN…"
+          className="px-2 py-1.5 w-56"
+        />
         <select
           value={model}
           onChange={(e) => setModel(e.target.value as Model | "all")}
