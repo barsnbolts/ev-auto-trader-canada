@@ -36,9 +36,20 @@ export function CompareGrid({ units, dealerById, specByKey }: Props) {
   return (
     <div className="space-y-6">
       <div className="card p-4">
-        <div className="flex items-baseline justify-between">
+        <div className="flex items-baseline justify-between gap-2">
           <h2 className="text-sm uppercase tracking-wide text-fg-subtle">Pick 2–4 units to compare</h2>
-          <span className="text-xs text-fg-muted">{selected.length} selected</span>
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-fg-muted">{selected.length} selected</span>
+            {selected.length > 0 && (
+              <button
+                type="button"
+                onClick={() => setPicked([])}
+                className="text-xxs text-fg-muted hover:text-fg underline"
+              >
+                Clear
+              </button>
+            )}
+          </div>
         </div>
         <div className="mt-3 max-h-72 overflow-y-auto divide-y divide-border">
           {units.map((u) => {
