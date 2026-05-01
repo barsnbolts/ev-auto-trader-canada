@@ -49,6 +49,16 @@ function csvEscape(val: string | number | undefined | null): string {
   return s;
 }
 
+function modelBreakdown(units: ScoredUnit[]): string {
+  const counts = { EV6: 0, Ioniq5: 0, Ioniq6: 0 };
+  for (const u of units) counts[u.model] += 1;
+  return [
+    counts.EV6 > 0 ? `${counts.EV6} ${MODEL_LABEL.EV6}` : null,
+    counts.Ioniq5 > 0 ? `${counts.Ioniq5} ${MODEL_LABEL.Ioniq5}` : null,
+    counts.Ioniq6 > 0 ? `${counts.Ioniq6} ${MODEL_LABEL.Ioniq6}` : null,
+  ].filter(Boolean).join(", ");
+}
+
 function activeFilterChips(s: {
   model: Model | "all";
   year: number | "all";
@@ -277,7 +287,9 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
             <option key={s.key} value={s.key}>{`Sort: ${s.label}`}</option>
           ))}
         </select>
-        <span className="text-fg-subtle">{filtered.length} units</span>
+        <span className="text-fg-subtle" title={modelBreakdown(filtered)}>
+          {filtered.length} units{filtered.length > 0 && ` · ${modelBreakdown(filtered)}`}
+        </span>
         <button
           type="button"
           onClick={() => exportCsv(filtered, dealerById, dealerPressureByDealer)}
