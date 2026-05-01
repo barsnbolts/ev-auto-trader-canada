@@ -10,6 +10,7 @@ const LINKS: { href: string; label: string }[] = [
   { href: "/incentives", label: "Incentives" },
   { href: "/history", label: "History" },
   { href: "/map", label: "Map" },
+  { href: "/intel", label: "Intel" },
 ];
 
 export function Nav() {
