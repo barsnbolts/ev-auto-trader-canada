@@ -269,6 +269,41 @@ Total LOC src/: 1,535 (per `wc -l` 2026-05-01).
 
 ## 10. Run log (newest first)
 
+- **2026-05-01 — Polish batch (commits `c57f6a4` … `f270c4c`).**
+  - `c57f6a4` per-unit detail drawer (`src/components/UnitDrawer.tsx`)
+    with full OTD breakdown, applicable incentives, dealer block,
+    caveman-style negotiation email anchored on days-on-lot, dealer
+    pressure score, and cheapest comparable unit (model+year+trim).
+    Copy-to-clipboard.
+  - `ed2c3a2` dashboard model-mix stacked bars (GGH + Canada-wide).
+  - `2bc3d86` /history snapshot ledger Δ count + Δ avg price columns.
+  - `6f47135` /inventory CSV export of currently-filtered units
+    (RFC 4180 quoted, filename `ev-inventory-YYYYMMDD.csv`).
+  - `3cb92f5` /map route (react-leaflet + leaflet deps added).
+    Dealer pins sized by inventory depth, colored by pressure score.
+    Wrapped in `DealerMapClient` with `ssr:false` next/dynamic so the
+    static page still prerenders.
+  - `4e3843e` inventory free-text search (trim/color/VIN/dealer);
+    `CURRENT_MY` now derived from `Math.max(...SUPPORTED_YEARS)`.
+  - `910d88a` compare-page best-cell highlighting per ranked row.
+  - `a356fb8` shareable per-unit URLs (`/inventory?u=<id>`); dashboard
+    "Top deals" rows now link with `&region=all` so non-GGH deals
+    aren't filtered away.
+  - `f270c4c` active-filter chip readout on /inventory with one-click
+    clear-all.
+- **2026-05-01 — Specs scaffold + URL filter state (`de996dd`).**
+  Added `SpecSchema` + `loadSpecs/specMap/specKey`; CompareGrid now
+  surfaces range/kWh/charge/0–100/cargo/weight/seats when
+  `data/specs.json` exists (empty-array fallback otherwise). Added
+  `UpdatedStamp` to /inventory, /incentives, /history. URL-persisted
+  filter state on /inventory.
+- **2026-05-01 — Mega-prompt for Deep Research (`8cb8d4e`).**
+  `research-prompts/00-deep-research-bundle.md` consolidates dealers,
+  specs, incentivesDelta, taxesAndFees, marketIntel, inventory,
+  _meta into one ChatGPT-DR prompt. Pending: user runs DR, brings
+  back JSON, we split + validate + merge.
+- **2026-05-01 — Incentives refresh (`0f2f727`).** All 18 incentives
+  bumped `lastVerified: 2026-05-01`.
 - **2026-05-01 — Initial scaffold.** Commits `7f7e1e7` (initial empty),
   `1ddcd58` (full scaffold), `cd1edfd` (drop loop refs from this doc).
   Built: configs, all schemas, scoring, sample data (22 dealers / 28 units
@@ -276,8 +311,17 @@ Total LOC src/: 1,535 (per `wc -l` 2026-05-01).
   prompts, snapshot script, caveman skill install, this PROGRESS.md and
   README.md. `npx tsc --noEmit` and `npx next build` both clean. Branch
   pushed to origin.
-- **2026-05-01 — Plan rewrite.** Replaced human-readable PROGRESS with
-  this agent-only handoff (commit pending).
+
+### Status as of HEAD
+
+- Routes: 6 (`/`, `/inventory`, `/compare`, `/incentives`,
+  `/history`, `/map`). All `force-static`, build clean (8/8
+  prerender count includes Next internals).
+- Components: 10 in `src/components/`.
+- Deps added beyond original scaffold: `react-leaflet`, `leaflet`,
+  `@types/leaflet`.
+- Sample data unchanged (22 dealers / 28 units / 18 incentives /
+  2 snapshots) — waiting for DR JSON to wholesale-replace.
 
 ---
 
