@@ -8,10 +8,6 @@ export default async function InventoryPage() {
   const { units, dealers, dealerById } = await loadScoredUnits();
   const pressure = dealerPressureMap(units, dealers);
 
-  // Convert Map -> plain object so it can be passed across the server/client boundary.
-  const dealerByIdObj = Object.fromEntries(dealerById);
-  const dealerByIdMap = new Map(Object.entries(dealerByIdObj));
-
   return (
     <div className="space-y-4">
       <div>
@@ -22,7 +18,7 @@ export default async function InventoryPage() {
       </div>
       <InventoryTable
         units={units}
-        dealerById={dealerByIdMap}
+        dealerById={dealerById}
         dealerPressureByDealer={pressure}
       />
     </div>

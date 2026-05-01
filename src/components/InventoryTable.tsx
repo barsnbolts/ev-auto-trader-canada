@@ -23,6 +23,13 @@ const SORTS: { key: SortKey; label: string }[] = [
   { key: "oldest", label: "Longest on lot" },
 ];
 
+// Aging signal: any prior-MY unit that's been sitting >90 days. Shoppers can
+// usually negotiate hardest on these.
+const CURRENT_MY = 2026;
+function isAgingOutgoing(year: number, daysOnLot?: number): boolean {
+  return year < CURRENT_MY && (daysOnLot ?? 0) > 90;
+}
+
 export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Props) {
   const [model, setModel] = useState<Model | "all">("all");
   const [year, setYear] = useState<number | "all">("all");
@@ -175,7 +182,12 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
                   </td>
                   <td className="px-3 py-2 text-right num font-medium">{fmtCad(u.otdCad)}</td>
                   <td className="px-3 py-2 text-right num">{u.daysOnLot ?? "—"}</td>
-                  <td className="px-3 py-2"><StatusChip status={u.status} /></td>
+                  <td className="px-3 py-2 space-y-1">
+                    <StatusChip status={u.status} />
+                    {isAgingOutgoing(u.year, u.daysOnLot) && (
+                      <span className="chip-warn block w-fit">Aging MY{String(u.year).slice(-2)}</span>
+                    )}
+                  </td>
                   <td className="px-3 py-2 text-xs">
                     <div className="font-medium">{dealer?.name ?? "—"}</div>
                     <div className="text-fg-subtle">{dealer?.city}, {dealer?.province}</div>
