@@ -1,172 +1,241 @@
 [
   {
-    "id": "kia-pickering",
-    "brand": "Kia",
-    "name": "Pickering Kia",
-    "address": "440 Kingston Rd",
-    "city": "Pickering",
-    "province": "ON",
-    "postal": "L1V 0C2",
-    "phone": "905-839-9777",
-    "lat": 43.832,
-    "lng": -79.099,
-    "inventoryUrl": "https://www.pickeringkia.ca/inventory"
-  },
-  {
-    "id": "kia-mississauga",
-    "brand": "Kia",
-    "name": "Kia of Mississauga",
-    "address": "2270 Battleford Rd",
-    "city": "Mississauga",
-    "province": "ON",
-    "postal": "L5N 3K6",
-    "phone": "905-826-8400",
-    "lat": 43.587,
-    "lng": -79.737,
-    "inventoryUrl": "https://www.kiaofmississauga.ca/inventory"
-  },
-  {
-    "id": "kia-vaughan",
-    "brand": "Kia",
-    "name": "Vaughan Kia",
-    "address": "100 Auto Park Cir",
-    "city": "Vaughan",
-    "province": "ON",
-    "postal": "L4L 8R1",
-    "phone": "905-851-9000",
-    "lat": 43.792,
-    "lng": -79.566,
-    "inventoryUrl": "https://www.vaughankia.com/inventory"
-  },
-  {
-    "id": "kia-markham",
-    "brand": "Kia",
-    "name": "Markham Kia",
-    "address": "8210 Kennedy Rd",
-    "city": "Markham",
-    "province": "ON",
-    "postal": "L3R 5W2",
-    "phone": "905-470-3030",
-    "lat": 43.857,
-    "lng": -79.323,
-    "inventoryUrl": "https://www.markhamkia.com/inventory"
-  },
-  {
-    "id": "kia-oakville",
-    "brand": "Kia",
-    "name": "Oakville Kia",
-    "address": "555 Trafalgar Rd",
-    "city": "Oakville",
-    "province": "ON",
-    "postal": "L6J 3H8",
-    "phone": "905-845-3737",
-    "lat": 43.466,
-    "lng": -79.682,
-    "inventoryUrl": "https://www.oakvillekia.com/inventory"
-  },
-  {
-    "id": "kia-hamilton",
-    "brand": "Kia",
-    "name": "Hamilton Kia",
-    "address": "1885 Upper James St",
-    "city": "Hamilton",
-    "province": "ON",
-    "postal": "L9B 1K8",
-    "phone": "905-575-5755",
-    "lat": 43.211,
-    "lng": -79.882,
-    "inventoryUrl": "https://www.hamiltonkia.com/inventory"
-  },
-  {
-    "id": "kia-kitchener",
-    "brand": "Kia",
-    "name": "Kitchener Kia",
-    "address": "707 Ottawa St S",
-    "city": "Kitchener",
-    "province": "ON",
-    "postal": "N2E 1B6",
-    "phone": "519-744-9444",
-    "lat": 43.422,
-    "lng": -80.479,
-    "inventoryUrl": "https://www.kitchenerkia.com/inventory"
-  },
-  {
-    "id": "kia-stcatharines",
-    "brand": "Kia",
-    "name": "Performance Kia",
-    "address": "262 Lake St",
-    "city": "St. Catharines",
-    "province": "ON",
-    "postal": "L2N 4H4",
-    "phone": "905-934-0900",
-    "lat": 43.169,
-    "lng": -79.249,
-    "inventoryUrl": "https://www.performancekia.com/inventory"
-  },
-  {
-    "id": "hyundai-pickering",
+    "id": "hyundai-calgary",
     "brand": "Hyundai",
-    "name": "Pickering Hyundai",
-    "address": "457 Kingston Rd",
-    "city": "Pickering",
-    "province": "ON",
-    "postal": "L1V 1A4",
-    "phone": "905-420-9700",
-    "lat": 43.831,
-    "lng": -79.097,
-    "inventoryUrl": "https://www.pickeringhyundai.com/inventory"
+    "name": "Crowfoot Hyundai",
+    "address": "1100 Crowfoot Cres NW",
+    "city": "Calgary",
+    "province": "AB",
+    "lat": 51.131,
+    "lng": -114.207
   },
   {
-    "id": "hyundai-mississauga",
-    "brand": "Hyundai",
-    "name": "Erin Mills Hyundai",
-    "address": "2462 Motorway Blvd",
-    "city": "Mississauga",
-    "province": "ON",
-    "postal": "L5L 3R2",
-    "phone": "905-820-5550",
-    "lat": 43.541,
-    "lng": -79.708,
-    "inventoryUrl": "https://www.erinmillshyundai.ca/inventory"
+    "id": "kia-calgary",
+    "brand": "Kia",
+    "name": "Hyatt Infiniti Kia",
+    "address": "5210 Macleod Trail SW",
+    "city": "Calgary",
+    "province": "AB",
+    "lat": 51.013,
+    "lng": -114.072
   },
   {
-    "id": "hyundai-vaughan",
+    "id": "hyundai-west-edmonton",
     "brand": "Hyundai",
-    "name": "Vaughan West Hyundai",
-    "address": "9525 Hwy 27",
-    "city": "Vaughan",
-    "province": "ON",
-    "postal": "L4H 0L1",
-    "phone": "905-264-2210",
-    "lat": 43.834,
-    "lng": -79.598,
-    "inventoryUrl": "https://www.vaughanwesthyundai.ca/inventory"
+    "name": "West Edmonton Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Edmonton",
+    "province": "AB",
+    "inventoryUrl": "VERIFY: dealer site URL"
   },
   {
-    "id": "hyundai-markham",
+    "id": "hyundai-river-city",
     "brand": "Hyundai",
-    "name": "Markham Hyundai",
-    "address": "5210 Hwy 7 E",
-    "city": "Markham",
-    "province": "ON",
-    "postal": "L3P 1B6",
-    "phone": "905-294-1244",
-    "lat": 43.866,
-    "lng": -79.286,
-    "inventoryUrl": "https://www.markhamhyundai.com/inventory"
+    "name": "River City Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Edmonton",
+    "province": "AB",
+    "inventoryUrl": "VERIFY: dealer site URL"
   },
   {
-    "id": "hyundai-oakville",
+    "id": "kia-kross-mitsubishi",
+    "brand": "Kia",
+    "name": "Kross Mitsubishi",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Edmonton",
+    "province": "AB",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-red-deer",
+    "brand": "Kia",
+    "name": "Kia Red Deer",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Red Deer",
+    "province": "AB",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-sherwood",
+    "brand": "Kia",
+    "name": "Sherwood Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Sherwood Park",
+    "province": "AB",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-abbotsford",
     "brand": "Hyundai",
-    "name": "401 Dixie Hyundai",
-    "address": "5500 Dixie Rd",
-    "city": "Mississauga",
+    "name": "Abbotsford Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Abbotsford",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-murray",
+    "brand": "Kia",
+    "name": "Murray Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Abbotsford",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-abbotsford",
+    "brand": "Kia",
+    "name": "Abbotsford Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Abbotsford",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-go-west",
+    "brand": "Hyundai",
+    "name": "Go Kia West",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Coquitlam",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-bannister-kamloops",
+    "brand": "Hyundai",
+    "name": "Bannister Hyundai Kamloops",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Kamloops",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-penticton",
+    "brand": "Hyundai",
+    "name": "Penticton Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Penticton",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-west-coast",
+    "brand": "Kia",
+    "name": "West Coast Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Pitt Meadows",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-richmond",
+    "brand": "Hyundai",
+    "name": "Richmond Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Richmond",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-murray-white-rock",
+    "brand": "Hyundai",
+    "name": "Murray Hyundai White Rock",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Surrey",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-vancouver",
+    "brand": "Hyundai",
+    "name": "Destination Hyundai",
+    "address": "1881 Boundary Rd",
+    "city": "Vancouver",
+    "province": "BC",
+    "lat": 49.262,
+    "lng": -123.027
+  },
+  {
+    "id": "hyundai-boundary",
+    "brand": "Hyundai",
+    "name": "Boundary Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Vancouver",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-vancouver",
+    "brand": "Kia",
+    "name": "Kia Vancouver",
+    "address": "396 SW Marine Dr",
+    "city": "Vancouver",
+    "province": "BC",
+    "lat": 49.211,
+    "lng": -123.115
+  },
+  {
+    "id": "kia-land-rover-north-vancouver",
+    "brand": "Kia",
+    "name": "Land Rover North Vancouver",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Vancouver",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-victoria",
+    "brand": "Hyundai",
+    "name": "Victoria Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Victoria",
+    "province": "BC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-gauthier",
+    "brand": "Kia",
+    "name": "Gauthier Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Winnipeg",
+    "province": "MB",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-of-aurora",
+    "brand": "Hyundai",
+    "name": "Hyundai of Aurora",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Aurora",
     "province": "ON",
-    "postal": "L4W 4N3",
-    "phone": "905-602-5600",
-    "lat": 43.65,
-    "lng": -79.638,
-    "inventoryUrl": "https://www.401dixiehyundai.com/inventory"
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-clarington",
+    "brand": "Kia",
+    "name": "Clarington Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Bowmanville",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-georgetown",
+    "brand": "Kia",
+    "name": "Georgetown Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Georgetown",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-grimsby",
+    "brand": "Hyundai",
+    "name": "Grimsby Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Grimsby",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
   },
   {
     "id": "hyundai-hamilton",
@@ -182,6 +251,28 @@
     "inventoryUrl": "https://www.hamiltonhyundai.com/inventory"
   },
   {
+    "id": "kia-hamilton",
+    "brand": "Kia",
+    "name": "Hamilton Kia",
+    "address": "1885 Upper James St",
+    "city": "Hamilton",
+    "province": "ON",
+    "postal": "L9B 1K8",
+    "phone": "905-575-5755",
+    "lat": 43.211,
+    "lng": -79.882,
+    "inventoryUrl": "https://www.hamiltonkia.com/inventory"
+  },
+  {
+    "id": "hyundai-myers-kanata",
+    "brand": "Hyundai",
+    "name": "Myers Kanata Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Kanata",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
     "id": "hyundai-kitchener",
     "brand": "Hyundai",
     "name": "Kitchener Hyundai",
@@ -193,6 +284,138 @@
     "lat": 43.42,
     "lng": -80.452,
     "inventoryUrl": "https://www.kitchenerhyundai.com/inventory"
+  },
+  {
+    "id": "kia-kitchener",
+    "brand": "Kia",
+    "name": "Kitchener Kia",
+    "address": "707 Ottawa St S",
+    "city": "Kitchener",
+    "province": "ON",
+    "postal": "N2E 1B6",
+    "phone": "519-744-9444",
+    "lat": 43.422,
+    "lng": -80.479,
+    "inventoryUrl": "https://www.kitchenerkia.com/inventory"
+  },
+  {
+    "id": "hyundai-empire-auto-east",
+    "brand": "Hyundai",
+    "name": "Empire Auto East",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "London",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-markham",
+    "brand": "Hyundai",
+    "name": "Markham Hyundai",
+    "address": "5210 Hwy 7 E",
+    "city": "Markham",
+    "province": "ON",
+    "postal": "L3P 1B6",
+    "phone": "905-294-1244",
+    "lat": 43.866,
+    "lng": -79.286,
+    "inventoryUrl": "https://www.markhamhyundai.com/inventory"
+  },
+  {
+    "id": "kia-markham",
+    "brand": "Kia",
+    "name": "Markham Kia",
+    "address": "8210 Kennedy Rd",
+    "city": "Markham",
+    "province": "ON",
+    "postal": "L3R 5W2",
+    "phone": "905-470-3030",
+    "lat": 43.857,
+    "lng": -79.323,
+    "inventoryUrl": "https://www.markhamkia.com/inventory"
+  },
+  {
+    "id": "hyundai-bourgeois-midland",
+    "brand": "Hyundai",
+    "name": "Bourgeois Midland Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Midland",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-mississauga",
+    "brand": "Hyundai",
+    "name": "Erin Mills Hyundai",
+    "address": "2462 Motorway Blvd",
+    "city": "Mississauga",
+    "province": "ON",
+    "postal": "L5L 3R2",
+    "phone": "905-820-5550",
+    "lat": 43.541,
+    "lng": -79.708,
+    "inventoryUrl": "https://www.erinmillshyundai.ca/inventory"
+  },
+  {
+    "id": "hyundai-oakville",
+    "brand": "Hyundai",
+    "name": "401 Dixie Hyundai",
+    "address": "5500 Dixie Rd",
+    "city": "Mississauga",
+    "province": "ON",
+    "postal": "L4W 4N3",
+    "phone": "905-602-5600",
+    "lat": 43.65,
+    "lng": -79.638,
+    "inventoryUrl": "https://www.401dixiehyundai.com/inventory"
+  },
+  {
+    "id": "hyundai-streetsville",
+    "brand": "Hyundai",
+    "name": "Streetsville Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Mississauga",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-401-dixie",
+    "brand": "Hyundai",
+    "name": "401 Dixie Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Mississauga",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-mississauga",
+    "brand": "Kia",
+    "name": "Kia of Mississauga",
+    "address": "2270 Battleford Rd",
+    "city": "Mississauga",
+    "province": "ON",
+    "postal": "L5N 3K6",
+    "phone": "905-826-8400",
+    "lat": 43.587,
+    "lng": -79.737,
+    "inventoryUrl": "https://www.kiaofmississauga.ca/inventory"
+  },
+  {
+    "id": "kia-401-dixie",
+    "brand": "Kia",
+    "name": "401 Dixie Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Mississauga",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-of-newmarket",
+    "brand": "Kia",
+    "name": "Kia of Newmarket",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Newmarket",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
   },
   {
     "id": "hyundai-niagara",
@@ -208,14 +431,335 @@
     "inventoryUrl": "https://www.niagarahyundai.com/inventory"
   },
   {
+    "id": "kia-cardinal",
+    "brand": "Kia",
+    "name": "Cardinal Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Niagara Falls",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-oakville",
+    "brand": "Kia",
+    "name": "Oakville Kia",
+    "address": "555 Trafalgar Rd",
+    "city": "Oakville",
+    "province": "ON",
+    "postal": "L6J 3H8",
+    "phone": "905-845-3737",
+    "lat": 43.466,
+    "lng": -79.682,
+    "inventoryUrl": "https://www.oakvillekia.com/inventory"
+  },
+  {
+    "id": "kia-lockwood",
+    "brand": "Kia",
+    "name": "Lockwood Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Oakville",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-orangeville",
+    "brand": "Hyundai",
+    "name": "Orangeville Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Orangeville",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-orangeville",
+    "brand": "Kia",
+    "name": "Orangeville Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Orangeville",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-orillia",
+    "brand": "Kia",
+    "name": "Orillia Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Orillia",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-rev-motors",
+    "brand": "Hyundai",
+    "name": "REV MOTORS",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Ottawa",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-pathway",
+    "brand": "Hyundai",
+    "name": "Pathway Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Ottawa",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-bank-street",
+    "brand": "Hyundai",
+    "name": "Bank Street Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Ottawa",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-pembroke",
+    "brand": "Hyundai",
+    "name": "Hyundai Pembroke",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Pembroke",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-pickering",
+    "brand": "Hyundai",
+    "name": "Pickering Hyundai",
+    "address": "457 Kingston Rd",
+    "city": "Pickering",
+    "province": "ON",
+    "postal": "L1V 1A4",
+    "phone": "905-420-9700",
+    "lat": 43.831,
+    "lng": -79.097,
+    "inventoryUrl": "https://www.pickeringhyundai.com/inventory"
+  },
+  {
+    "id": "kia-pickering",
+    "brand": "Kia",
+    "name": "Pickering Kia",
+    "address": "440 Kingston Rd",
+    "city": "Pickering",
+    "province": "ON",
+    "postal": "L1V 0C2",
+    "phone": "905-839-9777",
+    "lat": 43.832,
+    "lng": -79.099,
+    "inventoryUrl": "https://www.pickeringkia.ca/inventory"
+  },
+  {
+    "id": "kia-plaza",
+    "brand": "Kia",
+    "name": "Plaza Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Richmond Hill",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-performance",
+    "brand": "Hyundai",
+    "name": "Performance Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "St. Catharines",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-stcatharines",
+    "brand": "Kia",
+    "name": "Performance Kia",
+    "address": "262 Lake St",
+    "city": "St. Catharines",
+    "province": "ON",
+    "postal": "L2N 4H4",
+    "phone": "905-934-0900",
+    "lat": 43.169,
+    "lng": -79.249,
+    "inventoryUrl": "https://www.performancekia.com/inventory"
+  },
+  {
+    "id": "hyundai-stouffville",
+    "brand": "Hyundai",
+    "name": "Stouffville Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Stouffville",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-strickland-s",
+    "brand": "Hyundai",
+    "name": "Strickland's",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Stratford",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-stratford",
+    "brand": "Hyundai",
+    "name": "Stratford Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Stratford",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-stratford",
+    "brand": "Kia",
+    "name": "Stratford Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Stratford",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-gyro",
+    "brand": "Hyundai",
+    "name": "GYRO HYUNDAI",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Toronto",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-north-york",
+    "brand": "Kia",
+    "name": "North York KIA",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Toronto",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-favorit-motors",
+    "brand": "Kia",
+    "name": "FAVORIT MOTORS",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Toronto",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-trento",
+    "brand": "Kia",
+    "name": "Trento Kia",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Toronto",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-vaughan",
+    "brand": "Hyundai",
+    "name": "Vaughan West Hyundai",
+    "address": "9525 Hwy 27",
+    "city": "Vaughan",
+    "province": "ON",
+    "postal": "L4H 0L1",
+    "phone": "905-264-2210",
+    "lat": 43.834,
+    "lng": -79.598,
+    "inventoryUrl": "https://www.vaughanwesthyundai.ca/inventory"
+  },
+  {
+    "id": "kia-vaughan",
+    "brand": "Kia",
+    "name": "Vaughan Kia",
+    "address": "100 Auto Park Cir",
+    "city": "Vaughan",
+    "province": "ON",
+    "postal": "L4L 8R1",
+    "phone": "905-851-9000",
+    "lat": 43.792,
+    "lng": -79.566,
+    "inventoryUrl": "https://www.vaughankia.com/inventory"
+  },
+  {
+    "id": "hyundai-ontario",
+    "brand": "Hyundai",
+    "name": "Ontario Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Whitby",
+    "province": "ON",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-candiac-toyota",
+    "brand": "Kia",
+    "name": "Candiac Toyota",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Candiac",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-seray",
+    "brand": "Hyundai",
+    "name": "Seray Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Chambly",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-drummondville",
+    "brand": "Hyundai",
+    "name": "Hyundai Drummondville",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Drummondville",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "hyundai-granby",
+    "brand": "Hyundai",
+    "name": "Hyundai Granby",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Granby",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-joliette",
+    "brand": "Kia",
+    "name": "Kia Joliette",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Joliette",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
+    "id": "kia-lallier-de-laval",
+    "brand": "Kia",
+    "name": "Lallier Kia De Laval",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Laval",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
+  },
+  {
     "id": "kia-montreal",
     "brand": "Kia",
     "name": "Spinelli Kia",
-    "address": "5320 Boul Métropolitain E",
-    "city": "Montréal",
+    "address": "5320 Boul M\u00e9tropolitain E",
+    "city": "Montr\u00e9al",
     "province": "QC",
     "lat": 45.583,
     "lng": -73.609
+  },
+  {
+    "id": "kia-gabriel-nord",
+    "brand": "Kia",
+    "name": "Kia Gabriel Nord",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Montr\u00e9al-Nord",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
   },
   {
     "id": "hyundai-montreal",
@@ -228,43 +772,21 @@
     "lng": -72.965
   },
   {
-    "id": "kia-vancouver",
+    "id": "kia-angers-toyota",
     "brand": "Kia",
-    "name": "Kia Vancouver",
-    "address": "396 SW Marine Dr",
-    "city": "Vancouver",
-    "province": "BC",
-    "lat": 49.211,
-    "lng": -123.115
+    "name": "Angers Toyota",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "St-Hyacinthe",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
   },
   {
-    "id": "hyundai-vancouver",
+    "id": "hyundai-riendeau",
     "brand": "Hyundai",
-    "name": "Destination Hyundai",
-    "address": "1881 Boundary Rd",
-    "city": "Vancouver",
-    "province": "BC",
-    "lat": 49.262,
-    "lng": -123.027
-  },
-  {
-    "id": "kia-calgary",
-    "brand": "Kia",
-    "name": "Hyatt Infiniti Kia",
-    "address": "5210 Macleod Trail SW",
-    "city": "Calgary",
-    "province": "AB",
-    "lat": 51.013,
-    "lng": -114.072
-  },
-  {
-    "id": "hyundai-calgary",
-    "brand": "Hyundai",
-    "name": "Crowfoot Hyundai",
-    "address": "1100 Crowfoot Cres NW",
-    "city": "Calgary",
-    "province": "AB",
-    "lat": 51.131,
-    "lng": -114.207
+    "name": "Riendeau Hyundai",
+    "address": "VERIFY: address from AutoTrader listing",
+    "city": "Ste-Julie",
+    "province": "QC",
+    "inventoryUrl": "VERIFY: dealer site URL"
   }
 ]
