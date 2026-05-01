@@ -34,6 +34,48 @@ function isAgingOutgoing(year: number, daysOnLot?: number): boolean {
 
 const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "newest", "oldest"];
 
+const CSV_COLS = [
+  "model", "year", "trim", "drivetrain", "exteriorColor", "interiorColor",
+  "msrp", "asking", "otd", "daysOnLot", "status",
+  "dealerName", "dealerCity", "dealerProvince", "pressure",
+] as const;
+
+function csvEscape(val: string | number | undefined | null): string {
+  if (val === undefined || val === null) return "";
+  const s = String(val);
+  if (s.includes(",") || s.includes('"') || s.includes("\n")) {
+    return `"${s.replace(/"/g, '""')}"`;
+  }
+  return s;
+}
+
+function exportCsv(
+  units: ScoredUnit[],
+  dealerById: Map<string, Dealer>,
+  pressureByDealer: Record<string, number>,
+) {
+  const header = CSV_COLS.join(",");
+  const rows = units.map((u) => {
+    const d = dealerById.get(u.dealerId);
+    return [
+      u.model, u.year, u.trim, u.drivetrain, u.exteriorColor, u.interiorColor,
+      u.msrp, u.dealerAskingPrice, u.otdCad, u.daysOnLot ?? "", u.status,
+      d?.name ?? "", d?.city ?? "", d?.province ?? "", pressureByDealer[u.dealerId] ?? 0,
+    ].map(csvEscape).join(",");
+  });
+  const csv = [header, ...rows].join("\n");
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const today = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `ev-inventory-${today}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
 export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Props) {
   const router = useRouter();
   const pathname = usePathname();
@@ -197,6 +239,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
           ))}
         </select>
         <span className="text-fg-subtle">{filtered.length} units</span>
+        <button
+          type="button"
+          onClick={() => exportCsv(filtered, dealerById, dealerPressureByDealer)}
+          className="px-2 py-1.5 border border-border rounded text-fg-muted hover:bg-bg-hover"
+          disabled={filtered.length === 0}
+        >
+          Export CSV
+        </button>
       </div>
 
       <div className="overflow-x-auto">
