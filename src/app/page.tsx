@@ -132,8 +132,10 @@ export default async function Dashboard() {
                   <tr key={u.id} className="border-t border-border card-hover">
                     <td className="px-3 py-2"><DealScoreBadge score={u.dealScore} /></td>
                     <td className="px-3 py-2">
-                      <div className="font-medium">{MODEL_LABEL[u.model]}</div>
-                      <div className="text-xxs text-fg-muted">{u.year} {u.trim}</div>
+                      <Link href={`/inventory?u=${u.id}&region=all`} className="block hover:text-accent-strong">
+                        <div className="font-medium">{MODEL_LABEL[u.model]}</div>
+                        <div className="text-xxs text-fg-muted">{u.year} {u.trim}</div>
+                      </Link>
                     </td>
                     <td className="px-3 py-2 text-right num">{fmtCad(u.otdCad)}</td>
                     <td className="px-3 py-2 text-right num">

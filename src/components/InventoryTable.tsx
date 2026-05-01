@@ -90,6 +90,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
     const po = searchParams.get("pressure");
     const so = searchParams.get("sort");
     const q = searchParams.get("q");
+    const uid = searchParams.get("u");
     return {
       model: (m && (MODELS as readonly string[]).includes(m) ? (m as Model) : "all") as Model | "all",
       year: (y && SUPPORTED_YEARS.map(String).includes(y) ? Number(y) : "all") as number | "all",
@@ -99,6 +100,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
       pressureOnly: po === "1",
       sort: ((so && VALID_SORTS.includes(so as SortKey)) ? (so as SortKey) : "deal") as SortKey,
       query: q ?? "",
+      unitId: uid ?? null,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -111,7 +113,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
   const [pressureOnly, setPressureOnly] = useState(initial.pressureOnly);
   const [sort, setSort] = useState<SortKey>(initial.sort);
   const [query, setQuery] = useState<string>(initial.query);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(initial.unitId);
 
   useEffect(() => {
     const p = new URLSearchParams();
@@ -123,9 +125,10 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
     if (pressureOnly) p.set("pressure", "1");
     if (sort !== "deal") p.set("sort", sort);
     if (query.trim()) p.set("q", query.trim());
+    if (selectedId) p.set("u", selectedId);
     const qs = p.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-  }, [model, year, drivetrain, region, maxPrice, pressureOnly, sort, query, pathname, router]);
+  }, [model, year, drivetrain, region, maxPrice, pressureOnly, sort, query, selectedId, pathname, router]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
