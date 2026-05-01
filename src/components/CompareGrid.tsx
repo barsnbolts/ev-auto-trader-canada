@@ -99,7 +99,13 @@ function CompareTable({
   const numOrDash = (n?: number, suffix = "") =>
     n === undefined ? <span className="text-fg-subtle">—</span> : <span className="num">{n}{suffix}</span>;
 
-  const ROWS: { label: string; render: (u: ScoredUnit, dealer?: Dealer) => React.ReactNode }[] = [
+  type Row = {
+    label: string;
+    render: (u: ScoredUnit, dealer?: Dealer) => React.ReactNode;
+    rank?: { value: (u: ScoredUnit) => number | undefined; lowerIsBetter?: boolean };
+  };
+
+  const ROWS: Row[] = [
     { label: "Model", render: (u) => MODEL_LABEL[u.model] },
     { label: "Year", render: (u) => u.year },
     { label: "Trim", render: (u) => u.trim },
@@ -108,18 +114,22 @@ function CompareTable({
     { label: "Interior", render: (u) => u.interiorColor },
     { label: "Status", render: (u) => <StatusChip status={u.status} /> },
     { label: "Days on lot", render: (u) => u.daysOnLot ?? "—" },
-    { label: "Range (km)", render: (u) => numOrDash(lookupSpec(u)?.rangeKm) },
-    { label: "Battery (kWh)", render: (u) => numOrDash(lookupSpec(u)?.batteryKwh) },
-    { label: "DC fast (kW)", render: (u) => numOrDash(lookupSpec(u)?.dcFastChargeKw) },
-    { label: "AC charge (kW)", render: (u) => numOrDash(lookupSpec(u)?.acChargeKw) },
-    { label: "Power (kW / hp)", render: (u) => {
-      const s = lookupSpec(u);
-      if (!s?.motorKw && !s?.motorHp) return <span className="text-fg-subtle">—</span>;
-      return <span className="num">{s.motorKw ?? "—"} / {s.motorHp ?? "—"}</span>;
-    } },
-    { label: "0–100 km/h (s)", render: (u) => numOrDash(lookupSpec(u)?.zeroToHundredSec) },
-    { label: "Cargo (L)", render: (u) => numOrDash(lookupSpec(u)?.cargoLitres) },
-    { label: "Curb weight (kg)", render: (u) => numOrDash(lookupSpec(u)?.weightKg) },
+    { label: "Range (km)", render: (u) => numOrDash(lookupSpec(u)?.rangeKm), rank: { value: (u) => lookupSpec(u)?.rangeKm } },
+    { label: "Battery (kWh)", render: (u) => numOrDash(lookupSpec(u)?.batteryKwh), rank: { value: (u) => lookupSpec(u)?.batteryKwh } },
+    { label: "DC fast (kW)", render: (u) => numOrDash(lookupSpec(u)?.dcFastChargeKw), rank: { value: (u) => lookupSpec(u)?.dcFastChargeKw } },
+    { label: "AC charge (kW)", render: (u) => numOrDash(lookupSpec(u)?.acChargeKw), rank: { value: (u) => lookupSpec(u)?.acChargeKw } },
+    {
+      label: "Power (kW / hp)",
+      render: (u) => {
+        const s = lookupSpec(u);
+        if (!s?.motorKw && !s?.motorHp) return <span className="text-fg-subtle">—</span>;
+        return <span className="num">{s.motorKw ?? "—"} / {s.motorHp ?? "—"}</span>;
+      },
+      rank: { value: (u) => lookupSpec(u)?.motorKw },
+    },
+    { label: "0–100 km/h (s)", render: (u) => numOrDash(lookupSpec(u)?.zeroToHundredSec), rank: { value: (u) => lookupSpec(u)?.zeroToHundredSec, lowerIsBetter: true } },
+    { label: "Cargo (L)", render: (u) => numOrDash(lookupSpec(u)?.cargoLitres), rank: { value: (u) => lookupSpec(u)?.cargoLitres } },
+    { label: "Curb weight (kg)", render: (u) => numOrDash(lookupSpec(u)?.weightKg), rank: { value: (u) => lookupSpec(u)?.weightKg, lowerIsBetter: true } },
     { label: "Seats", render: (u) => numOrDash(lookupSpec(u)?.seats) },
     { label: "MSRP", render: (u) => <span className="num">{fmtCad(u.msrp)}</span> },
     { label: "Freight + PDI", render: (u) => <span className="num">{fmtCad(u.freightPdi)}</span> },
@@ -133,6 +143,7 @@ function CompareTable({
           )}
         </span>
       ),
+      rank: { value: (u) => u.dealerAskingPrice, lowerIsBetter: true },
     },
     {
       label: "Sales tax",
@@ -141,10 +152,12 @@ function CompareTable({
     {
       label: "OTD total",
       render: (u) => <span className="num font-semibold text-fg">{fmtCad(u.otdCad)}</span>,
+      rank: { value: (u) => u.otdCad, lowerIsBetter: true },
     },
     {
       label: "Deal score",
       render: (u) => <DealScoreBadge score={u.dealScore} />,
+      rank: { value: (u) => u.dealScore },
     },
     {
       label: "  Price vs MSRP",
@@ -199,23 +212,46 @@ function CompareTable({
             </tr>
           </thead>
           <tbody>
-            {ROWS.map((row) => (
+            {ROWS.map((row) => {
+              const winnerId = bestUnitId(row, selected);
+              return (
               <tr key={row.label} className="border-t border-border">
                 <td className="px-3 py-2 text-fg-muted whitespace-nowrap sticky left-0 bg-bg-elevated">
                   {row.label}
                 </td>
                 {selected.map((u) => (
-                  <td key={u.id} className="px-3 py-2 align-top">
+                  <td
+                    key={u.id}
+                    className={`px-3 py-2 align-top ${u.id === winnerId ? "bg-accent-dim" : ""}`}
+                  >
                     {row.render(u, dealerById.get(u.dealerId))}
                   </td>
                 ))}
               </tr>
-            ))}
+              );
+            })}
           </tbody>
         </table>
       </div>
     </div>
   );
+}
+
+function bestUnitId(
+  row: { rank?: { value: (u: ScoredUnit) => number | undefined; lowerIsBetter?: boolean } },
+  selected: ScoredUnit[],
+): string | null {
+  if (!row.rank) return null;
+  const scored = selected
+    .map((u) => ({ id: u.id, v: row.rank!.value(u) }))
+    .filter((x): x is { id: string; v: number } => typeof x.v === "number");
+  if (scored.length === 0) return null;
+  const best = row.rank.lowerIsBetter
+    ? scored.reduce((a, b) => (b.v < a.v ? b : a))
+    : scored.reduce((a, b) => (b.v > a.v ? b : a));
+  // Don't highlight if all units tie — no signal.
+  if (scored.every((s) => s.v === best.v)) return null;
+  return best.id;
 }
 
 function incentivesSummary(incs: Incentive[]) {
