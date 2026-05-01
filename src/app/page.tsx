@@ -5,6 +5,7 @@ import { MODELS, MODEL_LABEL, MODEL_BRAND, PROVINCE_NAMES } from "@/lib/constant
 import { fmtCad, relativeDays } from "@/lib/format";
 import { KpiTile } from "@/components/KpiTile";
 import { DealScoreBadge } from "@/components/DealScoreBadge";
+import type { ModelKpis } from "@/lib/aggregations";
 
 export const dynamic = "force-static";
 
@@ -65,6 +66,11 @@ export default async function Dashboard() {
           sub={topDeals[0] ? `${MODEL_LABEL[topDeals[0].model]} · ${topDeals[0].trim}` : "no units"}
           accent="accent"
         />
+      </section>
+
+      <section>
+        <h2 className="text-sm uppercase tracking-wide text-fg-subtle mb-3">Model mix</h2>
+        <ModelMixBars kpis={kpis} />
       </section>
 
       <section>
@@ -200,6 +206,67 @@ export default async function Dashboard() {
           </tbody>
         </table>
       </section>
+    </div>
+  );
+}
+
+const MIX_COLORS: Record<string, string> = {
+  EV6: "bg-accent",
+  Ioniq5: "bg-warn",
+  Ioniq6: "bg-fg-muted",
+};
+
+function ModelMixBars({ kpis }: { kpis: ModelKpis[] }) {
+  const totalCanada = kpis.reduce((s, k) => s + k.totalCanada, 0);
+  const totalGgh = kpis.reduce((s, k) => s + k.totalGgh, 0);
+  return (
+    <div className="card p-4 space-y-4">
+      <MixRow label="Greater Golden Horseshoe" total={totalGgh} kpis={kpis} field="totalGgh" />
+      <MixRow label="Canada-wide" total={totalCanada} kpis={kpis} field="totalCanada" />
+      <div className="flex gap-4 text-xxs text-fg-subtle pt-1">
+        {kpis.map((k) => (
+          <span key={k.model} className="flex items-center gap-1.5">
+            <span className={`inline-block w-2 h-2 rounded ${MIX_COLORS[k.model]}`} />
+            {MODEL_LABEL[k.model]}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MixRow({
+  label,
+  total,
+  kpis,
+  field,
+}: {
+  label: string;
+  total: number;
+  kpis: ModelKpis[];
+  field: "totalCanada" | "totalGgh";
+}) {
+  return (
+    <div>
+      <div className="flex items-baseline justify-between text-xxs text-fg-subtle mb-1">
+        <span className="uppercase tracking-wide">{label}</span>
+        <span className="num">{total} unit{total === 1 ? "" : "s"}</span>
+      </div>
+      <div className="flex w-full h-3 rounded overflow-hidden bg-bg-subtle">
+        {total === 0 ? null : kpis.map((k) => {
+          const count = k[field];
+          if (count === 0) return null;
+          const pct = (count / total) * 100;
+          return (
+            <div
+              key={k.model}
+              className={MIX_COLORS[k.model]}
+              style={{ width: `${pct}%` }}
+              title={`${MODEL_LABEL[k.model]}: ${count} (${pct.toFixed(0)}%)`}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
