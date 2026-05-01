@@ -9,6 +9,7 @@ const LINKS: { href: string; label: string }[] = [
   { href: "/compare", label: "Compare" },
   { href: "/incentives", label: "Incentives" },
   { href: "/history", label: "History" },
+  { href: "/map", label: "Map" },
 ];
 
 export function Nav() {
