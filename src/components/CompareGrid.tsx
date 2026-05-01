@@ -68,7 +68,12 @@ export function CompareGrid({ units, dealerById, specByKey }: Props) {
       </div>
 
       {selected.length >= 2 && (
-        <CompareTable selected={selected} dealerById={dealerById} specByKey={specByKey} />
+        <CompareTable
+          selected={selected}
+          dealerById={dealerById}
+          specByKey={specByKey}
+          onRemove={(id) => setPicked((prev) => prev.filter((p) => p !== id))}
+        />
       )}
 
       {selected.length === 1 && (
@@ -89,10 +94,12 @@ function CompareTable({
   selected,
   dealerById,
   specByKey,
+  onRemove,
 }: {
   selected: ScoredUnit[];
   dealerById: Map<string, Dealer>;
   specByKey?: Map<string, Spec>;
+  onRemove: (id: string) => void;
 }) {
   const lookupSpec = (u: ScoredUnit): Spec | undefined =>
     specByKey?.get(specLookupKey(u));
@@ -203,9 +210,22 @@ function CompareTable({
               <th className="px-3 py-2 sticky left-0 bg-bg-subtle">Field</th>
               {selected.map((u) => (
                 <th key={u.id} className="px-3 py-2 min-w-[180px]">
-                  {MODEL_LABEL[u.model]}
-                  <div className="text-fg-muted text-xxs normal-case font-normal">
-                    {u.year} {u.trim}
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      {MODEL_LABEL[u.model]}
+                      <div className="text-fg-muted text-xxs normal-case font-normal">
+                        {u.year} {u.trim}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => onRemove(u.id)}
+                      className="text-fg-subtle hover:text-fg text-base leading-none"
+                      aria-label={`Remove ${MODEL_LABEL[u.model]} ${u.year} ${u.trim}`}
+                      title="Remove from compare"
+                    >
+                      ×
+                    </button>
                   </div>
                 </th>
               ))}
