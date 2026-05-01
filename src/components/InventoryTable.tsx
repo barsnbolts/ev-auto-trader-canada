@@ -404,6 +404,21 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
         comparable={comparable}
         comparableDealer={comparable ? dealerById.get(comparable.dealerId) : undefined}
         onClose={() => setSelectedId(null)}
+        onNavigate={(dir) => {
+          if (!selected || filtered.length === 0) return;
+          const idx = filtered.findIndex((u) => u.id === selected.id);
+          if (idx === -1) return;
+          const next = (idx + dir + filtered.length) % filtered.length;
+          setSelectedId(filtered[next].id);
+        }}
+        position={
+          selected
+            ? {
+                index: Math.max(0, filtered.findIndex((u) => u.id === selected.id)),
+                total: filtered.length,
+              }
+            : undefined
+        }
       />
     </div>
   );

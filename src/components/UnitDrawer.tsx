@@ -14,17 +14,21 @@ type Props = {
   comparable: ScoredUnit | undefined;
   comparableDealer: Dealer | undefined;
   onClose: () => void;
+  onNavigate?: (direction: -1 | 1) => void;
+  position?: { index: number; total: number };
 };
 
-export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDealer, onClose }: Props) {
+export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDealer, onClose, onNavigate, position }: Props) {
   useEffect(() => {
     if (!unit) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowLeft" && onNavigate) onNavigate(-1);
+      else if (e.key === "ArrowRight" && onNavigate) onNavigate(1);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [unit, onClose]);
+  }, [unit, onClose, onNavigate]);
 
   if (!unit) return null;
 
@@ -56,14 +60,41 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
               <div className="text-xxs text-fg-subtle font-mono mt-0.5">VIN {unit.vin}</div>
             )}
           </div>
-          <button
-            type="button"
-            onClick={onClose}
-            className="text-fg-muted hover:text-fg text-xl leading-none px-2"
-            aria-label="Close"
-          >
-            ×
-          </button>
+          <div className="flex items-center gap-1 shrink-0">
+            {onNavigate && position && position.total > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => onNavigate(-1)}
+                  className="text-fg-muted hover:text-fg px-2 py-1"
+                  aria-label="Previous unit"
+                  title="Previous (←)"
+                >
+                  ‹
+                </button>
+                <span className="text-xxs text-fg-subtle num">
+                  {position.index + 1} / {position.total}
+                </span>
+                <button
+                  type="button"
+                  onClick={() => onNavigate(1)}
+                  className="text-fg-muted hover:text-fg px-2 py-1"
+                  aria-label="Next unit"
+                  title="Next (→)"
+                >
+                  ›
+                </button>
+              </>
+            )}
+            <button
+              type="button"
+              onClick={onClose}
+              className="text-fg-muted hover:text-fg text-xl leading-none px-2"
+              aria-label="Close (Esc)"
+            >
+              ×
+            </button>
+          </div>
         </header>
 
         <section className="px-5 py-4 border-b border-border">
