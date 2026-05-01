@@ -49,7 +49,7 @@ export default async function DealerPage({ params }: { params: Promise<{ id: str
         <Tile label="Avg days on lot" value={avgDays} />
       </section>
 
-      {dealer.inventoryUrl && (
+      {dealer.inventoryUrl && !dealer.inventoryUrl.startsWith("VERIFY") && (
         <a
           href={dealer.inventoryUrl}
           target="_blank"

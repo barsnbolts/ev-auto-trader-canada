@@ -164,9 +164,13 @@ def main():
         if did not in by_id:
             by_id[did] = {
                 "id": did, "brand": brand, "name": L["dealerName"],
-                "address": "VERIFY: address from AutoTrader listing",
+                # Real address requires per-dealer detail-page fetch; leave a
+                # human-readable placeholder rather than a fake VERIFY string
+                # that fails url() validation.
+                "address": "Address not yet captured",
                 "city": L["city"], "province": L["province"],
-                "inventoryUrl": "VERIFY: dealer site URL",
+                # Omit inventoryUrl entirely — schema marks it optional and
+                # rendering layers prefer absent over placeholder.
             }
 
         trim = match_trim(model, L["title"])

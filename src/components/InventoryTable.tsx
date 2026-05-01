@@ -6,9 +6,18 @@ import type { Dealer, ScoredUnit } from "@/lib/types";
 import { MODEL_LABEL, GGH_CITIES, MODELS, SUPPORTED_YEARS, type Model } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { effectivePreTaxValue } from "@/lib/scoring";
+import { useFavorites } from "@/lib/useFavorites";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
+
+// Days since lastSeen — used to chip rows that haven't been re-confirmed
+// recently. Anything > 7 days is at risk of being sold or pulled.
+function daysSince(iso: string): number {
+  const t = new Date(iso).getTime();
+  if (Number.isNaN(t)) return 0;
+  return Math.max(0, Math.floor((Date.now() - t) / 86_400_000));
+}
 
 // EVAP cap is the central 2026 buying-decision tool. We surface three
 // states per unit: eligible (under cap, $5k applied to OTD), cliff
@@ -88,8 +97,9 @@ const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "newest", "oldest"];
 
 const CSV_COLS = [
   "model", "year", "trim", "drivetrain", "exteriorColor", "interiorColor",
-  "msrp", "asking", "otd", "daysOnLot", "status",
-  "dealerName", "dealerCity", "dealerProvince", "pressure",
+  "msrp", "asking", "otd", "daysOnLot", "lastSeen", "status",
+  "dealerName", "dealerCity", "dealerProvince", "dealerPhone", "pressure",
+  "listingUrl",
 ] as const;
 
 function csvEscape(val: string | number | undefined | null): string {
@@ -142,8 +152,9 @@ function exportCsv(
     const d = dealerById.get(u.dealerId);
     return [
       u.model, u.year, u.trim, u.drivetrain, u.exteriorColor, u.interiorColor,
-      u.msrp, u.dealerAskingPrice, u.otdCad, u.daysOnLot ?? "", u.status,
-      d?.name ?? "", d?.city ?? "", d?.province ?? "", pressureByDealer[u.dealerId] ?? 0,
+      u.msrp, u.dealerAskingPrice, u.otdCad, u.daysOnLot ?? "", u.lastSeen, u.status,
+      d?.name ?? "", d?.city ?? "", d?.province ?? "", d?.phone ?? "", pressureByDealer[u.dealerId] ?? 0,
+      u.listingUrl ?? "",
     ].map(csvEscape).join(",");
   });
   const csv = [header, ...rows].join("\n");
@@ -200,6 +211,8 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
   const [sort, setSort] = useState<SortKey>(initial.sort);
   const [query, setQuery] = useState<string>(initial.query);
   const [selectedId, setSelectedId] = useState<string | null>(initial.unitId);
+  const [favoritesOnly, setFavoritesOnly] = useState(false);
+  const { isFavorite, toggle: toggleFavorite, count: favoriteCount } = useFavorites();
 
   useEffect(() => {
     const p = new URLSearchParams();
@@ -231,6 +244,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
         if (maxPrice && u.otdCad > Number(maxPrice)) return false;
         if (pressureOnly && (dealerPressureByDealer[dealer.id] ?? 0) < 50) return false;
         if (evapOnly && evapStateFor(u) !== "eligible") return false;
+        if (favoritesOnly && !isFavorite(u.id)) return false;
         if (q) {
           const hay = `${u.trim} ${u.exteriorColor} ${u.interiorColor} ${u.vin ?? ""} ${u.stockNumber ?? ""} ${dealer.name} ${dealer.city}`.toLowerCase();
           if (!hay.includes(q)) return false;
@@ -248,7 +262,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
         if (sort === "newest") return new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime();
         return new Date(a.firstSeen).getTime() - new Date(b.firstSeen).getTime();
       });
-  }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, sort, query]);
+  }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, favoritesOnly, isFavorite, sort, query]);
 
   const selected = useMemo(
     () => (selectedId ? units.find((u) => u.id === selectedId) ?? null : null),
@@ -347,6 +361,18 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
           />
           EVAP-eligible only
         </label>
+        <label
+          className="flex items-center gap-1.5 text-fg-muted cursor-pointer"
+          title="Show only units you've starred"
+        >
+          <input
+            type="checkbox"
+            checked={favoritesOnly}
+            onChange={(e) => setFavoritesOnly(e.target.checked)}
+            disabled={favoriteCount === 0}
+          />
+          Favorites only ({favoriteCount})
+        </label>
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value as SortKey)}
@@ -407,6 +433,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
         <table className="w-full">
           <thead className="bg-bg-subtle text-xxs uppercase text-fg-subtle">
             <tr>
+              <th className="px-2 py-2"></th>
               <th className="px-3 py-2">Deal</th>
               <th className="px-3 py-2">Model / Trim</th>
               <th className="px-3 py-2">Year</th>
@@ -418,6 +445,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
               <th className="px-3 py-2">Status</th>
               <th className="px-3 py-2">Dealer</th>
               <th className="px-3 py-2 text-right">Pressure</th>
+              <th className="px-3 py-2"></th>
             </tr>
           </thead>
           <tbody>
@@ -425,12 +453,25 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
               const dealer = dealerById.get(u.dealerId);
               const pressure = dealerPressureByDealer[u.dealerId] ?? 0;
               const isActive = u.id === selectedId;
+              const fav = isFavorite(u.id);
+              const stale = daysSince(u.lastSeen) > 7;
               return (
                 <tr
                   key={u.id}
                   className={`border-t border-border cursor-pointer ${isActive ? "bg-accent-dim/20" : "card-hover"}`}
                   onClick={() => setSelectedId(u.id)}
                 >
+                  <td className="px-2 py-2 text-center">
+                    <button
+                      type="button"
+                      onClick={(e) => { e.stopPropagation(); toggleFavorite(u.id); }}
+                      className={`text-base leading-none ${fav ? "text-warn" : "text-fg-subtle hover:text-fg-muted"}`}
+                      title={fav ? "Remove from favorites" : "Add to favorites"}
+                      aria-label={fav ? "Unstar" : "Star"}
+                    >
+                      {fav ? "★" : "☆"}
+                    </button>
+                  </td>
                   <td className="px-3 py-2"><DealScoreBadge score={u.dealScore} /></td>
                   <td className="px-3 py-2">
                     <div className="font-medium">{MODEL_LABEL[u.model]}</div>
@@ -460,6 +501,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
                     {isAgingOutgoing(u.year, u.daysOnLot) && (
                       <span className="chip-warn block w-fit">Aging MY{String(u.year).slice(-2)}</span>
                     )}
+                    {stale && (
+                      <span
+                        className="chip-neutral block w-fit text-fg-subtle"
+                        title={`Last seen ${daysSince(u.lastSeen)} days ago — may have sold. Verify before quoting.`}
+                      >
+                        Stale {daysSince(u.lastSeen)}d
+                      </span>
+                    )}
                     {iccuAffected(u.model, u.year) && (
                       <span
                         className="chip-bad block w-fit"
@@ -478,12 +527,26 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
                       {pressure}
                     </span>
                   </td>
+                  <td className="px-3 py-2 text-right">
+                    {u.listingUrl ? (
+                      <a
+                        href={u.listingUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-xxs text-accent hover:text-accent-strong inline-block px-1.5 py-0.5 border border-border rounded"
+                        title="Open AutoTrader listing in new tab"
+                      >
+                        Listing ↗
+                      </a>
+                    ) : null}
+                  </td>
                 </tr>
               );
             })}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={11} className="px-3 py-12 text-center text-fg-muted">
+                <td colSpan={13} className="px-3 py-12 text-center text-fg-muted">
                   No units match these filters.
                 </td>
               </tr>

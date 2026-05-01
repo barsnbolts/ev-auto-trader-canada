@@ -92,7 +92,7 @@ export function DealerMap({ dealers, units, pressureByDealer }: Props) {
                       )}
                     </ul>
                   )}
-                  {d.inventoryUrl && (
+                  {d.inventoryUrl && !d.inventoryUrl.startsWith("VERIFY") && (
                     <a
                       href={d.inventoryUrl}
                       target="_blank"

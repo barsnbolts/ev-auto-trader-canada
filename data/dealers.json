@@ -23,127 +23,113 @@
     "id": "hyundai-west-edmonton",
     "brand": "Hyundai",
     "name": "West Edmonton Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Edmonton",
-    "province": "AB",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "AB"
   },
   {
     "id": "hyundai-river-city",
     "brand": "Hyundai",
     "name": "River City Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Edmonton",
-    "province": "AB",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "AB"
   },
   {
     "id": "kia-kross-mitsubishi",
     "brand": "Kia",
     "name": "Kross Mitsubishi",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Edmonton",
-    "province": "AB",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "AB"
   },
   {
     "id": "kia-red-deer",
     "brand": "Kia",
     "name": "Kia Red Deer",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Red Deer",
-    "province": "AB",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "AB"
   },
   {
     "id": "kia-sherwood",
     "brand": "Kia",
     "name": "Sherwood Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Sherwood Park",
-    "province": "AB",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "AB"
   },
   {
     "id": "hyundai-abbotsford",
     "brand": "Hyundai",
     "name": "Abbotsford Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Abbotsford",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "kia-murray",
     "brand": "Kia",
     "name": "Murray Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Abbotsford",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "kia-abbotsford",
     "brand": "Kia",
     "name": "Abbotsford Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Abbotsford",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "hyundai-go-west",
     "brand": "Hyundai",
     "name": "Go Kia West",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Coquitlam",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "hyundai-bannister-kamloops",
     "brand": "Hyundai",
     "name": "Bannister Hyundai Kamloops",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Kamloops",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "hyundai-penticton",
     "brand": "Hyundai",
     "name": "Penticton Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Penticton",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "kia-west-coast",
     "brand": "Kia",
     "name": "West Coast Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Pitt Meadows",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "hyundai-richmond",
     "brand": "Hyundai",
     "name": "Richmond Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Richmond",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "hyundai-murray-white-rock",
     "brand": "Hyundai",
     "name": "Murray Hyundai White Rock",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Surrey",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "hyundai-vancouver",
@@ -159,10 +145,9 @@
     "id": "hyundai-boundary",
     "brand": "Hyundai",
     "name": "Boundary Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Vancouver",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "kia-vancouver",
@@ -178,64 +163,57 @@
     "id": "kia-land-rover-north-vancouver",
     "brand": "Kia",
     "name": "Land Rover North Vancouver",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Vancouver",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "hyundai-victoria",
     "brand": "Hyundai",
     "name": "Victoria Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Victoria",
-    "province": "BC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "BC"
   },
   {
     "id": "kia-gauthier",
     "brand": "Kia",
     "name": "Gauthier Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Winnipeg",
-    "province": "MB",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "MB"
   },
   {
     "id": "hyundai-of-aurora",
     "brand": "Hyundai",
     "name": "Hyundai of Aurora",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Aurora",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-clarington",
     "brand": "Kia",
     "name": "Clarington Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Bowmanville",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-georgetown",
     "brand": "Kia",
     "name": "Georgetown Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Georgetown",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-grimsby",
     "brand": "Hyundai",
     "name": "Grimsby Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Grimsby",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-hamilton",
@@ -267,10 +245,9 @@
     "id": "hyundai-myers-kanata",
     "brand": "Hyundai",
     "name": "Myers Kanata Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Kanata",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-kitchener",
@@ -302,10 +279,9 @@
     "id": "hyundai-empire-auto-east",
     "brand": "Hyundai",
     "name": "Empire Auto East",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "London",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-markham",
@@ -337,10 +313,9 @@
     "id": "hyundai-bourgeois-midland",
     "brand": "Hyundai",
     "name": "Bourgeois Midland Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Midland",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-mississauga",
@@ -372,19 +347,17 @@
     "id": "hyundai-streetsville",
     "brand": "Hyundai",
     "name": "Streetsville Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Mississauga",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-401-dixie",
     "brand": "Hyundai",
     "name": "401 Dixie Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Mississauga",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-mississauga",
@@ -403,19 +376,17 @@
     "id": "kia-401-dixie",
     "brand": "Kia",
     "name": "401 Dixie Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Mississauga",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-of-newmarket",
     "brand": "Kia",
     "name": "Kia of Newmarket",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Newmarket",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-niagara",
@@ -434,10 +405,9 @@
     "id": "kia-cardinal",
     "brand": "Kia",
     "name": "Cardinal Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Niagara Falls",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-oakville",
@@ -456,73 +426,65 @@
     "id": "kia-lockwood",
     "brand": "Kia",
     "name": "Lockwood Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Oakville",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-orangeville",
     "brand": "Hyundai",
     "name": "Orangeville Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Orangeville",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-orangeville",
     "brand": "Kia",
     "name": "Orangeville Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Orangeville",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-orillia",
     "brand": "Kia",
     "name": "Orillia Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Orillia",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-rev-motors",
     "brand": "Hyundai",
     "name": "REV MOTORS",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Ottawa",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-pathway",
     "brand": "Hyundai",
     "name": "Pathway Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Ottawa",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-bank-street",
     "brand": "Hyundai",
     "name": "Bank Street Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Ottawa",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-pembroke",
     "brand": "Hyundai",
     "name": "Hyundai Pembroke",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Pembroke",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-pickering",
@@ -554,19 +516,17 @@
     "id": "kia-plaza",
     "brand": "Kia",
     "name": "Plaza Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Richmond Hill",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-performance",
     "brand": "Hyundai",
     "name": "Performance Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "St. Catharines",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-stcatharines",
@@ -585,73 +545,65 @@
     "id": "hyundai-stouffville",
     "brand": "Hyundai",
     "name": "Stouffville Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Stouffville",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-strickland-s",
     "brand": "Hyundai",
     "name": "Strickland's",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Stratford",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-stratford",
     "brand": "Hyundai",
     "name": "Stratford Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Stratford",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-stratford",
     "brand": "Kia",
     "name": "Stratford Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Stratford",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-gyro",
     "brand": "Hyundai",
     "name": "GYRO HYUNDAI",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Toronto",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-north-york",
     "brand": "Kia",
     "name": "North York KIA",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Toronto",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-favorit-motors",
     "brand": "Kia",
     "name": "FAVORIT MOTORS",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Toronto",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-trento",
     "brand": "Kia",
     "name": "Trento Kia",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Toronto",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "hyundai-vaughan",
@@ -683,64 +635,57 @@
     "id": "hyundai-ontario",
     "brand": "Hyundai",
     "name": "Ontario Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Whitby",
-    "province": "ON",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "ON"
   },
   {
     "id": "kia-candiac-toyota",
     "brand": "Kia",
     "name": "Candiac Toyota",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Candiac",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   },
   {
     "id": "hyundai-seray",
     "brand": "Hyundai",
     "name": "Seray Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Chambly",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   },
   {
     "id": "hyundai-drummondville",
     "brand": "Hyundai",
     "name": "Hyundai Drummondville",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Drummondville",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   },
   {
     "id": "hyundai-granby",
     "brand": "Hyundai",
     "name": "Hyundai Granby",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Granby",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   },
   {
     "id": "kia-joliette",
     "brand": "Kia",
     "name": "Kia Joliette",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Joliette",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   },
   {
     "id": "kia-lallier-de-laval",
     "brand": "Kia",
     "name": "Lallier Kia De Laval",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Laval",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   },
   {
     "id": "kia-montreal",
@@ -756,10 +701,9 @@
     "id": "kia-gabriel-nord",
     "brand": "Kia",
     "name": "Kia Gabriel Nord",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Montr\u00e9al-Nord",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   },
   {
     "id": "hyundai-montreal",
@@ -775,18 +719,16 @@
     "id": "kia-angers-toyota",
     "brand": "Kia",
     "name": "Angers Toyota",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "St-Hyacinthe",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   },
   {
     "id": "hyundai-riendeau",
     "brand": "Hyundai",
     "name": "Riendeau Hyundai",
-    "address": "VERIFY: address from AutoTrader listing",
+    "address": "Address not yet captured",
     "city": "Ste-Julie",
-    "province": "QC",
-    "inventoryUrl": "VERIFY: dealer site URL"
+    "province": "QC"
   }
 ]

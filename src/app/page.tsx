@@ -6,6 +6,7 @@ import { fmtCad, relativeDays } from "@/lib/format";
 import { effectivePreTaxValue } from "@/lib/scoring";
 import { KpiTile } from "@/components/KpiTile";
 import { DealScoreBadge } from "@/components/DealScoreBadge";
+import { UsedMarketPanel } from "@/components/UsedMarketPanel";
 import type { ModelKpis } from "@/lib/aggregations";
 
 export const dynamic = "force-static";
@@ -14,7 +15,8 @@ export default async function Dashboard() {
   const { units, dealers, dealerById, incentives } = await loadScoredUnits();
   const meta = await loadMeta();
   const [usedListings, specs] = await Promise.all([loadUsedListings(), loadSpecs()]);
-  const usedStats = computeUsedMarketStats(usedListings, specs);
+  const usedStatsLongRange = computeUsedMarketStats(usedListings, specs, false);
+  const usedStatsAllTrims = computeUsedMarketStats(usedListings, specs, true);
   const kpis = computeKpis(units, dealerById, [...MODELS]);
   const pressure = dealerPressureMap(units, dealers);
   const provinces = provinceRollup(units, dealerById);
@@ -27,6 +29,20 @@ export default async function Dashboard() {
   // EVAP-aware shopping signals. Eligible = unit's applicable list contains a
   // fed-evap-* row (cap test happens upstream in scoring.ts). Cliff = within
   // $1,500 over the cap → trimming dealer add-ons may unlock the rebate.
+  // Surface incentives ending within 7 days at the top — these are the ones
+  // dealers will use to pressure ("offer ends Friday") and the ones to lock
+  // in fast if they apply.
+  const now = Date.now();
+  const SEVEN_DAYS_MS = 7 * 86_400_000;
+  const expiringSoon = incentives.filter((i) => {
+    if (i.status !== "active" || !i.effectiveUntil) return false;
+    const t = new Date(i.effectiveUntil).getTime();
+    if (Number.isNaN(t)) return false;
+    return t > now && t - now <= SEVEN_DAYS_MS;
+  }).sort((a, b) =>
+    new Date(a.effectiveUntil ?? 0).getTime() - new Date(b.effectiveUntil ?? 0).getTime(),
+  );
+
   const evapEligibleUnits = units.filter((u) => u.applicableIncentives.some((i) => i.id.startsWith("fed-evap")));
   const cliffUnits = units.filter((u) => {
     if (u.applicableIncentives.some((i) => i.id.startsWith("fed-evap"))) return false;
@@ -49,7 +65,7 @@ export default async function Dashboard() {
         <div>
           <h1 className="text-2xl font-semibold tracking-tight">EV market dashboard — Canada</h1>
           <p className="text-sm text-fg-muted">
-            Kia EV6 · Hyundai Ioniq 5 · Hyundai Ioniq 6 (incl. N + GT trims). GTA-prioritized.
+            Kia EV6, EV9 · Hyundai Ioniq 5, 6, 9 (all trims incl. GT / N / Performance). GTA-prioritized.
           </p>
         </div>
         <div className="text-xxs text-fg-subtle text-right space-y-0.5">
@@ -84,6 +100,25 @@ export default async function Dashboard() {
           accent="accent"
         />
       </section>
+
+      {expiringSoon.length > 0 && (
+        <section className="card p-4 border-l-4 border-bad">
+          <h2 className="text-sm font-semibold text-bad">
+            Incentives expiring within 7 days — {expiringSoon.length}
+          </h2>
+          <ul className="mt-2 grid md:grid-cols-2 gap-1.5 text-xs">
+            {expiringSoon.slice(0, 8).map((i) => {
+              const days = Math.ceil((new Date(i.effectiveUntil ?? 0).getTime() - now) / 86_400_000);
+              return (
+                <li key={i.id} className="flex items-baseline justify-between gap-2 border-t border-border pt-1.5">
+                  <span className="truncate" title={i.notes ?? i.name}>{i.name}</span>
+                  <span className="num text-bad shrink-0">{days}d</span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
 
       {cliffUnits.length > 0 && (
         <section className="card p-4 border-l-4 border-warn">
@@ -197,6 +232,16 @@ export default async function Dashboard() {
                     <td className="px-3 py-2 text-xs">
                       <div>{d?.name}</div>
                       <div className="text-fg-subtle">{d?.city}, {d?.province}</div>
+                      {u.listingUrl && (
+                        <a
+                          href={u.listingUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-xxs text-accent hover:text-accent-strong inline-block mt-0.5"
+                        >
+                          AutoTrader ↗
+                        </a>
+                      )}
                     </td>
                   </tr>
                 );
@@ -238,43 +283,11 @@ export default async function Dashboard() {
         </div>
       </section>
 
-      <section className="card overflow-hidden">
-        <div className="px-4 py-3 border-b border-border flex items-baseline justify-between">
-          <h2 className="text-sm uppercase tracking-wide text-fg-subtle">Used-market negotiation leverage</h2>
-          <span className="text-xxs text-fg-subtle">2023-2024 listings · {usedListings.length} units · AutoTrader 2026-05-01</span>
-        </div>
-        <table className="w-full">
-          <thead className="bg-bg-subtle text-xxs uppercase text-fg-subtle">
-            <tr>
-              <th className="px-3 py-2 text-left">Model</th>
-              <th className="px-3 py-2 text-right">Used count</th>
-              <th className="px-3 py-2 text-right">Used median</th>
-              <th className="px-3 py-2 text-right">Used range</th>
-              <th className="px-3 py-2 text-right">Median km</th>
-              <th className="px-3 py-2 text-right">New MSRP floor</th>
-              <th className="px-3 py-2 text-right">Retention</th>
-            </tr>
-          </thead>
-          <tbody>
-            {usedStats.map((s) => (
-              <tr key={s.model} className="border-t border-border">
-                <td className="px-3 py-2">{MODEL_LABEL[s.model]}</td>
-                <td className="px-3 py-2 text-right num">{s.count}</td>
-                <td className="px-3 py-2 text-right num font-medium">{fmtCad(s.medianPriceCad)}</td>
-                <td className="px-3 py-2 text-right num text-fg-subtle">{fmtCad(s.minPriceCad)} – {fmtCad(s.maxPriceCad)}</td>
-                <td className="px-3 py-2 text-right num text-fg-subtle">{s.medianKm.toLocaleString()}</td>
-                <td className="px-3 py-2 text-right num text-fg-subtle">{s.newMsrpFloorCad ? fmtCad(s.newMsrpFloorCad) : "—"}</td>
-                <td className={`px-3 py-2 text-right num font-medium ${s.retentionPercent != null && s.retentionPercent < 70 ? "text-bad" : ""}`}>
-                  {s.retentionPercent != null ? `${s.retentionPercent}%` : "—"}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <p className="px-4 py-3 text-xxs text-fg-subtle border-t border-border">
-          Retention = used median ÷ lowest new MSRP for the same model. Lower = steeper depreciation = stronger lever when arguing a new-car discount.
-        </p>
-      </section>
+      <UsedMarketPanel
+        statsLongRange={usedStatsLongRange}
+        statsAllTrims={usedStatsAllTrims}
+        totalUsedCount={usedListings.length}
+      />
 
       <section className="card overflow-hidden">
         <div className="px-4 py-3 border-b border-border">

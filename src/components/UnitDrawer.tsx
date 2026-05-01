@@ -61,6 +61,17 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
             {unit.vin && (
               <div className="text-xxs text-fg-subtle font-mono mt-0.5">VIN {unit.vin}</div>
             )}
+            {unit.listingUrl && (
+              <a
+                href={unit.listingUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 mt-2 text-xs px-2 py-1 border border-accent rounded text-accent hover:bg-accent hover:text-bg"
+                title="Open original AutoTrader listing in new tab"
+              >
+                View AutoTrader listing ↗
+              </a>
+            )}
           </div>
           <div className="flex items-center gap-1 shrink-0">
             {onNavigate && position && position.total > 1 && (
@@ -179,21 +190,30 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
               </Link>
               <div className="text-fg-muted">{dealer.address}</div>
               <div className="text-fg-muted">{dealer.city}, {dealer.province}{dealer.postal ? ` ${dealer.postal}` : ""}</div>
-              {dealer.phone && <div className="text-fg-muted">{dealer.phone}</div>}
+              {dealer.phone && (
+                <div className="text-fg-muted">
+                  <a
+                    href={`tel:${dealer.phone.replace(/[^0-9+]/g, "")}`}
+                    className="text-accent hover:text-accent-strong"
+                  >
+                    {dealer.phone} ↗
+                  </a>
+                </div>
+              )}
               <div className="text-xxs text-fg-subtle pt-1">
                 Pressure score:{" "}
                 <span className={pressure >= 70 ? "text-accent" : pressure >= 40 ? "text-warn" : "text-fg-muted"}>
                   {pressure}
                 </span>
               </div>
-              {dealer.inventoryUrl && (
+              {dealer.inventoryUrl && !dealer.inventoryUrl.startsWith("VERIFY") && (
                 <a
                   href={dealer.inventoryUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="text-xs text-accent hover:text-accent-strong break-all inline-block pt-1"
                 >
-                  {dealer.inventoryUrl}
+                  Dealer site ↗
                 </a>
               )}
             </div>
@@ -202,10 +222,34 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
           )}
         </section>
 
+        {(unit.isDemo || unit.demoKm) && (
+          <section className="px-5 py-3 border-b border-border bg-warn/5">
+            <h3 className="text-xxs uppercase tracking-wide text-warn mb-1">Demo unit</h3>
+            <p className="text-xs text-fg-muted leading-relaxed">
+              {unit.demoKm
+                ? `${unit.demoKm.toLocaleString()} km already on the clock — warranty start date has shifted forward. Demo cars typically discount 8-15% off MSRP per OEM rules; if dealer isn't there, walk.`
+                : "Marked as demo. Confirm km, warranty start date, and demo discount in writing before signing."}
+            </p>
+          </section>
+        )}
+
         <section className="px-5 py-4">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-xxs uppercase tracking-wide text-fg-subtle">Negotiation draft</h3>
-            <CopyButton text={draft} />
+            <div className="flex items-center gap-1.5">
+              {dealer && (
+                <a
+                  href={`mailto:?subject=${encodeURIComponent(
+                    `${unit.year} ${MODEL_LABEL[unit.model]} ${unit.trim} — out-the-door inquiry`,
+                  )}&body=${encodeURIComponent(draft)}`}
+                  className="text-xxs px-2 py-1 border border-border rounded hover:bg-bg-hover text-fg-muted"
+                  title="Open in your mail client with draft pre-filled"
+                >
+                  Email
+                </a>
+              )}
+              <CopyButton text={draft} />
+            </div>
           </div>
           <pre className="text-xxs leading-relaxed bg-bg-subtle rounded p-3 whitespace-pre-wrap font-mono">{draft}</pre>
           {!comparable && (

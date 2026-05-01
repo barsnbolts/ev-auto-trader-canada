@@ -18,24 +18,6 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD Heated Seats | Heated Wheel | Wireless Ch"
   },
   {
-    "id": "u-at-002",
-    "model": "EV6",
-    "year": 2025,
-    "trim": "VERIFY: Kia EV6 W/PREMIUM PKG - Leather Seats",
-    "drivetrain": "RWD",
-    "exteriorColor": "White",
-    "interiorColor": "Unknown",
-    "msrp": 61214,
-    "freightPdi": 1995,
-    "dealerAskingPrice": 61214,
-    "status": "in_stock",
-    "firstSeen": "2026-05-01",
-    "lastSeen": "2026-05-01",
-    "dealerId": "kia-stratford",
-    "listingUrl": "https://www.autotrader.ca/offers/kia-ev6-w-premium-pkg-leather-seats-electric-white-388f8cba-0205-4a51-8979-513df2be7227",
-    "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 W/PREMIUM PKG - Leather Seats"
-  },
-  {
     "id": "u-at-003",
     "model": "EV6",
     "year": 2025,
@@ -1134,24 +1116,6 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Light | 370 KM Range | Finance from 0.99%"
   },
   {
-    "id": "u-at-064",
-    "model": "EV9",
-    "year": 2026,
-    "trim": "VERIFY: Kia EV9",
-    "drivetrain": "RWD",
-    "exteriorColor": "Silver",
-    "interiorColor": "Unknown",
-    "msrp": 60493,
-    "freightPdi": 1995,
-    "dealerAskingPrice": 60493,
-    "status": "in_stock",
-    "firstSeen": "2026-05-01",
-    "lastSeen": "2026-05-01",
-    "dealerId": "kia-land-rover-north-vancouver",
-    "listingUrl": "https://www.autotrader.ca/offers/kia-ev9-electric-silver-175adac6-94d5-4c19-b0f3-177c40fb94fa",
-    "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9"
-  },
-  {
     "id": "u-at-065",
     "model": "EV9",
     "year": 2026,
@@ -1258,24 +1222,6 @@
     "dealerId": "kia-gauthier",
     "listingUrl": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-grey-61447a5e-8146-4d03-84aa-d94c55a9b249",
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land w/Premium Package"
-  },
-  {
-    "id": "u-at-071",
-    "model": "EV9",
-    "year": 2026,
-    "trim": "VERIFY: Kia EV9",
-    "drivetrain": "RWD",
-    "exteriorColor": "Green",
-    "interiorColor": "Unknown",
-    "msrp": 81995,
-    "freightPdi": 1995,
-    "dealerAskingPrice": 81995,
-    "status": "in_stock",
-    "firstSeen": "2026-05-01",
-    "lastSeen": "2026-05-01",
-    "dealerId": "kia-west-coast",
-    "listingUrl": "https://www.autotrader.ca/offers/kia-ev9-electric-green-0ea3ef46-8594-4423-8cf5-951a1249251b",
-    "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9"
   },
   {
     "id": "u-at-072",
