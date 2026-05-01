@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { loadScoredUnits, loadMeta } from "@/lib/data";
+import { loadScoredUnits, loadMeta, loadUsedListings, loadSpecs, computeUsedMarketStats } from "@/lib/data";
 import { computeKpis, dealerPressureMap, inGGH, provinceRollup } from "@/lib/aggregations";
 import { MODELS, MODEL_LABEL, MODEL_BRAND, PROVINCE_NAMES } from "@/lib/constants";
 import { fmtCad, relativeDays } from "@/lib/format";
@@ -13,6 +13,8 @@ export const dynamic = "force-static";
 export default async function Dashboard() {
   const { units, dealers, dealerById, incentives } = await loadScoredUnits();
   const meta = await loadMeta();
+  const [usedListings, specs] = await Promise.all([loadUsedListings(), loadSpecs()]);
+  const usedStats = computeUsedMarketStats(usedListings, specs);
   const kpis = computeKpis(units, dealerById, [...MODELS]);
   const pressure = dealerPressureMap(units, dealers);
   const provinces = provinceRollup(units, dealerById);
@@ -234,6 +236,44 @@ export default async function Dashboard() {
             )}
           </ul>
         </div>
+      </section>
+
+      <section className="card overflow-hidden">
+        <div className="px-4 py-3 border-b border-border flex items-baseline justify-between">
+          <h2 className="text-sm uppercase tracking-wide text-fg-subtle">Used-market negotiation leverage</h2>
+          <span className="text-xxs text-fg-subtle">2023-2024 listings · {usedListings.length} units · AutoTrader 2026-05-01</span>
+        </div>
+        <table className="w-full">
+          <thead className="bg-bg-subtle text-xxs uppercase text-fg-subtle">
+            <tr>
+              <th className="px-3 py-2 text-left">Model</th>
+              <th className="px-3 py-2 text-right">Used count</th>
+              <th className="px-3 py-2 text-right">Used median</th>
+              <th className="px-3 py-2 text-right">Used range</th>
+              <th className="px-3 py-2 text-right">Median km</th>
+              <th className="px-3 py-2 text-right">New MSRP floor</th>
+              <th className="px-3 py-2 text-right">Retention</th>
+            </tr>
+          </thead>
+          <tbody>
+            {usedStats.map((s) => (
+              <tr key={s.model} className="border-t border-border">
+                <td className="px-3 py-2">{MODEL_LABEL[s.model]}</td>
+                <td className="px-3 py-2 text-right num">{s.count}</td>
+                <td className="px-3 py-2 text-right num font-medium">{fmtCad(s.medianPriceCad)}</td>
+                <td className="px-3 py-2 text-right num text-fg-subtle">{fmtCad(s.minPriceCad)} – {fmtCad(s.maxPriceCad)}</td>
+                <td className="px-3 py-2 text-right num text-fg-subtle">{s.medianKm.toLocaleString()}</td>
+                <td className="px-3 py-2 text-right num text-fg-subtle">{s.newMsrpFloorCad ? fmtCad(s.newMsrpFloorCad) : "—"}</td>
+                <td className={`px-3 py-2 text-right num font-medium ${s.retentionPercent != null && s.retentionPercent < 70 ? "text-bad" : ""}`}>
+                  {s.retentionPercent != null ? `${s.retentionPercent}%` : "—"}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="px-4 py-3 text-xxs text-fg-subtle border-t border-border">
+          Retention = used median ÷ lowest new MSRP for the same model. Lower = steeper depreciation = stronger lever when arguing a new-car discount.
+        </p>
       </section>
 
       <section className="card overflow-hidden">

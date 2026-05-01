@@ -14,6 +14,7 @@ import {
   SnapshotSchema,
   SpecSchema,
   TaxesAndFeesSchema,
+  UsedListingSchema,
   type Dealer,
   type Incentive,
   type InventoryUnit,
@@ -22,7 +23,10 @@ import {
   type Snapshot,
   type Spec,
   type TaxesAndFees,
+  type UsedListing,
+  type UsedMarketStat,
 } from "./types";
+import { MODELS } from "./constants";
 import { applicableIncentives, computeDealScore, computeOtd } from "./scoring";
 
 const DATA_DIR = path.join(process.cwd(), "data");
@@ -69,6 +73,53 @@ export async function loadMarketIntel(): Promise<MarketIntel | null> {
     if ((err as NodeJS.ErrnoException)?.code === "ENOENT") return null;
     throw err;
   }
+}
+
+export async function loadUsedListings(): Promise<UsedListing[]> {
+  try {
+    return await readJson("used-listings.json", z.array(UsedListingSchema));
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException)?.code === "ENOENT") return [];
+    throw err;
+  }
+}
+
+// Per-model used-market summary used as new-car negotiation leverage data.
+// retentionPercent = median used / lowest new MSRP — the lower it is, the
+// faster these cars depreciate, the harder you can push on a new MSRP.
+export function computeUsedMarketStats(
+  used: UsedListing[],
+  specs: Spec[],
+): UsedMarketStat[] {
+  const median = (arr: number[]): number => {
+    if (!arr.length) return 0;
+    const sorted = [...arr].sort((a, b) => a - b);
+    const mid = Math.floor(sorted.length / 2);
+    return sorted.length % 2 ? sorted[mid] : (sorted[mid - 1] + sorted[mid]) / 2;
+  };
+  const newMsrpByModel = new Map<string, number>();
+  for (const s of specs) {
+    if (!s.msrpCad) continue;
+    const cur = newMsrpByModel.get(s.model);
+    if (cur == null || s.msrpCad < cur) newMsrpByModel.set(s.model, s.msrpCad);
+  }
+  return MODELS.map((model) => {
+    const rows = used.filter((u) => u.model === model);
+    const prices = rows.map((u) => u.priceCad);
+    const kms = rows.map((u) => u.kmDriven);
+    const medPrice = median(prices);
+    const newFloor = newMsrpByModel.get(model) ?? null;
+    return {
+      model,
+      count: rows.length,
+      medianPriceCad: medPrice,
+      minPriceCad: prices.length ? Math.min(...prices) : 0,
+      maxPriceCad: prices.length ? Math.max(...prices) : 0,
+      medianKm: median(kms),
+      newMsrpFloorCad: newFloor,
+      retentionPercent: newFloor && medPrice ? Math.round((medPrice / newFloor) * 100) : null,
+    };
+  }).filter((s) => s.count > 0);
 }
 
 export function specKey(model: string, year: number, trim: string, drivetrain: string): string {

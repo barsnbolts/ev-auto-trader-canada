@@ -220,6 +220,37 @@ export const SpecSchema = z.object({
 });
 export type Spec = z.infer<typeof SpecSchema>;
 
+// Used-market reference data: 2023-2024 listings of the same nameplates,
+// scraped from AutoTrader. Used purely as a depreciation benchmark for new-
+// car negotiation leverage. Not part of the inventory the buyer can purchase.
+export const UsedListingSchema = z.object({
+  id: z.string(),
+  model: ModelSchema,
+  year: z.number().int(),         // wider than YearSchema — used market includes older MYs
+  title: z.string(),
+  priceCad: z.number(),
+  kmDriven: z.number().int().nonnegative(),
+  dealerName: z.string(),
+  city: z.string(),
+  province: ProvinceSchema,
+  url: z.string().url(),
+  lastSeen: z.string(),           // ISO date
+});
+export type UsedListing = z.infer<typeof UsedListingSchema>;
+
+export type UsedMarketStat = {
+  model: (typeof MODELS)[number];
+  count: number;
+  medianPriceCad: number;
+  minPriceCad: number;
+  maxPriceCad: number;
+  medianKm: number;
+  // Pulled from new-car specs for delta context.
+  newMsrpFloorCad: number | null;
+  // Median used / new-MSRP-floor — lower = steeper depreciation.
+  retentionPercent: number | null;
+};
+
 export const SnapshotSchema = z.object({
   takenAt: z.string(),                        // ISO
   unitCount: z.number().int(),
