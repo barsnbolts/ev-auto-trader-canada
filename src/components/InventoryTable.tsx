@@ -7,6 +7,7 @@ import { MODEL_LABEL, GGH_CITIES, MODELS, type Model } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
+import { UnitDrawer } from "./UnitDrawer";
 
 type Props = {
   units: ScoredUnit[];
@@ -65,6 +66,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
   const [maxPrice, setMaxPrice] = useState<number | "">(initial.maxPrice);
   const [pressureOnly, setPressureOnly] = useState(initial.pressureOnly);
   const [sort, setSort] = useState<SortKey>(initial.sort);
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   useEffect(() => {
     const p = new URLSearchParams();
@@ -105,6 +107,25 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
         return new Date(a.firstSeen).getTime() - new Date(b.firstSeen).getTime();
       });
   }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, sort]);
+
+  const selected = useMemo(
+    () => (selectedId ? units.find((u) => u.id === selectedId) ?? null : null),
+    [selectedId, units],
+  );
+
+  // Cheapest other listing of same model+year+trim — anchors the price ask in
+  // the negotiation draft.
+  const comparable = useMemo(() => {
+    if (!selected) return undefined;
+    return units
+      .filter((u) =>
+        u.id !== selected.id &&
+        u.model === selected.model &&
+        u.year === selected.year &&
+        u.trim === selected.trim,
+      )
+      .sort((a, b) => a.otdCad - b.otdCad)[0];
+  }, [selected, units]);
 
   return (
     <div className="card overflow-hidden">
@@ -200,7 +221,11 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
               const dealer = dealerById.get(u.dealerId);
               const pressure = dealerPressureByDealer[u.dealerId] ?? 0;
               return (
-                <tr key={u.id} className="border-t border-border card-hover">
+                <tr
+                  key={u.id}
+                  className="border-t border-border card-hover cursor-pointer"
+                  onClick={() => setSelectedId(u.id)}
+                >
                   <td className="px-3 py-2"><DealScoreBadge score={u.dealScore} /></td>
                   <td className="px-3 py-2">
                     <div className="font-medium">{MODEL_LABEL[u.model]}</div>
@@ -250,6 +275,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
           </tbody>
         </table>
       </div>
+      <UnitDrawer
+        unit={selected}
+        dealer={selected ? dealerById.get(selected.dealerId) : undefined}
+        pressure={selected ? dealerPressureByDealer[selected.dealerId] ?? 0 : 0}
+        comparable={comparable}
+        comparableDealer={comparable ? dealerById.get(comparable.dealerId) : undefined}
+        onClose={() => setSelectedId(null)}
+      />
     </div>
   );
 }
