@@ -63,6 +63,11 @@ export default async function IncentivesPage() {
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="font-medium">{inc.name}</span>
                     <StatusPill status={inc.status} />
+                    {expiringSoon(inc) && (
+                      <span className="chip-warn" title={`Expires ${fmtDate(inc.effectiveUntil!)}`}>
+                        Expiring {daysUntil(inc.effectiveUntil!)}d
+                      </span>
+                    )}
                   </div>
                   <div className="text-xxs text-fg-subtle mt-0.5 flex flex-wrap gap-x-3">
                     {inc.appliesTo?.provinces?.length && (
@@ -122,6 +127,17 @@ export default async function IncentivesPage() {
       ))}
     </div>
   );
+}
+
+function daysUntil(iso: string): number {
+  const ms = new Date(iso).getTime() - Date.now();
+  return Math.max(0, Math.ceil(ms / 86_400_000));
+}
+
+function expiringSoon(inc: Incentive): boolean {
+  if (inc.status !== "active" || !inc.effectiveUntil) return false;
+  const days = daysUntil(inc.effectiveUntil);
+  return days > 0 && days <= 30;
 }
 
 function StatusPill({ status }: { status: Incentive["status"] }) {
