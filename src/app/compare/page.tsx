@@ -1,12 +1,14 @@
-import { loadScoredUnits } from "@/lib/data";
+import { loadScoredUnits, loadSpecs, specMap } from "@/lib/data";
 import { CompareGrid } from "@/components/CompareGrid";
 
 export const dynamic = "force-static";
 
 export default async function ComparePage() {
-  const { units, dealerById } = await loadScoredUnits();
-  // Pass a serialized map across the boundary.
-  const dealerByIdMap = new Map(dealerById);
+  const [{ units, dealerById }, specs] = await Promise.all([
+    loadScoredUnits(),
+    loadSpecs(),
+  ]);
+  const specByKey = specMap(specs);
 
   return (
     <div className="space-y-4">
@@ -16,7 +18,7 @@ export default async function ComparePage() {
           Pick 2–4 specific units to see their OTD math, deal score components, and incentive stacks side by side.
         </p>
       </div>
-      <CompareGrid units={units} dealerById={dealerByIdMap} />
+      <CompareGrid units={units} dealerById={dealerById} specByKey={specByKey} />
     </div>
   );
 }

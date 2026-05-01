@@ -98,6 +98,28 @@ export const IncentiveSchema = z.object({
 });
 export type Incentive = z.infer<typeof IncentiveSchema>;
 
+export const SpecSchema = z.object({
+  model: ModelSchema,
+  year: YearSchema,
+  trim: z.string(),
+  drivetrain: z.enum(["RWD", "AWD"]),
+  motorKw: z.number().optional(),
+  motorHp: z.number().optional(),
+  batteryKwh: z.number().optional(),
+  rangeKm: z.number().optional(),
+  dcFastChargeKw: z.number().optional(),
+  acChargeKw: z.number().optional(),
+  zeroToHundredSec: z.number().optional(),
+  cargoLitres: z.number().optional(),
+  seats: z.number().int().optional(),
+  weightKg: z.number().optional(),
+  msrpCad: z.number().optional(),
+  freightPdiCad: z.number().optional(),
+  notes: z.string().optional(),
+  source: z.string().optional(),
+});
+export type Spec = z.infer<typeof SpecSchema>;
+
 export const SnapshotSchema = z.object({
   takenAt: z.string(),                        // ISO
   unitCount: z.number().int(),

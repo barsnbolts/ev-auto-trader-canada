@@ -1,7 +1,8 @@
-import { loadIncentives } from "@/lib/data";
+import { loadIncentives, loadMeta } from "@/lib/data";
 import { fmtCad, fmtDate, fmtPercent } from "@/lib/format";
 import type { Incentive, IncentiveScope } from "@/lib/types";
 import { PROVINCE_NAMES } from "@/lib/constants";
+import { UpdatedStamp } from "@/components/UpdatedStamp";
 
 export const dynamic = "force-static";
 
@@ -28,7 +29,7 @@ const SCOPE_ORDER: IncentiveScope[] = [
 ];
 
 export default async function IncentivesPage() {
-  const incentives = await loadIncentives();
+  const [incentives, meta] = await Promise.all([loadIncentives(), loadMeta()]);
   const byScope = new Map<IncentiveScope, Incentive[]>();
   for (const i of incentives) {
     const arr = byScope.get(i.scope) ?? [];
@@ -38,11 +39,14 @@ export default async function IncentivesPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">Incentives & financing</h1>
-        <p className="text-sm text-fg-muted">
-          Federal, provincial, manufacturer, lease/finance, and home-charger rebates. Always re-verify before signing — sources linked when available.
-        </p>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">Incentives & financing</h1>
+          <p className="text-sm text-fg-muted">
+            Federal, provincial, manufacturer, lease/finance, and home-charger rebates. Always re-verify before signing — sources linked when available.
+          </p>
+        </div>
+        <UpdatedStamp rows={[{ label: "Incentives updated", iso: meta.incentivesUpdatedAt }]} />
       </div>
       {SCOPE_ORDER.filter((scope) => byScope.has(scope)).map((scope) => (
         <section key={scope} className="card overflow-hidden">

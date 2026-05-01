@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { Dealer, Incentive, ScoredUnit } from "@/lib/types";
+import type { Dealer, Incentive, ScoredUnit, Spec } from "@/lib/types";
 import { MODEL_LABEL } from "@/lib/constants";
 import { fmtCad, fmtPercent } from "@/lib/format";
 import { DealScoreBadge } from "./DealScoreBadge";
@@ -10,9 +10,14 @@ import { StatusChip } from "./StatusChip";
 type Props = {
   units: ScoredUnit[];
   dealerById: Map<string, Dealer>;
+  specByKey?: Map<string, Spec>;
 };
 
-export function CompareGrid({ units, dealerById }: Props) {
+function specLookupKey(u: ScoredUnit): string {
+  return `${u.model}|${u.year}|${u.trim}|${u.drivetrain}`;
+}
+
+export function CompareGrid({ units, dealerById, specByKey }: Props) {
   const [picked, setPicked] = useState<string[]>([]);
 
   const togglePick = (id: string) => {
@@ -63,7 +68,7 @@ export function CompareGrid({ units, dealerById }: Props) {
       </div>
 
       {selected.length >= 2 && (
-        <CompareTable selected={selected} dealerById={dealerById} />
+        <CompareTable selected={selected} dealerById={dealerById} specByKey={specByKey} />
       )}
 
       {selected.length === 1 && (
@@ -83,10 +88,17 @@ export function CompareGrid({ units, dealerById }: Props) {
 function CompareTable({
   selected,
   dealerById,
+  specByKey,
 }: {
   selected: ScoredUnit[];
   dealerById: Map<string, Dealer>;
+  specByKey?: Map<string, Spec>;
 }) {
+  const lookupSpec = (u: ScoredUnit): Spec | undefined =>
+    specByKey?.get(specLookupKey(u));
+  const numOrDash = (n?: number, suffix = "") =>
+    n === undefined ? <span className="text-fg-subtle">—</span> : <span className="num">{n}{suffix}</span>;
+
   const ROWS: { label: string; render: (u: ScoredUnit, dealer?: Dealer) => React.ReactNode }[] = [
     { label: "Model", render: (u) => MODEL_LABEL[u.model] },
     { label: "Year", render: (u) => u.year },
@@ -96,6 +108,19 @@ function CompareTable({
     { label: "Interior", render: (u) => u.interiorColor },
     { label: "Status", render: (u) => <StatusChip status={u.status} /> },
     { label: "Days on lot", render: (u) => u.daysOnLot ?? "—" },
+    { label: "Range (km)", render: (u) => numOrDash(lookupSpec(u)?.rangeKm) },
+    { label: "Battery (kWh)", render: (u) => numOrDash(lookupSpec(u)?.batteryKwh) },
+    { label: "DC fast (kW)", render: (u) => numOrDash(lookupSpec(u)?.dcFastChargeKw) },
+    { label: "AC charge (kW)", render: (u) => numOrDash(lookupSpec(u)?.acChargeKw) },
+    { label: "Power (kW / hp)", render: (u) => {
+      const s = lookupSpec(u);
+      if (!s?.motorKw && !s?.motorHp) return <span className="text-fg-subtle">—</span>;
+      return <span className="num">{s.motorKw ?? "—"} / {s.motorHp ?? "—"}</span>;
+    } },
+    { label: "0–100 km/h (s)", render: (u) => numOrDash(lookupSpec(u)?.zeroToHundredSec) },
+    { label: "Cargo (L)", render: (u) => numOrDash(lookupSpec(u)?.cargoLitres) },
+    { label: "Curb weight (kg)", render: (u) => numOrDash(lookupSpec(u)?.weightKg) },
+    { label: "Seats", render: (u) => numOrDash(lookupSpec(u)?.seats) },
     { label: "MSRP", render: (u) => <span className="num">{fmtCad(u.msrp)}</span> },
     { label: "Freight + PDI", render: (u) => <span className="num">{fmtCad(u.freightPdi)}</span> },
     {

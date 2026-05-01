@@ -1,13 +1,14 @@
 import Link from "next/link";
-import { loadSnapshots } from "@/lib/data";
+import { loadSnapshots, loadMeta } from "@/lib/data";
 import { fmtDate } from "@/lib/format";
 import { MODELS, MODEL_LABEL } from "@/lib/constants";
 import { HistoryCountChart, HistoryPriceChart, type SeriesPoint } from "@/components/HistoryCharts";
+import { UpdatedStamp } from "@/components/UpdatedStamp";
 
 export const dynamic = "force-static";
 
 export default async function HistoryPage() {
-  const snapshots = await loadSnapshots();
+  const [snapshots, meta] = await Promise.all([loadSnapshots(), loadMeta()]);
 
   if (snapshots.length === 0) {
     return (
@@ -50,11 +51,14 @@ export default async function HistoryPage() {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-semibold tracking-tight">History</h1>
-        <p className="text-sm text-fg-muted">
-          {snapshots.length} snapshot{snapshots.length === 1 ? "" : "s"} from {fmtDate(snapshots[0].takenAt)} → {fmtDate(snapshots[snapshots.length - 1].takenAt)}
-        </p>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <h1 className="text-2xl font-semibold tracking-tight">History</h1>
+          <p className="text-sm text-fg-muted">
+            {snapshots.length} snapshot{snapshots.length === 1 ? "" : "s"} from {fmtDate(snapshots[0].takenAt)} → {fmtDate(snapshots[snapshots.length - 1].takenAt)}
+          </p>
+        </div>
+        <UpdatedStamp rows={[{ label: "Latest snapshot", iso: meta.lastSnapshotAt }]} />
       </div>
 
       <section className="card p-4 space-y-2">

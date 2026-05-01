@@ -11,11 +11,13 @@ import {
   IncentiveSchema,
   InventoryUnitSchema,
   SnapshotSchema,
+  SpecSchema,
   type Dealer,
   type Incentive,
   type InventoryUnit,
   type ScoredUnit,
   type Snapshot,
+  type Spec,
 } from "./types";
 import { applicableIncentives, computeDealScore, computeOtd } from "./scoring";
 
@@ -38,22 +40,47 @@ export async function loadIncentives(): Promise<Incentive[]> {
   return readJson("incentives.json", z.array(IncentiveSchema));
 }
 
+export async function loadSpecs(): Promise<Spec[]> {
+  try {
+    return await readJson("specs.json", z.array(SpecSchema));
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException)?.code === "ENOENT") return [];
+    throw err;
+  }
+}
+
+export function specKey(model: string, year: number, trim: string, drivetrain: string): string {
+  return `${model}|${year}|${trim}|${drivetrain}`;
+}
+
+export function specMap(specs: Spec[]): Map<string, Spec> {
+  return new Map(specs.map((s) => [specKey(s.model, s.year, s.trim, s.drivetrain), s]));
+}
+
 export type DataMeta = {
   unitsUpdatedAt: string;
   incentivesUpdatedAt: string;
+  dealersUpdatedAt: string;
   snapshotCount: number;
+  lastSnapshotAt: string | null;
 };
 
 export async function loadMeta(): Promise<DataMeta> {
-  const [unitsStat, incStat, snaps] = await Promise.all([
+  const [unitsStat, incStat, dealersStat, snaps] = await Promise.all([
     fs.stat(path.join(DATA_DIR, "units.json")),
     fs.stat(path.join(DATA_DIR, "incentives.json")),
+    fs.stat(path.join(DATA_DIR, "dealers.json")),
     listSnapshotFiles(),
   ]);
+  const lastSnapshotAt = snaps.length
+    ? (await fs.stat(path.join(DATA_DIR, "snapshots", snaps[snaps.length - 1]))).mtime.toISOString()
+    : null;
   return {
     unitsUpdatedAt: unitsStat.mtime.toISOString(),
     incentivesUpdatedAt: incStat.mtime.toISOString(),
+    dealersUpdatedAt: dealersStat.mtime.toISOString(),
     snapshotCount: snaps.length,
+    lastSnapshotAt,
   };
 }
 

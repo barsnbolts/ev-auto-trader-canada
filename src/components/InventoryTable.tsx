@@ -1,8 +1,9 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import type { Dealer, ScoredUnit } from "@/lib/types";
-import { MODEL_LABEL, GGH_CITIES, type Model } from "@/lib/constants";
+import { MODEL_LABEL, GGH_CITIES, MODELS, type Model } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
@@ -30,14 +31,53 @@ function isAgingOutgoing(year: number, daysOnLot?: number): boolean {
   return year < CURRENT_MY && (daysOnLot ?? 0) > 90;
 }
 
+const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "newest", "oldest"];
+
 export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Props) {
-  const [model, setModel] = useState<Model | "all">("all");
-  const [year, setYear] = useState<number | "all">("all");
-  const [drivetrain, setDrivetrain] = useState<"RWD" | "AWD" | "all">("all");
-  const [region, setRegion] = useState<"ggh" | "on" | "all">("ggh");
-  const [maxPrice, setMaxPrice] = useState<number | "">("");
-  const [pressureOnly, setPressureOnly] = useState(false);
-  const [sort, setSort] = useState<SortKey>("deal");
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const initial = useMemo(() => {
+    const m = searchParams.get("model");
+    const y = searchParams.get("year");
+    const dt = searchParams.get("dt");
+    const rg = searchParams.get("region");
+    const mp = searchParams.get("maxOtd");
+    const po = searchParams.get("pressure");
+    const so = searchParams.get("sort");
+    return {
+      model: (m && (MODELS as readonly string[]).includes(m) ? (m as Model) : "all") as Model | "all",
+      year: (y && ["2024", "2025", "2026"].includes(y) ? Number(y) : "all") as number | "all",
+      drivetrain: (dt === "RWD" || dt === "AWD" ? dt : "all") as "RWD" | "AWD" | "all",
+      region: (rg === "on" || rg === "all" ? rg : "ggh") as "ggh" | "on" | "all",
+      maxPrice: (mp && !Number.isNaN(Number(mp)) ? Number(mp) : "") as number | "",
+      pressureOnly: po === "1",
+      sort: ((so && VALID_SORTS.includes(so as SortKey)) ? (so as SortKey) : "deal") as SortKey,
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const [model, setModel] = useState<Model | "all">(initial.model);
+  const [year, setYear] = useState<number | "all">(initial.year);
+  const [drivetrain, setDrivetrain] = useState<"RWD" | "AWD" | "all">(initial.drivetrain);
+  const [region, setRegion] = useState<"ggh" | "on" | "all">(initial.region);
+  const [maxPrice, setMaxPrice] = useState<number | "">(initial.maxPrice);
+  const [pressureOnly, setPressureOnly] = useState(initial.pressureOnly);
+  const [sort, setSort] = useState<SortKey>(initial.sort);
+
+  useEffect(() => {
+    const p = new URLSearchParams();
+    if (model !== "all") p.set("model", model);
+    if (year !== "all") p.set("year", String(year));
+    if (drivetrain !== "all") p.set("dt", drivetrain);
+    if (region !== "ggh") p.set("region", region);
+    if (maxPrice !== "") p.set("maxOtd", String(maxPrice));
+    if (pressureOnly) p.set("pressure", "1");
+    if (sort !== "deal") p.set("sort", sort);
+    const qs = p.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  }, [model, year, drivetrain, region, maxPrice, pressureOnly, sort, pathname, router]);
 
   const filtered = useMemo(() => {
     return units
