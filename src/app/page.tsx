@@ -162,16 +162,21 @@ export default async function Dashboard() {
           </div>
           <ul className="divide-y divide-border">
             {highPressureDealers.map((row) => (
-              <li key={row.d.id} className="px-4 py-2.5 flex items-center justify-between">
-                <div>
-                  <div className="font-medium text-sm">{row.d.name}</div>
-                  <div className="text-xxs text-fg-subtle">
-                    {row.d.city}, {row.d.province} · {row.count} unit{row.count === 1 ? "" : "s"}
+              <li key={row.d.id}>
+                <Link
+                  href={`/dealer/${row.d.id}`}
+                  className="px-4 py-2.5 flex items-center justify-between card-hover"
+                >
+                  <div>
+                    <div className="font-medium text-sm">{row.d.name}</div>
+                    <div className="text-xxs text-fg-subtle">
+                      {row.d.city}, {row.d.province} · {row.count} unit{row.count === 1 ? "" : "s"}
+                    </div>
                   </div>
-                </div>
-                <span className={`num font-semibold ${row.score >= 70 ? "text-accent" : row.score >= 40 ? "text-warn" : "text-fg-muted"}`}>
-                  {row.score}
-                </span>
+                  <span className={`num font-semibold ${row.score >= 70 ? "text-accent" : row.score >= 40 ? "text-warn" : "text-fg-muted"}`}>
+                    {row.score}
+                  </span>
+                </Link>
               </li>
             ))}
             {highPressureDealers.length === 0 && (

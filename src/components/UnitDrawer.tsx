@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import type { Dealer, ScoredUnit } from "@/lib/types";
 import { MODEL_LABEL } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
@@ -159,7 +160,9 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
           <h3 className="text-xxs uppercase tracking-wide text-fg-subtle mb-2">Dealer</h3>
           {dealer ? (
             <div className="text-sm space-y-0.5">
-              <div className="font-medium">{dealer.name}</div>
+              <Link href={`/dealer/${dealer.id}`} className="font-medium hover:text-accent-strong">
+                {dealer.name} →
+              </Link>
               <div className="text-fg-muted">{dealer.address}</div>
               <div className="text-fg-muted">{dealer.city}, {dealer.province}{dealer.postal ? ` ${dealer.postal}` : ""}</div>
               {dealer.phone && <div className="text-fg-muted">{dealer.phone}</div>}
