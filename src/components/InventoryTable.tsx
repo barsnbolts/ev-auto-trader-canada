@@ -9,6 +9,48 @@ import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
 
+// EVAP cap is the central 2026 buying-decision tool. We surface three
+// states per unit: eligible (under cap, $5k applied to OTD), cliff
+// (within $1,500 over the cap — small accessory cuts may unlock it), and
+// over-cap (lost rebate, used for sorting and competitor benchmarking).
+type EvapState = "eligible" | "cliff" | "over";
+const CAP_CAD = 50000;
+const CLIFF_BAND_CAD = 1500;
+function evapStateFor(unit: ScoredUnit): EvapState {
+  const hasEvap = unit.applicableIncentives.some((i) => i.id.startsWith("fed-evap"));
+  if (hasEvap) return "eligible";
+  // Same pre-tax-base formula as the OTD calc — keep in sync if either changes.
+  const preTax = unit.dealerAskingPrice + unit.freightPdi + 100;
+  if (preTax - CAP_CAD <= CLIFF_BAND_CAD) return "cliff";
+  return "over";
+}
+
+function EvapChip({ state, unit }: { state: EvapState; unit: ScoredUnit }) {
+  if (state === "eligible") {
+    return (
+      <div
+        className="text-xxs text-accent mt-0.5 font-normal"
+        title="Pre-tax transaction value ≤ $50,000 → $5,000 federal EVAP rebate already applied to OTD"
+      >
+        EVAP −$5k
+      </div>
+    );
+  }
+  if (state === "cliff") {
+    const preTax = unit.dealerAskingPrice + unit.freightPdi + 100;
+    const over = Math.round(preTax - CAP_CAD);
+    return (
+      <div
+        className="text-xxs text-warn mt-0.5 font-normal"
+        title="Within $1,500 of EVAP cap. Trimming dealer add-ons (admin, wheel locks, prep) might unlock the $5k rebate."
+      >
+        Cliff +${over}
+      </div>
+    );
+  }
+  return null;
+}
+
 type Props = {
   units: ScoredUnit[];
   dealerById: Map<string, Dealer>;
@@ -65,6 +107,7 @@ function activeFilterChips(s: {
   region: "ggh" | "on" | "all";
   maxPrice: number | "";
   pressureOnly: boolean;
+  evapOnly: boolean;
   query: string;
 }): { key: string; label: string }[] {
   const out: { key: string; label: string }[] = [];
@@ -74,6 +117,7 @@ function activeFilterChips(s: {
   if (s.region !== "ggh") out.push({ key: "region", label: s.region === "on" ? "All Ontario" : "All Canada" });
   if (s.maxPrice !== "") out.push({ key: "maxPrice", label: `≤ $${s.maxPrice.toLocaleString("en-CA")}` });
   if (s.pressureOnly) out.push({ key: "pressureOnly", label: "High pressure" });
+  if (s.evapOnly) out.push({ key: "evapOnly", label: "EVAP eligible" });
   if (s.query.trim()) out.push({ key: "query", label: `"${s.query.trim()}"` });
   return out;
 }
@@ -117,6 +161,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
     const rg = searchParams.get("region");
     const mp = searchParams.get("maxOtd");
     const po = searchParams.get("pressure");
+    const ev = searchParams.get("evap");
     const so = searchParams.get("sort");
     const q = searchParams.get("q");
     const uid = searchParams.get("u");
@@ -127,6 +172,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
       region: (rg === "on" || rg === "all" ? rg : "ggh") as "ggh" | "on" | "all",
       maxPrice: (mp && !Number.isNaN(Number(mp)) ? Number(mp) : "") as number | "",
       pressureOnly: po === "1",
+      evapOnly: ev === "1",
       sort: ((so && VALID_SORTS.includes(so as SortKey)) ? (so as SortKey) : "deal") as SortKey,
       query: q ?? "",
       unitId: uid ?? null,
@@ -140,6 +186,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
   const [region, setRegion] = useState<"ggh" | "on" | "all">(initial.region);
   const [maxPrice, setMaxPrice] = useState<number | "">(initial.maxPrice);
   const [pressureOnly, setPressureOnly] = useState(initial.pressureOnly);
+  const [evapOnly, setEvapOnly] = useState(initial.evapOnly);
   const [sort, setSort] = useState<SortKey>(initial.sort);
   const [query, setQuery] = useState<string>(initial.query);
   const [selectedId, setSelectedId] = useState<string | null>(initial.unitId);
@@ -152,12 +199,13 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
     if (region !== "ggh") p.set("region", region);
     if (maxPrice !== "") p.set("maxOtd", String(maxPrice));
     if (pressureOnly) p.set("pressure", "1");
+    if (evapOnly) p.set("evap", "1");
     if (sort !== "deal") p.set("sort", sort);
     if (query.trim()) p.set("q", query.trim());
     if (selectedId) p.set("u", selectedId);
     const qs = p.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-  }, [model, year, drivetrain, region, maxPrice, pressureOnly, sort, query, selectedId, pathname, router]);
+  }, [model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, sort, query, selectedId, pathname, router]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -172,6 +220,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
         if (region === "on" && dealer.province !== "ON") return false;
         if (maxPrice && u.otdCad > Number(maxPrice)) return false;
         if (pressureOnly && (dealerPressureByDealer[dealer.id] ?? 0) < 50) return false;
+        if (evapOnly && evapStateFor(u) !== "eligible") return false;
         if (q) {
           const hay = `${u.trim} ${u.exteriorColor} ${u.interiorColor} ${u.vin ?? ""} ${u.stockNumber ?? ""} ${dealer.name} ${dealer.city}`.toLowerCase();
           if (!hay.includes(q)) return false;
@@ -226,9 +275,9 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
           className="px-2 py-1.5"
         >
           <option value="all">All models</option>
-          <option value="EV6">{MODEL_LABEL.EV6}</option>
-          <option value="Ioniq5">{MODEL_LABEL.Ioniq5}</option>
-          <option value="Ioniq6">{MODEL_LABEL.Ioniq6}</option>
+          {MODELS.map((m) => (
+            <option key={m} value={m}>{MODEL_LABEL[m]}</option>
+          ))}
         </select>
         <select
           value={year}
@@ -277,6 +326,17 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
           />
           High-pressure dealers only
         </label>
+        <label
+          className="flex items-center gap-1.5 text-fg-muted cursor-pointer"
+          title="Pre-tax transaction value ≤ $50,000 — qualifies for $5,000 federal EVAP rebate"
+        >
+          <input
+            type="checkbox"
+            checked={evapOnly}
+            onChange={(e) => setEvapOnly(e.target.checked)}
+          />
+          EVAP-eligible only
+        </label>
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value as SortKey)}
@@ -298,10 +358,10 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
           Export CSV
         </button>
       </div>
-      {activeFilterChips({ model, year, drivetrain, region, maxPrice, pressureOnly, query }).length > 0 && (
+      {activeFilterChips({ model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, query }).length > 0 && (
         <div className="px-3 py-2 border-b border-border flex flex-wrap items-center gap-1.5 text-xxs">
           <span className="text-fg-subtle uppercase tracking-wide">Active:</span>
-          {activeFilterChips({ model, year, drivetrain, region, maxPrice, pressureOnly, query }).map((c) => (
+          {activeFilterChips({ model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, query }).map((c) => (
             <button
               key={c.key}
               type="button"
@@ -312,6 +372,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
                 else if (c.key === "region") setRegion("ggh");
                 else if (c.key === "maxPrice") setMaxPrice("");
                 else if (c.key === "pressureOnly") setPressureOnly(false);
+                else if (c.key === "evapOnly") setEvapOnly(false);
                 else if (c.key === "query") setQuery("");
               }}
               className="chip-neutral hover:bg-bg-hover"
@@ -323,7 +384,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
             type="button"
             onClick={() => {
               setModel("all"); setYear("all"); setDrivetrain("all"); setRegion("ggh");
-              setMaxPrice(""); setPressureOnly(false); setQuery("");
+              setMaxPrice(""); setPressureOnly(false); setEvapOnly(false); setQuery("");
             }}
             className="text-fg-muted hover:text-fg ml-1 underline"
           >
@@ -379,7 +440,10 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
                       </div>
                     )}
                   </td>
-                  <td className="px-3 py-2 text-right num font-medium">{fmtCad(u.otdCad)}</td>
+                  <td className="px-3 py-2 text-right num font-medium">
+                    {fmtCad(u.otdCad)}
+                    <EvapChip state={evapStateFor(u)} unit={u} />
+                  </td>
                   <td className="px-3 py-2 text-right num">{u.daysOnLot ?? "—"}</td>
                   <td className="px-3 py-2 space-y-1">
                     <StatusChip status={u.status} />

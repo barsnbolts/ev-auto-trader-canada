@@ -90,6 +90,47 @@ export default async function IncentivesPage() {
                       {inc.notes}
                     </p>
                   )}
+                  {inc.transactionValueCapCad !== undefined && (
+                    <div className="mt-2 p-2 bg-bg-subtle rounded text-xxs space-y-1 max-w-md">
+                      <div className="flex justify-between">
+                        <span className="text-fg-muted">Transaction-value cap</span>
+                        <span className="num font-medium">{fmtCad(inc.transactionValueCapCad)}</span>
+                      </div>
+                      {inc.capAppliesToImported && (
+                        <div className="text-fg-subtle italic">
+                          Cap applies to imported EVs (E-GMP cars are made in Korea / US — all units tracked here are subject to the cap).
+                        </div>
+                      )}
+                      {inc.leaseTermProration && (
+                        <div className="pt-1">
+                          <div className="text-fg-muted mb-0.5">Lease-term proration:</div>
+                          <div className="grid grid-cols-4 gap-1">
+                            {Object.entries(inc.leaseTermProration).map(([term, amt]) => (
+                              <div key={term} className="flex justify-between">
+                                <span className="text-fg-subtle">{term}mo</span>
+                                <span className="num">${(amt as number).toLocaleString("en-CA")}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {inc.yearTierAmounts && (
+                    <div className="mt-2 p-2 bg-bg-subtle rounded text-xxs max-w-md">
+                      <div className="text-fg-muted mb-1">
+                        {inc.effectiveByRegistrationDate ? "Tier by registration year:" : "Tier by year:"}
+                      </div>
+                      <div className="grid grid-cols-4 gap-1">
+                        {Object.entries(inc.yearTierAmounts).map(([yr, amt]) => (
+                          <div key={yr} className="flex justify-between">
+                            <span className="text-fg-subtle">{yr}</span>
+                            <span className="num">${(amt as number).toLocaleString("en-CA")}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   {inc.source && (
                     <a
                       href={inc.source.startsWith("http") ? inc.source : undefined}

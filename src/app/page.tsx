@@ -21,6 +21,19 @@ export default async function Dashboard() {
   const activeIncentives = incentives.filter((i) => i.status === "active").length;
   const pausedIncentives = incentives.filter((i) => i.status === "paused").length;
 
+  // EVAP-aware shopping signals. Eligible = unit's applicable list contains a
+  // fed-evap-* row (cap test happens upstream in scoring.ts). Cliff = within
+  // $1,500 over the cap → trimming dealer add-ons may unlock the rebate.
+  const evapEligibleUnits = units.filter((u) => u.applicableIncentives.some((i) => i.id.startsWith("fed-evap")));
+  const cliffUnits = units.filter((u) => {
+    if (u.applicableIncentives.some((i) => i.id.startsWith("fed-evap"))) return false;
+    const preTax = u.dealerAskingPrice + u.freightPdi + 100;
+    return preTax > 50000 && preTax - 50000 <= 1500;
+  });
+  const lowestEvapOtd = evapEligibleUnits.length
+    ? Math.min(...evapEligibleUnits.map((u) => u.otdCad))
+    : null;
+
   const highPressureDealers = dealers
     .map((d) => ({ d, score: pressure[d.id] ?? 0, count: units.filter((u) => u.dealerId === d.id).length }))
     .filter((row) => row.count > 0)
@@ -51,9 +64,10 @@ export default async function Dashboard() {
           accent="accent"
         />
         <KpiTile
-          label="Active incentives"
-          value={activeIncentives}
-          sub={pausedIncentives > 0 ? `${pausedIncentives} paused` : undefined}
+          label="EVAP-eligible units"
+          value={evapEligibleUnits.length}
+          sub={lowestEvapOtd ? `Lowest OTD ${fmtCad(lowestEvapOtd)}` : "none under $50k cap"}
+          accent={evapEligibleUnits.length > 0 ? "accent" : undefined}
         />
         <KpiTile
           label="Dealers tracked"
@@ -67,6 +81,41 @@ export default async function Dashboard() {
           accent="accent"
         />
       </section>
+
+      {cliffUnits.length > 0 && (
+        <section className="card p-4 border-l-4 border-warn">
+          <div className="flex items-baseline justify-between gap-3 flex-wrap">
+            <div>
+              <h2 className="text-sm font-semibold text-warn">
+                Trim cliff alert — {cliffUnits.length} unit{cliffUnits.length === 1 ? "" : "s"} within $1,500 of the EVAP cap
+              </h2>
+              <p className="text-xxs text-fg-muted mt-1">
+                These units sit just over the federal $50,000 transaction-value cap. Trimming
+                dealer add-ons (admin fee, wheel locks, prep/protection) might bring them
+                under and unlock $5,000.
+              </p>
+            </div>
+            <Link href="/inventory?evap=&region=all" className="text-xs text-accent hover:text-accent-strong">
+              See cliff units →
+            </Link>
+          </div>
+          <ul className="mt-3 grid md:grid-cols-2 gap-2 text-xs">
+            {cliffUnits.slice(0, 6).map((u) => {
+              const d = dealerById.get(u.dealerId);
+              const preTax = u.dealerAskingPrice + u.freightPdi + 100;
+              const over = Math.round(preTax - 50000);
+              return (
+                <li key={u.id} className="flex items-baseline justify-between gap-2 border-t border-border pt-1.5">
+                  <Link href={`/inventory?u=${u.id}&region=all`} className="hover:text-accent-strong truncate">
+                    {MODEL_LABEL[u.model]} {u.trim} <span className="text-fg-subtle">· {d?.city}</span>
+                  </Link>
+                  <span className="num text-warn shrink-0">+${over.toLocaleString("en-CA")}</span>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
 
       <section>
         <h2 className="text-sm uppercase tracking-wide text-fg-subtle mb-3">Model mix</h2>
@@ -221,6 +270,8 @@ const MIX_COLORS: Record<string, string> = {
   EV6: "bg-accent",
   Ioniq5: "bg-warn",
   Ioniq6: "bg-fg-muted",
+  EV9: "bg-accent-strong",
+  Ioniq9: "bg-bad",
 };
 
 function ModelMixBars({ kpis }: { kpis: ModelKpis[] }) {
