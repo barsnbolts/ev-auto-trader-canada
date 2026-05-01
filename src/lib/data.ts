@@ -37,7 +37,36 @@ async function readJson<T>(file: string, schema: z.ZodType<T>): Promise<T> {
 }
 
 export async function loadDealers(): Promise<Dealer[]> {
-  return readJson("dealers.json", z.array(DealerSchema));
+  const base = await readJson("dealers.json", z.array(DealerSchema));
+  // Backfill dealer phone + address from per-listing enrichment when the
+  // canonical dealers.json still has placeholder values. Unit→dealer map
+  // built from units.json so we know which enrichment entry belongs to whom.
+  let enrichment: Record<string, { phone?: string; streetAddress?: string }> = {};
+  let unitsRaw: Array<{ id: string; dealerId: string }> = [];
+  try {
+    enrichment = JSON.parse(
+      await fs.readFile(path.join(DATA_DIR, "units-enrichment.json"), "utf8"),
+    );
+    unitsRaw = JSON.parse(await fs.readFile(path.join(DATA_DIR, "units.json"), "utf8"));
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException)?.code !== "ENOENT") throw err;
+  }
+  const dealerEnrich = new Map<string, { phone?: string; streetAddress?: string }>();
+  for (const u of unitsRaw) {
+    const e = enrichment[u.id];
+    if (!e) continue;
+    if (!dealerEnrich.has(u.dealerId)) dealerEnrich.set(u.dealerId, e);
+  }
+  return base.map((d) => {
+    const e = dealerEnrich.get(d.id);
+    if (!e) return d;
+    const phone = !d.phone && e.phone ? e.phone : d.phone;
+    const address =
+      (!d.address || d.address === "Address not yet captured") && e.streetAddress
+        ? e.streetAddress
+        : d.address;
+    return { ...d, phone, address };
+  });
 }
 
 export async function loadUnits(): Promise<InventoryUnit[]> {

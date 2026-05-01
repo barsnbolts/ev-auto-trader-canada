@@ -65,14 +65,16 @@ type Props = {
   units: ScoredUnit[];
   dealerById: Map<string, Dealer>;
   dealerPressureByDealer: Record<string, number>;
+  rangeByUnitId?: Record<string, number | null>;
 };
 
-type SortKey = "deal" | "otd" | "discount" | "newest" | "oldest";
+type SortKey = "deal" | "otd" | "discount" | "perKm" | "newest" | "oldest";
 
 const SORTS: { key: SortKey; label: string }[] = [
   { key: "deal", label: "Best deal score" },
   { key: "otd", label: "Lowest OTD" },
   { key: "discount", label: "Biggest discount vs MSRP" },
+  { key: "perKm", label: "Lowest $/km of range" },
   { key: "newest", label: "Newest listing" },
   { key: "oldest", label: "Longest on lot" },
 ];
@@ -93,7 +95,7 @@ function iccuAffected(model: Model, year: number): boolean {
   return false;
 }
 
-const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "newest", "oldest"];
+const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "perKm", "newest", "oldest"];
 
 const CSV_COLS = [
   "model", "year", "trim", "drivetrain", "exteriorColor", "interiorColor",
@@ -170,7 +172,12 @@ function exportCsv(
   URL.revokeObjectURL(url);
 }
 
-export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Props) {
+export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId }: Props) {
+  const rangeFor = (id: string): number | null => rangeByUnitId?.[id] ?? null;
+  const perKmFor = (u: ScoredUnit): number | null => {
+    const r = rangeFor(u.id);
+    return r && r > 0 ? u.otdCad / r : null;
+  };
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -258,6 +265,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
           const da = (a.msrp - a.dealerAskingPrice) / a.msrp;
           const db = (b.msrp - b.dealerAskingPrice) / b.msrp;
           return db - da;
+        }
+        if (sort === "perKm") {
+          const pa = perKmFor(a);
+          const pb = perKmFor(b);
+          if (pa == null && pb == null) return 0;
+          if (pa == null) return 1;
+          if (pb == null) return -1;
+          return pa - pb;
         }
         if (sort === "newest") return new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime();
         return new Date(a.firstSeen).getTime() - new Date(b.firstSeen).getTime();
@@ -441,6 +456,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
               <th className="px-3 py-2 text-right">MSRP</th>
               <th className="px-3 py-2 text-right">Asking</th>
               <th className="px-3 py-2 text-right">OTD</th>
+              <th className="px-3 py-2 text-right" title="OTD ÷ EPA / NRCan range. Lower = more car per dollar.">$/km</th>
               <th className="px-3 py-2 text-right">Days</th>
               <th className="px-3 py-2">Status</th>
               <th className="px-3 py-2">Dealer</th>
@@ -495,6 +511,12 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
                     {fmtCad(u.otdCad)}
                     <EvapChip state={evapStateFor(u)} unit={u} />
                   </td>
+                  <td className="px-3 py-2 text-right num text-xs" title={rangeFor(u.id) ? `Range ${rangeFor(u.id)} km (NRCan/EPA combined)` : "Range spec missing"}>
+                    {(() => {
+                      const p = perKmFor(u);
+                      return p ? `$${p.toFixed(0)}` : "—";
+                    })()}
+                  </td>
                   <td className="px-3 py-2 text-right num">{u.daysOnLot ?? "—"}</td>
                   <td className="px-3 py-2 space-y-1">
                     <StatusChip status={u.status} />
@@ -546,7 +568,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer }: Pr
             })}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={13} className="px-3 py-12 text-center text-fg-muted">
+                <td colSpan={14} className="px-3 py-12 text-center text-fg-muted">
                   No units match these filters.
                 </td>
               </tr>
