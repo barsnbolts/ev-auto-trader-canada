@@ -1,8 +1,8 @@
 # PROGRESS — EV Auto Trader Canada
 
-> Self-handoff log. The 3-hour `/loop` job re-reads this file at the start of
-> every run, picks the next pending item, advances it by one cohesive unit of
-> work, and updates this log. Most recent entry on top.
+> Self-handoff log. When picking the project back up, read **Status snapshot**
+> below, then **Up next**, then advance the topmost item by one cohesive unit
+> of work and update this file. Most recent entry on top.
 
 ## How to use this file
 
@@ -28,8 +28,6 @@
 - **Skill installed**: `caveman` at `.claude/skills/caveman/SKILL.md` plus
   `/caveman`, `/caveman-init`, `/caveman-commit`, `/caveman-review` slash
   commands at `.claude/commands/`
-- **Auto-resume**: `/loop` configured for 3h cadence (first fire 3h from
-  initial setup time)
 
 ## Up next (priority order)
 
@@ -78,4 +76,4 @@
 ## Run log
 
 - **Initial build** — full scaffold, sample data, pages, scoring, research
-  prompts, caveman install, PROGRESS.md, 3h loop set up.
+  prompts, caveman install, PROGRESS.md.
