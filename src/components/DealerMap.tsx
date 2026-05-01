@@ -64,7 +64,12 @@ export function DealerMap({ dealers, units, pressureByDealer }: Props) {
             >
               <Popup>
                 <div style={{ minWidth: 220 }}>
-                  <div style={{ fontWeight: 600 }}>{d.name}</div>
+                  <a
+                    href={`/dealer/${d.id}`}
+                    style={{ fontWeight: 600, color: "#22c55e", textDecoration: "none" }}
+                  >
+                    {d.name} →
+                  </a>
                   <div style={{ fontSize: 12, color: "#64748b" }}>
                     {d.city}, {d.province} · pressure {score}
                   </div>
