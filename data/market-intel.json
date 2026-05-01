@@ -1,0 +1,101 @@
+{
+  "knownIssues": [
+    {
+      "model": "EV6",
+      "yearRange": "2022-2024",
+      "issue": "ICCU (Integrated Charging Control Unit) thermal/fuse failure. Symptoms: audible pop from rear, 'Check electric vehicle system' warning, immediate limp mode, total 12V drain, vehicle becomes undriveable and unable to AC-charge.",
+      "severity": "high",
+      "resolution": "Verify VIN at Kia Canada recall lookup. Demand written confirmation that ICCU software flash + physical inspection have been completed before contracting. P0D5C diagnostic code triggers full module replacement.",
+      "warrantyExtensionYears": 15,
+      "warrantyExtensionKm": 290000,
+      "source": "https://recharged.com/articles/kia-ev6-iccu-recall-fix"
+    },
+    {
+      "model": "Ioniq5",
+      "yearRange": "2022-2025",
+      "issue": "ICCU charging-control failure on E-GMP cars. Same family as the EV6 issue: thermal spike damages module, primary HV fuse ruptures, vehicle dies in motion.",
+      "severity": "high",
+      "resolution": "Verify VIN at Hyundai Canada recall lookup. Get written campaign-completion paperwork before delivery.",
+      "warrantyExtensionYears": 15,
+      "warrantyExtensionKm": 290000,
+      "source": "https://recharged.com/articles/hyundai-ioniq-5-iccu-recall-guide"
+    },
+    {
+      "model": "Ioniq6",
+      "yearRange": "2023-2024",
+      "issue": "ICCU charging-system failure on E-GMP architecture.",
+      "severity": "high",
+      "resolution": "Verify VIN at Hyundai Canada recall lookup. Request completed-campaign paperwork before delivery.",
+      "warrantyExtensionYears": 15,
+      "warrantyExtensionKm": 290000,
+      "source": "https://www.hyundaicanada.com/en/owners-section/recalls"
+    }
+  ],
+  "warrantyTerms": {
+    "kiaBatteryYears": 8,
+    "kiaBatteryKm": 160000,
+    "hyundaiBatteryYears": 8,
+    "hyundaiBatteryKm": 160000,
+    "iccuExtensionYears": 15,
+    "iccuExtensionKm": 290000
+  },
+  "competingEvs": [
+    {
+      "make": "Tesla",
+      "model": "Model Y Standard",
+      "year": 2026,
+      "drivetrain": "RWD",
+      "msrpCad": 49990,
+      "rangeKm": 418,
+      "qualifiesForEvap": true,
+      "source": "https://www.tesla.com/en_ca/modely"
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Equinox EV 2LT",
+      "year": 2026,
+      "drivetrain": "AWD",
+      "msrpCad": 49699,
+      "rangeKm": 459,
+      "qualifiesForEvap": true,
+      "source": "https://www.chevrolet.ca/en/electric/equinox-ev"
+    },
+    {
+      "make": "Volkswagen",
+      "model": "ID.4 Pro",
+      "year": 2026,
+      "drivetrain": "RWD",
+      "msrpCad": 46570,
+      "rangeKm": 468,
+      "qualifiesForEvap": true,
+      "source": "https://www.vw.ca/en/models/new-vehicles/id4.html"
+    },
+    {
+      "make": "Ford",
+      "model": "Mustang Mach-E Select",
+      "year": 2026,
+      "drivetrain": "RWD",
+      "msrpCad": 46995,
+      "rangeKm": 402,
+      "qualifiesForEvap": true,
+      "source": "https://www.ford.ca/suvs/mach-e/"
+    }
+  ],
+  "oemSubventions2026May": {
+    "Kia": {
+      "loyaltyRateReductionPercent": 1,
+      "militaryCad": 500,
+      "mobilityCad": 750
+    },
+    "Hyundai": {
+      "springDriveBonusMaxCad": 1000,
+      "leaseSecurityDepositCad": 0,
+      "leaseAnnualKm": 16000,
+      "leaseOverageCadPerKm": 0.12,
+      "loyaltyLeaseRateReductionPercent": 1,
+      "loyaltyFinanceRateReductionPercent": 0.5
+    }
+  },
+  "endOfMonthSignal": "Late-April 2026 captured pressure: Ontario Kia dealers ran end-month $3,000 cash on aging 2025 EV6 inventory; Hyundai Click-to-Buy pages stated 'new manufacturer rates and incentives coming soon'. May 1 was a transition day — re-check live promo before contracting.",
+  "lastVerified": "2026-05-01"
+}

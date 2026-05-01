@@ -92,7 +92,7 @@ export function provinceRollup(
     const existing = by.get(d.province) ?? {
       province: d.province,
       count: 0,
-      countByModel: { EV6: 0, Ioniq5: 0, Ioniq6: 0 },
+      countByModel: { EV6: 0, Ioniq5: 0, Ioniq6: 0, EV9: 0, Ioniq9: 0 },
     };
     existing.count += 1;
     existing.countByModel[u.model] += 1;

@@ -50,13 +50,12 @@ function csvEscape(val: string | number | undefined | null): string {
 }
 
 function modelBreakdown(units: ScoredUnit[]): string {
-  const counts = { EV6: 0, Ioniq5: 0, Ioniq6: 0 };
+  const counts: Record<Model, number> = { EV6: 0, Ioniq5: 0, Ioniq6: 0, EV9: 0, Ioniq9: 0 };
   for (const u of units) counts[u.model] += 1;
-  return [
-    counts.EV6 > 0 ? `${counts.EV6} ${MODEL_LABEL.EV6}` : null,
-    counts.Ioniq5 > 0 ? `${counts.Ioniq5} ${MODEL_LABEL.Ioniq5}` : null,
-    counts.Ioniq6 > 0 ? `${counts.Ioniq6} ${MODEL_LABEL.Ioniq6}` : null,
-  ].filter(Boolean).join(", ");
+  return (Object.keys(counts) as Model[])
+    .filter((m) => counts[m] > 0)
+    .map((m) => `${counts[m]} ${MODEL_LABEL[m]}`)
+    .join(", ");
 }
 
 function activeFilterChips(s: {

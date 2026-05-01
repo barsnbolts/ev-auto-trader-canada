@@ -10,14 +10,18 @@ import {
   DealerSchema,
   IncentiveSchema,
   InventoryUnitSchema,
+  MarketIntelSchema,
   SnapshotSchema,
   SpecSchema,
+  TaxesAndFeesSchema,
   type Dealer,
   type Incentive,
   type InventoryUnit,
+  type MarketIntel,
   type ScoredUnit,
   type Snapshot,
   type Spec,
+  type TaxesAndFees,
 } from "./types";
 import { applicableIncentives, computeDealScore, computeOtd } from "./scoring";
 
@@ -45,6 +49,24 @@ export async function loadSpecs(): Promise<Spec[]> {
     return await readJson("specs.json", z.array(SpecSchema));
   } catch (err) {
     if ((err as NodeJS.ErrnoException)?.code === "ENOENT") return [];
+    throw err;
+  }
+}
+
+export async function loadTaxesAndFees(): Promise<TaxesAndFees | null> {
+  try {
+    return await readJson("taxes-and-fees.json", TaxesAndFeesSchema);
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException)?.code === "ENOENT") return null;
+    throw err;
+  }
+}
+
+export async function loadMarketIntel(): Promise<MarketIntel | null> {
+  try {
+    return await readJson("market-intel.json", MarketIntelSchema);
+  } catch (err) {
+    if ((err as NodeJS.ErrnoException)?.code === "ENOENT") return null;
     throw err;
   }
 }

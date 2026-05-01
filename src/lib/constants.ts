@@ -52,19 +52,23 @@ export const PROVINCE_TAX: Record<Province, number> = {
   YT: 0.05,
 };
 
-export const MODELS = ["EV6", "Ioniq5", "Ioniq6"] as const;
+export const MODELS = ["EV6", "Ioniq5", "Ioniq6", "EV9", "Ioniq9"] as const;
 export type Model = (typeof MODELS)[number];
 
 export const MODEL_LABEL: Record<Model, string> = {
   EV6: "Kia EV6",
   Ioniq5: "Hyundai Ioniq 5",
   Ioniq6: "Hyundai Ioniq 6",
+  EV9: "Kia EV9",
+  Ioniq9: "Hyundai Ioniq 9",
 };
 
 export const MODEL_BRAND: Record<Model, "Kia" | "Hyundai"> = {
   EV6: "Kia",
   Ioniq5: "Hyundai",
   Ioniq6: "Hyundai",
+  EV9: "Kia",
+  Ioniq9: "Hyundai",
 };
 
 // Trim catalog — kept literal to power filters and validation. Update when
@@ -84,6 +88,17 @@ export const TRIMS_BY_MODEL: Record<Model, string[]> = {
     "Preferred RWD Long Range",
     "Preferred AWD Long Range",
     "Limited AWD",
+  ],
+  EV9: [
+    "Light RWD",
+    "Light Long Range RWD",
+    "Land Long Range AWD",
+    "GT-Line AWD",
+  ],
+  Ioniq9: [
+    "Preferred Long Range RWD",
+    "Preferred Long Range AWD",
+    "Performance Calligraphy AWD",
   ],
 };
 
@@ -119,12 +134,34 @@ export const GGH_CITIES = [
   "Barrie",
 ];
 
-// Typical Ontario dealer fees layered on top of MSRP for OTD math. Real
-// per-dealer fees vary; these are conservative defaults until verified.
+// Typical Ontario dealer fees layered on top of MSRP for OTD math.
+// Updated 2026-05-01 from cross-source DR (OMVIC bulletin Sep 2025; RPRA
+// 2026 producer-pass-through ~$5.69/tire; multiple Ontario dealer
+// disclosures showing $22 OMVIC and $25 tire on retail bills of sale).
 export const ON_DEALER_FEES = {
   airConditioningExciseTax: 100, // federal AC tax
-  rdprmFee: 5,                   // RDPRM/lien registration
-  omvicFee: 12.50,               // OMVIC fee
-  tireStewardshipFee: 17.40,     // 4 tires x $4.35
+  rdprmFee: 5,                   // RDPRM/lien registration (cash deals usually skip)
+  omvicFee: 22,                  // OMVIC — raised from $12.50 effective 2025-09-01
+  tireStewardshipFee: 22.76,     // 4 tires x ~$5.69 RPRA pass-through
   govLicensingEstimate: 105,     // plate / registration / safety estimate
 } as const;
+
+// BC PST progressive vehicle surtax brackets. Applies on top of 5% GST.
+// Ranges captured from BC Chamber/Taxccount references.
+// E-GMP Long Range AWD trims often cross from 7% (≤$54,999) into 10%
+// ($57,000–$124,999) territory, materially shifting OTD vs Ontario.
+export const BC_PST_BRACKETS: Array<{ minCad: number; maxCad: number | null; rate: number }> = [
+  { minCad: 0,       maxCad: 55000,  rate: 0.07 },
+  { minCad: 55000,   maxCad: 56000,  rate: 0.08 },
+  { minCad: 56000,   maxCad: 57000,  rate: 0.09 },
+  { minCad: 57000,   maxCad: 125000, rate: 0.10 },
+  { minCad: 125000,  maxCad: 150000, rate: 0.15 },
+  { minCad: 150000,  maxCad: null,   rate: 0.20 },
+];
+
+export function bcPstRateFor(priceCad: number): number {
+  for (const b of BC_PST_BRACKETS) {
+    if (priceCad >= b.minCad && (b.maxCad === null || priceCad < b.maxCad)) return b.rate;
+  }
+  return 0.07;
+}

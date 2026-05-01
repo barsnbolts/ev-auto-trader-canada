@@ -1,0 +1,44 @@
+{
+  "salesTaxByProvince": {
+    "AB": { "type": "GST", "ratePercent": 5 },
+    "BC": { "type": "GST+PST", "gstPercent": 5, "pstPercent": 7 },
+    "MB": { "type": "GST+PST", "gstPercent": 5, "pstPercent": 7 },
+    "NB": { "type": "HST", "ratePercent": 15 },
+    "NL": { "type": "HST", "ratePercent": 15 },
+    "NS": { "type": "HST", "ratePercent": 15 },
+    "NT": { "type": "GST", "ratePercent": 5 },
+    "NU": { "type": "GST", "ratePercent": 5 },
+    "ON": { "type": "HST", "ratePercent": 13 },
+    "PE": { "type": "HST", "ratePercent": 15 },
+    "QC": { "type": "GST+QST", "gstPercent": 5, "qstPercent": 9.975 },
+    "SK": { "type": "GST+PST", "gstPercent": 5, "pstPercent": 6 },
+    "YT": { "type": "GST", "ratePercent": 5 }
+  },
+  "ontarioDealerFees": {
+    "acExciseTaxCad": 100,
+    "omvicCad": 22,
+    "tireStewardshipCad": 22.76,
+    "govLicensingCad": 105,
+    "rdprmCad": 5
+  },
+  "bcVehicleSurtaxBrackets": [
+    { "minPriceCad": 0,      "maxPriceCad": 55000,  "ratePercent": 7 },
+    { "minPriceCad": 55000,  "maxPriceCad": 56000,  "ratePercent": 8 },
+    { "minPriceCad": 56000,  "maxPriceCad": 57000,  "ratePercent": 9 },
+    { "minPriceCad": 57000,  "maxPriceCad": 125000, "ratePercent": 10 },
+    { "minPriceCad": 125000, "maxPriceCad": 150000, "ratePercent": 15 },
+    { "minPriceCad": 150000, "maxPriceCad": null,   "ratePercent": 20 }
+  ],
+  "federalLuxuryTax": {
+    "thresholdCad": 100000,
+    "rateRule": "lesser of 10% of total or 20% over $100,000 threshold",
+    "appliesToEvs": true,
+    "usedExempt": true
+  },
+  "freightPdiByOem": {
+    "Kia": 2150,
+    "Hyundai": 2050
+  },
+  "source": "OMVIC bulletin 2025-09-01 (omvic.ca/news/dealer-bulletins/60-day-notice-to-the-profession-new-fees-effective-september-1-2025); RPRA 2026 producer fees (weibold.com); BC Chamber luxury surtax brackets; Revenu Quebec; CRA L100 luxury tax registration",
+  "lastVerified": "2026-05-01"
+}
