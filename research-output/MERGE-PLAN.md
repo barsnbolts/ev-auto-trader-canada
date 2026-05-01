@@ -2,6 +2,67 @@
 
 > Designed in high-reasoning mode 2026-05-01. Execution is mechanical and can run in medium.
 
+## Scope expansion 2026-05-01: add EV9 + Ioniq 9 (3-row SUVs)
+
+User added Kia EV9 and Hyundai Ioniq 9 to the tracked model set. Both are
+E-GMP 3-row family SUVs sharing the 800V architecture and 350 kW DC fast
+charging with the existing models, but with much larger battery packs and
+materially different MSRPs (both well above the $50k EVAP cap → all trims
+disqualified from the federal rebate).
+
+### What we have:
+- **Kia EV9**: Gemini DR captured ONE inventory data point — 2026 EV9 Light
+  RWD demo at 401 Dixie Kia, stock EV926005, 50 km, with explicit $2,000
+  dealer incentive and 1.99% finance offer. Useful as a real unit.
+- **Hyundai Ioniq 9**: Neither DR pass touched it. Ioniq 9 launched MY2026.
+
+### What we need before merging EV9/Ioniq 9 cleanly:
+1. **Spec data** — both DR runs ignored these models. Options:
+   - (a) Hand-seed best-known Canadian Kia/Hyundai showroom specs, mark
+     `verifyPending: true`, flag in commit
+   - (b) Run a focused DR follow-up: "Pull Canadian-market trim/MSRP/range
+     data for 2024–2026 Kia EV9 and 2026 Hyundai Ioniq 9 from
+     kia.ca and hyundaicanada.com showroom + product cards"
+   - **Recommended: (b)**. Spec accuracy matters for OTD math; 5 minute
+     focused query produces clean data vs hand-seeding.
+2. **Trim taxonomies**:
+   - EV9 (Canadian): Light RWD, Light Long Range RWD, Land Long Range AWD,
+     GT-Line AWD (need to verify 2026 trim names)
+   - Ioniq 9: Preferred LR RWD, Preferred LR AWD, Performance/Calligraphy
+     AWD (verify)
+3. **Code changes**:
+   - `src/lib/constants.ts`: extend `MODELS = ["EV6", "Ioniq5", "Ioniq6", "EV9", "Ioniq9"]`
+   - `MODEL_LABEL`: add "Kia EV9" and "Hyundai IONIQ 9"
+   - `MODEL_BRAND`: EV9 → Kia, Ioniq9 → Hyundai
+   - `TRIMS_BY_MODEL`: populate after spec research
+   - `src/lib/types.ts`: model literals are derived from `MODELS` so
+     should auto-update
+   - `src/lib/scoring.ts`: 3-row SUVs may have different freight/PDI rates
+     (EV9 freight is typically higher than EV6); verify per-model
+4. **UI**:
+   - `MIX_COLORS` in `src/app/page.tsx` needs two more entries (EV9 → ?, Ioniq9 → ?)
+   - Per-model snapshot grid currently grids 3-up; with 5 models needs to
+     wrap or shift to 2-up on mobile, 3- or 5-up on desktop
+   - Compare grid still works (already supports any model from the literal)
+5. **EVAP context**: All EV9 trims start ~$59k+ and all Ioniq 9 trims
+   ~$64k+ → none qualify for the $50k EVAP cap. The "trim cliff" doesn't
+   apply within these models, but the cross-model competitor angle does
+   (a $44k post-EVAP Equinox EV is half the price of an EV9 Land AWD).
+
+### Decision point for user:
+Before executing the merge, do you want to:
+- **(A)** Run a focused DR follow-up just for EV9 + Ioniq 9 specs/MSRP
+  (recommended — 5-10 min ChatGPT/Gemini query, clean data) → then merge
+  everything together in one pass.
+- **(B)** Execute the merge now with EV6/Ioniq 5/Ioniq 6 only and add
+  EV9/Ioniq 9 in a follow-up commit once spec data lands.
+- **(C)** Hand-seed EV9/Ioniq 9 specs from public knowledge with
+  `verifyPending: true` and merge all five models now.
+
+Default if no answer: (B). Ship the well-researched 3 models first,
+hold EV9/Ioniq 9 for the next research pass.
+
+
 ## Source-of-truth rules (when sources disagree)
 
 1. **Specs**: ChatGPT wins where it cites the official Kia/Hyundai Canada brochure or product card. Gemini fills gaps (e.g. EV6 2024 Wind RWD specs) where ChatGPT didn't capture.
