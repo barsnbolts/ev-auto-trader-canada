@@ -21,5 +21,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "docs/handoff/superpowers/**", "docs/handoff/sibling-checkouts/**", "docs/handoff/mac-context/**"]
 }
