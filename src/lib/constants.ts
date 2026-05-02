@@ -71,39 +71,7 @@ export const MODEL_BRAND: Record<Model, "Kia" | "Hyundai"> = {
   Ioniq9: "Hyundai",
 };
 
-// Trim catalog — kept literal to power filters and validation. Update when
-// Kia/Hyundai Canada release new MY26 trim names.
-export const TRIMS_BY_MODEL: Record<Model, string[]> = {
-  EV6: ["Light RWD", "Wind RWD", "Wind AWD", "Land AWD", "GT-Line AWD", "GT"],
-  Ioniq5: [
-    "Essential RWD",
-    "Preferred RWD",
-    "Preferred RWD Long Range",
-    "Preferred AWD Long Range",
-    "Limited AWD",
-    "N",
-  ],
-  Ioniq6: [
-    "Preferred RWD",
-    "Preferred RWD Long Range",
-    "Preferred AWD Long Range",
-    "Limited AWD",
-  ],
-  EV9: [
-    "Light RWD",
-    "Light Long Range RWD",
-    "Land Long Range AWD",
-    "GT-Line AWD",
-  ],
-  Ioniq9: [
-    "Preferred Long Range RWD",
-    "Preferred Long Range AWD",
-    "Performance Calligraphy AWD",
-  ],
-};
-
 export const SUPPORTED_YEARS = [2024, 2025, 2026] as const;
-export type Year = (typeof SUPPORTED_YEARS)[number];
 
 // Greater Golden Horseshoe coverage area for the "local" view. Cities here
 // drive the default region filter on the inventory table.

@@ -1,0 +1,40 @@
+{
+  "lastVerified": "2026-05-01",
+  "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+  "notes": "Reasonable Canadian MSRP defaults when data/specs.json is silent for a (model, trim). Phase 3.2 will refresh from OEM configurators (hyundai.ca / kia.ca).",
+  "msrp": {
+    "EV6": {
+      "Light RWD": 47165,
+      "Wind RWD": 50965,
+      "Wind AWD": 53965,
+      "Land AWD": 58965,
+      "GT-Line AWD": 63465,
+      "GT": 79566
+    },
+    "Ioniq5": {
+      "Essential RWD": 47999,
+      "Preferred RWD": 51999,
+      "Preferred RWD Long Range": 53999,
+      "Preferred AWD Long Range": 57999,
+      "Limited AWD": 64999,
+      "N": 78199
+    },
+    "Ioniq6": {
+      "Preferred RWD": 49999,
+      "Preferred RWD Long Range": 53999,
+      "Preferred AWD Long Range": 57999,
+      "Limited AWD": 64999
+    },
+    "EV9": {
+      "Light RWD": 59995,
+      "Light Long Range RWD": 64995,
+      "Land Long Range AWD": 72995,
+      "GT-Line AWD": 79995
+    },
+    "Ioniq9": {
+      "Preferred Long Range RWD": 64999,
+      "Preferred Long Range AWD": 69999,
+      "Performance Calligraphy AWD": 79999
+    }
+  }
+}

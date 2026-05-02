@@ -1,9 +1,23 @@
 # NEXT — work queue split by reasoning intensity
 
-Last updated 2026-05-01 after the high-reasoning audit pass (commit `4a1ef46`).
+Last updated 2026-05-02 after commit `e28585d` (Phase 1 close).
 
 Ian is buying within 1-2 weeks. Everything below is scoped to "ship value
 this week, drop the rest." Order is sequenced for that deadline.
+
+---
+
+## Shipped 2026-05-02
+
+- **Item F (Markup illusion fix)** — replaced by `msrpSource` provenance
+  field on every unit. Trim parser hardened (Ioniq5 Ultimate, Ioniq9
+  Calligraphy/Performance, EV9 GT-Line variations). Year-relaxed spec
+  lookup added. Commit `e28585d`. Outcome: 65/97 false-markup illusion
+  resolved → 55 spec-lookup, 42 default-table, 3 true unknowns.
+- **Item L (VERIFY-trim re-scrape)** — closed. Per BLOCKERS_MEDIUM #4 +
+  the trim parser hardening above, leftover trims now render as
+  "Trim unknown (<title>)" carried by the `msrpSource` chip rather than a
+  VERIFY: prefix.
 
 ---
 

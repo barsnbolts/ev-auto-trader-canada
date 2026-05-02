@@ -234,18 +234,6 @@ export function applicableIncentives(
   });
 }
 
-// Helper exposed for UI: how far over the cap is this unit (0 if eligible)?
-// Uses post-OEM-cash value so it matches the eligibility check.
-export function evapCapDeltaCad(
-  unit: InventoryUnit,
-  evap: Incentive | undefined,
-  applicable: Incentive[] = [],
-): number {
-  if (!evap || evap.transactionValueCapCad === undefined) return 0;
-  const delta = effectivePreTaxValue(unit, applicable) - evap.transactionValueCapCad;
-  return delta > 0 ? +delta.toFixed(2) : 0;
-}
-
 // Component scores are 0-1; the composite is a weighted average rendered as 0-100.
 function priceVsMsrpScore(unit: InventoryUnit): number {
   const ratio = unit.dealerAskingPrice / unit.msrp;

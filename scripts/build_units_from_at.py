@@ -16,6 +16,7 @@ SPECS = ROOT / "data" / "specs.json"
 DEALERS_OUT = ROOT / "data" / "dealers.json"
 UNITS_OUT = ROOT / "data" / "units.json"
 EXISTING_DEALERS = ROOT / "data" / "dealers.json"
+OEM_PRICING = ROOT / "data" / "oem-pricing.json"
 
 # Brand → freight/PDI defaults (from CLAUDE.md / constants.ts)
 FREIGHT = {"Kia": 1995, "Hyundai": 2095}
@@ -172,31 +173,14 @@ def main():
             if cur is None or s["year"] > cur[0]:
                 msrp_lookup_loose[key] = (s["year"], s["msrpCad"])
         # Also fill in common defaults from EVAP-cap-modeling work product
-    # Reasonable MSRP defaults when specs are silent (rough Canadian pricing)
+    # Reasonable MSRP defaults when specs are silent. Sourced from
+    # data/oem-pricing.json so Phase 3.2 (OEM configurator refresh) can
+    # update pricing without touching this script.
+    oem = json.loads(OEM_PRICING.read_text())
     DEFAULT_MSRP = {
-        ("EV6", "Light RWD"): 47165,
-        ("EV6", "Wind RWD"): 50965,
-        ("EV6", "Wind AWD"): 53965,
-        ("EV6", "Land AWD"): 58965,
-        ("EV6", "GT-Line AWD"): 63465,
-        ("EV6", "GT"): 79566,
-        ("Ioniq5", "Essential RWD"): 47999,
-        ("Ioniq5", "Preferred RWD"): 51999,
-        ("Ioniq5", "Preferred RWD Long Range"): 53999,
-        ("Ioniq5", "Preferred AWD Long Range"): 57999,
-        ("Ioniq5", "Limited AWD"): 64999,
-        ("Ioniq5", "N"): 78199,
-        ("Ioniq6", "Preferred RWD"): 49999,
-        ("Ioniq6", "Preferred RWD Long Range"): 53999,
-        ("Ioniq6", "Preferred AWD Long Range"): 57999,
-        ("Ioniq6", "Limited AWD"): 64999,
-        ("EV9", "Light RWD"): 59995,
-        ("EV9", "Light Long Range RWD"): 64995,
-        ("EV9", "Land Long Range AWD"): 72995,
-        ("EV9", "GT-Line AWD"): 79995,
-        ("Ioniq9", "Preferred Long Range RWD"): 64999,
-        ("Ioniq9", "Preferred Long Range AWD"): 69999,
-        ("Ioniq9", "Performance Calligraphy AWD"): 79999,
+        (model, trim): price
+        for model, trims in oem["msrp"].items()
+        for trim, price in trims.items()
     }
 
     # Load existing dealers to preserve hand-curated entries
