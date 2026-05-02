@@ -46,6 +46,15 @@ export const InventoryUnitSchema = z.object({
   exteriorColor: z.string(),
   interiorColor: z.string(),
   msrp: z.number(),                  // base MSRP
+  // Where this MSRP came from. "spec-lookup" = matched (model,year,trim) in
+  // specs.json. "default-table" = fell back to the curated DEFAULT_MSRP map
+  // in build_units_from_at.py (less precise but still reasonable). "asking-
+  // fallback" = no MSRP source at all; we used the dealer's asking price as
+  // a stand-in, which makes any "discount vs MSRP" math meaningless and
+  // inflates dealScore artificially. UI uses this to render confidence
+  // chips and to filter such units out of "Top Deals" on the home page.
+  // Optional for back-compat: rows pre-discriminator parse without it.
+  msrpSource: z.enum(["spec-lookup", "default-table", "asking-fallback"]).optional(),
   freightPdi: z.number(),            // freight + PDI
   dealerAskingPrice: z.number(),     // dealer's listed price (may be MSRP, may be discounted)
   status: UnitStatus,
@@ -262,6 +271,11 @@ export const SnapshotSchema = z.object({
     askingPrice: z.number(),
     daysOnLot: z.number().int().nonnegative().optional(),
     status: UnitStatus,
+    // Added 2026-05-01 to make snapshot diffs survive id changes (id is
+    // now a stable hash; older snapshots used positional ids). Diffing on
+    // listingUrl is the durable identity. Optional for back-compat.
+    listingUrl: z.string().url().optional(),
+    vin: z.string().optional(),
   })),
 });
 export type Snapshot = z.infer<typeof SnapshotSchema>;

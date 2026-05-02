@@ -506,12 +506,20 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                         −{fmtCad(u.msrp - u.dealerAskingPrice)}
                       </div>
                     )}
-                    {u.dealerAskingPrice > u.msrp + 5000 && (
+                    {u.msrpSource === "asking-fallback" && (
                       <div
                         className="text-xxs text-warn"
-                        title="Asking price exceeds MSRP by >$5k. Likely a higher trim mis-mapped to a base trim, or a stale MSRP default. Treat the discount math as suspect until verified on the OEM configurator."
+                        title="Trim parser couldn't confidently bucket this listing. MSRP shown is the asking price (so discount math reads as $0 off). Verify trim and MSRP on the OEM configurator before quoting."
                       >
                         MSRP unverified
+                      </div>
+                    )}
+                    {u.msrpSource === "default-table" && (
+                      <div
+                        className="text-xxs text-fg-subtle"
+                        title="MSRP came from the curated DEFAULT_MSRP table, not specs.json. Reasonable but not authoritative — confirm on the OEM configurator if discount is decisive."
+                      >
+                        MSRP est.
                       </div>
                     )}
                   </td>

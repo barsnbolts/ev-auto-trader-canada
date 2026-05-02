@@ -23,11 +23,13 @@ export default async function Dashboard() {
   const pressure = dealerPressureMap(units, dealers);
   const provinces = provinceRollup(units, dealerById);
 
-  // Filter out units with ask > MSRP + $5k (likely trim-mismatch or stale
-  // DEFAULT_MSRP) — those poison "best deals" with false discount math.
-  // See BLOCKERS_MEDIUM.md item F.
+  // Exclude units whose MSRP we don't trust (trim parser failed → MSRP =
+  // asking price, so any "discount" reading would be artifact, not signal).
+  // The msrpSource field is set per-unit by build_units_from_at.py; rows
+  // marked "asking-fallback" should never appear in best-deal surfaces.
+  // Phase 1.3 replaced an earlier $5k heuristic with this provenance gate.
   const topDeals = [...units]
-    .filter((u) => u.dealerAskingPrice <= u.msrp + 5000)
+    .filter((u) => u.msrpSource !== "asking-fallback")
     .sort((a, b) => b.dealScore - a.dealScore)
     .slice(0, 8);
   const gghCount = units.filter((u) => inGGH(u, dealerById)).length;

@@ -29,6 +29,8 @@ const snapshot = {
     askingPrice: u.dealerAskingPrice,
     daysOnLot: u.daysOnLot,
     status: u.status,
+    listingUrl: u.listingUrl,
+    vin: u.vin,
   })),
 };
 

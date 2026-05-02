@@ -1,6 +1,6 @@
 [
   {
-    "id": "u-at-001",
+    "id": "u-at-fc69e5f7",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -8,6 +8,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 62628,
     "status": "in_stock",
@@ -18,7 +19,26 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD Heated Seats | Heated Wheel | Wireless Ch"
   },
   {
-    "id": "u-at-003",
+    "id": "u-at-ffe7ec19",
+    "model": "EV6",
+    "year": 2025,
+    "trim": "Trim unknown (Kia EV6 W/PREMIUM PKG - Leather Seats)",
+    "drivetrain": "RWD",
+    "exteriorColor": "White",
+    "interiorColor": "Unknown",
+    "msrp": 61214,
+    "msrpSource": "asking-fallback",
+    "freightPdi": 1995,
+    "dealerAskingPrice": 61214,
+    "status": "in_stock",
+    "firstSeen": "2026-05-01",
+    "lastSeen": "2026-05-01",
+    "dealerId": "kia-stratford",
+    "listingUrl": "https://www.autotrader.ca/offers/kia-ev6-w-premium-pkg-leather-seats-electric-white-388f8cba-0205-4a51-8979-513df2be7227",
+    "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 W/PREMIUM PKG - Leather Seats"
+  },
+  {
+    "id": "u-at-cffbb428",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -26,6 +46,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 60441,
     "status": "in_stock",
@@ -36,7 +57,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD w/ Premium Pkg 2700lbs Tow Cap l Smart Li"
   },
   {
-    "id": "u-at-004",
+    "id": "u-at-f3e788cd",
     "model": "EV6",
     "year": 2025,
     "trim": "GT-Line AWD",
@@ -44,6 +65,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 63465,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 55888,
     "status": "in_stock",
@@ -54,7 +76,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 GT-LINE | SAVE $10000 FROM NEW!"
   },
   {
-    "id": "u-at-005",
+    "id": "u-at-ea02ce02",
     "model": "EV6",
     "year": 2025,
     "trim": "Wind RWD",
@@ -62,6 +84,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 50965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 58495,
     "status": "in_stock",
@@ -72,7 +95,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Wind RWD - Ebony Black"
   },
   {
-    "id": "u-at-006",
+    "id": "u-at-3020c405",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -80,6 +103,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 54288,
     "status": "in_stock",
@@ -90,7 +114,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land | Dual-motor AWD | Panoramic Digital Displays"
   },
   {
-    "id": "u-at-007",
+    "id": "u-at-2e0b7893",
     "model": "EV6",
     "year": 2025,
     "trim": "Wind RWD",
@@ -98,6 +122,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 50965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 59458,
     "status": "in_stock",
@@ -108,7 +133,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Wind RWD"
   },
   {
-    "id": "u-at-008",
+    "id": "u-at-b80dc23e",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -116,6 +141,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 59542,
     "status": "in_stock",
@@ -126,7 +152,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD w/ Premium Pkg $3000 CASH REBATE | $2000"
   },
   {
-    "id": "u-at-009",
+    "id": "u-at-ce0de3ee",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -134,6 +160,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 60441,
     "status": "in_stock",
@@ -144,7 +171,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD w/ Premium Pkg 2700lbs Tow Cap l Smart Li"
   },
   {
-    "id": "u-at-010",
+    "id": "u-at-e9594f11",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -152,6 +179,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 56561,
     "status": "demo",
@@ -162,7 +190,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD SPECIAL DEMO 5500$ rabais EV6 LAND AWD 20"
   },
   {
-    "id": "u-at-011",
+    "id": "u-at-3f5f5dd9",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -170,6 +198,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 57292,
     "status": "in_stock",
@@ -180,7 +209,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD w/ Premium Pkg Pwr Liftgate |Adv Safety T"
   },
   {
-    "id": "u-at-012",
+    "id": "u-at-8eb27f8d",
     "model": "EV6",
     "year": 2025,
     "trim": "Wind RWD",
@@ -188,6 +217,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 50965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 57755,
     "status": "in_stock",
@@ -198,7 +228,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 EV6 WIND TA"
   },
   {
-    "id": "u-at-013",
+    "id": "u-at-bc9a1f21",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -206,6 +236,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 51995,
     "status": "in_stock",
@@ -216,7 +247,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 LAND GROUPE PREMIUM"
   },
   {
-    "id": "u-at-014",
+    "id": "u-at-43722df6",
     "model": "EV6",
     "year": 2025,
     "trim": "Wind RWD",
@@ -224,6 +255,7 @@
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
     "msrp": 50965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 53390,
     "status": "in_stock",
@@ -234,7 +266,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Wind | 513 km EV range | Finance from 0% with lylt"
   },
   {
-    "id": "u-at-015",
+    "id": "u-at-16a80261",
     "model": "EV6",
     "year": 2025,
     "trim": "Wind RWD",
@@ -242,6 +274,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 50965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 53542,
     "status": "in_stock",
@@ -252,7 +285,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Wind RWD $3000 CASH REBATE | $2000 DEALER INCENTIV"
   },
   {
-    "id": "u-at-016",
+    "id": "u-at-6e0c1e62",
     "model": "EV6",
     "year": 2025,
     "trim": "Wind RWD",
@@ -260,6 +293,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 50965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 53390,
     "status": "in_stock",
@@ -270,7 +304,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Wind | 513 km EV range | Finance from 0% with lylt"
   },
   {
-    "id": "u-at-017",
+    "id": "u-at-1c1f7921",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -278,6 +312,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 57542,
     "status": "in_stock",
@@ -288,7 +323,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD w/ Premium Pkg $3000 CASH REBATE | $2000"
   },
   {
-    "id": "u-at-018",
+    "id": "u-at-09ced952",
     "model": "EV6",
     "year": 2025,
     "trim": "Wind RWD",
@@ -296,6 +331,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 50965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 52542,
     "status": "in_stock",
@@ -306,7 +342,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Wind RWD $3000 CASH REBATE | $2000 DEALER INCENTIV"
   },
   {
-    "id": "u-at-019",
+    "id": "u-at-7b6f7cb3",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -314,6 +350,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 59298,
     "status": "in_stock",
@@ -324,7 +361,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land AWD"
   },
   {
-    "id": "u-at-020",
+    "id": "u-at-0cebdf90",
     "model": "EV6",
     "year": 2025,
     "trim": "Land AWD",
@@ -332,6 +369,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 58965,
+    "msrpSource": "default-table",
     "freightPdi": 1995,
     "dealerAskingPrice": 63791,
     "status": "in_stock",
@@ -342,7 +380,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV6 Land"
   },
   {
-    "id": "u-at-021",
+    "id": "u-at-e2a48e86",
     "model": "Ioniq5",
     "year": 2025,
     "trim": "N",
@@ -350,6 +388,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 78199,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 72909,
     "status": "in_stock",
@@ -360,7 +399,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 N"
   },
   {
-    "id": "u-at-022",
+    "id": "u-at-c65dc4b6",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -368,6 +407,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 65524,
     "status": "in_stock",
@@ -378,7 +418,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred AWD Long Range Ultimate"
   },
   {
-    "id": "u-at-023",
+    "id": "u-at-0117bcd2",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -386,6 +426,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 65524,
     "status": "in_stock",
@@ -396,7 +437,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred AWD Long Range Ultimate"
   },
   {
-    "id": "u-at-024",
+    "id": "u-at-4ee4f880",
     "model": "Ioniq5",
     "year": 2025,
     "trim": "Preferred RWD",
@@ -404,6 +445,7 @@
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
     "msrp": 51999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 54359,
     "status": "in_stock",
@@ -414,7 +456,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 PREFERRED RWD"
   },
   {
-    "id": "u-at-025",
+    "id": "u-at-7fd2998c",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -422,6 +464,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 57999,
     "status": "in_stock",
@@ -432,7 +475,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred AWD Long Range"
   },
   {
-    "id": "u-at-026",
+    "id": "u-at-912f689a",
     "model": "Ioniq5",
     "year": 2025,
     "trim": "N",
@@ -440,6 +483,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 78199,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 62995,
     "status": "in_stock",
@@ -450,7 +494,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 N BASE | Extended Warranty"
   },
   {
-    "id": "u-at-027",
+    "id": "u-at-cd295e89",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred RWD",
@@ -458,6 +502,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 51999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 59799,
     "status": "in_stock",
@@ -468,7 +513,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred"
   },
   {
-    "id": "u-at-028",
+    "id": "u-at-bdbc6d9d",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred RWD Long Range",
@@ -476,6 +521,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 55499,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 67149,
     "status": "in_stock",
@@ -486,7 +532,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred Long Range w/Ultimate Package"
   },
   {
-    "id": "u-at-029",
+    "id": "u-at-e42edf97",
     "model": "Ioniq5",
     "year": 2025,
     "trim": "Preferred AWD Long Range",
@@ -494,6 +540,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 63999,
     "status": "in_stock",
@@ -504,7 +551,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 N AWD VOLANT SIEGES CHAUFFANTS CAMERA BLUETOOTH"
   },
   {
-    "id": "u-at-030",
+    "id": "u-at-a6bf6537",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -512,6 +559,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 59627,
     "status": "in_stock",
@@ -522,7 +570,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred AWD Long Range"
   },
   {
-    "id": "u-at-031",
+    "id": "u-at-33262cc6",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -530,6 +578,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 59627,
     "status": "in_stock",
@@ -540,7 +589,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred AWD Long Range"
   },
   {
-    "id": "u-at-032",
+    "id": "u-at-89fe1db2",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred RWD Long Range",
@@ -548,6 +597,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 55499,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 68876,
     "status": "in_stock",
@@ -558,7 +608,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred Preferred: Well-equipped with long range"
   },
   {
-    "id": "u-at-033",
+    "id": "u-at-02a31518",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred RWD Long Range",
@@ -566,6 +616,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 55499,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 68876,
     "status": "in_stock",
@@ -576,7 +627,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred Preferred: Well-equipped with long range"
   },
   {
-    "id": "u-at-034",
+    "id": "u-at-ddfdf40c",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred RWD Long Range",
@@ -584,6 +635,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 55499,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 70126,
     "status": "in_stock",
@@ -594,7 +646,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred Preferred: Well-equipped with long range"
   },
   {
-    "id": "u-at-035",
+    "id": "u-at-73103807",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -602,6 +654,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 58450,
     "status": "in_stock",
@@ -612,7 +665,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred AWD Long Range"
   },
   {
-    "id": "u-at-036",
+    "id": "u-at-71fb1e2b",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred RWD Long Range",
@@ -620,6 +673,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 55499,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 56959,
     "status": "in_stock",
@@ -630,7 +684,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred RWD Long Range"
   },
   {
-    "id": "u-at-037",
+    "id": "u-at-d85f2a93",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -638,6 +692,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 58959,
     "status": "in_stock",
@@ -648,7 +703,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred AWD Long Range"
   },
   {
-    "id": "u-at-038",
+    "id": "u-at-5f910c93",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -656,6 +711,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 60209,
     "status": "in_stock",
@@ -666,7 +722,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 Preferred AWD Long Range"
   },
   {
-    "id": "u-at-039",
+    "id": "u-at-18022219",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -674,6 +730,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 66209,
     "status": "in_stock",
@@ -684,7 +741,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 IONIQ 5 PREFERRED AWD LONG RANGE ULTIMATE"
   },
   {
-    "id": "u-at-040",
+    "id": "u-at-445fd6df",
     "model": "Ioniq5",
     "year": 2026,
     "trim": "Preferred AWD Long Range",
@@ -692,6 +749,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 64959,
     "status": "in_stock",
@@ -702,7 +760,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 5 IONIQ 5 PREFERRED AWD LONG RANGE ULTIMATE"
   },
   {
-    "id": "u-at-041",
+    "id": "u-at-80e2cd54",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD",
@@ -710,6 +768,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 49999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 35500,
     "status": "in_stock",
@@ -720,7 +779,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred | Reverse Cam | Heated Seats"
   },
   {
-    "id": "u-at-042",
+    "id": "u-at-ad9bf016",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD",
@@ -728,6 +787,7 @@
     "exteriorColor": "Red",
     "interiorColor": "Unknown",
     "msrp": 49999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 39999,
     "status": "in_stock",
@@ -738,7 +798,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred grande autonomie TI"
   },
   {
-    "id": "u-at-043",
+    "id": "u-at-4822fd01",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -746,6 +806,7 @@
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 56999,
     "status": "in_stock",
@@ -756,7 +817,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Ultimate | LONG RANGE | SUNROOF | LOCAL TRADE IN"
   },
   {
-    "id": "u-at-044",
+    "id": "u-at-973d53fe",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD",
@@ -764,6 +825,7 @@
     "exteriorColor": "Red",
     "interiorColor": "Unknown",
     "msrp": 49999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 60376,
     "status": "in_stock",
@@ -774,7 +836,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred RWD"
   },
   {
-    "id": "u-at-045",
+    "id": "u-at-7f41c176",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred AWD Long Range",
@@ -782,6 +844,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 46584,
     "status": "in_stock",
@@ -792,7 +855,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred AWD Long Range"
   },
   {
-    "id": "u-at-046",
+    "id": "u-at-a1c6fab0",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -800,6 +863,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 39995,
     "status": "in_stock",
@@ -810,7 +874,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 LONG RANGE"
   },
   {
-    "id": "u-at-047",
+    "id": "u-at-7d5c30cd",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -818,6 +882,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 60223,
     "status": "in_stock",
@@ -828,7 +893,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred RWD Long Range"
   },
   {
-    "id": "u-at-048",
+    "id": "u-at-1872f0f9",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD",
@@ -836,6 +901,7 @@
     "exteriorColor": "Red",
     "interiorColor": "Unknown",
     "msrp": 49999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 57990,
     "status": "in_stock",
@@ -846,7 +912,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 PREFERRED"
   },
   {
-    "id": "u-at-049",
+    "id": "u-at-1b8107c7",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -854,6 +920,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 57367,
     "status": "in_stock",
@@ -864,7 +931,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred RWD Long Range"
   },
   {
-    "id": "u-at-050",
+    "id": "u-at-fb37f7f8",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD",
@@ -872,6 +939,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 49999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 58040,
     "status": "in_stock",
@@ -882,7 +950,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 PREFERRED"
   },
   {
-    "id": "u-at-051",
+    "id": "u-at-5cf50690",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -890,6 +958,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 46399,
     "status": "in_stock",
@@ -900,7 +969,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred RWD Long Range"
   },
   {
-    "id": "u-at-052",
+    "id": "u-at-bf9734ac",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred AWD Long Range",
@@ -908,6 +977,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 60799,
     "status": "in_stock",
@@ -918,7 +988,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred AWD Long Range"
   },
   {
-    "id": "u-at-053",
+    "id": "u-at-68e4aa51",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -926,6 +996,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 60799,
     "status": "in_stock",
@@ -936,7 +1007,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred Long Range w/Ultimate Package"
   },
   {
-    "id": "u-at-054",
+    "id": "u-at-7142c172",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred AWD Long Range",
@@ -944,6 +1015,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 48749,
     "status": "demo",
@@ -954,7 +1026,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred Long Range AWD | DEMO YEAR END SAVINGS"
   },
   {
-    "id": "u-at-055",
+    "id": "u-at-f6ff28b6",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -962,6 +1034,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 49745,
     "status": "in_stock",
@@ -972,7 +1045,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred RWD Long Range"
   },
   {
-    "id": "u-at-056",
+    "id": "u-at-a8b0ff98",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -980,6 +1053,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 57149,
     "status": "in_stock",
@@ -990,7 +1064,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred Long Range"
   },
   {
-    "id": "u-at-057",
+    "id": "u-at-979d6e97",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -998,6 +1072,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 41409,
     "status": "in_stock",
@@ -1008,7 +1083,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred RWD Long Range"
   },
   {
-    "id": "u-at-058",
+    "id": "u-at-00257fa9",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD Long Range",
@@ -1016,6 +1091,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 54999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 56164,
     "status": "in_stock",
@@ -1026,7 +1102,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred Long Range"
   },
   {
-    "id": "u-at-059",
+    "id": "u-at-b9a34fb6",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred RWD",
@@ -1034,6 +1110,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 49999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 49194,
     "status": "in_stock",
@@ -1044,7 +1121,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 Preferred"
   },
   {
-    "id": "u-at-060",
+    "id": "u-at-35c3a371",
     "model": "Ioniq6",
     "year": 2025,
     "trim": "Preferred AWD Long Range",
@@ -1052,6 +1129,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 57999,
+    "msrpSource": "default-table",
     "freightPdi": 2095,
     "dealerAskingPrice": 43988,
     "status": "in_stock",
@@ -1062,14 +1140,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 6 AWD PREFERRED L R"
   },
   {
-    "id": "u-at-061",
+    "id": "u-at-1df3368d",
     "model": "EV9",
     "year": 2026,
-    "trim": "Land Long Range AWD",
+    "trim": "GT-Line AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 78995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 68949,
     "status": "demo",
@@ -1080,14 +1159,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 LAND GT-LINE (Winter and All-Season Tires) DEMO UN"
   },
   {
-    "id": "u-at-062",
+    "id": "u-at-5cbf5575",
     "model": "EV9",
     "year": 2025,
-    "trim": "Land Long Range AWD",
+    "trim": "GT-Line AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
-    "msrp": 71995,
+    "msrp": 78995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 64995,
     "status": "in_stock",
@@ -1098,7 +1178,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land GT-Line|AWD|6PASS|RECLINERS|MERIDIAN|3DCAM|+"
   },
   {
-    "id": "u-at-063",
+    "id": "u-at-9d9c8120",
     "model": "EV9",
     "year": 2026,
     "trim": "Light Long Range RWD",
@@ -1106,6 +1186,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 64995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 60500,
     "status": "in_stock",
@@ -1116,14 +1197,34 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Light | 370 KM Range | Finance from 0.99%"
   },
   {
-    "id": "u-at-065",
+    "id": "u-at-3df8e805",
     "model": "EV9",
     "year": 2026,
-    "trim": "Land Long Range AWD",
+    "trim": "Trim unknown (Kia EV9)",
+    "drivetrain": "RWD",
+    "exteriorColor": "Silver",
+    "interiorColor": "Unknown",
+    "msrp": 60493,
+    "msrpSource": "asking-fallback",
+    "freightPdi": 1995,
+    "dealerAskingPrice": 60493,
+    "status": "in_stock",
+    "firstSeen": "2026-05-01",
+    "lastSeen": "2026-05-01",
+    "dealerId": "kia-land-rover-north-vancouver",
+    "listingUrl": "https://www.autotrader.ca/offers/kia-ev9-electric-silver-175adac6-94d5-4c19-b0f3-177c40fb94fa",
+    "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9"
+  },
+  {
+    "id": "u-at-875ec79a",
+    "model": "EV9",
+    "year": 2026,
+    "trim": "GT-Line AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 78995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 81222,
     "status": "in_stock",
@@ -1134,14 +1235,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land Gt-Line"
   },
   {
-    "id": "u-at-066",
+    "id": "u-at-6447e101",
     "model": "EV9",
     "year": 2026,
     "trim": "Land Long Range AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 87894,
     "status": "in_stock",
@@ -1152,14 +1254,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 GT AWD"
   },
   {
-    "id": "u-at-067",
+    "id": "u-at-662ed003",
     "model": "EV9",
     "year": 2026,
     "trim": "Land Long Range AWD",
     "drivetrain": "AWD",
     "exteriorColor": "White",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 73119,
     "status": "in_stock",
@@ -1170,14 +1273,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land AWD Plus Pkg 7-pass - Leather Dual Sunroof 45"
   },
   {
-    "id": "u-at-068",
+    "id": "u-at-2a243f58",
     "model": "EV9",
     "year": 2026,
     "trim": "Land Long Range AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 78691,
     "status": "in_stock",
@@ -1188,7 +1292,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land AWD w/ Premium Package Surround View l Up to"
   },
   {
-    "id": "u-at-069",
+    "id": "u-at-e06c1fed",
     "model": "EV9",
     "year": 2025,
     "trim": "GT-Line AWD",
@@ -1196,6 +1300,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 78995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 62977,
     "status": "in_stock",
@@ -1206,14 +1311,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 GT-Line 4WD AWD"
   },
   {
-    "id": "u-at-070",
+    "id": "u-at-b349f61b",
     "model": "EV9",
     "year": 2026,
     "trim": "Land Long Range AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 79989,
     "status": "in_stock",
@@ -1224,14 +1330,34 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land w/Premium Package"
   },
   {
-    "id": "u-at-072",
+    "id": "u-at-8f937847",
+    "model": "EV9",
+    "year": 2026,
+    "trim": "Trim unknown (Kia EV9)",
+    "drivetrain": "RWD",
+    "exteriorColor": "Green",
+    "interiorColor": "Unknown",
+    "msrp": 81995,
+    "msrpSource": "asking-fallback",
+    "freightPdi": 1995,
+    "dealerAskingPrice": 81995,
+    "status": "in_stock",
+    "firstSeen": "2026-05-01",
+    "lastSeen": "2026-05-01",
+    "dealerId": "kia-west-coast",
+    "listingUrl": "https://www.autotrader.ca/offers/kia-ev9-electric-green-0ea3ef46-8594-4423-8cf5-951a1249251b",
+    "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9"
+  },
+  {
+    "id": "u-at-7aa6ff0e",
     "model": "EV9",
     "year": 2026,
     "trim": "Land Long Range AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 67245,
     "status": "in_stock",
@@ -1242,14 +1368,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 LAND Aurora Black Pearl"
   },
   {
-    "id": "u-at-073",
+    "id": "u-at-48eba4f7",
     "model": "EV9",
     "year": 2026,
-    "trim": "Land Long Range AWD",
+    "trim": "GT-Line AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 78995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 82938,
     "status": "in_stock",
@@ -1260,14 +1387,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land w/ GT-Line Package AWD"
   },
   {
-    "id": "u-at-074",
+    "id": "u-at-41d7b159",
     "model": "EV9",
     "year": 2026,
     "trim": "Land Long Range AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 68441,
     "status": "in_stock",
@@ -1278,14 +1406,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land AWD Remote Start l Nav l Heated/Cooled Seats"
   },
   {
-    "id": "u-at-075",
+    "id": "u-at-6610f4f0",
     "model": "EV9",
     "year": 2026,
-    "trim": "Land Long Range AWD",
+    "trim": "GT-Line AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 78995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 78806,
     "status": "in_stock",
@@ -1296,14 +1425,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 AWD LAND W GT-LINE"
   },
   {
-    "id": "u-at-076",
+    "id": "u-at-6e0127d8",
     "model": "EV9",
     "year": 2026,
     "trim": "Land Long Range AWD",
     "drivetrain": "AWD",
     "exteriorColor": "White",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 66990,
     "status": "in_stock",
@@ -1314,7 +1444,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land w-Plus Package AWD"
   },
   {
-    "id": "u-at-077",
+    "id": "u-at-83c8d0ac",
     "model": "EV9",
     "year": 2025,
     "trim": "Land Long Range AWD",
@@ -1322,6 +1452,7 @@
     "exteriorColor": "Silver",
     "interiorColor": "Unknown",
     "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 56998,
     "status": "in_stock",
@@ -1332,7 +1463,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land w/Premium Package"
   },
   {
-    "id": "u-at-078",
+    "id": "u-at-155ba53d",
     "model": "EV9",
     "year": 2026,
     "trim": "Light RWD",
@@ -1340,6 +1471,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 59995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 59392,
     "status": "in_stock",
@@ -1350,14 +1482,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Light RWD $2000 DEALER INCENTIVE| FINANCE STARTING"
   },
   {
-    "id": "u-at-079",
+    "id": "u-at-8d2fceb5",
     "model": "EV9",
     "year": 2026,
     "trim": "Land Long Range AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
-    "msrp": 72995,
+    "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 74950,
     "status": "in_stock",
@@ -1368,7 +1501,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land w-Plus Package AWD | 7 SEAT | 1K KM | LTHR"
   },
   {
-    "id": "u-at-080",
+    "id": "u-at-63bd1acf",
     "model": "EV9",
     "year": 2025,
     "trim": "Land Long Range AWD",
@@ -1376,6 +1509,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 71995,
+    "msrpSource": "spec-lookup",
     "freightPdi": 1995,
     "dealerAskingPrice": 61770,
     "status": "in_stock",
@@ -1386,7 +1520,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Kia EV9 Land w/Plus Package"
   },
   {
-    "id": "u-at-081",
+    "id": "u-at-28df407c",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Preferred Long Range AWD",
@@ -1394,6 +1528,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 70999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 82825,
     "status": "in_stock",
@@ -1404,14 +1539,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred AWD Ultimate"
   },
   {
-    "id": "u-at-082",
+    "id": "u-at-75b263cb",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range AWD",
+    "trim": "Performance Calligraphy AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
-    "msrp": 70999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 78899,
     "status": "in_stock",
@@ -1422,7 +1558,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred AWD with Ultimate Calligraphy package"
   },
   {
-    "id": "u-at-083",
+    "id": "u-at-74acacec",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Preferred Long Range AWD",
@@ -1430,6 +1566,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 70999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 78158,
     "status": "in_stock",
@@ -1440,7 +1577,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 AWD Luxury Pkg"
   },
   {
-    "id": "u-at-084",
+    "id": "u-at-c07630f8",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Preferred Long Range AWD",
@@ -1448,6 +1585,7 @@
     "exteriorColor": "Silver",
     "interiorColor": "Unknown",
     "msrp": 70999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 69999,
     "status": "in_stock",
@@ -1458,14 +1596,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Luxury AWD"
   },
   {
-    "id": "u-at-085",
+    "id": "u-at-60d9d5a3",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range RWD",
-    "drivetrain": "RWD",
+    "trim": "Performance Calligraphy AWD",
+    "drivetrain": "AWD",
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
-    "msrp": 64999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 83177,
     "status": "in_stock",
@@ -1476,14 +1615,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred + w/Ultimate Calligraphy Package"
   },
   {
-    "id": "u-at-086",
+    "id": "u-at-ccf8b150",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range AWD",
+    "trim": "Performance Calligraphy AWD",
     "drivetrain": "AWD",
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
-    "msrp": 70999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 78399,
     "status": "in_stock",
@@ -1494,7 +1634,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred + AWD w/Ultimate Calligraphy Pkg | LEATH"
   },
   {
-    "id": "u-at-087",
+    "id": "u-at-ae6d7689",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Preferred Long Range RWD",
@@ -1502,6 +1642,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 64999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 78849,
     "status": "in_stock",
@@ -1512,7 +1653,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred w/Luxury"
   },
   {
-    "id": "u-at-088",
+    "id": "u-at-c11ecacb",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Performance Calligraphy AWD",
@@ -1520,6 +1661,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 83899,
     "status": "in_stock",
@@ -1530,7 +1672,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Ultimate Calligraphy AWD Navigation | Headsup Disp"
   },
   {
-    "id": "u-at-089",
+    "id": "u-at-f049c23a",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Performance Calligraphy AWD",
@@ -1538,6 +1680,7 @@
     "exteriorColor": "Green",
     "interiorColor": "Unknown",
     "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 83899,
     "status": "in_stock",
@@ -1548,7 +1691,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Performance Calligraphy AWD Heated / Cooled Seatin"
   },
   {
-    "id": "u-at-090",
+    "id": "u-at-2ee04cc5",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Preferred Long Range AWD",
@@ -1556,6 +1699,7 @@
     "exteriorColor": "Green",
     "interiorColor": "Unknown",
     "msrp": 70999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 78988,
     "status": "in_stock",
@@ -1566,7 +1710,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 ULTIMATE AWD - FIFA OFFICAL PARTNER VEHICLE"
   },
   {
-    "id": "u-at-091",
+    "id": "u-at-67ebc1eb",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Preferred Long Range AWD",
@@ -1574,6 +1718,7 @@
     "exteriorColor": "Black",
     "interiorColor": "Unknown",
     "msrp": 70999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 69989,
     "status": "demo",
@@ -1584,14 +1729,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 PREFERRED LUXURY AWD + DEMO + 11500$ DE RABAIS"
   },
   {
-    "id": "u-at-092",
+    "id": "u-at-14f2900f",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range RWD",
-    "drivetrain": "RWD",
+    "trim": "Performance Calligraphy AWD",
+    "drivetrain": "AWD",
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
-    "msrp": 64999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 86876,
     "status": "in_stock",
@@ -1602,14 +1748,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred + w/Ultimate Calligraphy Package"
   },
   {
-    "id": "u-at-093",
+    "id": "u-at-62424e16",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range AWD",
+    "trim": "Performance Calligraphy AWD",
     "drivetrain": "AWD",
     "exteriorColor": "White",
     "interiorColor": "Unknown",
-    "msrp": 70999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 77988,
     "status": "demo",
@@ -1620,14 +1767,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 PREFERRED + ULTIMATE CALLIGRAPHY AWD - DEMO"
   },
   {
-    "id": "u-at-094",
+    "id": "u-at-da6c0d04",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range RWD",
-    "drivetrain": "RWD",
+    "trim": "Performance Calligraphy AWD",
+    "drivetrain": "AWD",
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
-    "msrp": 64999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 86876,
     "status": "in_stock",
@@ -1638,7 +1786,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred + w/Ultimate Calligraphy Package"
   },
   {
-    "id": "u-at-095",
+    "id": "u-at-18411f32",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Preferred Long Range AWD",
@@ -1646,6 +1794,7 @@
     "exteriorColor": "White",
     "interiorColor": "Unknown",
     "msrp": 70999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 67149,
     "status": "in_stock",
@@ -1656,14 +1805,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred AWD"
   },
   {
-    "id": "u-at-096",
+    "id": "u-at-e58aad2f",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range RWD",
-    "drivetrain": "RWD",
+    "trim": "Performance Calligraphy AWD",
+    "drivetrain": "AWD",
     "exteriorColor": "Blue",
     "interiorColor": "Unknown",
-    "msrp": 64999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 82977,
     "status": "in_stock",
@@ -1674,14 +1824,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred + w/Ultimate Calligraphy Package"
   },
   {
-    "id": "u-at-097",
+    "id": "u-at-1153509f",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range AWD",
+    "trim": "Performance Calligraphy AWD",
     "drivetrain": "AWD",
     "exteriorColor": "White",
     "interiorColor": "Unknown",
-    "msrp": 70999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 84990,
     "status": "in_stock",
@@ -1692,14 +1843,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred + AWD w/Ultimate Calligraphy Pkg"
   },
   {
-    "id": "u-at-098",
+    "id": "u-at-1dc3cedb",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range RWD",
-    "drivetrain": "RWD",
+    "trim": "Performance Calligraphy AWD",
+    "drivetrain": "AWD",
     "exteriorColor": "White",
     "interiorColor": "Unknown",
-    "msrp": 64999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 83770,
     "status": "in_stock",
@@ -1710,7 +1862,7 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 Preferred + w/Ultimate Calligraphy Package HTD/AC"
   },
   {
-    "id": "u-at-099",
+    "id": "u-at-11a53352",
     "model": "Ioniq9",
     "year": 2026,
     "trim": "Preferred Long Range RWD",
@@ -1718,6 +1870,7 @@
     "exteriorColor": "Grey",
     "interiorColor": "Unknown",
     "msrp": 64999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 78799,
     "status": "in_stock",
@@ -1728,14 +1881,15 @@
     "notes": "Auto-imported from AutoTrader 2026-05-01. Title: Hyundai IONIQ 9 PREFERRED"
   },
   {
-    "id": "u-at-100",
+    "id": "u-at-7bc72c89",
     "model": "Ioniq9",
     "year": 2026,
-    "trim": "Preferred Long Range RWD",
-    "drivetrain": "RWD",
+    "trim": "Performance Calligraphy AWD",
+    "drivetrain": "AWD",
     "exteriorColor": "White",
     "interiorColor": "Unknown",
-    "msrp": 64999,
+    "msrp": 79999,
+    "msrpSource": "spec-lookup",
     "freightPdi": 2095,
     "dealerAskingPrice": 81738,
     "status": "in_stock",
