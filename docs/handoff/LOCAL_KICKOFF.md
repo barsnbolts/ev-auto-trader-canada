@@ -1,70 +1,92 @@
-# Cloud Kickoff Prompt — extra-high reasoning, planning + pre-work
+# Local Kickoff Prompt — Mac Claude Code, extra-high reasoning
 
-Designed for a Claude cloud agent the user monitors from phone + Mac
-app. Pulls everything fresh from GitHub, including ~3.8GB of sibling
-working-copy mirrors under `docs/handoff/sibling-checkouts/` that
-preserve every other EV-related folder from the user's Mac. Light on
-guardrails — trust your judgment.
+For a fresh Mac Claude Code session running locally against
+`~/ev-auto-trader-canada` on extra-high reasoning. Direct filesystem
+access to everything: the live repo, the 3.8GB of mirrored sibling
+working copies under `docs/handoff/sibling-checkouts/`, AND the
+original Mac source paths (`~/.claude/plans/`, `~/Documents/Codex/`,
+`~/Documents/Claude/Projects/EV dashboard/`, etc.). Full Mac MCP suite
+is available — Chrome, Apify, scheduled-tasks — so M0, M2, and M11 are
+in scope.
 
-Mirror sha at the time this prompt was authored: `a2019b1` on
+Mirror sha at the time this prompt was authored: `7341be3` on
 `claude/verify-environment-setup-oTu3S`.
 
 ---
 
 ```
-You are the planning + heavy-lifting pass for the EV Auto Trader Canada project, running in the cloud on extra-high reasoning. The user is monitoring you from a phone, so post a clear one-liner to chat at every milestone (started, finished reading X, finished planning M-task Y, committing/pushing, done).
+You are the planning + heavy-lifting pass for the EV Auto Trader Canada project, running locally on the user's Mac in Claude Code on extra-high reasoning. You have direct filesystem access — the live repo at ~/ev-auto-trader-canada, the 3.8GB of mirrored sibling working copies under docs/handoff/sibling-checkouts/, and every original Mac source path. Use whichever is freshest.
 
-## Bootstrap — pull everything fresh
+## Bootstrap
 
-1. Clone or update barsnbolts/ev-auto-trader-canada at branch claude/verify-environment-setup-oTu3S. HEAD should be a2019b1 or newer. The repo is ~3.8GB because docs/handoff/sibling-checkouts/ contains full working-copy mirrors of every EV-related folder that lived on the user's Mac. A shallow clone is fine.
-2. Run `npm install` and `npm run predeploy` (typecheck + Next build) to confirm the live src/ is healthy. Report any failures.
-3. Read this map of what's in the repo, then dive in:
-     docs/handoff/CLOUD_KICKOFF.md       — this file
-     docs/handoff/SANDBOX_README.md      — sandbox/cloud limits + reading order
-     docs/handoff/PLAN_M0_M12_RECONSTRUCTED.md
-     docs/handoff/PLAN_M0_M12_AUTHORITATIVE.md
-     docs/handoff/SANDBOX_LIMITS.md
-     docs/handoff/mac-context/plans/you-are-continuing-the-shiny-pixel.md   ← original project brief
-     docs/handoff/mac-context/transcripts/3c6bf353-…jsonl                   ← latest session transcript
-     docs/handoff/superpowers/                                              ← full superpowers skills mirrored locally
-     docs/handoff/sibling-checkouts/                                        ← every other EV folder from the user's Mac
-     SESSION_HANDOFF_2026-05-01.md, REPLAN_BRIEF.md, OVERNIGHT_SUMMARY.md, MEDIUM_NEXT.md, NEXT.md, BLOCKERS_MEDIUM.md, LOW_NEXT.md
-4. Skim docs/handoff/sibling-checkouts/ enough to understand history. There are 8 sibling mirrors:
-     - claude-projects--EV-dashboard/        (3.2G — the original Tauri+Vite desktop dashboard, pre-Next.js)
-     - codex--EV-dashboard/                  (295M — native-app-work iteration)
-     - codex-2026-04-21-is-it-continuing-the-ev-auto/  (304M — Swift / SwiftUI experiment)
-     - codex-2026-04-21-i-want--ev-auto-trader-canada/ (208K — partial scaffold)
-     - codex-2026-05-01/                     (2.1M — recent codex sessions on hyundai/kia EV)
-     - transcripts--ev-dashboard/            (8.1M — claude.ai transcripts from the Tauri era)
-     - transcripts--ev-dashboard-worktree/   (29M — worktree transcripts)
-     - library-app-support--EVAutoTraderCanada/  (112K — Mac app runtime data)
-   These are READ-ONLY snapshots. You may pull useful context (data shapes, prior decisions, snapshots, MSRP tables, etc.) into the live project, but do NOT try to merge their git histories or restart their toolchains.
+1. cd ~/ev-auto-trader-canada && git fetch --all --prune && git pull --ff-only. HEAD should be 7341be3 or newer. Branch must be claude/verify-environment-setup-oTu3S.
+2. npm install && npm run predeploy. Report any failures.
+3. List the MCPs available in this session and confirm Chrome (mcp__Claude_in_Chrome__*), Apify (mcp__Apify__*), and scheduled-tasks (mcp__scheduled-tasks__create_scheduled_task) are present. They should be — this is the Mac app. Note any that are missing.
 
-## Loose rules (judgment beats checklist)
+## What's where
 
-- Working branch: claude/verify-environment-setup-oTu3S. Don't push to main. Don't force-push shared branches.
-- `npm run predeploy` must pass before any push to the working branch.
+**Live repo (do real work here):** ~/ev-auto-trader-canada/{src,scripts,data,docs,...}.
+
+**Frozen mirrors under docs/handoff/sibling-checkouts/** — read-only snapshots of every other EV-related folder from the user's Mac (committed wholesale, build junk and all). Eight of them, 3.8G total:
+  - claude-projects--EV-dashboard/                3.2G  original Tauri+Vite desktop dashboard, pre-Next.js
+  - codex-2026-04-21-is-it-continuing-the-ev-auto/ 304M  Swift / SwiftUI iteration
+  - codex--EV-dashboard/                          295M  native-app-work iteration
+  - transcripts--ev-dashboard-worktree/            29M  worktree transcripts (Tauri era)
+  - transcripts--ev-dashboard/                    8.1M  Tauri-era claude.ai transcripts
+  - codex-2026-05-01/                             2.1M  recent codex Hyundai/Kia EV sessions
+  - codex-2026-04-21-i-want--ev-auto-trader-canada/ 208K  partial scaffold
+  - library-app-support--EVAutoTraderCanada/      112K  Mac app runtime data
+Mine these for prior decisions, snapshots, MSRP tables, data shapes, screenshot evidence — but do NOT try to merge their git histories or restart their toolchains. Inner .git/ dirs were renamed to _git_archive/ so the parent git treats them as plain files; if you want to inspect a sibling's history, do it locally with a temporary clone, don't touch the renames.
+
+**Original Mac sources (still live — prefer these for currency):**
+  - ~/.claude/plans/                                                     user's plan docs (mirrored to docs/handoff/mac-context/plans/, but originals may have updates)
+  - ~/.claude/projects/-Users-ianmcadam-ev-auto-trader-canada/           live transcript .jsonl for THIS project
+  - ~/Documents/Claude/Projects/EV dashboard/                            live Tauri dashboard (the 3.2G mirror is a snapshot of this)
+  - ~/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/           live Swift experiment
+  - ~/Documents/Codex/2026-05-01/                                        recent codex notes
+  - ~/Library/Application Support/EVAutoTraderCanada/                    Mac app runtime data (live)
+  - ~/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/  live superpowers skill content (mirror at docs/handoff/superpowers/)
+
+You may read freely from these original paths. Do NOT write to them — write only inside ~/ev-auto-trader-canada/.
+
+**Reading order before any planning:**
+  - docs/handoff/SANDBOX_README.md
+  - docs/handoff/PLAN_M0_M12_RECONSTRUCTED.md
+  - docs/handoff/PLAN_M0_M12_AUTHORITATIVE.md
+  - docs/handoff/SANDBOX_LIMITS.md
+  - ~/.claude/plans/you-are-continuing-the-shiny-pixel.md   (live original)
+  - SESSION_HANDOFF_2026-05-01.md, REPLAN_BRIEF.md, OVERNIGHT_SUMMARY.md, MEDIUM_NEXT.md, NEXT.md, BLOCKERS_MEDIUM.md, LOW_NEXT.md
+  - Tail of ~/.claude/projects/-Users-ianmcadam-ev-auto-trader-canada/3c6bf353-…jsonl
+
+## Loose rules
+
+- Working branch: claude/verify-environment-setup-oTu3S. Don't push to main, don't force-push.
+- `npm run predeploy` must pass before any push.
 - Apify allowed up to $30 cumulative; ask before first run.
-- If a tool/MCP you need isn't available in this cloud environment, mark it BLOCKED and move on — don't improvise dangerous substitutes.
-- Use TodoWrite to keep the human in the loop. One in_progress at a time is preferred but not enforced.
+- Write only inside ~/ev-auto-trader-canada/. The original Mac paths above are read-only.
+- TodoWrite live, one in_progress preferred.
 
-## Your mission this session
+## Mission this session
 
-Spend the extra-high budget on thinking, research, and design. Produce a `docs/handoff/EXECUTION_PLAN_<YYYY-MM-DD>.md` that turns each remaining M-task (M0, M2, M3, M4, M6, M9, M10, M11, M12) into a concrete work order — files touched with line ranges, call-site maps from grep, diff sketches, verification commands, edge cases, and a clear status (READY / BLOCKED-needs-Mac / DONE-this-session). The follow-up session will be on plain reasoning and should be able to execute purely from your plan.
+Spend the extra-high budget on thinking, research, and design. Produce `docs/handoff/EXECUTION_PLAN_<YYYY-MM-DD>.md` that turns each remaining M-task (M0, M2, M3, M4, M6, M9, M10, M11, M12) into a concrete work order — files touched with line ranges, call-site maps from grep, diff sketches, verification commands, edge cases, and a clear status (READY / DONE-this-session / BLOCKED-with-reason). The follow-up session will run on plain medium reasoning and execute purely from your plan.
 
-Also do the safe-to-pre-do work yourself:
+Pre-do as much safe work as you can during this session, since you have full Mac access:
 
-- Write `docs/LEASEBUSTERS_PROBE.md` (M10 Phase A — pure documentation).
-- Run Exa research for M9 (heatpump availability per model/trim) and M12 (OEM MSRP refresh). Save raw findings under `docs/handoff/research/`. Decide where the data is unambiguous; flag where it isn't.
-- For M4 (cookie migration) and M6 (file rename): grep the call sites and put complete file:line lists in the EXECUTION_PLAN so the next session doesn't have to re-discover them.
-- M0/M2/M11 are likely BLOCKED in cloud (they need Chrome MCP, Apify MCP, scheduled-tasks MCP). Document the exact procedure each needs so a Mac session can drop in and execute.
-- Anything else you can fully ship without judgment risk — do it. Commit/push frequently, descriptive messages, predeploy gate respected.
+- M0 [HIGH] — run the Chrome MCP GraphQL probe live. Install the fetch+XHR hook BEFORE first navigation. Trigger pagination via filter change AND `rcp=` param AND Display dropdown. Save raw captures to docs/handoff/research/M0_graphql_<date>.json + a one-page interpretation in docs/handoff/research/M0_findings_<date>.md. Decision: "GraphQL usable" or "GraphQL unusable, fall through to M3".
+- M2 [HIGH] — run a tiny Apify sample (1 page per province per make, ON+H/K only: Ioniq 5/6/9 + Kia EV6/EV9/Niro EV) to confirm shape. Throttle 3-5s/page + 30s gap between provinces. Save to docs/handoff/research/M2_sample_<date>.json. Stay well under $5 cumulative for the sample; ask before any larger run.
+- M9 — Exa research on heatpump availability per Hyundai/Kia model + trim. Save raw notes under docs/handoff/research/M9_heatpump_<date>.md. Confidence=Low → leave hasHeatPump null in the eventual data fill.
+- M12 [HIGH] — Exa-first OEM MSRP research. Chrome MCP fallback is fine for ambiguous trims. Save under docs/handoff/research/M12_msrp_<date>.md. Mark staleSince for any trim that can't be resolved.
+- M10 [HIGH] Phase A — write docs/LEASEBUSTERS_PROBE.md outright (documentation only). Then PAUSE M10; Phase B/C still need explicit go-ahead from the user.
+- M11 — draft the exact `mcp__scheduled-tasks__create_scheduled_task` call as a script in the EXECUTION_PLAN. Adopt simple-git-hooks for typecheck pre-commit. You may register the cron during planning if confidence is high; otherwise leave it for the medium session.
+- M4 [HIGH] (cookie migration) and M6 (file rename) — grep every call/import site and embed the full file:line lists in the EXECUTION_PLAN. Don't ship the edits yet; medium does the implementation under your guidance.
+- M3 — design the snapshot-diff daysOnMarket derivation. Skip if M0 found daysOnMarket; otherwise document the algorithm precisely (snapshot retention, edge cases, test plan). Implementation can wait for medium.
+- Anything else genuinely mechanical and low-risk — ship it. Commit/push frequently with descriptive messages, predeploy gate respected.
 
-When you're done, write `docs/handoff/EXECUTION_KICKOFF_<YYYY-MM-DD>.md` containing the paste-ready prompt for the next session and post the path to chat.
+When done, write docs/handoff/EXECUTION_KICKOFF_<YYYY-MM-DD>.md with a paste-ready prompt for the follow-up medium-reasoning session, then post the path to chat.
 
 ## First action
 
-1. Post: "Cloud planning pass started, HEAD = <sha>".
-2. Run predeploy; report result.
-3. Build a TodoWrite with `[validate-repo, read-context, plan-M3, plan-M4, plan-M6, plan-M9, plan-M10A, plan-M11, plan-M12, plan-M0, plan-M2, write-EXECUTION_PLAN, write-EXECUTION_KICKOFF]` and start.
+1. Post: "Local planning pass started, HEAD = <sha>, MCPs available: <Chrome / Apify / scheduled-tasks confirmed?>".
+2. Run predeploy and report.
+3. Build a TodoWrite with [validate-repo, read-context, plan-M3, plan-M4, plan-M6, plan-M9, plan-M10A, plan-M11, plan-M12, probe-M0, sample-M2, write-EXECUTION_PLAN, write-EXECUTION_KICKOFF] and start. Take your time on extra-high — this session is paying for the next one.
 ```
