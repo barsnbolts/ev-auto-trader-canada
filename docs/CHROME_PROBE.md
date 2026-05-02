@@ -84,14 +84,65 @@ the new client just produces that file with full per-listing fields.
 | No JSON endpoint visible — page is server-rendered HTML | Skip to Apify (Phase 2.2) |
 | `daysOnMarket` not present in response | Apify still needed for that field; partial JSON win |
 
-## Found endpoint
+## Found endpoint (probed 2026-05-01)
 
-(Filled in after the probe runs.)
+**Best path is the SSR HTML payload, not a JSON endpoint.**
+
+Every search-results page embeds the full first-page payload in
+`<script id="__NEXT_DATA__">` as JSON:
 
 ```
-URL pattern:
-Method:
-Required headers:
-Response shape excerpt:
-Notes:
+URL pattern: https://www.autotrader.ca/cars/<make>/<model>/?prv=<Province>&rcp=<page>
+Method: GET (plain HTML)
+Required headers: standard browser UA; no CSRF, no auth
+Payload location: document.getElementById('__NEXT_DATA__').textContent
+Payload shape: __NEXT_DATA__.props.pageProps.listings[] (20/page) +
+  numberOfResults + numberOfPages
+Per-listing keys: id, identifier, crossReferenceId, url, price{},
+  vehicle{make,model,variant,modelYear,mileageInKm,fuel,transmission},
+  vehicleDetails (numeric-keyed array), seller{companyName,id,phones,links},
+  location{provinceCode,zip,city,street,distanceToSearchLocationInKm},
+  statistics{leadsRange}, tracking{firstRegistration,...}, images, ocsImagesA
+```
+
+**Critical gap:** `daysOnMarket` is NOT in the SSR payload. The only
+listing-age signal is `statistics.leadsRange` (a leads-count bucket, not
+days). `tracking.firstRegistration` is the vehicle's date of first
+registration with the province, NOT the listing date.
+
+**Two GraphQL POST endpoints also fire on page load:**
+- `https://listing-search.api.autoscout24.com/graphql` (200)
+- `https://www.autotrader.ca/listing-search-api/graphql` (200)
+
+These may carry `daysOnMarket` in their responses but request bodies
+weren't captured in the probe (would need pagination trigger to fire a
+fresh fetch with the hook installed). Worth a follow-up probe before
+falling through to Apify if `daysOnMarket` is the only missing field.
+
+## Implications
+
+- **Wins:** dealer phone (`seller.phones`), province + zip + city + street,
+  exact mileage, price, vehicle make/model/year/variant/fuel — all in the
+  SSR HTML. Kills the per-listing Imperva problem entirely.
+- **Loss:** `daysOnMarket` still missing. Two ways forward:
+  1. Probe the GraphQL response bodies (cheap, 5 min) — might have it
+  2. Derive from snapshot diffs: stable IDs are already shipped; first-seen
+     date per `identifier` becomes daysOnMarket(today) = today - first_seen
+- **Next step:** Write `scripts/scrape_search_json.py` to fetch the search
+  HTML, extract `__NEXT_DATA__`, and emit `/tmp/at_listings.json` in the
+  same shape `build_units_from_at.py` already consumes.
+
+## Snippet — minimal extractor
+
+```python
+import json, re, requests
+HEADERS = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+           "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"}
+url = "https://www.autotrader.ca/cars/hyundai/ioniq+5/?prv=Ontario&rcp=15"
+html = requests.get(url, headers=HEADERS, timeout=30).text
+m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', html, re.S)
+nd = json.loads(m.group(1))
+listings = nd["props"]["pageProps"]["listings"]  # 20 per page
+total = nd["props"]["pageProps"]["numberOfResults"]
+pages = nd["props"]["pageProps"]["numberOfPages"]
 ```
