@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/CalculatorsTests.build/primary.swiftdeps"
+  },
+  "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/Tests/CalculatorsTests/CalculatorTests.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/CalculatorsTests.build/CalculatorTests.d",
+    "object": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/CalculatorsTests.build/CalculatorTests.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/CalculatorsTests.build/CalculatorTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/CalculatorsTests.build/CalculatorTests.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/CalculatorsTests.build/CalculatorTests.dia"
+  }
+}

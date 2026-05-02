@@ -1,0 +1,20 @@
+{
+  "name": "ev-auto-trader-canada-local",
+  "interface": {
+    "displayName": "EV Auto Trader Canada Local"
+  },
+  "plugins": [
+    {
+      "name": "caveman-skill",
+      "source": {
+        "source": "local",
+        "path": "./plugins/caveman-skill"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

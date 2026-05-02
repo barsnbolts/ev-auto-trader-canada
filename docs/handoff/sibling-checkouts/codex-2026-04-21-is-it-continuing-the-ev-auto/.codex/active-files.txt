@@ -1,0 +1,8 @@
+README.md
+Sources/UIComponents/ContentView.swift
+Sources/UIComponents/MenuBarStatusView.swift
+Sources/UIComponents/SidebarView.swift
+Sources/UIComponents/VehicleDetailView.swift
+SOURCE_REGISTRY.md
+TASK_BOARD.md
+LOW_REASONING_RUNBOOK.md

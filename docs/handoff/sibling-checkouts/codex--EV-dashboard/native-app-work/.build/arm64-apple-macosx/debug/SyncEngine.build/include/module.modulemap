@@ -1,0 +1,3 @@
+module SyncEngine {
+    header "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/SyncEngine.build/include/SyncEngine-Swift.h"
+}

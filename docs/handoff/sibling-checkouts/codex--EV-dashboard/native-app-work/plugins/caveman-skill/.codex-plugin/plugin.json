@@ -1,0 +1,33 @@
+{
+  "name": "caveman-skill",
+  "version": "0.1.0",
+  "description": "Repo-local Caveman skill stack for terse output and compact context handoffs in the Hyundai/Kia Mac deal leverage dashboard.",
+  "author": {
+    "name": "Ian McAdam + Codex",
+    "email": "local@example.invalid",
+    "url": "https://github.com/barsnbolts"
+  },
+  "homepage": "https://github.com/barsnbolts/ev-auto-trader-canada",
+  "repository": "https://github.com/barsnbolts/ev-auto-trader-canada",
+  "license": "MIT",
+  "keywords": ["caveman", "low-reasoning", "swiftui", "ev", "deal-leverage"],
+  "skills": "./skills/",
+  "scripts": "./scripts/",
+  "interface": {
+    "displayName": "Caveman Skill",
+    "shortDescription": "Terse output plus compact context handoffs.",
+    "longDescription": "Project-local Caveman skill stack based on JuliusBrussee/caveman: terse communication, compact context artifacts, and verification-first low-token follow-up work.",
+    "developerName": "Ian McAdam + Codex",
+    "category": "Productivity",
+    "capabilities": ["Interactive", "Write"],
+    "websiteURL": "https://github.com/barsnbolts/ev-auto-trader-canada",
+    "privacyPolicyURL": "https://openai.com/policies/row-privacy-policy/",
+    "termsOfServiceURL": "https://openai.com/policies/row-terms-of-use/",
+    "defaultPrompt": [
+      "Run the next low task from TASK_BOARD.md.",
+      "Use caveman mode and verify the Swift build.",
+      "Compact context before continuing."
+    ],
+    "brandColor": "#44546A"
+  }
+}

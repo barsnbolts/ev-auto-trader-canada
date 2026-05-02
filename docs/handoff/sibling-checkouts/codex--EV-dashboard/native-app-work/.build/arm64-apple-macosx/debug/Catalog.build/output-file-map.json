@@ -1,0 +1,19 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/primary.swiftdeps"
+  },
+  "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/Sources/Catalog/CatalogStore.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/CatalogStore.d",
+    "object": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/CatalogStore.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/CatalogStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/CatalogStore.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/CatalogStore.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/Sources/Catalog/InventoryStore.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/InventoryStore.d",
+    "object": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/InventoryStore.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/InventoryStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/InventoryStore.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Catalog.build/InventoryStore.dia"
+  }
+}

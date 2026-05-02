@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/PersistenceTests.build/primary.swiftdeps"
+  },
+  "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/Tests/PersistenceTests/PersistenceTests.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/PersistenceTests.build/PersistenceTests.d",
+    "object": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/PersistenceTests.build/PersistenceTests.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/PersistenceTests.build/PersistenceTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/PersistenceTests.build/PersistenceTests.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/PersistenceTests.build/PersistenceTests.dia"
+  }
+}

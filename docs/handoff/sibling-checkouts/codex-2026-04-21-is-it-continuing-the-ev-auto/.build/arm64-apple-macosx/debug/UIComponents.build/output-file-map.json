@@ -1,0 +1,61 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/primary.swiftdeps"
+  },
+  "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/Sources/UIComponents/CompareView.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/CompareView.d",
+    "object": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/CompareView.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/CompareView~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/CompareView.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/CompareView.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/Sources/UIComponents/ContentView.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ContentView.d",
+    "object": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ContentView.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ContentView~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ContentView.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ContentView.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/Sources/UIComponents/LeverageDashboardView.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/LeverageDashboardView.d",
+    "object": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/LeverageDashboardView.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/LeverageDashboardView~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/LeverageDashboardView.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/LeverageDashboardView.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/Sources/UIComponents/MenuBarStatusView.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/MenuBarStatusView.d",
+    "object": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/MenuBarStatusView.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/MenuBarStatusView~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/MenuBarStatusView.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/MenuBarStatusView.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/Sources/UIComponents/ReviewQueueView.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ReviewQueueView.d",
+    "object": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ReviewQueueView.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ReviewQueueView~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ReviewQueueView.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/ReviewQueueView.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/Sources/UIComponents/SettingsView.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SettingsView.d",
+    "object": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SettingsView.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SettingsView.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/Sources/UIComponents/SidebarView.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SidebarView.d",
+    "object": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SidebarView.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SidebarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SidebarView.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/SidebarView.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/Sources/UIComponents/VehicleDetailView.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/VehicleDetailView.d",
+    "object": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/VehicleDetailView.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/VehicleDetailView~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/VehicleDetailView.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/2026-04-21-is-it-continuing-the-ev-auto/.build/arm64-apple-macosx/debug/UIComponents.build/VehicleDetailView.dia"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "": {
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/primary.swiftdeps"
+  },
+  "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/Sources/Calculators/ChargingCalculator.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/ChargingCalculator.d",
+    "object": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/ChargingCalculator.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/ChargingCalculator~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/ChargingCalculator.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/ChargingCalculator.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/Sources/Calculators/LeverageCalculator.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/LeverageCalculator.d",
+    "object": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/LeverageCalculator.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/LeverageCalculator~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/LeverageCalculator.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/LeverageCalculator.dia"
+  },
+  "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/Sources/Calculators/RangeCalculator.swift": {
+    "dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/RangeCalculator.d",
+    "object": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/RangeCalculator.swift.o",
+    "swiftmodule": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/RangeCalculator~partial.swiftmodule",
+    "swift-dependencies": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/RangeCalculator.swiftdeps",
+    "diagnostics": "/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/Calculators.build/RangeCalculator.dia"
+  }
+}
