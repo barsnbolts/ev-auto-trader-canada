@@ -1,0 +1,7 @@
+Source / Tool	Blocker	Current Treatment	Next Action
+MarketCheck API	No user-owned free API key connected.	Logged as BLOCKED; no calls consumed.	Create/connect free key, then test 100-mile radius inventory seed searches.
+Orleans Kia EV6 VDP	Page says Sold and Firecrawl did not expose MSRP.	Rejected from final INVENTORY; retained as benchmark/rejected row.	Find active Canadian EV6 dealer VDP with VIN, visible MSRP, and price.
+Ontario Hyundai IONIQ 9 VDP	Dealer is Ontario, California, not Ontario, Canada.	Rejected as country mismatch; retained as Firecrawl false-positive benchmark.	Use Canadian dealer addresses/domains before final inventory acceptance.
+Aggregator snippets	Not final dealer/OEM source evidence.	Discovery only; rejected unless public dealer/OEM VDP verifies VIN and price.	Follow snippets to dealer/OEM source page and re-validate.
+Kia Canada AEM specs pages	Large JS/AEM payloads; row-level extraction not complete.	Official source anchors only where exact fields were not parsed.	Use targeted extraction, not broad crawl.
+Crawlee local runner	Dependency check/setup not yet performed.	Queued as free/open-source extraction candidate.	Run Cheerio-first/Playwright-fallback sample after local setup.

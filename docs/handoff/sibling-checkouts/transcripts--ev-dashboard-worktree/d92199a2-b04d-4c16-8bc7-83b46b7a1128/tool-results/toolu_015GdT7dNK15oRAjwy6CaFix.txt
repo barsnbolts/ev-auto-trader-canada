@@ -1,0 +1,826 @@
+User has approved your plan. You can now start coding. Start with updating your todo list if applicable
+
+Your plan has been saved to: /Users/ianmcadam/.claude/plans/this-project-was-being-gentle-adleman.md
+You can refer back to it if needed during implementation.
+
+## Approved Plan (edited by user):
+# EV Dashboard — full game plan to a purchase-ready, mom-usable, map-and-trip-planning Mac app
+
+---
+# DEEP EXECUTION PLAN — Clusters D through G
+*Optimized for autonomous Opus 4.7 extended-reasoning execution.*
+*High-reasoning value: pre-made decisions + known gotchas + integration points + acceptance criteria.*
+*Low-value in this doc: code templates (reasoning generates better code cold).*
+
+---
+
+## SESSION START PROTOCOL
+1. Read `.resume.md` (current stage) + `.queue_top3.md` (top items)
+2. Write cluster spec (`specs/cluster-X-*.md`) if not present — Ian reads it
+3. Execute full cluster, milestone at each item, deliver recap at cluster boundary
+
+---
+
+## 🟢 DECISIONS ALREADY MADE (do not re-deliberate)
+
+| Decision | Choice | Reason |
+|---|---|---|
+| Physics hot render path | Stay TypeScript (sync) in CompareView/VehicleRow | Tauri IPC async would cause render flicker. No perceptible perf win at 20 vehicles. |
+| Rust plugin usage | Trip solver (Cluster E) + golden-value validation (D0) | That's where native compute actually matters |
+| Map library | Leaflet (no key) as base; MapKit JS as upgrade if `VITE_APPLE_MAPKIT_TOKEN` | Blocks nothing |
+| Route engine | Self-built first (`plan_trip` Rust command); ABRP as upgrade if key provided | E0 research may change this |
+| Range rings | Leaflet `L.circle(center, {radius: km*1000})` — Leaflet takes meters | Correct unit |
+| VEHICLE_COLORS | 4-color array by compareIds index; consistent across rings + tray chips | Visual coherence |
+| Persist schema key | `ev-store-v1` (Cluster C set this) | Don't change without migrate function |
+| Mom mode vocabulary | `src/lib/labels.ts` dictionary: geek term → plain term | Single source of truth |
+| iZEV wizard | Off by default (scaffold only); drift monitor (B5) flags when to enable | iZEV paused in 2026 |
+
+---
+
+## ⚠️ KNOWN GOTCHAS (can't be reasoned into from scratch)
+
+- **Leaflet icon path in Vite:** must call `delete L.Icon.Default.prototype._getIconUrl` + `L.Icon.Default.mergeOptions({iconUrl, shadowUrl})` at module load or markers show broken images.
+- **Leaflet SSR:** not relevant (Tauri/Vite), but wrap in `useEffect` with `if (typeof window !== 'undefined')` guard anyway.
+- **Tauri `include_str!`:** use `include_str!("../../src/data/seed.json")` relative to the Rust file's location. This embeds seed.json at compile time — no runtime file I/O needed.
+- **`cargo test` in milestone.py:** add as step 1.5, after `tsc`, before `vitest`. Command: `cargo test --manifest-path src-tauri/Cargo.toml`
+- **Tauri build — Apple Silicon:** do NOT use `--target universal-apple-darwin` (broken on M1 for some npm native modules). Just `npm run tauri build` compiles `aarch64-apple-darwin` natively.
+- **Tauri icons:** `npm run tauri icon public/app-icon.png` requires a 1024×1024 PNG. If missing, generate with ImageMagick or an SVG-to-PNG script.
+- **Zustand persist + new store fields:** when adding `plainMode` (F1), add it to the `partialize` array in useAppStore.ts or it won't persist.
+- **OCM API URL:** `https://api.openchargemap.io/v3/poi/?key=KEY&output=json&countrycode=CA&maxresults=100&compact=true&verbose=false&levelid=3&boundingbox=SWLAT,SWLNG,NELAT,NELNG`
+- **Exa MCP for used market:** The Exa MCP tool is `mcp__9a04470a-c5be-420d-a32b-adaaa7f50b13__web_search_exa`. Pass `numResults: 5, useAutoprompt: true`.
+- **CompareView tab system (needed for E):** currently CompareView has no tabs. Before adding MapPanel + TripPlanner + UsedMarketPanel, add a simple tab bar: `["Specs", "Map & Range", "Trip Plan", "Used Market"]`. Gate each tab with feature flags.
+
+---
+
+## CLUSTER D — Map + Range Rings + Native Physics
+
+**Session batch:** D0 → D1 → D2+D3+D4 → D5 (milestone). All in one session unless D0 hits Rust compilation issues.
+
+**New files:** `src-tauri/src/thermal.rs`, `src-tauri/src/vehicle.rs`, `src/lib/thermal_invoke.ts`, `src/components/MapPanel.tsx`, `specs/cluster-D-map-range-rings.md`
+
+**Modified files:** `src-tauri/src/main.rs`, `src-tauri/Cargo.toml`, `src/components/CompareView.tsx` (add tab bar + MapPanel), `scripts/milestone.py` (add cargo test step), `docs/external_keys.md`
+
+**npm install needed:** `leaflet @types/leaflet` — also add `import "leaflet/dist/leaflet.css"` to MapPanel.tsx
+
+**D0 — Rust thermal plugin**
+🟠 *Reasoning note:* Port `thermal.ts` logic faithfully. Match every curve value exactly — the golden tests will catch any drift. Key types: `ThermalInputs`, `ThermalOutputs`, `ThermalPoint`, `Vehicle` (subset with thermal fields + battery/range values). Load `seed.json` via `include_str!` into a lazy-initialized `Vec<Vehicle>` using `once_cell::sync::Lazy` or `std::sync::OnceLock`. Expose `compute_thermal` as Tauri command.
+- **Test:** `src-tauri/src/thermal_tests.rs` — mirror the 60 golden cases from `thermal.golden.test.ts` using `assert!((actual - expected).abs() < 1.0)` for f64 comparisons.
+- **Done when:** `cargo test` green, `tsc` clean, milestone commit.
+- **Cargo.toml additions:** `serde` + `serde_json` already present. Add `once_cell = "1"` for lazy static seed loading.
+
+**D1 — docs/external_keys.md**
+🔵 *Mechanical.* Add MapKit JS token steps + OCM key steps. ~15 min.
+
+**D2+D3+D4 — MapPanel.tsx (map + rings + pins)**
+🟠 *Reasoning note:* Single component, three responsibilities. Leaflet map initialized once in `useEffect`. Range rings via `useRef`-stored circle layers, updated when `thermals` prop changes (not re-mounted). OCM pins fetched on map move (debounced 500ms). 15 hardcoded Ontario DCFC fallback when no key. Props: `{ vehicles, thermals, center? }`. Rings: 50% + 100% range per vehicle, 4 colors, 2px stroke, fill-opacity 0.05. Sidecar: simple `<div>` absolutely positioned over map showing selected station details.
+
+**D5 — Milestone + Chrome-MCP validation**
+Acceptance criteria:
+1. Map renders with Leaflet tiles
+2. Range rings update when temp slider changes
+3. IONIQ 5 ring radius > F-150 Lightning ring radius at same conditions (longer range)
+4. Pins show for at least 15 Ontario DCFC stations
+5. Click pin → sidecar shows kW + network
+
+---
+
+## CLUSTER E — Trip Planning + Used Market + Degradation
+
+**Session batch:** E0 (decision) → E1+E2 parallel (trip planner UI + Rust solver) → E3 (degradation row) → E4 (iZEV stub) → E5 (milestone).
+
+**New files:** `src-tauri/src/trip_planner.rs`, `src/components/TripPlanner.tsx`, `src/components/UsedMarketPanel.tsx`, `specs/cluster-E-trip-planning.md`
+
+**Modified files:** `src-tauri/src/main.rs` (add plan_trip command), `src/components/CompareView.tsx` (tabs), `src/types.ts` (add `degradation_annual?` field), `src/data/seed.json` (add degradation_annual per vehicle, default 0.02)
+
+**E0 — ABRP decision** 🟠 *Reasoning required.* Fetch `https://abetterrouteplanner.com/resources/api` → read pricing. If free/≤$10/month: use ABRP for route geometry (much better than straight-line). If expensive: self-built Rust greedy solver is good enough for personal use. Either way, `VITE_ROUTE_ENGINE=abrp|selfbuilt` feature flag. Record decision in LEARNINGS.
+
+**E1 — Trip planner Rust solver + UI**
+🟠 *Reasoning note:* Rust solver in `src-tauri/src/trip_planner.rs` takes: route waypoints (lat/lng pairs), vehicle IDs, thermal inputs, OCM station list. Returns per-vehicle charge stop plan. Algorithm: simulate battery state along route segments using D0's thermal model; greedily insert stops when predicted SOC at next segment endpoint < 20%. UI in `src/components/TripPlanner.tsx`: two text inputs (geocoded via Nominatim API — free, no key), "Plan" button, results grid. Route line on map via polyline overlay in MapPanel.
+
+**E2 — Used market panel**
+🔵 *Mechanical.* `UsedMarketPanel.tsx` calls Exa MCP with `"${brand} ${model} ${year} for sale Ontario"`. Display: listing count, price range, 3 links. Cache 24hr in localStorage with timestamp key `ev-used-${vehicleId}`. No-key fallback: "Used market search requires Exa API access."
+
+**E3 — Battery degradation row**
+🔵 *Mechanical.* Add `degradation_annual?: number` to `Vehicle` type + seed.json (default 0.02). Add three rows to CompareView ROWS: "Range at 5 yr", "Range at 8 yr", "Range at 10 yr". Formula: `rated_range × (1 - degradation_annual)^years`. Show with Low confidence badge.
+
+**E4 — iZEV scaffold**
+🔵 *Mechanical.* Add `FeatureFlag` component that wraps children with a "paused" card overlay. Wrap iZEV section in CompareView.
+
+**E5 — Milestone + validation**
+Acceptance criteria:
+1. Toronto → Ottawa trip plan renders charge stops for all compared vehicles
+2. F-150 Lightning has ≥2 more stops than Tesla Model 3 LR AWD
+3. Used market panel shows listings (or graceful no-key message)
+4. Degradation rows show at 5/8/10 yr
+
+---
+
+## CLUSTER F — Mom Mode + Accessibility + Design + Packaging
+
+**Session batch:** F1+F2 in parallel (mom mode + a11y) → F3 (regression sweep) → F4 (Tauri build) → F5 (user guide) → F6 (design sweep) → F7 (code review) → F8 (final milestone + merge).
+
+**New files:** `docs/user_guide.md`, `src/lib/labels.ts`, `specs/cluster-F-polish-packaging.md`
+
+**Modified files:** `src/store/useAppStore.ts` (add plainMode), `src/components/VehicleRow.tsx`, `src/components/CompareView.tsx`, `src/components/ConfidenceBadge.tsx`, `tailwind.config.js`, `src/App.tsx` (Plain/Geek toggle pill)
+
+**F1 — Mom mode** 🟠 *Reasoning note:* `src/lib/labels.ts` maps every geek term to a plain equivalent. Key mappings: BEV→"Electric only", kWh→"battery size", kW→"charging speed", Confidence→"How sure we are", EPA→"Government test". VehicleRow conditionally renders plain versions. CompareView ROWS use labels.ts for row label keys. Ask Ian about mom's specific accessibility needs before implementing F2.
+
+**F2 — WCAG 2.1 AA audit**
+🟠 *Judgment required.* Run Chrome-MCP accessibility panel. Key checks: contrast ratios (all text ≥ 4.5:1 against background), focus rings on every interactive element, ARIA labels on slider + icon-only buttons. Fix any 🔴 findings before F4.
+
+**F3 — Full regression sweep**
+Chrome-MCP replay: add IONIQ 5 + Lightning + Model 3, open CompareView, verify all tabs work (Specs/Map/Trip/Used), slider updates rings, cost row updates, tray persists after reload. Screenshot archive.
+
+**F4 — Tauri .app build**
+`npm run tauri build` → `src-tauri/target/release/bundle/macos/EV Dashboard.app`. Copy to `~/Applications/`. Test by double-clicking (right-click → Open for unsigned app). Known issues: see gotchas section (icon + arch).
+
+**F5 — User guide** 🔵 *Mechanical.* Short Ian+mom walkthrough in `docs/user_guide.md`. Add `<CreditsPanel>` component in CompareView footer crediting Geotab, Recurrent, Fastned, P3, Bjorn Nyland.
+
+**F6 — Design sweep** 🟠 *Judgment required.* Audit every screen against the elegance principles in §UI-elegance of the original game plan. Lock font + spacing tokens in tailwind.config.js. The goal: feels like software Ian would show off.
+
+**F7 — Code review** `/caveman-review` all new files. Fix 🔴 and 🟡 before F8.
+
+**F8 — Final milestone + PR + merge to main**
+`python3 scripts/milestone.py F-cluster "..."` then merge worktree → main via PR. Commit message: `feat: complete EV Dashboard — native physics, map, trip planning, mom mode`.
+
+---
+
+## CLUSTER G — SwiftUI rewrite [OPTIONAL — Ian decides after using F-exit app]
+
+See §0.6 for full analysis. Do not plan until Ian answers "yes" to "does it still feel like a website in a window?"
+
+---
+
+## TASK DEPENDENCY GRAPH
+
+```
+D0 (Rust physics) ──────────────────────────────→ E1.rust (trip solver uses D0)
+D2+D3+D4 (MapPanel) ──────────────────────────→ E1.ui (route overlay on existing map)
+E0 (ABRP decision) ─→ E1 (TripPlanner)
+E2 (used market) ─── independent
+E3 (degradation) ─── independent  
+F1+F2 ─── independent of each other
+F4 (build) ─── depends on F1+F2+F3 green
+F8 (merge) ─── depends on F4
+```
+
+**Parallelize with sub-agents:** E2+E3, F1+F2, Exa used-market searches (5 vehicles per agent).
+
+---
+
+## EXTERNAL KEYS — all have working fallbacks, nothing blocks
+
+| Key | `VITE_` var | Fallback | Unlocks |
+|---|---|---|---|
+| MapKit JS | `VITE_APPLE_MAPKIT_TOKEN` | Leaflet (fully functional) | Better map tiles |
+| OCM | `VITE_OCM_API_KEY` | 15 hardcoded Ontario pins | Live charger data |
+| ABRP | `VITE_ABRP_API_KEY` | Self-built Rust solver | Better route geometry |
+| Mapbox | `VITE_MAPBOX_TOKEN` | Nominatim geocoding (free) | Better geocoding |
+
+---
+
+## RITUAL UPGRADE AFTER D0
+
+`milestone.py` step order: `tsc → cargo test → vitest → validate → metrics → LEARNINGS → timestamp → queue → git commit`
+
+---
+*End of deep execution plan.*
+---
+
+## 0. Context — current state (updated 2026-04-24)
+
+Ian's first coding project. First-time EV buyer in Ontario. Personal Mac app to compare every EV/PHEV/EREV for sale in Canada, new and used. Not a shipped product — no signing, no distribution.
+
+**Cluster status:**
+- ✅ **Cluster A** — Foundation (ritual, memory, hooks, Vitest, validate.py, smoke.sh, Zod)
+- ✅ **Cluster B** — Data rigor (thermal profiles all 20 vehicles, Exa B3 pass, Juniper B4, drift monitor B5)
+- ✅ **Cluster C** — Physics + cost + bugs (F-02 cost/100km+TOU, B-01 persist middleware, F-03 tooltips, C4 rollupConfidence fix, C6 UI polish)
+- ⬜ **Cluster D** — Map + range rings ← **next**
+- ⬜ **Cluster E** — Trip planning + used market + degradation
+- ⬜ **Cluster F** — Mom mode + accessibility + packaging
+
+**Worktree:** `claude/heuristic-jemison-71e592` — all commits landing here; merge to main after Cluster F.
+
+**Stale files to update at next session start:**
+- `.resume.md` — still shows "Cluster A in progress"; needs "Cluster D kickoff"
+- `.queue_top3.md` — shows C-items already done; queue.py re-rank will fix this
+
+Finish line: **full PROJECT_PLAN vision** (Phases 1–5) with deep rigor on 20 vehicles first. Autonomy: **checkpoint per cluster**, full-gas within. Ian will provide all external keys. Token-efficient, self-optimizing, test-gated, elegant UI. Built in Cowork so sessions must survive prompt-cache resets.
+
+## 0.6. Native app strategy — Apple Silicon + "truly native" roadmap
+
+**Ian's goal:** offload as much processing as possible to M1 hardware; move toward a proper Mac app, not just a website in a shell.
+
+**Honest assessment of what Tauri 2 gives you today:**
+
+Tauri 2 compiles the Rust backend natively to `aarch64-apple-darwin` — that's real ARM64 code running on your M1's performance cores. The React/TypeScript frontend runs in WebKit (Safari's engine), which is already GPU-accelerated by Metal. So the app is *less* of a "website in a shell" than it looks — WebKit + Metal is what Safari uses.
+
+**What can be offloaded to Apple Silicon hardware RIGHT NOW (within Tauri):**
+
+| Workload | Current | Native option | Gain |
+|---|---|---|---|
+| **Thermal physics model** | TypeScript in V8 (JS engine) | Rust plugin + Apple Accelerate vDSP | 2–3× faster; more importantly, moves physics to ARM64 native |
+| **Map + range rings** | Leaflet/MapKit JS | MapKit JS already uses Metal via WebKit; MapKit native (SwiftUI) is 30–40% better FPS | JS is fine for 20–50 vehicles |
+| **Interpolation loops** | JS for-loops | Rust SIMD (ARM NEON via std::simd) or Apple vDSP | Clean win for batch processing |
+| **Battery degradation** | JS lookup | Rust pre-computed polynomial | Negligible at 20 vehicles |
+
+**What Tauri 2 on macOS CANNOT do (important constraints):**
+- No Swift plugins — Tauri macOS is Rust-only. Swift plugins exist on iOS Tauri (inside a Swift app context) but not on macOS desktop.
+- No direct Metal compute shaders from Tauri plugins.
+- No CoreML access from Tauri/Rust (would need Swift/Objective-C FFI).
+
+**Plan: two-phase approach**
+
+**Phase 1 — Tauri enhanced with Rust native (Cluster D, do now):**
+- Move the thermal physics model (`thermal.ts`) to a Tauri Rust plugin.
+- Rust compiles ARM64 native, can use Apple Accelerate `vDSP_vintb` for the interpolation loops.
+- Frontend calls `invoke("compute_thermal", {...})` instead of the TS function.
+- Result: physics runs on M1 performance cores, not in V8. Battery life slightly better, instant compute even at 200+ vehicles.
+- Tests: Rust unit tests for the physics model replace the Vitest golden tests.
+
+**Phase 2 — Full SwiftUI rewrite (Cluster G, after Cluster F, Ian-decision):**
+- Build a true SwiftUI Mac app: NavigationSplitView for the brand list, Swift Charts for charging curves, MapKit native for range rings, native Dark Mode / accent colors.
+- Estimated effort: 6–8 weeks of coding (the TypeScript spec + physics Rust plugin become the design doc).
+- Trigger: after all features in D/E/F are working and Ian has used the app for a month. "Does it feel like a Mac app?" — if the answer is yes, stay. If no, rewrite.
+- Ian's learning path: TypeScript → Rust (Cluster D) → Swift (optional Cluster G). Each step teaches real systems skills.
+
+**Decision for Cluster D kickoff:**
+- Add **D0** (new): Create Tauri Rust plugin for `compute_thermal`. This is the "offload processing" item Ian wants, and it's achievable in one session.
+- Rest of Cluster D (Leaflet map, range rings, OCM pins) stays as planned.
+- SwiftUI Cluster G is logged as optional/deferred — Ian can decide after F.
+
+## 0.5. Reasoning mode & model strategy — updated for deeper headroom
+
+**2026-04-24 update:** Ian switched to a model with more reasoning depth. Prior strategy was conservative (Sonnet by default, Opus only for hard calls). With deeper headroom we can collapse the model-switch overhead and do more in a single session.
+
+**New default stance:** Run at full reasoning depth for all remaining clusters. No model-switch penalties. Sub-agents (Exa, file reads) still use Sonnet as default — they're parallel and short-lived.
+
+| Remaining work | Approach |
+|---|---|
+| **Cluster D** — map plumbing, range rings | Full depth inline. MapKit JS is well-documented; range-ring math is non-trivial. Don't downgrade. |
+| **Cluster E** — ABRP vs self-built decision | Full depth inline. This is the one architectural choice left in the build; resolve it in the same session as D exit. |
+| **Cluster E** — trip planner implementation | Full depth. Used-market + degradation row math benefits from real reasoning. |
+| **Cluster F** — design sweep, accessibility, packaging | Full depth. Mom-mode UX + WCAG audit + Tauri packaging all benefit from holistic judgment. |
+| **End-of-cluster recaps** | Full depth. Ian's learning experience. |
+| **Sub-agents** | Sonnet 4.6 — still the right tradeoff for parallel short-lived work. |
+
+**Process change — fewer forced model-switch pauses:**
+- Previously: "switch to Sonnet for this, switch back for that" — 2-3 extra turns per cluster.
+- Now: execute continuously. Only stop for user checkpoints (cluster boundaries) or when external keys are needed (MapKit, OCM, ABRP).
+- Sub-agents for Exa/Chrome-MCP still run at Sonnet by default (cost-efficient, correct).
+
+**Ian's controls (unchanged):**
+- `/fast` — faster output on current model
+- `/think` or `/think hard` — explicit reasoning boost for a specific decision
+
+## 1. How we'll work together — the collaboration contract
+
+1. **Six clusters (A–F).** Execute one fully, then checkpoint with a recap.
+2. **End-of-cluster recap ritual.** Three deliverables every time:
+   - **Plain-English summary** for a first-time coder — every new concept defined once, no unexplained jargon.
+   - **Visual proof** — Chrome-MCP screenshots of the feature working.
+   - **"Try this / watch for this"** list Ian can actually poke at.
+3. **One new concept per cluster, max.** Cluster A = "rituals + memory + version control." B = "data provenance." C = "state persistence + conditional UI." Etc.
+4. **Ramble-tolerant.** I extract intent and confirm in plain English before acting on fuzzy direction.
+5. **Hold-my-hand default.** I narrate the non-obvious, explain Zustand/HMR/localStorage/tsc the first time they surface in your view.
+6. **Memory auto-inherits.** A user-profile memory saved in Cluster A carries the first-time-coder + Ontario + hand-hold context to every future session.
+7. **Aggressive in-cluster autonomy.** See §1.6.
+8. **Queue re-ranks itself.** `scripts/queue.py` prints top-3 READY items; no mental re-deliberation per session.
+
+## 1.5. Token efficiency — how Cowork loops stay cheap
+
+### A. Two voices, two styles
+
+| Where | Style | Example |
+|---|---|---|
+| User-facing (recaps, user_guide, CLAUDE.md, questions to Ian) | Plain English, first-coder friendly, define jargon once | "Zustand is the library that remembers which vehicles you added. We're making it save to localStorage so they survive a reload." |
+| Internal (commits, scripts, LEARNINGS mechanical entries, queue items, seed notes, validate.py output) | **Caveman style** — drop articles, pleasantries, hedging; keep tech terms and code blocks exact | `"fix B-01. persist middleware. localStorage key 'ev-store'. keys: compareIds filters tempC. chrome-mcp verified."` |
+
+Style is scoped via `docs/writing_style.md` + CLAUDE.md rule. No community plugin installed (supply-chain risk; personal-tool scope). Expect ~14–25% output-token savings, ~25–39% session savings with caching ([Kuba Guzik benchmark](https://dev.to/jakguzik/i-benchmarked-the-viral-caveman-prompt-to-save-llm-tokens-then-my-6-line-version-beat-it-2o81), [Caveman repo](https://github.com/JuliusBrussee/caveman)).
+
+### B. Sub-agent delegation rules
+
+**Delegate:**
+- Exa verification sweeps (1 sub-agent per 5 vehicles, parallel).
+- Reading large docs for audits (e.g., META_IMPROVEMENTS absorption).
+- Chrome-MCP end-to-end walkthroughs at cluster exits.
+- `/review` + `/security-review` sweeps.
+- Golden-value physics test generation.
+
+**Keep in main:**
+- UI validation with Ian in the loop.
+- Architectural decisions.
+- Cluster recaps.
+
+### C. Self-optimization loop
+
+Every 5 milestones, `scripts/self_audit.py` triggers:
+1. `/consolidate-memory` to prune stale memories.
+2. Re-scan docs for new bloat (sections grown beyond original length).
+3. Keyword-scan for caveman drift into user-facing prose.
+4. Flag `accessed` dates > 30 days old in seed.json.
+5. Writes to LEARNINGS as `## YYYY-MM-DD · Self-optimization sweep #N`.
+
+This is the "constantly learning, constantly optimizing" loop — running itself, not waiting for a human.
+
+## 1.55. Testing & validation — safety net at every layer
+
+Baked in from Cluster A. Eight layers:
+
+| # | Layer | Catches | Frequency | Runner |
+|---|---|---|---|---|
+| 1 | `tsc --noEmit` | Type errors | Every milestone + file edit (via hook) | milestone.py + Claude Code hook |
+| 2 | Vitest unit suite | thermal.ts, format.ts, queue.py, validate.py bugs | Every milestone | `npm test` via milestone.py |
+| 3 | Zod runtime validation | seed.json shape violations at app load | Every dev-server start | `src/data/index.ts` |
+| 4 | validate.py integrity | Missing citations, profiles, stale dates | Every milestone + seed.json edit | milestone.py + pre-commit hook |
+| 5 | Golden-value physics regression | Any change to (vehicle × temp × precon × hvac) output | thermal.ts touches | Vitest |
+| 6 | Component snapshot tests | UI regressions on ConfidenceBadge, CompareView, FilterBar | UI changes | Vitest + @testing-library/react |
+| 7 | Chrome-MCP end-to-end | "Does the user golden path work?" | Cluster exits | me + sub-agent |
+| 8 | `scripts/smoke.sh` | "Does a fresh checkout still run?" | Before declaring cluster done | me |
+
+Every recap lists `tsc ✅ · vitest N passing ✅ · validate ✅ · smoke ✅ · chrome-mcp walkthrough ✅`. Red blocks the cluster.
+
+## 1.6. Autonomy within clusters — decisions I'll make myself
+
+Checkpoints are cluster **boundaries**, not interior. Inside a cluster, I decide and move. Ian can override at the next checkpoint.
+
+| Decision | Default | Why no-ask |
+|---|---|---|
+| Electricity rate default | 17¢/kWh CAD (Ontario TOU mid-peak) | User-overridable; wrong default never persists |
+| Map home coordinate | Toronto City Hall | Settings input lets Ian change once |
+| App icon | Minimal charging-plug glyph, Tailwind accent color, 1024×1024 transparent-padded PNG → `tauri icon` | Placeholder > broken build; easy to replace |
+| Design tokens | Apple-HIG-adjacent dark, 4/8px grid, SF system stack | Tokens easy to retune later |
+| ABRP vs self-built | Start with ABRP; code a Mapbox+OCM+thermal fallback behind `VITE_ROUTE_ENGINE` env flag | Both paths ship; dev can flip engines without a rewrite |
+| Trip-plan UI | Split-panel (form left, map right, stop-list below) | Scannable at laptop widths; easy to reflow |
+| Mom-mode toggle | Header pill beside search, persisted in localStorage | Discoverable without obtrusive |
+| Commit style | Caveman | See §1.5.A |
+| Feature-flag stubs | Every external-key feature renders "get your key here → follow docs/external_keys.md" card until key in `.env.local` | Cluster D/E never blocks on Ian |
+| Zustand persist schema version | v1 with migrate-on-load | Forward compatibility |
+| Exa query templates | `scripts/exa_queries/*.txt`, cached for 30 days | Reusable across B3 + F-09 + I-03 |
+| Ontario-specific TOU tiers | Off-peak 9.2¢, mid-peak 13.6¢, on-peak 17.9¢ (Hydro One 2026) | Three-option dropdown, default mid-peak |
+
+**General rule:** reversible in ≤15 min → no ask. Architectural or irreversible → stop.
+
+## 1.7. Prompt-cache-aware doc structure
+
+Claude Code auto-caches prompt prefixes. Cache reads cost 0.1× base. Hits disappear on any change to cached content. So: keep the stable stuff stable, quarantine the volatile stuff into tiny files.
+
+**Cache-stable (don't edit between clusters unless architecture actually changes):**
+- `CLAUDE.md` — codebase orientation
+- `AUTONOMOUS_PLAN.md` queue zones (the table structure)
+- `docs/writing_style.md`
+- `docs/external_keys.md`
+- `src/types.ts`
+
+**Cache-volatile (small, re-read fresh, never cached):**
+- `.queue_top3.md` — auto-generated by `queue.py`, <10 lines, tells next session "do these three"
+- `.resume.md` — "Stage" + "Resume here" moved out of SESSION_SUMMARY into a tiny file; the bulk of SESSION_SUMMARY becomes cache-stable
+- `.auto-memory/user.md`, `feedback.md`, etc. — updated append-only; each file is small
+
+**Policy:**
+- Session start: read CLAUDE.md → read `.resume.md` → read `.queue_top3.md`. That's it. Everything else on demand.
+- Edits to SESSION_SUMMARY body only when structure actually changes (rare).
+- LEARNINGS appends never invalidate CLAUDE.md cache.
+
+Cache-window considerations: 5-min TTL. Don't stall silently mid-session; work or stop. ([Prompt caching docs](https://docs.claude.com/en/docs/build-with-claude/prompt-caching)).
+
+## 1.8. Claude Code hooks — automation that doesn't wait for me
+
+Configured in `.claude/settings.json` in Cluster A (item A15). Hooks run automatically on events ([Claude Code hooks guide](https://code.claude.com/docs/en/hooks-guide)):
+
+| Event | Matcher | Action | Purpose |
+|---|---|---|---|
+| PostToolUse | Edit\|Write on `**/*.ts?(x)` | Run `npx tsc --noEmit` on changed file; surface errors inline | Types stay green without me running tsc manually |
+| PostToolUse | Edit\|Write on `src/data/seed.json` | Run `python3 scripts/validate.py` | Data integrity enforced per-edit |
+| PostToolUse | Edit\|Write on `src/lib/thermal.ts` | Run `npm test -- thermal` | Physics regressions caught instantly |
+| PreToolUse | Bash matching `rm -rf\|git reset --hard\|git push --force` | Block + prompt | Destructive-action firewall |
+| SessionStart | (any) | Print `.queue_top3.md` contents | Session begins oriented |
+| SessionEnd | uncommitted changes present | Run `scripts/smoke.sh` | Can't silently leave red |
+
+Hooks replace the fragile "remember to run tests" manual ritual. If Ian hates any of them, one edit to settings.json turns them off.
+
+## 1.9. Specs — the design artifact that guides each feature
+
+**What a spec is, in plain English:** a short markdown document (usually 1–2 pages) that describes *what* a feature does before we build *how*. It's the "requirements + acceptance criteria" doc — the thing we aim at. A spec answers "what problem does this solve, what does it look like, how do we know it's done?" *without* prescribing the implementation.
+
+**Why they help us specifically:**
+- **Ian reads the spec first** — before I write code, he sees the feature in plain English and can redirect if the scope is wrong. Faster than reviewing code.
+- **Claude aims at the spec** — implementation doesn't drift. Tests match the spec's acceptance criteria.
+- **Cache-friendly** — specs are stable once approved; prompt caching loves stable files.
+- **Cross-session durable** — a future Claude session reads the spec, not my prior chat context.
+- **Teach mechanism** — reading specs is how Ian learns "what this feature actually does" without needing to parse TypeScript.
+
+**Location:** `specs/` at project root. One file per significant feature or cluster. Naming: `specs/<cluster>-<shortname>.md` or `specs/<item-id>-<shortname>.md`.
+
+**Template:**
+
+```markdown
+# <ID> — <Title>
+
+## Goal
+One paragraph: what problem this solves, for whom, and why now.
+
+## User-visible behavior
+Plain-English. What Ian (or mom) notices change in the app.
+
+## Acceptance criteria
+1. Testable statement.
+2. Testable statement.
+3. …
+
+## Inputs / state touched
+Files, store keys, data fields.
+
+## Outputs
+What the user sees / what data changes.
+
+## Dependencies
+What must already exist.
+
+## Test plan
+Which of the 8 test layers applies; specific fixtures.
+
+## Open questions
+Resolved before implementation or flagged as Ian-decisions.
+
+## Done when
+Concrete green-check list that gates completion.
+```
+
+**Workflow integration:**
+1. **Cluster kickoff.** I write (or update) the cluster-level spec: `specs/cluster-A-foundation.md`. Ian reads it. ~5 minute review.
+2. **Per-significant-item spec.** For items with user-visible changes (C1 cost-per-100km, C2 breakdown drawer, D3 map panel, E2 trip planner, F1 mom mode), a dedicated spec lives in `specs/`.
+3. **Bug-fix items** (B-01, rollupConfidence) get a micro-spec inline in the git commit message — no separate file.
+4. **Spec precedes code.** If I catch myself coding without the spec existing, I stop and write it first.
+5. **Specs are versioned.** On material change, the spec gets a `## Changelog` footer — so we can look back at what the feature used to be.
+
+**Example cluster-A spec** (written out so Ian can see the pattern):
+
+```markdown
+# Cluster A — Foundation
+
+## Goal
+Make the autonomous build loop reliable. Every milestone becomes a real save-point. Every future Claude session reads a healthy memory + queue. Testing is baked in so no subsequent cluster ships broken code.
+
+## User-visible behavior
+Ian notices nothing immediately; the app looks identical. But:
+- The ritual runs green/red in the terminal and commits pass/fail visibly.
+- `.auto-memory/user.md` exists and will be picked up by every future session.
+- Doc drift is gone; SESSION_SUMMARY no longer lies.
+
+## Acceptance criteria
+1. `scripts/smoke.sh` runs green (install → build → tsc → vitest → validate → metrics).
+2. `.auto-memory/` contains 4 files; `user.md` names Ian's first-timer status.
+3. `milestone.py` runs `tsc` + `vitest` + `validate` + `metrics` + `git commit`; any red halts.
+4. `.claude/settings.json` hooks fire: tsc on .ts edit, validate on seed.json edit, block on `rm -rf`.
+5. Vitest runs, thermal.test.ts migrated, snapshot tests for 3 components added.
+6. Zod schema validates seed.json at import; one intentional bad record triggers a visible error.
+7. `scripts/queue.py` prints top-3 next items; `.queue_top3.md` is updated.
+8. PROJECT_PLAN.md, SESSION_SUMMARY.md, AUTONOMOUS_PLAN.md consistent (META_IMPROVEMENTS absorbed + archived).
+9. Tauri icon set present (A5); `npm run tauri build` produces a `.app` (even if we don't use it yet).
+10. Final `git log` shows one commit per A-item, each caveman-style.
+
+## Inputs / state touched
+New dirs: `.auto-memory/`, `specs/`, `docs/`, `logs/`. New files per §4. Edits to CLAUDE.md, SESSION_SUMMARY.md, PROJECT_PLAN.md, package.json (scripts + devDeps). New `.claude/settings.json`.
+
+## Outputs
+Green smoke-test pipeline. Memory files. Queue automation. Reliable commit trail.
+
+## Dependencies
+Nothing — this cluster is the foundation.
+
+## Test plan
+- Layer 1–3 (tsc / vitest / validate) must run green.
+- Layer 5 golden-value physics tests wired.
+- Layer 6 component snapshots for ConfidenceBadge + CompareView + FilterBar.
+- Chrome-MCP walkthrough: app still loads, no console errors.
+
+## Done when
+- `scripts/smoke.sh` green.
+- Ian reads the Cluster A recap, answers "yes move on."
+
+## Changelog
+- 2026-04-23: initial spec from the game-plan draft.
+```
+
+This is a genuine artifact — not ceremony. The spec goes in the repo; Ian can read it; Claude aims at it; tests enforce it.
+
+## 2. The six clusters
+
+Each cluster **begins with me writing (or updating) its spec file** and putting it in front of Ian before I touch code. The cluster recap closes the loop by showing which acceptance criteria landed green.
+
+### ⚙️ Cluster A — Foundation (reliable autonomous loop)
+
+| Item | What | Why |
+|---|---|---|
+| **A1** | Bootstrap `.auto-memory/` with user / feedback / project / reference files. `user.md` = "first-time coder, plain-English recaps, Ontario EV buyer." | Future sessions inherit context. |
+| **A2** | Extend `milestone.py`: `tsc` → `vitest` → `validate.py` → `metrics.py` → `git add -A && git commit` → LEARNINGS append → timestamp bump. Red halts pipeline. | Every milestone = real save-point. |
+| **A3** | Reconcile doc drift. PROJECT_PLAN.md drops shipping infra (links to Graveyard). SESSION_SUMMARY.md fixes `.auto-memory/` lie. | Honest docs = better first impressions for future sessions. |
+| **A4** | Read META_IMPROVEMENTS.md. Absorb its 15 items into AUTONOMOUS_PLAN queue. Archive the doc with a "superseded" header. | One source of truth. |
+| **A5** | Tauri icon set. Generate 1024×1024 transparent-padded PNG (plug glyph) → `tauri icon app-icon.png`. On Apple Silicon skip `--target universal-apple-darwin`. | Unblocks F4 packaging. ([Tauri icon docs](https://v2.tauri.app/develop/icons/)) |
+| **A6** | `scripts/queue.py` — parses AUTONOMOUS_PLAN.md, prints top-3 ready items, writes `.queue_top3.md`. | Automates "what's next." |
+| **A7** | `scripts/validate.py` — integrity rules on seed.json. | Data regression catcher. |
+| **A8** | Adopt caveman writing style. `docs/writing_style.md` + CLAUDE.md rule. | Token efficiency (§1.5). |
+| **A9** | Bloat audit. Retire META_IMPROVEMENTS. Compress PROJECT_PLAN §7. Dedupe SESSION_SUMMARY. | ~15% doc bloat removed. |
+| **A10** | Install Vitest + @testing-library/react. Migrate thermal.test.ts to Vitest. | First real test runner. |
+| **A11** | `scripts/smoke.sh` — one command, full green-check pipeline. | End-of-cluster safety net. |
+| **A12** | Golden-value physics tests. 5 vehicles × 3 temps × 2 precon × 2 hvac = 60 asserted cases. | Physics regressions impossible to miss. |
+| **A13** | Snapshot tests for ConfidenceBadge / CompareView rows / FilterBar. | UI regressions impossible to miss. |
+| **A14** | `scripts/self_audit.py` — runs every 5 milestones. Doc-length drift, memory staleness, caveman leakage, `accessed` date staleness. Writes to LEARNINGS. | Self-optimizing loop. |
+| **A15** | `.claude/settings.json` hooks (§1.8). | Quality gates without manual effort. |
+| **A16** | Zod schema for `Vehicle` + `CitedValue`. Runtime-validate seed.json at import time in `src/data/index.ts`. | Bad data fails loudly, not silently in the UI. |
+| **A17** | Split `.resume.md` out of SESSION_SUMMARY. Wire queue.py + milestone.py to update it. | Prompt-cache friendliness (§1.7). |
+| **A18** | `docs/external_keys.md` — how-to for Apple MapKit (via [token-maker](https://maps.developer.apple.com/token-maker)), OCM, ABRP. Each step has a screenshot placeholder Ian can ignore first time. | Unblocks Cluster D/E without me walking through it live. |
+
+**Exit gate:** `scripts/smoke.sh` green. `.queue_top3.md` printing next items. Chrome-MCP screenshot of app still loading cleanly. Commit landed.
+
+**Recap topic:** "What the ritual is, why version control matters, what memory buys you."
+
+### 🔬 Cluster B — Data rigor (20 vehicles → High confidence)
+
+| Item | What | Why |
+|---|---|---|
+| **B1** | Populate thermal profile fields for all 20: `cold_derate_curve`, `hvac_draw_kw_by_temp`, `precon_time_by_temp`, `precon_thermal_gain`. Sources: Geotab Winter dataset, Recurrent fleet reports, Fastned, P3, Bjørn Nyland, InsideEVs. | Biggest rigor gap — physics model has no per-vehicle data today. |
+| **B2** | `thermal.ts` prefers per-vehicle data over defaults; surface a `computationNotes` array to UI for "modeled vs. measured." | Model becomes honest about where numbers come from. |
+| **B3** | Exa verification pass (D-01). Sub-agents in parallel (1 per 5 vehicles). Upgrade Medium→High where ≥2 independent sources agree. Downgrade where they disagree. Fill missing citations. | Rigor principle enforced, automated. |
+| **B4** | Tesla Model Y Juniper deep-dive. NA specs still evolving as of Apr 2026 — may stay Medium with wider ranges + clearer notes. | The one placeholder made Ian-comparable. |
+| **B5** | Schedule monthly task via `mcp__scheduled-tasks__create_scheduled_task` — checks iZEV status + MSRP drift. Writes to `data/drift_report.md`. | Catches policy/price changes without Ian remembering. |
+| **B6** | Run expanded `validate.py` — zero regressions. | Safety net. |
+| **B7** | Backup `seed.json` → `seed.backup.json` (gitignored) before B1 migration. | Disaster recovery. |
+
+**Exit gate:** `metrics.py` shows ~20 High confidence (with justified residual Medium if unavoidable). `validate.py` green. Every field has a source. Chrome-MCP screenshot of all-green compare view.
+
+**Recap topic:** "What 'cite every number' actually bought us, and why the physics model was quietly lying before."
+
+### 🧪 Cluster C — Physics + cost + bugs
+
+| Item | What | Why |
+|---|---|---|
+| **C1** | **F-02** cost-per-100 km. `electricityRateCadPerKwh` + TOU-tier dropdown in store. Row in CompareView: `$/100 km = Wh/km × 0.1 × rate`. Live with slider. | Turns physics into dollars. |
+| **C2** | **F-04** breakdown drawer. Expand adjusted-row → factor contributions (capacity, HVAC, DC factor, efficiency). | Teaches the math. |
+| **C3** | **F-03** confidence-badge tooltips. Native `title` attrs with plain-English H/M/L explanations. | Honesty made accessible. |
+| **C4** | Fix `rollupConfidence` bug. Add Vitest case that catches it before landing. | Named bug, ~20 min. |
+| **C5** | **B-01** compare-tray persistence. Zustand `persist` middleware → localStorage. v1 schema + migrate function. "Clear saved state" button in header. | Fixes "tray forgets" + makes app feel like it remembers you. |
+| **C6** | UI polish batch: **P-01** (header wrap), drivetrain filter exposure in FilterBar, drivetrain enum prettifier, empty-state designs for "no vehicles match filter." | Clears deck for Cluster D. |
+
+**Exit gate:** Chrome-MCP: add 3 vehicles, reload, tray persists. Slider → cost-per-100km updates. Drawer expands, shows factors. Hover badge → tooltip. Screenshots archived.
+
+**Recap topic:** "localStorage, conditional UI, and how a physics model becomes an explainer."
+
+### 💎 UI elegance — woven through, swept at the end
+
+Locked-in principles enforced on every UI touch:
+- **Spacing:** 4/8/16/24/32/48 px grid. No ad-hoc margins.
+- **Typography:** system stack for prose (−apple-system, SF Pro, Inter fallback); SF Mono / JetBrains Mono for numerics. Scale 32/24/18/15/13/11.
+- **Color:** one accent, ink-900→ink-50 ramp, semantic confidence (emerald / amber / rose). Never invent hex inline.
+- **Motion:** 150–250ms ease-out; subtle spring on tray; smooth slider counter; animated range-ring radius.
+- **Focus states:** visible ring on every interactive element (HIG + WCAG).
+- **Empty states:** every "no data" moment designed.
+- **Loading states:** skeleton placeholders, not spinners.
+- **Contrast ratios:** ≥4.5:1 normal text, ≥3:1 large text, ≥3:1 focus indicators.
+
+Enforced per cluster; dedicated sweep in F6.
+
+### 🗺️ Cluster D — Map + range rings ← ACTIVE NEXT
+
+**External key dependency:** Ian needs to generate a MapKit JS token before D3 renders a real map. Feature-flag stubs cover the no-key state, so D3-D5 can be built and tested immediately — Ian generates the key when ready.
+
+**Session start checklist:**
+1. Update `.resume.md` → "Cluster D kickoff"
+2. Run `python3 scripts/queue.py` to re-rank (C-items are done)
+3. Write `specs/cluster-D-map-range-rings.md` spec
+4. Execute D0–D6
+
+| Item | What | Why |
+|---|---|---|
+| **D0** | **Rust thermal plugin.** Create `src-tauri/src/thermal.rs` that mirrors `thermal.ts` logic (capacity curves, HVAC, DC cold-soak, precon gain, rollupConfidence). Add Tauri command `compute_thermal(vehicle_id, temp_c, preconditioned, hvac_on, speed_kph)`. Replace the TS `computeThermal()` call in CompareView / VehicleRow with `invoke("compute_thermal", ...)`. Golden values from the existing Vitest suite become Rust unit tests (`cargo test`). | This is the "offload to native Apple Silicon" item. Physics runs on ARM64 performance cores, not in V8. Sets up the architecture for future Accelerate integration (vDSP interpolation). |
+| **D1** | Update `docs/external_keys.md` with MapKit token steps → `VITE_APPLE_MAPKIT_TOKEN`. | Ian can generate key async; build doesn't block. |
+| **D2** | Add OCM key steps → `VITE_OCM_API_KEY`. | Same async pattern. |
+| **D3** | `MapPanel.tsx` — Leaflet map (no token needed, open-source) centered on Toronto. Feature-flag: `VITE_APPLE_MAPKIT_TOKEN` present → swap to MapKit JS. Leaflet unblocks range rings immediately. | Leaflet is open-source, no key, ships fast. MapKit JS upgrade is progressive. |
+| **D4** | Per-vehicle concentric range rings. Range comes from D0's Rust plugin output. Color-matched to tray chips. Animated radius transitions. Live with slider. | "Can I get to Ottawa in Feb?" answered visually — powered by native physics. |
+| **D5** | OCM DCFC pins. No key → 15 hardcoded Ontario DCFC fallback. Filter 50/150/350 kW. Click → sidecar. Cache 1 hr per bbox. | Maps range to charging options. |
+| **D6** | Chrome-MCP validation: slider −20°C → rings shrink (Rust plugin computing). Screenshot archived. | |
+
+**Key design decision — D0 first:**
+D0 must land before D4 because range-ring radii come from the physics model output. Once D0 is in, all physics outputs are ARM64-native; the map just reads the numbers.
+
+**Rust plugin implementation notes:**
+- `src-tauri/src/thermal.rs` — pure Rust, no `unsafe`. Capacity/HVAC/DC curves as `const` arrays.
+- State: vehicle data can be passed in via JSON command argument (serde_json) or we pre-load `seed.json` into a Tauri-managed state at app start.
+- The `invoke` calls are async in JS; the Rust handler is synchronous (fast enough to be sync, no need for tokio blocking task).
+- Golden-value regression: copy the 60 test cases from `thermal.golden.test.ts` → `thermal_golden_tests` in Rust. `cargo test` must pass before milestone commit.
+
+**Exit gate:** map renders, rings update, `cargo test` green for physics, milestone commit with `tsc + vitest + validate + cargo test`. Screenshots in `screenshots/cluster-d/`.
+
+**Recap topic:** "What Rust is, why it's different from TypeScript, what 'compiles to native' means for your M1 chip. What Leaflet is vs MapKit."
+
+### 🛣️ Cluster E — Trip planning + used market + degradation
+
+| Item | What | Why |
+|---|---|---|
+| **E0** | Check current [ABRP API](https://abetterrouteplanner.com/resources/api) pricing for personal use. If ≤$10/month or free, proceed ABRP-primary. If expensive, Mapbox+OCM+thermal fallback becomes primary. Decision recorded in LEARNINGS. | Architectural gate; Opus 4.7 decision moment. |
+| **E1** | **F-09** used-market via Exa. Per compared vehicle: AutoTrader.ca + Kijiji listing count, median asking, 5 cheapest + 5 nearest (Ontario), links. Cache 24 hr per model. | Bridges new/used. |
+| **E2** | **F-08** trip planning. Dual engine via `VITE_ROUTE_ENGINE=abrp\|selfbuilt`. Destination input (MapKit geocoder). Route line, per-vehicle charge-stops (location / SOC-in-out / minutes / $ via C1). | The "will my trip work" answer, with a built-in fallback. |
+| **E3** | **F-10** battery degradation. Recurrent data → "range at yr 5/8/10" per vehicle. Confidence flagged. | Long-term cost-of-ownership. |
+| **E4** | **F-11** incentive-eligibility wizard scaffolding (iZEV MSRP caps, trim exclusions). Off-by-default while iZEV paused. | Future-proof for policy change. |
+
+**Exit gate:** "Toronto → Sudbury" trip renders charge plan for each vehicle. Used-market panel loads for Tesla Model 3. Degradation toggle works.
+
+**Recap topic:** "Why use someone else's routing service — and when that tradeoff flips."
+
+### 🍎 Cluster G — SwiftUI native rewrite (optional, Ian-decision after F)
+
+**Trigger:** after Cluster F is complete, Ian uses the app for 2–4 weeks. If it still feels like "a website in a window," proceed. If it feels like a Mac app, skip G.
+
+**What a full SwiftUI rewrite buys:**
+- NavigationSplitView — the native Mac comparison-list layout
+- Swift Charts — natively GPU-accelerated, matches system appearance automatically
+- MapKit native — 30–40% better range-ring FPS vs MapKit JS, native clustering, proper dark-mode tiles
+- Menu bar extra, Shortcuts integration, Spotlight indexing
+- The Rust thermal plugin (D0) carries over unchanged — it's already native ARM64
+
+**What it costs:**
+- ~6–8 weeks of learning Swift/SwiftUI from scratch (first-time coder caveat: this is a bigger jump than TypeScript → Rust)
+- Rewriting the React UI layer (the physics model and data layer are already in Rust/JSON, so those carry over)
+
+**Decision criteria at Cluster G checkpoint:**
+1. Does the app need MapKit native for range-ring quality? (D4 will tell us)
+2. Does Ian want Menu Bar integration, Shortcuts, Spotlight?
+3. Is Ian comfortable enough with TypeScript/Rust to take on Swift?
+
+**This cluster is NOT scheduled until after F exit.**
+
+### 🧑‍🤝‍🧑 Cluster F — Mom mode + accessibility + design sweep + packaging
+
+| Item | What | Why |
+|---|---|---|
+| **F1** | **P-02** Mom-friendly mode. Header pill: "Plain / Geek." Plain hides enum labels, uses sentences, expands acronyms on hover. Persisted in localStorage. | Ian's mom is the actual user. |
+| **F2** | Accessibility pass against WCAG 2.1 AA: contrast audit, keyboard tab order, focus rings, ARIA labels on slider/badge/tooltip. Before finishing, ask Ian specifics on mom's accessibility needs (low vision? motor? cognitive? just plain-language?). | Real accessibility, not performative. |
+| **F3** | Final Chrome-MCP regression sweep. Replay every cluster's exit walkthrough. Diff against baseline screenshots. | Catches any regression during Cluster F. |
+| **F4** | `npm run tauri build` → `.app` in `src-tauri/target/release/bundle/macos/`. Drag to `/Applications/`. Dock icon ready. If ARM64-module errors appear, targeted `npm install` fix. | Turns web app → Mac app. |
+| **F5** | `docs/user_guide.md` — short Ian-and-mom walkthrough with screenshots. Sources/credits page in-app. | Hand-off from builder to user. |
+| **F6** | Design elegance sweep. Audit every screen against §UI-elegance. Lock tokens in `tailwind.config.js`. Before/after screenshots archived. | "Working app" → "Mac app you'd show off." |
+| **F7** | `/review` + `/security-review` sweeps. Findings triaged into queue or closed. | Independent eyes. |
+
+**Exit gate:** `.app` in Ian's dock, launches clean, plain mode works, final LEARNINGS entry: "project complete, mom-usable." `scripts/smoke.sh` green.
+
+**Recap topic:** "What we built, what each piece does, how to maintain it on your own."
+
+## 3. Infrastructure built in A, used everywhere
+
+### Memory (`.auto-memory/`)
+- `user.md` — first-time coder, Ontario, patient with hand-holding, prefers plain-English recaps.
+- `feedback.md` — corrections and confirmed preferences as they emerge.
+- `project.md` — decisions with reasons (e.g., "chose ABRP over self-built on 2026-XX-XX because…").
+- `reference.md` — OCM docs URL, ABRP docs URL, MapKit docs URL, Geotab dataset, Recurrent reports.
+
+### Rituals (post-A2)
+On every milestone: `tsc` → `vitest` → `validate.py` → `metrics.py` → `git commit` → LEARNINGS append → timestamp → queue re-rank → every 5th triggers `self_audit.py`. Red halts.
+
+### Automation
+- `scripts/queue.py` — top-3 ranked items; writes `.queue_top3.md`.
+- `scripts/validate.py` — data integrity rules.
+- `scripts/smoke.sh` — one-command full green-check.
+- `scripts/self_audit.py` — 5-milestone self-optimization sweep.
+- `.claude/settings.json` hooks — tsc/validate/test on file edits; destructive-action firewall; session-start/end.
+- Monthly scheduled task — iZEV + MSRP drift.
+
+## 4. Critical files
+
+| Path | Role |
+|---|---|
+| `.claude/settings.json` | A15 hooks |
+| `.auto-memory/*.md` | A1 memory bootstrap |
+| `specs/cluster-*.md` | One spec per cluster, written at kickoff (§1.9) |
+| `specs/<item>-*.md` | Per-feature specs for anything user-visible |
+| `logs/token_usage.md` | Per-cluster token spend transparency (§5.5) |
+| `scripts/milestone.py` | A2 upgrade — real quality gate |
+| `scripts/queue.py` | A6 new |
+| `scripts/validate.py` | A7 new |
+| `scripts/smoke.sh` | A11 new |
+| `scripts/self_audit.py` | A14 new |
+| `docs/writing_style.md` | A8 new |
+| `docs/external_keys.md` | A18 new |
+| `docs/user_guide.md` | F5 new |
+| `src/data/seed.json` | B1–B4 |
+| `src/data/index.ts` | A16 Zod validation |
+| `src/lib/thermal.ts` | B2, C4 |
+| `src/lib/thermal.test.ts` | A10, A12 |
+| `src/store/useAppStore.ts` | C1, C5 |
+| `src/components/CompareView.tsx` | C1, C2 |
+| `src/components/FilterBar.tsx` | C6 |
+| `src/components/MapPanel.tsx` | D3 new |
+| `src/components/TripPlanner.tsx` | E2 new |
+| `src/components/UsedMarketPanel.tsx` | E1 new |
+| `tailwind.config.js` | F6 token lock |
+| `PROJECT_PLAN.md` | A3 drift fix |
+| `SESSION_SUMMARY.md` | A3, A17 |
+| `META_IMPROVEMENTS.md` | A4 archived |
+| `AUTONOMOUS_PLAN.md` | A4 absorbed items |
+
+## 5. What I need from Ian, and when
+
+By design, almost nothing blocks. Every external dependency ships behind a feature-flag stub that shows "get your key here → docs/external_keys.md" until the key lands in `.env.local`.
+
+- **Anytime convenient (before F3 ideal):**
+  - Ontario postal code (map center default → Toronto)
+  - Apple MapKit JS token (via [token-maker](https://maps.developer.apple.com/token-maker))
+  - Open Charge Map API key (free at openchargemap.org)
+  - ABRP API key (free/cheap consumer tier)
+- **Cluster F checkpoint:** mom's accessibility specifics.
+- **Architectural moments:** I stop and ask (e.g., "ABRP pricing is higher than expected, switch to self-built?").
+
+## 5.5. Time estimates and token budget
+
+Rough Claude-work hours per cluster (at Sonnet-default with Opus escalation as specified in §0.5):
+
+| Cluster | Claude hours | Ian review (checkpoint) |
+|---|---|---|
+| A | 3–4 | 30–45 min |
+| B | 6–8 (data-heavy; Exa verification is the slow part) | 45–60 min |
+| C | 3–4 | 30–45 min |
+| D | 4–5 (2 if keys not yet provided — stubs only) | 30–45 min |
+| E | 5–6 | 45 min |
+| F | 3–4 | 60 min (mom walkthrough) |
+| **Total** | **~25–30 hours** | **~4–5 hours** |
+
+Parallelizable via sub-agents (B3, F3). Actual calendar time could be shorter if Ian lets me burn sessions back-to-back.
+
+**Token budget transparency:** `logs/token_usage.md` updated per cluster with estimate (`turns × ~avg_tokens`) + actual from Anthropic usage if exposed. Keeps cost visible.
+
+## 6. Verification — how we know it's "useable"
+
+At finish Ian should:
+1. Double-click `Start-Desktop-App.command` → dock icon, native window.
+2. Add 3 vehicles; reload; tray persists.
+3. Move slider → range, $/100 km, map range rings update live.
+4. Expand a "why did this change?" drawer → factor math visible.
+5. Enter destination → per-vehicle charge-stop plan.
+6. Click confidence badge → plain-English reason.
+7. Toggle Plain mode → jargon hides, mom-usable.
+8. `scripts/metrics.py` → 20 High (or justified Medium residual).
+9. `scripts/smoke.sh` → green.
+10. Mom does a dry-run walkthrough of comparing two vehicles and picking one.
+
+## 7. Risks & mitigations
+
+| Risk | Mitigation |
+|---|---|
+| Scope is big (~25–30 Claude hours) | Cluster boundaries let Ian redirect; queue is live; graveyard acceptable |
+| Exa costs / rate limits | Per-vehicle cache 30 days; batch sub-agent queries; monthly drift task only |
+| External APIs break (MapKit token expires, OCM down, ABRP rate-limited) | Graceful degradation to "get your key" cards; cached OCM responses; ABRP/self-built dual path |
+| Bug between checkpoints | A2 ritual with tsc+test+commit = every milestone a rollback point |
+| Ian feels overwhelmed | Plain recaps, one concept per cluster, pause-on-demand |
+| My misread of fuzzy direction | Restate intent in plain English before acting |
+| Prompt cache invalidation | §1.7 doc structure + stable CLAUDE.md |
+| Model cost overrun | §0.5 strategy; Sonnet default; Opus only for decisions/reviews |
+| Data source becomes scrape-hostile | All data work is manual extraction + Exa-assisted; no brittle scrapers |
+| Canadian MSRP volatility | Low-confidence flag + 30-day drift monitor |
+| iZEV policy change | Monthly scheduled task surfaces change on next session start |
+| Tauri build fails on first F4 run | A5 generates icons early; Apple Silicon target quirks documented; fallback: distribute as unsigned `.app` (personal use fine) |
+| `.env.local` accidentally committed | `.gitignore` audit in A3; pre-commit hook scans for `VITE_` secrets in staged files |
+| Zustand persist schema migration breaks saved state | v1 schema with migrate-on-load; user-facing "Clear saved state" button |
+| Memory file drift over sessions | self_audit.py every 5 milestones + `/consolidate-memory` |
+| Sub-agent hallucination on specs | All data must have a source URL; validate.py checks; downgrade to Low if no URL |
+| Ian unavailable for months mid-build | Feature-flag stubs + scheduled drift monitor + LEARNINGS means state survives |
+
+## 8. Variables register — everything I considered
+
+Recorded so future-me doesn't re-derive them:
+
+- **Electricity rates.** Hydro One 2026 TOU: off-peak 9.2¢, mid-peak 13.6¢, on-peak 17.9¢. Default mid-peak; dropdown lets Ian switch.
+- **Battery chemistries.** LFP, NMC, NCA currently covered. LMR (emerging Ford) — ensure thermal.ts handles gracefully via chemistry-agnostic fallback.
+- **Cold-soaked vs warm-start.** The `preconditioned` toggle approximates this. Note in C2's breakdown drawer: "assumes 2-hour drive before DC-fast-charge arrival" — default assumption is documented.
+- **Canadian units.** km, kWh, CAD, °C. format.ts already handles. Verify for °C edge case at 0 and −40.
+- **Screen sizes.** MacBook Pro is primary. Responsive down to 1280px. Mobile out-of-scope.
+- **Browser.** Tauri uses system WebKit → Safari. Avoid Chrome-only features.
+- **French / Quebec.** Out of scope unless requested.
+- **Liquid Glass icons (macOS 26+).** Not yet supported in `tauri icon`. Stick to classic ICNS ([Tauri issue #14207](https://github.com/tauri-apps/tauri/issues/14207)).
+- **Signing / notarization.** Out of scope (personal use). `.app` distributed unsigned; Ian right-clicks → Open on first launch.
+- **Apple Silicon build.** Skip `--target universal-apple-darwin`. ARM64 variants of Rollup/esbuild/CLI needed if install errors appear.
+- **MapKit token.** Max 1-year validity. Generate via Apple's token-maker — no JWT code in our app. Personal use only.
+- **OCM rate limits.** No public hard limit; courteous-use policy. Cache per-bbox 1 hr.
+- **ABRP API pricing.** No public table; check at E0. Free/cheap → primary. Else → self-built fallback already wired.
+- **Seed.json growth.** At 40+ vehicles, ~1500 lines. If awkward, split per-brand — already an I-item in queue.
+- **Data sources.** Geotab/Recurrent/Fastned/P3/Nyland — all published reports, manual extraction. Allocate time in B1.
+- **License & attribution.** In-app Sources page cites each dataset (B3 auto-populates).
+- **Zod runtime validation.** A16 adds schema at seed import; bad data fails loudly.
+- **Disaster recovery.** B7 backs up seed.json before migration. Git history covers code.
+- **Dependency drift.** Weekly scheduled task: `npm outdated` → LEARNINGS entry; never auto-update.
+- **Git worktree.** We're in `heuristic-jemison-71e592`. At F4 completion, merge back to main via PR.
+- **Accessibility target.** WCAG 2.1 AA. Mom's specifics to gather at F checkpoint.
+- **Reasoning-mode switching mid-session.** `/fast`, `/model sonnet-4-6`, `/model opus-4-7`, `/think`, `/think hard`. I'll surface which I'm using when I switch.
+- **Prompt cache TTL.** 5 minutes. Don't stall silently; work or stop.
+- **Self-optimization cadence.** Every 5 milestones.
+- **Sub-agent parallelism.** Max 3 parallel Exa agents per B3 batch to avoid quota bursts.
+- **Token budget visibility.** `logs/token_usage.md` updated per cluster.
+
+## 9. Open questions (I'll ask at the specified checkpoints; none are blocking now)
+
+- **Mom's accessibility needs** — plain language only, or also low-vision / motor / cognitive accommodations? (Cluster F checkpoint.)
+- **ABRP API pricing** — what tier is actually available for personal use in Apr 2026? (Cluster E0, I'll research first and only ask if it materially changes approach.)
+- **Ontario postal code for map default** — or stay on Toronto? (Cluster A/F settings input.)
+- **Distribution** — just `.app` in `/Applications`, or dmg wrapper? (Cluster F4; default `.app` direct.)
+- **When to merge worktree back to main** — after Cluster A when infra stabilizes, or after all six? (Post-A default.)
+
+Ready for approval.

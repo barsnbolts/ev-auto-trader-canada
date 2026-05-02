@@ -1,0 +1,14 @@
+{
+  "name": "ev-auto-trader-canada",
+  "private": true,
+  "version": "0.1.0",
+  "description": "EV auto trader Canada monorepo bootstrap with offline preview fallback",
+  "scripts": {
+    "health-check": "node scripts/health-check.mjs",
+    "queue:next": "node scripts/queue-next.mjs",
+    "preflight": "node scripts/preflight.mjs",
+    "dev": "node scripts/dev-placeholder.mjs",
+    "preview:offline": "node scripts/preview-offline.mjs",
+    "bundle:offline": "node scripts/export-offline-artifacts.mjs"
+  }
+}

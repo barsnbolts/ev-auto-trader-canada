@@ -1,0 +1,15 @@
+Tab	Data Rows	UNKNOWN Count	PENDING Count	Missing Source Field Rows	Notes
+TARGET_TRIMS	11	0	1	0	Source field: Source URL.
+SPECS	34	374	0	0	Counts exclude header and include only populated source-backed rows.
+OFFERS	5	42	1	0	Includes broad EVAP/Hyundai incentive rows; no VIN-specific offer inference.
+INVENTORY	1	9	0	0	Formula-spill blank rows excluded; one accepted VIN row.
+RECALLS_TSBS	9	9	0	0	Warranty extension remains UNKNOWN on all recall rows.
+SOURCES	32	0	0	0	Source field is populated for all rows.
+VALIDATION_LOG	24	2	0	0	Includes later accepted IONIQ 9 validation rows plus staged-folder cleanup logs.
+REJECTED_ROWS	6	0	0	0	Country-mismatch and sold EV6 rows included.
+PROVINCE_COVERAGE	13	0	27	0	Ontario IONIQ 9 VIN cleanup staged.
+STATUS	10	0	11	0	Ioniq 9 now has one final VIN row; other models remain partial.
+FREE_SOURCE_PIPELINE	25	0	0	0	Firecrawl connection cleanup staged.
+SCRAPE_QUEUE	12	2	2	0	EV6 sold sample rejected; IONIQ 9 sample accepted.
+TOOL_BENCHMARKS	6	6	0	0	Includes Firecrawl failures/successes and native-web accepted benchmark.
+PRICE_HISTORY	1	0	0	0	One IONIQ 9 price snapshot.

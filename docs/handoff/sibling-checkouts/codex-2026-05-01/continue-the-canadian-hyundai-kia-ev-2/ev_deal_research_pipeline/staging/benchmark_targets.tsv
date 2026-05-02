@@ -1,0 +1,5 @@
+id	model	target_type	url	expected_signal
+pathway_ioniq5	Hyundai Ioniq 5	Canadian dealer VDP	https://www.pathwayhyundai.com/2026/Hyundai/IONIQ-5/KM8KNDDC5TU408198/	VIN/MSRP/dealer price/fees
+neddys_ioniq5	Hyundai Ioniq 5	Canadian dealer VDP	https://www.neddysnorthbayhyundai.ca/inventory/2026-hyundai-ioniq-5/13025872	VIN/MSRP/dealer price/fees
+neddys_ioniq9	Hyundai Ioniq 9	Canadian dealer VDP	https://www.neddysnorthbayhyundai.ca/inventory/2026-hyundai-ioniq/13144294/	VIN/MSRP/dealer price/fees
+orleans_ev6_sold	Kia EV6	Canadian dealer VDP sold sample	https://www.orleanskia.com/inventory/2025-kia-ev6-land-6vpK1tnET1qcmbZkZYrk4Qvdp	VIN/price/sold rejection

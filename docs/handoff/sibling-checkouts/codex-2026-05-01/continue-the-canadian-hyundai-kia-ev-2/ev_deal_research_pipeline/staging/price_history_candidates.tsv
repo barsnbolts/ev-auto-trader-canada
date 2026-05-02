@@ -1,0 +1,3 @@
+Snapshot Date	VIN	Dealer	Model	Trim	Asking Price CAD	MSRP CAD	Discount CAD	Discount %	Listing URL	Source Tool
+2026-05-01	KM8KNDDC5TU408198	Pathway Hyundai	Hyundai Ioniq 5	Preferred	61013	59901	-1112	-1.86%	https://www.pathwayhyundai.com/2026/Hyundai/IONIQ-5/KM8KNDDC5TU408198/	Native Node fetch + Firecrawl cross-check
+2026-05-01	KM8KRDDC7TU382126	Neddy's North Bay Hyundai	Hyundai Ioniq 5	Preferred	66720	65899	-821	-1.25%	https://www.neddysnorthbayhyundai.ca/inventory/2026-hyundai-ioniq-5/13025872	Native Node fetch + Firecrawl evidence cross-check

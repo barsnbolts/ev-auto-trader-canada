@@ -1,0 +1,4 @@
+- [Ian profile](user_profile.md) — first-time coder, Ontario EV buyer, mom as secondary user
+- [Project context](project_context.md) — scope, finish line, architectural decisions, risks
+- [External resources](reference_resources.md) — APIs, data sources, docs the project depends on
+- [Ian feedback](feedback_log.md) — confirmed preferences (specs first, autonomy-within-clusters, caveman internal, tests baked in, elegant UI, self-learning)
