@@ -4,37 +4,152 @@
   "notes": "Reasonable Canadian MSRP defaults when data/specs.json is silent for a (model, trim). Phase 3.2 will refresh from OEM configurators (hyundai.ca / kia.ca).",
   "msrp": {
     "EV6": {
-      "Light RWD": 47165,
-      "Wind RWD": 50965,
-      "Wind AWD": 53965,
-      "Land AWD": 58965,
-      "GT-Line AWD": 63465,
-      "GT": 79566
+      "Light RWD": {
+        "value": 47165,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Wind RWD": {
+        "value": 50965,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Wind AWD": {
+        "value": 53965,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Land AWD": {
+        "value": 58965,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "GT-Line AWD": {
+        "value": 63465,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "GT": {
+        "value": 79566,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      }
     },
     "Ioniq5": {
-      "Essential RWD": 47999,
-      "Preferred RWD": 51999,
-      "Preferred RWD Long Range": 53999,
-      "Preferred AWD Long Range": 57999,
-      "Limited AWD": 64999,
-      "N": 78199
+      "Essential RWD": {
+        "value": 47999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Preferred RWD": {
+        "value": 51999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Preferred RWD Long Range": {
+        "value": 53999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Preferred AWD Long Range": {
+        "value": 57999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Limited AWD": {
+        "value": 64999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "N": {
+        "value": 78199,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      }
     },
     "Ioniq6": {
-      "Preferred RWD": 49999,
-      "Preferred RWD Long Range": 53999,
-      "Preferred AWD Long Range": 57999,
-      "Limited AWD": 64999
+      "Preferred RWD": {
+        "value": 49999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Preferred RWD Long Range": {
+        "value": 53999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Preferred AWD Long Range": {
+        "value": 57999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Limited AWD": {
+        "value": 64999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      }
     },
     "EV9": {
-      "Light RWD": 59995,
-      "Light Long Range RWD": 64995,
-      "Land Long Range AWD": 72995,
-      "GT-Line AWD": 79995
+      "Light RWD": {
+        "value": 59995,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Light Long Range RWD": {
+        "value": 64995,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Land Long Range AWD": {
+        "value": 72995,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "GT-Line AWD": {
+        "value": 79995,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      }
     },
     "Ioniq9": {
-      "Preferred Long Range RWD": 64999,
-      "Preferred Long Range AWD": 69999,
-      "Performance Calligraphy AWD": 79999
+      "Preferred Long Range RWD": {
+        "value": 64999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Preferred Long Range AWD": {
+        "value": 69999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      },
+      "Performance Calligraphy AWD": {
+        "value": 79999,
+        "lastVerified": "2026-05-01",
+        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "staleSince": null
+      }
     }
   }
 }

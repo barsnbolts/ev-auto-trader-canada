@@ -178,9 +178,9 @@ def main():
     # update pricing without touching this script.
     oem = json.loads(OEM_PRICING.read_text())
     DEFAULT_MSRP = {
-        (model, trim): price
+        (model, trim): entry["value"]
         for model, trims in oem["msrp"].items()
-        for trim, price in trims.items()
+        for trim, entry in trims.items()
     }
 
     # Load existing dealers to preserve hand-curated entries
