@@ -1,0 +1,50 @@
+{
+  "milestone": "BATCH-1",
+  "dispatched_at": "2026-04-23T20:30:00Z",
+  "subagent_type": "general-purpose",
+  "description": "BATCH-1 seed expansion — author 17 new vehicle records + 7 new brands",
+  "prompt_template": "scripts/prompt_templates/d04_author.md",
+  "prompt_version": "v1",
+  "inputs": {
+    "target_vehicles": 17,
+    "target_new_brands": 7,
+    "fields_per_vehicle": "full Vehicle schema (~25 fields)",
+    "vehicle_list": [
+      "nissan-ariya-lr-fwd", "nissan-ariya-lr-awd",
+      "genesis-gv60-rwd", "genesis-gv60-awd",
+      "bmw-i4-edrive40", "bmw-i4-xdrive40",
+      "kia-ev9-land-awd",
+      "volvo-xc60-recharge-t8",
+      "subaru-solterra-limited-awd",
+      "toyota-bz4x-le-fwd", "toyota-bz4x-xle-awd",
+      "chevy-blazer-ev-lt-rwd", "chevy-blazer-ev-rs-awd",
+      "honda-prologue-touring-fwd", "honda-prologue-elite-awd",
+      "kia-niro-phev-ex",
+      "chrysler-pacifica-hybrid-pinnacle"
+    ]
+  },
+  "outcome": {
+    "vehicles_authored": 17,
+    "brands_added": 7,
+    "final_seed_vehicle_count": 37,
+    "final_seed_brand_count": 16,
+    "estimated_high_count": "16-20 (subagent reported 2-source verification on range/battery for most)",
+    "phev_count_in_batch": 3,
+    "notable_findings": [
+      "Toyota bZ4X early model years had passive cooling — noted in thermal_management",
+      "Kia EV9 Land AWD uses 99.8 kWh pack (largest in batch)",
+      "Canadian Honda Prologue is AWD-only (FWD US-only; marked accordingly)"
+    ]
+  },
+  "usage": {
+    "tokens_total": 130067,
+    "tool_uses": 22,
+    "duration_ms": 184315
+  },
+  "quality_notes": "Subagent respected Long-Range-trim-only rule. PHEVs correctly got dc_charge_kw_max=0 and empty charging_curve_20c. All MSRPs marked Low per protocol. Subagent produced clean JSON via Write tool (not inline) — token-efficient.",
+  "improvements_for_next_run": [
+    "Template v2 should include an example record as the primary teaching signal (subagent followed the brief accurately but could have been faster with inline example)",
+    "Consider splitting PHEV-authoring into its own subagent run — different spec patterns (no DCFC, electric-only range)",
+    "Subagent could benefit from a sibling-consistency check at author time (IONIQ 5 RWD vs AWD share battery+chemistry — author RWD first, then derive AWD variant)"
+  ]
+}

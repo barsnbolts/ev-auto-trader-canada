@@ -1,0 +1,47 @@
+{
+  "_comment": "D-04 bulk seed expansion — Cluster N v2 set-and-forget plan. 30 confirmed Canadian-market vehicles after 2026-04-24 recon. Brand registration auto-handled by apply_research.py via --brand-name + --brand-country.",
+  "_recon_date": "2026-04-24",
+  "_dropped": [
+    {"name": "Bentley Bentayga EV", "reason": "Doesn't exist — next-gen Bentayga is PHEV-2028; Bentley's first EV is a separate urban SUV (2027)"},
+    {"name": "Fisker Ocean", "reason": "Fisker bankrupt June 2024; production ceased March 2024; only existing inventory remains"}
+  ],
+  "_deferred_to_my26": [
+    {"name": "Polestar 4", "reason": "First CA deliveries mid-Dec 2025 as MY26"},
+    {"name": "Kia EV3", "reason": "MY26 only, not yet on dealer lots in CA"},
+    {"name": "Subaru Trailseeker EV", "reason": "MY26, on sale early 2026"},
+    {"name": "Hyundai IONIQ 9", "reason": "MY26, late spring/H2 2025 arrival"}
+  ],
+  "vehicles": [
+    {"id": "kia-ev9-2025-lr-rwd", "brand_id": "kia", "model": "EV9", "year": 2025, "trim_hint": "Long Range RWD (single-motor 99.8 kWh)", "primary_url": "https://www.kia.ca/en/vehicles/ev9", "tier": "mainstream"},
+    {"id": "kia-ev9-2025-lr-awd", "brand_id": "kia", "model": "EV9", "year": 2025, "trim_hint": "Land AWD (dual-motor 99.8 kWh, longest-range AWD)", "primary_url": "https://www.kia.ca/en/vehicles/ev9", "tier": "mainstream"},
+    {"id": "bmw-i4-2025-lr-rwd", "brand_id": "bmw", "model": "i4", "year": 2025, "trim_hint": "eDrive40 (single-motor RWD, 84 kWh)", "primary_url": "https://www.bmw.ca/en/all-models/bmw-i/i4/bmw-i4/bmw-i4-highlights.html", "tier": "mainstream", "brand_name": "BMW", "brand_country": "Germany"},
+    {"id": "bmw-i4-2025-lr-awd", "brand_id": "bmw", "model": "i4", "year": 2025, "trim_hint": "xDrive40 (dual-motor AWD, 84 kWh)", "primary_url": "https://www.bmw.ca/en/all-models/bmw-i/i4/bmw-i4/bmw-i4-highlights.html", "tier": "mainstream"},
+    {"id": "volvo-ex30-2025-er-twin", "brand_id": "volvo", "model": "EX30", "year": 2025, "trim_hint": "Twin Motor Performance (AWD, 69 kWh) — single-motor + AWD share trim chassis", "primary_url": "https://www.volvocars.com/en-ca/cars/ex30-electric/", "tier": "mainstream", "brand_name": "Volvo", "brand_country": "Sweden"},
+    {"id": "volvo-ex90-2025-twin", "brand_id": "volvo", "model": "EX90", "year": 2025, "trim_hint": "Twin Motor Plus AWD (111 kWh) — MY25 ONLY in Canada (pulled for MY26)", "primary_url": "https://www.volvocars.com/en-ca/cars/ex90-electric/", "tier": "mainstream", "discontinued_after": "MY25"},
+    {"id": "subaru-solterra-2025-awd", "brand_id": "subaru", "model": "Solterra", "year": 2025, "trim_hint": "Premium AWD (71.4 kWh)", "primary_url": "https://www.subaru.ca/en/models/solterra", "tier": "mainstream", "brand_name": "Subaru", "brand_country": "Japan"},
+    {"id": "toyota-bz4x-2025-lr-fwd", "brand_id": "toyota", "model": "bZ4X", "year": 2025, "trim_hint": "LE FWD Long Range (71.4 kWh)", "primary_url": "https://www.toyota.ca/toyota/en/vehicles/bz4x/overview", "tier": "mainstream"},
+    {"id": "toyota-bz4x-2025-awd", "brand_id": "toyota", "model": "bZ4X", "year": 2025, "trim_hint": "Limited AWD (71.4 kWh)", "primary_url": "https://www.toyota.ca/toyota/en/vehicles/bz4x/overview", "tier": "mainstream"},
+    {"id": "gmc-hummerev-suv-2025-3x-awd", "brand_id": "gmc", "model": "Hummer EV SUV", "year": 2025, "trim_hint": "3X AWD (170 kWh tri-motor — long-range AWD, no single-motor variant)", "primary_url": "https://www.gmccanada.ca/en/electric/2025-hummer-ev-suv", "tier": "mainstream", "brand_name": "GMC", "brand_country": "USA"},
+    {"id": "cadillac-lyriq-2025-lr-rwd", "brand_id": "cadillac", "model": "Lyriq", "year": 2025, "trim_hint": "Luxury 1 RWD (102 kWh)", "primary_url": "https://www.cadillaccanada.ca/en/electric/lyriq", "tier": "mainstream", "brand_name": "Cadillac", "brand_country": "USA"},
+    {"id": "cadillac-lyriq-2025-lr-awd", "brand_id": "cadillac", "model": "Lyriq", "year": 2025, "trim_hint": "Sport 3 AWD (102 kWh)", "primary_url": "https://www.cadillaccanada.ca/en/electric/lyriq", "tier": "mainstream"},
+    {"id": "mercedes-eqe-sedan-2025-lr-rwd", "brand_id": "mercedes-benz", "model": "EQE", "year": 2025, "trim_hint": "350+ Sedan RWD (96 kWh) — spot-check CA availability before researching", "primary_url": "https://www.mercedes-benz.ca/en/vehicles/model/eqe", "tier": "mainstream", "brand_name": "Mercedes-Benz", "brand_country": "Germany", "spot_check_required": true},
+    {"id": "lucid-air-2025-grand-touring-awd", "brand_id": "lucid", "model": "Air", "year": 2025, "trim_hint": "Grand Touring AWD (118 kWh, longest range)", "primary_url": "https://lucidmotors.com/en-ca/air", "tier": "premium", "brand_name": "Lucid", "brand_country": "USA"},
+    {"id": "bmw-ix-2025-lr-awd", "brand_id": "bmw", "model": "iX", "year": 2025, "trim_hint": "xDrive50 AWD (111 kWh) — AWD only in NA market", "primary_url": "https://www.bmw.ca/", "tier": "mainstream"},
+    {"id": "porsche-taycan-2025-lr-rwd", "brand_id": "porsche", "model": "Taycan", "year": 2025, "trim_hint": "Base RWD Long Range (105 kWh Performance Battery Plus)", "primary_url": "https://www.porsche.com/canada/en/models/taycan/", "tier": "premium", "brand_name": "Porsche", "brand_country": "Germany"},
+    {"id": "porsche-taycan-2025-4s-awd", "brand_id": "porsche", "model": "Taycan", "year": 2025, "trim_hint": "4S AWD (105 kWh — longest-range AWD)", "primary_url": "https://www.porsche.com/canada/en/models/taycan/", "tier": "premium"},
+    {"id": "porsche-macan-ev-2025-4-awd", "brand_id": "porsche", "model": "Macan EV", "year": 2025, "trim_hint": "Macan 4 AWD (100 kWh) — only AWD variants in NA", "primary_url": "https://www.porsche.com/canada/en/models/macan/macan-electric-models/macan-electric/", "tier": "premium"},
+    {"id": "audi-etron-gt-2025-rs-awd", "brand_id": "audi", "model": "e-tron GT", "year": 2025, "trim_hint": "RS e-tron GT AWD (93.4 kWh) — Performance trim avoided per project rule; use base e-tron GT quattro AWD if available", "primary_url": "https://www.audi.ca/en/models/etron-gt/", "tier": "premium", "brand_name": "Audi", "brand_country": "Germany"},
+    {"id": "audi-q6-etron-2025-quattro-awd", "brand_id": "audi", "model": "Q6 e-tron", "year": 2025, "trim_hint": "Performance quattro AWD (100 kWh) — longest-range single-motor RWD also exists", "primary_url": "https://www.audi.ca/en/models/q6/q6-e-tron/2025/overview/build/", "tier": "mainstream"},
+    {"id": "rolls-royce-spectre-2025-awd", "brand_id": "rolls-royce", "model": "Spectre", "year": 2025, "trim_hint": "Spectre AWD (102 kWh) — only one trim, ~CAD $495K+", "primary_url": "https://www.rolls-roycemotorcars.com/en_GB/showroom/spectre.html", "tier": "premium", "brand_name": "Rolls-Royce", "brand_country": "UK"},
+    {"id": "mercedes-eqs-sedan-2025-580-awd", "brand_id": "mercedes-benz", "model": "EQS Sedan", "year": 2025, "trim_hint": "580 4MATIC AWD (108.4 kWh)", "primary_url": "https://www.mercedes-benz.ca/en/vehicles/model/eqs/sedan/eqs580v4", "tier": "premium"},
+    {"id": "mercedes-g580-eq-2025-awd", "brand_id": "mercedes-benz", "model": "G 580 EQ", "year": 2025, "trim_hint": "G 580 with EQ Technology AWD (116 kWh quad-motor) — only AWD", "primary_url": "https://www.mercedes-benz.ca/en/vehicles/build/g-class/suv/g580w4e", "tier": "premium"},
+    {"id": "bmw-i5-2025-lr-rwd", "brand_id": "bmw", "model": "i5", "year": 2025, "trim_hint": "eDrive40 (single-motor RWD, 84 kWh)", "primary_url": "https://www.bmw.ca/", "tier": "mainstream"},
+    {"id": "bmw-i5-2025-lr-awd", "brand_id": "bmw", "model": "i5", "year": 2025, "trim_hint": "xDrive40 (dual-motor AWD, 84 kWh)", "primary_url": "https://www.bmw.ca/", "tier": "mainstream"},
+    {"id": "bmw-i7-2025-lr-awd", "brand_id": "bmw", "model": "i7", "year": 2025, "trim_hint": "xDrive60 AWD (101.7 kWh) — only AWD", "primary_url": "https://www.bmw.ca/", "tier": "premium"},
+    {"id": "genesis-electrified-g80-2025-awd", "brand_id": "genesis", "model": "Electrified G80", "year": 2025, "trim_hint": "Single trim AWD (87.2 kWh)", "primary_url": "https://p-www.genesis.com/ca/en/models/luxury-sedan-genesis/electrified-g80/highlights.html", "tier": "premium"},
+    {"id": "polestar-3-2025-lr-awd", "brand_id": "polestar", "model": "3", "year": 2025, "trim_hint": "Long Range Dual Motor AWD (111 kWh)", "primary_url": "https://www.polestar.com/en-ca/polestar-3/", "tier": "premium"},
+    {"id": "honda-prologue-2025-lr-fwd", "brand_id": "honda", "model": "Prologue", "year": 2025, "trim_hint": "EX FWD (85 kWh)", "primary_url": "https://www.honda.ca/en_ca/prologue", "tier": "mainstream", "brand_name": "Honda", "brand_country": "Japan"},
+    {"id": "honda-prologue-2025-lr-awd", "brand_id": "honda", "model": "Prologue", "year": 2025, "trim_hint": "Touring AWD (85 kWh)", "primary_url": "https://www.honda.ca/en_ca/prologue", "tier": "mainstream"},
+    {"id": "acura-zdx-2025-a-spec-awd", "brand_id": "acura", "model": "ZDX", "year": 2025, "trim_hint": "A-Spec AWD (102 kWh) — discontinued after MY25", "primary_url": "https://www.acura.ca/zdx", "tier": "premium", "brand_name": "Acura", "brand_country": "Japan", "discontinued_after": "MY25"}
+  ]
+}

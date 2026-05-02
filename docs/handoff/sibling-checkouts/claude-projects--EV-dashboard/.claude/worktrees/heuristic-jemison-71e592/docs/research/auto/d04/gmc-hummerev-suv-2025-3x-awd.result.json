@@ -1,0 +1,45 @@
+{
+  "vehicle": {
+    "id": "gmc-hummerev-suv-2025-3x-awd",
+    "brand_id": "gmc",
+    "model": "Hummer EV SUV",
+    "generation_label": "Gen 1 (2024+)",
+    "year_start": 2024,
+    "year_end": null,
+    "powertrain": "BEV",
+    "body_style": "SUV",
+    "drivetrain_variant": "AWD",
+    "trim_label": "Edition 1 / 3X AWD",
+    "battery_chemistry": "NMC",
+    "range_protocol": "EPA",
+    "port_type": "CCS1",
+    "seats": 5,
+    "thermal_management": "active_liquid",
+    "degradation_annual": 0.017
+  },
+  "cited_fields": {
+    "battery_kwh_total": {"value": 170.0, "confidence": "High", "source": {"url": "https://driving.ca/gmc/hummer-ev/2025/", "name": "Driving.ca 2025 GMC Hummer EV SUV 3X 170 kWh", "accessed": "2026-04-25"}},
+    "battery_kwh_usable": {"value": 158.0, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1721/GMC-Hummer-EV-SUV", "name": "EV-Database GMC Hummer EV SUV usable kWh", "accessed": "2026-04-25"}, "notes": "EV-Database 158 kWh usable for 170 nominal pack (~7% buffer); Ultium 24-module 800V architecture"},
+    "range_km": {"value": 507, "confidence": "High", "source": {"url": "https://www.gmccanada.ca/en/electric/2025-hummer-ev-suv", "name": "GMC Canada Hummer EV SUV — up to 507 km", "accessed": "2026-04-25"}, "notes": "GMC Canada 507 km, Driving.ca 507 km. Two manufacturer-confirmed."},
+    "ac_charge_kw_max": {"value": 19.2, "confidence": "High", "source": {"url": "https://driving.ca/gmc/hummer-ev/2025/", "name": "Driving.ca Hummer EV SUV 19.2 kW onboard charger", "accessed": "2026-04-25"}},
+    "dc_charge_kw_max": {"value": 350, "confidence": "High", "source": {"url": "https://www.gmccanada.ca/en/electric/2025-hummer-ev-suv", "name": "GMC Canada — up to 350 kW 800V DC fast-charging", "accessed": "2026-04-25"}},
+    "cargo_l_seats_up": {"value": 1017, "confidence": "High", "source": {"url": "https://driving.ca/gmc/hummer-ev/2025/", "name": "Driving.ca Hummer EV SUV 1,017 L cargo seats up", "accessed": "2026-04-25"}},
+    "cargo_l_seats_down": {"value": 2317, "confidence": "High", "source": {"url": "https://driving.ca/gmc/hummer-ev/2025/", "name": "Driving.ca Hummer EV SUV 2,317 L max cargo", "accessed": "2026-04-25"}},
+    "tow_rating_kg": {"value": 3402, "confidence": "Medium", "source": {"url": "https://www.gmccanada.ca/en/electric/2025-hummer-ev-suv", "name": "GMC Canada Hummer EV SUV tow rating ~7,500 lb (3,402 kg)", "accessed": "2026-04-25"}, "notes": "GMC US lists 7,500 lb max tow for SUV; Canada spec implied identical"},
+    "weight_kg": {"value": 4109, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1721/GMC-Hummer-EV-SUV", "name": "EV-Database Hummer EV SUV 3X curb weight ~4,109 kg (9,063 lb)", "accessed": "2026-04-25"}},
+    "has_heat_pump": {"value": false, "confidence": "Medium", "source": {"url": "https://www.gmccanada.ca/en/electric/2025-hummer-ev-suv", "name": "GMC Canada Hummer EV SUV (resistive heat, no heat pump)", "accessed": "2026-04-25"}, "notes": "Ultium platform 2025MY uses resistive cabin heat, not heat pump"},
+    "msrp_cad": {"value": 144098, "confidence": "High", "source": {"url": "https://driving.ca/gmc/hummer-ev/2025/", "name": "Driving.ca 2025 Hummer EV SUV 3X $144,098 CAD MSRP", "accessed": "2026-04-25"}, "notes": "Driving.ca + GMC Canada $144,098 (3X trim). Bare MSRP excludes $2,600 freight/PDI."},
+    "federal_izev_cad": {"value": 0, "confidence": "High", "source": {"url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/incentives-zero-emission-vehicles-izev", "name": "Transport Canada — iZEV paused 2026 (Hummer over MSRP cap regardless)", "accessed": "2026-04-25"}, "notes": "Hummer MSRP exceeds iZEV $55k cap; ineligible even when program active"},
+    "provincial_rebate_cad_on": {"value": 0, "confidence": "High", "source": {"url": "https://www.ontario.ca/page/electric-vehicles", "name": "Ontario — no provincial EV rebate since 2018", "accessed": "2026-04-25"}}
+  },
+  "thermal_arrays": {
+    "cold_derate_curve": [],
+    "hvac_draw_kw_by_temp": [],
+    "hp_min_temp_c": -10,
+    "precon_time_by_temp": [],
+    "precon_thermal_gain": 0.85,
+    "dc_cold_soak_curve": [],
+    "charging_curve_20c": []
+  },
+  "overall_confidence": "High"
+}

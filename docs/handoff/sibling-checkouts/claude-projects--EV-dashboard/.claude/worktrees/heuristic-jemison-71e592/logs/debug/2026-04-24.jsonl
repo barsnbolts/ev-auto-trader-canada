@@ -1,0 +1,7 @@
+{"ts":1,"level":"info","source":"test","event":"probe"}
+{"ts":1777055007638,"level":"info","source":"probe","event":"browser_post"}
+{"ts":1777055023558,"level":"info","source":"store","event":"state_change","payload":{"plainMode":{"before":false,"after":true}}}
+{"ts":1777055042218,"level":"info","source":"store","event":"state_change","payload":{"plainMode":{"before":true,"after":false}}}
+{"ts":1777055042757,"level":"info","source":"ui","event":"compare_view_open"}
+{"ts":1777055043761,"level":"info","source":"ui","event":"compare_tab_change","payload":{"from":"specs","to":"map"}}
+{"ts":1777055043799,"level":"info","source":"ui","event":"rings_update","payload":{"vehicleCount":4,"ranges":[{"id":"chevy-equinoxev-awd-2lt","km":459},{"id":"chevy-equinoxev-fwd-lt2","km":513},{"id":"ford-lightning-er-awd","km":483.00000000000006},{"id":"ford-mache-2024-er-awd","km":467}]}}

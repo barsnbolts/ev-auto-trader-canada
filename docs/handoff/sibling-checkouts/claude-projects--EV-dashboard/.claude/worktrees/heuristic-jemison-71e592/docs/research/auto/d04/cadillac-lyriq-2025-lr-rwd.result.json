@@ -1,0 +1,45 @@
+{
+  "vehicle": {
+    "id": "cadillac-lyriq-2025-lr-rwd",
+    "brand_id": "cadillac",
+    "model": "Lyriq",
+    "generation_label": "Gen 1 (2023+)",
+    "year_start": 2023,
+    "year_end": null,
+    "powertrain": "BEV",
+    "body_style": "SUV",
+    "drivetrain_variant": "SINGLE_MOTOR",
+    "trim_label": "Luxury 1 RWD",
+    "battery_chemistry": "NMC",
+    "range_protocol": "EPA",
+    "port_type": "CCS1",
+    "seats": 5,
+    "thermal_management": "active_liquid",
+    "degradation_annual": 0.017
+  },
+  "cited_fields": {
+    "battery_kwh_total": {"value": 102.0, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/cadillac/lyriq/2025/specifications/luxury-1-rwd/", "name": "GuideAuto 2025 Cadillac Lyriq Luxury 1 RWD spec", "accessed": "2026-04-25"}},
+    "battery_kwh_usable": {"value": 100.4, "confidence": "High", "source": {"url": "https://www.driving.ca/cadillac/lyriq/2025/luxury-1-awd/", "name": "Driving.ca Lyriq 100.40 kWh usable", "accessed": "2026-04-25"}, "notes": "Driving.ca + Edmunds report 100.4 kWh usable from 102 nominal Ultium pack"},
+    "range_km": {"value": 525, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/cadillac/lyriq/2025/specifications/luxury-1-rwd/", "name": "GuideAuto Lyriq Luxury 1 RWD 525 km autonomy", "accessed": "2026-04-25"}, "notes": "GuideAuto 525 km, Edmunds 326 mi (525 km), KBB 326 mi. Three sources exact match."},
+    "ac_charge_kw_max": {"value": 11.5, "confidence": "High", "source": {"url": "https://www.driving.ca/cadillac/lyriq/2025/luxury-1-awd/", "name": "Driving.ca Lyriq onboard charger 11.5 kW (RWD); 19.2 kW optional", "accessed": "2026-04-25"}},
+    "dc_charge_kw_max": {"value": 190, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1764/Cadillac-Lyriq-Luxury", "name": "EV-Database Cadillac Lyriq Luxury DC peak", "accessed": "2026-04-25"}, "notes": "EV-Database 190 kW DC peak; GM Ultium platform"},
+    "cargo_l_seats_up": {"value": 793, "confidence": "High", "source": {"url": "https://www.driving.ca/cadillac/lyriq/2025/luxury-1-awd/", "name": "Driving.ca Lyriq cargo 793 L seats up", "accessed": "2026-04-25"}},
+    "cargo_l_seats_down": {"value": 1722, "confidence": "High", "source": {"url": "https://www.driving.ca/cadillac/lyriq/2025/luxury-1-awd/", "name": "Driving.ca Lyriq max cargo 1,722 L", "accessed": "2026-04-25"}},
+    "tow_rating_kg": {"value": 1588, "confidence": "Medium", "source": {"url": "https://www.edmunds.com/cadillac/lyriq/2025/st-402045010/features-specs/", "name": "Edmunds Lyriq tow 3,500 lb (1,588 kg)", "accessed": "2026-04-25"}},
+    "weight_kg": {"value": 2543, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/cadillac/lyriq/2025/specifications/luxury-1-rwd/", "name": "GuideAuto Lyriq Luxury 1 RWD curb weight 2,543 kg", "accessed": "2026-04-25"}},
+    "has_heat_pump": {"value": true, "confidence": "Medium", "source": {"url": "https://www.cadillaccanada.ca/en/electric/lyriq", "name": "Cadillac Canada Lyriq (heat pump standard 2024+)", "accessed": "2026-04-25"}},
+    "msrp_cad": {"value": 67499, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/cadillac/lyriq/2025/specifications/luxury-1-rwd/", "name": "GuideAuto 2025 Lyriq Luxury 1 RWD $67,499 CAD MSRP", "accessed": "2026-04-25"}, "notes": "GuideAuto $67,499, Driving.ca $67,499. Bare MSRP excludes $2,500 freight/PDI."},
+    "federal_izev_cad": {"value": 0, "confidence": "High", "source": {"url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/incentives-zero-emission-vehicles-izev", "name": "Transport Canada — iZEV paused 2026", "accessed": "2026-04-25"}, "notes": "Lyriq MSRP exceeds iZEV $55k cap; ineligible regardless"},
+    "provincial_rebate_cad_on": {"value": 0, "confidence": "High", "source": {"url": "https://www.ontario.ca/page/electric-vehicles", "name": "Ontario — no provincial EV rebate since 2018", "accessed": "2026-04-25"}}
+  },
+  "thermal_arrays": {
+    "cold_derate_curve": [],
+    "hvac_draw_kw_by_temp": [],
+    "hp_min_temp_c": -10,
+    "precon_time_by_temp": [],
+    "precon_thermal_gain": 0.85,
+    "dc_cold_soak_curve": [],
+    "charging_curve_20c": []
+  },
+  "overall_confidence": "High"
+}

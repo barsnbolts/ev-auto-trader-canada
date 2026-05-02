@@ -1,0 +1,22 @@
+{"id": "I-DBG", "kind": "infra", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "BATCH-3", "kind": "batch", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "BATCH-4", "kind": "batch", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "BATCH-2", "kind": "batch", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "BATCH-6", "kind": "batch", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "BATCH-5", "kind": "batch", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "BATCH-1", "kind": "batch", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 130067, "actual_subagent_count": 1, "summary_head": "backfilled from LEARNINGS"}
+{"id": "F-MAP", "kind": "feature", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "F-hp", "kind": "feature", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "F-03", "kind": "feature", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "I-INT", "kind": "infra", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "D-01-ext", "kind": "data", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 136002, "actual_subagent_count": 1, "summary_head": "backfilled from LEARNINGS"}
+{"id": "D-01", "kind": "data", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 70483, "actual_subagent_count": 1, "summary_head": "backfilled from LEARNINGS"}
+{"id": "I-VAL", "kind": "infra", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "I-17", "kind": "infra", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "P-01", "kind": "polish", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "F-02", "kind": "feature", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "B-01", "kind": "bugfix", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "I-04", "kind": "infra", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "3c", "kind": "other", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "3b", "kind": "other", "closed_at": "backfilled", "estimated": "unknown", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "backfilled from LEARNINGS"}
+{"id": "ROI-GATE-V1", "kind": "auto", "closed_at": "2026-04-24T00:18:04.099984Z", "estimated": "tokens", "actual_subagent_tokens": 0, "actual_subagent_count": 0, "summary_head": "Token-ROI discipline system installed: token_roi.py (preflight/log/dashboard/gate/budget/spend), wired into milestone.py step 8, batch_ritua"}

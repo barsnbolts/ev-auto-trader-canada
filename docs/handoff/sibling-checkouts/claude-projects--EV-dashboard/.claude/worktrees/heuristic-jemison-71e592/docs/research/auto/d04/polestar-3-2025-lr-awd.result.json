@@ -1,0 +1,45 @@
+{
+  "vehicle": {
+    "id": "polestar-3-2025-lr-awd",
+    "brand_id": "polestar",
+    "model": "3",
+    "generation_label": "Gen 1 (2024+)",
+    "year_start": 2024,
+    "year_end": null,
+    "powertrain": "BEV",
+    "body_style": "SUV",
+    "drivetrain_variant": "AWD",
+    "trim_label": "Long Range Dual Motor AWD",
+    "battery_chemistry": "NMC",
+    "range_protocol": "EPA",
+    "port_type": "CCS1",
+    "seats": 5,
+    "thermal_management": "active_liquid",
+    "degradation_annual": 0.017
+  },
+  "cited_fields": {
+    "battery_kwh_total": {"value": 111.0, "confidence": "High", "source": {"url": "https://polestar.com/en-ca/polestar-3/specifications", "name": "Polestar Canada Polestar 3 specs — 111 kWh nominal pack", "accessed": "2026-04-25"}},
+    "battery_kwh_usable": {"value": 107.0, "confidence": "High", "source": {"url": "https://www.greencarplanet.com/cars/polestar/3-long-range-dual-motor/canada", "name": "GreenCarPlanet — Polestar 3 LR Dual 107 kWh usable / 111 kWh total", "accessed": "2026-04-25"}},
+    "range_km": {"value": 506, "confidence": "High", "source": {"url": "https://polestar.com/en-ca/polestar-3/specifications", "name": "Polestar Canada — Polestar 3 LR Dual 506 km EPA", "accessed": "2026-04-25"}, "notes": "Polestar Canada 506 km EPA; GreenCarPlanet 610 km est (likely WLTP); use EPA per project convention"},
+    "ac_charge_kw_max": {"value": 11, "confidence": "High", "source": {"url": "https://www.greencarplanet.com/cars/polestar/3-long-range-dual-motor/canada", "name": "GreenCarPlanet — Polestar 3 11 kW Type 2 AC", "accessed": "2026-04-25"}},
+    "dc_charge_kw_max": {"value": 250, "confidence": "High", "source": {"url": "https://polestar.com/en-ca/polestar-3/specifications", "name": "Polestar Canada — Polestar 3 250 kW DC peak", "accessed": "2026-04-25"}},
+    "cargo_l_seats_up": {"value": 484, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1849/Polestar-3-Long-Range-Dual-Motor", "name": "EV-Database Polestar 3 484 L cargo seats up", "accessed": "2026-04-25"}},
+    "cargo_l_seats_down": {"value": 1411, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1849/Polestar-3-Long-Range-Dual-Motor", "name": "EV-Database Polestar 3 max cargo 1,411 L", "accessed": "2026-04-25"}},
+    "tow_rating_kg": {"value": 2200, "confidence": "Medium", "source": {"url": "https://polestar.com/en-ca/polestar-3/", "name": "Polestar Canada — Polestar 3 2,200 kg max tow capacity", "accessed": "2026-04-25"}},
+    "weight_kg": {"value": 2670, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1849/Polestar-3-Long-Range-Dual-Motor", "name": "EV-Database Polestar 3 LR Dual curb weight ~2,670 kg", "accessed": "2026-04-25"}},
+    "has_heat_pump": {"value": true, "confidence": "High", "source": {"url": "https://polestar.com/en-ca/polestar-3/specifications", "name": "Polestar Canada Polestar 3 (heat pump standard)", "accessed": "2026-04-25"}},
+    "msrp_cad": {"value": 96000, "confidence": "High", "source": {"url": "https://polestar.com/en-ca/polestar-3/specifications", "name": "Polestar Canada — Polestar 3 LR Dual $96,000 MSRP", "accessed": "2026-04-25"}, "notes": "Polestar Canada $96,000 base; Performance pack $103,200. Bare MSRP excludes $2,800 freight/PDI."},
+    "federal_izev_cad": {"value": 0, "confidence": "High", "source": {"url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/incentives-zero-emission-vehicles-izev", "name": "Transport Canada — iZEV paused 2026; over MSRP cap regardless", "accessed": "2026-04-25"}},
+    "provincial_rebate_cad_on": {"value": 0, "confidence": "High", "source": {"url": "https://www.ontario.ca/page/electric-vehicles", "name": "Ontario — no provincial EV rebate since 2018", "accessed": "2026-04-25"}}
+  },
+  "thermal_arrays": {
+    "cold_derate_curve": [],
+    "hvac_draw_kw_by_temp": [],
+    "hp_min_temp_c": -10,
+    "precon_time_by_temp": [],
+    "precon_thermal_gain": 0.85,
+    "dc_cold_soak_curve": [],
+    "charging_curve_20c": []
+  },
+  "overall_confidence": "High"
+}

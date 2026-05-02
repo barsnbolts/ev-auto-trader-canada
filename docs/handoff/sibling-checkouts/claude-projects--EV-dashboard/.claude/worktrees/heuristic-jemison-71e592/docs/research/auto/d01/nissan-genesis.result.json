@@ -1,0 +1,13 @@
+{
+  "nissan-ariya-evolveplus-fwd": {
+    "battery_kwh_usable": {"action": "upgrade", "new_value": 87, "new_confidence": "High", "new_source": {"url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh", "name": "EV Database - Nissan Ariya 87kWh", "accessed": "2026-04-24"}, "evidence": "EV-Database, evkx.net, greencarscompare, fueleconomy.gov all confirm 87.0 kWh usable / 91.0 kWh nominal (4.4% buffer)."},
+    "range_km": {"action": "upgrade", "new_value": 465, "new_confidence": "High", "new_source": {"url": "https://insideevs.com/news/722025/2024-nissan-ariya-epa-range-consumption-price/", "name": "InsideEVs - 2024 Nissan Ariya EPA Range", "accessed": "2026-04-24"}, "evidence": "InsideEVs confirms Evolve+ FWD 19-in: 289 mi (465 km) EPA combined. Recharged.com independently confirms 289 mi EPA."}
+  },
+  "nissan-ariya-evolveplus-eforce-awd": {
+    "battery_kwh_usable": {"action": "upgrade", "new_value": 87, "new_confidence": "High", "new_source": {"url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh", "name": "EV Database - Nissan Ariya 87kWh", "accessed": "2026-04-24"}, "evidence": "Same 87 kWh usable pack as FWD variant. EV-Database (96s4p NMC, 384 cells, 91 kWh nominal / 87 kWh usable), evkx.net, greencarscompare all confirm."},
+    "range_km": {"action": "upgrade", "new_value": 437, "new_confidence": "High", "new_source": {"url": "https://insideevs.com/news/722025/2024-nissan-ariya-epa-range-consumption-price/", "name": "InsideEVs - 2024 Nissan Ariya EPA Range", "accessed": "2026-04-24"}, "evidence": "InsideEVs: Evolve+ e-4ORCE 19-in 272 mi EPA = 437.7 km. driving.ca lists 438 km Canadian rating for Evolve+ e-4ORCE. Within 0.2% — strong agreement."}
+  },
+  "genesis-gv60-advanced-awd": {
+    "battery_kwh_usable": {"action": "add_source", "new_value": 74.0, "new_confidence": "Medium", "new_source": {"url": "https://p-www-2.genesis.com/ca/en/genesis/electrification/technology.html", "name": "Genesis Canada - Electric Technology", "accessed": "2026-04-24"}, "evidence": "Genesis Canada lists 77.4 kWh nominal pack capacity. E-GMP platform standard buffer ~4.4% gives ~74.0 kWh usable. Sources cite 77.4 as gross — keeping 74.0 usable as Medium since usable not directly published by Genesis."}
+  }
+}

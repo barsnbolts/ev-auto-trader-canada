@@ -1,0 +1,28 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ConfidenceBadge > renders High with full label and green styling 1`] = `
+<span
+  class="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-accent-green/15 text-accent-green border-accent-green/30"
+  title="High confidence: two or more independent sources agree on this number."
+>
+  High
+</span>
+`;
+
+exports[`ConfidenceBadge > renders Low with full label and red styling 1`] = `
+<span
+  class="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-accent-red/15 text-accent-red border-accent-red/30"
+  title="Low confidence: estimated, extrapolated, or sparse data — treat as approximate."
+>
+  Low
+</span>
+`;
+
+exports[`ConfidenceBadge > renders Medium with full label and amber styling 1`] = `
+<span
+  class="inline-flex items-center rounded border px-1.5 py-0.5 text-[10px] font-medium uppercase tracking-wide bg-accent-amber/15 text-accent-amber border-accent-amber/30"
+  title="Medium confidence: from a single source or only partially independently verified."
+>
+  Medium
+</span>
+`;

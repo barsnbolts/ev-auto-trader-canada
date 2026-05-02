@@ -1,0 +1,45 @@
+{
+  "vehicle": {
+    "id": "subaru-solterra-2025-awd",
+    "brand_id": "subaru",
+    "model": "Solterra",
+    "generation_label": "Gen 1 (2023-2025)",
+    "year_start": 2023,
+    "year_end": 2025,
+    "powertrain": "BEV",
+    "body_style": "SUV",
+    "drivetrain_variant": "AWD",
+    "trim_label": "Premium AWD",
+    "battery_chemistry": "NMC",
+    "range_protocol": "EPA",
+    "port_type": "CCS1",
+    "seats": 5,
+    "thermal_management": "active_liquid",
+    "degradation_annual": 0.017
+  },
+  "cited_fields": {
+    "battery_kwh_total": {"value": 72.8, "confidence": "High", "source": {"url": "https://driving.ca/toyota/bz4x/le-awd/", "name": "Driving.ca bZ4X LE AWD spec (shared platform — 72.81 kWh AWD)", "accessed": "2026-04-25"}, "notes": "Solterra shares e-TNGA platform with bZ4X — AWD variant has 72.8 kWh (vs 71.4 FWD)"},
+    "battery_kwh_usable": {"value": 64.0, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1729/Subaru-Solterra", "name": "EV-Database Subaru Solterra usable kWh", "accessed": "2026-04-25"}, "notes": "EV-Database 64 kWh usable for 72.8 nominal AWD pack (~12% buffer is conservative)"},
+    "range_km": {"value": 367, "confidence": "High", "source": {"url": "https://driving.ca/toyota/bz4x/le-awd/", "name": "Driving.ca bZ4X LE AWD 367 km (Solterra Premium AWD identical platform)", "accessed": "2026-04-25"}, "notes": "Same 367 km EPA range as Toyota bZ4X LE AWD (twin platform)"},
+    "ac_charge_kw_max": {"value": 7.6, "confidence": "High", "source": {"url": "https://www.subaru.ca/en/models/solterra", "name": "Subaru Canada Solterra — 7.6 kW Level 2 onboard charger", "accessed": "2026-04-25"}, "notes": "2025 Solterra uses 7.6 kW onboard charger (NOT 11 kW) per shared bZ4X spec"},
+    "dc_charge_kw_max": {"value": 100, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1729/Subaru-Solterra", "name": "EV-Database Subaru Solterra DC peak", "accessed": "2026-04-25"}, "notes": "100 kW DC peak per EV-Database (shared with bZ4X 2025); 2026 NACS upgrade brings 150 kW"},
+    "cargo_l_seats_up": {"value": 784, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/toyota/bz4x/2025/specifications/le-fwd/", "name": "GuideAuto bZ4X cargo (shared platform 784 L seats up)", "accessed": "2026-04-25"}},
+    "cargo_l_seats_down": {"value": 1611, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/toyota/bz4x/2025/specifications/le-fwd/", "name": "GuideAuto bZ4X max cargo 1,611 L", "accessed": "2026-04-25"}},
+    "tow_rating_kg": {"value": 1500, "confidence": "Medium", "source": {"url": "https://www.subaru.ca/en/models/solterra", "name": "Subaru Canada Solterra — 1,500 kg tow capacity (Subaru Symmetrical AWD)", "accessed": "2026-04-25"}, "notes": "Solterra rated for 1,500 kg vs bZ4X 'not recommended' — Subaru AWD platform rated higher"},
+    "weight_kg": {"value": 2010, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1729/Subaru-Solterra", "name": "EV-Database Subaru Solterra curb weight ~2,010 kg AWD", "accessed": "2026-04-25"}},
+    "has_heat_pump": {"value": true, "confidence": "Medium", "source": {"url": "https://www.subaru.ca/en/models/solterra", "name": "Subaru Canada Solterra features (heat pump standard 2024+)", "accessed": "2026-04-25"}},
+    "msrp_cad": {"value": 51495, "confidence": "Medium", "source": {"url": "https://www.gtaweekly.ca/2026-subaru-solterra-canada-launch/", "name": "GTA Weekly — 2025 Solterra base $51,495 CAD (vs 2026 $52,495)", "accessed": "2026-04-25"}, "notes": "2025 Solterra Premium AWD ~$51,495 base MSRP per GTA Weekly comparison ('$4,000 below 2024 / $1,000 below 2026'); bare MSRP excludes freight"},
+    "federal_izev_cad": {"value": 0, "confidence": "High", "source": {"url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/incentives-zero-emission-vehicles-izev", "name": "Transport Canada — iZEV paused 2026", "accessed": "2026-04-25"}},
+    "provincial_rebate_cad_on": {"value": 0, "confidence": "High", "source": {"url": "https://www.ontario.ca/page/electric-vehicles", "name": "Ontario — no provincial EV rebate since 2018", "accessed": "2026-04-25"}}
+  },
+  "thermal_arrays": {
+    "cold_derate_curve": [],
+    "hvac_draw_kw_by_temp": [],
+    "hp_min_temp_c": -10,
+    "precon_time_by_temp": [],
+    "precon_thermal_gain": 0.85,
+    "dc_cold_soak_curve": [],
+    "charging_curve_20c": []
+  },
+  "overall_confidence": "Medium"
+}

@@ -1,0 +1,45 @@
+{
+  "vehicle": {
+    "id": "kia-ev9-2025-lr-rwd",
+    "brand_id": "kia",
+    "model": "EV9",
+    "generation_label": "Gen 1 (2024+)",
+    "year_start": 2024,
+    "year_end": null,
+    "powertrain": "BEV",
+    "body_style": "SUV",
+    "drivetrain_variant": "SINGLE_MOTOR",
+    "trim_label": "Wind RWD Long Range",
+    "battery_chemistry": "NMC",
+    "range_protocol": "EPA",
+    "port_type": "CCS1",
+    "seats": 7,
+    "thermal_management": "active_liquid",
+    "degradation_annual": 0.017
+  },
+  "cited_fields": {
+    "battery_kwh_total": {"value": 99.8, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2025/specifications/wind-rwd/", "name": "GuideAuto 2025 Kia EV9 Wind RWD specs", "accessed": "2026-04-25"}},
+    "battery_kwh_usable": {"value": 96.0, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1900/Kia-EV9-Long-Range", "name": "EV-Database Kia EV9 Long Range", "accessed": "2026-04-25"}, "notes": "EV-Database lists 96 kWh usable for the 99.8 kWh nominal pack (3.8% buffer)"},
+    "range_km": {"value": 489, "confidence": "High", "source": {"url": "https://driving.ca/kia/ev9/2025/wind-rwd/", "name": "Driving.ca 2025 EV9 Wind RWD review", "accessed": "2026-04-25"}, "notes": "Driving.ca 489 km, GuideAuto 489 km, Kia.ca confirms larger battery range. NRCan combined 2.6 Le/100km."},
+    "ac_charge_kw_max": {"value": 10.9, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2025/specifications/wind-rwd/", "name": "GuideAuto Kia EV9 spec sheet", "accessed": "2026-04-25"}},
+    "dc_charge_kw_max": {"value": 233, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1900/Kia-EV9-Long-Range", "name": "EV-Database Kia EV9 800V architecture", "accessed": "2026-04-25"}, "notes": "EV9 uses 800V E-GMP arch; Kia advertises 10-80% in 24 min on 350 kW charger"},
+    "cargo_l_seats_up": {"value": 333, "confidence": "Medium", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2025/specifications/wind-rwd/", "name": "GuideAuto Kia EV9 cargo (3rd row up)", "accessed": "2026-04-25"}, "notes": "333 L behind 3rd row; 573 L = 2nd row up / 3rd row down; 2,314 L = all seats down"},
+    "cargo_l_seats_down": {"value": 2314, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2025/specifications/wind-rwd/", "name": "GuideAuto Kia EV9 max cargo", "accessed": "2026-04-25"}},
+    "tow_rating_kg": {"value": 907, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2025/specifications/wind-rwd/", "name": "GuideAuto Kia EV9 Wind RWD tow rating", "accessed": "2026-04-25"}, "notes": "RWD trim tow rating 907 kg with brakes; AWD bumps to 2,268 kg"},
+    "weight_kg": {"value": 2418, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2025/specifications/wind-rwd/", "name": "GuideAuto Kia EV9 Wind RWD curb weight", "accessed": "2026-04-25"}},
+    "has_heat_pump": {"value": true, "confidence": "High", "source": {"url": "https://www.kia.ca/en/vehicles/ev9", "name": "Kia Canada EV9 features (heat-pump standard on Long Range)", "accessed": "2026-04-25"}},
+    "msrp_cad": {"value": 62995, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2025/specifications/wind-rwd/", "name": "GuideAuto 2025 EV9 Wind RWD MSRP", "accessed": "2026-04-25"}, "notes": "GuideAuto $62,995, Driving.ca $62,995, Kia Canada $62,995. Bare MSRP excludes $2,150 freight/PDI."},
+    "federal_izev_cad": {"value": 0, "confidence": "High", "source": {"url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/incentives-zero-emission-vehicles-izev", "name": "Transport Canada — iZEV paused 2026", "accessed": "2026-04-25"}},
+    "provincial_rebate_cad_on": {"value": 0, "confidence": "High", "source": {"url": "https://www.ontario.ca/page/electric-vehicles", "name": "Ontario — no provincial EV rebate since 2018", "accessed": "2026-04-25"}}
+  },
+  "thermal_arrays": {
+    "cold_derate_curve": [],
+    "hvac_draw_kw_by_temp": [],
+    "hp_min_temp_c": -10,
+    "precon_time_by_temp": [],
+    "precon_thermal_gain": 0.85,
+    "dc_cold_soak_curve": [],
+    "charging_curve_20c": []
+  },
+  "overall_confidence": "High"
+}

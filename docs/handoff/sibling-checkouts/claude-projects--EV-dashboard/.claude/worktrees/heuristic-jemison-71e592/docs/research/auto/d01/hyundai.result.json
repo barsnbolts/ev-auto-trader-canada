@@ -1,0 +1,72 @@
+{
+  "hyundai-ioniq5-2025-lr-rwd": {
+    "range_km": {
+      "action": "add_source",
+      "new_value": 511,
+      "new_confidence": "High",
+      "new_source": {"url": "https://www.hyundaicanada.com/en/showroom/ioniq-5", "name": "Hyundai Canada IONIQ 5 showroom", "accessed": "2026-04-24"},
+      "evidence": "Hyundai Canada lists 504 km (NRCan); EPA US 2025 SE RWD LR = 318 mi = 512 km; seed 511 km within 1.4% of both. Confirmed."
+    },
+    "msrp_cad": {
+      "action": "upgrade",
+      "new_value": 55499,
+      "new_confidence": "High",
+      "new_source": {"url": "https://www.hyundaicanada.com/en/showroom/ioniq-5", "name": "Hyundai Canada IONIQ 5 build & price", "accessed": "2026-04-24"},
+      "evidence": "Hyundai Canada $55,499 MSRP; driving.ca $55,499; GuideAuto $55,499; APA $55,499. Four sources agree exactly. Seed $58,229 is wrong (likely included freight/PDI of ~$2,050+fees). Correcting to bare MSRP $55,499.",
+      "POLICY_FLAG": "MSRP convention: bare vs all-in?"
+    }
+  },
+  "hyundai-ioniq5-2025-lr-awd": {
+    "range_km": {
+      "action": "upgrade",
+      "new_value": 469,
+      "new_confidence": "High",
+      "new_source": {"url": "https://www.apa.ca/en/vehicles/2025-hyundai-ioniq-5/", "name": "APA 2025 IONIQ 5 review", "accessed": "2026-04-24"},
+      "evidence": "Hyundai Canada via APA 469 km; driving.ca implies 469-470; seed 470 km. Two independent sources within 0.2%."
+    },
+    "msrp_cad": {
+      "action": "upgrade",
+      "new_value": 57499,
+      "new_confidence": "High",
+      "new_source": {"url": "https://driving.ca/hyundai/ioniq-5/2025/preferred-standard-range/", "name": "driving.ca 2025 IONIQ 5 pricing", "accessed": "2026-04-24"},
+      "evidence": "driving.ca $57,499; GuideAuto $57,499; APA confirms AWD Preferred trim at $57,499. Three sources agree. Seed $61,229 is wrong (includes freight/fees).",
+      "POLICY_FLAG": "MSRP convention: bare vs all-in?"
+    }
+  },
+  "hyundai-ioniq6-lr-rwd": {
+    "battery_kwh_usable": {
+      "action": "upgrade",
+      "new_value": 74,
+      "new_confidence": "High",
+      "new_source": {"url": "https://ev-database.org/car/1718/Hyundai-IONIQ-6-Long-Range-2WD", "name": "EV Database IONIQ 6 LR 2WD", "accessed": "2026-04-24"},
+      "evidence": "EV Database 74.0 kWh usable (77.4 nominal); evspecs.org 74 kWh usable. Two independent sources confirm exact value."
+    },
+    "msrp_cad": {
+      "action": "upgrade",
+      "new_value": 54999,
+      "new_confidence": "High",
+      "new_source": {"url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6", "name": "Hyundai Canada 2025 IONIQ 6", "accessed": "2026-04-24"},
+      "evidence": "Hyundai Canada $54,999 MSRP; driving.ca $54,999; GuideAuto $54,999; AutoTrader $54,999. Four sources agree exactly with seed."
+    }
+  },
+  "hyundai-ioniq6-lr-awd": {
+    "battery_kwh_usable": {
+      "action": "upgrade",
+      "new_value": 74,
+      "new_confidence": "High",
+      "new_source": {"url": "https://www.evspecs.org/tech-specs/hyundai/ioniq-6/long-range-awd", "name": "EVspecs IONIQ 6 LR AWD", "accessed": "2026-04-24"},
+      "evidence": "EVspecs 74 kWh usable (77.4 gross); EV Database same shared platform 74.0 kWh usable. Two sources confirm."
+    },
+    "msrp_cad": {
+      "action": "upgrade",
+      "new_value": 58399,
+      "new_confidence": "High",
+      "new_source": {"url": "https://driving.ca/hyundai/ioniq-6/", "name": "driving.ca 2025 IONIQ 6 AWD pricing", "accessed": "2026-04-24"},
+      "evidence": "driving.ca $58,399; GuideAuto $58,399; AutoTrader confirms range $54,999-$65,099 with AWD at $58,399. Three sources agree exactly with seed."
+    }
+  },
+  "_notes": [
+    "IONIQ 5 RWD/AWD MSRP values in current seed ($58,229 / $61,229) appear to be all-in prices including freight+PDI+fees, NOT bare MSRP. Project convention should be confirmed — bare MSRP per Hyundai.ca is $55,499 / $57,499. Freight/PDI typically $2,050.",
+    "Kona Electric all fields already High and confirmed; omitted per spec."
+  ]
+}

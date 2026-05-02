@@ -1,0 +1,4170 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-04-23",
+  "brands": [
+    {
+      "id": "tesla",
+      "name": "Tesla",
+      "country": "USA"
+    },
+    {
+      "id": "hyundai",
+      "name": "Hyundai",
+      "country": "Korea"
+    },
+    {
+      "id": "kia",
+      "name": "Kia",
+      "country": "Korea"
+    },
+    {
+      "id": "ford",
+      "name": "Ford",
+      "country": "USA"
+    },
+    {
+      "id": "chevrolet",
+      "name": "Chevrolet",
+      "country": "USA"
+    },
+    {
+      "id": "rivian",
+      "name": "Rivian",
+      "country": "USA"
+    },
+    {
+      "id": "toyota",
+      "name": "Toyota",
+      "country": "Japan"
+    },
+    {
+      "id": "volkswagen",
+      "name": "Volkswagen",
+      "country": "Germany"
+    },
+    {
+      "id": "polestar",
+      "name": "Polestar",
+      "country": "Sweden"
+    },
+    {
+      "id": "nissan",
+      "name": "Nissan",
+      "country": "Japan"
+    },
+    {
+      "id": "genesis",
+      "name": "Genesis",
+      "country": "Korea"
+    },
+    {
+      "id": "bmw",
+      "name": "BMW",
+      "country": "Germany"
+    },
+    {
+      "id": "volvo",
+      "name": "Volvo",
+      "country": "Sweden"
+    },
+    {
+      "id": "subaru",
+      "name": "Subaru",
+      "country": "Japan"
+    },
+    {
+      "id": "honda",
+      "name": "Honda",
+      "country": "Japan"
+    },
+    {
+      "id": "chrysler",
+      "name": "Chrysler",
+      "country": "USA"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "tesla-model3-highland-lr-rwd",
+      "brand_id": "tesla",
+      "model": "Model 3",
+      "generation_label": "Highland (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range RWD",
+      "battery_kwh_total": {
+        "value": 78.1,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/model3/design",
+          "name": "Tesla Canada — Model 3",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 75.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2115/Tesla-Model-3-Long-Range-RWD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 584,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/tesla/model-3/long-range/",
+          "name": "Driving.ca 2025 + evspecifications cross-confirmed",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 584 km confirmed multi-source (EPA 363 mi)."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/support/home-charging-installation/wall-connector",
+          "name": "Tesla Canada — Wall Connector specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 170,
+        "confidence": "High",
+        "source": {
+          "url": "https://evspecshub.com/tesla-model-3-rwd-highland-2023-full-specs-range-battery",
+          "name": "EVSpecsHub Tesla Model 3 RWD",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 170 kW confirmed. (Juniper upgrade path is separate.)"
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 682,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/model3/design",
+          "name": "Tesla Canada — Model 3 specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing in North America."
+      },
+      "weight_kg": {
+        "value": 1761,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2115/Tesla-Model-3-Long-Range-RWD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.tesla.com/ownersmanual/model3/en_us/GUID-9F2F0D3A-DB35-4A02-83BE-55ABA1939C20.html",
+          "name": "Tesla Model 3 Owner's Manual",
+          "accessed": "2026-04-23"
+        }
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 165
+        },
+        {
+          "soc_pct": 20,
+          "kw": 170
+        },
+        {
+          "soc_pct": 40,
+          "kw": 130
+        },
+        {
+          "soc_pct": 60,
+          "kw": 95
+        },
+        {
+          "soc_pct": 80,
+          "kw": 55
+        }
+      ],
+      "msrp_cad": {
+        "value": 59990,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/tesla/model-3/long-range-rwd/",
+          "name": "Driving.ca 2025 Tesla Model 3 LR RWD pricing",
+          "accessed": "2026-04-23"
+        },
+        "notes": "Tesla adjusts MSRP frequently; verify at time of purchase. D-01-ext 2026-04-23: Canadian MSRP dropped from 64990 to 59990. Tesla adjusts frequently; stay Low."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV was paused in early 2025; 2026 status uncertain. Verify at transport.canada.ca before relying."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario has no active EV purchase rebate in 2026."
+      },
+      "overall_confidence": "High",
+      "heat_pump_min_effective_c": {
+        "value": -30,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://patents.google.com/patent/US11117433B2",
+          "name": "Tesla octovalve patent + community winter testing",
+          "accessed": "2026-04-23"
+        },
+        "notes": "F-hp 2026-04-23: per-vehicle HP cutoff. Default is -20; this overrides based on thermal-system evidence."
+      }
+    },
+    {
+      "id": "tesla-model3-highland-lr-awd",
+      "brand_id": "tesla",
+      "model": "Model 3",
+      "generation_label": "Highland (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Long Range AWD",
+      "battery_kwh_total": {
+        "value": 78.1,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/model3/design",
+          "name": "Tesla Canada — Model 3",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 75.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2114/Tesla-Model-3-Long-Range-AWD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 565,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47908",
+          "name": "EPA fueleconomy.gov (342 mi = 550 km) + Tesla.ca + EV-Database + ZeCAR cross-confirmed",
+          "accessed": "2026-04-23"
+        },
+        "notes": "Canonical EPA value rounds to 550 km; seed 565 matches Tesla's marketing figure. Within ±3%. D-01 verified multi-source 2026-04-23."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 250,
+        "confidence": "High",
+        "source": {
+          "url": "https://ev-database.org/car/2114/Tesla-Model-3-Long-Range-AWD",
+          "name": "EV-Database + ZeCAR + Tesla Motors Club cross-confirmed",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01 verified multi-source 2026-04-23."
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 682,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "weight_kg": {
+        "value": 1823,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 240
+        },
+        {
+          "soc_pct": 20,
+          "kw": 250
+        },
+        {
+          "soc_pct": 40,
+          "kw": 170
+        },
+        {
+          "soc_pct": 60,
+          "kw": 115
+        },
+        {
+          "soc_pct": 80,
+          "kw": 65
+        }
+      ],
+      "msrp_cad": {
+        "value": 69990,
+        "confidence": "Low",
+        "notes": "Tesla adjusts MSRP frequently; verify at time of purchase."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused in early 2025; 2026 status uncertain."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "heat_pump_min_effective_c": {
+        "value": -30,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://patents.google.com/patent/US11117433B2",
+          "name": "Tesla octovalve patent + community winter testing",
+          "accessed": "2026-04-23"
+        },
+        "notes": "F-hp 2026-04-23: per-vehicle HP cutoff. Default is -20; this overrides based on thermal-system evidence."
+      }
+    },
+    {
+      "id": "tesla-modely-juniper-lr-rwd",
+      "brand_id": "tesla",
+      "model": "Model Y",
+      "generation_label": "Juniper (2026+)",
+      "year_start": 2026,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range RWD",
+      "battery_kwh_total": {
+        "value": null,
+        "confidence": "Low",
+        "notes": "Juniper North American specs still finalizing — verify at Tesla.ca before quoting."
+      },
+      "battery_kwh_usable": {
+        "value": null,
+        "confidence": "Low"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": null,
+        "confidence": "Low",
+        "notes": "Juniper NA EPA figures pending."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": null,
+        "confidence": "Low"
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 854,
+        "confidence": "Low"
+      },
+      "cargo_l_seats_down": {
+        "value": 2138,
+        "confidence": "Low"
+      },
+      "tow_rating_kg": {
+        "value": 1588,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/modely",
+          "name": "Tesla Canada — Model Y",
+          "accessed": "2026-04-23"
+        }
+      },
+      "weight_kg": {
+        "value": null,
+        "confidence": "Low"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [],
+      "msrp_cad": {
+        "value": null,
+        "confidence": "Low",
+        "notes": "Juniper NA pricing pending."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Low",
+      "notes": "Placeholder entry for 2026 Model Y refresh (Juniper). Full spec verification required in Phase 2.",
+      "heat_pump_min_effective_c": {
+        "value": -30,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://patents.google.com/patent/US11117433B2",
+          "name": "Shared octovalve architecture",
+          "accessed": "2026-04-23"
+        },
+        "notes": "F-hp 2026-04-23: per-vehicle HP cutoff. Default is -20; this overrides based on thermal-system evidence."
+      }
+    },
+    {
+      "id": "hyundai-ioniq5-2025-lr-rwd",
+      "brand_id": "hyundai",
+      "model": "IONIQ 5",
+      "generation_label": "2025+ (84 kWh refresh)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "SE RWD Long Range",
+      "battery_kwh_total": {
+        "value": 84,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+          "name": "Hyundai Canada — IONIQ 5",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 81.9,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2418/Hyundai-IONIQ-5-Long-Range-RWD-2024",
+          "name": "EV-Database.org (2024+ long-range RWD)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 510,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.hyundainews.com/view/releases/4288",
+          "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 233,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
+          "name": "EVChargeRight — IONIQ 5 RWD specs",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 770,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1587,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1497,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2012,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "notes": "Standard heat pump on 2025+ Canadian long-range trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 250
+        },
+        {
+          "soc_pct": 40,
+          "kw": 200
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 54999,
+        "confidence": "Low",
+        "notes": "2025 MY refresh pricing estimate; verify at Hyundai Canada."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "hyundai-ioniq5-2025-lr-awd",
+      "brand_id": "hyundai",
+      "model": "IONIQ 5",
+      "generation_label": "2025+ (84 kWh refresh)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Preferred AWD Long Range",
+      "battery_kwh_total": {
+        "value": 84,
+        "confidence": "Medium"
+      },
+      "battery_kwh_usable": {
+        "value": 81.9,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 470,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (IONIQ 5 AWD Long Range 2025)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 258,
+        "confidence": "Medium"
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 770,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1587,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1497,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2105,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 250
+        },
+        {
+          "soc_pct": 40,
+          "kw": 200
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 58999,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium"
+    },
+    {
+      "id": "kia-ev6-2025-lr-rwd",
+      "brand_id": "kia",
+      "model": "EV6",
+      "generation_label": "2025 refresh (84 kWh)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range RWD",
+      "battery_kwh_total": {
+        "value": 84,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.kia.ca/en/ev6",
+          "name": "Kia Canada — EV6",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 81.9,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 499,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.evrangetools.com/vehicles/kia-ev6-light-long-range-rwd-2025",
+          "name": "EV Range Tools 2025 EV6 Light LR RWD (EPA 310 mi = 499 km)",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: EPA 310 mi = 499 km, exact match."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 233,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.evrangetools.com/vehicles/kia-ev6-light-long-range-rwd-2025",
+          "name": "EV Range Tools 2025 EV6 RWD charging",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW was AWD-only spec. Mirrors IONIQ 5 RWD correction."
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 690,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1385,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1497,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2025,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 225
+        },
+        {
+          "soc_pct": 20,
+          "kw": 255
+        },
+        {
+          "soc_pct": 40,
+          "kw": 205
+        },
+        {
+          "soc_pct": 60,
+          "kw": 135
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 56995,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium"
+    },
+    {
+      "id": "kia-ev6-2025-lr-awd",
+      "brand_id": "kia",
+      "model": "EV6",
+      "generation_label": "2025 refresh (84 kWh)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Long Range AWD",
+      "battery_kwh_total": {
+        "value": 84,
+        "confidence": "Medium"
+      },
+      "battery_kwh_usable": {
+        "value": 81.9,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 475,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
+          "name": "EVSpecsHub — Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 → 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 258,
+        "confidence": "High",
+        "source": {
+          "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
+          "name": "EVSpecsHub + EV-Database cross-confirmed (800V architecture)",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01 verified. Some sources cite 263 kW; 258 is official conservative spec."
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 690,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1385,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1497,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2115,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 225
+        },
+        {
+          "soc_pct": 20,
+          "kw": 255
+        },
+        {
+          "soc_pct": 40,
+          "kw": 205
+        },
+        {
+          "soc_pct": 60,
+          "kw": 135
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 60995,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "ford-mache-2024-er-rwd",
+      "brand_id": "ford",
+      "model": "Mustang Mach-E",
+      "generation_label": "2024+ refresh",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Extended Range RWD",
+      "battery_kwh_total": {
+        "value": 91,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.ford.ca/suvs/mach-e",
+          "name": "Ford Canada — Mach-E",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 88,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 515,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47823",
+          "name": "EPA fueleconomy.gov 2024 Mach-E ER RWD",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: EPA 320 mi = 515 km, confirmed."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.5,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.evspecs.org/tech-specs/ford/mustang-mach-e/extended-range-rwd",
+          "name": "EVSpecs.org + Recharged Mach-E ER RWD",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 150 kW peak DC multi-source verified."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 832,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1714,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing in North America."
+      },
+      "weight_kg": {
+        "value": 2095,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium",
+        "notes": "Heat pump standard from 2023+ model year for most North American trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 145
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 120
+        },
+        {
+          "soc_pct": 60,
+          "kw": 85
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 57995,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "ford-mache-2024-er-awd",
+      "brand_id": "ford",
+      "model": "Mustang Mach-E",
+      "generation_label": "2024+ refresh",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Extended Range AWD",
+      "battery_kwh_total": {
+        "value": 91,
+        "confidence": "Medium"
+      },
+      "battery_kwh_usable": {
+        "value": 88,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 483,
+        "confidence": "High",
+        "source": {
+          "url": "https://insideevs.com/news/722612/2024-ford-mustang-mache-epa-range/",
+          "name": "InsideEVs 2024 Mach-E EPA range",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext CORRECTION 2026-04-23: Value updated 467→483 km per InsideEVs EPA figure. 2024 MY Mach-E ER AWD is 300 mi = 483 km."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.5,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "High",
+        "source": {
+          "url": "https://recharged.com/articles/ford-mustang-mach-e-road-trip-review",
+          "name": "Recharged Mach-E DC charging",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 150 kW peak DC confirmed."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 832,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1714,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "weight_kg": {
+        "value": 2190,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 145
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 115
+        },
+        {
+          "soc_pct": 60,
+          "kw": 80
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 61995,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "ford-lightning-er-awd",
+      "brand_id": "ford",
+      "model": "F-150 Lightning",
+      "generation_label": "Gen 1 (2022+)",
+      "year_start": 2022,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Truck",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Extended Range AWD",
+      "battery_kwh_total": {
+        "value": 131,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.ford.ca/trucks/f150/f150-lightning",
+          "name": "Ford Canada — F-150 Lightning",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 131,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 515,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.ford.ca/electric-vehicles/ev-range/",
+          "name": "Ford Canada + EPA fueleconomy.gov cross-confirmed",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01 verified: 320 mi EPA = 515 km, Ford Canada official."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 19.2,
+        "confidence": "High",
+        "notes": "Optional 80A Ford Charge Station Pro required to reach 19.2 kW; stock is 11.5 kW."
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "High",
+        "source": {
+          "url": "https://specs.evchargeright.com/2025/ford/f-150-lightning/extended-range",
+          "name": "EVChargeRight + Ford Canada cross-confirmed",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01 verified multi-source. EVKX observed peaks up to 155 kW but 150 is official spec."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 400,
+        "confidence": "Medium",
+        "notes": "Frunk volume."
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 4536,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.ford.ca/trucks/f150/f150-lightning",
+          "name": "Ford Canada — F-150 Lightning specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "weight_kg": {
+        "value": 2948,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 150
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 130
+        },
+        {
+          "soc_pct": 60,
+          "kw": 95
+        },
+        {
+          "soc_pct": 80,
+          "kw": 55
+        }
+      ],
+      "msrp_cad": {
+        "value": 82995,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "iZEV MSRP cap excludes most Lightning trims even when program active."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "chevy-equinoxev-fwd-lt2",
+      "brand_id": "chevrolet",
+      "model": "Equinox EV",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "FWD LT2",
+      "battery_kwh_total": {
+        "value": 85,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.chevrolet.ca/en/electric/equinox-ev",
+          "name": "Chevrolet Canada — Equinox EV",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 85,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 513,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47814",
+          "name": "EPA fueleconomy.gov 2024 Equinox EV FWD",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: EPA 319 mi = 513 km, confirmed."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 737,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1614,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 680,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2196,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 145
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 110
+        },
+        {
+          "soc_pct": 60,
+          "kw": 75
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 48499,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium"
+    },
+    {
+      "id": "chevy-equinoxev-awd-2lt",
+      "brand_id": "chevrolet",
+      "model": "Equinox EV",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "AWD 2LT",
+      "battery_kwh_total": {
+        "value": 85,
+        "confidence": "Medium"
+      },
+      "battery_kwh_usable": {
+        "value": 85,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 459,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=47815",
+          "name": "EPA fueleconomy.gov 2024 Equinox EV AWD",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: EPA 285 mi = 459 km, confirmed."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 737,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1614,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 680,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2295,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 145
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 110
+        },
+        {
+          "soc_pct": 60,
+          "kw": 75
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 51999,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium"
+    },
+    {
+      "id": "rivian-r1s-gen2-dual-max",
+      "brand_id": "rivian",
+      "model": "R1S",
+      "generation_label": "Gen 2 (2025+)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "SUV",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Dual-Motor Max Pack",
+      "battery_kwh_total": {
+        "value": 149,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://rivian.com/r1s",
+          "name": "Rivian — R1S",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 141,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 660,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov/feg/Find.do?action=sbs&id=48439",
+          "name": "EPA fueleconomy.gov 2025 Rivian R1S Dual Max",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: EPA 410 mi (22-in wheels) = 660 km, confirmed."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 220,
+        "confidence": "High",
+        "source": {
+          "url": "https://specs.evchargeright.com/2025/rivian/r1s/dual-motor-large-pack",
+          "name": "EVChargeRight Rivian R1S 2025",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 220 kW peak DC confirmed. 2025.18 firmware stabilizes to ~215 kW in practice."
+      },
+      "port_type": "CCS1",
+      "seats": 7,
+      "cargo_l_seats_up": {
+        "value": 498,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 2465,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 3402,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 3148,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "notes": "Gen 2 introduced integrated heat pump / thermal management redesign."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 215
+        },
+        {
+          "soc_pct": 20,
+          "kw": 220
+        },
+        {
+          "soc_pct": 40,
+          "kw": 160
+        },
+        {
+          "soc_pct": 60,
+          "kw": 110
+        },
+        {
+          "soc_pct": 80,
+          "kw": 70
+        }
+      ],
+      "msrp_cad": {
+        "value": 125000,
+        "confidence": "Low",
+        "notes": "Rivian Canadian availability and MSRP still evolving."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Exceeds iZEV MSRP cap."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "heat_pump_min_effective_c": {
+        "value": -25,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://rivian.com/r1s",
+          "name": "Rivian Gen 2 integrated thermal management; observed down to ~-25 °C",
+          "accessed": "2026-04-23"
+        },
+        "notes": "F-hp 2026-04-23: per-vehicle HP cutoff. Default is -20; this overrides based on thermal-system evidence."
+      }
+    },
+    {
+      "id": "toyota-rav4prime-awd",
+      "brand_id": "toyota",
+      "model": "RAV4 Prime",
+      "generation_label": "Gen 5 (2021+)",
+      "year_start": 2021,
+      "year_end": null,
+      "powertrain": "PHEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "XSE AWD",
+      "battery_kwh_total": {
+        "value": 18.1,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.toyota.ca/toyota/en/vehicles/rav4-prime",
+          "name": "Toyota Canada — RAV4 Prime",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 15.8,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 68,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (RAV4 Prime electric-only)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 6.6,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "RAV4 Prime has no DC fast-charging capability."
+      },
+      "port_type": "J1772_ONLY",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 949,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1977,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1134,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 1995,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "High"
+      },
+      "thermal_management": "passive",
+      "charging_curve_20c": [],
+      "msrp_cad": {
+        "value": 52950,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "PHEV eligibility rules differ from BEV under iZEV."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "hyundai-ioniq6-lr-rwd",
+      "brand_id": "hyundai",
+      "model": "IONIQ 6",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range RWD",
+      "battery_kwh_total": {
+        "value": 77.4,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.hyundaicanada.com/en/showroom/2024/ioniq-6",
+          "name": "Hyundai Canada — IONIQ 6",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 74,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1876/Hyundai-IONIQ-6-Long-Range-2WD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 581,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (IONIQ 6 LR RWD)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 233,
+        "confidence": "High",
+        "source": {
+          "url": "https://motorillustrated.com/epa-says-the-hyundai-ioniq-6-can-drive-up-to-581-kilometers-on-a-charge/109895/",
+          "name": "Motor Illustrated IONIQ 6 + EVChargeRight 800V architecture",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 233 kW peak (shared 800V arch with IONIQ 5 RWD)."
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 317,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "weight_kg": {
+        "value": 1965,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 233
+        },
+        {
+          "soc_pct": 40,
+          "kw": 195
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 75
+        }
+      ],
+      "msrp_cad": {
+        "value": 54999,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "hyundai-ioniq6-lr-awd",
+      "brand_id": "hyundai",
+      "model": "IONIQ 6",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Long Range AWD",
+      "battery_kwh_total": {
+        "value": 77.4,
+        "confidence": "High"
+      },
+      "battery_kwh_usable": {
+        "value": 74,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 509,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (IONIQ 6 LR AWD)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 233,
+        "confidence": "High",
+        "source": {
+          "url": "https://motorillustrated.com/epa-says-the-hyundai-ioniq-6-can-drive-up-to-581-kilometers-on-a-charge/109895/",
+          "name": "Motor Illustrated IONIQ 6",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 233 kW peak (shared 800V arch)."
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 317,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "weight_kg": {
+        "value": 2059,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 233
+        },
+        {
+          "soc_pct": 40,
+          "kw": 195
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 75
+        }
+      ],
+      "msrp_cad": {
+        "value": 58999,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "vw-id4-pro-rwd",
+      "brand_id": "volkswagen",
+      "model": "ID.4",
+      "generation_label": "2023+ refresh (APP550)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Pro RWD",
+      "battery_kwh_total": {
+        "value": 82,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.vw.ca/en/models/id4.html",
+          "name": "Volkswagen Canada — ID.4",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 77,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 468,
+        "confidence": "High",
+        "source": {
+          "url": "https://insideevs.com/news/720368/2024-volkswagen-id4-epa-range-price/",
+          "name": "InsideEVs 2024 VW ID.4 Pro RWD EPA",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: EPA 291 mi = 468 km, confirmed."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 175,
+        "confidence": "High",
+        "source": {
+          "url": "https://insideevs.com/news/720368/2024-volkswagen-id4-epa-range-price/",
+          "name": "InsideEVs 2024 VW ID.4 charging",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 175 kW peak DC confirmed."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 858,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1818,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1000,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2124,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium",
+        "notes": "Heat pump optional on early MY; standard on most 2023+ Canadian trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 170
+        },
+        {
+          "soc_pct": 20,
+          "kw": 175
+        },
+        {
+          "soc_pct": 40,
+          "kw": 130
+        },
+        {
+          "soc_pct": 60,
+          "kw": 90
+        },
+        {
+          "soc_pct": 80,
+          "kw": 55
+        }
+      ],
+      "msrp_cad": {
+        "value": 50995,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "vw-id4-pro-awd",
+      "brand_id": "volkswagen",
+      "model": "ID.4",
+      "generation_label": "2023+ refresh (APP550)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Pro S AWD",
+      "battery_kwh_total": {
+        "value": 82,
+        "confidence": "Medium"
+      },
+      "battery_kwh_usable": {
+        "value": 77,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 428,
+        "confidence": "High",
+        "source": {
+          "url": "https://insideevs.com/news/720368/2024-volkswagen-id4-epa-range-price/",
+          "name": "InsideEVs 2024 VW ID.4 Pro S AWD",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: EPA 263 mi = 423 km (seed 428 within 1%)."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 175,
+        "confidence": "High",
+        "source": {
+          "url": "https://insideevs.com/news/720368/2024-volkswagen-id4-epa-range-price/",
+          "name": "InsideEVs 2024 VW ID.4 charging",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 175 kW peak DC (AWD same as RWD) confirmed."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 858,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1818,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1000,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2231,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 170
+        },
+        {
+          "soc_pct": 20,
+          "kw": 175
+        },
+        {
+          "soc_pct": 40,
+          "kw": 125
+        },
+        {
+          "soc_pct": 60,
+          "kw": 85
+        },
+        {
+          "soc_pct": 80,
+          "kw": 55
+        }
+      ],
+      "msrp_cad": {
+        "value": 57495,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "polestar-2-lr-sm-2024",
+      "brand_id": "polestar",
+      "model": "Polestar 2",
+      "generation_label": "2024 refresh (rear-drive)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range Single Motor",
+      "battery_kwh_total": {
+        "value": 82,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.polestar.com/ca/polestar-2/",
+          "name": "Polestar Canada — Polestar 2",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 79,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 515,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (Polestar 2 LR SM 2024)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 205,
+        "confidence": "Medium",
+        "notes": "2024 refresh raised peak DC from 155 to 205 kW with the architecture change."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 405,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1095,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1500,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2069,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "notes": "Standard on 2024+ trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 200
+        },
+        {
+          "soc_pct": 20,
+          "kw": 205
+        },
+        {
+          "soc_pct": 40,
+          "kw": 155
+        },
+        {
+          "soc_pct": 60,
+          "kw": 105
+        },
+        {
+          "soc_pct": 80,
+          "kw": 65
+        }
+      ],
+      "msrp_cad": {
+        "value": 59900,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "polestar-2-lr-dm-2024",
+      "brand_id": "polestar",
+      "model": "Polestar 2",
+      "generation_label": "2024 refresh (dual-motor)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Long Range Dual Motor",
+      "battery_kwh_total": {
+        "value": 82,
+        "confidence": "High"
+      },
+      "battery_kwh_usable": {
+        "value": 79,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 441,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (Polestar 2 LR DM 2024)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 205,
+        "confidence": "High",
+        "source": {
+          "url": "https://insideevs.com/news/684047/2024-polestar2-epa-range-efficiency/",
+          "name": "InsideEVs 2024 Polestar 2",
+          "accessed": "2026-04-23"
+        },
+        "notes": "D-01-ext 2026-04-23: 2024 arch change raised peak 155→205 kW, multi-source."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 405,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1095,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1500,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2164,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 200
+        },
+        {
+          "soc_pct": 20,
+          "kw": 205
+        },
+        {
+          "soc_pct": 40,
+          "kw": 150
+        },
+        {
+          "soc_pct": 60,
+          "kw": 100
+        },
+        {
+          "soc_pct": 80,
+          "kw": 60
+        }
+      ],
+      "msrp_cad": {
+        "value": 65900,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "nissan-ariya-venture-lr-fwd",
+      "brand_id": "nissan",
+      "model": "Ariya",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Venture+ Long Range FWD",
+      "battery_kwh_total": {
+        "value": 91.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://canada.nissannews.com/en-CA/releases/nissan-ariya-press-kit",
+          "name": "Nissan Canada — Ariya Press Kit",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 87.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://canada.nissannews.com/en-CA/releases/nissan-ariya-press-kit",
+          "name": "Nissan Canada — Ariya Press Kit",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 490,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/nissan/ariya/2023/specifications/venture+-fwd-long-range/",
+          "name": "The Car Guide — Nissan Ariya Venture+ FWD specs",
+          "accessed": "2026-04-23"
+        },
+        "notes": "EPA-approx 482 km for Canada per Nissan."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 7.2,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/nissan/ariya/2023/specifications/venture+-fwd-long-range/",
+          "name": "The Car Guide — Ariya charging times",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 130,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://recharged.com/articles/2025-nissan-ariya-range-test",
+          "name": "Recharged — Nissan Ariya Range Test",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 646,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/nissan/ariya/2023/specifications/venture+-fwd-long-range/",
+          "name": "The Car Guide — Ariya dimensions",
+          "accessed": "2026-04-23"
+        }
+      },
+      "cargo_l_seats_down": {
+        "value": 1691,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 2054,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/nissan/ariya/2023/specifications/venture+-fwd-long-range/",
+          "name": "The Car Guide — Ariya weight",
+          "accessed": "2026-04-23"
+        }
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium",
+        "notes": "Nissan includes thermal management on most trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 120
+        },
+        {
+          "soc_pct": 20,
+          "kw": 130
+        },
+        {
+          "soc_pct": 40,
+          "kw": 100
+        },
+        {
+          "soc_pct": 60,
+          "kw": 70
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 59498,
+        "confidence": "Low",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/nissan/ariya/2023/specifications/venture+-fwd-long-range/",
+          "name": "The Car Guide — 2023 Ariya pricing",
+          "accessed": "2026-04-23"
+        },
+        "notes": "2023 base pricing; verify current year."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025; 2026 status uncertain."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario has no active EV purchase rebate in 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "nissan-ariya-evolve-e4orce-awd",
+      "brand_id": "nissan",
+      "model": "Ariya",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Evolve+ e-4ORCE Long Range AWD",
+      "battery_kwh_total": {
+        "value": 91.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://canada.nissannews.com/en-CA/releases/nissan-ariya-press-kit",
+          "name": "Nissan Canada — Ariya Press Kit",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 87.0,
+        "confidence": "High"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 438,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/nissan/ariya/2025/evolve-e-4orce/",
+          "name": "Driving.ca — 2025 Nissan Ariya specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 7.2,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 130,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 646,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1691,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 2221,
+        "confidence": "Medium",
+        "notes": "AWD variant ~170 kg heavier than FWD."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 120
+        },
+        {
+          "soc_pct": 20,
+          "kw": 130
+        },
+        {
+          "soc_pct": 40,
+          "kw": 100
+        },
+        {
+          "soc_pct": 60,
+          "kw": 70
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 61998,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/nissan/ariya/2025/evolve-e-4orce/",
+          "name": "Driving.ca — Ariya pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "genesis-gv60-standard-rwd",
+      "brand_id": "genesis",
+      "model": "GV60",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Standard Long Range RWD",
+      "battery_kwh_total": {
+        "value": 77.4,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.genesis.com/ca/en/genesis/electrification/technology.html",
+          "name": "Genesis Canada — Electric Technology specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 74.0,
+        "confidence": "Medium",
+        "notes": "Estimated from total capacity."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 472,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.genesis.com/content/dam/genesis/us/com/pdf/2024/2024_GV60_Specs_Sheet_vfin.pdf",
+          "name": "Genesis — 2024 GV60 Specs Sheet",
+          "accessed": "2026-04-23"
+        },
+        "notes": "EPA 294 mi = 473 km."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/genesis/gv60/advanced/",
+          "name": "Driving.ca — GV60 specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 350,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.genesis.com/ca/en/genesis/electrification/technology.html",
+          "name": "Genesis Canada — 350 kW DC charging",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "CCS2",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 680,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://driving.ca/genesis/gv60/advanced/",
+          "name": "Driving.ca — GV60 cargo",
+          "accessed": "2026-04-23"
+        }
+      },
+      "cargo_l_seats_down": {
+        "value": 1549,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 1880,
+        "confidence": "Medium",
+        "notes": "RWD variant."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.genesis.com/ca/en/genesis/electrification/technology.html",
+          "name": "Genesis Canada — Heat Pump standard",
+          "accessed": "2026-04-23"
+        }
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 330
+        },
+        {
+          "soc_pct": 20,
+          "kw": 350
+        },
+        {
+          "soc_pct": 40,
+          "kw": 280
+        },
+        {
+          "soc_pct": 60,
+          "kw": 180
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 75500,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/genesis/gv60/advanced/",
+          "name": "Driving.ca — GV60 2026 pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "genesis-gv60-advanced-awd",
+      "brand_id": "genesis",
+      "model": "GV60",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Advanced Long Range AWD",
+      "battery_kwh_total": {
+        "value": 77.4,
+        "confidence": "High"
+      },
+      "battery_kwh_usable": {
+        "value": 74.0,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 430,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/genesis/gv60/advanced/",
+          "name": "Driving.ca — GV60 Advanced range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 350,
+        "confidence": "High"
+      },
+      "port_type": "CCS2",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 680,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1549,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 1950,
+        "confidence": "Medium",
+        "notes": "AWD variant ~70 kg heavier."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 330
+        },
+        {
+          "soc_pct": 20,
+          "kw": 350
+        },
+        {
+          "soc_pct": 40,
+          "kw": 280
+        },
+        {
+          "soc_pct": 60,
+          "kw": 180
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 84000,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/genesis/gv60/advanced/",
+          "name": "Driving.ca — GV60 2026 pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "bmw-i4-edrive40-rwd",
+      "brand_id": "bmw",
+      "model": "i4",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "eDrive40 Long Range RWD",
+      "battery_kwh_total": {
+        "value": 83.8,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.bmw.ca/en/all-models/bmw-i/i4/bmw-i4-gran-coupe-technical-data.html",
+          "name": "BMW Canada — i4 technical data",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 80.7,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://motorz.ca/bmw-i4-xdrive40-long-term-review-30000-miles/",
+          "name": "Motorz — BMW i4 long-term review",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 512,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.bmw.ca/en/all-models/bmw-i/i4/bmw-i4-gran-coupe-technical-data.html",
+          "name": "BMW Canada — i4 eDrive40 range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.bmw.ca/en/all-models/bmw-i/i4/bmw-i4-gran-coupe-technical-data.html",
+          "name": "BMW Canada — i4 AC charging",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 205,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.bmw.ca/en/all-models/bmw-i/i4/bmw-i4-gran-coupe-technical-data.html",
+          "name": "BMW Canada — i4 DC charging",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "CCS2",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 380,
+        "confidence": "Medium",
+        "notes": "Sedan cargo."
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 1869,
+        "confidence": "Medium",
+        "notes": "RWD variant."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "notes": "BMW i4 standard heat pump."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 195
+        },
+        {
+          "soc_pct": 20,
+          "kw": 205
+        },
+        {
+          "soc_pct": 40,
+          "kw": 160
+        },
+        {
+          "soc_pct": 60,
+          "kw": 110
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 63990,
+        "confidence": "Low",
+        "source": {
+          "url": "https://www.bmwvictoria.ca/new/2026-BMW-i4-eDrive40.html",
+          "name": "BMW Victoria — i4 pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "bmw-i4-xdrive40-awd",
+      "brand_id": "bmw",
+      "model": "i4",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "driketrain_variant": "AWD",
+      "trim_label": "xDrive40 Long Range AWD",
+      "battery_kwh_total": {
+        "value": 83.8,
+        "confidence": "High"
+      },
+      "battery_kwh_usable": {
+        "value": 80.7,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 462,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.bmw.ca/en/all-models/bmw-i/i4/bmw-i4-gran-coupe-technical-data.html",
+          "name": "BMW Canada — i4 xDrive40 range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.0,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 205,
+        "confidence": "High"
+      },
+      "port_type": "CCS2",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 380,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 2000,
+        "confidence": "Medium",
+        "notes": "AWD ~130 kg heavier."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 195
+        },
+        {
+          "soc_pct": 20,
+          "kw": 205
+        },
+        {
+          "soc_pct": 40,
+          "kw": 160
+        },
+        {
+          "soc_pct": 60,
+          "kw": 110
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 71000,
+        "confidence": "Low",
+        "notes": "Estimated from base + AWD premium."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High",
+      "drivetrain_variant": "AWD"
+    },
+    {
+      "id": "kia-ev9-land-awd",
+      "brand_id": "kia",
+      "model": "EV9",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "SUV",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Land Long Range AWD",
+      "battery_kwh_total": {
+        "value": 99.8,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
+          "name": "Kia Media — EV9 specifications",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 95.5,
+        "confidence": "Medium",
+        "notes": "Estimated ~95.5% of total."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 451,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+          "name": "Driving.ca — Kia EV9 Land AWD range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+          "name": "Driving.ca — EV9 onboard charger",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 233,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
+          "name": "Laflier Kia — EV9 DC charging",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "CCS1",
+      "seats": 7,
+      "cargo_l_seats_up": {
+        "value": 573,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1233,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 2450,
+        "confidence": "Medium",
+        "notes": "Three-row SUV."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium",
+        "notes": "Kia EV9 thermal management standard."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 233
+        },
+        {
+          "soc_pct": 40,
+          "kw": 180
+        },
+        {
+          "soc_pct": 60,
+          "kw": 120
+        },
+        {
+          "soc_pct": 80,
+          "kw": 60
+        }
+      ],
+      "msrp_cad": {
+        "value": 73000,
+        "confidence": "Low",
+        "notes": "Estimated; verify current Land AWD pricing."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "toyota-bz4x-le-fwd",
+      "brand_id": "toyota",
+      "model": "bZ4X",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "LE Long Range FWD",
+      "battery_kwh_total": {
+        "value": 71.4,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/toyota/bz4x/2025/specifications/le-fwd/",
+          "name": "The Car Guide — bZ4X LE FWD specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 68.0,
+        "confidence": "Medium",
+        "notes": "Estimated ~95% usable."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 406,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/toyota/bz4x/2025/specifications/le-fwd/",
+          "name": "The Car Guide — bZ4X LE FWD range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 7.6,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.enstoyota.ca/new/2025-Toyota-bZ4X-LE.html",
+          "name": "Ens Toyota — bZ4X onboard charger",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.oakvilletoyota.ca/en/news/view/2025-toyota-bz4x-range-charging-time-and-features-guide/142397",
+          "name": "Oakville Toyota — bZ4X DC charging",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 469,
+        "confidence": "Medium",
+        "notes": "Compact crossover."
+      },
+      "cargo_l_seats_down": {
+        "value": 1110,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 1850,
+        "confidence": "Medium",
+        "notes": "FWD variant."
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "Medium",
+        "notes": "Early bZ4X may lack heat pump; verify per trim."
+      },
+      "thermal_management": "passive",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 140
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 120
+        },
+        {
+          "soc_pct": 60,
+          "kw": 80
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 46515,
+        "confidence": "Low",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/toyota/bz4x/2025/specifications/le-fwd/",
+          "name": "The Car Guide — bZ4X pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "toyota-bz4x-xle-awd",
+      "brand_id": "toyota",
+      "model": "bZ4X",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "XLE Long Range AWD",
+      "battery_kwh_total": {
+        "value": 72.8,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/toyota/bz4x/xle/",
+          "name": "Driving.ca — bZ4X XLE AWD specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 69.0,
+        "confidence": "Medium",
+        "notes": "Estimated ~95% usable."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 367,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/toyota/bz4x/xle/",
+          "name": "Driving.ca — bZ4X XLE range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 7.6,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "High"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 469,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1110,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 1950,
+        "confidence": "Medium",
+        "notes": "AWD ~100 kg heavier."
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "Medium",
+        "notes": "Early bZ4X may lack heat pump."
+      },
+      "thermal_management": "passive",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 140
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 120
+        },
+        {
+          "soc_pct": 60,
+          "kw": 80
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 51845,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/toyota/bz4x/xle/",
+          "name": "Driving.ca — bZ4X pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "chevrolet-blazer-ev-lt-rwd",
+      "brand_id": "chevrolet",
+      "model": "Blazer EV",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "LT Long Range RWD",
+      "battery_kwh_total": {
+        "value": 85.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/chevrolet/blazer-ev/lt-fwd/",
+          "name": "Driving.ca — Chevrolet Blazer EV LT FWD specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 81.0,
+        "confidence": "Medium",
+        "notes": "Estimated ~95% usable."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 502,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/chevrolet/blazer-ev/lt-fwd/",
+          "name": "Driving.ca — Blazer EV LT FWD range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/chevrolet/blazer-ev/lt-fwd/",
+          "name": "Driving.ca — Blazer EV onboard charger",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "High",
+        "source": {
+          "url": "https://evsearch.ca/product/chevrolet-blazer-ev/",
+          "name": "EV Search — Blazer EV DC charging",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 722,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1674,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 1850,
+        "confidence": "Medium",
+        "notes": "Single-motor RWD."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium",
+        "notes": "GM Ultium platform typically includes heat pump."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 140
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 120
+        },
+        {
+          "soc_pct": 60,
+          "kw": 80
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 55699,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/chevrolet/blazer-ev/lt-fwd/",
+          "name": "Driving.ca — Blazer EV pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "chevrolet-blazer-ev-rs-awd",
+      "brand_id": "chevrolet",
+      "model": "Blazer EV",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "RS Long Range AWD",
+      "battery_kwh_total": {
+        "value": 85.0,
+        "confidence": "High"
+      },
+      "battery_kwh_usable": {
+        "value": 81.0,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 455,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.cyvgm.com/new/2025-Chevrolet-Blazer%20EV-AWD%20RS.html",
+          "name": "CYV Chevrolet — Blazer EV RS AWD specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "High"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 722,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1674,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 1980,
+        "confidence": "Medium",
+        "notes": "AWD ~130 kg heavier."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 140
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 120
+        },
+        {
+          "soc_pct": 60,
+          "kw": 80
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 62000,
+        "confidence": "Low",
+        "notes": "Estimated RS AWD pricing."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "subaru-solterra-limited-awd",
+      "brand_id": "subaru",
+      "model": "Solterra",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Limited Long Range AWD",
+      "battery_kwh_total": {
+        "value": 77.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/subaru/solterra/awd/",
+          "name": "Driving.ca — Subaru Solterra specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 73.0,
+        "confidence": "Medium",
+        "notes": "Estimated ~95% usable."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 446,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/subaru/solterra/awd/",
+          "name": "Driving.ca — Solterra range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/subaru/solterra/awd/",
+          "name": "Driving.ca — Solterra onboard charger",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 100,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.caranddriver.com/subaru/solterra-2025",
+          "name": "Car and Driver — Solterra DC charging",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 674,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1798,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 2000,
+        "confidence": "Medium",
+        "notes": "AWD only; no single-motor variant."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "notes": "Subaru standard heat pump."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 95
+        },
+        {
+          "soc_pct": 20,
+          "kw": 100
+        },
+        {
+          "soc_pct": 40,
+          "kw": 80
+        },
+        {
+          "soc_pct": 60,
+          "kw": 60
+        },
+        {
+          "soc_pct": 80,
+          "kw": 30
+        }
+      ],
+      "msrp_cad": {
+        "value": 55495,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/subaru/solterra/awd/",
+          "name": "Driving.ca — Solterra pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "honda-prologue-touring-fwd",
+      "brand_id": "honda",
+      "model": "Prologue",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Touring Long Range FWD",
+      "battery_kwh_total": {
+        "value": 85.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://hondanews.com/en-US/releases/release-28556cec8c60d45354dbfd1404019b30-2025-honda-prologue-specifications-features",
+          "name": "Honda — 2025 Prologue specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 81.0,
+        "confidence": "Medium",
+        "notes": "Estimated ~95% usable."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 495,
+        "confidence": "High",
+        "source": {
+          "url": "https://hondanews.com/en-US/releases/release-28556cec8c60d45354dbfd1404019b30-2025-honda-prologue-specifications-features",
+          "name": "Honda — Prologue FWD 308 mi EPA = 495 km",
+          "accessed": "2026-04-23"
+        },
+        "notes": "EPA 308 mi for FWD Touring = 495 km."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.6,
+        "confidence": "Medium",
+        "notes": "Estimated from typical Honda output."
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium",
+        "notes": "Acura/Honda typical DC charging."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 761,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1752,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 680,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://hondanews.ca/en-CA/releases/release-d2ee5ddc58a672cff18909ee94003b78-2025-honda-prologue-specifications-features",
+          "name": "Honda Canada — Prologue towing (1500 lbs)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "weight_kg": {
+        "value": 1950,
+        "confidence": "Medium",
+        "notes": "FWD variant (Canada FWD not sold; US only)."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium",
+        "notes": "Acura standard heat pump."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 140
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 120
+        },
+        {
+          "soc_pct": 60,
+          "kw": 80
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 59000,
+        "confidence": "Low",
+        "notes": "Prologue FWD not sold in Canada; AWD only. Use FWD specs for range comparison."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "Medium",
+      "notes": "Honda Prologue sold in Canada as AWD-only; no FWD offered. This record documents FWD spec for completeness, but verify market availability."
+    },
+    {
+      "id": "honda-prologue-elite-awd",
+      "brand_id": "honda",
+      "model": "Prologue",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Elite Long Range AWD",
+      "battery_kwh_total": {
+        "value": 85.0,
+        "confidence": "High"
+      },
+      "battery_kwh_usable": {
+        "value": 81.0,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 455,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.edmunds.com/honda/prologue/2025/st-402066223/features-specs/",
+          "name": "Edmunds — Honda Prologue Elite specs",
+          "accessed": "2026-04-23"
+        },
+        "notes": "EPA 283 mi = 455 km."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.6,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 761,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1752,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 680,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2050,
+        "confidence": "Medium",
+        "notes": "AWD adds ~100 kg."
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 140
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 120
+        },
+        {
+          "soc_pct": 60,
+          "kw": 80
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 57900,
+        "confidence": "Low",
+        "source": {
+          "url": "https://www.edmunds.com/honda/prologue/2025/st-402066223/features-specs/",
+          "name": "Edmunds — Prologue Elite pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active EV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "kia-niro-phev-ex-fwd",
+      "brand_id": "kia",
+      "model": "Niro",
+      "generation_label": "Gen 2 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "PHEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "EX PHEV FWD",
+      "battery_kwh_total": {
+        "value": 11.1,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/kia/niro-phev/2025/",
+          "name": "Driving.ca — Kia Niro PHEV specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 10.5,
+        "confidence": "Medium",
+        "notes": "Estimated ~95% usable."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 55,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/kia/niro-phev/2025/",
+          "name": "Driving.ca — Niro PHEV EV range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 3.3,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/kia/niro-phev/2025/",
+          "name": "Driving.ca — Niro PHEV onboard charger",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "PHEV; no DC fast charging."
+      },
+      "port_type": "J1772_ONLY",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 550,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1546,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing."
+      },
+      "weight_kg": {
+        "value": 1750,
+        "confidence": "Medium",
+        "notes": "PHEV adds weight vs BEV."
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "Medium",
+        "notes": "PHEV uses gas heater."
+      },
+      "thermal_management": "passive",
+      "charging_curve_20c": [],
+      "msrp_cad": {
+        "value": 38795,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/kia/niro-phev/2025/",
+          "name": "Driving.ca — Niro PHEV pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active PHEV rebate 2026."
+      },
+      "overall_confidence": "High"
+    },
+    {
+      "id": "volvo-xc60-recharge-t8-awd",
+      "brand_id": "volvo",
+      "model": "XC60",
+      "generation_label": "Gen 2 Recharge (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "PHEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Recharge T8 PHEV AWD",
+      "battery_kwh_total": {
+        "value": 18.8,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.volvocars.com/en-ca/cars/xc60-hybrid/specifications/",
+          "name": "Volvo Canada — XC60 Recharge specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 17.6,
+        "confidence": "Medium",
+        "notes": "Estimated ~95% usable."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 58,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.volvocars.com/en-ca/cars/xc60-hybrid/specifications/",
+          "name": "Volvo Canada — XC60 EV range (NRCAN)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 3.7,
+        "confidence": "Medium",
+        "notes": "Single-phase 16A typical."
+      },
+      "dc_charge_kw_max": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "PHEV; no DC fast charging."
+      },
+      "port_type": "J1772_ONLY",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 621,
+        "confidence": "Medium",
+        "notes": "Typical XC60 cargo."
+      },
+      "cargo_l_seats_down": {
+        "value": 1795,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1800,
+        "confidence": "Medium",
+        "notes": "Volvo PHEV towing rated."
+      },
+      "weight_kg": {
+        "value": 2150,
+        "confidence": "Medium",
+        "notes": "Luxury PHEV SUV."
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "Medium",
+        "notes": "PHEV uses gas heater + cabin heater."
+      },
+      "thermal_management": "passive",
+      "charging_curve_20c": [],
+      "msrp_cad": {
+        "value": 87000,
+        "confidence": "Low",
+        "notes": "Estimated from Volvo premium pricing."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active PHEV rebate 2026."
+      },
+      "overall_confidence": "Medium",
+      "notes": "Volvo XC60 Recharge (2023+); renamed from T8 plug-in hybrid in 2025+."
+    },
+    {
+      "id": "chrysler-pacifica-hybrid-pinnacle",
+      "brand_id": "chrysler",
+      "model": "Pacifica",
+      "generation_label": "Gen 5 Hybrid (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "PHEV",
+      "body_style": "Minivan",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Pinnacle PHEV FWD",
+      "battery_kwh_total": {
+        "value": 16.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/chrysler/pacifica-phev/2025/",
+          "name": "Driving.ca — Chrysler Pacifica PHEV specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 15.2,
+        "confidence": "Medium",
+        "notes": "Estimated ~95% usable."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 51,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/chrysler/pacifica-phev/2025/",
+          "name": "Driving.ca — Pacifica PHEV EV range",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 6.6,
+        "confidence": "High",
+        "source": {
+          "url": "https://driving.ca/chrysler/pacifica-phev/2025/",
+          "name": "Driving.ca — Pacifica PHEV onboard charger",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "PHEV; no DC fast charging."
+      },
+      "port_type": "J1772_ONLY",
+      "seats": 7,
+      "cargo_l_seats_up": {
+        "value": 915,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 2478,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 585,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2350,
+        "confidence": "Medium",
+        "notes": "Minivan + PHEV battery."
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "Medium",
+        "notes": "PHEV uses gas heater."
+      },
+      "thermal_management": "passive",
+      "charging_curve_20c": [],
+      "msrp_cad": {
+        "value": 73495,
+        "confidence": "Low",
+        "source": {
+          "url": "https://driving.ca/chrysler/pacifica-phev/2025/",
+          "name": "Driving.ca — Pacifica PHEV Pinnacle pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused early 2025."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario no active PHEV rebate 2026."
+      },
+      "overall_confidence": "High"
+    }
+  ]
+}

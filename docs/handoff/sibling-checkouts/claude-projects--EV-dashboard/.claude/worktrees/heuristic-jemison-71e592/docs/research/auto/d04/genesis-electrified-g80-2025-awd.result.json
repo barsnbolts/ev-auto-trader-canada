@@ -1,0 +1,45 @@
+{
+  "vehicle": {
+    "id": "genesis-electrified-g80-2025-awd",
+    "brand_id": "genesis",
+    "model": "Electrified G80",
+    "generation_label": "Gen 1 (2023+)",
+    "year_start": 2023,
+    "year_end": null,
+    "powertrain": "BEV",
+    "body_style": "Sedan",
+    "drivetrain_variant": "AWD",
+    "trim_label": "Electrified G80 Advanced AWD",
+    "battery_chemistry": "NMC",
+    "range_protocol": "EPA",
+    "port_type": "CCS1",
+    "seats": 5,
+    "thermal_management": "active_liquid",
+    "degradation_annual": 0.017
+  },
+  "cited_fields": {
+    "battery_kwh_total": {"value": 87.2, "confidence": "High", "source": {"url": "https://www.ccarprice.com/ca/genesis-electrified-g80-advanced-sedan-2025-price-in-canada-23457", "name": "CCarPrice 2025 Genesis Electrified G80 87.2 kWh", "accessed": "2026-04-25"}},
+    "battery_kwh_usable": {"value": 82.5, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1656/Genesis-Electrified-G80", "name": "EV-Database Genesis Electrified G80 usable kWh", "accessed": "2026-04-25"}, "notes": "EV-Database 82.5 kWh usable for 87.2 nominal (~5% buffer); E-GMP 800V architecture"},
+    "range_km": {"value": 454, "confidence": "High", "source": {"url": "https://www.driving.ca/genesis/electrified-g80/", "name": "Driving.ca Genesis Electrified G80 454 km battery range", "accessed": "2026-04-25"}, "notes": "Driving.ca 454 km, CCarPrice 282 mi (454 km). Two sources exact match."},
+    "ac_charge_kw_max": {"value": 10.9, "confidence": "High", "source": {"url": "https://www.driving.ca/genesis/electrified-g80/", "name": "Driving.ca Genesis Electrified G80 10.9 kW onboard charger", "accessed": "2026-04-25"}},
+    "dc_charge_kw_max": {"value": 240, "confidence": "Medium", "source": {"url": "https://www.ccarprice.com/ca/genesis-electrified-g80-advanced-sedan-2025-price-in-canada-23457", "name": "CCarPrice — 350 kW/800V Ultra-Fast Charger compatible (10-80% in 22 min)", "accessed": "2026-04-25"}, "notes": "E-GMP 800V platform; ~240 kW peak DC charging confirmed by EV-Database for E-GMP siblings (IONIQ 6, GV60)"},
+    "cargo_l_seats_up": {"value": 304, "confidence": "High", "source": {"url": "https://www.driving.ca/genesis/electrified-g80/", "name": "Driving.ca Genesis Electrified G80 304 L cargo (battery in trunk)", "accessed": "2026-04-25"}},
+    "cargo_l_seats_down": {"value": 304, "confidence": "Medium", "source": {"url": "https://www.driving.ca/genesis/electrified-g80/", "name": "Driving.ca — Electrified G80 sedan no rear-seat fold (battery placement)", "accessed": "2026-04-25"}},
+    "tow_rating_kg": {"value": 0, "confidence": "High", "notes": "Genesis Electrified G80 not rated for towing."},
+    "weight_kg": {"value": 2350, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1656/Genesis-Electrified-G80", "name": "EV-Database Genesis Electrified G80 curb weight ~2,350 kg", "accessed": "2026-04-25"}},
+    "has_heat_pump": {"value": true, "confidence": "High", "source": {"url": "https://p-www.genesis.com/ca/en/models/luxury-sedan-genesis/electrified-g80/highlights.html", "name": "Genesis Canada Electrified G80 (heat pump standard on E-GMP)", "accessed": "2026-04-25"}},
+    "msrp_cad": {"value": 98168, "confidence": "Medium", "source": {"url": "https://www.ccarprice.com/ca/genesis-electrified-g80-advanced-sedan-2025-price-in-canada-23457", "name": "CCarPrice 2025 Genesis Electrified G80 Advanced $98,168 CAD MSRP", "accessed": "2026-04-25"}, "notes": "CCarPrice $98,168 (2025); Driving.ca lists 2024 Prestige at $105,000. Genesis Canada freight is included in published MSRP per their no-freight policy."},
+    "federal_izev_cad": {"value": 0, "confidence": "High", "source": {"url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/incentives-zero-emission-vehicles-izev", "name": "Transport Canada — iZEV paused 2026; over MSRP cap regardless", "accessed": "2026-04-25"}},
+    "provincial_rebate_cad_on": {"value": 0, "confidence": "High", "source": {"url": "https://www.ontario.ca/page/electric-vehicles", "name": "Ontario — no provincial EV rebate since 2018", "accessed": "2026-04-25"}}
+  },
+  "thermal_arrays": {
+    "cold_derate_curve": [],
+    "hvac_draw_kw_by_temp": [],
+    "hp_min_temp_c": -10,
+    "precon_time_by_temp": [],
+    "precon_thermal_gain": 0.85,
+    "dc_cold_soak_curve": [],
+    "charging_curve_20c": []
+  },
+  "overall_confidence": "High"
+}

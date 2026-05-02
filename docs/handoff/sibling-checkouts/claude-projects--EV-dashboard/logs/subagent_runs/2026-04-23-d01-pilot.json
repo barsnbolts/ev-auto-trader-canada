@@ -1,0 +1,41 @@
+{
+  "milestone": "D-01",
+  "dispatched_at": "2026-04-23T15:42:00Z",
+  "subagent_type": "general-purpose",
+  "description": "D-01 Exa verification pilot — 5 vehicles × 3 fields",
+  "prompt_template": "scripts/prompt_templates/d01_verify.md",
+  "prompt_version": "v1",
+  "inputs": {
+    "vehicles": [
+      "tesla-model3-highland-lr-awd",
+      "hyundai-ioniq5-2025-lr-rwd",
+      "ford-lightning-er-awd",
+      "kia-ev6-2025-lr-awd",
+      "polestar-2-lr-sm-2024"
+    ],
+    "fields": ["range_km", "dc_charge_kw_max", "msrp_cad"],
+    "pairs_requested": 15
+  },
+  "outcome": {
+    "pairs_returned": 15,
+    "upgrades_to_high": 3,
+    "citations_added": 8,
+    "disagreements_flagged": 4,
+    "no_data": 0,
+    "value_corrections": [
+      {"field": "dc_charge_kw_max", "vehicle": "hyundai-ioniq5-2025-lr-rwd", "old": 258, "new": 233, "reason": "RWD vs AWD mixup"},
+      {"field": "range_km", "vehicle": "kia-ev6-2025-lr-awd", "old": 450, "new": 475, "reason": "2025 refresh bumped pack to 84 kWh"}
+    ]
+  },
+  "usage": {
+    "tokens_total": 70483,
+    "tool_uses": 17,
+    "duration_ms": 101952
+  },
+  "quality_notes": "First-run pattern worked. Exa returned useful data for 100% of pairs. MSRP data was most volatile (kept all at Low). The subagent correctly caught the RWD/AWD mixup on IONIQ 5 DC.",
+  "improvements_for_next_run": [
+    "Remind subagent to convert miles↔km explicitly (a later run had one stray mi/km misread)",
+    "Emphasize that value corrections in DISAGREES cases should include a proposed_value in the JSON",
+    "Model Y Juniper and other emergent-spec vehicles need an escape hatch: 'return current Low unchanged' instead of forcing a guess"
+  ]
+}

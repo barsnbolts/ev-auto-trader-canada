@@ -1,0 +1,56 @@
+{
+  "milestone": "D-01-ext",
+  "dispatched_at": "2026-04-23T19:50:00Z",
+  "subagent_type": "general-purpose",
+  "description": "D-01-ext Exa verification — remaining 15 vehicles × 3 fields",
+  "prompt_template": "scripts/prompt_templates/d01_verify.md",
+  "prompt_version": "v1.1",
+  "prompt_improvements_over_v1": [
+    "Added special-case handling for Tesla Model Y Juniper (NA specs emerging)",
+    "Added explicit reminder that MSRPs stay Low even when confirmed",
+    "Added `proposed_value` field to schema (v1 had it implicit)"
+  ],
+  "inputs": {
+    "vehicles": [
+      "tesla-model3-highland-lr-rwd",
+      "tesla-modely-juniper-lr-rwd",
+      "hyundai-ioniq5-2025-lr-awd",
+      "kia-ev6-2025-lr-rwd",
+      "ford-mache-2024-er-rwd",
+      "ford-mache-2024-er-awd",
+      "chevy-equinoxev-fwd-lt2",
+      "chevy-equinoxev-awd-2lt",
+      "rivian-r1s-gen2-dual-max",
+      "toyota-rav4prime-awd",
+      "hyundai-ioniq6-lr-rwd",
+      "hyundai-ioniq6-lr-awd",
+      "vw-id4-pro-rwd",
+      "vw-id4-pro-awd",
+      "polestar-2-lr-dm-2024"
+    ],
+    "fields": ["range_km", "dc_charge_kw_max", "msrp_cad"],
+    "pairs_requested": 45
+  },
+  "outcome": {
+    "pairs_returned": 45,
+    "field_upgrades_applied": 20,
+    "value_corrections_applied": 1,
+    "disagreements_flagged": 3,
+    "no_data": 4,
+    "value_corrections": [
+      {"field": "range_km", "vehicle": "ford-mache-2024-er-awd", "old": 467, "new": 483, "reason": "InsideEVs EPA 300 mi = 483 km; seed was from earlier MY"}
+    ],
+    "vehicles_promoted_overall_to_high": 6
+  },
+  "usage": {
+    "tokens_total": 136002,
+    "tool_uses": 20,
+    "duration_ms": 155491
+  },
+  "quality_notes": "Most vehicles agreed within ±2%. Mach-E ER AWD caught a real EPA bump (467→483). Tesla Model Y Juniper remains sparse (Canadian availability unclear). One subagent misread: IONIQ 5 AWD showed range 290 which was 290 MILES (467 km); I spotted this in review and skipped that proposal.",
+  "improvements_for_next_run": [
+    "Require all Exa numbers to be given in both units (miles AND km) to catch unit errors at source",
+    "Check if vehicle has sibling entries (RWD vs AWD) — share specs that should match (battery kWh, chemistry)",
+    "Build a per-vehicle `charging_curve` verifier next — Fastned stats can confirm kW-vs-SoC curves"
+  ]
+}

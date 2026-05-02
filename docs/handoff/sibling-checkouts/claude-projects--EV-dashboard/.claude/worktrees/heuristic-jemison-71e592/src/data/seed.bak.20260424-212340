@@ -1,0 +1,6325 @@
+{
+  "schema_version": "0.1.0",
+  "generated_at": "2026-04-23",
+  "brands": [
+    {
+      "id": "tesla",
+      "name": "Tesla",
+      "country": "USA"
+    },
+    {
+      "id": "hyundai",
+      "name": "Hyundai",
+      "country": "Korea"
+    },
+    {
+      "id": "kia",
+      "name": "Kia",
+      "country": "Korea"
+    },
+    {
+      "id": "ford",
+      "name": "Ford",
+      "country": "USA"
+    },
+    {
+      "id": "chevrolet",
+      "name": "Chevrolet",
+      "country": "USA"
+    },
+    {
+      "id": "rivian",
+      "name": "Rivian",
+      "country": "USA"
+    },
+    {
+      "id": "toyota",
+      "name": "Toyota",
+      "country": "Japan"
+    },
+    {
+      "id": "volkswagen",
+      "name": "Volkswagen",
+      "country": "Germany"
+    },
+    {
+      "id": "polestar",
+      "name": "Polestar",
+      "country": "Sweden"
+    },
+    {
+      "id": "nissan",
+      "name": "Nissan",
+      "country": "Japan"
+    },
+    {
+      "id": "genesis",
+      "name": "Genesis",
+      "country": "Korea"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "tesla-model3-highland-lr-rwd",
+      "brand_id": "tesla",
+      "model": "Model 3",
+      "generation_label": "Highland (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range RWD",
+      "battery_kwh_total": {
+        "value": 78.1,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/model3/design",
+          "name": "Tesla Canada \u2014 Model 3",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 75.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2115/Tesla-Model-3-Long-Range-RWD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 584,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (MY2024 Model 3 Long Range RWD)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/support/home-charging-installation/wall-connector",
+          "name": "Tesla Canada \u2014 Wall Connector specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 170,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2115/Tesla-Model-3-Long-Range-RWD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 682,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/model3/design",
+          "name": "Tesla Canada \u2014 Model 3 specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing in North America."
+      },
+      "weight_kg": {
+        "value": 1761,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2115/Tesla-Model-3-Long-Range-RWD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.tesla.com/ownersmanual/model3/en_us/GUID-9F2F0D3A-DB35-4A02-83BE-55ABA1939C20.html",
+          "name": "Tesla Model 3 Owner's Manual",
+          "accessed": "2026-04-23"
+        }
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 165
+        },
+        {
+          "soc_pct": 20,
+          "kw": 170
+        },
+        {
+          "soc_pct": 40,
+          "kw": 130
+        },
+        {
+          "soc_pct": 60,
+          "kw": 95
+        },
+        {
+          "soc_pct": 80,
+          "kw": 55
+        }
+      ],
+      "msrp_cad": {
+        "value": 64990,
+        "confidence": "Low",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/model3/design",
+          "name": "Tesla Canada pricing page",
+          "accessed": "2026-04-23"
+        },
+        "notes": "Tesla adjusts MSRP frequently; verify at time of purchase."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV was paused in early 2025; 2026 status uncertain. Verify at transport.canada.ca before relying."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario has no active EV purchase rebate in 2026."
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.57
+        },
+        {
+          "temp_c": -30,
+          "value": 0.7
+        },
+        {
+          "temp_c": -20,
+          "value": 0.82
+        },
+        {
+          "temp_c": -10,
+          "value": 0.89
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.2,
+          "source": {
+            "url": "https://www.youtube.com/@BjornNyland",
+            "name": "Bj\u00f8rn Nyland \u2014 1000 km Challenge cold-weather tests",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -30,
+          "value": 5.0
+        },
+        {
+          "temp_c": -25,
+          "value": 3.5
+        },
+        {
+          "temp_c": -20,
+          "value": 2.0,
+          "source": {
+            "url": "https://www.youtube.com/@BjornNyland",
+            "name": "Bj\u00f8rn Nyland \u2014 1000 km Challenge cold-weather tests",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 1.2
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.4
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 2.5
+        }
+      ],
+      "hp_min_temp_c": -25,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 40
+        },
+        {
+          "temp_c": -30,
+          "value": 35
+        },
+        {
+          "temp_c": -20,
+          "value": 22
+        },
+        {
+          "temp_c": -10,
+          "value": 15
+        },
+        {
+          "temp_c": 0,
+          "value": 10
+        },
+        {
+          "temp_c": 10,
+          "value": 5
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.92,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.12
+        },
+        {
+          "temp_c": -30,
+          "value": 0.22
+        },
+        {
+          "temp_c": -20,
+          "value": 0.36,
+          "source": {
+            "url": "https://support.fastned.nl/hc/en-gb/articles/360007516494",
+            "name": "Fastned \u2014 Real-world charging speed data",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.52
+        },
+        {
+          "temp_c": 0,
+          "value": 0.68
+        },
+        {
+          "temp_c": 10,
+          "value": 0.85
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "tesla-model3-highland-lr-awd",
+      "brand_id": "tesla",
+      "model": "Model 3",
+      "generation_label": "Highland (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Long Range AWD",
+      "battery_kwh_total": {
+        "value": 78.1,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/model3/design",
+          "name": "Tesla Canada \u2014 Model 3",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 75.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2114/Tesla-Model-3-Long-Range-AWD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 565,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (MY2024 Model 3 Long Range AWD)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 250,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/2114/Tesla-Model-3-Long-Range-AWD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 682,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "weight_kg": {
+        "value": 1823,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 240
+        },
+        {
+          "soc_pct": 20,
+          "kw": 250
+        },
+        {
+          "soc_pct": 40,
+          "kw": 170
+        },
+        {
+          "soc_pct": 60,
+          "kw": 115
+        },
+        {
+          "soc_pct": 80,
+          "kw": 65
+        }
+      ],
+      "msrp_cad": {
+        "value": 69990,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/model3/design",
+          "name": "Tesla Canada \u2014 Model 3 design/order page",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "Federal iZEV paused in early 2025; 2026 status uncertain."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.57
+        },
+        {
+          "temp_c": -30,
+          "value": 0.7
+        },
+        {
+          "temp_c": -20,
+          "value": 0.82
+        },
+        {
+          "temp_c": -10,
+          "value": 0.89
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.2,
+          "source": {
+            "url": "https://www.youtube.com/@BjornNyland",
+            "name": "Bj\u00f8rn Nyland \u2014 1000 km Challenge cold-weather tests",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -30,
+          "value": 5.0
+        },
+        {
+          "temp_c": -25,
+          "value": 3.5
+        },
+        {
+          "temp_c": -20,
+          "value": 2.0,
+          "source": {
+            "url": "https://www.youtube.com/@BjornNyland",
+            "name": "Bj\u00f8rn Nyland \u2014 1000 km Challenge cold-weather tests",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 1.2
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.4
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 2.5
+        }
+      ],
+      "hp_min_temp_c": -25,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 40
+        },
+        {
+          "temp_c": -30,
+          "value": 35
+        },
+        {
+          "temp_c": -20,
+          "value": 22
+        },
+        {
+          "temp_c": -10,
+          "value": 15
+        },
+        {
+          "temp_c": 0,
+          "value": 10
+        },
+        {
+          "temp_c": 10,
+          "value": 5
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.92,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.12
+        },
+        {
+          "temp_c": -30,
+          "value": 0.22
+        },
+        {
+          "temp_c": -20,
+          "value": 0.36,
+          "source": {
+            "url": "https://support.fastned.nl/hc/en-gb/articles/360007516494",
+            "name": "Fastned \u2014 Real-world charging speed data",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.52
+        },
+        {
+          "temp_c": 0,
+          "value": 0.68
+        },
+        {
+          "temp_c": 10,
+          "value": 0.85
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "tesla-modely-juniper-lr-rwd",
+      "brand_id": "tesla",
+      "model": "Model Y",
+      "generation_label": "Juniper (2026+)",
+      "year_start": 2026,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range RWD",
+      "battery_kwh_total": {
+        "value": 82.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://driving.ca/tesla/model-y/long-range-rwd/?year=2025",
+          "name": "Driving.ca \u2014 2025 Tesla Model Y spec sheet",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 75.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/3120/Tesla-Model-Y-Long-Range-RWD",
+          "name": "EV Database \u2014 Tesla Model Y LR RWD",
+          "accessed": "2026-04-23"
+        },
+        "notes": "Consistent with pre-Juniper LR pack usable capacity; no official change in Juniper NA."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 531,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/3120/Tesla-Model-Y-Long-Range-RWD",
+          "name": "EV Database \u2014 Tesla Model Y LR RWD",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 250,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/modely",
+          "name": "Tesla Canada \u2014 Model Y",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 854,
+        "confidence": "Low"
+      },
+      "cargo_l_seats_down": {
+        "value": 2138,
+        "confidence": "Low"
+      },
+      "tow_rating_kg": {
+        "value": 1588,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/modely",
+          "name": "Tesla Canada \u2014 Model Y",
+          "accessed": "2026-04-23"
+        }
+      },
+      "weight_kg": {
+        "value": null,
+        "confidence": "Low"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [],
+      "msrp_cad": {
+        "value": 64990,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.tesla.com/en_ca/modely",
+          "name": "Tesla Canada \u2014 Model Y",
+          "accessed": "2026-04-23"
+        },
+        "notes": "ThinkEV.ca (Mar 2026) shows ,990 for LR RWD post-price-cut; driving.ca shows ,990. Tesla.ca must be verified. Using higher value as conservative estimate."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "notes": "B4 deep-dive (2026-04-23): Battery confirmed at 82 kWh (driving.ca). Range ~525 km NRCan for LR RWD. MSRP conflicting: ,990 (ThinkEV.ca, post-price-cut) vs ,990 (driving.ca, 2025 data). Canada may be AWD-only per driving.ca 2026 review (\"all Canadian Model Ys will be AWD\"); this entry represents the global LR RWD spec. DC peak estimated at 250 kW (same platform as Highland M3; unconfirmed officially). Verify tesla.ca before quoting price or range. overall_confidence stays Low until EPA range + official MSRP confirmed.",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.57
+        },
+        {
+          "temp_c": -30,
+          "value": 0.7
+        },
+        {
+          "temp_c": -20,
+          "value": 0.82
+        },
+        {
+          "temp_c": -10,
+          "value": 0.89
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.2,
+          "source": {
+            "url": "https://www.youtube.com/@BjornNyland",
+            "name": "Bj\u00f8rn Nyland \u2014 1000 km Challenge cold-weather tests",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -30,
+          "value": 5.0
+        },
+        {
+          "temp_c": -25,
+          "value": 3.5
+        },
+        {
+          "temp_c": -20,
+          "value": 2.0,
+          "source": {
+            "url": "https://www.youtube.com/@BjornNyland",
+            "name": "Bj\u00f8rn Nyland \u2014 1000 km Challenge cold-weather tests",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 1.2
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.4
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 2.5
+        }
+      ],
+      "hp_min_temp_c": -25,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 40
+        },
+        {
+          "temp_c": -30,
+          "value": 35
+        },
+        {
+          "temp_c": -20,
+          "value": 22
+        },
+        {
+          "temp_c": -10,
+          "value": 15
+        },
+        {
+          "temp_c": 0,
+          "value": 10
+        },
+        {
+          "temp_c": 10,
+          "value": 5
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.92,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.12
+        },
+        {
+          "temp_c": -30,
+          "value": 0.22
+        },
+        {
+          "temp_c": -20,
+          "value": 0.36,
+          "source": {
+            "url": "https://support.fastned.nl/hc/en-gb/articles/360007516494",
+            "name": "Fastned \u2014 Real-world charging speed data",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.52
+        },
+        {
+          "temp_c": 0,
+          "value": 0.68
+        },
+        {
+          "temp_c": 10,
+          "value": 0.85
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "hyundai-ioniq5-2025-lr-rwd",
+      "brand_id": "hyundai",
+      "model": "IONIQ 5",
+      "generation_label": "2025+ (84 kWh refresh)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "SE RWD Long Range",
+      "battery_kwh_total": {
+        "value": 84.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.hyundainews.com/assets/documents/original/64493-2025IONIQ5SpecsFeatures121124.pdf",
+          "name": "Hyundai News \u2014 2025 IONIQ 5 Specs (official)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 80.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.hyundainews.com/assets/documents/original/64493-2025IONIQ5SpecsFeatures121124.pdf",
+          "name": "Hyundai News \u2014 2025 IONIQ 5 Specs (official)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 511,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.guideautoweb.com/en/makes/hyundai/ioniq-5/2025/specifications/preferred-rwd-long-range/",
+          "name": "Car Guide \u2014 2025 IONIQ 5 RWD LR specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 258,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+          "name": "Hyundai Canada \u2014 IONIQ 5 specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 770,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1587,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1497,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2012,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "notes": "Standard heat pump on 2025+ Canadian long-range trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 250
+        },
+        {
+          "soc_pct": 40,
+          "kw": 200
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 58229,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+          "name": "Hyundai Canada \u2014 IONIQ 5 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.81
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -15,
+          "value": 3.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 1.0
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.2
+        },
+        {
+          "temp_c": 40,
+          "value": 3.0
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 28
+        },
+        {
+          "temp_c": -10,
+          "value": 18
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.14
+        },
+        {
+          "temp_c": -30,
+          "value": 0.26
+        },
+        {
+          "temp_c": -20,
+          "value": 0.48,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.65
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.9
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "hyundai-ioniq5-2025-lr-awd",
+      "brand_id": "hyundai",
+      "model": "IONIQ 5",
+      "generation_label": "2025+ (84 kWh refresh)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Preferred AWD Long Range",
+      "battery_kwh_total": {
+        "value": 84.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.hyundainews.com/assets/documents/original/64493-2025IONIQ5SpecsFeatures121124.pdf",
+          "name": "Hyundai News \u2014 2025 IONIQ 5 Specs (official)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 80.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.hyundainews.com/assets/documents/original/64493-2025IONIQ5SpecsFeatures121124.pdf",
+          "name": "Hyundai News \u2014 2025 IONIQ 5 Specs (official)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 470,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (IONIQ 5 AWD Long Range 2025)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 258,
+        "confidence": "Medium"
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 770,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1587,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1497,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2105,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 250
+        },
+        {
+          "soc_pct": 40,
+          "kw": 200
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 61229,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+          "name": "Hyundai Canada \u2014 IONIQ 5 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.81
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -15,
+          "value": 3.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 1.0
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.2
+        },
+        {
+          "temp_c": 40,
+          "value": 3.0
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 28
+        },
+        {
+          "temp_c": -10,
+          "value": 18
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.14
+        },
+        {
+          "temp_c": -30,
+          "value": 0.26
+        },
+        {
+          "temp_c": -20,
+          "value": 0.48,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.65
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.9
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "kia-ev6-2025-lr-rwd",
+      "brand_id": "kia",
+      "model": "EV6",
+      "generation_label": "2025 refresh (84 kWh)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range RWD",
+      "battery_kwh_total": {
+        "value": 84.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.kia.ca/en/vehicles/ev6",
+          "name": "Kia Canada \u2014 EV6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 80.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.kia.ca/en/vehicles/ev6",
+          "name": "Kia Canada \u2014 EV6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 512,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.kia.ca/en/vehicles/ev6",
+          "name": "Kia Canada \u2014 EV6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 258,
+        "confidence": "Medium"
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 690,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1385,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1497,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2025,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 225
+        },
+        {
+          "soc_pct": 20,
+          "kw": 255
+        },
+        {
+          "soc_pct": 40,
+          "kw": 205
+        },
+        {
+          "soc_pct": 60,
+          "kw": 135
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 53110,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.kia.ca/en/vehicles/ev6",
+          "name": "Kia Canada \u2014 EV6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.81
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -15,
+          "value": 3.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 1.0
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.2
+        },
+        {
+          "temp_c": 40,
+          "value": 3.0
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 28
+        },
+        {
+          "temp_c": -10,
+          "value": 18
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.14
+        },
+        {
+          "temp_c": -30,
+          "value": 0.26
+        },
+        {
+          "temp_c": -20,
+          "value": 0.48,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.65
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.9
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "kia-ev6-2025-lr-awd",
+      "brand_id": "kia",
+      "model": "EV6",
+      "generation_label": "2025 refresh (84 kWh)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Long Range AWD",
+      "battery_kwh_total": {
+        "value": 84.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.kia.ca/en/vehicles/ev6",
+          "name": "Kia Canada \u2014 EV6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 80.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.kia.ca/en/vehicles/ev6",
+          "name": "Kia Canada \u2014 EV6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 450,
+        "confidence": "Medium"
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 258,
+        "confidence": "Medium"
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 690,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1385,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1497,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2115,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 225
+        },
+        {
+          "soc_pct": 20,
+          "kw": 255
+        },
+        {
+          "soc_pct": 40,
+          "kw": 205
+        },
+        {
+          "soc_pct": 60,
+          "kw": 135
+        },
+        {
+          "soc_pct": 80,
+          "kw": 80
+        }
+      ],
+      "msrp_cad": {
+        "value": 55110,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.kia.ca/en/vehicles/ev6",
+          "name": "Kia Canada \u2014 EV6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.81
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -15,
+          "value": 3.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 1.0
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.2
+        },
+        {
+          "temp_c": 40,
+          "value": 3.0
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 28
+        },
+        {
+          "temp_c": -10,
+          "value": 18
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.14
+        },
+        {
+          "temp_c": -30,
+          "value": 0.26
+        },
+        {
+          "temp_c": -20,
+          "value": 0.48,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.65
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.9
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "ford-mache-2024-er-rwd",
+      "brand_id": "ford",
+      "model": "Mustang Mach-E",
+      "generation_label": "2024+ refresh",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Extended Range RWD",
+      "battery_kwh_total": {
+        "value": 91,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.ford.ca/suvs/mach-e",
+          "name": "Ford Canada \u2014 Mach-E",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 88,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 515,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (Mach-E Premium ER RWD)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.5,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 832,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1714,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing in North America."
+      },
+      "weight_kg": {
+        "value": 2095,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium",
+        "notes": "Heat pump standard from 2023+ model year for most North American trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 145
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 120
+        },
+        {
+          "soc_pct": 60,
+          "kw": 85
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 62995,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.auto123.com/en/news/2024-ford-mustang-mach-e-prices-details/71355/",
+          "name": "Auto123 \u2014 2024 Ford Mustang Mach-E pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.8
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.2
+        },
+        {
+          "temp_c": -15,
+          "value": 4.5,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 0.9
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.1
+        },
+        {
+          "temp_c": 40,
+          "value": 2.8
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 30
+        },
+        {
+          "temp_c": -10,
+          "value": 20
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.87,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.1
+        },
+        {
+          "temp_c": -30,
+          "value": 0.2
+        },
+        {
+          "temp_c": -20,
+          "value": 0.33,
+          "source": {
+            "url": "https://support.fastned.nl/hc/en-gb/articles/360007516494",
+            "name": "Fastned \u2014 Real-world charging speed data",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 0,
+          "value": 0.65
+        },
+        {
+          "temp_c": 10,
+          "value": 0.82
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "ford-mache-2024-er-awd",
+      "brand_id": "ford",
+      "model": "Mustang Mach-E",
+      "generation_label": "2024+ refresh",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Extended Range AWD",
+      "battery_kwh_total": {
+        "value": 91,
+        "confidence": "Medium"
+      },
+      "battery_kwh_usable": {
+        "value": 88,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 467,
+        "confidence": "Medium"
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.5,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 832,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1714,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "weight_kg": {
+        "value": 2190,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 145
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 115
+        },
+        {
+          "soc_pct": 60,
+          "kw": 80
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 64495,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.ford.ca/suvs/mach-e/",
+          "name": "Ford Canada \u2014 Mustang Mach-E",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.8
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.2
+        },
+        {
+          "temp_c": -15,
+          "value": 4.5,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 0.9
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.1
+        },
+        {
+          "temp_c": 40,
+          "value": 2.8
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 30
+        },
+        {
+          "temp_c": -10,
+          "value": 20
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.87,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.1
+        },
+        {
+          "temp_c": -30,
+          "value": 0.2
+        },
+        {
+          "temp_c": -20,
+          "value": 0.33,
+          "source": {
+            "url": "https://support.fastned.nl/hc/en-gb/articles/360007516494",
+            "name": "Fastned \u2014 Real-world charging speed data",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 0,
+          "value": 0.65
+        },
+        {
+          "temp_c": 10,
+          "value": 0.82
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "ford-lightning-er-awd",
+      "brand_id": "ford",
+      "model": "F-150 Lightning",
+      "generation_label": "Gen 1 (2022+)",
+      "year_start": 2022,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Truck",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Extended Range AWD",
+      "battery_kwh_total": {
+        "value": 131,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.ford.ca/trucks/f150/f150-lightning",
+          "name": "Ford Canada \u2014 F-150 Lightning",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 131,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 483,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.autotrader.ca/research/ford/f-150%20lightning/2024/",
+          "name": "AutoTrader.ca \u2014 2024 F-150 Lightning research",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 19.2,
+        "confidence": "High",
+        "notes": "Optional 80A Ford Charge Station Pro required to reach 19.2 kW; stock is 11.5 kW."
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 400,
+        "confidence": "Medium",
+        "notes": "Frunk volume."
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 4536,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.ford.ca/trucks/f150/f150-lightning",
+          "name": "Ford Canada \u2014 F-150 Lightning specs",
+          "accessed": "2026-04-23"
+        }
+      },
+      "weight_kg": {
+        "value": 2948,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 150
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 130
+        },
+        {
+          "soc_pct": 60,
+          "kw": 95
+        },
+        {
+          "soc_pct": 80,
+          "kw": 55
+        }
+      ],
+      "msrp_cad": {
+        "value": 79995,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.ford.ca/trucks/f150-lightning/",
+          "name": "Ford Canada \u2014 F-150 Lightning",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "iZEV MSRP cap excludes most Lightning trims even when program active."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.52
+        },
+        {
+          "temp_c": -30,
+          "value": 0.65
+        },
+        {
+          "temp_c": -20,
+          "value": 0.78
+        },
+        {
+          "temp_c": -10,
+          "value": 0.87
+        },
+        {
+          "temp_c": 0,
+          "value": 0.94
+        },
+        {
+          "temp_c": 10,
+          "value": 0.97
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 9.5,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -30,
+          "value": 8.0
+        },
+        {
+          "temp_c": -20,
+          "value": 7.0,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 5.0
+        },
+        {
+          "temp_c": 0,
+          "value": 3.5
+        },
+        {
+          "temp_c": 10,
+          "value": 1.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.3
+        },
+        {
+          "temp_c": 30,
+          "value": 2.2
+        },
+        {
+          "temp_c": 40,
+          "value": 4.5
+        }
+      ],
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 55
+        },
+        {
+          "temp_c": -30,
+          "value": 48
+        },
+        {
+          "temp_c": -20,
+          "value": 38
+        },
+        {
+          "temp_c": -10,
+          "value": 26
+        },
+        {
+          "temp_c": 0,
+          "value": 15
+        },
+        {
+          "temp_c": 10,
+          "value": 8
+        },
+        {
+          "temp_c": 20,
+          "value": 4
+        }
+      ],
+      "precon_thermal_gain": 0.82,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.08
+        },
+        {
+          "temp_c": -30,
+          "value": 0.18
+        },
+        {
+          "temp_c": -20,
+          "value": 0.3,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.45
+        },
+        {
+          "temp_c": 0,
+          "value": 0.62
+        },
+        {
+          "temp_c": 10,
+          "value": 0.8
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "chevy-equinoxev-fwd-lt2",
+      "brand_id": "chevrolet",
+      "model": "Equinox EV",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "FWD LT2",
+      "battery_kwh_total": {
+        "value": 85.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://gmauthority.com/blog/2024/02/here-is-2024-chevy-equinox-ev-trim-level-pricing-in-canada/",
+          "name": "GM Authority \u2014 2024 Chevy Equinox EV Canada pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 79.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://gmauthority.com/blog/2024/02/here-is-2024-chevy-equinox-ev-trim-level-pricing-in-canada/",
+          "name": "GM Authority \u2014 2024 Chevy Equinox EV Canada",
+          "accessed": "2026-04-23"
+        },
+        "notes": "Gross 85.0 kWh, usable estimated ~79 kWh (~93% typical for Ultium)."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 513,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 737,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1614,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 680,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2196,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 145
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 110
+        },
+        {
+          "soc_pct": 60,
+          "kw": 75
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 48199,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://gmauthority.com/blog/2024/02/here-is-2024-chevy-equinox-ev-trim-level-pricing-in-canada/",
+          "name": "GM Authority \u2014 2024 Chevy Equinox EV Canada pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.8
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0
+        },
+        {
+          "temp_c": -15,
+          "value": 4.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 0.9
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.1
+        },
+        {
+          "temp_c": 40,
+          "value": 2.8
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 30
+        },
+        {
+          "temp_c": -10,
+          "value": 20
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.87,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.1
+        },
+        {
+          "temp_c": -30,
+          "value": 0.2
+        },
+        {
+          "temp_c": -20,
+          "value": 0.34
+        },
+        {
+          "temp_c": -10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 0,
+          "value": 0.65
+        },
+        {
+          "temp_c": 10,
+          "value": 0.82
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "chevy-equinoxev-awd-2lt",
+      "brand_id": "chevrolet",
+      "model": "Equinox EV",
+      "generation_label": "Gen 1 (2024+)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "AWD 2LT",
+      "battery_kwh_total": {
+        "value": 85.0,
+        "confidence": "High",
+        "source": {
+          "url": "https://gmauthority.com/blog/2024/02/here-is-2024-chevy-equinox-ev-trim-level-pricing-in-canada/",
+          "name": "GM Authority \u2014 2024 Chevy Equinox EV Canada pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 79.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://gmauthority.com/blog/2024/02/here-is-2024-chevy-equinox-ev-trim-level-pricing-in-canada/",
+          "name": "GM Authority \u2014 2024 Chevy Equinox EV Canada",
+          "accessed": "2026-04-23"
+        },
+        "notes": "Gross 85.0 kWh, usable estimated ~79 kWh."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 459,
+        "confidence": "Medium"
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 150,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 737,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1614,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 680,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2295,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 145
+        },
+        {
+          "soc_pct": 20,
+          "kw": 150
+        },
+        {
+          "soc_pct": 40,
+          "kw": 110
+        },
+        {
+          "soc_pct": 60,
+          "kw": 75
+        },
+        {
+          "soc_pct": 80,
+          "kw": 50
+        }
+      ],
+      "msrp_cad": {
+        "value": 54199,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://gmauthority.com/blog/2024/02/here-is-2024-chevy-equinox-ev-trim-level-pricing-in-canada/",
+          "name": "GM Authority \u2014 2024 Chevy Equinox EV Canada pricing",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.8
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0
+        },
+        {
+          "temp_c": -15,
+          "value": 4.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 0.9
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.1
+        },
+        {
+          "temp_c": 40,
+          "value": 2.8
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 30
+        },
+        {
+          "temp_c": -10,
+          "value": 20
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.87,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.1
+        },
+        {
+          "temp_c": -30,
+          "value": 0.2
+        },
+        {
+          "temp_c": -20,
+          "value": 0.34
+        },
+        {
+          "temp_c": -10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 0,
+          "value": 0.65
+        },
+        {
+          "temp_c": 10,
+          "value": 0.82
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "rivian-r1s-gen2-dual-max",
+      "brand_id": "rivian",
+      "model": "R1S",
+      "generation_label": "Gen 2 (2025+)",
+      "year_start": 2025,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "SUV",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Dual-Motor Max Pack",
+      "battery_kwh_total": {
+        "value": 149,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://rivian.com/r1s",
+          "name": "Rivian \u2014 R1S",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 141,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 660,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://rivian.com/r1s",
+          "name": "Rivian R1S Max Pack spec page",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11.5,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 220,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 7,
+      "cargo_l_seats_up": {
+        "value": 498,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 2465,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 3402,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 3148,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "notes": "Gen 2 introduced integrated heat pump / thermal management redesign."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 215
+        },
+        {
+          "soc_pct": 20,
+          "kw": 220
+        },
+        {
+          "soc_pct": 40,
+          "kw": 160
+        },
+        {
+          "soc_pct": 60,
+          "kw": 110
+        },
+        {
+          "soc_pct": 80,
+          "kw": 70
+        }
+      ],
+      "msrp_cad": {
+        "value": 125000,
+        "confidence": "Low",
+        "notes": "Rivian Canadian availability and MSRP still evolving."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Exceeds iZEV MSRP cap."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.56
+        },
+        {
+          "temp_c": -30,
+          "value": 0.69
+        },
+        {
+          "temp_c": -20,
+          "value": 0.81
+        },
+        {
+          "temp_c": -10,
+          "value": 0.89
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 6.0
+        },
+        {
+          "temp_c": -20,
+          "value": 3.8,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -15,
+          "value": 2.8
+        },
+        {
+          "temp_c": -10,
+          "value": 1.6
+        },
+        {
+          "temp_c": 0,
+          "value": 0.9
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.2
+        },
+        {
+          "temp_c": 40,
+          "value": 3.0
+        }
+      ],
+      "hp_min_temp_c": -20,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 28
+        },
+        {
+          "temp_c": -10,
+          "value": 18
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.9,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.12
+        },
+        {
+          "temp_c": -30,
+          "value": 0.22
+        },
+        {
+          "temp_c": -20,
+          "value": 0.38,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.55
+        },
+        {
+          "temp_c": 0,
+          "value": 0.7
+        },
+        {
+          "temp_c": 10,
+          "value": 0.85
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "toyota-rav4prime-awd",
+      "brand_id": "toyota",
+      "model": "RAV4 Prime",
+      "generation_label": "Gen 5 (2021+)",
+      "year_start": 2021,
+      "year_end": null,
+      "powertrain": "PHEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "XSE AWD",
+      "battery_kwh_total": {
+        "value": 18.1,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.toyota.ca/toyota/en/vehicles/rav4-prime",
+          "name": "Toyota Canada \u2014 RAV4 Prime",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 18.1,
+        "confidence": "Medium",
+        "notes": "B3 agent reports 18.1 kWh usable for 2024 RAV4 Prime. Seed had 14.5 (pre-2023 spec). Verify at toyota.ca."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 68,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (RAV4 Prime electric-only)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 6.6,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "RAV4 Prime has no DC fast-charging capability."
+      },
+      "port_type": "J1772_ONLY",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 949,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1977,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1134,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 1995,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": false,
+        "confidence": "High"
+      },
+      "thermal_management": "passive",
+      "charging_curve_20c": [],
+      "msrp_cad": {
+        "value": 52950,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "PHEV eligibility rules differ from BEV under iZEV."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.8
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 5.0
+        },
+        {
+          "temp_c": -30,
+          "value": 3.5
+        },
+        {
+          "temp_c": -20,
+          "value": 2.5
+        },
+        {
+          "temp_c": -10,
+          "value": 1.5
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.4
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 0.8
+        },
+        {
+          "temp_c": 40,
+          "value": 2.0
+        }
+      ],
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 30
+        },
+        {
+          "temp_c": -30,
+          "value": 22
+        },
+        {
+          "temp_c": -20,
+          "value": 15
+        },
+        {
+          "temp_c": -10,
+          "value": 10
+        },
+        {
+          "temp_c": 0,
+          "value": 6
+        },
+        {
+          "temp_c": 10,
+          "value": 3
+        },
+        {
+          "temp_c": 20,
+          "value": 2
+        }
+      ],
+      "precon_thermal_gain": 0.8,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.0
+        },
+        {
+          "temp_c": -30,
+          "value": 0.0
+        },
+        {
+          "temp_c": -20,
+          "value": 0.0
+        },
+        {
+          "temp_c": -10,
+          "value": 0.0
+        },
+        {
+          "temp_c": 0,
+          "value": 0.0
+        },
+        {
+          "temp_c": 10,
+          "value": 0.0
+        },
+        {
+          "temp_c": 20,
+          "value": 0.0
+        },
+        {
+          "temp_c": 30,
+          "value": 0.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.0
+        }
+      ],
+      "degradation_annual": 0.015
+    },
+    {
+      "id": "hyundai-ioniq6-lr-rwd",
+      "brand_id": "hyundai",
+      "model": "IONIQ 6",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range RWD",
+      "battery_kwh_total": {
+        "value": 77.4,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.hyundaicanada.com/en/showroom/2024/ioniq-6",
+          "name": "Hyundai Canada \u2014 IONIQ 6",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 74,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1876/Hyundai-IONIQ-6-Long-Range-2WD",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 581,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (IONIQ 6 LR RWD)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 233,
+        "confidence": "Medium"
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 317,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "weight_kg": {
+        "value": 1965,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 233
+        },
+        {
+          "soc_pct": 40,
+          "kw": 195
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 75
+        }
+      ],
+      "msrp_cad": {
+        "value": 54999,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
+          "name": "Hyundai Canada \u2014 IONIQ 6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.81
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -15,
+          "value": 3.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 1.0
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.2
+        },
+        {
+          "temp_c": 40,
+          "value": 3.0
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 28
+        },
+        {
+          "temp_c": -10,
+          "value": 18
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.14
+        },
+        {
+          "temp_c": -30,
+          "value": 0.26
+        },
+        {
+          "temp_c": -20,
+          "value": 0.48,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.65
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.9
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "hyundai-ioniq6-lr-awd",
+      "brand_id": "hyundai",
+      "model": "IONIQ 6",
+      "generation_label": "Gen 1 (2023+)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Long Range AWD",
+      "battery_kwh_total": {
+        "value": 77.4,
+        "confidence": "High"
+      },
+      "battery_kwh_usable": {
+        "value": 74,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 509,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (IONIQ 6 LR AWD)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 10.9,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 233,
+        "confidence": "Medium"
+      },
+      "port_type": "NACS",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 317,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": null,
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "weight_kg": {
+        "value": 2059,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 220
+        },
+        {
+          "soc_pct": 20,
+          "kw": 233
+        },
+        {
+          "soc_pct": 40,
+          "kw": 195
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 75
+        }
+      ],
+      "msrp_cad": {
+        "value": 58399,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
+          "name": "Hyundai Canada \u2014 IONIQ 6 2025",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.81
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -15,
+          "value": 3.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 1.0
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.2
+        },
+        {
+          "temp_c": 40,
+          "value": 3.0
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 28
+        },
+        {
+          "temp_c": -10,
+          "value": 18
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.14
+        },
+        {
+          "temp_c": -30,
+          "value": 0.26
+        },
+        {
+          "temp_c": -20,
+          "value": 0.48,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.65
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.9
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "vw-id4-pro-rwd",
+      "brand_id": "volkswagen",
+      "model": "ID.4",
+      "generation_label": "2023+ refresh (APP550)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Pro RWD",
+      "battery_kwh_total": {
+        "value": 82,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.vw.ca/en/models/id4.html",
+          "name": "Volkswagen Canada \u2014 ID.4",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 77,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 468,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (ID.4 Pro RWD 2024)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 175,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 858,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1818,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1000,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2124,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium",
+        "notes": "Heat pump optional on early MY; standard on most 2023+ Canadian trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 170
+        },
+        {
+          "soc_pct": 20,
+          "kw": 175
+        },
+        {
+          "soc_pct": 40,
+          "kw": 130
+        },
+        {
+          "soc_pct": 60,
+          "kw": 90
+        },
+        {
+          "soc_pct": 80,
+          "kw": 55
+        }
+      ],
+      "msrp_cad": {
+        "value": 50995,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.52
+        },
+        {
+          "temp_c": -30,
+          "value": 0.65
+        },
+        {
+          "temp_c": -20,
+          "value": 0.77
+        },
+        {
+          "temp_c": -10,
+          "value": 0.86
+        },
+        {
+          "temp_c": 0,
+          "value": 0.93
+        },
+        {
+          "temp_c": 10,
+          "value": 0.97
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.5
+        },
+        {
+          "temp_c": -20,
+          "value": 6.5,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 5.0
+        },
+        {
+          "temp_c": -5,
+          "value": 2.2
+        },
+        {
+          "temp_c": 0,
+          "value": 1.2
+        },
+        {
+          "temp_c": 10,
+          "value": 0.6
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.3
+        },
+        {
+          "temp_c": 40,
+          "value": 3.2
+        }
+      ],
+      "hp_min_temp_c": -10,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 50
+        },
+        {
+          "temp_c": -30,
+          "value": 42
+        },
+        {
+          "temp_c": -20,
+          "value": 32
+        },
+        {
+          "temp_c": -10,
+          "value": 22
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.85,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.08
+        },
+        {
+          "temp_c": -30,
+          "value": 0.16
+        },
+        {
+          "temp_c": -20,
+          "value": 0.28,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.44
+        },
+        {
+          "temp_c": 0,
+          "value": 0.62
+        },
+        {
+          "temp_c": 10,
+          "value": 0.8
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "vw-id4-pro-awd",
+      "brand_id": "volkswagen",
+      "model": "ID.4",
+      "generation_label": "2023+ refresh (APP550)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Pro S AWD",
+      "battery_kwh_total": {
+        "value": 82,
+        "confidence": "Medium"
+      },
+      "battery_kwh_usable": {
+        "value": 77,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 423,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://www.vw.ca/en/models/new-vehicles/2024-id4.html",
+          "name": "VW Canada \u2014 ID.4 2024",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "Medium"
+      },
+      "dc_charge_kw_max": {
+        "value": 175,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 858,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1818,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1000,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2231,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "Medium"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 170
+        },
+        {
+          "soc_pct": 20,
+          "kw": 175
+        },
+        {
+          "soc_pct": 40,
+          "kw": 125
+        },
+        {
+          "soc_pct": 60,
+          "kw": 85
+        },
+        {
+          "soc_pct": 80,
+          "kw": 55
+        }
+      ],
+      "msrp_cad": {
+        "value": 57495,
+        "confidence": "Low"
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.52
+        },
+        {
+          "temp_c": -30,
+          "value": 0.65
+        },
+        {
+          "temp_c": -20,
+          "value": 0.77
+        },
+        {
+          "temp_c": -10,
+          "value": 0.86
+        },
+        {
+          "temp_c": 0,
+          "value": 0.93
+        },
+        {
+          "temp_c": 10,
+          "value": 0.97
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.5
+        },
+        {
+          "temp_c": -20,
+          "value": 6.5,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 5.0
+        },
+        {
+          "temp_c": -5,
+          "value": 2.2
+        },
+        {
+          "temp_c": 0,
+          "value": 1.2
+        },
+        {
+          "temp_c": 10,
+          "value": 0.6
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.3
+        },
+        {
+          "temp_c": 40,
+          "value": 3.2
+        }
+      ],
+      "hp_min_temp_c": -10,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 50
+        },
+        {
+          "temp_c": -30,
+          "value": 42
+        },
+        {
+          "temp_c": -20,
+          "value": 32
+        },
+        {
+          "temp_c": -10,
+          "value": 22
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.85,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.08
+        },
+        {
+          "temp_c": -30,
+          "value": 0.16
+        },
+        {
+          "temp_c": -20,
+          "value": 0.28,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.44
+        },
+        {
+          "temp_c": 0,
+          "value": 0.62
+        },
+        {
+          "temp_c": 10,
+          "value": 0.8
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "polestar-2-lr-sm-2024",
+      "brand_id": "polestar",
+      "model": "Polestar 2",
+      "generation_label": "2024 refresh (rear-drive)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Long Range Single Motor",
+      "battery_kwh_total": {
+        "value": 82,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.polestar.com/ca/polestar-2/",
+          "name": "Polestar Canada \u2014 Polestar 2",
+          "accessed": "2026-04-23"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 79,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 515,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (Polestar 2 LR SM 2024)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 205,
+        "confidence": "Medium",
+        "notes": "2024 refresh raised peak DC from 155 to 205 kW with the architecture change."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 405,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1095,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1500,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2069,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "notes": "Standard on 2024+ trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 200
+        },
+        {
+          "soc_pct": 20,
+          "kw": 205
+        },
+        {
+          "soc_pct": 40,
+          "kw": 155
+        },
+        {
+          "soc_pct": 60,
+          "kw": 105
+        },
+        {
+          "soc_pct": 80,
+          "kw": 65
+        }
+      ],
+      "msrp_cad": {
+        "value": 54950,
+        "confidence": "High",
+        "source": {
+          "url": "https://media.polestar.com/ca/en/media/pressreleases/668418/polestar-announces-pricing-and-availability-for-the-significantly-enhanced-2024-polestar-2",
+          "name": "Polestar Canada \u2014 2024 Polestar 2 pricing press release",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.8
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 6.8
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0
+        },
+        {
+          "temp_c": -15,
+          "value": 3.8
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 0.9
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.1
+        },
+        {
+          "temp_c": 40,
+          "value": 2.8
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 30
+        },
+        {
+          "temp_c": -10,
+          "value": 20
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.1
+        },
+        {
+          "temp_c": -30,
+          "value": 0.2
+        },
+        {
+          "temp_c": -20,
+          "value": 0.34,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 0,
+          "value": 0.65
+        },
+        {
+          "temp_c": 10,
+          "value": 0.82
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "polestar-2-lr-dm-2024",
+      "brand_id": "polestar",
+      "model": "Polestar 2",
+      "generation_label": "2024 refresh (dual-motor)",
+      "year_start": 2024,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Sedan",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Long Range Dual Motor",
+      "battery_kwh_total": {
+        "value": 82,
+        "confidence": "High"
+      },
+      "battery_kwh_usable": {
+        "value": 79,
+        "confidence": "Medium"
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 441,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.fueleconomy.gov",
+          "name": "EPA fueleconomy.gov (Polestar 2 LR DM 2024)",
+          "accessed": "2026-04-23"
+        }
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "High"
+      },
+      "dc_charge_kw_max": {
+        "value": 205,
+        "confidence": "Medium"
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 405,
+        "confidence": "Medium"
+      },
+      "cargo_l_seats_down": {
+        "value": 1095,
+        "confidence": "Medium"
+      },
+      "tow_rating_kg": {
+        "value": 1500,
+        "confidence": "Medium"
+      },
+      "weight_kg": {
+        "value": 2164,
+        "confidence": "Medium"
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High"
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 200
+        },
+        {
+          "soc_pct": 20,
+          "kw": 205
+        },
+        {
+          "soc_pct": 40,
+          "kw": 150
+        },
+        {
+          "soc_pct": 60,
+          "kw": 100
+        },
+        {
+          "soc_pct": 80,
+          "kw": 60
+        }
+      ],
+      "msrp_cad": {
+        "value": 62950,
+        "confidence": "High",
+        "source": {
+          "url": "https://media.polestar.com/ca/en/media/pressreleases/668418/polestar-announces-pricing-and-availability-for-the-significantly-enhanced-2024-polestar-2",
+          "name": "Polestar Canada \u2014 2024 Polestar 2 pricing press release",
+          "accessed": "2026-04-23"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium"
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "High",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.8
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 6.8
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0
+        },
+        {
+          "temp_c": -15,
+          "value": 3.8
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 0.9
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.1
+        },
+        {
+          "temp_c": 40,
+          "value": 2.8
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 30
+        },
+        {
+          "temp_c": -10,
+          "value": 20
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.1
+        },
+        {
+          "temp_c": -30,
+          "value": 0.2
+        },
+        {
+          "temp_c": -20,
+          "value": 0.34,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 0,
+          "value": 0.65
+        },
+        {
+          "temp_c": 10,
+          "value": 0.82
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "nissan-ariya-evolveplus-fwd",
+      "brand_id": "nissan",
+      "model": "Ariya",
+      "generation_label": "2023+ (87 kWh)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "SINGLE_MOTOR",
+      "trim_label": "Evolve+ FWD (87 kWh)",
+      "battery_kwh_total": {
+        "value": 91,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 87,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 465,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://insideevs.com/news/722025/2024-nissan-ariya-epa-range-consumption-price/",
+          "name": "InsideEVs \u2014 2024 Nissan Ariya EPA range overview",
+          "accessed": "2026-04-24"
+        },
+        "notes": "EPA 289 mi for Evolve+ FWD; converted to km."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 7.4,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        },
+        "notes": "Standard onboard charger; 22 kW optional in some markets but not Canada."
+      },
+      "dc_charge_kw_max": {
+        "value": 130,
+        "confidence": "High",
+        "source": {
+          "url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 468,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "cargo_l_seats_down": {
+        "value": 1690,
+        "confidence": "Low",
+        "notes": "Estimated; Canadian spec sheet inconsistent."
+      },
+      "tow_rating_kg": {
+        "value": 680,
+        "confidence": "Medium",
+        "notes": "FWD models rated lower than AWD per Nissan Canada."
+      },
+      "weight_kg": {
+        "value": 2121,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "source": {
+          "url": "https://ev-database.org/car/1302/Nissan-Ariya-87kWh",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        },
+        "notes": "Standard equipment on all Canadian Ariya trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 130
+        },
+        {
+          "soc_pct": 20,
+          "kw": 130
+        },
+        {
+          "soc_pct": 40,
+          "kw": 100
+        },
+        {
+          "soc_pct": 60,
+          "kw": 75
+        },
+        {
+          "soc_pct": 80,
+          "kw": 45
+        }
+      ],
+      "msrp_cad": {
+        "value": 59998,
+        "confidence": "High",
+        "source": {
+          "url": "https://canada.nissannews.com/en-CA/releases/nissan-enhances-starting-price-of-2024-nissan-ariya-to-ca49998",
+          "name": "Nissan Canada press release \u2014 2024 Ariya pricing",
+          "accessed": "2026-04-24"
+        },
+        "notes": "Evolve+ FWD trim, 2024 Canadian MSRP."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "iZEV program paused as of 2026; pre-pause cap was $55k base trim \u2014 Evolve+ ineligible."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Ontario has no EV rebate (Ford govt cancelled in 2018)."
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.5
+        },
+        {
+          "temp_c": -30,
+          "value": 0.63
+        },
+        {
+          "temp_c": -20,
+          "value": 0.76
+        },
+        {
+          "temp_c": -10,
+          "value": 0.86
+        },
+        {
+          "temp_c": 0,
+          "value": 0.93
+        },
+        {
+          "temp_c": 10,
+          "value": 0.97
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.96
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.5
+        },
+        {
+          "temp_c": -20,
+          "value": 6.5,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 Winter EV range loss",
+            "accessed": "2026-04-24"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 4.8
+        },
+        {
+          "temp_c": -5,
+          "value": 2.2
+        },
+        {
+          "temp_c": 0,
+          "value": 1.2
+        },
+        {
+          "temp_c": 10,
+          "value": 0.6
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.3
+        },
+        {
+          "temp_c": 40,
+          "value": 3.2
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 50
+        },
+        {
+          "temp_c": -30,
+          "value": 42
+        },
+        {
+          "temp_c": -20,
+          "value": 32
+        },
+        {
+          "temp_c": -10,
+          "value": 22
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.85,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.08
+        },
+        {
+          "temp_c": -30,
+          "value": 0.16
+        },
+        {
+          "temp_c": -20,
+          "value": 0.26,
+          "source": {
+            "url": "https://support.fastned.nl/hc/en-gb/articles/360007516494",
+            "name": "Fastned \u2014 Real-world charging speed data",
+            "accessed": "2026-04-24"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.42
+        },
+        {
+          "temp_c": 0,
+          "value": 0.6
+        },
+        {
+          "temp_c": 10,
+          "value": 0.8
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "nissan-ariya-evolveplus-eforce-awd",
+      "brand_id": "nissan",
+      "model": "Ariya",
+      "generation_label": "2023+ (87 kWh)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Evolve+ e-4ORCE AWD (87 kWh)",
+      "battery_kwh_total": {
+        "value": 91,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh---290-kW",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 87,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh---290-kW",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 437,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://insideevs.com/news/722025/2024-nissan-ariya-epa-range-consumption-price/",
+          "name": "InsideEVs \u2014 2024 Nissan Ariya EPA range overview",
+          "accessed": "2026-04-24"
+        },
+        "notes": "EPA 272 mi for Evolve+ e-4ORCE; converted to km."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 7.4,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh---290-kW",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 130,
+        "confidence": "High",
+        "source": {
+          "url": "https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh---290-kW",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 415,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh---290-kW",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        },
+        "notes": "Reduced vs FWD due to rear motor."
+      },
+      "cargo_l_seats_down": {
+        "value": 1565,
+        "confidence": "Low"
+      },
+      "tow_rating_kg": {
+        "value": 1500,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh---290-kW",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        },
+        "notes": "Braked, EU-spec; Canadian spec may differ."
+      },
+      "weight_kg": {
+        "value": 2293,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh---290-kW",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "source": {
+          "url": "https://ev-database.org/car/1305/Nissan-Ariya-e-4ORCE-87kWh---290-kW",
+          "name": "EV-Database.org",
+          "accessed": "2026-04-24"
+        }
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 130
+        },
+        {
+          "soc_pct": 20,
+          "kw": 130
+        },
+        {
+          "soc_pct": 40,
+          "kw": 100
+        },
+        {
+          "soc_pct": 60,
+          "kw": 70
+        },
+        {
+          "soc_pct": 80,
+          "kw": 40
+        }
+      ],
+      "msrp_cad": {
+        "value": 61998,
+        "confidence": "High",
+        "source": {
+          "url": "https://canada.nissannews.com/en-CA/releases/nissan-enhances-starting-price-of-2024-nissan-ariya-to-ca49998",
+          "name": "Nissan Canada press release \u2014 2024 Ariya pricing",
+          "accessed": "2026-04-24"
+        },
+        "notes": "Evolve+ e-4ORCE AWD, 2024 Canadian MSRP."
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "Medium",
+        "notes": "iZEV paused; AWD trim above pre-pause $65k SUV cap."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.5
+        },
+        {
+          "temp_c": -30,
+          "value": 0.63
+        },
+        {
+          "temp_c": -20,
+          "value": 0.76
+        },
+        {
+          "temp_c": -10,
+          "value": 0.86
+        },
+        {
+          "temp_c": 0,
+          "value": 0.93
+        },
+        {
+          "temp_c": 10,
+          "value": 0.97
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.96
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.5
+        },
+        {
+          "temp_c": -20,
+          "value": 6.5,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 Winter EV range loss",
+            "accessed": "2026-04-24"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 4.8
+        },
+        {
+          "temp_c": -5,
+          "value": 2.2
+        },
+        {
+          "temp_c": 0,
+          "value": 1.2
+        },
+        {
+          "temp_c": 10,
+          "value": 0.6
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.3
+        },
+        {
+          "temp_c": 40,
+          "value": 3.2
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 50
+        },
+        {
+          "temp_c": -30,
+          "value": 42
+        },
+        {
+          "temp_c": -20,
+          "value": 32
+        },
+        {
+          "temp_c": -10,
+          "value": 22
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.85,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.08
+        },
+        {
+          "temp_c": -30,
+          "value": 0.16
+        },
+        {
+          "temp_c": -20,
+          "value": 0.26,
+          "source": {
+            "url": "https://support.fastned.nl/hc/en-gb/articles/360007516494",
+            "name": "Fastned \u2014 Real-world charging speed data",
+            "accessed": "2026-04-24"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.42
+        },
+        {
+          "temp_c": 0,
+          "value": 0.6
+        },
+        {
+          "temp_c": 10,
+          "value": 0.8
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    },
+    {
+      "id": "genesis-gv60-advanced-awd",
+      "brand_id": "genesis",
+      "model": "GV60",
+      "generation_label": "2023+ (E-GMP)",
+      "year_start": 2023,
+      "year_end": null,
+      "powertrain": "BEV",
+      "body_style": "Crossover",
+      "drivetrain_variant": "AWD",
+      "trim_label": "Advanced AWD (77.4 kWh)",
+      "battery_kwh_total": {
+        "value": 77.4,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.genesis.com/content/dam/genesis/us/com/pdf/2024/2024_GV60_Specs_Sheet_vfin.pdf",
+          "name": "Genesis 2024 GV60 spec sheet",
+          "accessed": "2026-04-24"
+        }
+      },
+      "battery_kwh_usable": {
+        "value": 74.0,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/imp/car/1647/Genesis-GV60-Premium",
+          "name": "EV-Database.org \u2014 GV60 Premium 77 kWh",
+          "accessed": "2026-04-24"
+        },
+        "notes": "E-GMP usable ~74 kWh; same pack as IONIQ 5/EV6."
+      },
+      "battery_chemistry": "NMC",
+      "range_km": {
+        "value": 399,
+        "confidence": "High",
+        "source": {
+          "url": "https://insideevs.com/news/696264/genesis-gv60-single-motor-small-wheels-crucial-range/",
+          "name": "InsideEVs \u2014 GV60 trim ranges",
+          "accessed": "2026-04-24"
+        },
+        "notes": "EPA 248 mi for 2024 Advanced AWD; converted to km."
+      },
+      "range_protocol": "EPA",
+      "ac_charge_kw_max": {
+        "value": 11,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.genesis.com/content/dam/genesis/us/com/pdf/2024/2024_GV60_Specs_Sheet_vfin.pdf",
+          "name": "Genesis 2024 GV60 spec sheet",
+          "accessed": "2026-04-24"
+        }
+      },
+      "dc_charge_kw_max": {
+        "value": 233,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/imp/car/1647/Genesis-GV60-Premium",
+          "name": "EV-Database.org \u2014 GV60 Premium 77 kWh",
+          "accessed": "2026-04-24"
+        },
+        "notes": "Peak measured ~233 kW on 800V hardware; Genesis cites 'up to 350 kW capable charger'."
+      },
+      "port_type": "CCS1",
+      "seats": 5,
+      "cargo_l_seats_up": {
+        "value": 432,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/imp/car/1647/Genesis-GV60-Premium",
+          "name": "EV-Database.org \u2014 GV60 Premium 77 kWh",
+          "accessed": "2026-04-24"
+        }
+      },
+      "cargo_l_seats_down": {
+        "value": 1550,
+        "confidence": "Low",
+        "notes": "Estimated; Genesis spec sheet doesn't break out seats-down volume."
+      },
+      "tow_rating_kg": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "Not rated for towing in North America."
+      },
+      "weight_kg": {
+        "value": 2095,
+        "confidence": "Medium",
+        "source": {
+          "url": "https://ev-database.org/imp/car/1647/Genesis-GV60-Premium",
+          "name": "EV-Database.org \u2014 GV60 Premium 77 kWh",
+          "accessed": "2026-04-24"
+        }
+      },
+      "has_heat_pump": {
+        "value": true,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.genesis.com/content/dam/genesis/us/com/pdf/2024/2024_GV60_Specs_Sheet_vfin.pdf",
+          "name": "Genesis 2024 GV60 spec sheet",
+          "accessed": "2026-04-24"
+        },
+        "notes": "Standard equipment on all Canadian GV60 trims."
+      },
+      "thermal_management": "active_liquid",
+      "charging_curve_20c": [
+        {
+          "soc_pct": 10,
+          "kw": 230
+        },
+        {
+          "soc_pct": 20,
+          "kw": 233
+        },
+        {
+          "soc_pct": 40,
+          "kw": 195
+        },
+        {
+          "soc_pct": 60,
+          "kw": 130
+        },
+        {
+          "soc_pct": 80,
+          "kw": 75
+        }
+      ],
+      "msrp_cad": {
+        "value": 72500,
+        "confidence": "High",
+        "source": {
+          "url": "https://www.autotrader.ca/research/genesis/gv60/2024/",
+          "name": "AutoTrader.ca \u2014 2024 Genesis GV60 Canadian pricing",
+          "accessed": "2026-04-24"
+        }
+      },
+      "federal_izev_cad": {
+        "value": 0,
+        "confidence": "High",
+        "notes": "iZEV paused; pre-pause GV60 above the $65k luxury cap regardless."
+      },
+      "provincial_rebate_cad_on": {
+        "value": 0,
+        "confidence": "High"
+      },
+      "overall_confidence": "Medium",
+      "cold_derate_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.55
+        },
+        {
+          "temp_c": -30,
+          "value": 0.68
+        },
+        {
+          "temp_c": -20,
+          "value": 0.81
+        },
+        {
+          "temp_c": -10,
+          "value": 0.88
+        },
+        {
+          "temp_c": 0,
+          "value": 0.95
+        },
+        {
+          "temp_c": 10,
+          "value": 0.98
+        },
+        {
+          "temp_c": 20,
+          "value": 1.0
+        },
+        {
+          "temp_c": 30,
+          "value": 1.0
+        },
+        {
+          "temp_c": 40,
+          "value": 0.97
+        }
+      ],
+      "hvac_draw_kw_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 8.5
+        },
+        {
+          "temp_c": -30,
+          "value": 7.0
+        },
+        {
+          "temp_c": -20,
+          "value": 5.0,
+          "source": {
+            "url": "https://www.recurrentauto.com/research/winter-ev-range-loss",
+            "name": "Recurrent Auto \u2014 The Real Effect of Cold Weather on EV Range",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -15,
+          "value": 3.2
+        },
+        {
+          "temp_c": -10,
+          "value": 1.8
+        },
+        {
+          "temp_c": 0,
+          "value": 1.0
+        },
+        {
+          "temp_c": 10,
+          "value": 0.5
+        },
+        {
+          "temp_c": 20,
+          "value": 0.2
+        },
+        {
+          "temp_c": 30,
+          "value": 1.2
+        },
+        {
+          "temp_c": 40,
+          "value": 3.0
+        }
+      ],
+      "hp_min_temp_c": -15,
+      "precon_time_by_temp": [
+        {
+          "temp_c": -40,
+          "value": 45
+        },
+        {
+          "temp_c": -30,
+          "value": 38
+        },
+        {
+          "temp_c": -20,
+          "value": 28
+        },
+        {
+          "temp_c": -10,
+          "value": 18
+        },
+        {
+          "temp_c": 0,
+          "value": 12
+        },
+        {
+          "temp_c": 10,
+          "value": 6
+        },
+        {
+          "temp_c": 20,
+          "value": 3
+        }
+      ],
+      "precon_thermal_gain": 0.88,
+      "dc_cold_soak_curve": [
+        {
+          "temp_c": -40,
+          "value": 0.14
+        },
+        {
+          "temp_c": -30,
+          "value": 0.26
+        },
+        {
+          "temp_c": -20,
+          "value": 0.48,
+          "source": {
+            "url": "https://www.p3-group.com/en/p3-charging-index/",
+            "name": "P3 Group Charging Index",
+            "accessed": "2026-04-23"
+          }
+        },
+        {
+          "temp_c": -10,
+          "value": 0.65
+        },
+        {
+          "temp_c": 0,
+          "value": 0.8
+        },
+        {
+          "temp_c": 10,
+          "value": 0.9
+        },
+        {
+          "temp_c": 20,
+          "value": 0.95
+        },
+        {
+          "temp_c": 30,
+          "value": 0.98
+        },
+        {
+          "temp_c": 40,
+          "value": 0.9
+        }
+      ],
+      "degradation_annual": 0.02
+    }
+  ]
+}

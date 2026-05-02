@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(chmod +x \"/Users/ianmcadam/Documents/Claude/Projects/EV dashboard/.claude/worktrees/heuristic-jemison-71e592/scripts/smoke.sh\")",
+      "Bash(npx tsc *)",
+      "Bash(python3 scripts/validate.py)",
+      "Bash(npm test *)",
+      "Bash(python3 scripts/queue.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(bash scripts/smoke.sh --fast)",
+      "Bash(python3 scripts/milestone.py cluster-A \"foundation — memory rituals tests zod hooks docs. smoke.sh green. 50/50 tests. commit 27b1fc4.\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(node -e \"const p = require\\('./node_modules/zustand/package.json'\\); console.log\\(p.version\\)\")",
+      "Bash(npx vitest *)",
+      "Bash(python3 scripts/milestone.py C-cluster \"cluster-C: F-02 cost/100km+TOU dropdown, B-01 persist middleware, F-03 badge tooltips, C4 rollupConfidence fix, C6 drivetrain prettifier+empty state\")",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__browser_batch",
+      "mcp__Claude_in_Chrome__computer",
+      "mcp__Claude_in_Chrome__javascript_tool",
+      "Bash(npm run *)",
+      "mcp__Claude_in_Chrome__find",
+      "Bash(cargo check *)",
+      "Bash(chmod +x scripts/recommend_model.py)",
+      "Bash(python3 scripts/recommend_model.py)",
+      "Bash(python3 scripts/recommend_model.py --simulate sonnet:medium)",
+      "Bash(python3 scripts/recommend_model.py --simulate haiku:low)"
+    ]
+  }
+}

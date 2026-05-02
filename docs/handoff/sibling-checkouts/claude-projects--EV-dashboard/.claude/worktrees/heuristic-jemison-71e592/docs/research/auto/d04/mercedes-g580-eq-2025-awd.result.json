@@ -1,0 +1,45 @@
+{
+  "vehicle": {
+    "id": "mercedes-g580-eq-2025-awd",
+    "brand_id": "mercedes-benz",
+    "model": "G 580 with EQ Technology",
+    "generation_label": "Gen 1 (2025+)",
+    "year_start": 2025,
+    "year_end": null,
+    "powertrain": "BEV",
+    "body_style": "SUV",
+    "drivetrain_variant": "AWD",
+    "trim_label": "G 580 with EQ Technology AWD",
+    "battery_chemistry": "NMC",
+    "range_protocol": "EPA",
+    "port_type": "CCS1",
+    "seats": 5,
+    "thermal_management": "active_liquid",
+    "degradation_annual": 0.017
+  },
+  "cited_fields": {
+    "battery_kwh_total": {"value": 116.0, "confidence": "High", "source": {"url": "http://mercedes-benz.ca/en/vehicles/model/g-class/suv/g580w4e", "name": "Mercedes Canada G 580 EQ — 116 kWh battery capacity", "accessed": "2026-04-25"}},
+    "battery_kwh_usable": {"value": 108.0, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/2050/Mercedes-G-580-EQ", "name": "EV-Database G 580 EQ usable kWh", "accessed": "2026-04-25"}},
+    "range_km": {"value": 385, "confidence": "High", "source": {"url": "http://mercedes-benz.ca/en/vehicles/model/g-class/suv/g580w4e", "name": "Mercedes Canada G 580 EQ — 385 km electric range", "accessed": "2026-04-25"}, "notes": "Mercedes Canada 385 km, GuideAuto 385 km. Two sources exact match."},
+    "ac_charge_kw_max": {"value": 11, "confidence": "High", "source": {"url": "http://mercedes-benz.ca/en/vehicles/model/g-class/suv/g580w4e", "name": "Mercedes Canada G 580 — 11 kW max AC charging", "accessed": "2026-04-25"}},
+    "dc_charge_kw_max": {"value": 200, "confidence": "High", "source": {"url": "http://mercedes-benz.ca/en/vehicles/model/g-class/suv/g580w4e", "name": "Mercedes Canada G 580 — 200 kW DC peak (10-80% in 32 min)", "accessed": "2026-04-25"}},
+    "cargo_l_seats_up": {"value": 620, "confidence": "High", "source": {"url": "http://mercedes-benz.ca/en/vehicles/model/g-class/suv/g580w4e", "name": "Mercedes Canada G 580 — 620-1,990 L cargo range", "accessed": "2026-04-25"}},
+    "cargo_l_seats_down": {"value": 1990, "confidence": "High", "source": {"url": "http://mercedes-benz.ca/en/vehicles/model/g-class/suv/g580w4e", "name": "Mercedes Canada G 580 max cargo 1,990 L", "accessed": "2026-04-25"}},
+    "tow_rating_kg": {"value": 1361, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/2050/Mercedes-G-580-EQ", "name": "EV-Database G 580 EQ tow rating ~3,000 lb", "accessed": "2026-04-25"}, "notes": "G 580 has trailer hitch standard; 3,000 lb / 1,361 kg max"},
+    "weight_kg": {"value": 3085, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/mercedes-benz/g-class/2025/specifications/580-with-eq-technology/", "name": "GuideAuto G 580 EQ curb weight 3,085 kg", "accessed": "2026-04-25"}},
+    "has_heat_pump": {"value": true, "confidence": "High", "source": {"url": "http://mercedes-benz.ca/en/vehicles/model/g-class/suv/g580w4e", "name": "Mercedes Canada G 580 — heat pump standard (Mercedes EV platform)", "accessed": "2026-04-25"}},
+    "msrp_cad": {"value": 206000, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/mercedes-benz/g-class/2025/specifications/580-with-eq-technology/", "name": "GuideAuto 2025 G 580 EQ $206,000 CAD MSRP", "accessed": "2026-04-25"}, "notes": "GuideAuto $206,000. Bare MSRP excludes $3,995 freight/PDI."},
+    "federal_izev_cad": {"value": 0, "confidence": "High", "source": {"url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/incentives-zero-emission-vehicles-izev", "name": "Transport Canada — iZEV paused 2026; over MSRP cap regardless", "accessed": "2026-04-25"}},
+    "provincial_rebate_cad_on": {"value": 0, "confidence": "High", "source": {"url": "https://www.ontario.ca/page/electric-vehicles", "name": "Ontario — no provincial EV rebate since 2018", "accessed": "2026-04-25"}}
+  },
+  "thermal_arrays": {
+    "cold_derate_curve": [],
+    "hvac_draw_kw_by_temp": [],
+    "hp_min_temp_c": -10,
+    "precon_time_by_temp": [],
+    "precon_thermal_gain": 0.85,
+    "dc_cold_soak_curve": [],
+    "charging_curve_20c": []
+  },
+  "overall_confidence": "High"
+}

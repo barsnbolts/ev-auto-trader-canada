@@ -1,0 +1,45 @@
+{
+  "vehicle": {
+    "id": "kia-ev9-2025-lr-awd",
+    "brand_id": "kia",
+    "model": "EV9",
+    "generation_label": "Gen 1 (2024+)",
+    "year_start": 2024,
+    "year_end": null,
+    "powertrain": "BEV",
+    "body_style": "SUV",
+    "drivetrain_variant": "AWD",
+    "trim_label": "Land AWD Long Range",
+    "battery_chemistry": "NMC",
+    "range_protocol": "EPA",
+    "port_type": "CCS1",
+    "seats": 7,
+    "thermal_management": "active_liquid",
+    "degradation_annual": 0.017
+  },
+  "cited_fields": {
+    "battery_kwh_total": {"value": 99.8, "confidence": "High", "source": {"url": "https://driving.ca/kia/ev9/2025/land-awd/", "name": "Driving.ca 2025 EV9 Land AWD review", "accessed": "2026-04-25"}},
+    "battery_kwh_usable": {"value": 96.0, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1900/Kia-EV9-Long-Range", "name": "EV-Database Kia EV9 Long Range", "accessed": "2026-04-25"}},
+    "range_km": {"value": 455, "confidence": "High", "source": {"url": "https://www.driving.ca/kia/ev9/wind-rwd/", "name": "Driving.ca Land AWD range 455 km", "accessed": "2026-04-25"}, "notes": "Driving.ca 455 km, GuideAuto 455 km Land/Plus 2.8 Le/100km combined"},
+    "ac_charge_kw_max": {"value": 10.9, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2026/specifications/land-awd-with-plus-package/", "name": "GuideAuto Kia EV9 Land AWD spec sheet", "accessed": "2026-04-25"}},
+    "dc_charge_kw_max": {"value": 233, "confidence": "Medium", "source": {"url": "https://ev-database.org/car/1900/Kia-EV9-Long-Range", "name": "EV-Database Kia EV9 800V architecture", "accessed": "2026-04-25"}, "notes": "Same 800V E-GMP arch as RWD; 10-80% in 24 min on 350 kW charger"},
+    "cargo_l_seats_up": {"value": 333, "confidence": "Medium", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2026/specifications/land-awd-with-plus-package/", "name": "GuideAuto Kia EV9 cargo (3rd row up)", "accessed": "2026-04-25"}, "notes": "333 L behind 3rd row; 573 L = 2nd row up / 3rd row down"},
+    "cargo_l_seats_down": {"value": 2314, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2026/specifications/land-awd-with-plus-package/", "name": "GuideAuto Kia EV9 max cargo", "accessed": "2026-04-25"}},
+    "tow_rating_kg": {"value": 2268, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2026/specifications/land-awd-with-plus-package/", "name": "GuideAuto EV9 Land AWD tow 5000 lb", "accessed": "2026-04-25"}, "notes": "Land AWD trim rated 2,268 kg / 5,000 lb"},
+    "weight_kg": {"value": 2599, "confidence": "High", "source": {"url": "https://www.guideautoweb.com/en/makes/kia/ev9/2026/specifications/land-awd-with-plus-package/", "name": "GuideAuto Kia EV9 Land AWD curb weight", "accessed": "2026-04-25"}},
+    "has_heat_pump": {"value": true, "confidence": "High", "source": {"url": "https://www.kia.ca/en/vehicles/ev9", "name": "Kia Canada EV9 features (heat-pump standard on Land trim)", "accessed": "2026-04-25"}},
+    "msrp_cad": {"value": 64995, "confidence": "High", "source": {"url": "https://driving.ca/kia/ev9/2025/land-awd/", "name": "Driving.ca 2025 EV9 Land AWD MSRP", "accessed": "2026-04-25"}, "notes": "Driving.ca $64,995, GuideAuto $64,995, Kia Canada $64,995. Bare MSRP excludes $2,150 freight/PDI."},
+    "federal_izev_cad": {"value": 0, "confidence": "High", "source": {"url": "https://tc.canada.ca/en/road-transportation/innovative-technologies/zero-emission-vehicles/incentives-zero-emission-vehicles-izev", "name": "Transport Canada — iZEV paused 2026", "accessed": "2026-04-25"}},
+    "provincial_rebate_cad_on": {"value": 0, "confidence": "High", "source": {"url": "https://www.ontario.ca/page/electric-vehicles", "name": "Ontario — no provincial EV rebate since 2018", "accessed": "2026-04-25"}}
+  },
+  "thermal_arrays": {
+    "cold_derate_curve": [],
+    "hvac_draw_kw_by_temp": [],
+    "hp_min_temp_c": -10,
+    "precon_time_by_temp": [],
+    "precon_thermal_gain": 0.85,
+    "dc_cold_soak_curve": [],
+    "charging_curve_20c": []
+  },
+  "overall_confidence": "High"
+}
