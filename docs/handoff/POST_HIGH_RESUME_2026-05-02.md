@@ -6,11 +6,10 @@
 
 ## Where we are
 
-- **HEAD (pushed):** `c6e8e3c8`
-- **Branch:** `claude/verify-environment-setup-oTu3S`
-- **Working tree at handoff:** clean except for this doc + the
-  enriched `MEDIUM_NEXT.md` / `LOW_NEXT.md` updates (commit them with
-  this file).
+- **HEAD (pushed):** `425afb2d`
+- **Branch:** `claude/verify-environment-setup-oTu3S` (synced with origin)
+- **Working tree at handoff:** clean
+- **Pre-commit hook:** ACTIVE — `.git/hooks/pre-commit` runs `npx tsc --noEmit` on every commit (don't try to bypass with `--no-verify`)
 
 ## What HIGH pass shipped (2026-05-02)
 
@@ -21,20 +20,25 @@
 | **M10A** Leasebusters probe doc | `dd023dfb` | `docs/LEASEBUSTERS_PROBE.md` shipped. **PAUSED** for user go-ahead before Phase B (scraper) / C (UI). |
 | **M12-schema** OEM pricing migration | `053e9e96` | `data/oem-pricing.json` now nested per-trim `{value, lastVerified, source, staleSince}`. Build script `scripts/build_units_from_at.py:180-184` patched to extract `entry["value"]`. Round-trip verified — `data/units.json` shows zero MSRP drift. |
 | **M4** Cookie migration | `c6e8e3c8` | `getBuyerContext` threaded through 4 routes + dossier. `loadScoredUnits` accepts `BuyerContext` OR legacy `Province`. `buyerProvinceServer.ts` deleted. Predeploy clean. |
+| **Handoff** | `b627a68f` | POST_HIGH_RESUME pointer + tier queues in MEDIUM_NEXT/LOW_NEXT. |
+| **Pre-stubs** | `e477910f` | `scripts/derive_days_on_market.py` (M16 algorithm), `scripts/track_apify_spend.py` (M12 spend gate), `docs/handoff/research/M15_msrp_2026-05-02.md` (fillable template). |
+| **M17** simple-git-hooks | `425afb2d` | Pre-commit `npx tsc --noEmit` wired via `simple-git-hooks ^2.13.1`. Hook validated. Note: a `should-fail` test commit (`561c4e89`) exists in history but was scrubbed by the next commit; harmless. |
 
-## What's next, in order — drop to MEDIUM here
+## What's next — read MEDIUM_NEXT.md "POST-HIGH EXECUTION ORDER"
 
-1. **M15** — Per-trim Canadian MSRP refresh via brochure PDFs / showroom pages. Schema is migrated; values need refresh. Full instructions + URL pattern in `MEDIUM_NEXT.md` §M15. ~30-45 min.
-2. **M8** (existing in `MEDIUM_NEXT.md`) — Selector rename `BuyerProvinceSelector.tsx` → `BuyerContextSelector.tsx` + add loyalty/conquest checkboxes. ~25 min.
-3. **M16** — Snapshot-diff `daysOnLot` script (`scripts/derive_days_on_market.py`). Full source pasteable from plan §5/M3. ~30-45 min.
-4. **M14** (existing in `MEDIUM_NEXT.md`) — Daily refresh cron via `mcp__scheduled-tasks__create_scheduled_task`. ~5 min.
-5. **M17** — `simple-git-hooks` pre-commit (typecheck-only). ~10 min.
-6. **M12 paid sample** (was M2 in plan) — Apify ON+H/K sample. **ASK USER FIRST** before firing. Cap $5 for sample, $30 cumulative. ~15 min wall + actor wait.
-7. **M10** (existing) — Seed Hyundai/Kia loyalty + conquest incentive entries.
-8. **M11** (existing) — Add Dossier link column to InventoryTable.
-9. **M13** (existing) — Refresh general incentives via Exa.
+That section has the full ordered queue with tier tags (`[MEDIUM]` vs `[SONNET]`) + dependency map + concurrency hints. The first 3 items (#0a branch drift, #0b M4 preview smoke, #1 M17) are ALREADY DONE on the HIGH pass. **Start at #2 M8 (selector rename).**
 
-After all of these land, the next HIGH-tier batch is **M13 cash/finance/lease comparison** (plan §12) — the lease-buyer pivot the user flagged on 2026-05-02.
+Pre-stubbed artifacts that medium should reuse, NOT rewrite:
+- `scripts/derive_days_on_market.py` (M16 algorithm — paste from plan §5/M3 was DONE here)
+- `scripts/track_apify_spend.py` (M12 spend gate — exit codes 0/2/3 already wired)
+- `docs/handoff/research/M15_msrp_2026-05-02.md` (per-trim fillable template)
+
+Decisions baked in (don't re-ask):
+- **M14 cron push target → (a) push to working branch** `claude/verify-environment-setup-oTu3S`. Don't push to main (project rule).
+- **Subagent strategy → subagent ≥10 min self-contained, inline <5 min** per the vibe-coding directive saved in auto-memory.
+- **M12 Apify** still requires explicit user confirmation before firing (money gate, hard rule). Don't auto-fire even though everything else is autonomous.
+
+After the medium queue lands, next HIGH-tier batch is **cash/finance/lease comparison** (plan §12 / M13-bigger) — the lease-buyer pivot user flagged on 2026-05-02.
 
 ## Optimization wins captured during HIGH pass
 
