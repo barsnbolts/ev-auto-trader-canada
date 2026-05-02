@@ -1,0 +1,59 @@
+{
+  "probedAt": "2026-05-02T21:24:00Z",
+  "head": "cd2936e6",
+  "branch": "claude/verify-environment-setup-oTu3S",
+  "endpointsObserved": [
+    {
+      "url": "https://listing-search.api.autoscout24.com/graphql",
+      "method": "POST",
+      "status": 200,
+      "fireCount": 2,
+      "bodyCaptured": false,
+      "reason": "MCP read_network_requests does not expose request/response bodies. JS hook installed AFTER page load missed initial fires; full-nav pagination wipes hook; in-page sort/filter does not refire (uses SSR cache)."
+    },
+    {
+      "url": "https://www.autotrader.ca/listing-search-api/graphql",
+      "method": "POST",
+      "status": 200,
+      "fireCount": 1,
+      "bodyCaptured": false,
+      "reason": "Same as above"
+    }
+  ],
+  "introspectionAttempt": {
+    "endpoints": [
+      "https://www.autotrader.ca/listing-search-api/graphql",
+      "https://listing-search.api.autoscout24.com/graphql"
+    ],
+    "result": "renderer froze, CDP Runtime.evaluate timed out at 45s",
+    "interpretation": "Imperva blocks unsigned POSTs; the page's real calls succeed because they carry a request-time hash header tied to the page session"
+  },
+  "ssrSearchResultsListingPayloadKeys": {
+    "timeRelated": [
+      "tracking.firstRegistration"
+    ],
+    "neverObserved": [
+      "postedAt", "firstSeen", "daysOnMarket", "daysOnLot",
+      "listingDays", "createdAt", "publishedAt", "addedAt",
+      "fromDate", "rawFromDate", "inDays"
+    ]
+  },
+  "ssrListingDetailsPagePayload": {
+    "availability": {
+      "rawFromDate": null,
+      "fromDate": null,
+      "inDays": null
+    },
+    "interpretation": "Schema has the field; AutoTrader does not populate it for /offers/ URLs (the only URL family currently emitted by search results)."
+  },
+  "urlFamilyDistribution": {
+    "/offers/": "100% of 20 sampled listings",
+    "/cars/<id>/": "0%",
+    "/a/<id>/": "0%"
+  },
+  "queryParamFilterBug": {
+    "observation": "?make=Kia&model=EV6 returned 5798 results spanning EV4/Sorento/Sportage/Carnival/Forte/etc.",
+    "implication": "Apify input MUST use path-form URLs like /cars/kia/ev6/on/, not query-form. docs/apify_inputs/ontario_full.json already uses path-form."
+  },
+  "decision": "snapshot-diff (M3) is the daysOnMarket source. M2 Apify sample confirms whether actor exposes the field directly as a complementary signal."
+}

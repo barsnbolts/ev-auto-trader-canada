@@ -146,3 +146,42 @@ listings = nd["props"]["pageProps"]["listings"]  # 20 per page
 total = nd["props"]["pageProps"]["numberOfResults"]
 pages = nd["props"]["pageProps"]["numberOfPages"]
 ```
+
+## GraphQL response bodies — second probe (2026-05-02)
+
+Re-probed both GraphQL endpoints to settle the daysOnMarket question.
+Result: **GraphQL bodies cannot be captured via Chrome MCP** (no
+CDP-level pre-load hook exposed; in-page hooks miss the initial fires
+and the page's own sort/filter UI doesn't refire because Next.js sorts
+the SSR-cached array client-side; introspection from the page's JS
+context is gated by Imperva).
+
+**But the question is now answered another way.** Direct inspection of
+`__NEXT_DATA__` on a listing-detail page (e.g. `/offers/<slug>-<uuid>`)
+shows the schema carries `props.pageProps.listingDetails.availability`:
+
+```json
+{ "rawFromDate": null, "fromDate": null, "inDays": null }
+```
+
+`inDays` would be daysOnMarket — but it's null on every `/offers/` URL
+sampled. And **100% of search-results listings point to `/offers/`** (no
+non-offers URL family exists in current AutoTrader Canada output).
+
+**Decision: snapshot-diff (M3) is the daysOnMarket source.** GraphQL
+isn't a viable third path because we never get the bodies. M2 Apify
+sample still runs to confirm whether the paid actor returns
+`daysOnMarket` directly.
+
+Full findings + raw captures + reproduction:
+- `docs/handoff/research/M0_findings_2026-05-02.md`
+- `docs/handoff/research/M0_graphql_2026-05-02.json`
+
+## Side observation: search-results `?model=` query-param filter is broken
+
+`/cars/?make=Kia&model=EV6&prv=Ontario` returns 5,798 results spanning
+EV4 / Sorento / Sportage / Carnival / Forte etc. The `model=` filter
+is silently ignored when supplied via querystring. **Apify input MUST
+use path-form URLs** like `/cars/kia/ev6/on/?rcp=100`. The existing
+`docs/apify_inputs/ontario_full.json` already uses path-form, so M2
+input shape is unchanged.
