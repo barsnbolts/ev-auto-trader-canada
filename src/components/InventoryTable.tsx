@@ -506,6 +506,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                         −{fmtCad(u.msrp - u.dealerAskingPrice)}
                       </div>
                     )}
+                    {u.dealerAskingPrice > u.msrp + 5000 && (
+                      <div
+                        className="text-xxs text-warn"
+                        title="Asking price exceeds MSRP by >$5k. Likely a higher trim mis-mapped to a base trim, or a stale MSRP default. Treat the discount math as suspect until verified on the OEM configurator."
+                      >
+                        MSRP unverified
+                      </div>
+                    )}
                   </td>
                   <td className="px-3 py-2 text-right num font-medium">
                     {fmtCad(u.otdCad)}

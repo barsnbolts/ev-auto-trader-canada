@@ -23,7 +23,13 @@ export default async function Dashboard() {
   const pressure = dealerPressureMap(units, dealers);
   const provinces = provinceRollup(units, dealerById);
 
-  const topDeals = [...units].sort((a, b) => b.dealScore - a.dealScore).slice(0, 8);
+  // Filter out units with ask > MSRP + $5k (likely trim-mismatch or stale
+  // DEFAULT_MSRP) — those poison "best deals" with false discount math.
+  // See BLOCKERS_MEDIUM.md item F.
+  const topDeals = [...units]
+    .filter((u) => u.dealerAskingPrice <= u.msrp + 5000)
+    .sort((a, b) => b.dealScore - a.dealScore)
+    .slice(0, 8);
   const gghCount = units.filter((u) => inGGH(u, dealerById)).length;
   const activeIncentives = incentives.filter((i) => i.status === "active").length;
   const pausedIncentives = incentives.filter((i) => i.status === "paused").length;
