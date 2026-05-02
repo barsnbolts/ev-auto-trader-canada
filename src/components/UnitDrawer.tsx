@@ -61,17 +61,26 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
             {unit.vin && (
               <div className="text-xxs text-fg-subtle font-mono mt-0.5">VIN {unit.vin}</div>
             )}
-            {unit.listingUrl && (
-              <a
-                href={unit.listingUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1 mt-2 text-xs px-2 py-1 border border-accent rounded text-accent hover:bg-accent hover:text-bg"
-                title="Open original AutoTrader listing in new tab"
+            <div className="flex items-center gap-2 mt-2">
+              {unit.listingUrl && (
+                <a
+                  href={unit.listingUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1 text-xs px-2 py-1 border border-accent rounded text-accent hover:bg-accent hover:text-bg"
+                  title="Open original AutoTrader listing in new tab"
+                >
+                  View AutoTrader listing ↗
+                </a>
+              )}
+              <Link
+                href={`/inventory/${unit.id}/dossier`}
+                className="inline-flex items-center gap-1 text-xs px-2 py-1 border border-border rounded text-fg-muted hover:text-fg hover:bg-bg-subtle"
+                title="Print-friendly negotiation dossier — OTD breakdown, comparables, talking points"
               >
-                View AutoTrader listing ↗
-              </a>
-            )}
+                Dossier ↗
+              </Link>
+            </div>
           </div>
           <div className="flex items-center gap-1 shrink-0">
             {onNavigate && position && position.total > 1 && (

@@ -1,0 +1,12 @@
+{
+  "startUrls": [
+    { "url": "https://www.autotrader.ca/cars/hyundai/ioniq+5/on/?rcp=100&rcs=0" },
+    { "url": "https://www.autotrader.ca/cars/hyundai/ioniq+6/on/?rcp=100&rcs=0" },
+    { "url": "https://www.autotrader.ca/cars/hyundai/ioniq+9/on/?rcp=100&rcs=0" },
+    { "url": "https://www.autotrader.ca/cars/kia/ev6/on/?rcp=100&rcs=0" },
+    { "url": "https://www.autotrader.ca/cars/kia/ev9/on/?rcp=100&rcs=0" }
+  ],
+  "maxListings": 100,
+  "fetchDetails": true,
+  "scrapeNewListings": false
+}

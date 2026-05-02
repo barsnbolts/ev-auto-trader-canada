@@ -4,167 +4,216 @@
 specified — no architectural decisions, no investigation, no "figure out
 what to do." If a task here requires judgment, escalate to high.
 
-Phases 0 + 1 from the v2 plan are already shipped (`e75e48d`). What
-follows is the medium-friendly slice of Phases 5 + 6 plus housekeeping
-that fell out of Phase 1.
+Phases 0 + 1 are shipped (`e28585d`). M1, M2, M3, M5 from the prior medium
+pass are also shipped (`c1d5f69`). M4 (snapshot) ran 2026-05-02. M6
+(InventoryTable colSpan reminder) is a "look-out-for" rather than an edit.
+
+A high-reasoning prep pass (`<this commit>`) just landed scaffolds for
+Phases 2, 3.1, 4.1, 4.3 — what's below is the mechanical slice of those.
 
 ---
 
-## M1. Update `NEXT.md` to reflect Phase 0+1 shipped state
+## M7. Wire heat-pump UI chip (after L1 fills the queue)
 
-`NEXT.md` was last updated 2026-05-01 before this push. The following
-items are now SHIPPED and should be moved out of the "On HIGH" section
-into a new `## Shipped 2026-05-02` section at the top:
+Once `data/heatpump-research-queue.json` has been filled and merged into
+`data/specs.json` via `python3 scripts/merge_heatpump_research.py`, surface
+the per-trim flag as a chip:
 
-- **Item F (Markup illusion fix)** — replaced by `msrpSource` provenance
-  field. Trim parser hardened. Year-relaxed spec lookup added.
-  Cite commit: `e28585d`. Outcome: 65/97 false-markup units → 3 true
-  unknowns + 42 default-table + 55 spec-lookup.
-- **Item L (VERIFY-trim re-scrape)** — was already moot per
-  BLOCKERS_MEDIUM.md item 4; keep the closure note.
+1. **InventoryTable row** — read `spec.hasHeatPump` for the unit's
+   (model, year, trim, drivetrain) via the existing `specMap` lookup. Show:
+   - `true` → no chip (heat pump is the expected baseline; clutter-free)
+   - `false` → red chip "No heat pump" with title `"Trim ships with resistive heater only — expect 25-40% range loss below -10°C"`
+   - `null/undefined` → grey chip "Heat pump?" with title `"Not yet researched"`
 
-Also update the "Last updated" line at top to `2026-05-02 after commit `e28585d``.
+2. **UnitDrawer** — same logic, larger chip in the spec section.
 
-File: `NEXT.md`. Estimate: 5 min.
+3. **Dossier page** (`src/app/inventory/[id]/dossier/page.tsx`) — add a
+   "Cold-weather kit" line to the Header section: `Heat pump: yes/no/unknown`.
+
+Files: `src/components/InventoryTable.tsx`, `src/components/UnitDrawer.tsx`,
+`src/app/inventory/[id]/dossier/page.tsx`. Estimate: 30 min.
+
+If `colSpan` for the empty-state row needs bumping (currently 14 at
+`InventoryTable.tsx:587`), do it in the same commit.
 
 ---
 
-## M2. Run `ts-prune` and clear cosmetic dead exports
+## M8. Loyalty/conquest checkboxes in selector
 
-Deep-audit flagged 12 unused TypeScript exports. None are runtime hazards
-— pure cosmetic cleanup. Run:
+Schema + filter logic shipped in this prep. Need: UI + cookie writes.
+
+1. Open `src/components/BuyerProvinceSelector.tsx`. Replace its body with
+   a small form that uses `useBuyerContext()` from
+   `@/lib/buyerContext` (the new hook) instead of `useBuyerProvince`.
+2. Render the existing province dropdown PLUS two checkboxes:
+   - "I currently own a Hyundai or Kia" (loyalty)
+   - "I currently own a competing brand (Toyota / Honda / Tesla / etc.)" (conquest)
+3. On any change call `setBuyerContext({ province, loyalty, conquest })`.
+4. Rename the file to `BuyerContextSelector.tsx` and update its import in
+   `src/components/Nav.tsx` (or wherever it's mounted).
+
+Files: `src/components/BuyerProvinceSelector.tsx`, `src/components/Nav.tsx`.
+Estimate: 25 min.
+
+---
+
+## M9. Migrate getBuyerProvince callers to getBuyerContext
+
+`src/lib/buyerContextServer.ts` exposes `getBuyerContext()` and
+`getBuyerProvinceFromContext()`. Find every caller of the old
+`getBuyerProvince` from `src/lib/buyerProvinceServer.ts` and update:
 
 ```bash
 cd ~/ev-auto-trader-canada
-npx ts-prune 2>&1 | grep -v "used in module"
+grep -rn "getBuyerProvince\b" src/
 ```
 
-For each flagged export, either delete it or document why it's preserved
-(e.g. "exported for /api/ route consumers"). Do NOT delete:
-- Anything imported by a `.test.ts` (run `grep -rn` first)
-- Anything re-exported from a barrel file (`index.ts`)
-- Anything matching `Schema$` (zod schemas often look unused but are used
-  via `z.infer<typeof Schema>`)
+For each call site, prefer `getBuyerContext()` and pass the full context
+into `loadScoredUnits`. Then update `loadScoredUnits` signature to take
+`buyerContext?: BuyerContext` and pass it into `applicableIncentives`. The
+`buyerProvince` field on the returned object stays for back-compat — just
+populate it from `buyerContext.province`.
 
-Specific names known stale (per session summary):
-- `tailwind.config.ts:52 - default`
-- `src/lib/constants.ts:76 - TRIMS_BY_MODEL` (verify; may be used by Phase 1.4 trim catalog work)
-- `src/lib/constants.ts:106 - Year`
-- `src/lib/scoring.ts:239 - evapCapDeltaCad`
-
-File: multiple under `src/`. Estimate: 15 min.
+Files: `src/lib/data.ts`, `src/lib/buyerProvinceServer.ts` (delete or
+re-export from new module), `src/app/page.tsx`, `src/app/inventory/page.tsx`,
+`src/app/compare/page.tsx`, `src/app/dealer/[id]/page.tsx`, etc.
+Estimate: 30 min.
 
 ---
 
-## M3. Add `predeploy` script to `package.json`
+## M10. Seed Hyundai/Kia loyalty + conquest incentives
 
-Add to `scripts`:
+`data/incentives.json` has the schema (loyalty/conquest scopes already
+typed) but no entries yet. Add the current-month programs from the OEM
+sites:
 
-```json
-"predeploy": "npm run typecheck && npm run build"
-```
+- **Kia loyalty cash** — typically $500-$1,000 to existing Kia owners on EV6 / EV9
+- **Kia conquest cash** — competitive owner bonus on EV6 / EV9
+- **Hyundai loyalty rate reduction** — 0.5-1.0% APR cut for current Hyundai owners on Ioniq 5/6/9
+- **Hyundai conquest cash** — competitive owner bonus on Ioniq 5/6
 
-Right after the existing `typecheck` line. Then verify it runs:
+Use `data/incentives.json` as the schema reference (existing federal +
+provincial entries show the exact field shape). Set `scope: "loyalty"` or
+`scope: "conquest"`, `appliesTo.models`, `effectiveUntil`, `lastVerified`.
+
+Verification: with both buyer-context checkboxes on, applicable-incentive
+count should jump for matching units. With both off, score is unchanged
+from today.
+
+Files: `data/incentives.json`. Estimate: 25 min including OEM site lookup.
+
+---
+
+## M11. Add Dossier link column to InventoryTable
+
+The dossier route (`/inventory/[id]/dossier`) is shipped. UnitDrawer
+already links it. The row itself needs an inline link too.
+
+1. Add a small "📄" or "Dossier" link in the actions column of each row
+   in `src/components/InventoryTable.tsx`.
+2. Bump `colSpan` for the empty-state row at line ~587 if you added a
+   visible column (vs. squeezing into existing actions).
+3. `<Link href={\`/inventory/\${u.id}/dossier\`}>` — use Next's Link, not
+   a plain `<a>`, so client-side nav stays fast.
+
+Files: `src/components/InventoryTable.tsx`. Estimate: 10 min.
+
+---
+
+## M12. Run Apify scrape + merge enrichment
+
+`docs/APIFY_AUTOTRADER.md` has the actor (`calm_builder/autotrader-canada`)
++ canned input (`docs/apify_inputs/ontario_full.json`) +
+transform script (`scripts/apify_to_enrichment.py`).
+
+Sequence:
 
 ```bash
-npm run predeploy
+# 1. Trigger run via MCP (input file already canned)
+mcp__Apify__call-actor calm_builder/autotrader-canada \
+  --input @docs/apify_inputs/ontario_full.json
+
+# 2. Poll mcp__Apify__get-actor-run for status === SUCCEEDED
+
+# 3. Pull dataset
+mcp__Apify__get-actor-output <runId> > /tmp/apify_at.json
+
+# 4. Merge into data/units-enrichment.json
+python3 scripts/apify_to_enrichment.py --input /tmp/apify_at.json
+
+# 5. Re-build units.json (the new daysOnLot + VIN flow in via merge)
+python3 scripts/build_units_from_at.py
+
+# 6. Commit + push
+git add data/ && git commit -m "data refresh via apify $(date +%F)" && git push
 ```
 
-Should end with the standard `Generating static pages` summary and exit
-0. If it fails, that's a regression Phase 1 introduced — escalate.
+Cost ceiling: ~$0.75/run. Self-imposed budget cap: $30 cumulative — track
+in commit messages.
 
-This script is what the daily refresh cron (Phase 5.1) will run before
-attempting `git push`. Without it, a broken build can ship to Vercel.
-
-File: `package.json`. Estimate: 5 min.
+Files: `data/units.json`, `data/units-enrichment.json`. Estimate: 15 min wall.
 
 ---
 
-## M4. Manual snapshot capture (daily during buying window)
+## M13. Refresh incentives via Exa
 
-Already captured today (`data/snapshots/2026-05-02.json`, 100 units, new
-schema with `listingUrl` + `vin`). For tomorrow:
+NEXT item I, formalized:
 
 ```bash
-cd ~/ev-auto-trader-canada
-git pull --rebase origin main           # ALWAYS first per SESSION_HANDOFF.md
-python3 scripts/build_units_from_at.py  # regenerates units.json
-node scripts/snapshot.mjs               # writes data/snapshots/YYYY-MM-DD.json
-git add data/                           # explicit
-git commit -m "data refresh: $(date +%F)"
-git push origin main                    # Vercel auto-deploys
+# Per OEM, fetch the promo page text
+mcp__9a04470a-c5be-420d-a32b-adaaa7f50b13__web_fetch_exa
+  url: https://www.hyundaicanada.com/en/offers
+mcp__9a04470a-c5be-420d-a32b-adaaa7f50b13__web_fetch_exa
+  url: https://www.kia.ca/en/offers
 ```
 
-This is the daily ritual until Phase 5.1 (cron via scheduled-tasks MCP)
-ships. If `/tmp/at_listings.json` is missing or stale, escalate — that's
-the input file the build script reads, and refreshing it requires the
-Apify or search-JSON path from Phase 2 (HIGH-reasoning territory).
+For each promo found, update or add an entry in `data/incentives.json`:
 
-Estimate: 5 min wall.
+- `scope`: `manufacturer_cash` for cash bonuses; `loyalty` / `conquest`
+  for those programs (saves M10 work if you batch them)
+- `effectiveFrom` / `effectiveUntil` from the page
+- `lastVerified`: today
+- `source`: the OEM URL
 
----
-
-## M5. Move `DEFAULT_MSRP` table from build script to `data/oem-pricing.json`
-
-Currently the curated MSRP fallback table is hard-coded inside
-`scripts/build_units_from_at.py` at lines 124–148. Phase 3.2 will
-auto-refresh this from OEM configurators, so it should live in a JSON
-file the script reads.
-
-Steps:
-1. Create `data/oem-pricing.json` with shape:
-   ```json
-   {
-     "lastVerified": "2026-05-01",
-     "source": "Hand-curated from prior CLAUDE.md",
-     "msrp": {
-       "EV6": { "Light RWD": 47165, "Wind RWD": 50965, ... },
-       "Ioniq5": { ... },
-       ...
-     }
-   }
-   ```
-2. In `scripts/build_units_from_at.py`, replace the inline `DEFAULT_MSRP`
-   dict with code that reads `data/oem-pricing.json` and rebuilds the
-   `(model, trim) → msrp` lookup.
-3. Re-run `python3 scripts/build_units_from_at.py` — the by-msrpSource
-   distribution should be unchanged (same numbers, different source).
-
-File: `scripts/build_units_from_at.py`, new `data/oem-pricing.json`.
-Estimate: 20 min.
+Files: `data/incentives.json`. Estimate: 20 min.
 
 ---
 
-## M6. Bump InventoryTable colSpan if you've added a column
+## M14. Schedule daily refresh cron (Phase 5.1)
 
-If during work you add or remove an InventoryTable column, **update the
-empty-state row's `colSpan`** at line ~579. Currently 14. Mismatched
-colSpan renders the empty-state cell only partway across, which looks
-broken on mobile.
+```
+mcp__scheduled-tasks__create_scheduled_task
+  schedule: "0 11 * * *"   (7am ET = 11 UTC during DST)
+  command: |
+    cd ~/ev-auto-trader-canada \
+      && git pull --rebase origin main \
+      && python3 scripts/build_units_from_at.py \
+      && node scripts/snapshot.mjs \
+      && npm run predeploy \
+      && git add data/ \
+      && git commit -m "data refresh: $(date +%F)" \
+      && git push origin main
+  description: Daily AutoTrader refresh + snapshot + Vercel deploy
+```
 
-File: `src/components/InventoryTable.tsx`. Estimate: 1 min, but easy to
-forget.
+Note: the cron does NOT run Apify by default — that's a paid call. Add
+the Apify step manually when you want a paid refresh, or schedule a
+separate weekly cron with the Apify command.
+
+Estimate: 5 min.
 
 ---
 
 ## What NOT to do on medium
 
-These are HIGH-reasoning tasks. Do NOT attempt them on medium:
+These remain HIGH-only:
 
-- **Phase 2** (search-JSON probe / Apify integration) — requires DOM
-  inspection, network analysis, design call, and live-data interpretation.
-- **Phase 3** (Exa heat-pump research / OEM MSRP refresh) — requires
-  deciding which sources to trust + writing per-trim confidence notes.
-- **Phase 4** (dossier page / transport delta / loyalty flag) — new
-  routes, schema changes, scoring math.
-- **Phase 5.1** (cron task creation) — requires `mcp__scheduled-tasks__*`
-  decisions about what command to run + how to authenticate git push.
-- **Anything in `BLOCKERS_MEDIUM.md`** — those are by definition
-  high-reasoning issues.
+- **Phase 2.1** — Chrome MCP probe (live DOM/network analysis)
+- **Phase 3.2** — OEM MSRP configurator crawl (parsing variability)
+- **Anything in `BLOCKERS_MEDIUM.md`** — high-reasoning by definition
 
-If a task above turns out to need judgment (e.g. ts-prune flags something
-that looks load-bearing), STOP and surface it to the user with the
-specific name + file + line, not a vague "this seemed risky."
+If a task above turns out to need judgment, STOP and surface it to the
+user with the specific name + file + line.
 
 ---
 
@@ -172,6 +221,8 @@ specific name + file + line, not a vague "this seemed risky."
 
 - Multi-environment pickup ritual: `SESSION_HANDOFF.md`
 - Live blockers: `BLOCKERS_MEDIUM.md`
+- LOW-reasoning fill tasks: `LOW_NEXT.md`
 - Long-form work queue (HIGH + MEDIUM): `NEXT.md`
+- Apify operator notes: `docs/APIFY_AUTOTRADER.md`
+- Chrome probe runbook: `docs/CHROME_PROBE.md`
 - v2 plan: `~/.claude/plans/you-are-continuing-the-shiny-pixel.md`
-- Last commit closing a phase: `e28585d` (phase 1)

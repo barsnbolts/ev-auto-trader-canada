@@ -3,6 +3,20 @@ import { MODELS, PROVINCES, SUPPORTED_YEARS } from "./constants";
 
 export const ProvinceSchema = z.enum(PROVINCES);
 export const ModelSchema = z.enum(MODELS);
+
+// Buyer context = the household-level facts that swing incentive
+// eligibility and tax. Extends the original buyer-province concept (which
+// shipped first as a single-string cookie) with two boolean flags that
+// gate Hyundai/Kia loyalty + conquest programs. Persisted as a single JSON
+// cookie (see lib/buyerContextServer.ts and lib/buyerContext.ts client
+// hook). Defaults: ON province, no loyalty, no conquest.
+export const BuyerContextSchema = z.object({
+  province: ProvinceSchema,
+  loyalty: z.boolean(),       // currently owns a Hyundai/Kia
+  conquest: z.boolean(),      // currently owns a competing brand (eligible for conquest cash)
+});
+export type BuyerContext = z.infer<typeof BuyerContextSchema>;
+
 export const YearSchema = z.union(
   SUPPORTED_YEARS.map((y) => z.literal(y)) as [
     z.ZodLiteral<2024>,
@@ -224,6 +238,16 @@ export const SpecSchema = z.object({
   weightKg: z.number().optional(),
   msrpCad: z.number().optional(),
   freightPdiCad: z.number().optional(),
+  // Heat-pump availability per trim. Critical for Ontario buyers — trims
+  // without a heat pump lose 25-40% real-world range below -10°C. Tri-state:
+  //   true  = heat pump confirmed standard
+  //   false = confirmed NOT standard (resistive heater only)
+  //   null / undefined = not yet researched (renders as "?" chip in UI)
+  // Filled by data/heatpump-research-queue.json + scripts/merge_heatpump_research.py.
+  hasHeatPump: z.boolean().nullable().optional(),
+  heatPumpSource: z.string().optional(),       // URL the answer came from
+  heatPumpConfidence: z.enum(["High", "Medium", "Low"]).optional(),
+  heatPumpAccessed: z.string().optional(),     // ISO date the source was checked
   notes: z.string().optional(),
   source: z.string().optional(),
 });

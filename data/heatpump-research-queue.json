@@ -1,0 +1,222 @@
+[
+  {
+    "model": "EV6",
+    "year": 2025,
+    "trim": "Light RWD",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "EV6",
+    "year": 2025,
+    "trim": "Wind RWD",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "EV6",
+    "year": 2025,
+    "trim": "Land AWD",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "EV6",
+    "year": 2025,
+    "trim": "GT-Line AWD",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "EV6",
+    "year": 2025,
+    "trim": "GT",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq5",
+    "year": 2025,
+    "trim": "Preferred RWD",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq5",
+    "year": 2025,
+    "trim": "Preferred RWD Long Range",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq5",
+    "year": 2025,
+    "trim": "Preferred AWD Long Range",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq5",
+    "year": 2025,
+    "trim": "N",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq5",
+    "year": 2026,
+    "trim": "Preferred RWD Long Range",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq5",
+    "year": 2026,
+    "trim": "Preferred AWD Long Range",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq6",
+    "year": 2025,
+    "trim": "Preferred RWD Long Range",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq6",
+    "year": 2025,
+    "trim": "Preferred AWD Long Range",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "EV9",
+    "year": 2025,
+    "trim": "Light RWD",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "EV9",
+    "year": 2025,
+    "trim": "Light Long Range RWD",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "EV9",
+    "year": 2025,
+    "trim": "Land Long Range AWD",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "EV9",
+    "year": 2025,
+    "trim": "GT-Line AWD",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq9",
+    "year": 2026,
+    "trim": "Preferred Long Range RWD",
+    "drivetrain": "RWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq9",
+    "year": 2026,
+    "trim": "Preferred Long Range AWD",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  },
+  {
+    "model": "Ioniq9",
+    "year": 2026,
+    "trim": "Performance Calligraphy AWD",
+    "drivetrain": "AWD",
+    "hasHeatPump": null,
+    "source": "",
+    "accessed": "",
+    "confidence": null,
+    "notes": ""
+  }
+]

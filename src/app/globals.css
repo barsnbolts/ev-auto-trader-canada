@@ -59,3 +59,20 @@
     @apply text-fg bg-bg-hover;
   }
 }
+
+/* Dossier print stylesheet — single-page negotiation reference. */
+@media print {
+  /* Hide chrome that has no purpose on paper */
+  nav, header[data-app-nav], .print\:hidden { display: none !important; }
+  /* Force white background for ink savings + readability */
+  html, body { background: white !important; color: black !important; }
+  .dossier { color: black !important; }
+  .dossier h1, .dossier h2, .dossier strong { color: black !important; }
+  .dossier .text-fg-subtle, .dossier .text-fg-muted { color: #444 !important; }
+  .dossier .text-good { color: #0a6d2e !important; }
+  .dossier .text-accent { color: #0050b5 !important; }
+  .dossier table { width: 100%; border-collapse: collapse; }
+  .dossier section { page-break-inside: avoid; }
+  /* Saner fixed-width layout for print */
+  .dossier { font-size: 10.5pt; line-height: 1.35; max-width: none; }
+}

@@ -1,6 +1,7 @@
 import { ON_DEALER_FEES, PROVINCE_TAX, bcPstRateFor, type Province } from "./constants";
 import transportBandsData from "../../data/transport-bands.json";
 import type {
+  BuyerContext,
   Dealer,
   Incentive,
   IncentiveLine,
@@ -204,10 +205,19 @@ export function applicableIncentives(
   unit: InventoryUnit,
   dealer: Dealer,
   incentives: Incentive[],
+  buyerContext?: BuyerContext,
 ): Incentive[] {
-  // First pass: filter on appliesTo + status (no cap check yet).
+  // First pass: filter on appliesTo + status + buyer-context flags.
+  // Loyalty / conquest scopes only apply when the buyer self-identifies
+  // (loyalty = current Hyundai/Kia owner, conquest = current competing
+  // brand owner). When buyerContext is omitted, behave as before — these
+  // scopes pass through so existing callers stay backward-compat.
   const matched = incentives.filter((inc) => {
     if (inc.status === "ended") return false;
+    if (buyerContext) {
+      if (inc.scope === "loyalty" && !buyerContext.loyalty) return false;
+      if (inc.scope === "conquest" && !buyerContext.conquest) return false;
+    }
     const a = inc.appliesTo;
     if (a) {
       if (a.models && !a.models.includes(unit.model)) return false;

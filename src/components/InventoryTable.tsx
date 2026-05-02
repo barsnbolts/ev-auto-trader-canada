@@ -525,6 +525,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                   </td>
                   <td className="px-3 py-2 text-right num font-medium">
                     {fmtCad(u.otdCad)}
+                    {u.otdBreakdown.transportCost > 0 && (
+                      <div
+                        className="text-xxs text-warn font-normal"
+                        title={`Includes ${fmtCad(u.otdBreakdown.transportCost)} transport estimate from ${dealer?.province ?? "out-of-province"} to ${u.otdBreakdown.salesTaxProvince}. Broker quotes can be 50-100% higher — verify before committing.`}
+                      >
+                        + {fmtCad(u.otdBreakdown.transportCost)} transport
+                      </div>
+                    )}
                     <EvapChip state={evapStateFor(u)} unit={u} />
                   </td>
                   <td className="px-3 py-2 text-right num text-xs" title={rangeFor(u.id) ? `Range ${rangeFor(u.id)} km (NRCan/EPA combined)` : "Range spec missing"}>
