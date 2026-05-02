@@ -593,13 +593,13 @@
   "additionalModelCostsCache": {},
   "penguinModeOrgEnabled": true,
   "groveConfigCache": {
-    "42f5103b-b60c-4cef-bd1f-ad14f3ab2dce": {
+    "REDACTED-ACCOUNT-UUID": {
       "grove_enabled": true,
       "timestamp": 1777690573669
     }
   },
   "passesEligibilityCache": {
-    "0958829d-5ab0-417e-9943-5b5e2c4065be": {
+    "REDACTED-ORG-UUID": {
       "eligible": false,
       "referral_code_details": null,
       "referrer_reward": null,
@@ -620,26 +620,7 @@
   ],
   "cachedChromeExtensionInstalled": true,
   "changelogLastFetched": 1777735014125,
-  "oauthAccount": {
-    "accountUuid": "42f5103b-b60c-4cef-bd1f-ad14f3ab2dce",
-    "emailAddress": "nexo719@gmail.com",
-    "organizationUuid": "0958829d-5ab0-417e-9943-5b5e2c4065be",
-    "hasExtraUsageEnabled": true,
-    "billingType": "stripe_subscription",
-    "accountCreatedAt": "2026-04-22T16:33:38.482220Z",
-    "subscriptionCreatedAt": "2026-04-23T14:45:06.326767Z",
-    "ccOnboardingFlags": {},
-    "claudeCodeTrialEndsAt": null,
-    "claudeCodeTrialDurationDays": null,
-    "seatTier": null,
-    "displayName": "Ian McAdam",
-    "organizationRole": "admin",
-    "workspaceRole": null,
-    "organizationName": "nexo719@gmail.com's Organization",
-    "organizationType": "claude_max",
-    "organizationRateLimitTier": "default_claude_max_5x",
-    "userRateLimitTier": null
-  },
+  "oauthAccount": "REDACTED",
   "appleTerminalSetupInProgress": false,
   "appleTerminalBackupPath": "/Users/ianmcadam/Library/Preferences/com.apple.Terminal.plist.bak",
   "optionAsMetaKeyInstalled": "REDACTED",
@@ -656,7 +637,7 @@
   },
   "lastReleaseNotesSeen": "2.1.126",
   "overageCreditGrantCache": {
-    "0958829d-5ab0-417e-9943-5b5e2c4065be": {
+    "REDACTED-ORG-UUID": {
       "info": {
         "available": false,
         "eligible": false,
