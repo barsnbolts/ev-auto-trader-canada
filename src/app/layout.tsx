@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
-import { BuyerProvinceSelector } from "@/components/BuyerProvinceSelector";
+import { BuyerContextSelector } from "@/components/BuyerContextSelector";
 
 export const metadata: Metadata = {
   title: "EV Auto Trader Canada",
@@ -22,7 +22,7 @@ export default function RootLayout({
               EV<span className="text-accent">.</span>trader<span className="text-fg-muted text-xs ml-1">CA</span>
             </a>
             <Nav />
-            <BuyerProvinceSelector />
+            <BuyerContextSelector />
           </div>
         </header>
         <main className="flex-1 max-w-[1400px] w-full mx-auto px-6 py-6">
