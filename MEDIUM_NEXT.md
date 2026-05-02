@@ -11,6 +11,16 @@ pass are also shipped (`c1d5f69`). M4 (snapshot) ran 2026-05-02. M6
 A high-reasoning prep pass (`<this commit>`) just landed scaffolds for
 Phases 2, 3.1, 4.1, 4.3 — what's below is the mechanical slice of those.
 
+**HIGH pass 2026-05-02 (HEAD `c6e8e3c8`) closed:** M0 GraphQL probe
+(unusable; snapshot-diff is the daysOnMarket source — see
+`docs/handoff/research/M0_findings_2026-05-02.md`); M9 heatpump queue
+20/20 at High confidence; M10A Leasebusters probe doc; M12 schema
+migration to Option B (`data/oem-pricing.json` now per-trim
+`{value, lastVerified, source, staleSince}`); M4 cookie migration
+(`getBuyerContext` threaded through 4 routes + dossier; legacy
+`buyerProvinceServer.ts` deleted). **M9 below in this file** (the
+migrate-callers task) **is now stale — already shipped.**
+
 ---
 
 ## M7. Wire heat-pump UI chip (after L1 fills the queue)
@@ -204,12 +214,102 @@ Estimate: 5 min.
 
 ---
 
+## M15. Per-trim OEM MSRP refresh (was plan §5/M12 research half)
+
+The schema is migrated; values + provenance now need a per-trim refresh.
+**HIGH pass discovery — Kia Canada brochures live at predictable URLs and
+Read tool reads PDFs natively:**
+
+```
+https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/<MY>/<model>/MY<YY>_<MODEL>_ENG.pdf
+  e.g.  MY25_EV6_APR1_ENG.pdf, MY25_EV9_ENG.pdf
+```
+
+Hyundai Canada pricing is on showroom pages (`hyundaicanada.com/en/showroom/<my>/<model>`).
+
+For each `(model, trim)` pair in `data/oem-pricing.json`:
+
+1. Download the brochure PDF (curl) or fetch the showroom page (WebFetch).
+2. Read the trim's price + standard equipment ladder.
+3. Update the entry in `data/oem-pricing.json`:
+   - `value`: latest CAD MSRP (excl. freight + PDI; the build script adds those)
+   - `lastVerified`: today (ISO)
+   - `source`: brochure PDF URL or showroom page URL
+   - `staleSince`: `null` (or today's ISO date if OEM no longer lists the trim)
+4. If a trim is gone, set `staleSince` and keep `value` as last-known.
+5. If a new trim appears, add the entry — match the existing `data/specs.json` trim naming.
+6. Run `python3 scripts/build_units_from_at.py` after — `data/units.json`
+   should regenerate cleanly with the new MSRPs. Diff to confirm only
+   intended price changes.
+
+Per-trim research log goes to `docs/handoff/research/M12_msrp_<date>.md`
+mirroring M9's shape.
+
+Files: `data/oem-pricing.json`, `data/units.json`,
+`docs/handoff/research/M12_msrp_<date>.md`. Estimate: 30-45 min.
+
+---
+
+## M16. Snapshot-diff daysOnLot script
+
+GraphQL probe (M0) closed unusable — snapshot-diff is now the
+daysOnMarket source. Full Python source ready in plan §5/M3 at
+`/Users/ianmcadam/.claude/plans/you-are-the-planning-floating-breeze.md`
+(pasteable; no architectural decisions left).
+
+```bash
+$EDITOR scripts/derive_days_on_market.py    # paste from plan §5/M3
+chmod +x scripts/derive_days_on_market.py
+python3 scripts/derive_days_on_market.py     # writes data/units-enrichment.json
+python3 scripts/build_units_from_at.py       # picks up via existing overlay
+npm run predeploy
+git add scripts/derive_days_on_market.py data/units-enrichment.json data/units.json
+git commit -m "feat(M16): derive daysOnLot from snapshot diff (stable-ID first-seen)"
+```
+
+Caveat: only 4 snapshots exist (2 historical, 2 recent), so first useful
+per-unit `daysOnLot` is 1-2 days. The cron from M14 fixes this going
+forward. Acceptable trade-off.
+
+Estimate: 30-45 min.
+
+---
+
+## M17. simple-git-hooks pre-commit (typecheck-only)
+
+Plan §5/M11 Part B. Mechanical:
+
+```bash
+cd ~/ev-auto-trader-canada
+npm install --save-dev simple-git-hooks
+```
+
+Then add to `package.json`:
+```json
+{
+  "scripts": { "...": "...", "prepare": "simple-git-hooks" },
+  "simple-git-hooks": { "pre-commit": "npx tsc --noEmit" }
+}
+```
+
+Run `npx simple-git-hooks` to wire `.git/hooks/pre-commit`. Verify:
+plant a deliberate type error, attempt commit, expect block. Revert.
+Commit:
+
+```bash
+git add package.json package-lock.json && \
+  git commit -m "chore(M17): simple-git-hooks pre-commit typecheck"
+```
+
+Estimate: 10 min.
+
+---
+
 ## What NOT to do on medium
 
 These remain HIGH-only:
 
 - **Phase 2.1** — Chrome MCP probe (live DOM/network analysis)
-- **Phase 3.2** — OEM MSRP configurator crawl (parsing variability)
 - **Anything in `BLOCKERS_MEDIUM.md`** — high-reasoning by definition
 
 If a task above turns out to need judgment, STOP and surface it to the

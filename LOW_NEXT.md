@@ -9,7 +9,17 @@ If a row's answer isn't unambiguous from the OEM page, mark
 
 ---
 
-## L1. Fill data/heatpump-research-queue.json
+## ~~L1. Fill data/heatpump-research-queue.json~~ (CLOSED 2026-05-02 in commit `babbe4fe`)
+
+20/20 rows resolved at High confidence via Kia Canada brochure PDFs +
+Hyundai Canada showroom pages. The Read tool reads PDFs natively —
+faster + cheaper than Chrome MCP. See
+`docs/handoff/research/M9_heatpump_2026-05-02.md` for the resolution log
+and the Kia brochure URL pattern.
+
+---
+
+## L1-OLD (kept for reference — DO NOT EXECUTE)
 
 20 rows, one per (model, year, trim, drivetrain) currently in `data/specs.json`.
 
@@ -58,6 +68,19 @@ queue picks up M7 (UI chip wire-up).
 **Cost ceiling:** 20 Exa search + 20 Exa fetch = ~40 Exa calls. Cheap.
 
 **If unblocked:** there's no "next L task" yet — surface back to the user.
+
+---
+
+## L2. (NEW 2026-05-02) Per-trim Canadian MSRP fill — see MEDIUM_NEXT.md M15
+
+The Sonnet-friendly portion of M15 is:
+1. Download Kia Canada brochure PDFs from the URL pattern in M15.
+2. Read PDF (Read tool), find the trim's price + standard equipment.
+3. Paste `value` + `source` (brochure URL) + `lastVerified: <today>` into
+   the matching entry of `data/oem-pricing.json`.
+
+Trims to refresh are the keys under each model in `data/oem-pricing.json.msrp`.
+Don't touch `staleSince` unless a trim is gone from the OEM page.
 
 ---
 
