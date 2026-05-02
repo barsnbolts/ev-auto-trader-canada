@@ -10,7 +10,11 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "predeploy": "npm run typecheck && npm run build",
-    "snapshot": "node scripts/snapshot.mjs"
+    "snapshot": "node scripts/snapshot.mjs",
+    "prepare": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx tsc --noEmit"
   },
   "dependencies": {
     "leaflet": "^1.9.4",
@@ -30,6 +34,7 @@
     "eslint": "^9.15.0",
     "eslint-config-next": "^15.0.3",
     "postcss": "^8.4.49",
+    "simple-git-hooks": "^2.13.1",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   }
