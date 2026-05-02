@@ -1,3 +1,7 @@
+> **last-synced:** 2026-05-02T15:20:32Z (Mac → GitHub mirror sweep)
+> Mac HEAD before this sync: `118e6cc` on `claude/verify-environment-setup-oTu3S`
+> Working tree was clean and both local branches `ahead=0 behind=0` against origin.
+
 # Sandbox Handoff Package
 
 This directory consolidates everything a Linux-sandbox Claude Code session
@@ -14,17 +18,18 @@ restricted to the GitHub git remote via local proxy.
 ## Read order
 
 1. `PLAN_M0_M12_RECONSTRUCTED.md` — the M-task list reconstructed from
-   the user's daytime brief + repo docs. The original
-   `~/.claude/plans/you-are-continuing-the-shiny-pixel.md` is on the Mac
-   only and was never pushed.
-2. `../../SESSION_HANDOFF_2026-05-01.md` — last session state
-3. `../../REPLAN_BRIEF.md` — re-plan inputs
-4. `../../OVERNIGHT_SUMMARY.md` — what halted overnight
-5. `../../MEDIUM_NEXT.md` — M7-M14 mechanical task queue (uses different
+   the user's daytime brief + repo docs.
+2. `mac-context/plans/you-are-continuing-the-shiny-pixel.md` — the
+   original "shiny-pixel" plan that was previously Mac-only at
+   `~/.claude/plans/`. Now mirrored here for the sandbox.
+3. `../../SESSION_HANDOFF_2026-05-01.md` — last session state
+4. `../../REPLAN_BRIEF.md` — re-plan inputs
+5. `../../OVERNIGHT_SUMMARY.md` — what halted overnight
+6. `../../MEDIUM_NEXT.md` — M7-M14 mechanical task queue (uses different
    numbering than the M0→M12 plan; see mapping in PLAN doc)
-6. `../../NEXT.md` — long-form HIGH+MEDIUM queue
-7. `../../BLOCKERS_MEDIUM.md` — live blockers
-8. `../../LOW_NEXT.md` — L1 heatpump research queue fill
+7. `../../NEXT.md` — long-form HIGH+MEDIUM queue
+8. `../../BLOCKERS_MEDIUM.md` — live blockers
+9. `../../LOW_NEXT.md` — L1 heatpump research queue fill
 
 ## Sandbox limitations
 
@@ -36,7 +41,7 @@ that need these MUST run from a Mac Claude Code session, not the sandbox:
 | Chrome MCP (`mcp__Claude_in_Chrome__*`) | M0 GraphQL probe; M12 Chrome fallback |
 | Apify MCP (`mcp__Apify__*`) | M2 ON+H/K scrape; M12 Apify path |
 | scheduled-tasks MCP (`mcp__scheduled-tasks__create_scheduled_task`) | M11 cron registration |
-| Superpowers skills (`brainstorming`, `using-superpowers`) | Ceremonial only — content is doc-based |
+| Superpowers skills (`brainstorming`, `using-superpowers`) | Ceremonial only — content is doc-based and mirrored under `superpowers/` |
 
 Available MCPs in sandbox: GitHub, Gmail, Google Calendar, Notion, Exa
 (web_search + web_fetch), Google Drive.
@@ -88,3 +93,35 @@ Available MCPs in sandbox: GitHub, Gmail, Google Calendar, Notion, Exa
 - About to write outside `~/ev-auto-trader-canada`
 - About to spend Apify > $30 cumulative
 - Schema change that invalidates existing snapshots beyond stable-ID migration
+
+---
+
+## Mac → GitHub mirror manifest (2026-05-02T15:20:32Z)
+
+This sweep refreshed the Mac-side context dump under `mac-context/` and
+re-mirrored superpowers skills as full directories (so sibling helper
+scripts/refs come along, not just `SKILL.md`). The list below is the
+complete set of files written this run.
+
+### `mac-context/` (Mac-only context, copied here for sandbox parity)
+
+- `mac-context/settings.json` — `~/.claude/settings.json` (redacted, no secrets present)
+- `mac-context/mcp/.claude.json` — `~/.claude.json` (redacted: any value whose key matched `/token|key|secret/i` or any `sk-…` value replaced with `"REDACTED"`)
+- `mac-context/mcp/claude_desktop_config.json` — `~/Library/Application Support/Claude/claude_desktop_config.json` (redacted; only contained device-pairing IDs)
+- `mac-context/plans/*.md` — all 17 plan docs from `~/.claude/plans/`, including the project-relevant `you-are-continuing-the-shiny-pixel.md`, `you-are-continuing-a-drifting-planet.md`, `vast-humming-barto.md`, `you-re-picking-up-argus-splendid-cocoa.md`, `you-are-taking-over-velvet-petal.md`, etc.
+- `mac-context/transcripts/3c6bf353-…jsonl` — most recent (only) Claude Code transcript for this project from `~/.claude/projects/-Users-ianmcadam-ev-auto-trader-canada/`
+- `mac-context/commands/{caveman,caveman-commit,caveman-review}.md` — slash-command definitions from `~/.claude/commands/`
+
+### `superpowers/` (now full skill dirs, not just SKILL.md)
+
+- Multi-file skill dirs (each contains `SKILL.md` plus sibling helpers): `brainstorming/`, `using-superpowers/`, `subagent-driven-development/`, `writing-skills/`, `systematic-debugging/`, `requesting-code-review/`, `test-driven-development/`, `writing-plans/`
+- Single-file skills (just `SKILL.md` content as flat `.md`): `dispatching-parallel-agents.md`, `executing-plans.md`, `finishing-a-development-branch.md`, `receiving-code-review.md`, `using-git-worktrees.md`, `verification-before-completion.md`
+
+### MISSING on Mac (not fabricated, just absent)
+
+- `~/.claude/CLAUDE.md` — does not exist on this Mac
+- `~/.claude/projects/-Users-ianmcadam-ev-auto-trader-canada/CLAUDE.md` — does not exist on this Mac
+
+### Reported but NOT copied (cross-repo trap, per stop conditions)
+
+- `~/Documents/Codex/2026-04-21-i-want-to-continue-building-the/ev-auto-trader-canada` — separate working copy under Documents/Codex; intentionally not touched. Sandbox should NOT consider this a source of truth.

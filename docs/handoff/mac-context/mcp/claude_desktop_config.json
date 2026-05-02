@@ -1,0 +1,23 @@
+{
+  "preferences": {
+    "launchPreviewPersistSession": true,
+    "launchPreviewPersistedWorkspaces": [
+      "e241c0d9869c"
+    ],
+    "coworkScheduledTasksEnabled": true,
+    "ccdScheduledTasksEnabled": true,
+    "sidebarMode": "epitaxy",
+    "bypassPermissionsModeEnabled": true,
+    "autoPermissionsModeEnabled": true,
+    "dockBounceEnabled": true,
+    "coworkWebSearchEnabled": true,
+    "chicagoEnabled": true,
+    "chromeExtension": {
+      "pairedDeviceId": "b4894a51-95cd-4bea-8b91-5dab758daf08",
+      "pairedDeviceName": "Browser 1",
+      "pairedFromDeviceIds": [
+        "b4894a51-95cd-4bea-8b91-5dab758daf08"
+      ]
+    }
+  }
+}
