@@ -23,7 +23,232 @@ migrate-callers task) **is now stale — already shipped.**
 
 ---
 
-## M7. Wire heat-pump UI chip (after L1 fills the queue)
+## POST-HIGH EXECUTION ORDER (2026-05-02 → next medium session)
+
+**Read this section first.** Each task is tagged `[MEDIUM]` (judgment +
+multi-file) or `[SONNET]` (pure mechanical fill-in). For SONNET tasks,
+dispatch a fresh subagent (`superpowers:subagent-driven-development`) so
+each task runs in its own context window. For UI verification, use
+`mcp__Claude_Preview__*` — never Bash dev-server or Chrome MCP.
+
+### Order + dependencies
+
+| #  | Task                                              | Tier   | Depends on | Est.   |
+|----|---------------------------------------------------|--------|------------|--------|
+| 0a | Branch drift check (`git fetch origin && git log origin/main..HEAD --oneline`) | SONNET | —          | 1 min  |
+| 0b | M4 preview smoke (cookie roundtrip, province swap) | MEDIUM | 0a         | 5 min  |
+| 1  | **M17** simple-git-hooks install + pre-commit     | SONNET | 0b         | 10 min |
+| 2  | **M8** BuyerContextSelector rename + checkboxes   | MEDIUM | 1          | 25 min |
+| 3a | **M15-Hyundai** MSRP refresh (Ioniq 5/6/9 showroom) | SONNET | 1          | 15 min |
+| 3b | **M15-Kia** MSRP refresh (EV6/EV9 brochure PDFs) | SONNET | 1          | 15 min |
+| 3c | **M15-verify** Run build_units_from_at.py + diff  | MEDIUM | 3a + 3b    | 10 min |
+| 4  | **M10** Loyalty/conquest incentive entries        | MEDIUM | 2          | 25 min |
+| 5a | **M16** Snapshot-diff daysOnLot (paste plan §5/M3) | MEDIUM | 1          | 30 min |
+| 5b | **M16b** Vitest install + 2 anchor tests for M16  | MEDIUM | 5a         | 15 min |
+| 6  | **M14** Daily refresh cron + logfile observability | MEDIUM | 5a         | 20 min |
+| 7  | **M11** Dossier link column in InventoryTable     | SONNET | 1          | 10 min |
+| 8  | **M13** Incentives refresh via Exa                | MEDIUM | 4          | 20 min |
+| 9  | **M12-Apify** ON+H/K sample (ASK FIRST) + spend tracker | MEDIUM | 3c         | 15 min |
+| 10 | **M7** Heatpump UI chip (data already filled)     | MEDIUM | 2          | 30 min |
+
+### Concurrency map (parallelize via subagent dispatch)
+
+- After **#1** lands, fire **#3a + #3b + #7** in parallel (all SONNET, disjoint files)
+- After **#2** lands, fire **#4 + #5a + #10** in parallel (all MEDIUM, disjoint files)
+- **#5b** must follow **#5a** (tests need the function)
+- **#6** must follow **#5a** (cron calls the script)
+- **#9** asks the user before firing — gate, not parallel
+
+### Critical hygiene (do before any task)
+
+1. `cd ~/ev-auto-trader-canada && git fetch origin && git pull --ff-only`
+2. Confirm HEAD ≥ `b627a68f` and branch is `claude/verify-environment-setup-oTu3S`.
+3. `npm install && npm run predeploy` — must pass before starting.
+4. If predeploy fails, halt + post in chat. Don't paper over.
+
+---
+
+## Task details
+
+### 0a. Branch drift check `[SONNET]`
+
+```bash
+cd ~/ev-auto-trader-canada
+git fetch origin
+git log --oneline origin/main..HEAD | head -20
+git log --oneline HEAD..origin/main | head -20  # check the other direction too
+```
+
+If branch is far ahead of main (>20 commits): note in chat — the M14 cron's `git pull --rebase origin main` will conflict on next run. If main is ahead of branch: `git rebase origin/main` first.
+
+### 0b. M4 preview smoke `[MEDIUM]`
+
+```
+preview_start    → starts dev server
+preview_snapshot → confirm /inventory renders
+preview_click    → click province dropdown
+preview_fill     → set province = QC
+preview_snapshot → confirm OTD column shows GST + QST line, not HST
+```
+
+Expected: no errors in `preview_console_logs`. If broken, M4 needs a fix before any other task.
+
+### 1. M17 simple-git-hooks `[SONNET]`
+
+```bash
+cd ~/ev-auto-trader-canada
+npm install --save-dev simple-git-hooks
+```
+
+Edit `package.json`: add `"prepare": "simple-git-hooks"` to scripts; add top-level `"simple-git-hooks": { "pre-commit": "npx tsc --noEmit" }`.
+
+```bash
+npx simple-git-hooks                    # wires .git/hooks/pre-commit
+git add package.json package-lock.json
+git commit -m "chore(M17): simple-git-hooks pre-commit typecheck"
+git push origin claude/verify-environment-setup-oTu3S
+```
+
+Verify: plant a deliberate type error, attempt commit, expect block. Revert.
+
+### 3a. M15-Hyundai MSRP refresh `[SONNET]`
+
+For each model in `["ioniq-5", "ioniq-6", "ioniq-9"]`:
+1. `mcp__9a04470a-c5be-420d-a32b-adaaa7f50b13__web_fetch_exa` URL `https://www.hyundaicanada.com/en/showroom/<model>` (or `/en/showroom/2025/<model>` for 2025-specific). If hits content-length limit, target a model-specific subpage.
+2. Find each trim's MSRP in the page text.
+3. Update `data/oem-pricing.json`: for each `(model, trim)` entry, set `value`, `lastVerified: "2026-05-02"`, `source: "<URL>"`, `staleSince: null`.
+4. If a trim disappeared from the OEM page, set `staleSince: "2026-05-02"` and keep `value`.
+5. If a new trim appeared, add a new entry — match the existing trim naming in `data/specs.json`.
+
+Per-trim research log: `docs/handoff/research/M15_msrp_2026-05-02.md`.
+
+### 3b. M15-Kia MSRP refresh `[SONNET]`
+
+```bash
+# EV6
+curl -s -o /tmp/ev6_brochure.pdf \
+  "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf"
+# EV9
+curl -s -o /tmp/ev9_brochure.pdf \
+  "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf"
+```
+
+Use Read tool on each PDF (native PDF support). The brochures' Specifications page lists trim → "Starting at $X" prices. Paste into `data/oem-pricing.json` per the same template as 3a.
+
+EV6 GT note: not in main brochure. Reference kiamedia US press kit (already cited at `babbe4fe`) — flag with `notes: "EV6 GT pricing requires separate verification; kiamedia US shows $79,566 USD"`.
+
+### 3c. M15-verify `[MEDIUM]`
+
+```bash
+python3 scripts/build_units_from_at.py
+git diff data/units.json | head -100
+```
+
+Expected delta: only intentional MSRP changes per trim, plus daily date drift in `lastSeen`/`notes`. If a unit's `msrpCad` changed UNEXPECTEDLY (e.g. you mis-keyed a trim), back out the change in `data/oem-pricing.json` and re-run.
+
+```bash
+npm run predeploy
+git add data/oem-pricing.json data/units.json docs/handoff/research/M15_msrp_2026-05-02.md
+git commit -m "data(M15): per-trim Canadian MSRP refresh from OEM brochures + showroom pages"
+git push origin claude/verify-environment-setup-oTu3S
+```
+
+### 5a. M16 Snapshot-diff daysOnLot `[MEDIUM]`
+
+**Pre-stubbed by HIGH pass:** `scripts/derive_days_on_market.py` already exists, full algorithm written, `chmod +x` applied. Medium just needs to: review, run, verify.
+
+```bash
+python3 scripts/derive_days_on_market.py    # writes data/units-enrichment.json
+python3 scripts/build_units_from_at.py       # picks up via existing overlay
+```
+
+Expected: `merged daysOnLot for N units across 4 snapshots` where N = unique stable IDs across 2026-05-* snapshots only (pre-2026 snapshots filtered by ID regex). Currently 2 snapshots have stable IDs (`2026-05-01` + `2026-05-02`), so `daysOnLot` will be 0 or 1 for almost all units. Cron from M14 fixes this going forward.
+
+### 5b. M16b Vitest tests `[MEDIUM]`
+
+```bash
+npm install --save-dev vitest
+```
+
+Add to `package.json`: `"test": "vitest run"` script.
+
+Two anchor tests in `scripts/derive_days_on_market.test.ts` (or .py if you keep Python; if Python, use `unittest`):
+
+1. **Test 1**: Two snapshots — same unit ID in both, dates 7 days apart. Expect `daysOnLot = 7` from oldest sighting.
+2. **Test 2**: Pre-stable-ID snapshot (ID = `12345` not `u-at-...`) — expect filter to skip it; no entry in output.
+
+Run `npm test`; expect both pass.
+
+```bash
+git add scripts/derive_days_on_market.py scripts/derive_days_on_market.test.ts package.json package-lock.json
+git commit -m "feat(M16): snapshot-diff daysOnLot derivation + vitest anchor tests"
+git push
+```
+
+### 6. M14 Daily refresh cron `[MEDIUM]` — **BLOCKED on user decision (push target)**
+
+**OPEN QUESTION before writing this script:** Plan §5/M11 says cron does `git push origin main`, but project non-negotiable says "never push to main". Resolutions to ask the user:
+
+- **(a)** Cron pushes to the working branch `claude/verify-environment-setup-oTu3S` (data refreshes accumulate; operator merges to main via PR weekly).
+- **(b)** Cron creates daily branches `data-refresh/YYYY-MM-DD` and opens a PR to main (cleaner audit trail, more PR noise).
+- **(c)** Cron commits locally but doesn't push (operator pushes after morning review).
+
+`logs/cron.log` is already in `.gitignore`. Once user picks (a/b/c), the script structure is:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+exec >> "$HOME/ev-auto-trader-canada/logs/cron.log" 2>&1
+echo "=== $(date -u +%FT%TZ) refresh start ==="
+cd "$HOME/ev-auto-trader-canada"
+# git pull --rebase ...    (target depends on push-decision a/b/c)
+[ -x scripts/scrape_search_json.py ] && python3 scripts/scrape_search_json.py
+python3 scripts/build_units_from_at.py
+[ -x scripts/derive_days_on_market.py ] && python3 scripts/derive_days_on_market.py && python3 scripts/build_units_from_at.py
+node scripts/snapshot.mjs
+npm run predeploy
+if ! git diff --quiet data/; then
+  git add data/
+  git commit -m "data refresh: $(date -u +%F)"
+  # git push ...    (target depends on push-decision a/b/c)
+fi
+echo "=== refresh ok ==="
+```
+
+Once script written, `chmod +x scripts/refresh_daily.sh && mkdir -p logs`.
+
+Register via MCP:
+```
+mcp__scheduled-tasks__create_scheduled_task
+  schedule: "0 11 * * *"  # 11 UTC = 7am ET DST
+  command: bash ~/ev-auto-trader-canada/scripts/refresh_daily.sh
+  description: "EV Auto Trader Canada — daily refresh + snapshot + Vercel deploy"
+```
+
+Manual fire test:
+```bash
+bash ~/ev-auto-trader-canada/scripts/refresh_daily.sh
+tail -30 logs/cron.log    # confirm clean exit
+```
+
+### 9. M12-Apify sample with auto-spend-tracker `[MEDIUM, ASK FIRST]`
+
+Before firing, post in chat: "About to run Apify actor `calm_builder/autotrader-canada` for 1-page-per-(province × make × model) sample (~$0.10). Confirm to proceed."
+
+**Pre-stubbed by HIGH pass:** `scripts/track_apify_spend.py` already exists, exit-codes 0/2/3 documented, threshold + cap constants in place.
+
+Run flow:
+1. `mcp__Apify__call-actor` with input from `docs/apify_inputs/ontario_full.json` (path-form URLs only — query-form `?model=` is broken per M0 finding).
+2. Wait for SUCCEEDED status via `mcp__Apify__get-actor-run`.
+3. Capture cost: `mcp__Apify__get-actor-run runId=X` → extract `usage.totalUsd`.
+4. Pipe `{"runId":"X","datetime":"...","costUsd":...}` into `scripts/track_apify_spend.py` — exit code 2 means stop + ask user before any further paid run.
+5. Continue with merge per the M12 section further below.
+
+### 10. M15 — Pre-stubbed research log
+
+**Pre-stubbed by HIGH pass:** `docs/handoff/research/M15_msrp_2026-05-02.md` is a fillable template with one row per (model, trim) — `oldValue` already filled, `newValue` / `source` / `notes` cells empty. Sonnet just fills cells; Medium does the verification step (3c).
+
+---
 
 Once `data/heatpump-research-queue.json` has been filled and merged into
 `data/specs.json` via `python3 scripts/merge_heatpump_research.py`, surface
