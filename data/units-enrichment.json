@@ -1,50 +1,534 @@
 {
-  "u-at-fc69e5f7": {
-    "fetchedAt": "2026-05-01T23:45:22Z",
-    "phone": "866-210-7554",
-    "streetAddress": "2949 50 Ave",
-    "vin": "5XYC3DJC0SG001120"
+  "u-at-00257fa9": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
   },
-  "u-at-cffbb428": {
-    "fetchedAt": "2026-05-01T23:45:26Z",
-    "phone": "888-806-3329",
-    "streetAddress": "9144 Yonge Street",
-    "vin": "5XYC3DJC8SG001513"
+  "u-at-0117bcd2": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
   },
-  "u-at-f3e788cd": {
-    "fetchedAt": "2026-05-01T23:45:44Z",
-    "phone": "855-611-9095",
-    "streetAddress": "17 Spicer Square",
-    "vin": "5XYC4DJC3SG001061"
+  "u-at-02a31518": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
   },
-  "u-at-ea02ce02": {
-    "fetchedAt": "2026-05-01T23:45:48Z",
-    "phone": "888-927-7394",
-    "streetAddress": "19950 Lougheed Highway",
-    "vin": "5XYC34JA5SG001144"
+  "u-at-09ced952": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
   },
-  "u-at-3020c405": {
-    "fetchedAt": "2026-05-01T23:45:52Z",
-    "phone": "855-254-5109",
-    "streetAddress": "396 SW Marine Drive",
-    "vin": "5XYC3DJC7SG005262"
+  "u-at-0cebdf90": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-1153509f": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-11a53352": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-14f2900f": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-155ba53d": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-16a80261": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-18022219": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-18411f32": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-1872f0f9": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-1b8107c7": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-1c1f7921": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-1dc3cedb": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-1df3368d": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-28df407c": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-2a243f58": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
   },
   "u-at-2e0b7893": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff",
     "fetchedAt": "2026-05-01T23:45:56Z",
     "phone": "877-438-5905",
     "streetAddress": "4600 Dufferin St",
     "vin": "5XYC34JA1SG001027"
   },
+  "u-at-2ee04cc5": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-3020c405": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff",
+    "fetchedAt": "2026-05-01T23:45:52Z",
+    "phone": "855-254-5109",
+    "streetAddress": "396 SW Marine Drive",
+    "vin": "5XYC3DJC7SG005262"
+  },
+  "u-at-33262cc6": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-35c3a371": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-3df8e805": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-3f5f5dd9": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-41d7b159": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-43722df6": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-445fd6df": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-4822fd01": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-48eba4f7": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-4ee4f880": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-5cbf5575": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-5cf50690": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-5f910c93": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-60d9d5a3": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-62424e16": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-63bd1acf": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-6447e101": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-6610f4f0": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-662ed003": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-67ebc1eb": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-68e4aa51": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-6e0127d8": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-6e0c1e62": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-7142c172": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-71fb1e2b": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-73103807": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-74acacec": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-75b263cb": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-7aa6ff0e": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-7b6f7cb3": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-7bc72c89": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-7d5c30cd": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-7f41c176": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-7fd2998c": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-80e2cd54": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-83c8d0ac": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-875ec79a": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-89fe1db2": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-8d2fceb5": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-8eb27f8d": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-8f937847": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-912f689a": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-973d53fe": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-979d6e97": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-9d9c8120": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-a1c6fab0": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-a6bf6537": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-a8b0ff98": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-ad9bf016": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-ae6d7689": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-b349f61b": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
   "u-at-b80dc23e": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff",
     "fetchedAt": "2026-05-01T23:46:00Z",
     "phone": "855-353-2428",
     "streetAddress": "5500 Dixie Road, Unit C",
     "vin": "5XYC3DJC5SG001307"
   },
+  "u-at-b9a34fb6": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-bc9a1f21": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-bdbc6d9d": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-bf9734ac": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-c07630f8": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-c11ecacb": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-c65dc4b6": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-ccf8b150": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-cd295e89": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
   "u-at-ce0de3ee": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff",
     "fetchedAt": "2026-05-01T23:46:03Z",
     "phone": "888-806-3329",
     "streetAddress": "9144 Yonge Street",
     "vin": "5XYC3DJCXSG001786"
+  },
+  "u-at-cffbb428": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff",
+    "fetchedAt": "2026-05-01T23:45:26Z",
+    "phone": "888-806-3329",
+    "streetAddress": "9144 Yonge Street",
+    "vin": "5XYC3DJC8SG001513"
+  },
+  "u-at-d85f2a93": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-da6c0d04": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-ddfdf40c": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-e06c1fed": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-e2a48e86": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-e42edf97": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-e58aad2f": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-e9594f11": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-ea02ce02": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff",
+    "fetchedAt": "2026-05-01T23:45:48Z",
+    "phone": "888-927-7394",
+    "streetAddress": "19950 Lougheed Highway",
+    "vin": "5XYC34JA5SG001144"
+  },
+  "u-at-f049c23a": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-f3e788cd": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff",
+    "fetchedAt": "2026-05-01T23:45:44Z",
+    "phone": "855-611-9095",
+    "streetAddress": "17 Spicer Square",
+    "vin": "5XYC4DJC3SG001061"
+  },
+  "u-at-f6ff28b6": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-fb37f7f8": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
+  },
+  "u-at-fc69e5f7": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff",
+    "fetchedAt": "2026-05-01T23:45:22Z",
+    "phone": "866-210-7554",
+    "streetAddress": "2949 50 Ave",
+    "vin": "5XYC3DJC0SG001120"
+  },
+  "u-at-ffe7ec19": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-02",
+    "daysOnLotSource": "snapshot-diff"
   }
 }

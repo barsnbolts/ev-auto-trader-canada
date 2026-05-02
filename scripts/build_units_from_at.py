@@ -295,9 +295,6 @@ def main():
         print(f"ERROR: {len(orphans)} orphan units: {orphans[:5]}", file=sys.stderr)
         sys.exit(1)
 
-    DEALERS_OUT.write_text(json.dumps(dealers, indent=2) + "\n")
-    UNITS_OUT.write_text(json.dumps(units, indent=2) + "\n")
-
     # Re-key units-enrichment.json from old positional IDs → new stable
     # hash IDs. Maps via listingUrl since that's the only durable identity
     # across the schema migration. Run once after the first stable-ID
@@ -327,6 +324,22 @@ def main():
         if rekeyed != enrichment:
             enrichment_path.write_text(json.dumps(rekeyed, indent=2) + "\n")
             print(f"  enrichment re-keyed: {len(rekeyed)} kept, {dropped} dropped (no listingUrl match)")
+
+        # Merge enrichment fields onto units. M16 (daysOnLot, daysOnLotSource,
+        # daysOnLotFirstSeen) flows here; future enrichment signals can pile in.
+        merged_count = 0
+        for u in units:
+            payload = rekeyed.get(u["id"])
+            if not payload:
+                continue
+            for k, v in payload.items():
+                u[k] = v
+            merged_count += 1
+        if merged_count:
+            print(f"  enrichment merged onto {merged_count} units")
+
+    DEALERS_OUT.write_text(json.dumps(dealers, indent=2) + "\n")
+    UNITS_OUT.write_text(json.dumps(units, indent=2) + "\n")
 
     print(f"OK: wrote {len(dealers)} dealers, {len(units)} units")
     # Summary
