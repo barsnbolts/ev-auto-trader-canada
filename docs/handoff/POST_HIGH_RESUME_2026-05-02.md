@@ -6,10 +6,31 @@
 
 ## Where we are
 
-- **HEAD (pushed):** `425afb2d`
+- **HEAD (pushed):** `8ba1a73e`
 - **Branch:** `claude/verify-environment-setup-oTu3S` (synced with origin)
 - **Working tree at handoff:** clean
 - **Pre-commit hook:** ACTIVE — `.git/hooks/pre-commit` runs `npx tsc --noEmit` on every commit (don't try to bypass with `--no-verify`)
+- **Superpowers plugin:** DISABLED at user scope. Native judgment in effect. Re-enable: `claude plugin enable superpowers@superpowers-marketplace`.
+
+## MEDIUM-pass progress (2026-05-02 evening)
+
+| Milestone | Commit | Status |
+|-----------|--------|--------|
+| **M8** Selector rename + loyalty/conquest checkboxes | `ae9ca648` | DONE |
+| **M15** Per-trim Canadian MSRP refresh | `d4343b5c` | DONE — 10 trims with new prices, 11 staleSince. Subagent used Firecrawl + CarCostCanada cross-ref for Kia (PDFs lack prices); source field still points to OEM brochure URL per task spec. |
+| **M16** Snapshot-diff daysOnLot + enrichment merge fix | `2e7c86dd` | DONE — also fixed bug in build_units_from_at.py where enrichment was re-keyed but never merged onto units. Currently 100/100 daysOnLot=0 because pre-2026-05-02 snapshots predate stable IDs; cron grows history. |
+| **M14** Daily refresh cron — script | `8ba1a73e` (data refresh `fddad730`) | SCRIPT DONE + manual fire tested. **OS cron registration BLOCKED** by sandbox (`crontab` "Operation not permitted"). User needs to install manually — see "Pending user actions" below. |
+
+## Pending user actions
+
+1. **Install daily cron locally** (sandbox blocked the install):
+   ```bash
+   (crontab -l 2>/dev/null | grep -v refresh_daily.sh; echo "0 7 * * * /bin/bash $HOME/ev-auto-trader-canada/scripts/refresh_daily.sh") | crontab -
+   crontab -l    # verify
+   ```
+   7am ET daily. Logs at `~/ev-auto-trader-canada/logs/cron.log`. Manually fire: `bash ~/ev-auto-trader-canada/scripts/refresh_daily.sh`.
+
+2. **M12 Apify sample** still gated on user $0.10 OK (money rule, hard).
 
 ## What HIGH pass shipped (2026-05-02)
 
@@ -26,7 +47,7 @@
 
 ## What's next — read MEDIUM_NEXT.md "POST-HIGH EXECUTION ORDER"
 
-That section has the full ordered queue with tier tags (`[MEDIUM]` vs `[SONNET]`) + dependency map + concurrency hints. The first 3 items (#0a branch drift, #0b M4 preview smoke, #1 M17) are ALREADY DONE on the HIGH pass. **Start at #2 M8 (selector rename).**
+That section has the full ordered queue with tier tags (`[MEDIUM]` vs `[SONNET]`) + dependency map + concurrency hints. **Done:** M8, M15, M16, M14 (script). **Up next: M10 (loyalty/conquest incentive entries).** Then M11 (dossier link column, SONNET), M13 (incentives via Exa), M7 (heatpump UI chip).
 
 Pre-stubbed artifacts that medium should reuse, NOT rewrite:
 - `scripts/derive_days_on_market.py` (M16 algorithm — paste from plan §5/M3 was DONE here)
