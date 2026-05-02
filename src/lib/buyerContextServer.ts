@@ -27,10 +27,3 @@ export async function getBuyerContext(): Promise<BuyerContext> {
   }
   return DEFAULT;
 }
-
-// Convenience for callers that only need the province field. Keeps the
-// existing getBuyerProvince() callsites simple while the migration rolls
-// through the codebase.
-export async function getBuyerProvinceFromContext(): Promise<Province> {
-  return (await getBuyerContext()).province;
-}

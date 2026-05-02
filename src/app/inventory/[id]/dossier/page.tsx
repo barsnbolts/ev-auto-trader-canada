@@ -36,7 +36,7 @@ export default async function DossierPage({ params }: PageProps) {
   const { id } = await params;
   const ctx = await getBuyerContext();
   const [{ units, dealerById }, specs, used] = await Promise.all([
-    loadScoredUnits(ctx.province),
+    loadScoredUnits(ctx),
     loadSpecs(),
     loadUsedListings(),
   ]);

@@ -1,13 +1,13 @@
 import { loadScoredUnits, loadSpecs, specMap } from "@/lib/data";
-import { getBuyerProvince } from "@/lib/buyerProvinceServer";
+import { getBuyerContext } from "@/lib/buyerContextServer";
 import { CompareGrid } from "@/components/CompareGrid";
 
 export const dynamic = "force-dynamic";
 
 export default async function ComparePage() {
-  const buyerProvince = await getBuyerProvince();
+  const buyerContext = await getBuyerContext();
   const [{ units, dealerById }, specs] = await Promise.all([
-    loadScoredUnits(buyerProvince),
+    loadScoredUnits(buyerContext),
     loadSpecs(),
   ]);
   const specByKey = specMap(specs);

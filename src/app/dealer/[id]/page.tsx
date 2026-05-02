@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { loadScoredUnits } from "@/lib/data";
 import { dealerPressureMap } from "@/lib/aggregations";
-import { getBuyerProvince } from "@/lib/buyerProvinceServer";
+import { getBuyerContext } from "@/lib/buyerContextServer";
 import { MODEL_LABEL, PROVINCE_NAMES } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { DealScoreBadge } from "@/components/DealScoreBadge";
@@ -16,8 +16,8 @@ export const dynamic = "force-dynamic";
 
 export default async function DealerPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const buyerProvince = await getBuyerProvince();
-  const { units, dealers } = await loadScoredUnits(buyerProvince);
+  const buyerContext = await getBuyerContext();
+  const { units, dealers } = await loadScoredUnits(buyerContext);
   const dealer = dealers.find((d) => d.id === id);
   if (!dealer) notFound();
 

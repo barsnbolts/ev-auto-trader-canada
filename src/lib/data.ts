@@ -247,16 +247,25 @@ export async function loadSnapshots(limit?: number): Promise<Snapshot[]> {
 // Consolidated dataset: every unit decorated with OTD, deal score, and the
 // incentives that apply. This is the single source of truth all UI reads from.
 //
-// buyerProvince controls the sales-tax basis + transport-cost line. When
-// omitted (e.g. older callers), each unit's OTD assumes the buyer is in
-// the dealer's province — the legacy pre-2026-05 behavior.
-export async function loadScoredUnits(buyerProvince?: import("./constants").Province): Promise<{
+// Accepts a Province (legacy) or full BuyerContext. The province drives the
+// sales-tax basis + transport-cost line in OTD; loyalty/conquest flags gate
+// scoped incentives in applicableIncentives. When omitted, each unit's OTD
+// assumes the buyer is in the dealer's province (legacy pre-2026-05 behavior).
+export async function loadScoredUnits(
+  buyerContextOrProvince?: import("./types").BuyerContext | import("./constants").Province,
+): Promise<{
   units: ScoredUnit[];
   dealers: Dealer[];
   dealerById: Map<string, Dealer>;
   incentives: Incentive[];
+  buyerContext: import("./types").BuyerContext | null;
   buyerProvince: import("./constants").Province | null;
 }> {
+  const buyerContext: import("./types").BuyerContext | undefined =
+    typeof buyerContextOrProvince === "string"
+      ? { province: buyerContextOrProvince, loyalty: false, conquest: false }
+      : buyerContextOrProvince;
+
   const [units, dealers, incentives] = await Promise.all([
     loadUnits(),
     loadDealers(),
@@ -275,8 +284,8 @@ export async function loadScoredUnits(buyerProvince?: import("./constants").Prov
     if (!dealer) {
       throw new Error(`Unit ${unit.id} references unknown dealer ${unit.dealerId}`);
     }
-    const applicable = applicableIncentives(unit, dealer, incentives);
-    const otdBreakdown = computeOtd(unit, dealer, applicable, buyerProvince);
+    const applicable = applicableIncentives(unit, dealer, incentives, buyerContext);
+    const otdBreakdown = computeOtd(unit, dealer, applicable, buyerContext?.province);
     const { score, breakdown } = computeDealScore({
       unit,
       dealer,
@@ -293,5 +302,12 @@ export async function loadScoredUnits(buyerProvince?: import("./constants").Prov
     } satisfies ScoredUnit;
   });
 
-  return { units: scored, dealers, dealerById, incentives, buyerProvince: buyerProvince ?? null };
+  return {
+    units: scored,
+    dealers,
+    dealerById,
+    incentives,
+    buyerContext: buyerContext ?? null,
+    buyerProvince: buyerContext?.province ?? null,
+  };
 }
