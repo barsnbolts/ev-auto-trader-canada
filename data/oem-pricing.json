@@ -1,154 +1,154 @@
 {
-  "lastVerified": "2026-05-01",
-  "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+  "lastVerified": "2026-05-02",
+  "source": "Per-trim refresh from OEM Canadian showroom pages + brochure PDFs (M15 2026-05-02)",
   "notes": "Reasonable Canadian MSRP defaults when data/specs.json is silent for a (model, trim). Phase 3.2 will refresh from OEM configurators (hyundai.ca / kia.ca).",
   "msrp": {
     "EV6": {
       "Light RWD": {
-        "value": 47165,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 48995,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
         "staleSince": null
       },
       "Wind RWD": {
-        "value": 50965,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 55995,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
         "staleSince": null
       },
       "Wind AWD": {
         "value": 53965,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
+        "staleSince": "2026-05-02"
       },
       "Land AWD": {
-        "value": 58965,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 58495,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
         "staleSince": null
       },
       "GT-Line AWD": {
-        "value": 63465,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 61495,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
         "staleSince": null
       },
       "GT": {
         "value": 79566,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
+        "staleSince": "2026-05-02"
       }
     },
     "Ioniq5": {
       "Essential RWD": {
         "value": 47999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5/trims",
+        "staleSince": "2026-05-02"
       },
       "Preferred RWD": {
         "value": 51999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5/trims",
+        "staleSince": "2026-05-02"
       },
       "Preferred RWD Long Range": {
-        "value": 53999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 55499,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5/trims",
         "staleSince": null
       },
       "Preferred AWD Long Range": {
-        "value": 57999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 57499,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5/trims",
         "staleSince": null
       },
       "Limited AWD": {
         "value": 64999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5/trims",
+        "staleSince": "2026-05-02"
       },
       "N": {
         "value": 78199,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5-n/trims",
         "staleSince": null
       }
     },
     "Ioniq6": {
       "Preferred RWD": {
         "value": 49999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6/trims",
+        "staleSince": "2026-05-02"
       },
       "Preferred RWD Long Range": {
-        "value": 53999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 54999,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6/trims",
         "staleSince": null
       },
       "Preferred AWD Long Range": {
-        "value": 57999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 58399,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6/trims",
         "staleSince": null
       },
       "Limited AWD": {
         "value": 64999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6/trims",
+        "staleSince": "2026-05-02"
       }
     },
     "EV9": {
       "Light RWD": {
         "value": 59995,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
         "staleSince": null
       },
       "Light Long Range RWD": {
         "value": 64995,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "staleSince": "2026-05-02"
       },
       "Land Long Range AWD": {
-        "value": 72995,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 64995,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
         "staleSince": null
       },
       "GT-Line AWD": {
-        "value": 79995,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
+        "value": 78995,
+        "lastVerified": "2026-05-02",
+        "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
         "staleSince": null
       }
     },
     "Ioniq9": {
       "Preferred Long Range RWD": {
         "value": 64999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/ioniq-9/trims",
+        "staleSince": "2026-05-02"
       },
       "Preferred Long Range AWD": {
         "value": 69999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/ioniq-9/trims",
+        "staleSince": "2026-05-02"
       },
       "Performance Calligraphy AWD": {
         "value": 79999,
-        "lastVerified": "2026-05-01",
-        "source": "Hand-curated from prior CLAUDE.md / EVAP-cap-modeling work product",
-        "staleSince": null
+        "lastVerified": "2026-05-02",
+        "source": "https://www.hyundaicanada.com/en/showroom/ioniq-9/trims",
+        "staleSince": "2026-05-02"
       }
     }
   }
