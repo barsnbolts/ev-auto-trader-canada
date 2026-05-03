@@ -1176,7 +1176,6 @@
       },
       "notes": "Carried from rangeKm; Kia Canada cites 230 mi (370 km) for SR RWD."
     },
-    "rangeProtocol": null,
     "acChargeMaxKw": {
       "value": 10.9,
       "confidence": "High",
@@ -1278,7 +1277,6 @@
       },
       "notes": "Kia Canada cites ~303 mi (488 km) for LR RWD; carried from rangeKm."
     },
-    "rangeProtocol": null,
     "acChargeMaxKw": {
       "value": 10.9,
       "confidence": "High",
@@ -1569,7 +1567,6 @@
       },
       "notes": "Hyundai Canada cites ~335 mi (539 km) for RWD LR; carried from rangeKm."
     },
-    "rangeProtocol": null,
     "acChargeMaxKw": {
       "value": 10.9,
       "confidence": "High",
@@ -1670,7 +1667,6 @@
       },
       "notes": "Hyundai Canada cites ~320 mi (510 km) for AWD LR; carried from rangeKm."
     },
-    "rangeProtocol": null,
     "acChargeMaxKw": {
       "value": 10.9,
       "confidence": "High",
@@ -1771,7 +1767,6 @@
       },
       "notes": "Performance trim less efficient than Preferred AWD; Hyundai cites ~285 mi (459 km)."
     },
-    "rangeProtocol": null,
     "acChargeMaxKw": {
       "value": 10.9,
       "confidence": "High",
@@ -1872,7 +1867,6 @@
       },
       "notes": "Carried from rangeKm; Kia Canada cites 230 mi (370 km) for SR RWD."
     },
-    "rangeProtocol": null,
     "acChargeMaxKw": {
       "value": 10.9,
       "confidence": "High",
@@ -1974,7 +1968,6 @@
       },
       "notes": "Kia Canada cites ~303 mi (488 km) for LR RWD; carried from rangeKm."
     },
-    "rangeProtocol": null,
     "acChargeMaxKw": {
       "value": 10.9,
       "confidence": "High",
