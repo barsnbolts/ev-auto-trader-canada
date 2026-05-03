@@ -12,18 +12,21 @@ interface Props {
   unit?: { model: string; trim?: string; year?: number };
 }
 
-function readRangeKm(spec: Spec): number | undefined {
-  // Prefer EPA-rated CitedValue range, fall back to flat rangeKm
-  if (spec.rangeEpaKm?.value != null) return spec.rangeEpaKm.value;
-  if (spec.rangeKm != null) return spec.rangeKm;
-  return undefined;
+type RangeSource = "epa" | "legacy" | "missing";
+
+function readRangeKm(spec: Spec): { km: number | undefined; src: RangeSource } {
+  // Prefer EPA-rated CitedValue range, fall back to flat rangeKm.
+  // Track which source was used so the UI can flag carryover values.
+  if (spec.rangeEpaKm?.value != null) return { km: spec.rangeEpaKm.value, src: "epa" };
+  if (spec.rangeKm != null) return { km: spec.rangeKm, src: "legacy" };
+  return { km: undefined, src: "missing" };
 }
 
 export function BatteryHealthPanel({ spec }: Props) {
   if (!spec) return null;
 
   const chem = spec.batteryChemistry as BatteryChemistry | undefined;
-  const ratedRangeKm = readRangeKm(spec);
+  const { km: ratedRangeKm, src: rangeSrc } = readRangeKm(spec);
 
   // All three fields must be present for projections.
   if (!chem || !ratedRangeKm) {
@@ -83,6 +86,12 @@ export function BatteryHealthPanel({ spec }: Props) {
         Actual loss varies with charging habits and climate.
         {chem === "LFP" && " LFP chemistry degrades slower than NMC — strong long-term value."}
         {chem === "NMC" && " NMC is common in Korean EVs; warranty covers ≥70% capacity for 8 yr / 160 000 km."}
+        {rangeSrc === "legacy" && (
+          <>
+            {" "}
+            <em>Data: Medium confidence — rated range from legacy field, not cited EPA value.</em>
+          </>
+        )}
       </p>
     </div>
   );

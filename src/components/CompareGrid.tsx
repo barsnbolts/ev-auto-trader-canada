@@ -1,5 +1,14 @@
 "use client";
 
+// CompareGrid — side-by-side comparison for individual ScoredUnit listings
+// from the inventory side (units.json). State is checkbox-driven, ephemeral
+// to this component instance.
+//
+// NOTE: There is a SEPARATE compare UI in src/components/PickerCompareTray.tsx
+// for the /pick-a-model flow that compares Spec objects (model-shopping)
+// using a Zustand store with localStorage persistence. The two compare
+// flows are intentionally distinct: this one picks WHICH UNIT to buy
+// (dealer-by-dealer), while the picker compares MODELS in the abstract.
 import { useMemo, useState } from "react";
 import type { Dealer, Incentive, ScoredUnit, Spec } from "@/lib/types";
 import { readNumeric } from "@/lib/types";
@@ -142,8 +151,12 @@ function CompareTable({
       label: "Power (kW / hp)",
       render: (u) => {
         const s = lookupSpec(u);
+        // Prefer motorKw and compute hp (1 kW ≈ 1.341 hp). motorHp legacy
+        // field is honored as a fallback only.
         if (!s?.motorKw && !s?.motorHp) return <span className="text-fg-subtle">—</span>;
-        return <span className="num">{s.motorKw ?? "—"} / {s.motorHp ?? "—"}</span>;
+        const kw = s.motorKw;
+        const hp = s.motorHp ?? (kw != null ? Math.round(kw * 1.341) : undefined);
+        return <span className="num">{kw ?? "—"} / {hp ?? "—"}</span>;
       },
       rank: { value: (u) => lookupSpec(u)?.motorKw },
     },

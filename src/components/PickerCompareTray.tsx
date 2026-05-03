@@ -1,5 +1,17 @@
 "use client";
 
+// PickerCompareTray — bottom-bar tray for the /pick-a-model "shop by model"
+// flow. State lives in Zustand (src/store/picker.ts), persisted to
+// localStorage. Tray IDs are spec keys (model|year|trim).
+//
+// NOTE: There is a SEPARATE compare UI in src/components/CompareGrid.tsx
+// that is driven by URL search params (not Zustand) and operates over
+// individual ScoredUnit instances on the inventory side. Two compare flows
+// co-exist intentionally:
+//   - Picker tray: shopping by *model* (specs.json) — pre-purchase research.
+//   - CompareGrid: shopping by *unit* (units.json) — picking which dealer
+//     listing to buy. They have different domain objects (Spec vs ScoredUnit)
+//     and different lifecycles (Zustand persist vs URL).
 import { usePickerStore } from "@/store/picker";
 import type { Spec } from "@/lib/types";
 
