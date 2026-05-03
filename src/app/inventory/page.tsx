@@ -36,7 +36,9 @@ export default async function InventoryPage({
   const specByUnitId: Record<string, Spec> = {};
   for (const u of units) {
     const s = sm.get(specKey(u.model, u.year, u.trim, u.drivetrain));
-    rangeByUnitId[u.id] = s?.rangeKm ?? null;
+    // Prefer cited EPA range when available (post-F1.5b: all 31 specs carry it),
+    // fall back to legacy rangeKm field for any spec without an EPA citation.
+    rangeByUnitId[u.id] = s?.rangeEpaKm?.value ?? s?.rangeKm ?? null;
     if (s) specByUnitId[u.id] = s;
   }
 

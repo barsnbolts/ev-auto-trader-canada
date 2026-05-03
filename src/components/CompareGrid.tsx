@@ -134,10 +134,10 @@ function CompareTable({
     { label: "Interior", render: (u) => u.interiorColor },
     { label: "Status", render: (u) => <StatusChip status={u.status} /> },
     { label: "Days on lot", render: (u) => u.daysOnLot ?? "—" },
-    { label: "Range (km)", render: (u) => numOrDash(lookupSpec(u)?.rangeKm), rank: { value: (u) => lookupSpec(u)?.rangeKm } },
+    { label: "Range (km)", render: (u) => { const s = lookupSpec(u); return numOrDash(s?.rangeEpaKm?.value ?? s?.rangeKm); }, rank: { value: (u) => { const s = lookupSpec(u); return s?.rangeEpaKm?.value ?? s?.rangeKm; } } },
     { label: "Battery (kWh)", render: (u) => numOrDash(readNumeric(lookupSpec(u)?.batteryKwh)), rank: { value: (u) => readNumeric(lookupSpec(u)?.batteryKwh) } },
-    { label: "DC fast (kW)", render: (u) => numOrDash(lookupSpec(u)?.dcFastChargeKw), rank: { value: (u) => lookupSpec(u)?.dcFastChargeKw } },
-    { label: "AC charge (kW)", render: (u) => numOrDash(lookupSpec(u)?.acChargeKw), rank: { value: (u) => lookupSpec(u)?.acChargeKw } },
+    { label: "DC fast (kW)", render: (u) => { const s = lookupSpec(u); return numOrDash(readNumeric(s?.dcChargeMaxKw) ?? s?.dcFastChargeKw); }, rank: { value: (u) => { const s = lookupSpec(u); return readNumeric(s?.dcChargeMaxKw) ?? s?.dcFastChargeKw; } } },
+    { label: "AC charge (kW)", render: (u) => { const s = lookupSpec(u); return numOrDash(readNumeric(s?.acChargeMaxKw) ?? s?.acChargeKw); }, rank: { value: (u) => { const s = lookupSpec(u); return readNumeric(s?.acChargeMaxKw) ?? s?.acChargeKw; } } },
     {
       label: "Power (kW / hp)",
       render: (u) => {
