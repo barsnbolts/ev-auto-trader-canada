@@ -6,7 +6,7 @@
 
 ## Where we are
 
-- **HEAD (pushed):** `8ba1a73e`
+- **HEAD (pushed):** `49cb2b9b`
 - **Branch:** `claude/verify-environment-setup-oTu3S` (synced with origin)
 - **Working tree at handoff:** clean
 - **Pre-commit hook:** ACTIVE — `.git/hooks/pre-commit` runs `npx tsc --noEmit` on every commit (don't try to bypass with `--no-verify`)
@@ -20,17 +20,23 @@
 | **M15** Per-trim Canadian MSRP refresh | `d4343b5c` | DONE — 10 trims with new prices, 11 staleSince. Subagent used Firecrawl + CarCostCanada cross-ref for Kia (PDFs lack prices); source field still points to OEM brochure URL per task spec. |
 | **M16** Snapshot-diff daysOnLot + enrichment merge fix | `2e7c86dd` | DONE — also fixed bug in build_units_from_at.py where enrichment was re-keyed but never merged onto units. Currently 100/100 daysOnLot=0 because pre-2026-05-02 snapshots predate stable IDs; cron grows history. |
 | **M14** Daily refresh cron — script | `8ba1a73e` (data refresh `fddad730`) | SCRIPT DONE + manual fire tested. **OS cron registration BLOCKED** by sandbox (`crontab` "Operation not permitted"). User needs to install manually — see "Pending user actions" below. |
+| **V5 Phase A** schema groundwork (3-path OTD) | `57ecc361` | DONE — types `OtdBreakdown` / `FinanceBreakdown` / `LeaseBreakdown` exported; `ScoredUnit.otdPaths` optional 3-path slot; lease fields on `Incentive`; `computeFinanceOtd` + `computeLeaseOtd` functional in scoring.ts; `loadScoredUnits` populates `otdPaths` on every unit. Reusable assets pre-landed: `data/vehicle-images.json` (5 hero shots), `src/lib/usedListingsLinks.ts` (verified deep-link templates). `@travishorn/financejs` installed for Phase C amortization tables. |
+| **A4 + A5** Vercel + launchd configs | `49cb2b9b` | DONE — `vercel.json` minimal config + `docs/DEPLOY.md` runbook for first-time setup; `scripts/com.evautotrader.refresh.plist` macOS launchd agent (user installs via single `launchctl load` — see plist header). |
 
 ## Pending user actions
 
-1. **Install daily cron locally** (sandbox blocked the install):
+1. **Install daily refresh launchd agent** (preferred over crontab; sandbox blocked direct install):
    ```bash
-   (crontab -l 2>/dev/null | grep -v refresh_daily.sh; echo "0 7 * * * /bin/bash $HOME/ev-auto-trader-canada/scripts/refresh_daily.sh") | crontab -
-   crontab -l    # verify
+   cp ~/ev-auto-trader-canada/scripts/com.evautotrader.refresh.plist ~/Library/LaunchAgents/
+   launchctl load ~/Library/LaunchAgents/com.evautotrader.refresh.plist
+   launchctl list | grep evautotrader   # verify
    ```
-   7am ET daily. Logs at `~/ev-auto-trader-canada/logs/cron.log`. Manually fire: `bash ~/ev-auto-trader-canada/scripts/refresh_daily.sh`.
+   7 AM local daily. Logs at `~/ev-auto-trader-canada/logs/cron.log`. Manual fire: `launchctl start com.evautotrader.refresh` or `bash ~/ev-auto-trader-canada/scripts/refresh_daily.sh`.
 
-2. **M12 Apify sample** still gated on user $0.10 OK (money rule, hard).
+2. **First-time Vercel deploy** (one-time, ~10 min):
+   See `docs/DEPLOY.md` for the full runbook. Summary: `npm install -g vercel && vercel login && vercel link && vercel --prod`. Then set production-branch override to `claude/verify-environment-setup-oTu3S` in the Vercel dashboard. Subsequent deploys auto-trigger on push.
+
+3. **M12 Apify** entirely SKIPPED per V5 plan decision. Snapshot-diff (M16) covers daysOnLot. No Apify spend.
 
 ## What HIGH pass shipped (2026-05-02)
 

@@ -21,7 +21,233 @@ migration to Option B (`data/oem-pricing.json` now per-trim
 `buyerProvinceServer.ts` deleted). **M9 below in this file** (the
 migrate-callers task) **is now stale — already shipped.**
 
+**MEDIUM pass 2026-05-02 evening (HEAD `49cb2b9b`) shipped:** M8 selector
+rename + loyalty/conquest checkboxes (`ae9ca648`); M15 per-trim Canadian
+MSRP refresh (`d4343b5c`); M16 snapshot-diff daysOnLot + enrichment
+merge bug-fix (`2e7c86dd`); M14 daily refresh script (`8ba1a73e`);
+V5 Phase A schema groundwork (`57ecc361`) — types `OtdBreakdown` /
+`FinanceBreakdown` / `LeaseBreakdown` exported, `ScoredUnit.otdPaths`
+optional 3-path slot, lease fields on Incentive, `computeFinanceOtd`
++ `computeLeaseOtd` functional in scoring.ts, `loadScoredUnits` populates
+`otdPaths` on every unit; A4+A5 (`49cb2b9b`) Vercel + launchd config.
+**Old POST-HIGH EXECUTION ORDER (§ below) is SUPERSEDED — see V5 PHASE
+B/C/D below.**
+
 ---
+
+## V5 PHASE B/C/D EXECUTION ORDER (active queue, 2026-05-02 evening)
+
+Read this section first. Below it (the old POST-HIGH EXECUTION ORDER) is
+historical archive only. Tasks here are fully specified — copy the
+dispatch prompts verbatim into `Agent` tool calls.
+
+### Order
+
+| Phase | Tier | Owner | Files | Est. tokens |
+|-------|------|-------|-------|-------------|
+| **B1** Incentive data fill (loyalty + conquest + Exa-refreshed federal/provincial + lease/finance promos) | Sonnet subagent | One agent | `data/incentives.json` only | ~25k |
+| **B2** Full UI batch (dossier link + photos + used-listings + heatpump chip + 3-path OTD rendering) | Sonnet subagent | One agent | `src/components/InventoryTable.tsx`, `src/components/UnitDrawer.tsx`, `src/app/inventory/[id]/dossier/page.tsx`, `src/app/compare/page.tsx` | ~35k |
+| **D1** Math review + integration test | HIGH inline | This Opus or fresh HIGH session | Read-only verification | ~10k |
+| **D2** Vercel first-deploy (one-time) | User runs commands from `docs/DEPLOY.md` | n/a | n/a |
+
+B1 + B2 are **parallel-safe** (no shared files). Dispatch in single message
+with two `Agent` tool calls.
+
+### Hygiene before dispatching
+
+```bash
+cd ~/ev-auto-trader-canada && git fetch origin && git pull --ff-only
+npm install && npm run predeploy   # must pass
+```
+
+### B1 dispatch prompt (copy verbatim into Agent tool with model: "sonnet")
+
+```
+You are running Phase B1 of the V5 plan for ev-auto-trader-canada.
+Project root: /Users/ianmcadam/ev-auto-trader-canada. Today is 2026-05-02.
+
+## Goal
+
+Fill `data/incentives.json` with the following entries via Exa lookups
+on hyundaicanada.com/en/offers + kia.ca/en/offers. Use the existing
+schema (every existing entry shows the field shape).
+
+## Required entries (target ≥ 8 total new entries)
+
+1. **Hyundai loyalty rate reduction** — current Hyundai owners. Typically
+   0.5-1.0% APR cut on Ioniq 5/6/9. scope: "loyalty". appliesTo.models:
+   ["Ioniq5","Ioniq6","Ioniq9"]. aprPercent: the REDUCTION amount (e.g.
+   -0.5 means 0.5% off the standard rate; document in notes).
+2. **Hyundai conquest cash** — competing-brand owner cash. ~$500-1500.
+   scope: "conquest". appliesTo.models: same.
+3. **Kia loyalty cash** — current Kia owner cash on EV6/EV9. ~$500-1000.
+   scope: "loyalty".
+4. **Kia conquest cash** — competing-brand owner cash on EV6/EV9.
+   scope: "conquest".
+5. **Hyundai EV6/Ioniq lease promo** — current month's subvented lease
+   (Apr/May 2026). scope: "lease_promo". Required fields: aprPercent,
+   termMonths, residualPercent. Optional: leaseSecurityDepositCad,
+   leaseAnnualMileageKm, leaseOverageCadPerKm, capCostReductionCad,
+   monthlyPaymentExample.
+6. **Kia EV6/EV9 lease promo** — same shape. scope: "lease_promo".
+7. **Hyundai finance promo** — subvented APR finance. scope: "finance_promo".
+   Required: aprPercent, termMonths. Optional: downPaymentExample,
+   monthlyPaymentExample.
+8. **Kia finance promo** — same shape. scope: "finance_promo".
+
+## Decision rules
+
+- If an offer says "0.99% finance for 60 months" → aprPercent: 0.99,
+  termMonths: 60.
+- If lease shows "$X bi-weekly", multiply ×2.17 for monthly approximation
+  (or use Hyundai's monthly equivalent if shown).
+- If a field isn't disclosed publicly: omit it (Zod schema treats fields
+  as optional).
+- Set `status: "active"`, `effectiveFrom`, `effectiveUntil` (typically
+  end of current month for lease/finance promos).
+- Add `lastVerified: "2026-05-02"`, `source: <URL>`.
+
+## Constraints
+
+- DO NOT modify ANY file other than `data/incentives.json`.
+- DO NOT touch the existing federal/provincial entries — those are M13's
+  scope, separate task.
+- DO NOT create new fields outside the IncentiveSchema.
+- Verify with `jq` after writing:
+  - `jq '[.[] | select(.scope=="loyalty" or .scope=="conquest")] | length'` ≥ 4
+  - `jq '[.[] | select(.scope=="lease_promo" or .scope=="finance_promo")] | length'` ≥ 4
+- Run `npm run predeploy` — must pass before declaring done.
+
+## Output
+
+Reply with: count of entries added per scope, any decisions you had to
+make on ambiguous offer wording, and final `git diff --stat`.
+Don't commit; the parent commits.
+```
+
+### B2 dispatch prompt (copy verbatim into Agent tool with model: "sonnet")
+
+```
+You are running Phase B2 of the V5 plan for ev-auto-trader-canada.
+Project root: /Users/ianmcadam/ev-auto-trader-canada. Today is 2026-05-02.
+
+## Goal
+
+Wire the full UI for Phase A's already-shipped data + components. Files
+allowed: `src/components/InventoryTable.tsx`, `src/components/UnitDrawer.tsx`,
+`src/app/inventory/[id]/dossier/page.tsx`, `src/app/compare/page.tsx`.
+NOTHING outside these 4 files.
+
+## Available data + helpers (read these first)
+
+- `src/lib/types.ts` — exported types: `OtdBreakdown`, `FinanceBreakdown`,
+  `LeaseBreakdown`, `ScoredUnit.otdPaths`. Read the full file.
+- `src/lib/scoring.ts` — `computeFinanceOtd`, `computeLeaseOtd` (already
+  called in `loadScoredUnits`; you just consume `unit.otdPaths`).
+- `src/lib/usedListingsLinks.ts` — `usedListingsFor(model, province)`
+  returns `{ autoTrader, kijiji, leasebusters, leasebustersIsManualSearch }`.
+- `data/vehicle-images.json` — 5 hand-curated hero shots keyed by model.
+  Import as a JSON module.
+- `data/specs.json` + spec lookup pattern: read `src/lib/data.ts` to
+  see how specs are matched to units (model+year+trim+drivetrain tuple).
+  `spec.hasHeatPump` is the heatpump field.
+
+## Tasks
+
+1. **M11 dossier link column** — Add `<Link href={\`/inventory/\${u.id}/dossier\`}>📄</Link>`
+   in the actions area of each row in InventoryTable. If a column was added
+   visibly, bump colSpan on the empty-state row.
+
+2. **Vehicle hero photos** — Add a small (40-60px wide) image cell
+   per row showing the per-model hero from `data/vehicle-images.json`.
+   Use `next/image` with `width` + `height` + `alt`. Falls back gracefully
+   if model not in the JSON.
+
+3. **Used-listings deep-links** — Add 3 small icon-buttons per row:
+   AutoTrader / Kijiji / Leasebusters (open in new tab). Use
+   `usedListingsFor(unit.model, buyerContext.province)`. For Leasebusters,
+   the `leasebustersIsManualSearch` flag means: render a tooltip "Manual
+   search — Leasebusters has no deep-link."
+
+4. **Heatpump chip (M7)** — In InventoryTable + UnitDrawer + dossier,
+   look up the spec for the unit's (model, year, trim, drivetrain) tuple.
+   Render a tri-state chip:
+   - `spec.hasHeatPump === true` → no chip (default = good).
+   - `spec.hasHeatPump === false` → red `❌ No heat pump`.
+   - `spec.hasHeatPump == null` (undefined or null) → grey `❓ Heat pump?`.
+   Match the existing chip styling (look at how msrpSource chips render).
+
+5. **3-path OTD rendering** —
+   - InventoryTable: small badge row under each unit's price showing
+     `Cash $X · Finance $Y/mo · Lease $Z/mo` — finance/lease only if
+     `unit.otdPaths.finance` / `unit.otdPaths.lease` is present.
+   - dossier/page.tsx: 3-tab section ("Cash" / "Finance" / "Lease").
+     Cash tab uses existing OtdBreakdown rendering. Finance + Lease
+     tabs render the new breakdowns; show "No promo on this trim"
+     when undefined.
+   - compare/page.tsx: extend the comparison row to show 3-path matrix
+     (compact view with monthly payments).
+
+## Constraints
+
+- DO NOT touch any other file.
+- DO NOT change the schema (`src/lib/types.ts`) — schema is finalized.
+- DO NOT modify scoring.ts — math is finalized.
+- Use Tailwind classes consistent with existing components (look at
+  current InventoryTable styling for patterns).
+- Run `npm run predeploy` — must pass.
+- Run `npm run dev` briefly + `curl -s http://localhost:3000/inventory | head -5`
+  to confirm the page still 200s. Kill the dev server when done.
+
+## Output
+
+Reply with: per-task confirmation (M11 ✓, photos ✓, links ✓, chip ✓,
+3-path ✓), files modified, `npm run predeploy` result, any decisions on
+styling. Don't commit; parent commits.
+```
+
+### After B1 + B2 return
+
+This Opus session (or whoever is parent):
+
+1. `git status` — confirm only the expected files are touched.
+2. `npm run predeploy` — final gate.
+3. Visit `/inventory` + `/inventory/<id>/dossier` + `/compare` in dev
+   server (or use Claude Preview MCP). Eyeball one unit per route.
+4. Commit + push: `feat(B1+B2): incentives data fill + full UI batch (3-path OTD, photos, deep-links, heatpump chip)`
+5. Move to D1.
+
+### D1 — Math review (HIGH inline)
+
+When B1 has populated lease_promo + finance_promo entries, pick 1 of each
+and verify by hand:
+
+```ts
+// finance:
+// principal = otdPaths.cash.total - downPaymentCad
+// monthly = pmt(apr/12/100, term, principal)
+// totalInterest = monthly*term + downPaymentCad - cash.total
+
+// lease:
+// capCost = MSRP + freightPdi - capCostReduction
+// residual = MSRP * residualPercent/100
+// monthly = (capCost - residual)/term + (capCost+residual)*(apr/2400)
+```
+
+Compare against an external calculator (bankrate.com finance calc OR
+edmunds.com lease calc). Tolerance: 1 CAD per month.
+
+If math is off, fix in `src/lib/scoring.ts` + commit.
+
+### D2 — Vercel first deploy (one-time, user runs)
+
+See `docs/DEPLOY.md` for the runbook. User runs `vercel link` + `vercel --prod`
+once; subsequent deploys are automatic on push.
+
+---
+
+## Old POST-HIGH EXECUTION ORDER (HISTORICAL — superseded by V5 above)
+
 
 ## POST-HIGH EXECUTION ORDER (2026-05-02 → next medium session)
 
