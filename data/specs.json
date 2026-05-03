@@ -6,17 +6,85 @@
     "drivetrain": "RWD",
     "motorKw": 125,
     "motorHp": 167,
-    "batteryKwh": 63,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/ev6",
+        "name": "Kia Canada — EV6",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 381,
     "dcFastChargeKw": 350,
     "acChargeKw": 10.9,
     "cargoLitres": 690,
     "seats": 5,
     "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
-    "hasHeatPump": false,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium"
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 499,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.evrangetools.com/vehicles/kia-ev6-light-long-range-rwd-2025",
+        "name": "EV Range Tools 2025 EV6 Light LR RWD (EPA 310 mi = 499 km)",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01-ext 2026-04-23: EPA 310 mi = 499 km, exact match."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.evrangetools.com/vehicles/kia-ev6-light-long-range-rwd-2025",
+        "name": "EV Range Tools 2025 EV6 RWD charging",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01-ext CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW was AWD-only spec. Mirrors IONIQ 5 RWD correction."
+    },
+    "portType": "NACS",
+    "weightKg": {
+      "value": 2025,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 225
+      },
+      {
+        "socPct": 20,
+        "kw": 255
+      },
+      {
+        "socPct": 40,
+        "kw": 205
+      },
+      {
+        "socPct": 60,
+        "kw": 135
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025 refresh (84 kWh)"
   },
   {
     "model": "EV6",
@@ -25,17 +93,85 @@
     "drivetrain": "RWD",
     "motorKw": 168,
     "motorHp": 225,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/ev6",
+        "name": "Kia Canada — EV6",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 513,
     "dcFastChargeKw": 350,
     "acChargeKw": 10.9,
     "cargoLitres": 690,
     "seats": 5,
     "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium"
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 499,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.evrangetools.com/vehicles/kia-ev6-light-long-range-rwd-2025",
+        "name": "EV Range Tools 2025 EV6 Light LR RWD (EPA 310 mi = 499 km)",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01-ext 2026-04-23: EPA 310 mi = 499 km, exact match."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.evrangetools.com/vehicles/kia-ev6-light-long-range-rwd-2025",
+        "name": "EV Range Tools 2025 EV6 RWD charging",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01-ext CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW was AWD-only spec. Mirrors IONIQ 5 RWD correction."
+    },
+    "portType": "NACS",
+    "weightKg": {
+      "value": 2025,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 225
+      },
+      {
+        "socPct": 20,
+        "kw": 255
+      },
+      {
+        "socPct": 40,
+        "kw": 205
+      },
+      {
+        "socPct": 60,
+        "kw": 135
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025 refresh (84 kWh)"
   },
   {
     "model": "EV6",
@@ -44,17 +180,80 @@
     "drivetrain": "AWD",
     "motorKw": 239,
     "motorHp": 320,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium"
+    },
     "rangeKm": 475,
     "dcFastChargeKw": 350,
     "acChargeKw": 10.9,
     "cargoLitres": 690,
     "seats": 5,
     "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium"
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 475,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
+        "name": "EVSpecsHub — Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 → 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 258,
+      "confidence": "High",
+      "source": {
+        "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
+        "name": "EVSpecsHub + EV-Database cross-confirmed (800V architecture)",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 verified. Some sources cite 263 kW; 258 is official conservative spec."
+    },
+    "portType": "NACS",
+    "weightKg": {
+      "value": 2115,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 225
+      },
+      {
+        "socPct": 20,
+        "kw": 255
+      },
+      {
+        "socPct": 40,
+        "kw": 205
+      },
+      {
+        "socPct": 60,
+        "kw": 135
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025 refresh (84 kWh)"
   },
   {
     "model": "EV6",
@@ -63,17 +262,80 @@
     "drivetrain": "AWD",
     "motorKw": 239,
     "motorHp": 320,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium"
+    },
     "rangeKm": 435,
     "dcFastChargeKw": 350,
     "acChargeKw": 10.9,
     "cargoLitres": 690,
     "seats": 5,
     "source": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium"
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 475,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
+        "name": "EVSpecsHub — Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 → 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 258,
+      "confidence": "High",
+      "source": {
+        "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
+        "name": "EVSpecsHub + EV-Database cross-confirmed (800V architecture)",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 verified. Some sources cite 263 kW; 258 is official conservative spec."
+    },
+    "portType": "NACS",
+    "weightKg": {
+      "value": 2115,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 225
+      },
+      {
+        "socPct": 20,
+        "kw": 255
+      },
+      {
+        "socPct": 40,
+        "kw": 205
+      },
+      {
+        "socPct": 60,
+        "kw": 135
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025 refresh (84 kWh)"
   },
   {
     "model": "EV6",
@@ -82,7 +344,10 @@
     "drivetrain": "AWD",
     "motorKw": 478,
     "motorHp": 641,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium"
+    },
     "rangeKm": 355,
     "dcFastChargeKw": 350,
     "acChargeKw": 10.9,
@@ -92,10 +357,70 @@
     "msrpCad": 79566,
     "freightPdiCad": 2150,
     "source": "https://www.kia.com/content/dam/kwp/kr/ko/vehicles/pdf/en_brochure/en_catalog_ev6-gt.pdf",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kiamedia.com/us/en/models/ev6/2025/features",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium"
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 475,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
+        "name": "EVSpecsHub — Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 → 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 258,
+      "confidence": "High",
+      "source": {
+        "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
+        "name": "EVSpecsHub + EV-Database cross-confirmed (800V architecture)",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 verified. Some sources cite 263 kW; 258 is official conservative spec."
+    },
+    "portType": "NACS",
+    "weightKg": {
+      "value": 2115,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 225
+      },
+      {
+        "socPct": 20,
+        "kw": 255
+      },
+      {
+        "socPct": 40,
+        "kw": 205
+      },
+      {
+        "socPct": 60,
+        "kw": 135
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025 refresh (84 kWh)"
   },
   {
     "model": "Ioniq5",
@@ -104,14 +429,93 @@
     "drivetrain": "RWD",
     "motorKw": 125,
     "motorHp": 168,
-    "batteryKwh": 63,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+        "name": "Hyundai Canada — IONIQ 5",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 354,
     "dcFastChargeKw": 350,
     "source": "https://www.hyundaicanada.com/-/media/hyundai/showroom/2025/ioniq-5/product-card/2025-ioniq-5-product-card-english.pdf",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "notes": "Standard heat pump on 2025+ Canadian long-range trims."
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://ev-database.org/car/2418/Hyundai-IONIQ-5-Long-Range-RWD-2024",
+        "name": "EV-Database.org (2024+ long-range RWD)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 510,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundainews.com/view/releases/4288",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
+        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 770,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 2012,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025+ (84 kWh refresh)"
   },
   {
     "model": "Ioniq5",
@@ -120,14 +524,93 @@
     "drivetrain": "RWD",
     "motorKw": 168,
     "motorHp": 225,
-    "batteryKwh": 77.4,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+        "name": "Hyundai Canada — IONIQ 5",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 488,
     "dcFastChargeKw": 350,
     "source": "https://www.hyundaicanada.com/-/media/hyundai/showroom/2025/ioniq-5/product-card/2025-ioniq-5-product-card-english.pdf",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "notes": "Standard heat pump on 2025+ Canadian long-range trims."
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://ev-database.org/car/2418/Hyundai-IONIQ-5-Long-Range-RWD-2024",
+        "name": "EV-Database.org (2024+ long-range RWD)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 510,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundainews.com/view/releases/4288",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
+        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 770,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 2012,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025+ (84 kWh refresh)"
   },
   {
     "model": "Ioniq5",
@@ -136,18 +619,17 @@
     "drivetrain": "AWD",
     "motorKw": 239,
     "motorHp": 320,
-    "batteryKwh": 77.4,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium"
+    },
     "rangeKm": 418,
     "dcFastChargeKw": 350,
     "source": "https://www.hyundaicanada.com/-/media/hyundai/showroom/2025/ioniq-5/product-card/2025-ioniq-5-product-card-english.pdf",
     "hasHeatPump": {
       "value": true,
-      "confidence": "High",
-      "notes": "Standard heat pump on 2025+ Canadian long-range trims."
+      "confidence": "High"
     },
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02",
     "batteryKwhUsable": {
       "value": 81.9,
       "confidence": "Medium",
@@ -188,11 +670,26 @@
     },
     "thermalManagement": "active_liquid",
     "chargingCurve": [
-      { "socPct": 10, "kw": 220 },
-      { "socPct": 20, "kw": 250 },
-      { "socPct": 40, "kw": 200 },
-      { "socPct": 60, "kw": 130 },
-      { "socPct": 80, "kw": 80 }
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
     ],
     "bodyStyle": "Crossover",
     "powertrain": "BEV",
@@ -205,17 +702,78 @@
     "drivetrain": "AWD",
     "motorKw": 448,
     "motorHp": 601,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium"
+    },
     "rangeKm": 356,
     "dcFastChargeKw": 350,
     "zeroToHundredSec": 3.4,
     "msrpCad": 78199,
     "freightPdiCad": 2050,
     "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5-n",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5-n",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium"
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 470,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.fueleconomy.gov",
+        "name": "EPA fueleconomy.gov (IONIQ 5 AWD Long Range 2025)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 258,
+      "confidence": "Medium"
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 770,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 2105,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025+ (84 kWh refresh)"
   },
   {
     "model": "Ioniq5",
@@ -224,16 +782,95 @@
     "drivetrain": "RWD",
     "motorKw": 168,
     "motorHp": 225,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+        "name": "Hyundai Canada — IONIQ 5",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 504,
     "dcFastChargeKw": 350,
     "msrpCad": 55499,
     "freightPdiCad": 2050,
     "source": "https://www.hyundaicanada.com/en/showroom/ioniq-5",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "notes": "Standard heat pump on 2025+ Canadian long-range trims."
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://ev-database.org/car/2418/Hyundai-IONIQ-5-Long-Range-RWD-2024",
+        "name": "EV-Database.org (2024+ long-range RWD)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 510,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundainews.com/view/releases/4288",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
+        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 770,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 2012,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025+ (84 kWh refresh)"
   },
   {
     "model": "Ioniq5",
@@ -242,14 +879,75 @@
     "drivetrain": "AWD",
     "motorKw": 239,
     "motorHp": 320,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium"
+    },
     "rangeKm": 463,
     "dcFastChargeKw": 350,
     "source": "https://www.hyundaicanada.com/en/showroom/ioniq-5",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium"
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 470,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.fueleconomy.gov",
+        "name": "EPA fueleconomy.gov (IONIQ 5 AWD Long Range 2025)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 258,
+      "confidence": "Medium"
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 770,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 2105,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025+ (84 kWh refresh)"
   },
   {
     "model": "Ioniq6",
@@ -258,16 +956,93 @@
     "drivetrain": "RWD",
     "motorKw": 168,
     "motorHp": 225,
-    "batteryKwh": 77.4,
+    "batteryKwh": {
+      "value": 77.4,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/2024/ioniq-6",
+        "name": "Hyundai Canada — IONIQ 6",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 550,
     "dcFastChargeKw": 350,
     "msrpCad": 54999,
     "freightPdiCad": 2050,
     "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 74,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://ev-database.org/car/1876/Hyundai-IONIQ-6-Long-Range-2WD",
+        "name": "EV-Database.org",
+        "accessed": "2026-04-23"
+      }
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 581,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.fueleconomy.gov",
+        "name": "EPA fueleconomy.gov (IONIQ 6 LR RWD)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://motorillustrated.com/epa-says-the-hyundai-ioniq-6-can-drive-up-to-581-kilometers-on-a-charge/109895/",
+        "name": "Motor Illustrated IONIQ 6 + EVChargeRight 800V architecture",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01-ext 2026-04-23: 233 kW peak (shared 800V arch with IONIQ 5 RWD)."
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 317,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 1965,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 195
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 75
+      }
+    ],
+    "bodyStyle": "Sedan",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2023+)"
   },
   {
     "model": "Ioniq6",
@@ -276,14 +1051,81 @@
     "drivetrain": "AWD",
     "motorKw": 239,
     "motorHp": 320,
-    "batteryKwh": 77.4,
+    "batteryKwh": {
+      "value": 77.4,
+      "confidence": "High"
+    },
     "rangeKm": 509,
     "dcFastChargeKw": 350,
     "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "batteryKwhUsable": {
+      "value": 74,
+      "confidence": "Medium"
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 509,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.fueleconomy.gov",
+        "name": "EPA fueleconomy.gov (IONIQ 6 LR AWD)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://motorillustrated.com/epa-says-the-hyundai-ioniq-6-can-drive-up-to-581-kilometers-on-a-charge/109895/",
+        "name": "Motor Illustrated IONIQ 6",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01-ext 2026-04-23: 233 kW peak (shared 800V arch)."
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 317,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 2059,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 195
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 75
+      }
+    ],
+    "bodyStyle": "Sedan",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2023+)"
   },
   {
     "model": "EV9",
@@ -292,7 +1134,15 @@
     "drivetrain": "RWD",
     "motorKw": 160,
     "motorHp": 215,
-    "batteryKwh": 76,
+    "batteryKwh": {
+      "value": 76,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "carryover",
+        "accessed": "2026-05-02"
+      }
+    },
     "rangeKm": 370,
     "dcFastChargeKw": 350,
     "cargoLitres": 333,
@@ -301,10 +1151,15 @@
     "freightPdiCad": 2150,
     "notes": "verifyPending: hand-seeded from public knowledge. Re-verify from kia.ca brochure when DR follow-up runs.",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "hasHeatPump": false,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": false,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "name": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "accessed": "2026-05-02"
+      }
+    }
   },
   {
     "model": "EV9",
@@ -313,7 +1168,15 @@
     "drivetrain": "RWD",
     "motorKw": 150,
     "motorHp": 201,
-    "batteryKwh": 99.8,
+    "batteryKwh": {
+      "value": 99.8,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "carryover",
+        "accessed": "2026-05-02"
+      }
+    },
     "rangeKm": 480,
     "dcFastChargeKw": 350,
     "cargoLitres": 333,
@@ -322,10 +1185,15 @@
     "freightPdiCad": 2150,
     "notes": "verifyPending: hand-seeded.",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "name": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "accessed": "2026-05-02"
+      }
+    }
   },
   {
     "model": "EV9",
@@ -334,7 +1202,15 @@
     "drivetrain": "AWD",
     "motorKw": 282,
     "motorHp": 379,
-    "batteryKwh": 99.8,
+    "batteryKwh": {
+      "value": 99.8,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
+        "name": "Kia Media — EV9 specifications",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 410,
     "dcFastChargeKw": 350,
     "cargoLitres": 333,
@@ -343,10 +1219,76 @@
     "freightPdiCad": 2150,
     "notes": "verifyPending: hand-seeded.",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "Medium",
+      "notes": "Kia EV9 thermal management standard."
+    },
+    "batteryKwhUsable": {
+      "value": 95.5,
+      "confidence": "Medium",
+      "notes": "Estimated ~95.5% of total."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 451,
+      "confidence": "High",
+      "source": {
+        "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+        "name": "Driving.ca — EV9 onboard charger",
+        "accessed": "2026-04-23"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
+        "name": "Laflier Kia — EV9 DC charging",
+        "accessed": "2026-04-23"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2450,
+      "confidence": "Medium",
+      "notes": "Three-row SUV."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2024+)"
   },
   {
     "model": "EV9",
@@ -355,7 +1297,15 @@
     "drivetrain": "AWD",
     "motorKw": 282,
     "motorHp": 379,
-    "batteryKwh": 99.8,
+    "batteryKwh": {
+      "value": 99.8,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
+        "name": "Kia Media — EV9 specifications",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 430,
     "dcFastChargeKw": 350,
     "cargoLitres": 333,
@@ -364,10 +1314,76 @@
     "freightPdiCad": 2150,
     "notes": "verifyPending: hand-seeded. 6-passenger captain's chairs in GT-Line.",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "Medium",
+      "notes": "Kia EV9 thermal management standard."
+    },
+    "batteryKwhUsable": {
+      "value": 95.5,
+      "confidence": "Medium",
+      "notes": "Estimated ~95.5% of total."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 451,
+      "confidence": "High",
+      "source": {
+        "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+        "name": "Driving.ca — EV9 onboard charger",
+        "accessed": "2026-04-23"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
+        "name": "Laflier Kia — EV9 DC charging",
+        "accessed": "2026-04-23"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2450,
+      "confidence": "Medium",
+      "notes": "Three-row SUV."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2024+)"
   },
   {
     "model": "Ioniq9",
@@ -376,7 +1392,15 @@
     "drivetrain": "RWD",
     "motorKw": 160,
     "motorHp": 215,
-    "batteryKwh": 110.3,
+    "batteryKwh": {
+      "value": 110.3,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "carryover",
+        "accessed": "2026-05-02"
+      }
+    },
     "rangeKm": 620,
     "dcFastChargeKw": 350,
     "cargoLitres": 620,
@@ -385,10 +1409,15 @@
     "freightPdiCad": 2050,
     "notes": "verifyPending: Ioniq 9 launched MY2026. Hand-seeded from public launch coverage; re-verify from hyundaicanada.com showroom + product card when DR follow-up runs.",
     "source": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
+        "name": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
+        "accessed": "2026-05-02"
+      }
+    }
   },
   {
     "model": "Ioniq9",
@@ -397,7 +1426,15 @@
     "drivetrain": "AWD",
     "motorKw": 226,
     "motorHp": 303,
-    "batteryKwh": 110.3,
+    "batteryKwh": {
+      "value": 110.3,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "carryover",
+        "accessed": "2026-05-02"
+      }
+    },
     "rangeKm": 540,
     "dcFastChargeKw": 350,
     "cargoLitres": 620,
@@ -406,10 +1443,15 @@
     "freightPdiCad": 2050,
     "notes": "verifyPending: hand-seeded.",
     "source": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
+        "name": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
+        "accessed": "2026-05-02"
+      }
+    }
   },
   {
     "model": "Ioniq9",
@@ -418,7 +1460,15 @@
     "drivetrain": "AWD",
     "motorKw": 314,
     "motorHp": 422,
-    "batteryKwh": 110.3,
+    "batteryKwh": {
+      "value": 110.3,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "carryover",
+        "accessed": "2026-05-02"
+      }
+    },
     "rangeKm": 510,
     "dcFastChargeKw": 350,
     "cargoLitres": 620,
@@ -427,10 +1477,15 @@
     "freightPdiCad": 2050,
     "notes": "verifyPending: hand-seeded. 6-passenger captain's chairs in Calligraphy.",
     "source": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
+        "name": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
+        "accessed": "2026-05-02"
+      }
+    }
   },
   {
     "model": "EV9",
@@ -439,7 +1494,15 @@
     "drivetrain": "RWD",
     "motorKw": 160,
     "motorHp": 215,
-    "batteryKwh": 76,
+    "batteryKwh": {
+      "value": 76,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "carryover",
+        "accessed": "2026-05-02"
+      }
+    },
     "rangeKm": 370,
     "dcFastChargeKw": 350,
     "cargoLitres": 333,
@@ -448,10 +1511,15 @@
     "freightPdiCad": 2150,
     "notes": "2026 carryover from 2025 spec; verify when MY2026 brochure ships. verifyPending: hand-seeded from public knowledge. Re-verify from kia.ca brochure when DR follow-up runs.",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "hasHeatPump": false,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": false,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "name": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "accessed": "2026-05-02"
+      }
+    }
   },
   {
     "model": "EV9",
@@ -460,7 +1528,15 @@
     "drivetrain": "RWD",
     "motorKw": 150,
     "motorHp": 201,
-    "batteryKwh": 99.8,
+    "batteryKwh": {
+      "value": 99.8,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "carryover",
+        "accessed": "2026-05-02"
+      }
+    },
     "rangeKm": 480,
     "dcFastChargeKw": 350,
     "cargoLitres": 333,
@@ -469,10 +1545,15 @@
     "freightPdiCad": 2150,
     "notes": "2026 carryover from 2025 spec; verify when MY2026 brochure ships. verifyPending: hand-seeded.",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "name": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
+        "accessed": "2026-05-02"
+      }
+    }
   },
   {
     "model": "EV9",
@@ -481,7 +1562,15 @@
     "drivetrain": "AWD",
     "motorKw": 282,
     "motorHp": 379,
-    "batteryKwh": 99.8,
+    "batteryKwh": {
+      "value": 99.8,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
+        "name": "Kia Media — EV9 specifications",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 410,
     "dcFastChargeKw": 350,
     "cargoLitres": 333,
@@ -490,10 +1579,76 @@
     "freightPdiCad": 2150,
     "notes": "2026 carryover from 2025 spec; verify when MY2026 brochure ships. verifyPending: hand-seeded.",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "Medium",
+      "notes": "Kia EV9 thermal management standard."
+    },
+    "batteryKwhUsable": {
+      "value": 95.5,
+      "confidence": "Medium",
+      "notes": "Estimated ~95.5% of total."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 451,
+      "confidence": "High",
+      "source": {
+        "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+        "name": "Driving.ca — EV9 onboard charger",
+        "accessed": "2026-04-23"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
+        "name": "Laflier Kia — EV9 DC charging",
+        "accessed": "2026-04-23"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2450,
+      "confidence": "Medium",
+      "notes": "Three-row SUV."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2024+)"
   },
   {
     "model": "EV9",
@@ -502,7 +1657,15 @@
     "drivetrain": "AWD",
     "motorKw": 282,
     "motorHp": 379,
-    "batteryKwh": 99.8,
+    "batteryKwh": {
+      "value": 99.8,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
+        "name": "Kia Media — EV9 specifications",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 430,
     "dcFastChargeKw": 350,
     "cargoLitres": 333,
@@ -511,10 +1674,76 @@
     "freightPdiCad": 2150,
     "notes": "2026 carryover from 2025 spec; verify when MY2026 brochure ships. verifyPending: hand-seeded. 6-passenger captain's chairs in GT-Line.",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "Medium",
+      "notes": "Kia EV9 thermal management standard."
+    },
+    "batteryKwhUsable": {
+      "value": 95.5,
+      "confidence": "Medium",
+      "notes": "Estimated ~95.5% of total."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 451,
+      "confidence": "High",
+      "source": {
+        "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://driving.ca/kia/ev9/2025/land-awd/",
+        "name": "Driving.ca — EV9 onboard charger",
+        "accessed": "2026-04-23"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
+        "name": "Laflier Kia — EV9 DC charging",
+        "accessed": "2026-04-23"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2450,
+      "confidence": "Medium",
+      "notes": "Three-row SUV."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2024+)"
   },
   {
     "model": "Ioniq5",
@@ -523,18 +1752,97 @@
     "drivetrain": "RWD",
     "motorKw": 448,
     "motorHp": 601,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+        "name": "Hyundai Canada — IONIQ 5",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 356,
     "dcFastChargeKw": 350,
     "zeroToHundredSec": 3.4,
     "msrpCad": 78199,
     "freightPdiCad": 2050,
     "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5-n",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5-n",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02",
-    "notes": "Alias for scrape mislabel: Ioniq 5 N is AWD-only; some AutoTrader listings tag it RWD. Specs match AWD."
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "notes": "Standard heat pump on 2025+ Canadian long-range trims."
+    },
+    "notes": "Alias for scrape mislabel: Ioniq 5 N is AWD-only; some AutoTrader listings tag it RWD. Specs match AWD.",
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://ev-database.org/car/2418/Hyundai-IONIQ-5-Long-Range-RWD-2024",
+        "name": "EV-Database.org (2024+ long-range RWD)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 510,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundainews.com/view/releases/4288",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
+        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 770,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 2012,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025+ (84 kWh refresh)"
   },
   {
     "model": "Ioniq5",
@@ -543,17 +1851,96 @@
     "drivetrain": "RWD",
     "motorKw": 168,
     "motorHp": 225,
-    "batteryKwh": 84,
+    "batteryKwh": {
+      "value": 84,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
+        "name": "Hyundai Canada — IONIQ 5",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 504,
     "dcFastChargeKw": 350,
     "msrpCad": 55499,
     "freightPdiCad": 2050,
     "source": "https://www.hyundaicanada.com/en/showroom/ioniq-5",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02",
-    "notes": "Alias of Preferred RWD Long Range. Canadian Ioniq 5 RWD ships only in Long Range pack; scrape often drops the suffix."
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High",
+      "notes": "Standard heat pump on 2025+ Canadian long-range trims."
+    },
+    "notes": "Alias of Preferred RWD Long Range. Canadian Ioniq 5 RWD ships only in Long Range pack; scrape often drops the suffix.",
+    "batteryKwhUsable": {
+      "value": 81.9,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://ev-database.org/car/2418/Hyundai-IONIQ-5-Long-Range-RWD-2024",
+        "name": "EV-Database.org (2024+ long-range RWD)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 510,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundainews.com/view/releases/4288",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
+        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 770,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 2012,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
+    ],
+    "bodyStyle": "Crossover",
+    "powertrain": "BEV",
+    "generationLabel": "2025+ (84 kWh refresh)"
   },
   {
     "model": "Ioniq6",
@@ -562,17 +1949,94 @@
     "drivetrain": "RWD",
     "motorKw": 168,
     "motorHp": 225,
-    "batteryKwh": 77.4,
+    "batteryKwh": {
+      "value": 77.4,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/2024/ioniq-6",
+        "name": "Hyundai Canada — IONIQ 6",
+        "accessed": "2026-04-23"
+      }
+    },
     "rangeKm": 550,
     "dcFastChargeKw": 350,
     "msrpCad": 54999,
     "freightPdiCad": 2050,
     "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
-    "hasHeatPump": true,
-    "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
-    "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02",
-    "notes": "Alias of Preferred RWD Long Range. Canadian Ioniq 6 RWD ships only in Long Range pack."
+    "hasHeatPump": {
+      "value": true,
+      "confidence": "High"
+    },
+    "notes": "Alias of Preferred RWD Long Range. Canadian Ioniq 6 RWD ships only in Long Range pack.",
+    "batteryKwhUsable": {
+      "value": 74,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://ev-database.org/car/1876/Hyundai-IONIQ-6-Long-Range-2WD",
+        "name": "EV-Database.org",
+        "accessed": "2026-04-23"
+      }
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 581,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.fueleconomy.gov",
+        "name": "EPA fueleconomy.gov (IONIQ 6 LR RWD)",
+        "accessed": "2026-04-23"
+      }
+    },
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High"
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://motorillustrated.com/epa-says-the-hyundai-ioniq-6-can-drive-up-to-581-kilometers-on-a-charge/109895/",
+        "name": "Motor Illustrated IONIQ 6 + EVChargeRight 800V architecture",
+        "accessed": "2026-04-23"
+      },
+      "notes": "D-01-ext 2026-04-23: 233 kW peak (shared 800V arch with IONIQ 5 RWD)."
+    },
+    "portType": "NACS",
+    "seats": 5,
+    "cargoLitres": {
+      "value": 317,
+      "confidence": "Medium"
+    },
+    "weightKg": {
+      "value": 1965,
+      "confidence": "Medium"
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 195
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 75
+      }
+    ],
+    "bodyStyle": "Sedan",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2023+)"
   },
   {
     "model": "Ioniq5",
@@ -640,11 +2104,26 @@
     },
     "thermalManagement": "active_liquid",
     "chargingCurve": [
-      { "socPct": 10, "kw": 220 },
-      { "socPct": 20, "kw": 250 },
-      { "socPct": 40, "kw": 200 },
-      { "socPct": 60, "kw": 130 },
-      { "socPct": 80, "kw": 80 }
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 250
+      },
+      {
+        "socPct": 40,
+        "kw": 200
+      },
+      {
+        "socPct": 60,
+        "kw": 130
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
     ],
     "bodyStyle": "Crossover",
     "powertrain": "BEV",
@@ -712,11 +2191,26 @@
     },
     "thermalManagement": "active_liquid",
     "chargingCurve": [
-      { "socPct": 10, "kw": 225 },
-      { "socPct": 20, "kw": 255 },
-      { "socPct": 40, "kw": 205 },
-      { "socPct": 60, "kw": 135 },
-      { "socPct": 80, "kw": 80 }
+      {
+        "socPct": 10,
+        "kw": 225
+      },
+      {
+        "socPct": 20,
+        "kw": 255
+      },
+      {
+        "socPct": 40,
+        "kw": 205
+      },
+      {
+        "socPct": 60,
+        "kw": 135
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
     ],
     "bodyStyle": "Crossover",
     "powertrain": "BEV",
@@ -779,11 +2273,26 @@
     },
     "thermalManagement": "active_liquid",
     "chargingCurve": [
-      { "socPct": 10, "kw": 225 },
-      { "socPct": 20, "kw": 255 },
-      { "socPct": 40, "kw": 205 },
-      { "socPct": 60, "kw": 135 },
-      { "socPct": 80, "kw": 80 }
+      {
+        "socPct": 10,
+        "kw": 225
+      },
+      {
+        "socPct": 20,
+        "kw": 255
+      },
+      {
+        "socPct": 40,
+        "kw": 205
+      },
+      {
+        "socPct": 60,
+        "kw": 135
+      },
+      {
+        "socPct": 80,
+        "kw": 80
+      }
     ],
     "bodyStyle": "Crossover",
     "powertrain": "BEV",
@@ -857,11 +2366,26 @@
     },
     "thermalManagement": "active_liquid",
     "chargingCurve": [
-      { "socPct": 10, "kw": 220 },
-      { "socPct": 20, "kw": 233 },
-      { "socPct": 40, "kw": 180 },
-      { "socPct": 60, "kw": 120 },
-      { "socPct": 80, "kw": 60 }
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
     ],
     "bodyStyle": "SUV",
     "powertrain": "BEV",

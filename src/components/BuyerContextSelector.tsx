@@ -3,6 +3,7 @@
 import { PROVINCES, PROVINCE_NAMES, type Province } from "@/lib/constants";
 import { useBuyerContext } from "@/lib/buyerContext";
 import { plainLang } from "@/lib/plainLang";
+import { IzevExplainer } from "./IzevExplainer";
 
 export function BuyerContextSelector() {
   const { buyerContext, setBuyerContext } = useBuyerContext();
@@ -22,6 +23,7 @@ export function BuyerContextSelector() {
             </option>
           ))}
         </select>
+        <IzevExplainer />
       </label>
       <label
         className="flex items-center gap-1 cursor-pointer"

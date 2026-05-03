@@ -15,6 +15,7 @@ import { usedListingsFor } from "@/lib/usedListingsLinks";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
+import { plainLang } from "@/lib/plainLang";
 import vehicleImages from "../../data/vehicle-images.json";
 
 // Days since lastSeen — used to chip rows that haven't been re-confirmed
@@ -48,7 +49,7 @@ function EvapChip({ state, unit }: { state: EvapState; unit: ScoredUnit }) {
         className="text-xxs text-accent mt-0.5 font-normal"
         title="Pre-tax transaction value ≤ $50,000 → $5,000 federal EVAP rebate already applied to OTD"
       >
-        EVAP −$5k
+        <span title={plainLang("EVAP")} className="cursor-help underline decoration-dotted underline-offset-2">EVAP</span> −$5k
       </div>
     );
   }
@@ -144,16 +145,16 @@ function OtdPathBadges({ unit }: { unit: ScoredUnit }) {
   return (
     <div className="flex flex-wrap gap-1 mt-0.5">
       <span className="text-xxs text-fg-subtle">
-        Cash {fmtCad(paths.cash.total)}
+        <span title={plainLang("cash")} className="cursor-help underline decoration-dotted underline-offset-2">Cash</span> {fmtCad(paths.cash.total)}
       </span>
       {paths.finance && (
         <span className="text-xxs text-accent" title={`${paths.finance.termMonths}mo @ ${paths.finance.aprPercent}% APR`}>
-          · Finance {fmtCad(Math.round(paths.finance.monthlyPaymentCad))}/mo
+          · <span title={plainLang("finance")} className="cursor-help underline decoration-dotted underline-offset-2">Finance</span> {fmtCad(Math.round(paths.finance.monthlyPaymentCad))}/mo
         </span>
       )}
       {paths.lease && (
         <span className="text-xxs text-warn" title={`${paths.lease.termMonths}mo lease, residual ${paths.lease.residualPercent}%`}>
-          · Lease {fmtCad(Math.round(paths.lease.monthlyPaymentWithTaxCad))}/mo
+          · <span title={plainLang("lease")} className="cursor-help underline decoration-dotted underline-offset-2">Lease</span> {fmtCad(Math.round(paths.lease.monthlyPaymentWithTaxCad))}/mo
         </span>
       )}
     </div>
@@ -477,7 +478,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
             checked={evapOnly}
             onChange={(e) => setEvapOnly(e.target.checked)}
           />
-          EVAP-eligible only
+          <span title={plainLang("EVAP")} className="cursor-help underline decoration-dotted underline-offset-2">EVAP</span>-eligible only
         </label>
         <label
           className="flex items-center gap-1.5 text-fg-muted cursor-pointer"
@@ -557,11 +558,11 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
               <th className="px-3 py-2">Model / Trim</th>
               <th className="px-3 py-2">Year</th>
               <th className="px-3 py-2">Color</th>
-              <th className="px-3 py-2 text-right">MSRP</th>
-              <th className="px-3 py-2 text-right">Asking</th>
-              <th className="px-3 py-2 text-right">OTD</th>
+              <th className="px-3 py-2 text-right"><span title={plainLang("msrp")} className="cursor-help underline decoration-dotted underline-offset-2">MSRP</span></th>
+              <th className="px-3 py-2 text-right"><span title={plainLang("asking")} className="cursor-help underline decoration-dotted underline-offset-2">Asking</span></th>
+              <th className="px-3 py-2 text-right"><span title={plainLang("OTD")} className="cursor-help underline decoration-dotted underline-offset-2">OTD</span></th>
               <th className="px-3 py-2 text-right" title="OTD ÷ EPA / NRCan range. Lower = more car per dollar.">$/km</th>
-              <th className="px-3 py-2 text-right">Days</th>
+              <th className="px-3 py-2 text-right"><span title={plainLang("daysOnLot")} className="cursor-help underline decoration-dotted underline-offset-2">Days</span></th>
               <th className="px-3 py-2">Status</th>
               <th className="px-3 py-2">Dealer</th>
               <th className="px-3 py-2 text-right">Pressure</th>
