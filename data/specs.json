@@ -11,7 +11,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.kia.ca/en/ev6",
-        "name": "Kia Canada — EV6",
+        "name": "Kia Canada \u2014 EV6",
         "accessed": "2026-04-23"
       }
     },
@@ -98,7 +98,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.kia.ca/en/ev6",
-        "name": "Kia Canada — EV6",
+        "name": "Kia Canada \u2014 EV6",
         "accessed": "2026-04-23"
       }
     },
@@ -204,10 +204,10 @@
       "confidence": "Medium",
       "source": {
         "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
-        "name": "EVSpecsHub — Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
+        "name": "EVSpecsHub \u2014 Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
         "accessed": "2026-04-23"
       },
-      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 → 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
+      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 \u2192 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
     },
     "acChargeMaxKw": {
       "value": 10.9,
@@ -286,10 +286,10 @@
       "confidence": "Medium",
       "source": {
         "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
-        "name": "EVSpecsHub — Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
+        "name": "EVSpecsHub \u2014 Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
         "accessed": "2026-04-23"
       },
-      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 → 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
+      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 \u2192 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
     },
     "acChargeMaxKw": {
       "value": 10.9,
@@ -371,10 +371,10 @@
       "confidence": "Medium",
       "source": {
         "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
-        "name": "EVSpecsHub — Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
+        "name": "EVSpecsHub \u2014 Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
         "accessed": "2026-04-23"
       },
-      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 → 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
+      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 \u2192 475 km. 2025 refresh to 84 kWh increased range. One-source confidence, keeping Medium."
     },
     "acChargeMaxKw": {
       "value": 10.9,
@@ -434,7 +434,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-        "name": "Hyundai Canada — IONIQ 5",
+        "name": "Hyundai Canada \u2014 IONIQ 5",
         "accessed": "2026-04-23"
       }
     },
@@ -461,7 +461,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.hyundainews.com/view/releases/4288",
-        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada \u2014 318 mi EPA = 512 km",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
@@ -475,7 +475,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
-        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "name": "EVChargeRight \u2014 IONIQ 5 RWD specs",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
@@ -529,7 +529,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-        "name": "Hyundai Canada — IONIQ 5",
+        "name": "Hyundai Canada \u2014 IONIQ 5",
         "accessed": "2026-04-23"
       }
     },
@@ -556,7 +556,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.hyundainews.com/view/releases/4288",
-        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada \u2014 318 mi EPA = 512 km",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
@@ -570,7 +570,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
-        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "name": "EVChargeRight \u2014 IONIQ 5 RWD specs",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
@@ -787,7 +787,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-        "name": "Hyundai Canada — IONIQ 5",
+        "name": "Hyundai Canada \u2014 IONIQ 5",
         "accessed": "2026-04-23"
       }
     },
@@ -816,7 +816,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.hyundainews.com/view/releases/4288",
-        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada \u2014 318 mi EPA = 512 km",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
@@ -830,7 +830,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
-        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "name": "EVChargeRight \u2014 IONIQ 5 RWD specs",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
@@ -961,7 +961,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.hyundaicanada.com/en/showroom/2024/ioniq-6",
-        "name": "Hyundai Canada — IONIQ 6",
+        "name": "Hyundai Canada \u2014 IONIQ 6",
         "accessed": "2026-04-23"
       }
     },
@@ -1159,7 +1159,75 @@
         "name": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
         "accessed": "2026-05-02"
       }
-    }
+    },
+    "batteryKwhUsable": {
+      "value": 73.0,
+      "confidence": "Medium",
+      "notes": "Estimated ~96% of total (Kia E-GMP)."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 370,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 showroom (Standard Range RWD)",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Carried from rangeKm; Kia Canada cites 230 mi (370 km) for SR RWD."
+    },
+    "rangeProtocol": null,
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 onboard charger (10.9 kW Level 2)",
+        "accessed": "2026-05-03"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 210,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 SR DC fast (CCS, ~210 kW peak)",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Standard Range battery; LR variant peaks higher (~233 kW)."
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2278,
+      "confidence": "Medium",
+      "notes": "RWD SR three-row SUV; lighter than AWD LR (~2450)."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 200
+      },
+      {
+        "socPct": 20,
+        "kw": 210
+      },
+      {
+        "socPct": 40,
+        "kw": 165
+      },
+      {
+        "socPct": 60,
+        "kw": 110
+      },
+      {
+        "socPct": 80,
+        "kw": 50
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2024+)"
   },
   {
     "model": "EV9",
@@ -1193,7 +1261,74 @@
         "name": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
         "accessed": "2026-05-02"
       }
-    }
+    },
+    "batteryKwhUsable": {
+      "value": 95.5,
+      "confidence": "Medium",
+      "notes": "Estimated ~95.5% of total."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 480,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 LR RWD showroom",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Kia Canada cites ~303 mi (488 km) for LR RWD; carried from rangeKm."
+    },
+    "rangeProtocol": null,
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 onboard charger",
+        "accessed": "2026-05-03"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 LR DC fast (~233 kW peak)",
+        "accessed": "2026-05-03"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2308,
+      "confidence": "Medium",
+      "notes": "RWD LR; lighter than AWD Land (2450 kg)."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2024+)"
   },
   {
     "model": "EV9",
@@ -1207,7 +1342,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
-        "name": "Kia Media — EV9 specifications",
+        "name": "Kia Media \u2014 EV9 specifications",
         "accessed": "2026-04-23"
       }
     },
@@ -1235,7 +1370,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "name": "Driving.ca \u2014 Kia EV9 Land AWD range",
         "accessed": "2026-04-23"
       }
     },
@@ -1244,7 +1379,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — EV9 onboard charger",
+        "name": "Driving.ca \u2014 EV9 onboard charger",
         "accessed": "2026-04-23"
       }
     },
@@ -1253,7 +1388,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
-        "name": "Laflier Kia — EV9 DC charging",
+        "name": "Laflier Kia \u2014 EV9 DC charging",
         "accessed": "2026-04-23"
       }
     },
@@ -1302,7 +1437,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
-        "name": "Kia Media — EV9 specifications",
+        "name": "Kia Media \u2014 EV9 specifications",
         "accessed": "2026-04-23"
       }
     },
@@ -1330,7 +1465,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "name": "Driving.ca \u2014 Kia EV9 Land AWD range",
         "accessed": "2026-04-23"
       }
     },
@@ -1339,7 +1474,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — EV9 onboard charger",
+        "name": "Driving.ca \u2014 EV9 onboard charger",
         "accessed": "2026-04-23"
       }
     },
@@ -1348,7 +1483,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
-        "name": "Laflier Kia — EV9 DC charging",
+        "name": "Laflier Kia \u2014 EV9 DC charging",
         "accessed": "2026-04-23"
       }
     },
@@ -1417,7 +1552,74 @@
         "name": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
         "accessed": "2026-05-02"
       }
-    }
+    },
+    "batteryKwhUsable": {
+      "value": 105.0,
+      "confidence": "Medium",
+      "notes": "Estimated ~95% of total (Hyundai 110.3 kWh)."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 620,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 RWD LR showroom",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Hyundai Canada cites ~335 mi (539 km) for RWD LR; carried from rangeKm."
+    },
+    "rangeProtocol": null,
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 onboard charger",
+        "accessed": "2026-05-03"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 DC fast (~233 kW peak, 24-min 10-80%)",
+        "accessed": "2026-05-03"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2510,
+      "confidence": "Medium",
+      "notes": "RWD LR three-row SUV; lighter than AWD trims."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2026+)"
   },
   {
     "model": "Ioniq9",
@@ -1451,7 +1653,74 @@
         "name": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
         "accessed": "2026-05-02"
       }
-    }
+    },
+    "batteryKwhUsable": {
+      "value": 105.0,
+      "confidence": "Medium",
+      "notes": "Estimated ~95% of total (Hyundai 110.3 kWh)."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 540,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 AWD LR showroom",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Hyundai Canada cites ~320 mi (510 km) for AWD LR; carried from rangeKm."
+    },
+    "rangeProtocol": null,
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 onboard charger",
+        "accessed": "2026-05-03"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 DC fast (~233 kW peak)",
+        "accessed": "2026-05-03"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2625,
+      "confidence": "Medium",
+      "notes": "AWD LR three-row SUV."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2026+)"
   },
   {
     "model": "Ioniq9",
@@ -1485,7 +1754,74 @@
         "name": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
         "accessed": "2026-05-02"
       }
-    }
+    },
+    "batteryKwhUsable": {
+      "value": 105.0,
+      "confidence": "Medium",
+      "notes": "Estimated ~95% of total (Hyundai 110.3 kWh)."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 510,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 Performance Calligraphy AWD",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Performance trim less efficient than Preferred AWD; Hyundai cites ~285 mi (459 km)."
+    },
+    "rangeProtocol": null,
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 onboard charger",
+        "accessed": "2026-05-03"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.hyundaicanada.com/en/showroom/ioniq-9",
+        "name": "Hyundai Canada \u2014 Ioniq 9 DC fast (~233 kW peak)",
+        "accessed": "2026-05-03"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2735,
+      "confidence": "Medium",
+      "notes": "Performance trim with dual motors; heaviest Ioniq 9."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2026+)"
   },
   {
     "model": "EV9",
@@ -1519,7 +1855,75 @@
         "name": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
         "accessed": "2026-05-02"
       }
-    }
+    },
+    "batteryKwhUsable": {
+      "value": 73.0,
+      "confidence": "Medium",
+      "notes": "Estimated ~96% of total (Kia E-GMP)."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 370,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 showroom (Standard Range RWD)",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Carried from rangeKm; Kia Canada cites 230 mi (370 km) for SR RWD."
+    },
+    "rangeProtocol": null,
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 onboard charger (10.9 kW Level 2)",
+        "accessed": "2026-05-03"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 210,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 SR DC fast (CCS, ~210 kW peak)",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Standard Range battery; LR variant peaks higher (~233 kW)."
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2278,
+      "confidence": "Medium",
+      "notes": "RWD SR three-row SUV; lighter than AWD LR (~2450)."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 200
+      },
+      {
+        "socPct": 20,
+        "kw": 210
+      },
+      {
+        "socPct": 40,
+        "kw": 165
+      },
+      {
+        "socPct": 60,
+        "kw": 110
+      },
+      {
+        "socPct": 80,
+        "kw": 50
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2024+)"
   },
   {
     "model": "EV9",
@@ -1553,7 +1957,74 @@
         "name": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
         "accessed": "2026-05-02"
       }
-    }
+    },
+    "batteryKwhUsable": {
+      "value": 95.5,
+      "confidence": "Medium",
+      "notes": "Estimated ~95.5% of total."
+    },
+    "batteryChemistry": "NMC",
+    "rangeEpaKm": {
+      "value": 480,
+      "confidence": "Medium",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 LR RWD showroom",
+        "accessed": "2026-05-03"
+      },
+      "notes": "Kia Canada cites ~303 mi (488 km) for LR RWD; carried from rangeKm."
+    },
+    "rangeProtocol": null,
+    "acChargeMaxKw": {
+      "value": 10.9,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 onboard charger",
+        "accessed": "2026-05-03"
+      }
+    },
+    "dcChargeMaxKw": {
+      "value": 233,
+      "confidence": "High",
+      "source": {
+        "url": "https://www.kia.ca/en/showroom/ev9",
+        "name": "Kia Canada \u2014 EV9 LR DC fast (~233 kW peak)",
+        "accessed": "2026-05-03"
+      }
+    },
+    "portType": "CCS1",
+    "weightKg": {
+      "value": 2308,
+      "confidence": "Medium",
+      "notes": "RWD LR; lighter than AWD Land (2450 kg)."
+    },
+    "thermalManagement": "active_liquid",
+    "chargingCurve": [
+      {
+        "socPct": 10,
+        "kw": 220
+      },
+      {
+        "socPct": 20,
+        "kw": 233
+      },
+      {
+        "socPct": 40,
+        "kw": 180
+      },
+      {
+        "socPct": 60,
+        "kw": 120
+      },
+      {
+        "socPct": 80,
+        "kw": 60
+      }
+    ],
+    "bodyStyle": "SUV",
+    "powertrain": "BEV",
+    "generationLabel": "Gen 1 (2024+)"
   },
   {
     "model": "EV9",
@@ -1567,7 +2038,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
-        "name": "Kia Media — EV9 specifications",
+        "name": "Kia Media \u2014 EV9 specifications",
         "accessed": "2026-04-23"
       }
     },
@@ -1595,7 +2066,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "name": "Driving.ca \u2014 Kia EV9 Land AWD range",
         "accessed": "2026-04-23"
       }
     },
@@ -1604,7 +2075,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — EV9 onboard charger",
+        "name": "Driving.ca \u2014 EV9 onboard charger",
         "accessed": "2026-04-23"
       }
     },
@@ -1613,7 +2084,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
-        "name": "Laflier Kia — EV9 DC charging",
+        "name": "Laflier Kia \u2014 EV9 DC charging",
         "accessed": "2026-04-23"
       }
     },
@@ -1662,7 +2133,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
-        "name": "Kia Media — EV9 specifications",
+        "name": "Kia Media \u2014 EV9 specifications",
         "accessed": "2026-04-23"
       }
     },
@@ -1690,7 +2161,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "name": "Driving.ca \u2014 Kia EV9 Land AWD range",
         "accessed": "2026-04-23"
       }
     },
@@ -1699,7 +2170,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — EV9 onboard charger",
+        "name": "Driving.ca \u2014 EV9 onboard charger",
         "accessed": "2026-04-23"
       }
     },
@@ -1708,7 +2179,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
-        "name": "Laflier Kia — EV9 DC charging",
+        "name": "Laflier Kia \u2014 EV9 DC charging",
         "accessed": "2026-04-23"
       }
     },
@@ -1757,7 +2228,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-        "name": "Hyundai Canada — IONIQ 5",
+        "name": "Hyundai Canada \u2014 IONIQ 5",
         "accessed": "2026-04-23"
       }
     },
@@ -1788,7 +2259,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.hyundainews.com/view/releases/4288",
-        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada \u2014 318 mi EPA = 512 km",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
@@ -1802,7 +2273,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
-        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "name": "EVChargeRight \u2014 IONIQ 5 RWD specs",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
@@ -1856,7 +2327,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-        "name": "Hyundai Canada — IONIQ 5",
+        "name": "Hyundai Canada \u2014 IONIQ 5",
         "accessed": "2026-04-23"
       }
     },
@@ -1886,7 +2357,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.hyundainews.com/view/releases/4288",
-        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada \u2014 318 mi EPA = 512 km",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
@@ -1900,7 +2371,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
-        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "name": "EVChargeRight \u2014 IONIQ 5 RWD specs",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 CORRECTION 2026-04-23: RWD peak is 233 kW; 258 kW is AWD-only. Seed was overstating RWD. Confirmed via EVChargeRight."
@@ -1954,7 +2425,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.hyundaicanada.com/en/showroom/2024/ioniq-6",
-        "name": "Hyundai Canada — IONIQ 6",
+        "name": "Hyundai Canada \u2014 IONIQ 6",
         "accessed": "2026-04-23"
       }
     },
@@ -2054,7 +2525,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-        "name": "Hyundai Canada — IONIQ 5",
+        "name": "Hyundai Canada \u2014 IONIQ 5",
         "accessed": "2026-04-23"
       }
     },
@@ -2073,7 +2544,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.hyundainews.com/view/releases/4288",
-        "name": "Hyundai News (Nov 2024) + Hyundai Canada — 318 mi EPA = 512 km",
+        "name": "Hyundai News (Nov 2024) + Hyundai Canada \u2014 318 mi EPA = 512 km",
         "accessed": "2026-04-23"
       },
       "notes": "D-01 verified: Hyundai press release + Hyundai Canada both cite 318 mi EPA (~512 km). Seed 510 rounds down, within 0.4%."
@@ -2088,7 +2559,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://specs.evchargeright.com/2025/hyundai/ioniq-5/se-rwd-long-range",
-        "name": "EVChargeRight — IONIQ 5 RWD specs",
+        "name": "EVChargeRight \u2014 IONIQ 5 RWD specs",
         "accessed": "2026-04-23"
       },
       "notes": "RWD peak is 233 kW; 258 kW is AWD-only."
@@ -2146,7 +2617,7 @@
       "confidence": "Medium",
       "source": {
         "url": "https://www.kia.ca/en/ev6",
-        "name": "Kia Canada — EV6",
+        "name": "Kia Canada \u2014 EV6",
         "accessed": "2026-04-23"
       }
     },
@@ -2242,10 +2713,10 @@
       "confidence": "Medium",
       "source": {
         "url": "https://evspecshub.com/kia-ev6-gt-line-awd-2025-full-specs-range-battery/",
-        "name": "EVSpecsHub — Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
+        "name": "EVSpecsHub \u2014 Kia EV6 2025 AWD (EPA ~295 mi = 475 km)",
         "accessed": "2026-04-23"
       },
-      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 → 475 km. 2025 refresh to 84 kWh increased range."
+      "notes": "D-01 CORRECTION 2026-04-23: Value updated 450 \u2192 475 km. 2025 refresh to 84 kWh increased range."
     },
     "rangeProtocol": "EPA",
     "acChargeMaxKw": {
@@ -2316,7 +2787,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.kiamedia.com/us/en/models/ev9/2025/specifications",
-        "name": "Kia Media — EV9 specifications",
+        "name": "Kia Media \u2014 EV9 specifications",
         "accessed": "2026-04-23"
       }
     },
@@ -2331,7 +2802,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — Kia EV9 Land AWD range",
+        "name": "Driving.ca \u2014 Kia EV9 Land AWD range",
         "accessed": "2026-04-23"
       }
     },
@@ -2341,7 +2812,7 @@
       "confidence": "High",
       "source": {
         "url": "https://driving.ca/kia/ev9/2025/land-awd/",
-        "name": "Driving.ca — EV9 onboard charger",
+        "name": "Driving.ca \u2014 EV9 onboard charger",
         "accessed": "2026-04-23"
       }
     },
@@ -2350,7 +2821,7 @@
       "confidence": "High",
       "source": {
         "url": "https://www.lallierkia.com/en/news/view/2025-kia-ev9-a-closer-look-at-trim-options-and-features/133189",
-        "name": "Laflier Kia — EV9 DC charging",
+        "name": "Laflier Kia \u2014 EV9 DC charging",
         "accessed": "2026-04-23"
       }
     },
