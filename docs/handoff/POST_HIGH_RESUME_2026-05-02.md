@@ -6,9 +6,13 @@
 
 ## Where we are
 
-- **STATUS: V6 BLEND PHASES F0–F7 + F1.5 + F10 + G SHIPPED + LIVE ON VERCEL (2026-05-03).** HEAD `9f3de7c4` on both branches. Preview URL: `https://ev-auto-trader-canada-jd3k48toy-barsnbolts-projects.vercel.app/` (200 OK).
-- **Prior preview** (HEAD `1b7aa927`): `https://ev-auto-trader-canada-9n9r6f29q-barsnbolts-projects.vercel.app/` — superseded.
-- **Post-F6 additions:** F1.5 sibling-spec backfill (24/31 matched; chargingCurve 2→24, batteryChemistry 4→24, rangeEpaKm 4→24), F10 InventoryTable mom-mode tooltips (9 plainLang wraps), G iZEV explainer popover, F7 DCFC station markers on DealerMap (15 demo Ontario stations across Tesla/EC/Ivy/Flo/ChargePoint).
+- **STATUS: V6 BLEND PHASES F0–F7 + F1.5 + F1.5b + F10 + G + audit-pass + rangeKm consistency SHIPPED + LIVE ON VERCEL (2026-05-03 evening).** HEAD `37956d5d` on both branches. Preview URL: `https://ev-auto-trader-canada-k6jnnulpo-barsnbolts-projects.vercel.app/` (all 8 routes 200 OK; Ioniq9 dossier now renders DC charging curve + Year 3 battery projection — F1.5b fully working).
+- **Prior previews:** `jd3k48toy` (HEAD `9f3de7c4`, pre-F1.5b), `9n9r6f29q` (HEAD `1b7aa927`, pre-F7) — both superseded.
+- **Audit-pass additions (high tier, 2026-05-03 evening):**
+  - **F1.5b** (commit `9a7d2a7c`): backfilled 7 EV9/Ioniq9 specs sibling couldn't match (sibling had EV9 Land AWD only, zero Ioniq9). Added chargingCurve, batteryChemistry, rangeEpaKm + 10 sibling-shape fields per trim. specs.json now: chargingCurve 24→31, batteryChemistry 24→31, rangeEpaKm 24→31. **Affects 22 listings including the largest single-trim count (12 Ioniq9 Performance Calligraphy)** which previously rendered "research pending" placeholders.
+  - **rangeKm/rangeEpaKm consistency** (commit `cf51ec50`): three consumers (`/inventory` Range column, CompareGrid Range/DC/AC columns) were reading legacy `rangeKm` only despite F1.5 cited values being available. Now prefer `rangeEpaKm.value ?? rangeKm` consistently.
+  - **rangeProtocol:null hotfix** (commit `37956d5d`): F1.5b script wrote `rangeProtocol: null` explicitly on 7 specs; Zod schema is enum-only (rejects null). Predeploy passed because force-dynamic routes server-render at request time. Stripped explicit nulls; missing-key parses as undefined → optional → OK. **Lesson logged in commit message:** add a smoke-test step that curls dynamic routes against `next start` before pushing.
+- **Future-work backlog:** see `docs/handoff/FUTURE_WORK_2026-05-03.md` — tier-1/2/3/4/5 items with token estimates per item.
 - **launchd:** loaded 2026-05-03 (`com.evautotrader.refresh` 7am daily refresh).
 - **What shipped today (V6):**
   - F0 — purged ~5GB of Cowork-era handoff bloat (sibling-checkouts/mac-context/superpowers); committed pending `.vercelignore` + `next.config.mjs` Wikipedia hostname fix
