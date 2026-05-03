@@ -6,7 +6,7 @@
 
 ## Where we are
 
-- **HEAD (pushed):** `515fda1e` (Phase B complete)
+- **HEAD (pushed):** Phase D1 complete (see commit log; latest commit covers D1 math review + lease residual back-calc).
 - **Branch:** `claude/verify-environment-setup-oTu3S` (synced with origin)
 - **Working tree at handoff:** clean
 - **Pre-commit hook:** ACTIVE — `.git/hooks/pre-commit` runs `npx tsc --noEmit` on every commit (don't try to bypass with `--no-verify`)
@@ -56,10 +56,16 @@
 
 ## What's next (post Phase B)
 
-**Phase D1 — math review (HIGH inline, ~5k tokens):** Hand-verify the
-finance + lease formulas in `src/lib/scoring.ts` against an external
-calculator (bankrate.com or similar). Pick 1 unit with a `lease_promo`
-and 1 with a `finance_promo`. Confirm monthly payments are within ±$5.
+**Phase D1 — DONE.** Math review closed. Finance PMT verified on Ioniq5
+sample ($1,022.98/mo, two formulations agree to 8 decimals). Lease
+formulas were initially blocked because both lease promos shipped with
+`residualPercent: null` (Hyundai/Kia Canada don't publish residual
+tables). Resolved by back-calculating from each promo's own disclaimer
+math: Ioniq5 60mo = 48%, EV9 36mo = 63% (Medium confidence ±2pp,
+documented in `notes`). Lease deltas vs dealer-disclosed monthlies:
+Ioniq5 −$14 (−2.1%, traces to dealer admin fee not in cap), EV9 −$6
+(−0.8%). Both within personal-use modeling tolerance. Full log at
+`docs/handoff/research/D1_math_review_2026-05-02.md`.
 
 **Phase D2 — final integration (HIGH inline, ~10k tokens):** Walk all
 5 routes (`/`, `/inventory`, `/dealer/[id]`, `/compare`,

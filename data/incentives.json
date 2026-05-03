@@ -624,6 +624,7 @@
     },
     "aprPercent": 3.79,
     "termMonths": 60,
+    "residualPercent": 48,
     "leaseSecurityDepositCad": 0,
     "leaseAnnualMileageKm": 16000,
     "leaseOverageCadPerKm": 0.12,
@@ -632,7 +633,7 @@
     "effectiveFrom": "2026-05-01",
     "effectiveUntil": "2026-05-31",
     "source": "https://www.centralnovahyundai.ca/en/special-offers/get-the-2026-hyundai-ioniq-5/228270",
-    "notes": "Hyundai Financial Services national lease program. 3.79% APR, 60-month walk-away lease, $0 security deposit, 16,000 km/yr, $0.12/km overage. Weekly lease payment $153; monthly equivalent $153\u00d74.33 \u2248 $663 (pre-tax). $0 down. Source is Central Nova Hyundai re-publishing HFS national disclaimer. Residual percent not publicly disclosed.",
+    "notes": "Hyundai Financial Services national lease program. 3.79% APR, 60-month walk-away lease, $0 security deposit, 16,000 km/yr, $0.12/km overage. Weekly lease payment $153; monthly equivalent $153\u00d74.33 \u2248 $663 (pre-tax). $0 down. Source is Central Nova Hyundai re-publishing HFS national disclaimer. residualPercent=48% back-calculated from disclaimer's total obligation $39,778 / cap-cost $58,473 (incl. admin) on 2026-05-02 \u2014 Hyundai Canada does not publish residual tables; corroborated by Ioniq Forum Canada thread on 2022-era Preferred Long Range RWD leases reporting ~49% at 39mo. Confidence: Medium (\u00b12pp). When dashboard's compute uses cap = MSRP+freight only (no admin), the resulting monthly is ~$649 vs dealer's $663 \u2014 acceptable modeling delta for personal-use.",
     "lastVerified": "2026-05-02"
   },
   {
@@ -698,13 +699,14 @@
     },
     "aprPercent": 3.19,
     "termMonths": 36,
+    "residualPercent": 63,
     "leaseAnnualMileageKm": 16000,
     "monthlyPaymentExample": 812,
     "status": "active",
     "effectiveFrom": "2026-05-01",
     "effectiveUntil": "2026-06-01",
     "source": "https://www.applewoodkiasurrey.ca/new/2026-Kia-EV9.html",
-    "notes": "Kia Canada May 2026 subvented lease on 2026 EV9 Light RWD: 3.19% APR, 36-month walk-away lease, 16,000 km/yr. Biweekly payment $374; monthly equivalent $374\u00d72.17 \u2248 $811. $0 down. Security deposit and residual not publicly disclosed. MSRP base $59,995. Confirmed via Applewood Kia Surrey listing. Before applying 1% loyalty reduction.",
+    "notes": "Kia Canada May 2026 subvented lease on 2026 EV9 Light RWD: 3.19% APR, 36-month walk-away lease, 16,000 km/yr. Biweekly payment $374; monthly equivalent $374\u00d72.17 \u2248 $811. $0 down. MSRP base $59,995. Confirmed via Applewood Kia Surrey listing. Before applying 1% loyalty reduction. residualPercent=63% back-calculated 2026-05-02 from Applewood fine print (biweekly $374, 36mo, 3.19%, MSRP $59,995, total obligation ~$29,162) and corroborated against US Edmunds/Reddit data for EV9 Light Long Range 36mo (63\u201364%). Kia Canada does not publish residual tables. Confidence: Medium (\u00b12pp).",
     "lastVerified": "2026-05-02"
   }
 ]
