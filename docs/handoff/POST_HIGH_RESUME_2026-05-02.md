@@ -6,7 +6,9 @@
 
 ## Where we are
 
-- **STATUS: V6 BLEND PHASES F0–F6 SHIPPED + LIVE ON VERCEL (2026-05-03).** HEAD `1b7aa927` on both branches. Preview URL: `https://ev-auto-trader-canada-9n9r6f29q-barsnbolts-projects.vercel.app/`
+- **STATUS: V6 BLEND PHASES F0–F7 + F1.5 + F10 + G SHIPPED + LIVE ON VERCEL (2026-05-03).** HEAD `9f3de7c4` on both branches. Preview URL: `https://ev-auto-trader-canada-jd3k48toy-barsnbolts-projects.vercel.app/` (200 OK).
+- **Prior preview** (HEAD `1b7aa927`): `https://ev-auto-trader-canada-9n9r6f29q-barsnbolts-projects.vercel.app/` — superseded.
+- **Post-F6 additions:** F1.5 sibling-spec backfill (24/31 matched; chargingCurve 2→24, batteryChemistry 4→24, rangeEpaKm 4→24), F10 InventoryTable mom-mode tooltips (9 plainLang wraps), G iZEV explainer popover, F7 DCFC station markers on DealerMap (15 demo Ontario stations across Tesla/EC/Ivy/Flo/ChargePoint).
 - **launchd:** loaded 2026-05-03 (`com.evautotrader.refresh` 7am daily refresh).
 - **What shipped today (V6):**
   - F0 — purged ~5GB of Cowork-era handoff bloat (sibling-checkouts/mac-context/superpowers); committed pending `.vercelignore` + `next.config.mjs` Wikipedia hostname fix
