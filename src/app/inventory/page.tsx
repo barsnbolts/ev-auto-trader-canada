@@ -11,11 +11,18 @@ export const dynamic = "force-dynamic";
 export default async function InventoryPage({
   searchParams,
 }: {
-  searchParams: Promise<{ tempC?: string }>;
+  searchParams: Promise<{ tempC?: string; make?: string; model?: string; trim?: string }>;
 }) {
   const sp = await searchParams;
   const rawTemp = sp.tempC != null ? Number(sp.tempC) : 20;
   const tempC = Number.isNaN(rawTemp) ? 20 : Math.max(-30, Math.min(40, rawTemp));
+
+  // Pre-filter hint from /pick-a-model "Buy this model" deep-link.
+  // sp.make / sp.model / sp.trim are accepted query params; surfaced in the
+  // heading so the user sees the active filter context even before the table
+  // client-side filtering is wired to these params.
+  const prefilterModel = sp.model ?? null;
+  const prefilterTrim = sp.trim ?? null;
 
   const buyerContext = await getBuyerContext();
   const [{ units, dealers, dealerById }, meta, specs] = await Promise.all([
@@ -40,6 +47,11 @@ export default async function InventoryPage({
           <h1 className="text-2xl font-semibold tracking-tight">Inventory</h1>
           <p className="text-sm text-fg-muted">
             Filter, sort, and rank every tracked unit. Defaults to the Greater Golden Horseshoe.
+            {prefilterModel && (
+              <span className="ml-2 chip chip-accent">
+                {prefilterModel}{prefilterTrim ? ` · ${prefilterTrim}` : ""}
+              </span>
+            )}
           </p>
         </div>
         <UpdatedStamp

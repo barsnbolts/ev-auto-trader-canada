@@ -30,6 +30,8 @@ import type { ScoredUnit, Spec, FinanceBreakdown, LeaseBreakdown } from "@/lib/t
 import { readHeatPump } from "@/lib/types";
 import { PrintButton } from "./PrintButton";
 import { plainLang } from "@/lib/plainLang";
+import { ChargingCurveChart } from "@/components/ChargingCurveChart";
+import { BatteryHealthPanel } from "@/components/BatteryHealthPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -82,6 +84,7 @@ export default async function DossierPage({ params }: PageProps) {
 
       <Header unit={unit} dealer={dealer} spec={specForUnit} />
       <OtdSection unit={unit} ctx={ctx} dealer={dealer} />
+      <TechSpecsSection spec={specForUnit} unit={unit} />
       <CohortSection unit={unit} cohort={cohort} />
       <DealerPressureSection
         dealerName={dealer.name}
@@ -107,6 +110,43 @@ function Section({ title, children }: { title: string; children: React.ReactNode
       </h2>
       {children}
     </section>
+  );
+}
+
+function TechSpecsSection({
+  spec,
+  unit,
+}: {
+  spec?: Spec;
+  unit: ScoredUnit;
+}) {
+  // Skip section entirely if spec is absent
+  if (!spec) return null;
+  // Skip if neither panel has anything to show
+  const hasCurve = spec.chargingCurve && spec.chargingCurve.length > 0;
+  const hasRange = spec.rangeEpaKm?.value != null || spec.rangeKm != null;
+  const hasBattery = hasRange; // chemistry pending is fine — panel shows "research pending"
+  if (!hasCurve && !hasBattery) return null;
+
+  return (
+    <Section title="Vehicle facts">
+      {hasBattery && (
+        <div className="mb-4">
+          <h3 className="text-xs font-semibold text-fg-subtle uppercase tracking-wide mb-2">
+            Battery health (estimated)
+          </h3>
+          <BatteryHealthPanel spec={spec} unit={unit} />
+        </div>
+      )}
+      {hasCurve && (
+        <div>
+          <h3 className="text-xs font-semibold text-fg-subtle uppercase tracking-wide mb-2">
+            DC charging curve (10→80%)
+          </h3>
+          <ChargingCurveChart spec={spec} />
+        </div>
+      )}
+    </Section>
   );
 }
 
