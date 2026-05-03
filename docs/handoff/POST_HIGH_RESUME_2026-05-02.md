@@ -167,3 +167,32 @@ After the medium queue lands, next HIGH-tier batch is **cash/finance/lease compa
 - `src/app/page.tsx`, `src/app/inventory/page.tsx`, `src/app/dealer/[id]/page.tsx`, `src/app/compare/page.tsx`, `src/app/inventory/[id]/dossier/page.tsx` (M4)
 - `MEDIUM_NEXT.md` / `LOW_NEXT.md` (handoff enrichment)
 - `docs/handoff/POST_HIGH_RESUME_2026-05-02.md` (this file)
+
+---
+
+## Final state (2026-05-03 evening, HEAD 5d5e3b30)
+
+**Live preview:** https://ev-auto-trader-canada-kflj10jhd-barsnbolts-projects.vercel.app
+**Branches:** `claude/verify-environment-setup-oTu3S` ahead of remote: 0
+**All 7 routes:** 200 OK on both `next start` local + Vercel preview
+
+### Sweeps shipped this session (post-V6)
+- F1.5b: 7 EV9/Ioniq9 specs backfilled (chargingCurve, batteryChemistry, rangeEpaKm + 10 sibling-shape fields each)
+- rangeEpaKm consistency: `/inventory` + CompareGrid prefer `rangeEpaKm.value` then fall back to legacy `rangeKm`
+- Hotfix: stripped explicit `rangeProtocol:null` (Zod schema is enum-only — caused production 500)
+- F11: 5/5 vehicle hero photos verified (Wikipedia Commons, CC BY-SA 4.0)
+- F12: 5/7 rangeEpaKm values corrected against NRCan/OEM showroom figures
+- F13: hasHeatPump already complete from M9 (all 7 specs High-confidence)
+- F15: BatteryHealthPanel emits "Medium confidence" footnote when rangeKm legacy fallback used
+- F16: doc-comments on PickerCompareTray + CompareGrid explaining intentional dual-compare-UI architecture
+- F18: CompareGrid computes hp from kw (motorHp legacy field still in data, no longer required)
+- F17: noUnusedLocals + noUnusedParameters on; 6 dead-code surfacings cleaned
+
+### Tomorrow morning (2026-05-04)
+- 7am ET: launchd `com.evautotrader.refresh` fires. Check `~/ev-auto-trader-canada/logs/cron.log` after — should show successful first run.
+- Verify: `launchctl list | grep evautotrader` should show non-zero PID + status 0.
+- If cron failed, the next session debugs it; the dashboard itself is unaffected.
+
+### Status: project complete for buying-window scope
+All Tier 1, 2 (planning-stage), and 3 backlog items shipped. Tier 4 (Tauri-wrap, repo rename) and F8 (trip planner) remain deferred — neither is required pre-purchase.
+
