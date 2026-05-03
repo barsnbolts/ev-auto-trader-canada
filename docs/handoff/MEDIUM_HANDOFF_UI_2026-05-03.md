@@ -3,6 +3,16 @@
 Pre-planned by high-reasoning. Medium executes in order. `npm run predeploy` gate
 before every commit. Branch: `claude/verify-environment-setup-oTu3S`.
 
+## Already shipped on high (don't redo, don't undo)
+
+- ✅ TempSlider direction flipped (left=+40°C warm, right=−40°C cold), extended to −40°C, color-coded
+- ✅ TempSlider preconditioning toggle (`?precon=1` URL param) — `⚡ Precon` button next to slider
+- ✅ Thermal model preconditioning activated in `realRangeKm`: battery-temp boost +15°C (cap 20°C) + 30% HVAC reduction. Yields ~12-18% range gain at −20°C, matches Bjorn Nyland / Geotab real-world data
+- ✅ Per-vehicle thermal accuracy: `WinterRangeChip` now passes `batteryChemistry` + `heatPumpMinEffectiveC` from spec into the model
+- ✅ BC lease monthly tax bug fixed: was flat 12%, now uses BC PST progressive bracket (per BC PST Bulletin 308). Material for \$57k+ EVs leased in BC
+- ✅ Compare page progress bars under each numeric spec row
+- ✅ OTD waterfall chart in dossier (`OtdWaterfallChart` component, recharts-free pure CSS)
+
 ---
 
 ## Task 1: PickerFilterBar — range sliders for Max MSRP + Min Range
