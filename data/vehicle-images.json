@@ -1,13 +1,13 @@
 {
-  "lastVerified": "2026-05-02",
+  "lastVerified": "2026-05-03",
   "source": "Wikipedia Commons, hand-curated. CC BY-SA 4.0 — fair use for personal-use shopping dashboard.",
   "notes": "Per-model hero shot. A6 audit (2026-05-02) found 4 of the 5 originally-seeded URLs were planning placeholders with invalid Wikipedia Commons MD5 directory hashes — they 404. Only Ioniq6 was verified live. The other four entries are intentionally null pending Phase B2 verification via the Wikipedia Commons API (see docs/handoff/research/A0_findings_2026-05-02.md §3). Consumers MUST handle url:null gracefully (skip image render).",
   "images": {
     "Ioniq5": {
-      "url": null,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/0/05/2022_Hyundai_Ioniq_5_Preferred_Long_Range_in_Shooting_Star%2C_Front_Right%2C_01-16-2022.jpg",
       "license": "CC BY-SA 4.0",
-      "commonsPage": null,
-      "alt": "Hyundai Ioniq 5 (URL pending verification)"
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:2022_Hyundai_Ioniq_5_Preferred_Long_Range_in_Shooting_Star,_Front_Right,_01-16-2022.jpg",
+      "alt": "2022 Hyundai Ioniq 5 Preferred Long Range, Shooting Star grey, front right, Ontario Canada"
     },
     "Ioniq6": {
       "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/2023_Hyundai_Ioniq_6_Preferred_AWD_Long_Range_in_Nocturne_Grey%2C_Front_Right%2C_05-02-2023.jpg",
@@ -16,22 +16,22 @@
       "alt": "2023 Hyundai Ioniq 6 Preferred AWD Long Range, Nocturne Grey, front right"
     },
     "Ioniq9": {
-      "url": null,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/2026_Hyundai_Ioniq_9%2C_front_NYIAS_2025.jpg",
       "license": "CC BY-SA 4.0",
-      "commonsPage": null,
-      "alt": "Hyundai Ioniq 9 (URL pending verification)"
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:2026_Hyundai_Ioniq_9,_front_NYIAS_2025.jpg",
+      "alt": "2026 Hyundai Ioniq 9, front, 2025 New York International Auto Show"
     },
     "EV6": {
-      "url": null,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/2024_Kia_EV6_GT-Line_in_Aurora_Black_Pearl%2C_front_right%2C_07-19-2024.jpg",
       "license": "CC BY-SA 4.0",
-      "commonsPage": null,
-      "alt": "Kia EV6 (URL pending verification)"
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:2024_Kia_EV6_GT-Line_in_Aurora_Black_Pearl,_front_right,_07-19-2024.jpg",
+      "alt": "2024 Kia EV6 GT-Line, Aurora Black Pearl, front right"
     },
     "EV9": {
-      "url": null,
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/e0/Kia_EV9_1X7A2472.jpg",
       "license": "CC BY-SA 4.0",
-      "commonsPage": null,
-      "alt": "Kia EV9 (URL pending verification)"
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:Kia_EV9_1X7A2472.jpg",
+      "alt": "2024 Kia EV9, silver, front 3/4, Stuttgart"
     }
   }
 }
