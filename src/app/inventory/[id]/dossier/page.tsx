@@ -85,7 +85,7 @@ export default async function DossierPage({ params }: PageProps) {
       <Header unit={unit} dealer={dealer} spec={specForUnit} />
       <OtdSection unit={unit} ctx={ctx} dealer={dealer} />
       <TechSpecsSection spec={specForUnit} unit={unit} />
-      <CohortSection unit={unit} cohort={cohort} />
+      <CohortSection unit={unit} cohort={cohort} dealerById={dealerById} />
       <DealerPressureSection
         dealerName={dealer.name}
         sameTrimCount={sameTrimAtDealer.length}
@@ -299,7 +299,7 @@ function LeaseSection({ lb }: { lb: LeaseBreakdown }) {
   );
 }
 
-function CohortSection({ unit, cohort }: { unit: ScoredUnit; cohort: ScoredUnit[] }) {
+function CohortSection({ unit, cohort, dealerById }: { unit: ScoredUnit; cohort: ScoredUnit[]; dealerById: Map<string, { name: string; city: string; province: string }> }) {
   if (cohort.length === 0) {
     return (
       <Section title="Comparable units nationwide">
@@ -311,19 +311,29 @@ function CohortSection({ unit, cohort }: { unit: ScoredUnit; cohort: ScoredUnit[
     <Section title="Comparable units (same trim, same year)">
       <table className="w-full text-sm">
         <thead className="text-xxs uppercase text-fg-muted">
-          <tr><th className="text-left py-1">Dealer</th><th className="text-right"><span title={plainLang("asking")} className="cursor-help underline decoration-dotted underline-offset-2">Asking</span></th><th className="text-right"><span title={plainLang("OTD")} className="cursor-help underline decoration-dotted underline-offset-2">OTD</span></th><th className="text-right">Δ vs this</th></tr>
+          <tr>
+            <th className="text-left py-1">Dealer</th>
+            <th className="text-left py-1">Location</th>
+            <th className="text-right"><span title={plainLang("asking")} className="cursor-help underline decoration-dotted underline-offset-2">Asking</span></th>
+            <th className="text-right"><span title={plainLang("OTD")} className="cursor-help underline decoration-dotted underline-offset-2">OTD</span></th>
+            <th className="text-right">Δ vs this</th>
+          </tr>
         </thead>
         <tbody>
-          {cohort.map((c) => (
-            <tr key={c.id}>
-              <td className="py-1 pr-4">{c.dealerId}</td>
-              <td className="text-right tabular-nums">{fmtCad(c.dealerAskingPrice)}</td>
-              <td className="text-right tabular-nums">{fmtCad(c.otdCad)}</td>
-              <td className={`text-right tabular-nums ${c.otdCad < unit.otdCad ? "text-good" : "text-fg-muted"}`}>
-                {c.otdCad < unit.otdCad ? "−" : "+"}{fmtCad(Math.abs(c.otdCad - unit.otdCad))}
-              </td>
-            </tr>
-          ))}
+          {cohort.map((c) => {
+            const d = dealerById.get(c.dealerId);
+            return (
+              <tr key={c.id}>
+                <td className="py-1 pr-3">{d?.name ?? c.dealerId}</td>
+                <td className="py-1 pr-3 text-fg-muted text-xs">{d ? `${d.city}, ${d.province}` : ""}</td>
+                <td className="text-right tabular-nums">{fmtCad(c.dealerAskingPrice)}</td>
+                <td className="text-right tabular-nums">{fmtCad(c.otdCad)}</td>
+                <td className={`text-right tabular-nums ${c.otdCad < unit.otdCad ? "text-good" : "text-fg-muted"}`}>
+                  {c.otdCad < unit.otdCad ? "−" : "+"}{fmtCad(Math.abs(c.otdCad - unit.otdCad))}
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </Section>
