@@ -1,0 +1,14 @@
+# Vercel deploys upload everything not gitignored by default; trim things
+# the runtime never reads. Build still has access to data/*.json (units,
+# incentives, specs, dealers, oem-pricing, vehicle-images, used-listings,
+# units-enrichment, heatpump-research-queue) which loadScoredUnits needs.
+
+docs/
+data/snapshots/
+research-output/
+research-prompts/
+logs/
+scripts/
+*.log
+.git/
+.claude/

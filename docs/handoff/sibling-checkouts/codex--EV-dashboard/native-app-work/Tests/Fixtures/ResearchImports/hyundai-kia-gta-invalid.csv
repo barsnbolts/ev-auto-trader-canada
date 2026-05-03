@@ -1,5 +1,0 @@
-make,model,trim,year,powertrain,dealer,city,province,advertised_price_cad,msrp_cad,stock_or_vin,status,odometer_km,source_url,source_type,observed_date,incentive_discount_notes,finance_offer_notes,confidence_note
-Toyota,RAV4 Hybrid,XLE,2025,HEV,Outside Scope Toyota,Toronto,Ontario,42000,44000,TOY-RAV4-2025-H1,In Stock,0,https://example.com/toyota/rav4-hybrid,Dealer,2026-04-30T12:00:00Z,Outside make,,Should reject non-Hyundai/Kia.
-Hyundai,IONIQ 6,Preferred,2024,BEV,Old Stock Hyundai,Toronto,Ontario,49888,51999,HY-I6-2024-A,In Stock,12,https://example.com/hyundai/ioniq-6-2024,Dealer,2026-04-30T12:00:00Z,Outside year,,Should reject year outside 2025-2026.
-Kia,EV6,Wind AWD,2025,BEV,No Source Kia,Hamilton,Ontario,54200,56995,KIA-EV6-2025-A,In Stock,30,,Dealer,2026-04-30T12:00:00Z,Missing source,,Should reject rows without source URL.
-Hyundai,Santa Fe Hybrid,Luxury AWD,2026,Gas,Wrong Powertrain Hyundai,Brampton,Ontario,49995,51595,HY-SF-2026-G1,In Stock,0,https://example.com/hyundai/santa-fe-gas,Dealer,2026-04-30T12:00:00Z,Unsupported powertrain,,Should reject gas-only rows.

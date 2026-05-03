@@ -1,8 +1,0 @@
-{
-  "vehicles": [
-    { "id": "EV-001", "make": "Tesla", "model": "Model 3 RWD", "year": 2023, "priceCad": 42990, "rangeKm": 438, "location": "Toronto, ON", "source": "dealer-feed-a" },
-    { "id": "EV-002", "make": "Hyundai", "model": "IONIQ 5 Preferred", "year": 2022, "priceCad": 46995, "rangeKm": null, "location": "Vancouver, BC", "source": "marketplace-b" },
-    { "id": "EV-003", "make": "Kia", "model": "EV6 GT-Line", "year": 2023, "priceCad": 51500, "rangeKm": 499, "location": "Montreal, QC", "source": "dealer-feed-c" },
-    { "id": "EV-004", "make": "Nissan", "model": "Leaf SV Plus", "year": 2021, "priceCad": 28750, "rangeKm": 349, "location": null, "source": "private-listing-d" }
-  ]
-}

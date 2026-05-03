@@ -1,8 +1,0 @@
-Batch Section	Sheet Tab	Action	Rows / Range	Source Artifact	Status
-Inventory candidates	INVENTORY	Append or insert rows around formula columns, preserving W/X/Y/AE formulas	13 candidate rows	staging/all_inventory_candidates.tsv	STAGED_NOT_PUSHED
-Price snapshots	PRICE_HISTORY	Append price history rows	13 candidate rows	staging/all_price_history_candidates.tsv	STAGED_NOT_PUSHED
-Tool benchmarks	TOOL_BENCHMARKS	Append benchmark rows	8 benchmark rows	outputs/tool_option_benchmark_results.tsv	STAGED_NOT_PUSHED
-Validation log	VALIDATION_LOG	Append local benchmark decision and vPIC caveats	3-5 rows	outputs/tool_decision.md; tool_option_benchmark_results.tsv	STAGED_NOT_PUSHED
-Rejected / needs recheck	REJECTED_ROWS	Append Bank Street EV6 incoming/no-price row and Neddy's IONIQ 9 404 recheck note if preserving prior accepted row policy allows	1+ row / possible validation note	staging/all_rejected_candidates.tsv; outputs/tool_decision.md	STAGED_NOT_PUSHED
-Status	STATUS	Update Hyundai Ioniq 5 inventory status to staged VIN candidates only after user approves final push	1 row	staging/inventory_candidates.tsv	STAGED_NOT_PUSHED
-Province coverage	PROVINCE_COVERAGE	Update Ontario Ioniq 5 VIN count after final acceptance push	Ontario row	staging/inventory_candidates.tsv	STAGED_NOT_PUSHED

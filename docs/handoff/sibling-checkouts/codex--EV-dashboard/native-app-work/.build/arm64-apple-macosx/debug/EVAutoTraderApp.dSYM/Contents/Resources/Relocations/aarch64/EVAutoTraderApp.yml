@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/ianmcadam/Documents/Codex/EV dashboard/native-app-work/.build/arm64-apple-macosx/debug/EVAutoTraderApp'
-relocations:     []
-...

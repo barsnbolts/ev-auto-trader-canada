@@ -1,5 +1,0 @@
-Target Tab	Range / Row	Intent	Values / Notes
-PROVINCE_COVERAGE	Ontario row	Reflect accepted IONIQ 9 Ontario VIN	IONIQ 9 VINs = 1; Status = ONE_FINAL_IONIQ9_VIN_ROW_PRICE_MSRP_SOURCE_BACKED; Source URL = Neddy's North Bay Hyundai VDP.
-FREE_SOURCE_PIPELINE	Priority 11 row	Remove Firecrawl from unconnected paid aggregator bucket	Rename option to Unconnected paid aggregators: MarketCheck / Apify.
-FREE_SOURCE_PIPELINE	Priority 15 row	Mark Firecrawl as configured benchmark fallback	Connected = YES_CLI_CONFIGURED; Cost = PROVIDED_KEY_CREDITS; Status = INTEGRATED_BENCHMARK_ONLY; note conserve credits and avoid broad crawls.
-VALIDATION_LOG	append rows	Log local staging and province coverage cleanup	Add rows for staged local-folder workflow and Ontario IONIQ 9 coverage update.
