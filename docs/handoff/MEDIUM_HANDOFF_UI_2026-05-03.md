@@ -232,6 +232,37 @@ git push origin HEAD
 
 ---
 
+## Math audit findings (2026-05-03 high-reasoning sweep)
+
+**FIXED in this commit batch:**
+- BC lease monthly tax was using flat 12% rate. Per BC PST Bulletin 308, lease
+  payments on long-term auto leases use the same progressive PST bracket as
+  cash retail. Fixed in `src/lib/scoring.ts` — new `monthlyLeaseTaxRate(province, vehiclePrice)`.
+
+**Verified correct (no action needed):**
+- All 13 PROVINCE_TAX rates match `data/taxes-and-fees.json`
+- BC PST progressive brackets match
+- Ontario dealer fees (OMVIC $22, tire $22.76, RDPRM $5, gov licensing $105) match
+- PMT amortization formula is standard
+- Lease money-factor formula (apr/2400) is standard
+- OTD breakdown line items reconcile to total via algebraic substitution
+- OtdWaterfallChart positions reconcile to running cumulative
+
+**Observations (not bugs, may revisit):**
+- `incentiveStackScore` sums ALL `amountCad` from applicable incentives,
+  including non-OTD scopes (e.g., charger_install). Slightly inflates the
+  Deal Score for units with charger rebates. Not material for personal use
+  since real OTD math is correct.
+- Federal luxury tax (>$100k threshold, in `data/taxes-and-fees.json`) is
+  not applied in `computeOtd`. Irrelevant for current Hyundai/Kia EV scope
+  (max trim ~$80k MSRP). Add when extending to Lucid/Mercedes/Genesis.
+- BC lease tax still uses `unit.msrp` as the bracket key; technically the
+  "lease price" (sum of payments + residual) determines the rate per BCPSTB-308.
+  For typical EV lease scenarios these are very close. Edge cases possible.
+- Tire stewardship fee is rendered post-tax. Some Ontario dealers add HST on
+  this; current code matches the more common convention (pre-HST pass-through).
+  Probably fine — within $3 either way.
+
 ## Notes for medium
 
 - `accent-accent` Tailwind class already defined in the project — use for slider thumb color

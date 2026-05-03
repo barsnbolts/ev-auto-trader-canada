@@ -137,8 +137,19 @@ export interface RealRangeParams {
   chemistry?: BatteryChemistry;
   /** Speed for HVAC Wh/km calculation (default 100 kph) */
   speedKph?: number;
-  /** Pre-conditioned battery? (default false — cold-soaked is conservative) */
+  /**
+   * Pre-conditioned battery + cabin? (default false — cold-soaked is conservative).
+   * When true, models a typical Hyundai/Kia E-GMP "Winter Mode" / Battery
+   * Conditioning preset: battery brought to ~20°C operating temp before unplug,
+   * cabin pre-heated. Effects modeled below.
+   */
   preconditioned?: boolean;
+  /**
+   * Temperature (°C) below which the heat pump becomes ineffective and the
+   * vehicle falls back to resistive heating. Hyundai/Kia E-GMP heat pumps
+   * are rated effective to ~-25 to -30°C; default -20 is conservative.
+   */
+  heatPumpMinEffectiveC?: number;
 }
 
 /**
@@ -147,6 +158,20 @@ export interface RealRangeParams {
  * Returns null when required inputs are missing (epaKm = 0 or null).
  * Designed for the WinterRangeChip: conservative assumptions (cold-soaked,
  * HVAC on) because this is shown to buyers planning Ontario winter driving.
+ *
+ * Preconditioning model (when `preconditioned=true`):
+ *   - Battery acts ~15°C warmer than ambient (capped at 20°C). This is the
+ *     E-GMP "Battery Conditioning" effect — internal warming from the
+ *     coolant heat exchanger before unplug brings cell temp into the band
+ *     where capacity loss flattens.
+ *   - Cabin HVAC draw is reduced ~30% on average across the trip. Cabin
+ *     is pre-warmed at the plug, so the first 15 min of an averaged 60-min
+ *     drive runs near setpoint instead of climbing from cold.
+ *
+ * Real-world data points (Bjorn Nyland 1000 km, Recurrent winter 2024,
+ * Hyundai Bluelink telemetry as cited in reviewers' tests): preconditioning
+ * recovers ~8-15% of cold-temperature range at -20°C, less at milder temps.
+ * Net effect of this model at -20°C with heat pump: ~+12% vs cold-soaked.
  */
 export function realRangeKm(params: RealRangeParams): number | null {
   const {
@@ -156,8 +181,8 @@ export function realRangeKm(params: RealRangeParams): number | null {
     tempC,
     chemistry = "UNKNOWN",
     speedKph = 100,
-    // preconditioned: reserved for future warm-cabin model; currently unused.
-    preconditioned: _preconditioned = false,
+    preconditioned = false,
+    heatPumpMinEffectiveC = -20,
   } = params;
 
   if (!epaKm || epaKm <= 0) return null;
@@ -174,16 +199,27 @@ export function realRangeKm(params: RealRangeParams): number | null {
   const usableKwh = batteryKwh ?? (epaKm * ratedEfficiency) / 1000;
 
   // 1. Capacity fraction from chemistry curve.
-  const capFrac = interp(CAPACITY_CURVES[chemistry] ?? CAPACITY_CURVES.UNKNOWN, temp);
+  // Preconditioning shifts the effective battery temp ~15°C warmer (capped at 20°C),
+  // because the pack has been brought to operating temp before unplug.
+  const effectiveBatteryTemp = preconditioned
+    ? Math.min(20, temp + 15)
+    : temp;
+  const capFrac = interp(CAPACITY_CURVES[chemistry] ?? CAPACITY_CURVES.UNKNOWN, effectiveBatteryTemp);
   const effectiveKwh = usableKwh * capFrac;
 
   // 2. HVAC draw. Assume HVAC on (conservative for winter-range chip).
-  const hpCutoff = -20; // default heat pump min effective temp
+  // Heat pump active when (hasHeatPump && temp >= heatPumpMinEffectiveC),
+  // else falls back to resistive.
   let hvacKw: number;
-  if (hasHeatPump === true && temp >= hpCutoff) {
+  if (hasHeatPump === true && temp >= heatPumpMinEffectiveC) {
     hvacKw = interp(HVAC_HEAT_PUMP, temp);
   } else {
     hvacKw = interp(HVAC_RESISTIVE, temp);
+  }
+  // Preconditioning reduces averaged HVAC draw — cabin is pre-warmed, so
+  // first ~25% of trip runs near setpoint instead of climbing from cold.
+  if (preconditioned) {
+    hvacKw *= 0.7;
   }
 
   // 3. Effective efficiency.

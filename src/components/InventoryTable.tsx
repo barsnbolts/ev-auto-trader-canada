@@ -112,8 +112,17 @@ function extractNum(v: number | { value: number | null } | null | undefined): nu
 }
 
 // Winter range chip — only renders when tempC < 5 and spec data is available.
-// Uses thermal physics model to estimate real-world range at the slider temp.
-function WinterRangeChip({ spec, tempC }: { spec: Spec | undefined; tempC: number }) {
+// Uses thermal physics model with per-vehicle chemistry, heat pump cutoff, and
+// optional preconditioning to estimate real-world range at the slider temp.
+function WinterRangeChip({
+  spec,
+  tempC,
+  preconditioned = false,
+}: {
+  spec: Spec | undefined;
+  tempC: number;
+  preconditioned?: boolean;
+}) {
   if (tempC >= 5) return null;
   if (!spec) return null;
   // Prefer new citedValue rangeEpaKm, fall back to legacy rangeKm
@@ -122,18 +131,29 @@ function WinterRangeChip({ spec, tempC }: { spec: Spec | undefined; tempC: numbe
   // Prefer new citedValue batteryKwhUsable, fall back to batteryKwh (may be plain or cited)
   const battery = extractNum(spec.batteryKwhUsable) ?? extractNum(spec.batteryKwh);
   const hasHP = readHeatPump(spec.hasHeatPump);
-  const km = realRangeKm({ epaKm: epa, batteryKwh: battery, hasHeatPump: hasHP, tempC });
+  const chemistry = spec.batteryChemistry; // per-vehicle if known
+  const hpMinC = extractNum(spec.heatPumpMinEffectiveC) ?? undefined;
+  const km = realRangeKm({
+    epaKm: epa,
+    batteryKwh: battery,
+    hasHeatPump: hasHP,
+    tempC,
+    chemistry,
+    heatPumpMinEffectiveC: hpMinC,
+    preconditioned,
+  });
   if (km == null) return null;
   let cls = "bg-blue-900 text-blue-200";
   let icon = "🌡";
   if (tempC <= -10) { cls = "bg-red-900 text-red-200"; icon = "🥶"; }
   const label = tempC >= 0 ? `+${tempC}°C` : `${tempC}°C`;
+  const preconNote = preconditioned ? " (preconditioned)" : " (cold-soaked)";
   return (
     <span
       className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xxs ${cls} block w-fit mt-1`}
-      title={`Estimated real-world range at ${label} based on thermal model`}
+      title={`Estimated real-world range at ${label}${preconNote}. Chemistry: ${chemistry ?? "unknown"}. Heat pump: ${hasHP === true ? `yes (effective ≥${hpMinC ?? -20}°C)` : hasHP === false ? "no" : "unknown"}.`}
     >
-      {icon} {label}: {Math.round(km)} km
+      {icon} {label}: {Math.round(km)} km{preconditioned ? " ⚡" : ""}
     </span>
   );
 }
@@ -169,6 +189,7 @@ type Props = {
   specByUnitId?: Record<string, Spec>;
   buyerContext?: BuyerContext;
   tempC?: number;
+  preconditioned?: boolean;
 };
 
 type SortKey = "deal" | "otd" | "discount" | "perKm" | "newest" | "oldest";
@@ -275,7 +296,7 @@ function exportCsv(
   URL.revokeObjectURL(url);
 }
 
-export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId, specByUnitId, buyerContext, tempC = 20 }: Props) {
+export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId, specByUnitId, buyerContext, tempC = 20, preconditioned = false }: Props) {
   const province = buyerContext?.province ?? "ON";
   const rangeFor = (id: string): number | null => rangeByUnitId?.[id] ?? null;
   const perKmFor = (u: ScoredUnit): number | null => {
@@ -618,7 +639,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                       <HeatPumpChip hasHeatPump={readHeatPump(specByUnitId[u.id]?.hasHeatPump)} />
                     )}
                     {specByUnitId && (
-                      <WinterRangeChip spec={specByUnitId[u.id]} tempC={tempC} />
+                      <WinterRangeChip spec={specByUnitId[u.id]} tempC={tempC} preconditioned={preconditioned} />
                     )}
                   </td>
                   <td className="px-3 py-2 num">{u.year}</td>

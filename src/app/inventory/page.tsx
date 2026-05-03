@@ -11,11 +11,12 @@ export const dynamic = "force-dynamic";
 export default async function InventoryPage({
   searchParams,
 }: {
-  searchParams: Promise<{ tempC?: string; make?: string; model?: string; trim?: string }>;
+  searchParams: Promise<{ tempC?: string; precon?: string; make?: string; model?: string; trim?: string }>;
 }) {
   const sp = await searchParams;
   const rawTemp = sp.tempC != null ? Number(sp.tempC) : 20;
-  const tempC = Number.isNaN(rawTemp) ? 20 : Math.max(-30, Math.min(40, rawTemp));
+  const tempC = Number.isNaN(rawTemp) ? 20 : Math.max(-40, Math.min(40, rawTemp));
+  const preconditioned = sp.precon === "1";
 
   // Pre-filter hint from /pick-a-model "Buy this model" deep-link.
   // sp.make / sp.model / sp.trim are accepted query params; surfaced in the
@@ -63,7 +64,7 @@ export default async function InventoryPage({
           ]}
         />
       </div>
-      <TempSlider initial={tempC} />
+      <TempSlider initial={tempC} preconditioned={preconditioned} />
       <InventoryTable
         units={units}
         dealerById={dealerById}
@@ -71,6 +72,7 @@ export default async function InventoryPage({
         rangeByUnitId={rangeByUnitId}
         specByUnitId={specByUnitId}
         tempC={tempC}
+        preconditioned={preconditioned}
       />
     </div>
   );

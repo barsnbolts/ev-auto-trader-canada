@@ -363,12 +363,16 @@ function pmt(principal: number, monthlyRate: number, termMonths: number): number
   );
 }
 
-// Approximate provincial tax rate for monthly-payment tax-up. Lease monthlies
-// are taxed in full at the buyer's province rate — same as cash retail tax
-// for personal-use vehicles in Canada. Mirrors salesTaxFor's PROVINCE_TAX
-// fallback; BC progressive bracket isn't applied here since it's a per-
-// vehicle-price surtax, not a monthly payment tax.
-function approxTaxRate(province: Province): number {
+// Provincial tax rate applied to lease monthly payments for personal-use
+// vehicles in Canada. BC is a special case: per BC PST Bulletin 308, lease
+// payments on long-term auto leases are subject to PST at the rate determined
+// by the VEHICLE PRICE (same progressive surtax bracket as cash retail), not
+// a flat 7%. So a $60k EV leased in BC pays 5% GST + 10% PST = 15% on each
+// monthly — not 12%. Other provinces use their flat HST/GST+PST rate.
+function monthlyLeaseTaxRate(province: Province, vehiclePrice: number): number {
+  if (province === "BC") {
+    return 0.05 + bcPstRateFor(vehiclePrice);
+  }
   return PROVINCE_TAX[province as keyof typeof PROVINCE_TAX] ?? 0.13;
 }
 
@@ -441,7 +445,7 @@ export function computeLeaseOtd(
   const monthly = Math.max(0, monthlyDep + monthlyFinance);
 
   const taxProv = buyerContext?.province ?? dealer.province;
-  const taxRate = approxTaxRate(taxProv);
+  const taxRate = monthlyLeaseTaxRate(taxProv, unit.msrp);
   const monthlyWithTax = monthly * (1 + taxRate);
 
   const totalLease = monthlyWithTax * term + capReduction + securityDeposit;

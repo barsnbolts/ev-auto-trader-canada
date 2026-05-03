@@ -2,7 +2,15 @@
 /**
  * TempSlider — LEFT = warm (+40°C), RIGHT = cold (-40°C).
  * Internally negated so HTML range increases L→R while displayed temp decreases.
- * Writes ?tempC= URL param via router.replace. Default 20°C removes the param.
+ *
+ * URL params (both via router.replace, no page reload):
+ *   ?tempC=N      — outside temperature in °C (default 20 → param omitted)
+ *   ?precon=1     — battery + cabin preconditioning ON (default off → param omitted)
+ *
+ * Preconditioning toggle is a small ⚡ button next to the slider. When on,
+ * the thermal model treats the battery as ~15°C warmer (capped at 20°C) and
+ * cabin HVAC draw as ~30% lower — modeling the typical Hyundai/Kia E-GMP
+ * "Battery Conditioning" + cabin pre-heat behaviour.
  */
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
@@ -15,21 +23,31 @@ function tempColor(t: number): string {
   return "text-[#f87171]";
 }
 
-export function TempSlider({ initial }: { initial: number }) {
+interface Props {
+  initial: number;
+  preconditioned?: boolean;
+}
+
+export function TempSlider({ initial, preconditioned = false }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  function setTemp(t: number) {
+  function updateParams(patch: { tempC?: number | null; precon?: boolean | null }) {
     const params = new URLSearchParams(searchParams.toString());
-    if (t === DEFAULT_TEMP) params.delete("tempC");
-    else params.set("tempC", String(t));
+    if (patch.tempC !== undefined) {
+      if (patch.tempC === null || patch.tempC === DEFAULT_TEMP) params.delete("tempC");
+      else params.set("tempC", String(patch.tempC));
+    }
+    if (patch.precon !== undefined) {
+      if (patch.precon) params.set("precon", "1");
+      else params.delete("precon");
+    }
     const qs = params.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
   }
 
-  // Negate: slider left (-40 internal) → displayed +40°C warm
-  const sliderValue = -initial;
+  const sliderValue = -initial; // negate so left = warm
   const label = initial >= 0 ? `+${initial}°C` : `${initial}°C`;
 
   return (
@@ -42,7 +60,7 @@ export function TempSlider({ initial }: { initial: number }) {
         max={40}
         step={5}
         value={sliderValue}
-        onChange={(e) => setTemp(-Number(e.target.value))}
+        onChange={(e) => updateParams({ tempC: -Number(e.target.value) })}
         className="flex-1 max-w-xs cursor-pointer accent-accent"
         aria-label="Outside temperature in Celsius"
         aria-valuetext={label}
@@ -51,11 +69,32 @@ export function TempSlider({ initial }: { initial: number }) {
       <span className={`font-mono w-14 text-right tabular-nums shrink-0 font-medium ${tempColor(initial)}`}>
         {label}
       </span>
-      {initial !== DEFAULT_TEMP && (
+
+      {/* Preconditioning toggle */}
+      <button
+        type="button"
+        role="switch"
+        aria-checked={preconditioned}
+        onClick={() => updateParams({ precon: !preconditioned })}
+        className={`shrink-0 ml-1 px-2 py-1 rounded text-xxs font-medium transition border ${
+          preconditioned
+            ? "bg-accent-dim/30 border-accent text-accent"
+            : "bg-bg border-border text-fg-subtle hover:text-fg hover:bg-bg-hover"
+        }`}
+        title={
+          preconditioned
+            ? "Preconditioning ON — battery + cabin warmed before drive (typical: +8-15% range at -20°C). Click to disable."
+            : "Preconditioning OFF — cold-soaked vehicle (worst case). Click to model preconditioning ON (E-GMP Winter Mode)."
+        }
+      >
+        ⚡ {preconditioned ? "Precon ON" : "Precon"}
+      </button>
+
+      {(initial !== DEFAULT_TEMP || preconditioned) && (
         <button
-          onClick={() => setTemp(DEFAULT_TEMP)}
+          onClick={() => updateParams({ tempC: DEFAULT_TEMP, precon: false })}
           className="text-xxs text-fg-subtle hover:text-fg transition shrink-0 ml-1"
-          aria-label="Reset to default temperature"
+          aria-label="Reset to defaults"
         >
           reset
         </button>
