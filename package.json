@@ -17,6 +17,7 @@
     "pre-commit": "npx tsc --noEmit"
   },
   "dependencies": {
+    "@travishorn/financejs": "^1.19.1",
     "leaflet": "^1.9.4",
     "next": "^15.0.3",
     "react": "^19.0.0",

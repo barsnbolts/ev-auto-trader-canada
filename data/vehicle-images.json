@@ -1,0 +1,37 @@
+{
+  "lastVerified": "2026-05-02",
+  "source": "Wikipedia Commons, hand-curated. CC BY-SA 4.0 — fair use for personal-use shopping dashboard.",
+  "notes": "Per-model hero shot. Resolves by InventoryUnit.model. Sonnet/medium can expand to per-(model, year, trim) precision via the Commons API helper documented in docs/handoff/research/A0_findings_2026-05-02.md §3.",
+  "images": {
+    "Ioniq5": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Hyundai_IONIQ_5_Long_Range_Prestige_NE1_PE_Atlas_White_Matte_(5).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:Hyundai_IONIQ_5_Long_Range_Prestige_NE1_PE_Atlas_White_Matte_(5).jpg",
+      "alt": "Hyundai Ioniq 5 Long Range, Atlas White, exterior front three-quarter"
+    },
+    "Ioniq6": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/2023_Hyundai_Ioniq_6_Preferred_AWD_Long_Range_in_Nocturne_Grey%2C_Front_Right%2C_05-02-2023.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:2023_Hyundai_Ioniq_6_Preferred_AWD_Long_Range_in_Nocturne_Grey,_Front_Right,_05-02-2023.jpg",
+      "alt": "2023 Hyundai Ioniq 6 Preferred AWD Long Range, Nocturne Grey, front right"
+    },
+    "Ioniq9": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/x/xx/Hyundai_IONIQ_9_AWD_Calligraphy_ME1_Celadon_Gray_Metallic_(37).jpg/1280px-Hyundai_IONIQ_9_AWD_Calligraphy_ME1_Celadon_Gray_Metallic_(37).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:Hyundai_IONIQ_9_AWD_Calligraphy_ME1_Celadon_Gray_Metallic_(37).jpg",
+      "alt": "Hyundai Ioniq 9 AWD Calligraphy, Celadon Grey Metallic, studio shot"
+    },
+    "EV6": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/x/xx/Kia_EV6_CV1_PE_Interstellar_Gray_(2).jpg/1280px-Kia_EV6_CV1_PE_Interstellar_Gray_(2).jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:Kia_EV6_CV1_PE_Interstellar_Gray_(2).jpg",
+      "alt": "Kia EV6, Interstellar Gray, exterior"
+    },
+    "EV9": {
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/x/xx/2024_Kia_EV9_1.jpg/1280px-2024_Kia_EV9_1.jpg",
+      "license": "CC BY-SA 4.0",
+      "commonsPage": "https://commons.wikimedia.org/wiki/File:2024_Kia_EV9_1.jpg",
+      "alt": "2024 Kia EV9, exterior front three-quarter"
+    }
+  }
+}

@@ -3,10 +3,12 @@ import transportBandsData from "../../data/transport-bands.json";
 import type {
   BuyerContext,
   Dealer,
+  FinanceBreakdown,
   Incentive,
   IncentiveLine,
   IncentiveScope,
   InventoryUnit,
+  LeaseBreakdown,
   ScoredUnit,
 } from "./types";
 
@@ -320,4 +322,143 @@ function clamp01(n: number): number {
   if (n < 0) return 0;
   if (n > 1) return 1;
   return n;
+}
+
+// ---- Finance + lease 3-path OTD modeling (2026-05-02) ----
+// Cash OTD via computeOtd above. The two functions below produce sibling
+// breakdowns when the unit matches a finance_promo or lease_promo. Both
+// return null when no matching promo applies — caller decides whether to
+// render the path. Math intentionally inline (PMT formula + lease money-
+// factor formula); upgrade to @travishorn/financejs in Phase C if precision
+// needs it.
+
+// Choose the best matching promo from `applicable` for the given scope.
+// "Best" heuristic: lowest APR, then longest term. Personal-use, not
+// optimization — the dealer will end up doing the actual offer math.
+function bestPromo(
+  applicable: Incentive[],
+  scope: IncentiveScope,
+): Incentive | undefined {
+  return applicable
+    .filter(
+      (i) =>
+        i.scope === scope &&
+        i.status === "active" &&
+        i.aprPercent !== undefined &&
+        i.termMonths !== undefined,
+    )
+    .sort((a, b) => {
+      const aprDiff = (a.aprPercent ?? 0) - (b.aprPercent ?? 0);
+      if (aprDiff !== 0) return aprDiff;
+      return (b.termMonths ?? 0) - (a.termMonths ?? 0);
+    })[0];
+}
+
+// Standard PMT formula. principal, monthlyRate, termMonths -> monthly payment.
+function pmt(principal: number, monthlyRate: number, termMonths: number): number {
+  if (monthlyRate === 0) return principal / termMonths;
+  return (
+    (principal * monthlyRate) /
+    (1 - Math.pow(1 + monthlyRate, -termMonths))
+  );
+}
+
+// Approximate provincial tax rate for monthly-payment tax-up. Lease monthlies
+// are taxed in full at the buyer's province rate — same as cash retail tax
+// for personal-use vehicles in Canada. Mirrors salesTaxFor's PROVINCE_TAX
+// fallback; BC progressive bracket isn't applied here since it's a per-
+// vehicle-price surtax, not a monthly payment tax.
+function approxTaxRate(province: Province): number {
+  return PROVINCE_TAX[province as keyof typeof PROVINCE_TAX] ?? 0.13;
+}
+
+// Finance path. Cash OTD (after cash incentives) financed at promo APR.
+// Down payment defaults to the incentive's downPaymentExample, else 0.
+// Returns null when no finance_promo matches.
+export function computeFinanceOtd(
+  unit: InventoryUnit,
+  dealer: Dealer,
+  applicable: Incentive[],
+  buyerContext?: BuyerContext,
+): FinanceBreakdown | null {
+  const promo = bestPromo(applicable, "finance_promo");
+  if (!promo) return null;
+
+  // Use the same cash OTD as the baseline; finance only changes how the
+  // total is spread, not the total. Down payment reduces principal financed.
+  const cashOtd = computeOtd(unit, dealer, applicable, buyerContext?.province);
+  const down = promo.downPaymentExample ?? 0;
+  const principal = Math.max(0, cashOtd.total - down);
+  const apr = promo.aprPercent ?? 0;
+  const term = promo.termMonths ?? 60;
+  const monthlyRate = apr / 100 / 12;
+
+  const monthly = pmt(principal, monthlyRate, term);
+  const totalPaid = monthly * term + down;
+  const totalInterest = totalPaid - cashOtd.total;
+
+  return {
+    aprPercent: apr,
+    termMonths: term,
+    downPaymentCad: down,
+    amountFinancedCad: +principal.toFixed(2),
+    monthlyPaymentCad: +monthly.toFixed(2),
+    totalInterestCad: +totalInterest.toFixed(2),
+    totalCostCad: +totalPaid.toFixed(2),
+    promoId: promo.id,
+  };
+}
+
+// Lease path. Money-factor formula: monthly = depreciation + finance charge,
+// where depreciation = (capCost - residual) / term and finance charge =
+// (capCost + residual) × moneyFactor (apr/24/100). Cap cost = MSRP + freight
+// - capCostReduction (signing down). Residual = MSRP × residualPercent.
+// Mileage allowance + overage rate are documented for cost-of-ownership
+// transparency; not folded into monthly. Returns null when no lease_promo
+// matches.
+export function computeLeaseOtd(
+  unit: InventoryUnit,
+  dealer: Dealer,
+  applicable: Incentive[],
+  buyerContext?: BuyerContext,
+): LeaseBreakdown | null {
+  const promo = bestPromo(applicable, "lease_promo");
+  if (!promo || promo.residualPercent === undefined) return null;
+
+  const apr = promo.aprPercent ?? 0;
+  const term = promo.termMonths ?? 48;
+  const residualPct = promo.residualPercent;
+  const capReduction = promo.capCostReductionCad ?? promo.downPaymentExample ?? 0;
+  const securityDeposit = promo.leaseSecurityDepositCad ?? 0;
+  const annualMileage = promo.leaseAnnualMileageKm ?? 20000;
+  const overage = promo.leaseOverageCadPerKm ?? 0.20;
+
+  const capCost = Math.max(0, unit.msrp + unit.freightPdi - capReduction);
+  const residualValue = unit.msrp * (residualPct / 100);
+  const monthlyDep = (capCost - residualValue) / term;
+  const moneyFactor = apr / 100 / 24;
+  const monthlyFinance = (capCost + residualValue) * moneyFactor;
+  const monthly = Math.max(0, monthlyDep + monthlyFinance);
+
+  const taxProv = buyerContext?.province ?? dealer.province;
+  const taxRate = approxTaxRate(taxProv);
+  const monthlyWithTax = monthly * (1 + taxRate);
+
+  const totalLease = monthlyWithTax * term + capReduction + securityDeposit;
+
+  return {
+    aprPercent: apr,
+    termMonths: term,
+    residualPercent: residualPct,
+    residualBuyoutCad: +residualValue.toFixed(2),
+    capCostCad: +capCost.toFixed(2),
+    capCostReductionCad: capReduction,
+    securityDepositCad: securityDeposit,
+    annualMileageKm: annualMileage,
+    overageCadPerKm: overage,
+    monthlyPaymentCad: +monthly.toFixed(2),
+    monthlyPaymentWithTaxCad: +monthlyWithTax.toFixed(2),
+    totalLeaseCostCad: +totalLease.toFixed(2),
+    promoId: promo.id,
+  };
 }

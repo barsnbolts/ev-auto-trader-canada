@@ -27,7 +27,7 @@ import {
   type UsedMarketStat,
 } from "./types";
 import { MODELS } from "./constants";
-import { applicableIncentives, computeDealScore, computeOtd } from "./scoring";
+import { applicableIncentives, computeDealScore, computeFinanceOtd, computeLeaseOtd, computeOtd } from "./scoring";
 
 const DATA_DIR = path.join(process.cwd(), "data");
 
@@ -286,6 +286,8 @@ export async function loadScoredUnits(
     }
     const applicable = applicableIncentives(unit, dealer, incentives, buyerContext);
     const otdBreakdown = computeOtd(unit, dealer, applicable, buyerContext?.province);
+    const finance = computeFinanceOtd(unit, dealer, applicable, buyerContext);
+    const lease = computeLeaseOtd(unit, dealer, applicable, buyerContext);
     const { score, breakdown } = computeDealScore({
       unit,
       dealer,
@@ -296,6 +298,11 @@ export async function loadScoredUnits(
       ...unit,
       otdCad: otdBreakdown.total,
       otdBreakdown,
+      otdPaths: {
+        cash: otdBreakdown,
+        ...(finance ? { finance } : {}),
+        ...(lease ? { lease } : {}),
+      },
       dealScore: score,
       dealScoreBreakdown: breakdown,
       applicableIncentives: applicable,
