@@ -171,7 +171,17 @@
     "generationLabel": "2025 refresh (84 kWh)",
     "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV6",
@@ -253,7 +263,17 @@
     "generationLabel": "2025 refresh (84 kWh)",
     "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV6",
@@ -335,7 +355,17 @@
     "generationLabel": "2025 refresh (84 kWh)",
     "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV6",
@@ -420,7 +450,17 @@
     "generationLabel": "2025 refresh (84 kWh)",
     "heatPumpSource": "https://www.kiamedia.com/us/en/models/ev6/2025/features",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -514,7 +554,17 @@
     "generationLabel": "2025+ (84 kWh refresh)",
     "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -608,7 +658,17 @@
     "generationLabel": "2025+ (84 kWh refresh)",
     "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -691,7 +751,17 @@
     "generationLabel": "2025+ (84 kWh refresh)",
     "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -771,7 +841,17 @@
     "generationLabel": "2025+ (84 kWh refresh)",
     "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5-n",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -867,7 +947,17 @@
     "generationLabel": "2025+ (84 kWh refresh)",
     "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -944,7 +1034,17 @@
     "generationLabel": "2025+ (84 kWh refresh)",
     "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq6",
@@ -1039,7 +1139,17 @@
     "generationLabel": "Gen 1 (2023+)",
     "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq6",
@@ -1122,7 +1232,17 @@
     "generationLabel": "Gen 1 (2023+)",
     "heatPumpSource": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-6",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV9",
@@ -1313,7 +1433,17 @@
     "generationLabel": "Gen 1 (2024+)",
     "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV9",
@@ -1407,7 +1537,17 @@
     "generationLabel": "Gen 1 (2024+)",
     "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV9",
@@ -1501,7 +1641,17 @@
     "generationLabel": "Gen 1 (2024+)",
     "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq9",
@@ -1596,7 +1746,17 @@
     "generationLabel": "Gen 1 (2026+)",
     "heatPumpSource": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq9",
@@ -1691,7 +1851,17 @@
     "generationLabel": "Gen 1 (2026+)",
     "heatPumpSource": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq9",
@@ -1786,7 +1956,17 @@
     "generationLabel": "Gen 1 (2026+)",
     "heatPumpSource": "https://www.hyundainews.com/assets/documents/original/66236-2026IONIQ9SpecsFeatures20250603.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV9",
@@ -1987,7 +2167,17 @@
     ],
     "bodyStyle": "SUV",
     "powertrain": "BEV",
-    "generationLabel": "Gen 1 (2024+)"
+    "generationLabel": "Gen 1 (2024+)",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV9",
@@ -2082,7 +2272,17 @@
     ],
     "bodyStyle": "SUV",
     "powertrain": "BEV",
-    "generationLabel": "Gen 1 (2024+)"
+    "generationLabel": "Gen 1 (2024+)",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV9",
@@ -2177,7 +2377,17 @@
     ],
     "bodyStyle": "SUV",
     "powertrain": "BEV",
-    "generationLabel": "Gen 1 (2024+)"
+    "generationLabel": "Gen 1 (2024+)",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -2276,7 +2486,17 @@
     ],
     "bodyStyle": "Crossover",
     "powertrain": "BEV",
-    "generationLabel": "2025+ (84 kWh refresh)"
+    "generationLabel": "2025+ (84 kWh refresh)",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -2374,7 +2594,17 @@
     ],
     "bodyStyle": "Crossover",
     "powertrain": "BEV",
-    "generationLabel": "2025+ (84 kWh refresh)"
+    "generationLabel": "2025+ (84 kWh refresh)",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq6",
@@ -2470,7 +2700,17 @@
     ],
     "bodyStyle": "Sedan",
     "powertrain": "BEV",
-    "generationLabel": "Gen 1 (2023+)"
+    "generationLabel": "Gen 1 (2023+)",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "Ioniq5",
@@ -2563,7 +2803,17 @@
     "powertrain": "BEV",
     "generationLabel": "2025+ (84 kWh refresh)",
     "source": "https://www.hyundaicanada.com/en/showroom/2025/ioniq-5",
-    "notes": "Ported from sibling EV-dashboard seed.json. SE Long Range is the base long-range RWD entry point trim."
+    "notes": "Ported from sibling EV-dashboard seed.json. SE Long Range is the base long-range RWD entry point trim.",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV6",
@@ -2650,7 +2900,17 @@
     "powertrain": "BEV",
     "generationLabel": "2025 refresh (84 kWh)",
     "source": "https://www.kia.ca/en/ev6",
-    "notes": "Ported from sibling EV-dashboard seed.json. Generic long-range RWD entry; maps to Wind RWD or similar 84 kWh trim."
+    "notes": "Ported from sibling EV-dashboard seed.json. Generic long-range RWD entry; maps to Wind RWD or similar 84 kWh trim.",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV6",
@@ -2732,7 +2992,17 @@
     "powertrain": "BEV",
     "generationLabel": "2025 refresh (84 kWh)",
     "source": "https://www.kia.ca/en/ev6",
-    "notes": "Ported from sibling EV-dashboard seed.json. Generic long-range AWD entry covering GT-Line and Land AWD trims."
+    "notes": "Ported from sibling EV-dashboard seed.json. Generic long-range AWD entry covering GT-Line and Land AWD trims.",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   },
   {
     "model": "EV9",
@@ -2825,6 +3095,16 @@
     "powertrain": "BEV",
     "generationLabel": "Gen 1 (2024+)",
     "source": "https://www.kia.ca/en/showroom/ev9",
-    "notes": "Ported from sibling EV-dashboard seed.json. EV9 2024 model year entry."
+    "notes": "Ported from sibling EV-dashboard seed.json. EV9 2024 model year entry.",
+    "heatPumpMinEffectiveC": {
+      "value": -25,
+      "source": {
+        "url": "https://www.hyundai.news/eu/articles/press-releases/hyundai-motor-group-electric-global-modular-platform-explained.html",
+        "name": "Hyundai E-GMP heat pump technical reference",
+        "accessed": "2026-05-03"
+      },
+      "confidence": "Medium",
+      "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
+    }
   }
 ]
