@@ -6,8 +6,20 @@
 
 ## Where we are
 
-- **STATUS: Claude-side COMPLETE.** All V5 phases (A0 → A7 → B1 → B2 → D1 → D2) closed and pushed. HEAD pushed to both `claude/verify-environment-setup-oTu3S` and `claude/resume-ev-trader-dashboard-xmD1P` on origin.
-- **Remaining work is USER-only:** (1) install launchd plist (one `cp` + one `launchctl load`); (2) first-time Vercel deploy (per `docs/DEPLOY.md`). Both documented under "Pending user actions" below.
+- **STATUS: V6 BLEND PHASES F0–F6 SHIPPED + LIVE ON VERCEL (2026-05-03).** HEAD `1b7aa927` on both branches. Preview URL: `https://ev-auto-trader-canada-9n9r6f29q-barsnbolts-projects.vercel.app/`
+- **launchd:** loaded 2026-05-03 (`com.evautotrader.refresh` 7am daily refresh).
+- **What shipped today (V6):**
+  - F0 — purged ~5GB of Cowork-era handoff bloat (sibling-checkouts/mac-context/superpowers); committed pending `.vercelignore` + `next.config.mjs` Wikipedia hostname fix
+  - F1 — sibling specs/CitedValue<T> types ported; specs.json 27 → 31 entries; hasHeatPump shape upgraded with backwards-compat helper
+  - F2 — thermal physics model + winter-range chip on InventoryTable (URL search params for tempC, no zustand)
+  - F3 — mom-mode plain-language tooltips across UnitDrawer/dossier/compare/BuyerContextSelector (23 wraps; 20 glossary entries)
+  - F4 — charging curve chart in dossier (recharts, renders for 5 sibling-curated specs)
+  - F5 — NEW `/pick-a-model` route (zustand-backed picker tray, BrandList + filters + compare-tray)
+  - F6 — battery degradation panel in dossier (chemistry-aware retention model)
+- **Known gap (F1.5 backfill, queued):** F1 inserted 4 new entries but did not augment the existing 27 specs with sibling CitedValue fields. Result: most units render F4/F6 panel skeletons instead of rich data. Fix: dispatch one Sonnet subagent next session to fuzzy-match sibling seed.json onto our 27 existing specs by `(model, year-range, trim_label)` + merge fields without overwriting non-null existing values. Estimated ~10–15k Sonnet tokens.
+- **Pending user actions still open:**
+  1. (Optional) Vercel production-branch override at `https://vercel.com/barsnbolts-projects/ev-auto-trader-canada/settings/git` → set to `claude/verify-environment-setup-oTu3S` if you want pushes to auto-deploy to prod (currently preview-only; promote manually via dashboard or `vercel deploy --prod`)
+  2. (Optional, future Phase F7) Set `NEXT_PUBLIC_OCM_KEY` env var if you want live DCFC pin map data — falls back to bundled 15-pin demo dataset when unset.
 - **D2 closure:** `docs/handoff/research/D2_integration_2026-05-02.md`. Found + fixed one bug (`next/image` Wikipedia hostname, commit `5c031cdd`). All 5 routes return 200. Ioniq5 LR dossier renders Cash + Finance ($1,022/mo) + Lease ($663/mo). EV9 Light dossier renders $804/mo lease. Schema invariants pass (lease_promo=2, finance_promo=2, loyalty=2).
 
 
