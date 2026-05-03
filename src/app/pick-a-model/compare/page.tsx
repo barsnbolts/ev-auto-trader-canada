@@ -199,6 +199,20 @@ function bestIndices(values: (string | null)[], highlight: "low" | "high"): Set<
   return new Set(nums.map((n, i) => (n === best ? i : -1)).filter((i) => i >= 0));
 }
 
+// Returns bar widths 0–100% relative to max value in row (null = no bar).
+function barWidths(values: (string | null)[]): (number | null)[] {
+  const nums = values.map((v) => {
+    if (!v || v === "—") return null;
+    const n = parseFloat(v.replace(/[^0-9.]/g, ""));
+    return isNaN(n) ? null : n;
+  });
+  const valid = nums.filter((n): n is number => n !== null);
+  if (valid.length < 2) return nums.map(() => null);
+  const max = Math.max(...valid);
+  if (max === 0) return nums.map(() => null);
+  return nums.map((n) => (n !== null ? Math.round((n / max) * 100) : null));
+}
+
 export default async function PickerComparePage({ searchParams }: PageProps) {
   const sp = await searchParams;
   const rawIds = sp.ids ?? "";
@@ -288,6 +302,7 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
           <tbody>
             {rows.map((row) => {
               const best = row.highlight ? bestIndices(row.values, row.highlight) : new Set<number>();
+              const bars = row.highlight ? barWidths(row.values) : null;
               return (
                 <tr key={row.label} className="border-t border-border hover:bg-bg-hover/40 transition">
                   <td className="px-4 py-2.5 text-xxs uppercase tracking-wide text-fg-subtle align-top">
@@ -296,6 +311,7 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
                   {row.values.map((val, i) => {
                     const isBest = best.has(i);
                     const isEmpty = !val || val === "—";
+                    const barPct = bars ? bars[i] : null;
                     return (
                       <td
                         key={i}
@@ -308,6 +324,14 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
                         }`}
                       >
                         {val ?? "—"}
+                        {barPct != null && !isEmpty && (
+                          <div className="mt-1.5 h-[3px] w-full max-w-[80px] bg-border rounded-full overflow-hidden">
+                            <div
+                              className={`h-full rounded-full ${isBest ? "bg-good" : "bg-fg-subtle/40"}`}
+                              style={{ width: `${barPct}%` }}
+                            />
+                          </div>
+                        )}
                       </td>
                     );
                   })}

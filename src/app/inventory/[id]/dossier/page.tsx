@@ -32,6 +32,7 @@ import { PrintButton } from "./PrintButton";
 import { plainLang } from "@/lib/plainLang";
 import { ChargingCurveChart } from "@/components/ChargingCurveChart";
 import { BatteryHealthPanel } from "@/components/BatteryHealthPanel";
+import { OtdWaterfallChart } from "@/components/OtdWaterfallChart";
 
 export const dynamic = "force-dynamic";
 
@@ -212,7 +213,32 @@ function OtdSection({ unit, ctx, dealer }: { unit: ScoredUnit; ctx: { province: 
     <Section title={`Out-the-door (taxed in ${ctx.province})`}>
       {/* Cash path */}
       <div className="mb-3">
-        <div className="text-xxs uppercase tracking-wide text-fg-subtle mb-1">Cash</div>
+        <div className="text-xxs uppercase tracking-wide text-fg-subtle mb-2">Cash</div>
+        {/* Waterfall visualisation */}
+        <div className="mb-4 print:hidden">
+          <OtdWaterfallChart
+            total={b.total}
+            steps={[
+              { label: "MSRP", amount: b.msrp },
+              { label: "Freight + PDI", amount: b.freightPdi },
+              ...(b.dealerAdjustment !== 0 ? [{
+                label: b.dealerAdjustment < 0 ? "Dealer discount" : "Dealer markup",
+                amount: b.dealerAdjustment,
+                isCredit: b.dealerAdjustment < 0,
+              }] : []),
+              { label: "Fees & excise", amount: b.acExciseTax + b.omvic + b.tireStewardship + b.rdprm + b.govLicensing },
+              ...(b.transportCost > 0 ? [{ label: "Transport est.", amount: b.transportCost }] : []),
+              { label: `Tax (${b.salesTaxProvince})`, amount: b.salesTax },
+              ...b.incentivesApplied.map((i) => ({
+                label: i.name,
+                amount: -i.amountCad,
+                isCredit: true,
+              })),
+              { label: "OTD (cash)", amount: b.total, isTotal: true },
+            ]}
+          />
+        </div>
+        {/* Itemized table (for print + detail) */}
         <table className="w-full text-sm">
           <tbody>
             {row(<span title={plainLang("msrp")} className="cursor-help underline decoration-dotted underline-offset-2">MSRP</span>, b.msrp)}
