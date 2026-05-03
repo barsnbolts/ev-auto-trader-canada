@@ -6,7 +6,22 @@
 
 ## Where we are
 
-- **HEAD (pushed):** Phase D1 complete (see commit log; latest commit covers D1 math review + lease residual back-calc).
+- **HEAD (pushed):** Phase D2 partial — `next/image` Wikipedia hostname fix landed. Bug found via dev-server smoke; SSR was 500ing on /inventory because `next.config.mjs` lacked `upload.wikimedia.org` in `images.remotePatterns`. Patched + verified: 5 routes return 200; Ioniq5 LR dossier renders Cash + Finance ($1,022/mo) + Lease ($663/mo) + Heat pump chip wired (no false-spec units in top 25 rows so chip silent there but code path verified at InventoryTable.tsx:580). EV9 Light dossier renders $804/mo lease. **D2 effectively complete; only remaining: write D2 closure doc + bump POST_HIGH_RESUME `Status: complete`. Resume on medium in 3 hours.**
+
+## Resume protocol (3-hour gap)
+
+1. `cd ~/ev-auto-trader-canada && git status` — should be clean, HEAD is the next.config.mjs commit.
+2. Read this file's "Where we are" section.
+3. Write `docs/handoff/research/D2_integration_2026-05-02.md` (~500 tokens):
+   - 5 routes status: all 200 after next.config fix
+   - Verified renders: Ioniq5 LR shows $1,022 finance + $663 lease; EV9 Light shows $804 lease; cash + 3-path OTD badges in InventoryTable
+   - Heat pump chip code wired (line 580 `<HeatPumpChip>`)
+   - Schema invariants: lease_promo=2, finance_promo=2, loyalty=2 (all ≥2 ✓)
+4. Mark "Status: Claude-side complete" near top of POST_HIGH_RESUME. Pending user-only items: launchd install + Vercel deploy (already documented below).
+5. Commit `feat(D2): integration smoke clean — Claude-side work complete` and push to BOTH `claude/verify-environment-setup-oTu3S` AND `claude/resume-ev-trader-dashboard-xmD1P` on origin.
+6. Done.
+
+
 - **Branch:** `claude/verify-environment-setup-oTu3S` (synced with origin)
 - **Working tree at handoff:** clean
 - **Pre-commit hook:** ACTIVE — `.git/hooks/pre-commit` runs `npx tsc --noEmit` on every commit (don't try to bypass with `--no-verify`)
