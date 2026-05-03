@@ -156,7 +156,8 @@ export function realRangeKm(params: RealRangeParams): number | null {
     tempC,
     chemistry = "UNKNOWN",
     speedKph = 100,
-    preconditioned = false,
+    // preconditioned: reserved for future warm-cabin model; currently unused.
+    preconditioned: _preconditioned = false,
   } = params;
 
   if (!epaKm || epaKm <= 0) return null;

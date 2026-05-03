@@ -11,10 +11,9 @@ function fmt(n: number | undefined, suffix: string): string {
 
 interface Props {
   spec: Spec;
-  onBuy?: (spec: Spec) => void;
 }
 
-export function PickerVehicleRow({ spec, onBuy }: Props) {
+export function PickerVehicleRow({ spec }: Props) {
   const { selectedIds, addToTray, removeFromTray } = usePickerStore();
   const id = pickerKey(spec.model, spec.year, spec.trim, spec.drivetrain);
   const isSelected = selectedIds.includes(id);

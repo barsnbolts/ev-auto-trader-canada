@@ -33,8 +33,6 @@ export default async function Dashboard() {
     .sort((a, b) => b.dealScore - a.dealScore)
     .slice(0, 8);
   const gghCount = units.filter((u) => inGGH(u, dealerById)).length;
-  const activeIncentives = incentives.filter((i) => i.status === "active").length;
-  const pausedIncentives = incentives.filter((i) => i.status === "paused").length;
 
   // EVAP-aware shopping signals. Eligible = unit's applicable list contains a
   // fed-evap-* row (cap test happens upstream in scoring.ts). Cliff = within

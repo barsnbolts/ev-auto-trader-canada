@@ -20,7 +20,7 @@ export function PickerClient({ specs }: Props) {
       <PickerBrandList specs={specs} filters={filters} />
       {/* Tray needs padding so last row isn't hidden behind it */}
       <div className="h-20" aria-hidden />
-      <PickerCompareTray specs={specs} />
+      <PickerCompareTray />
     </>
   );
 }

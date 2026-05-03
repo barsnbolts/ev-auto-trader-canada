@@ -13,13 +13,8 @@
 //     listing to buy. They have different domain objects (Spec vs ScoredUnit)
 //     and different lifecycles (Zustand persist vs URL).
 import { usePickerStore } from "@/store/picker";
-import type { Spec } from "@/lib/types";
 
-interface Props {
-  specs: Spec[];
-}
-
-export function PickerCompareTray({ specs }: Props) {
+export function PickerCompareTray() {
   const { selectedIds, removeFromTray, clear } = usePickerStore();
 
   if (selectedIds.length === 0) return null;

@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-
 export interface PickerFilters {
   search: string;
   powertrain: string[]; // "BEV" | "PHEV" | "EREV"
