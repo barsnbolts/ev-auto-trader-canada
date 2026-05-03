@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  macOS launchd agent for the daily ev-auto-trader-canada refresh.
+
+  INSTALL (run once from any directory):
+    cp ~/ev-auto-trader-canada/scripts/com.evautotrader.refresh.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/com.evautotrader.refresh.plist
+
+  VERIFY:
+    launchctl list | grep evautotrader
+    # Should show: -  0  com.evautotrader.refresh
+
+  TAIL THE LOG:
+    tail -f ~/ev-auto-trader-canada/logs/cron.log
+
+  TRIGGER MANUALLY (don't wait until 7 AM):
+    launchctl start com.evautotrader.refresh
+
+  UNLOAD:
+    launchctl unload ~/Library/LaunchAgents/com.evautotrader.refresh.plist
+
+  Schedule: daily at 7:00 AM local time. Survives sleep — if Mac is asleep
+  at 7:00 AM, launchd fires the agent on the next wake.
+
+  Note: HOME path hard-coded below assumes user "ianmcadam". Edit
+  ProgramArguments + StandardOutPath / StandardErrorPath if username differs.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.evautotrader.refresh</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/ianmcadam/ev-auto-trader-canada/scripts/refresh_daily.sh</string>
+    </array>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>7</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>/Users/ianmcadam/ev-auto-trader-canada/logs/cron.log</string>
+
+    <key>StandardErrorPath</key>
+    <string>/Users/ianmcadam/ev-auto-trader-canada/logs/cron.log</string>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/ianmcadam/ev-auto-trader-canada</string>
+</dict>
+</plist>
