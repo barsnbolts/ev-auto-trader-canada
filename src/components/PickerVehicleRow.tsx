@@ -32,7 +32,7 @@ export function PickerVehicleRow({ spec }: Props) {
       : spec.dcFastChargeKw;
   const hasHp = readHeatPump(spec.hasHeatPump);
 
-  const buyUrl = `/inventory?make=${encodeURIComponent(spec.model)}&model=${encodeURIComponent(spec.model)}&trim=${encodeURIComponent(spec.trim)}`;
+  const buyUrl = `/inventory?model=${encodeURIComponent(spec.model)}&trim=${encodeURIComponent(spec.trim)}`;
 
   return (
     <div

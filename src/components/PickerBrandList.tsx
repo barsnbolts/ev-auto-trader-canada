@@ -3,19 +3,13 @@
 import { useMemo } from "react";
 import type { Spec } from "@/lib/types";
 import { readNumeric } from "@/lib/types";
+import { MODEL_BRAND } from "@/lib/constants";
 import { PickerVehicleRow } from "./PickerVehicleRow";
 import type { PickerFilters } from "./PickerFilterBar";
-
-/** Brand → model group for display. EV6 → Kia, IONIQ 5 → Hyundai, etc. */
-const MODEL_BRAND: Record<string, string> = {
-  EV6: "Kia",
-  EV9: "Kia",
-  "IONIQ 5": "Hyundai",
-  "IONIQ 6": "Hyundai",
-};
+import type { Model } from "@/lib/constants";
 
 function brandOf(model: string): string {
-  return MODEL_BRAND[model] ?? model;
+  return MODEL_BRAND[model as Model] ?? model;
 }
 
 interface Props {
