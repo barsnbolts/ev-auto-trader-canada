@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import type { Dealer, Incentive, ScoredUnit, Spec } from "@/lib/types";
+import { readNumeric } from "@/lib/types";
 import { MODEL_LABEL } from "@/lib/constants";
 import { fmtCad, fmtPercent } from "@/lib/format";
 import { effectivePreTaxValue } from "@/lib/scoring";
@@ -134,7 +135,7 @@ function CompareTable({
     { label: "Status", render: (u) => <StatusChip status={u.status} /> },
     { label: "Days on lot", render: (u) => u.daysOnLot ?? "—" },
     { label: "Range (km)", render: (u) => numOrDash(lookupSpec(u)?.rangeKm), rank: { value: (u) => lookupSpec(u)?.rangeKm } },
-    { label: "Battery (kWh)", render: (u) => numOrDash(lookupSpec(u)?.batteryKwh), rank: { value: (u) => lookupSpec(u)?.batteryKwh } },
+    { label: "Battery (kWh)", render: (u) => numOrDash(readNumeric(lookupSpec(u)?.batteryKwh)), rank: { value: (u) => readNumeric(lookupSpec(u)?.batteryKwh) } },
     { label: "DC fast (kW)", render: (u) => numOrDash(lookupSpec(u)?.dcFastChargeKw), rank: { value: (u) => lookupSpec(u)?.dcFastChargeKw } },
     { label: "AC charge (kW)", render: (u) => numOrDash(lookupSpec(u)?.acChargeKw), rank: { value: (u) => lookupSpec(u)?.acChargeKw } },
     {
@@ -147,8 +148,8 @@ function CompareTable({
       rank: { value: (u) => lookupSpec(u)?.motorKw },
     },
     { label: "0–100 km/h (s)", render: (u) => numOrDash(lookupSpec(u)?.zeroToHundredSec), rank: { value: (u) => lookupSpec(u)?.zeroToHundredSec, lowerIsBetter: true } },
-    { label: "Cargo (L)", render: (u) => numOrDash(lookupSpec(u)?.cargoLitres), rank: { value: (u) => lookupSpec(u)?.cargoLitres } },
-    { label: "Curb weight (kg)", render: (u) => numOrDash(lookupSpec(u)?.weightKg), rank: { value: (u) => lookupSpec(u)?.weightKg, lowerIsBetter: true } },
+    { label: "Cargo (L)", render: (u) => numOrDash(readNumeric(lookupSpec(u)?.cargoLitres)), rank: { value: (u) => readNumeric(lookupSpec(u)?.cargoLitres) } },
+    { label: "Curb weight (kg)", render: (u) => numOrDash(readNumeric(lookupSpec(u)?.weightKg)), rank: { value: (u) => readNumeric(lookupSpec(u)?.weightKg), lowerIsBetter: true } },
     { label: "Seats", render: (u) => numOrDash(lookupSpec(u)?.seats) },
     { label: "MSRP", render: (u) => <span className="num">{fmtCad(u.msrp)}</span> },
     { label: "Freight + PDI", render: (u) => <span className="num">{fmtCad(u.freightPdi)}</span> },

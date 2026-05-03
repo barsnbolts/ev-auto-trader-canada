@@ -1,6 +1,53 @@
 import { z } from "zod";
 import { MODELS, PROVINCES, SUPPORTED_YEARS } from "./constants";
 
+// ── Provenance types (ported from sibling EV dashboard) ─────────────────────
+
+export type Confidence = "High" | "Medium" | "Low";
+
+export interface Source {
+  url: string;
+  name: string;
+  accessed: string; // ISO date
+}
+
+/** A single data point with its provenance. */
+export interface CitedValue<T> {
+  value: T | null;
+  source?: Source;
+  confidence: Confidence;
+  notes?: string;
+}
+
+export interface ChargingCurvePoint {
+  socPct: number;   // renamed from sibling's soc_pct
+  kw: number;
+}
+
+/**
+ * Read a hasHeatPump field that may be a plain boolean (legacy) or a
+ * CitedValue<boolean> (new). Returns boolean | null for consumers.
+ */
+export function readHeatPump(
+  v: CitedValue<boolean> | boolean | null | undefined,
+): boolean | null {
+  if (v == null) return null;
+  if (typeof v === "boolean") return v;
+  return v.value;
+}
+
+/**
+ * Read a numeric field that may be a plain number (legacy) or a
+ * CitedValue<number> (new). Returns number | undefined for consumers.
+ */
+export function readNumeric(
+  v: CitedValue<number> | number | null | undefined,
+): number | undefined {
+  if (v == null) return undefined;
+  if (typeof v === "number") return v;
+  return v.value ?? undefined;
+}
+
 export const ProvinceSchema = z.enum(PROVINCES);
 export const ModelSchema = z.enum(MODELS);
 
@@ -229,6 +276,25 @@ export const MarketIntelSchema = z.object({
 });
 export type MarketIntel = z.infer<typeof MarketIntelSchema>;
 
+// ── CitedValue zod schema (for SpecSchema augmentation) ─────────────────────
+
+const SourceSchema = z.object({
+  url: z.string(),
+  name: z.string(),
+  accessed: z.string(),
+});
+
+function citedValue<T extends z.ZodTypeAny>(inner: T) {
+  return z.object({
+    value: inner.nullable(),
+    source: SourceSchema.optional(),
+    confidence: z.enum(["High", "Medium", "Low"]),
+    notes: z.string().optional(),
+  });
+}
+
+// ── Spec ─────────────────────────────────────────────────────────────────────
+
 export const SpecSchema = z.object({
   model: ModelSchema,
   year: YearSchema,
@@ -236,28 +302,60 @@ export const SpecSchema = z.object({
   drivetrain: z.enum(["RWD", "AWD"]),
   motorKw: z.number().optional(),
   motorHp: z.number().optional(),
-  batteryKwh: z.number().optional(),
+  // Legacy flat number OR new CitedValue shape — both accepted
+  batteryKwh: z.union([z.number(), citedValue(z.number())]).optional(),
   rangeKm: z.number().optional(),
   dcFastChargeKw: z.number().optional(),
   acChargeKw: z.number().optional(),
   zeroToHundredSec: z.number().optional(),
-  cargoLitres: z.number().optional(),
+  // Legacy flat number OR new CitedValue shape
+  cargoLitres: z.union([z.number(), citedValue(z.number())]).optional(),
   seats: z.number().int().optional(),
-  weightKg: z.number().optional(),
+  // Legacy flat number OR new CitedValue shape
+  weightKg: z.union([z.number(), citedValue(z.number())]).optional(),
   msrpCad: z.number().optional(),
   freightPdiCad: z.number().optional(),
-  // Heat-pump availability per trim. Critical for Ontario buyers — trims
-  // without a heat pump lose 25-40% real-world range below -10°C. Tri-state:
+  // Heat-pump availability per trim. Tri-state:
   //   true  = heat pump confirmed standard
   //   false = confirmed NOT standard (resistive heater only)
   //   null / undefined = not yet researched (renders as "?" chip in UI)
-  // Filled by data/heatpump-research-queue.json + scripts/merge_heatpump_research.py.
-  hasHeatPump: z.boolean().nullable().optional(),
+  // UPGRADED: now accepts CitedValue<boolean> (new) or plain boolean (legacy).
+  // Use readHeatPump() helper to safely extract the boolean value in UI.
+  hasHeatPump: z
+    .union([
+      z.boolean().nullable(),
+      citedValue(z.boolean()),
+    ])
+    .optional(),
   heatPumpSource: z.string().optional(),       // URL the answer came from
   heatPumpConfidence: z.enum(["High", "Medium", "Low"]).optional(),
   heatPumpAccessed: z.string().optional(),     // ISO date the source was checked
   notes: z.string().optional(),
   source: z.string().optional(),
+  // ── New CitedValue fields (additive — absent on pre-F1 entries) ──────────
+  batteryKwhUsable: citedValue(z.number()).optional(),
+  batteryChemistry: z
+    .enum(["LFP", "NMC", "NCA", "LMR", "UNKNOWN"])
+    .optional(),
+  rangeEpaKm: citedValue(z.number()).optional(),
+  rangeProtocol: z.enum(["EPA", "WLTP", "NRCan", "RealWorld"]).optional(),
+  acChargeMaxKw: citedValue(z.number()).optional(),
+  dcChargeMaxKw: citedValue(z.number()).optional(),
+  portType: z
+    .enum(["NACS", "CCS1", "CCS2", "CHAdeMO", "J1772_ONLY"])
+    .optional(),
+  heatPumpMinEffectiveC: citedValue(z.number()).optional(),
+  thermalManagement: z
+    .enum(["active_liquid", "passive", "active_refrigerant", "UNKNOWN"])
+    .optional(),
+  chargingCurve: z
+    .array(z.object({ socPct: z.number(), kw: z.number() }))
+    .optional(),
+  bodyStyle: z
+    .enum(["Sedan", "Hatchback", "SUV", "Crossover", "Truck", "Minivan", "Wagon"])
+    .optional(),
+  powertrain: z.enum(["BEV", "PHEV", "EREV"]).optional(),
+  generationLabel: z.string().optional(),
 });
 export type Spec = z.infer<typeof SpecSchema>;
 

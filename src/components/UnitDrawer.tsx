@@ -1,13 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Dealer, ScoredUnit, Spec, FinanceBreakdown, LeaseBreakdown } from "@/lib/types";
+import { readHeatPump } from "@/lib/types";
 import { MODEL_LABEL } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { effectivePreTaxValue } from "@/lib/scoring";
 import { StatusChip } from "./StatusChip";
 import { DealScoreBadge } from "./DealScoreBadge";
+import { plainLang } from "@/lib/plainLang";
 
 // Heatpump chip — tri-state, matches InventoryTable styling.
 function HeatPumpChip({ hasHeatPump }: { hasHeatPump?: boolean | null }) {
@@ -59,9 +61,9 @@ function LeaseTab({ lb }: { lb: LeaseBreakdown }) {
     <dl className="text-sm space-y-1">
       <div className="flex justify-between"><dt className="text-fg-muted">APR equiv.</dt><dd className="num">{lb.aprPercent}%</dd></div>
       <div className="flex justify-between"><dt className="text-fg-muted">Term</dt><dd className="num">{lb.termMonths} mo</dd></div>
-      <div className="flex justify-between"><dt className="text-fg-muted">Residual</dt><dd className="num">{lb.residualPercent}% · {fmtCad(lb.residualBuyoutCad)}</dd></div>
-      <div className="flex justify-between"><dt className="text-fg-muted">Cap cost</dt><dd className="num">{fmtCad(lb.capCostCad)}</dd></div>
-      <div className="flex justify-between"><dt className="text-fg-muted">Signing down</dt><dd className="num">{fmtCad(lb.capCostReductionCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted"><span title={plainLang("residualPercent")} className="cursor-help underline decoration-dotted underline-offset-2">Residual</span></dt><dd className="num">{lb.residualPercent}% · {fmtCad(lb.residualBuyoutCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted"><span title={plainLang("capCost")} className="cursor-help underline decoration-dotted underline-offset-2">Cap cost</span></dt><dd className="num">{fmtCad(lb.capCostCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted"><span title={plainLang("capReduction")} className="cursor-help underline decoration-dotted underline-offset-2">Signing down</span></dt><dd className="num">{fmtCad(lb.capCostReductionCad)}</dd></div>
       <div className="flex justify-between"><dt className="text-fg-muted">Security deposit</dt><dd className="num">{fmtCad(lb.securityDepositCad)}</dd></div>
       <div className="flex justify-between"><dt className="text-fg-muted">Annual km</dt><dd className="num">{lb.annualMileageKm.toLocaleString("en-CA")} km</dd></div>
       <div className="flex justify-between"><dt className="text-fg-muted">Overage</dt><dd className="num">{fmtCad(lb.overageCadPerKm)}/km</dd></div>
@@ -133,7 +135,7 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
             )}
             {spec !== undefined && (
               <div className="mt-1">
-                <HeatPumpChip hasHeatPump={spec.hasHeatPump} />
+                <HeatPumpChip hasHeatPump={readHeatPump(spec.hasHeatPump)} />
               </div>
             )}
             <div className="flex items-center gap-2 mt-2">
@@ -201,6 +203,7 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
                 key={tab}
                 type="button"
                 onClick={() => setOtdTab(tab)}
+                title={plainLang(tab)}
                 className={`text-xxs px-2 py-1 rounded border ${otdTab === tab ? "border-accent text-accent" : "border-border text-fg-muted hover:text-fg"}`}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -209,8 +212,8 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
           </div>
           {otdTab === "cash" && (
             <dl className="text-sm space-y-1">
-              <Row label="MSRP" value={unit.otdBreakdown.msrp} />
-              <Row label="Freight + PDI" value={unit.otdBreakdown.freightPdi} />
+              <Row label={<span title={plainLang("msrp")} className="cursor-help underline decoration-dotted underline-offset-2">MSRP</span>} value={unit.otdBreakdown.msrp} />
+              <Row label={<span title={plainLang("freightPdi")} className="cursor-help underline decoration-dotted underline-offset-2">Freight + PDI</span>} value={unit.otdBreakdown.freightPdi} />
               <Row
                 label={unit.otdBreakdown.dealerAdjustment < 0 ? "Dealer discount" : "Dealer adjustment"}
                 value={unit.otdBreakdown.dealerAdjustment}
@@ -245,7 +248,9 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
                 </div>
               )}
               <div className="border-t border-border pt-2 mt-2 flex justify-between">
-                <dt className="font-semibold">OTD total</dt>
+                <dt className="font-semibold">
+                  <span title={plainLang("OTD")} className="cursor-help underline decoration-dotted underline-offset-2">OTD</span> total
+                </dt>
                 <dd className="num font-semibold">{fmtCad(unit.otdBreakdown.total)}</dd>
               </div>
             </dl>
@@ -379,7 +384,7 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
   );
 }
 
-function Row({ label, value, accentNegative }: { label: string; value: number; accentNegative?: boolean }) {
+function Row({ label, value, accentNegative }: { label: React.ReactNode; value: number; accentNegative?: boolean }) {
   const cls = accentNegative && value < 0 ? "num text-accent" : "num text-fg-muted";
   return (
     <div className="flex justify-between">

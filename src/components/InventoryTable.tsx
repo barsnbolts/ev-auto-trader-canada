@@ -5,6 +5,8 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import type { Dealer, ScoredUnit, Spec, BuyerContext } from "@/lib/types";
+import { readHeatPump } from "@/lib/types";
+import { realRangeKm } from "@/lib/thermal";
 import { MODEL_LABEL, GGH_CITIES, MODELS, SUPPORTED_YEARS, type Model, type Province } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { effectivePreTaxValue } from "@/lib/scoring";
@@ -101,6 +103,40 @@ function HeatPumpChip({ hasHeatPump }: { hasHeatPump?: boolean | null }) {
   );
 }
 
+// Extract a plain number from a field that may be number | CitedValue<number> | undefined.
+function extractNum(v: number | { value: number | null } | null | undefined): number | null {
+  if (v == null) return null;
+  if (typeof v === "number") return v;
+  return v.value;
+}
+
+// Winter range chip — only renders when tempC < 5 and spec data is available.
+// Uses thermal physics model to estimate real-world range at the slider temp.
+function WinterRangeChip({ spec, tempC }: { spec: Spec | undefined; tempC: number }) {
+  if (tempC >= 5) return null;
+  if (!spec) return null;
+  // Prefer new citedValue rangeEpaKm, fall back to legacy rangeKm
+  const epa = extractNum(spec.rangeEpaKm) ?? spec.rangeKm ?? null;
+  if (epa == null) return null;
+  // Prefer new citedValue batteryKwhUsable, fall back to batteryKwh (may be plain or cited)
+  const battery = extractNum(spec.batteryKwhUsable) ?? extractNum(spec.batteryKwh);
+  const hasHP = readHeatPump(spec.hasHeatPump);
+  const km = realRangeKm({ epaKm: epa, batteryKwh: battery, hasHeatPump: hasHP, tempC });
+  if (km == null) return null;
+  let cls = "bg-blue-900 text-blue-200";
+  let icon = "🌡";
+  if (tempC <= -10) { cls = "bg-red-900 text-red-200"; icon = "🥶"; }
+  const label = tempC >= 0 ? `+${tempC}°C` : `${tempC}°C`;
+  return (
+    <span
+      className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xxs ${cls} block w-fit mt-1`}
+      title={`Estimated real-world range at ${label} based on thermal model`}
+    >
+      {icon} {label}: {Math.round(km)} km
+    </span>
+  );
+}
+
 // 3-path OTD badge row — compact inline pills under the price cell.
 function OtdPathBadges({ unit }: { unit: ScoredUnit }) {
   const paths = unit.otdPaths;
@@ -131,6 +167,7 @@ type Props = {
   rangeByUnitId?: Record<string, number | null>;
   specByUnitId?: Record<string, Spec>;
   buyerContext?: BuyerContext;
+  tempC?: number;
 };
 
 type SortKey = "deal" | "otd" | "discount" | "perKm" | "newest" | "oldest";
@@ -237,7 +274,7 @@ function exportCsv(
   URL.revokeObjectURL(url);
 }
 
-export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId, specByUnitId, buyerContext }: Props) {
+export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId, specByUnitId, buyerContext, tempC = 20 }: Props) {
   const province = buyerContext?.province ?? "ON";
   const rangeFor = (id: string): number | null => rangeByUnitId?.[id] ?? null;
   const perKmFor = (u: ScoredUnit): number | null => {
@@ -577,7 +614,10 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                     <div className="font-medium">{MODEL_LABEL[u.model]}</div>
                     <div className="text-xxs text-fg-muted">{u.trim} · {u.drivetrain}</div>
                     {specByUnitId && (
-                      <HeatPumpChip hasHeatPump={specByUnitId[u.id]?.hasHeatPump} />
+                      <HeatPumpChip hasHeatPump={readHeatPump(specByUnitId[u.id]?.hasHeatPump)} />
+                    )}
+                    {specByUnitId && (
+                      <WinterRangeChip spec={specByUnitId[u.id]} tempC={tempC} />
                     )}
                   </td>
                   <td className="px-3 py-2 num">{u.year}</td>

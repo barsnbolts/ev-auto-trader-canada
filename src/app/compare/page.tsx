@@ -4,6 +4,7 @@ import { CompareGrid } from "@/components/CompareGrid";
 import { fmtCad } from "@/lib/format";
 import { MODEL_LABEL } from "@/lib/constants";
 import type { ScoredUnit } from "@/lib/types";
+import { plainLang } from "@/lib/plainLang";
 
 export const dynamic = "force-dynamic";
 
@@ -46,9 +47,9 @@ function PaymentMatrix({ units, dealerById }: { units: ScoredUnit[]; dealerById:
           <thead className="bg-bg-subtle text-xxs uppercase text-fg-subtle">
             <tr>
               <th className="px-3 py-2 text-left">Unit</th>
-              <th className="px-3 py-2 text-right">Cash OTD</th>
-              <th className="px-3 py-2 text-right">Finance /mo</th>
-              <th className="px-3 py-2 text-right">Lease /mo (+ tax)</th>
+              <th className="px-3 py-2 text-right"><span title={plainLang("cash")} className="cursor-help underline decoration-dotted underline-offset-2">Cash</span> <span title={plainLang("OTD")} className="cursor-help underline decoration-dotted underline-offset-2">OTD</span></th>
+              <th className="px-3 py-2 text-right"><span title={plainLang("finance")} className="cursor-help underline decoration-dotted underline-offset-2">Finance</span> /mo</th>
+              <th className="px-3 py-2 text-right"><span title={plainLang("lease")} className="cursor-help underline decoration-dotted underline-offset-2">Lease</span> /mo (+ tax)</th>
               <th className="px-3 py-2 text-left">Dealer</th>
             </tr>
           </thead>
