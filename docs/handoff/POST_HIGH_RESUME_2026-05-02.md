@@ -6,7 +6,7 @@
 
 ## Where we are
 
-- **HEAD (pushed):** `49cb2b9b`
+- **HEAD (pushed):** `515fda1e` (Phase B complete)
 - **Branch:** `claude/verify-environment-setup-oTu3S` (synced with origin)
 - **Working tree at handoff:** clean
 - **Pre-commit hook:** ACTIVE — `.git/hooks/pre-commit` runs `npx tsc --noEmit` on every commit (don't try to bypass with `--no-verify`)
@@ -22,6 +22,9 @@
 | **M14** Daily refresh cron — script | `8ba1a73e` (data refresh `fddad730`) | SCRIPT DONE + manual fire tested. **OS cron registration BLOCKED** by sandbox (`crontab` "Operation not permitted"). User needs to install manually — see "Pending user actions" below. |
 | **V5 Phase A** schema groundwork (3-path OTD) | `57ecc361` | DONE — types `OtdBreakdown` / `FinanceBreakdown` / `LeaseBreakdown` exported; `ScoredUnit.otdPaths` optional 3-path slot; lease fields on `Incentive`; `computeFinanceOtd` + `computeLeaseOtd` functional in scoring.ts; `loadScoredUnits` populates `otdPaths` on every unit. Reusable assets pre-landed: `data/vehicle-images.json` (5 hero shots), `src/lib/usedListingsLinks.ts` (verified deep-link templates). `@travishorn/financejs` installed for Phase C amortization tables. |
 | **A4 + A5** Vercel + launchd configs | `49cb2b9b` | DONE — `vercel.json` minimal config + `docs/DEPLOY.md` runbook for first-time setup; `scripts/com.evautotrader.refresh.plist` macOS launchd agent (user installs via single `launchctl load` — see plist header). |
+| **A6** Pre-flight audit + fixes | `c15e0b5e` | DONE — Sonnet audit returned 17 PASS / 4 WARN / 2 FAIL. Both FAILs closed inline: (a) 4/5 Wikipedia Commons URLs in `data/vehicle-images.json` were planning placeholders, set to null pending Phase B2 verification; (b) `data/specs.json` had 26/100 unit tuples unmatched, added 7 spec entries (EV9 2026 ×4 carryover from 2025; Ioniq5 N RWD alias; Ioniq5 2026 + Ioniq6 2025 "Preferred RWD" aliases of LR variants). Now 97/100 match — remaining 3 are irreducible "Trim unknown" scrape garbage. Audit log at `docs/handoff/research/A6_audit_2026-05-02.md`. |
+| **B1** Incentive data fill (Sonnet, ~194s, 78k tokens) | `515fda1e` | DONE — 8 new entries in `data/incentives.json`: 2 loyalty + 2 conquest + 2 lease_promo + 2 finance_promo. Sources: hyundaicanada.com/en/offers + kia.ca/en/offers + dealer disclaimers. Conquest CAD intentionally omitted (not publicly disclosed by OEMs). |
+| **B2** Full UI batch (Sonnet, ~473s, 103k tokens) | `515fda1e` | DONE — 5 tasks across 4 files: dossier link column (M11, colSpan 14→16), 48×32 vehicle photos with null fallback, used-listings deep-links (AT/KJ/LB*), heatpump tri-state chip (M7) in 3 locations, 3-path OTD rendering everywhere (badges in InventoryTable, 3-tab in UnitDrawer, 3 print subsections in dossier, PaymentMatrix in compare). |
 
 ## Pending user actions
 
@@ -51,7 +54,30 @@
 | **Pre-stubs** | `e477910f` | `scripts/derive_days_on_market.py` (M16 algorithm), `scripts/track_apify_spend.py` (M12 spend gate), `docs/handoff/research/M15_msrp_2026-05-02.md` (fillable template). |
 | **M17** simple-git-hooks | `425afb2d` | Pre-commit `npx tsc --noEmit` wired via `simple-git-hooks ^2.13.1`. Hook validated. Note: a `should-fail` test commit (`561c4e89`) exists in history but was scrubbed by the next commit; harmless. |
 
-## What's next — read MEDIUM_NEXT.md "POST-HIGH EXECUTION ORDER"
+## What's next (post Phase B)
+
+**Phase D1 — math review (HIGH inline, ~5k tokens):** Hand-verify the
+finance + lease formulas in `src/lib/scoring.ts` against an external
+calculator (bankrate.com or similar). Pick 1 unit with a `lease_promo`
+and 1 with a `finance_promo`. Confirm monthly payments are within ±$5.
+
+**Phase D2 — final integration (HIGH inline, ~10k tokens):** Walk all
+5 routes (`/`, `/inventory`, `/dealer/[id]`, `/compare`,
+`/inventory/[id]/dossier`) in `npm run dev`. Confirm heatpump chips
+render, 3-path OTD shows, photos placeholder gracefully, used-listings
+links work. Then mark project complete.
+
+**Phase C — DEFERRED.** The original plan had Phase C populating
+lease/finance entries in a future Sonnet pass, but B1 already populated
+them. C2 (math itself) was already shipped in Phase A2. So C collapses
+into D1 hand-verification.
+
+**Phase E — Vehicle photo URL resolution (optional, future Sonnet):**
+Resolve real Wikipedia Commons URLs for Ioniq5 / Ioniq9 / EV6 / EV9 via
+the Commons API helper at A0_findings_2026-05-02.md §3. Currently null
++ graceful placeholder. Not blocking — site is functional without them.
+
+## What's next — historical (read MEDIUM_NEXT.md "POST-HIGH EXECUTION ORDER")
 
 That section has the full ordered queue with tier tags (`[MEDIUM]` vs `[SONNET]`) + dependency map + concurrency hints. **Done:** M8, M15, M16, M14 (script). **Up next: M10 (loyalty/conquest incentive entries).** Then M11 (dossier link column, SONNET), M13 (incentives via Exa), M7 (heatpump UI chip).
 
