@@ -208,13 +208,28 @@ export function realRangeKm(params: RealRangeParams): number | null {
   const effectiveKwh = usableKwh * capFrac;
 
   // 2. HVAC draw. Assume HVAC on (conservative for winter-range chip).
-  // Heat pump active when (hasHeatPump && temp >= heatPumpMinEffectiveC),
-  // else falls back to resistive.
+  // Heat pump effectiveness degrades GRADUALLY near the cutoff — real-world
+  // E-GMP heat pumps don't step off at a sharp threshold. We blend between
+  // the heat-pump curve and the resistive curve over a 5°C transition zone:
+  //   temp >= hpMin + 5°C  → full heat pump
+  //   temp <= hpMin        → full resistive (heat pump given up)
+  //   between              → linear blend
+  // This eliminates the unrealistic ~14% range cliff at the cutoff temp.
   let hvacKw: number;
-  if (hasHeatPump === true && temp >= heatPumpMinEffectiveC) {
-    hvacKw = interp(HVAC_HEAT_PUMP, temp);
-  } else {
+  if (hasHeatPump !== true) {
     hvacKw = interp(HVAC_RESISTIVE, temp);
+  } else {
+    const transitionTop = heatPumpMinEffectiveC + 5;
+    if (temp >= transitionTop) {
+      hvacKw = interp(HVAC_HEAT_PUMP, temp);
+    } else if (temp <= heatPumpMinEffectiveC) {
+      hvacKw = interp(HVAC_RESISTIVE, temp);
+    } else {
+      const frac = (temp - heatPumpMinEffectiveC) / 5; // 0 at cutoff → 1 at top of zone
+      const hpKw = interp(HVAC_HEAT_PUMP, temp);
+      const resKw = interp(HVAC_RESISTIVE, temp);
+      hvacKw = resKw + frac * (hpKw - resKw);
+    }
   }
   // Preconditioning reduces averaged HVAC draw — cabin is pre-warmed, so
   // first ~25% of trip runs near setpoint instead of climbing from cold.
@@ -278,11 +293,23 @@ export function computeThermalFull(
 
   let hvacKw = 0;
   if (inputs.hvac_on) {
+    // Same soft transition as realRangeKm — gradual blend between heat-pump
+    // and resistive curves over a 5°C window above the cutoff temp.
     const hpMinC = spec.heat_pump_min_effective_c ?? -20;
-    if (hasHp && temp >= hpMinC) {
-      hvacKw = interp(HVAC_HEAT_PUMP, temp);
-    } else {
+    if (!hasHp) {
       hvacKw = interp(HVAC_RESISTIVE, temp);
+    } else {
+      const transitionTop = hpMinC + 5;
+      if (temp >= transitionTop) {
+        hvacKw = interp(HVAC_HEAT_PUMP, temp);
+      } else if (temp <= hpMinC) {
+        hvacKw = interp(HVAC_RESISTIVE, temp);
+      } else {
+        const frac = (temp - hpMinC) / 5;
+        const hpKw = interp(HVAC_HEAT_PUMP, temp);
+        const resKw = interp(HVAC_RESISTIVE, temp);
+        hvacKw = resKw + frac * (hpKw - resKw);
+      }
     }
   }
 
