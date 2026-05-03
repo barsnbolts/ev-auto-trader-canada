@@ -2,14 +2,18 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import type { Dealer, ScoredUnit } from "@/lib/types";
-import { MODEL_LABEL, GGH_CITIES, MODELS, SUPPORTED_YEARS, type Model } from "@/lib/constants";
+import Image from "next/image";
+import Link from "next/link";
+import type { Dealer, ScoredUnit, Spec, BuyerContext } from "@/lib/types";
+import { MODEL_LABEL, GGH_CITIES, MODELS, SUPPORTED_YEARS, type Model, type Province } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { effectivePreTaxValue } from "@/lib/scoring";
 import { useFavorites } from "@/lib/useFavorites";
+import { usedListingsFor } from "@/lib/usedListingsLinks";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
+import vehicleImages from "../../data/vehicle-images.json";
 
 // Days since lastSeen — used to chip rows that haven't been re-confirmed
 // recently. Anything > 7 days is at risk of being sold or pulled.
@@ -61,11 +65,72 @@ function EvapChip({ state, unit }: { state: EvapState; unit: ScoredUnit }) {
   return null;
 }
 
+// Vehicle hero image helper. Only Ioniq6 has a verified URL; others are null.
+// Returns null when model isn't in JSON or url is null.
+type VehicleImagesData = {
+  images: Record<string, { url: string | null; alt: string }>;
+};
+const imgData = vehicleImages as VehicleImagesData;
+function vehicleImageFor(model: Model): { url: string; alt: string } | null {
+  const entry = imgData.images[model];
+  if (!entry || !entry.url) return null;
+  return { url: entry.url, alt: entry.alt };
+}
+
+// Heatpump chip — tri-state: true (no chip), false (red), null/undef (grey).
+function HeatPumpChip({ hasHeatPump }: { hasHeatPump?: boolean | null }) {
+  if (hasHeatPump === true) return null;
+  if (hasHeatPump === false) {
+    return (
+      <span
+        className="chip-bad block w-fit mt-1"
+        title="No heat pump — resistive heat only. Expect 25–40% real-world range loss below −10°C."
+      >
+        ❌ No heat pump
+      </span>
+    );
+  }
+  // null or undefined
+  return (
+    <span
+      className="chip-neutral block w-fit mt-1 text-fg-subtle"
+      title="Heat pump status not yet researched for this trim."
+    >
+      ❓ Heat pump?
+    </span>
+  );
+}
+
+// 3-path OTD badge row — compact inline pills under the price cell.
+function OtdPathBadges({ unit }: { unit: ScoredUnit }) {
+  const paths = unit.otdPaths;
+  if (!paths) return null;
+  return (
+    <div className="flex flex-wrap gap-1 mt-0.5">
+      <span className="text-xxs text-fg-subtle">
+        Cash {fmtCad(paths.cash.total)}
+      </span>
+      {paths.finance && (
+        <span className="text-xxs text-accent" title={`${paths.finance.termMonths}mo @ ${paths.finance.aprPercent}% APR`}>
+          · Finance {fmtCad(Math.round(paths.finance.monthlyPaymentCad))}/mo
+        </span>
+      )}
+      {paths.lease && (
+        <span className="text-xxs text-warn" title={`${paths.lease.termMonths}mo lease, residual ${paths.lease.residualPercent}%`}>
+          · Lease {fmtCad(Math.round(paths.lease.monthlyPaymentWithTaxCad))}/mo
+        </span>
+      )}
+    </div>
+  );
+}
+
 type Props = {
   units: ScoredUnit[];
   dealerById: Map<string, Dealer>;
   dealerPressureByDealer: Record<string, number>;
   rangeByUnitId?: Record<string, number | null>;
+  specByUnitId?: Record<string, Spec>;
+  buyerContext?: BuyerContext;
 };
 
 type SortKey = "deal" | "otd" | "discount" | "perKm" | "newest" | "oldest";
@@ -172,7 +237,8 @@ function exportCsv(
   URL.revokeObjectURL(url);
 }
 
-export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId }: Props) {
+export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId, specByUnitId, buyerContext }: Props) {
+  const province = buyerContext?.province ?? "ON";
   const rangeFor = (id: string): number | null => rangeByUnitId?.[id] ?? null;
   const perKmFor = (u: ScoredUnit): number | null => {
     const r = rangeFor(u.id);
@@ -449,6 +515,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           <thead className="bg-bg-subtle text-xxs uppercase text-fg-subtle">
             <tr>
               <th className="px-2 py-2"></th>
+              <th className="px-2 py-2"></th>
               <th className="px-3 py-2">Deal</th>
               <th className="px-3 py-2">Model / Trim</th>
               <th className="px-3 py-2">Year</th>
@@ -488,10 +555,30 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                       {fav ? "★" : "☆"}
                     </button>
                   </td>
+                  <td className="px-1 py-1">
+                    {(() => {
+                      const img = vehicleImageFor(u.model);
+                      if (!img) {
+                        return <div className="w-12 h-8 bg-bg-subtle rounded" aria-hidden />;
+                      }
+                      return (
+                        <Image
+                          src={img.url}
+                          alt={img.alt}
+                          width={48}
+                          height={32}
+                          className="rounded object-cover"
+                        />
+                      );
+                    })()}
+                  </td>
                   <td className="px-3 py-2"><DealScoreBadge score={u.dealScore} /></td>
                   <td className="px-3 py-2">
                     <div className="font-medium">{MODEL_LABEL[u.model]}</div>
                     <div className="text-xxs text-fg-muted">{u.trim} · {u.drivetrain}</div>
+                    {specByUnitId && (
+                      <HeatPumpChip hasHeatPump={specByUnitId[u.id]?.hasHeatPump} />
+                    )}
                   </td>
                   <td className="px-3 py-2 num">{u.year}</td>
                   <td className="px-3 py-2 text-xs">
@@ -534,6 +621,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                       </div>
                     )}
                     <EvapChip state={evapStateFor(u)} unit={u} />
+                    <OtdPathBadges unit={u} />
                   </td>
                   <td className="px-3 py-2 text-right num text-xs" title={rangeFor(u.id) ? `Range ${rangeFor(u.id)} km (NRCan/EPA combined)` : "Range spec missing"}>
                     {(() => {
@@ -573,26 +661,70 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                       {pressure}
                     </span>
                   </td>
-                  <td className="px-3 py-2 text-right">
-                    {u.listingUrl ? (
-                      <a
-                        href={u.listingUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-xxs text-accent hover:text-accent-strong inline-block px-1.5 py-0.5 border border-border rounded"
-                        title="Open AutoTrader listing in new tab"
+                  <td className="px-3 py-2 text-right" onClick={(e) => e.stopPropagation()}>
+                    <div className="flex flex-col items-end gap-1">
+                      {u.listingUrl ? (
+                        <a
+                          href={u.listingUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-xxs text-accent hover:text-accent-strong inline-block px-1.5 py-0.5 border border-border rounded"
+                          title="Open AutoTrader listing in new tab"
+                        >
+                          Listing ↗
+                        </a>
+                      ) : null}
+                      <Link
+                        href={`/inventory/${u.id}/dossier`}
+                        className="text-xxs text-fg-muted hover:text-fg inline-block px-1.5 py-0.5 border border-border rounded"
+                        title="Open negotiation dossier"
                       >
-                        Listing ↗
-                      </a>
-                    ) : null}
+                        📄 Dossier
+                      </Link>
+                      <div className="flex gap-1">
+                        {(() => {
+                          const links = usedListingsFor(u.model, province as Province);
+                          return (
+                            <>
+                              <a
+                                href={links.autoTrader}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-xxs text-fg-subtle hover:text-fg px-1 py-0.5 border border-border rounded"
+                                title="Search used on AutoTrader"
+                              >
+                                AT
+                              </a>
+                              <a
+                                href={links.kijiji}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-xxs text-fg-subtle hover:text-fg px-1 py-0.5 border border-border rounded"
+                                title="Search used on Kijiji"
+                              >
+                                KJ
+                              </a>
+                              <a
+                                href={links.leasebusters}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="text-xxs text-fg-subtle hover:text-fg px-1 py-0.5 border border-border rounded"
+                                title={links.leasebustersIsManualSearch ? "Manual search — Leasebusters has no deep-link" : "Search on Leasebusters"}
+                              >
+                                LB{links.leasebustersIsManualSearch ? "*" : ""}
+                              </a>
+                            </>
+                          );
+                        })()}
+                      </div>
+                    </div>
                   </td>
                 </tr>
               );
             })}
             {filtered.length === 0 && (
               <tr>
-                <td colSpan={14} className="px-3 py-12 text-center text-fg-muted">
+                <td colSpan={16} className="px-3 py-12 text-center text-fg-muted">
                   No units match these filters.
                 </td>
               </tr>

@@ -411,7 +411,7 @@
   {
     "id": "oem-kia-ev6-2026-05",
     "scope": "manufacturer_cash",
-    "name": "Kia EV6 — current monthly offers (verify on kia.ca)",
+    "name": "Kia EV6 \u2014 current monthly offers (verify on kia.ca)",
     "appliesTo": {
       "models": [
         "EV6"
@@ -432,7 +432,7 @@
   {
     "id": "oem-hyundai-ioniq5-2026-05",
     "scope": "manufacturer_cash",
-    "name": "Hyundai Ioniq 5 — current monthly offers (verify on hyundaicanada.com)",
+    "name": "Hyundai Ioniq 5 \u2014 current monthly offers (verify on hyundaicanada.com)",
     "appliesTo": {
       "models": [
         "Ioniq5"
@@ -453,7 +453,7 @@
   {
     "id": "oem-hyundai-ioniq6-preferred-2026-05",
     "scope": "manufacturer_cash",
-    "name": "Hyundai Ioniq 6 Preferred — current monthly offers",
+    "name": "Hyundai Ioniq 6 Preferred \u2014 current monthly offers",
     "appliesTo": {
       "models": [
         "Ioniq6"
@@ -462,7 +462,7 @@
     "status": "active",
     "effectiveFrom": "2026-05-01",
     "source": "https://www.hyundaicanada.com/en/evhub/incentives",
-    "notes": "Hyundai Canada EV incentives page lists Ioniq 6 eligible models and total incentive ranges, but only explicitly identifies the $16,000 Hyundai Special Offer Bonus as available on the Ultimate Package. Exact Preferred non-Ultimate manufacturer cash / APR / residual / monthly fields were not exposed in retrievable text — verify at the source.",
+    "notes": "Hyundai Canada EV incentives page lists Ioniq 6 eligible models and total incentive ranges, but only explicitly identifies the $16,000 Hyundai Special Offer Bonus as available on the Ultimate Package. Exact Preferred non-Ultimate manufacturer cash / APR / residual / monthly fields were not exposed in retrievable text \u2014 verify at the source.",
     "stackableWith": [
       "fed-evap-2026",
       "qc-roulez-vert-2026",
@@ -487,7 +487,7 @@
     "status": "active",
     "effectiveFrom": "2026-05-01",
     "source": "https://www.hyundaicanada.com/en/evhub/incentives",
-    "notes": "Hyundai Canada EV incentives page states the Ioniq 6 incentive amount is based on EVAP $5,000, Hyundai Special Offer Bonus $16,000 available on the Ultimate Package, and provincial incentive available in Manitoba and PEI ($4,000). APR / residual / monthly lease and finance examples were not exposed in official retrievable text. Note: 'Ultimate Package' in Hyundai marketing maps closely to the 'Limited AWD' trim in the dealer inventory taxonomy — verify at delivery.",
+    "notes": "Hyundai Canada EV incentives page states the Ioniq 6 incentive amount is based on EVAP $5,000, Hyundai Special Offer Bonus $16,000 available on the Ultimate Package, and provincial incentive available in Manitoba and PEI ($4,000). APR / residual / monthly lease and finance examples were not exposed in official retrievable text. Note: 'Ultimate Package' in Hyundai marketing maps closely to the 'Limited AWD' trim in the dealer inventory taxonomy \u2014 verify at delivery.",
     "stackableWith": [
       "fed-evap-2026",
       "mb-ev-rebate-2026",
@@ -498,7 +498,7 @@
   {
     "id": "oem-kia-ev9-2026-05",
     "scope": "manufacturer_cash",
-    "name": "Kia EV9 — current monthly offers (verify on kia.ca)",
+    "name": "Kia EV9 \u2014 current monthly offers (verify on kia.ca)",
     "appliesTo": {
       "models": [
         "EV9"
@@ -518,7 +518,7 @@
   {
     "id": "oem-hyundai-ioniq9-2026-05",
     "scope": "manufacturer_cash",
-    "name": "Hyundai Ioniq 9 — current monthly offers (verify on hyundaicanada.com)",
+    "name": "Hyundai Ioniq 9 \u2014 current monthly offers (verify on hyundaicanada.com)",
     "appliesTo": {
       "models": [
         "Ioniq9"
@@ -533,5 +533,178 @@
       "qc-roulez-vert-2026"
     ],
     "lastVerified": "2026-05-01"
+  },
+  {
+    "id": "hyundai-loyalty-2026",
+    "scope": "loyalty",
+    "name": "Hyundai Loyalty Incentive \u2014 Ioniq 5/6/9",
+    "appliesTo": {
+      "models": [
+        "Ioniq5",
+        "Ioniq6",
+        "Ioniq9"
+      ]
+    },
+    "amountCad": 500,
+    "aprPercent": 0.5,
+    "status": "active",
+    "effectiveFrom": "2026-01-03",
+    "effectiveUntil": "2027-01-04",
+    "source": "https://www.brossardhyundai.com/en/programme-de-fidelisation-hyundai-2026-brossard-hyundai-rive-sud/",
+    "notes": "Current Hyundai or Genesis owner loyalty benefit: (a) $500 after-tax cash rebate on cash purchase, OR (b) 0.5% finance rate reduction (floor 0%), OR (c) 2.0% lease rate reduction (floor 0%). Cash rebate and rate reduction cannot be combined. Owner or immediate family member at same address with proof of ownership. Valid across all new Hyundai models incl. Ioniq 5/6/9. aprPercent here represents the finance rate reduction; lease rate reduction is 2.0% (not separately modelled in schema).",
+    "lastVerified": "2026-05-02"
+  },
+  {
+    "id": "hyundai-conquest-2026",
+    "scope": "conquest",
+    "name": "Hyundai Conquest Cash \u2014 Ioniq 5/6/9",
+    "appliesTo": {
+      "models": [
+        "Ioniq5",
+        "Ioniq6",
+        "Ioniq9"
+      ]
+    },
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "effectiveUntil": "2026-05-31",
+    "source": "https://www.carwhere.com/incentives/hyundai",
+    "notes": "Hyundai Canada conquest cash for competing-brand owners switching to an Ioniq EV. Exact CAD amount not publicly disclosed on hyundaicanada.com \u2014 dealers apply it as a hidden incentive. Ask dealer to apply conquest cash; require proof of current competing-brand ownership/lease at time of purchase. amountCad omitted pending official confirmation; flag as negotiation lever.",
+    "lastVerified": "2026-05-02"
+  },
+  {
+    "id": "kia-loyalty-2026",
+    "scope": "loyalty",
+    "name": "Kia Loyalty Rate Reduction \u2014 EV6/EV9",
+    "appliesTo": {
+      "models": [
+        "EV6",
+        "EV9"
+      ]
+    },
+    "aprPercent": 1.0,
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "effectiveUntil": "2026-06-01",
+    "source": "https://www.scarborokia.ca/monthly-kia-vehicle-promotions/",
+    "notes": "Current Kia owner or lessee earns an extra 1% off the published finance or lease rate when financing/leasing a new Kia through Kia Finance. Existing Kia must be registered and insured in the customer's name for \u226590 days prior to purchase date. Each qualifying VIN may only be used once within a 180-day period. Rate reduction cannot take the rate below 0%. aprPercent here represents the rate reduction amount. Stacks with most manufacturer credits, graduate, military, and mobility programs.",
+    "lastVerified": "2026-05-02"
+  },
+  {
+    "id": "kia-conquest-2026",
+    "scope": "conquest",
+    "name": "Kia Conquest \u2014 EV6/EV9",
+    "appliesTo": {
+      "models": [
+        "EV6",
+        "EV9"
+      ]
+    },
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "effectiveUntil": "2026-05-31",
+    "source": "https://www.kia.ca/en/shopping-tools/special-offers",
+    "notes": "Kia Canada conquest program for competing-brand owners. Exact CAD amount not publicly disclosed on kia.ca for May 2026. US Kia conquest (per kalidykia.com) was $500\u2013$1,000 in Jul 2025 for EV9. Ask dealer to apply conquest cash; require proof of current competing-brand ownership/lease. amountCad omitted pending official Canadian confirmation.",
+    "lastVerified": "2026-05-02"
+  },
+  {
+    "id": "hyundai-ioniq5-lease-2026-05",
+    "scope": "lease_promo",
+    "name": "Hyundai Ioniq 5 Preferred RWD LR \u2014 May 2026 Lease",
+    "appliesTo": {
+      "models": [
+        "Ioniq5"
+      ],
+      "trims": [
+        "Preferred RWD Long Range"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    "aprPercent": 3.79,
+    "termMonths": 60,
+    "leaseSecurityDepositCad": 0,
+    "leaseAnnualMileageKm": 16000,
+    "leaseOverageCadPerKm": 0.12,
+    "monthlyPaymentExample": 663,
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "effectiveUntil": "2026-05-31",
+    "source": "https://www.centralnovahyundai.ca/en/special-offers/get-the-2026-hyundai-ioniq-5/228270",
+    "notes": "Hyundai Financial Services national lease program. 3.79% APR, 60-month walk-away lease, $0 security deposit, 16,000 km/yr, $0.12/km overage. Weekly lease payment $153; monthly equivalent $153\u00d74.33 \u2248 $663 (pre-tax). $0 down. Source is Central Nova Hyundai re-publishing HFS national disclaimer. Residual percent not publicly disclosed.",
+    "lastVerified": "2026-05-02"
+  },
+  {
+    "id": "hyundai-ioniq5-finance-2026-05",
+    "scope": "finance_promo",
+    "name": "Hyundai Ioniq 5 Preferred RWD LR \u2014 May 2026 Finance",
+    "appliesTo": {
+      "models": [
+        "Ioniq5"
+      ],
+      "trims": [
+        "Preferred RWD Long Range"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    "aprPercent": 2.59,
+    "termMonths": 84,
+    "monthlyPaymentExample": 767,
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "effectiveUntil": "2026-05-31",
+    "source": "https://www.centralnovahyundai.ca/en/special-offers/get-the-2026-hyundai-ioniq-5/228270",
+    "notes": "Hyundai Financial Services national finance program. 2.59% APR for 84 months, $0 down. Selling price in disclaimer: $64,270 (incl. freight/PDI $2,050, admin $599). Weekly payment $177; monthly equivalent $177\u00d74.33 \u2248 $767 (pre-tax). Cost of borrowing $5,797.",
+    "lastVerified": "2026-05-02"
+  },
+  {
+    "id": "kia-ev6-finance-2026-05",
+    "scope": "finance_promo",
+    "name": "Kia EV6 \u2014 May 2026 Finance",
+    "appliesTo": {
+      "models": [
+        "EV6"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    "aprPercent": 0.99,
+    "termMonths": 60,
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "effectiveUntil": "2026-06-01",
+    "source": "https://www.scarborokia.ca/monthly-kia-vehicle-promotions/",
+    "notes": "Kia Canada May 2026 subvented finance on 2026 EV6: 0.99% APR up to 60 months OAC through Kia Finance, RBC, or TD Auto Finance. Rates may vary by term length and creditworthiness. Before applying 1% loyalty reduction (which would take to 0% floor). Confirmed at multiple Ontario Kia dealers for May 1\u2013June 1, 2026.",
+    "lastVerified": "2026-05-02"
+  },
+  {
+    "id": "kia-ev9-lease-2026-05",
+    "scope": "lease_promo",
+    "name": "Kia EV9 Light RWD \u2014 May 2026 Lease",
+    "appliesTo": {
+      "models": [
+        "EV9"
+      ],
+      "trims": [
+        "Light RWD"
+      ],
+      "years": [
+        2026
+      ]
+    },
+    "aprPercent": 3.19,
+    "termMonths": 36,
+    "leaseAnnualMileageKm": 16000,
+    "monthlyPaymentExample": 812,
+    "status": "active",
+    "effectiveFrom": "2026-05-01",
+    "effectiveUntil": "2026-06-01",
+    "source": "https://www.applewoodkiasurrey.ca/new/2026-Kia-EV9.html",
+    "notes": "Kia Canada May 2026 subvented lease on 2026 EV9 Light RWD: 3.19% APR, 36-month walk-away lease, 16,000 km/yr. Biweekly payment $374; monthly equivalent $374\u00d72.17 \u2248 $811. $0 down. Security deposit and residual not publicly disclosed. MSRP base $59,995. Confirmed via Applewood Kia Surrey listing. Before applying 1% loyalty reduction.",
+    "lastVerified": "2026-05-02"
   }
 ]

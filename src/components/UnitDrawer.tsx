@@ -2,12 +2,80 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import type { Dealer, ScoredUnit } from "@/lib/types";
+import type { Dealer, ScoredUnit, Spec, FinanceBreakdown, LeaseBreakdown } from "@/lib/types";
 import { MODEL_LABEL } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
 import { effectivePreTaxValue } from "@/lib/scoring";
 import { StatusChip } from "./StatusChip";
 import { DealScoreBadge } from "./DealScoreBadge";
+
+// Heatpump chip — tri-state, matches InventoryTable styling.
+function HeatPumpChip({ hasHeatPump }: { hasHeatPump?: boolean | null }) {
+  if (hasHeatPump === true) return null;
+  if (hasHeatPump === false) {
+    return (
+      <span
+        className="chip-bad text-xxs"
+        title="No heat pump — resistive heat only. Expect 25–40% real-world range loss below −10°C."
+      >
+        ❌ No heat pump
+      </span>
+    );
+  }
+  return (
+    <span
+      className="chip-neutral text-xxs text-fg-subtle"
+      title="Heat pump status not yet researched for this trim."
+    >
+      ❓ Heat pump?
+    </span>
+  );
+}
+
+// Finance path detail table.
+function FinanceTab({ fb }: { fb: FinanceBreakdown }) {
+  return (
+    <dl className="text-sm space-y-1">
+      <div className="flex justify-between"><dt className="text-fg-muted">APR</dt><dd className="num">{fb.aprPercent}%</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Term</dt><dd className="num">{fb.termMonths} mo</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Down payment</dt><dd className="num">{fmtCad(fb.downPaymentCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Amount financed</dt><dd className="num">{fmtCad(fb.amountFinancedCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Total interest</dt><dd className="num text-warn">{fmtCad(fb.totalInterestCad)}</dd></div>
+      <div className="border-t border-border pt-2 mt-2 flex justify-between">
+        <dt className="font-semibold">Monthly payment</dt>
+        <dd className="num font-semibold">{fmtCad(Math.round(fb.monthlyPaymentCad))}/mo</dd>
+      </div>
+      <div className="flex justify-between text-xs text-fg-muted">
+        <dt>Total cost</dt>
+        <dd className="num">{fmtCad(fb.totalCostCad)}</dd>
+      </div>
+    </dl>
+  );
+}
+
+// Lease path detail table.
+function LeaseTab({ lb }: { lb: LeaseBreakdown }) {
+  return (
+    <dl className="text-sm space-y-1">
+      <div className="flex justify-between"><dt className="text-fg-muted">APR equiv.</dt><dd className="num">{lb.aprPercent}%</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Term</dt><dd className="num">{lb.termMonths} mo</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Residual</dt><dd className="num">{lb.residualPercent}% · {fmtCad(lb.residualBuyoutCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Cap cost</dt><dd className="num">{fmtCad(lb.capCostCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Signing down</dt><dd className="num">{fmtCad(lb.capCostReductionCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Security deposit</dt><dd className="num">{fmtCad(lb.securityDepositCad)}</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Annual km</dt><dd className="num">{lb.annualMileageKm.toLocaleString("en-CA")} km</dd></div>
+      <div className="flex justify-between"><dt className="text-fg-muted">Overage</dt><dd className="num">{fmtCad(lb.overageCadPerKm)}/km</dd></div>
+      <div className="border-t border-border pt-2 mt-2 flex justify-between">
+        <dt className="font-semibold">Monthly (+ tax)</dt>
+        <dd className="num font-semibold">{fmtCad(Math.round(lb.monthlyPaymentWithTaxCad))}/mo</dd>
+      </div>
+      <div className="flex justify-between text-xs text-fg-muted">
+        <dt>Total lease cost</dt>
+        <dd className="num">{fmtCad(lb.totalLeaseCostCad)}</dd>
+      </div>
+    </dl>
+  );
+}
 
 type Props = {
   unit: ScoredUnit | null;
@@ -18,9 +86,10 @@ type Props = {
   onClose: () => void;
   onNavigate?: (direction: -1 | 1) => void;
   position?: { index: number; total: number };
+  spec?: Spec;
 };
 
-export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDealer, onClose, onNavigate, position }: Props) {
+export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDealer, onClose, onNavigate, position, spec }: Props) {
   useEffect(() => {
     if (!unit) return;
     const onKey = (e: KeyboardEvent) => {
@@ -35,6 +104,7 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
   if (!unit) return null;
 
   const draft = buildEmailDraft(unit, dealer, pressure, comparable, comparableDealer);
+  const [otdTab, setOtdTab] = useState<"cash" | "finance" | "lease">("cash");
 
   return (
     <>
@@ -60,6 +130,11 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
             </div>
             {unit.vin && (
               <div className="text-xxs text-fg-subtle font-mono mt-0.5">VIN {unit.vin}</div>
+            )}
+            {spec !== undefined && (
+              <div className="mt-1">
+                <HeatPumpChip hasHeatPump={spec.hasHeatPump} />
+              </div>
             )}
             <div className="flex items-center gap-2 mt-2">
               {unit.listingUrl && (
@@ -120,48 +195,71 @@ export function UnitDrawer({ unit, dealer, pressure, comparable, comparableDeale
         </header>
 
         <section className="px-5 py-4 border-b border-border">
-          <h3 className="text-xxs uppercase tracking-wide text-fg-subtle mb-2">Out-the-door breakdown</h3>
-          <dl className="text-sm space-y-1">
-            <Row label="MSRP" value={unit.otdBreakdown.msrp} />
-            <Row label="Freight + PDI" value={unit.otdBreakdown.freightPdi} />
-            <Row
-              label={unit.otdBreakdown.dealerAdjustment < 0 ? "Dealer discount" : "Dealer adjustment"}
-              value={unit.otdBreakdown.dealerAdjustment}
-              accentNegative
-            />
-            <Row label="A/C excise tax" value={unit.otdBreakdown.acExciseTax} />
-            <Row label="RDPRM" value={unit.otdBreakdown.rdprm} />
-            <Row label="OMVIC" value={unit.otdBreakdown.omvic} />
-            <Row label="Tire stewardship" value={unit.otdBreakdown.tireStewardship} />
-            <Row label="Gov licensing" value={unit.otdBreakdown.govLicensing} />
-            <Row
-              label={`Sales tax (${unit.otdBreakdown.salesTaxProvince})`}
-              value={unit.otdBreakdown.salesTax}
-            />
-            {unit.otdBreakdown.transportCost > 0 && (
+          <div className="flex items-center gap-1 mb-3">
+            {(["cash", "finance", "lease"] as const).map((tab) => (
+              <button
+                key={tab}
+                type="button"
+                onClick={() => setOtdTab(tab)}
+                className={`text-xxs px-2 py-1 rounded border ${otdTab === tab ? "border-accent text-accent" : "border-border text-fg-muted hover:text-fg"}`}
+              >
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            ))}
+          </div>
+          {otdTab === "cash" && (
+            <dl className="text-sm space-y-1">
+              <Row label="MSRP" value={unit.otdBreakdown.msrp} />
+              <Row label="Freight + PDI" value={unit.otdBreakdown.freightPdi} />
               <Row
-                label={`Transport (${dealer?.province ?? "?"} → ${unit.otdBreakdown.salesTaxProvince}, est)`}
-                value={unit.otdBreakdown.transportCost}
+                label={unit.otdBreakdown.dealerAdjustment < 0 ? "Dealer discount" : "Dealer adjustment"}
+                value={unit.otdBreakdown.dealerAdjustment}
+                accentNegative
               />
-            )}
-            {unit.otdBreakdown.incentivesApplied.length > 0 && (
-              <div className="pt-1 mt-1 border-t border-border/50">
-                <div className="text-xxs text-fg-subtle mb-1">Cash incentives applied</div>
-                {unit.otdBreakdown.incentivesApplied.map((line) => (
-                  <div key={line.id} className="flex justify-between text-xs">
-                    <dt className="text-fg-muted truncate pr-2" title={line.name}>
-                      {line.name}
-                    </dt>
-                    <dd className="num text-accent">−{fmtCad(line.amountCad)}</dd>
-                  </div>
-                ))}
+              <Row label="A/C excise tax" value={unit.otdBreakdown.acExciseTax} />
+              <Row label="RDPRM" value={unit.otdBreakdown.rdprm} />
+              <Row label="OMVIC" value={unit.otdBreakdown.omvic} />
+              <Row label="Tire stewardship" value={unit.otdBreakdown.tireStewardship} />
+              <Row label="Gov licensing" value={unit.otdBreakdown.govLicensing} />
+              <Row
+                label={`Sales tax (${unit.otdBreakdown.salesTaxProvince})`}
+                value={unit.otdBreakdown.salesTax}
+              />
+              {unit.otdBreakdown.transportCost > 0 && (
+                <Row
+                  label={`Transport (${dealer?.province ?? "?"} → ${unit.otdBreakdown.salesTaxProvince}, est)`}
+                  value={unit.otdBreakdown.transportCost}
+                />
+              )}
+              {unit.otdBreakdown.incentivesApplied.length > 0 && (
+                <div className="pt-1 mt-1 border-t border-border/50">
+                  <div className="text-xxs text-fg-subtle mb-1">Cash incentives applied</div>
+                  {unit.otdBreakdown.incentivesApplied.map((line) => (
+                    <div key={line.id} className="flex justify-between text-xs">
+                      <dt className="text-fg-muted truncate pr-2" title={line.name}>
+                        {line.name}
+                      </dt>
+                      <dd className="num text-accent">−{fmtCad(line.amountCad)}</dd>
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div className="border-t border-border pt-2 mt-2 flex justify-between">
+                <dt className="font-semibold">OTD total</dt>
+                <dd className="num font-semibold">{fmtCad(unit.otdBreakdown.total)}</dd>
               </div>
-            )}
-            <div className="border-t border-border pt-2 mt-2 flex justify-between">
-              <dt className="font-semibold">OTD total</dt>
-              <dd className="num font-semibold">{fmtCad(unit.otdBreakdown.total)}</dd>
-            </div>
-          </dl>
+            </dl>
+          )}
+          {otdTab === "finance" && (
+            unit.otdPaths?.finance
+              ? <FinanceTab fb={unit.otdPaths.finance} />
+              : <p className="text-sm text-fg-subtle">No finance promo on this trim.</p>
+          )}
+          {otdTab === "lease" && (
+            unit.otdPaths?.lease
+              ? <LeaseTab lb={unit.otdPaths.lease} />
+              : <p className="text-sm text-fg-subtle">No lease promo on this trim.</p>
+          )}
         </section>
 
         <section className="px-5 py-4 border-b border-border">

@@ -25,7 +25,7 @@ import Link from "next/link";
 import { loadScoredUnits, loadSpecs, loadUsedListings, computeUsedMarketStats } from "@/lib/data";
 import { getBuyerContext } from "@/lib/buyerContextServer";
 import { fmtCad, fmtDate } from "@/lib/format";
-import type { ScoredUnit } from "@/lib/types";
+import type { ScoredUnit, Spec, FinanceBreakdown, LeaseBreakdown } from "@/lib/types";
 import { PrintButton } from "./PrintButton";
 
 export const dynamic = "force-dynamic";
@@ -45,6 +45,11 @@ export default async function DossierPage({ params }: PageProps) {
   if (!unit) return notFound();
   const dealer = dealerById.get(unit.dealerId);
   if (!dealer) return notFound();
+
+  // Spec lookup for heatpump chip + future spec fields.
+  const specForUnit = specs.find(
+    (s) => s.model === unit.model && s.year === unit.year && s.trim === unit.trim && s.drivetrain === unit.drivetrain,
+  );
 
   // Same-trim same-year cohort nationwide — top 3 cheaper or comparable by OTD
   const cohort = units
@@ -72,8 +77,8 @@ export default async function DossierPage({ params }: PageProps) {
         <PrintButton />
       </div>
 
-      <Header unit={unit} dealer={dealer} />
-      <OtdSection unit={unit} ctx={ctx} />
+      <Header unit={unit} dealer={dealer} spec={specForUnit} />
+      <OtdSection unit={unit} ctx={ctx} dealer={dealer} />
       <CohortSection unit={unit} cohort={cohort} />
       <DealerPressureSection
         dealerName={dealer.name}
@@ -102,7 +107,29 @@ function Section({ title, children }: { title: string; children: React.ReactNode
   );
 }
 
-function Header({ unit, dealer }: { unit: ScoredUnit; dealer: { name: string; city: string; province: string; phone?: string } }) {
+function HeatPumpChip({ hasHeatPump }: { hasHeatPump?: boolean | null }) {
+  if (hasHeatPump === true) return null;
+  if (hasHeatPump === false) {
+    return (
+      <span
+        className="inline-block chip-bad text-xs mt-1 print:border print:border-red-500 print:text-red-600"
+        title="No heat pump — resistive heat only. Expect 25–40% real-world range loss below −10°C."
+      >
+        ❌ No heat pump
+      </span>
+    );
+  }
+  return (
+    <span
+      className="inline-block chip-neutral text-xs text-fg-subtle mt-1"
+      title="Heat pump status not yet researched for this trim."
+    >
+      ❓ Heat pump?
+    </span>
+  );
+}
+
+function Header({ unit, dealer, spec }: { unit: ScoredUnit; dealer: { name: string; city: string; province: string; phone?: string }; spec?: Spec }) {
   return (
     <header className="border-b border-border pb-4">
       <h1 className="text-2xl font-semibold">{unit.year} {unit.model} {unit.trim}</h1>
@@ -111,6 +138,7 @@ function Header({ unit, dealer }: { unit: ScoredUnit; dealer: { name: string; ci
         {unit.vin && ` · VIN ${unit.vin}`}
         {unit.stockNumber && ` · Stock #${unit.stockNumber}`}
       </div>
+      {spec !== undefined && <HeatPumpChip hasHeatPump={spec.hasHeatPump} />}
       <div className="mt-2 text-sm">
         <strong>{dealer.name}</strong> — {dealer.city}, {dealer.province}
         {dealer.phone && ` · ${dealer.phone}`}
@@ -124,7 +152,8 @@ function Header({ unit, dealer }: { unit: ScoredUnit; dealer: { name: string; ci
   );
 }
 
-function OtdSection({ unit, ctx }: { unit: ScoredUnit; ctx: { province: string } }) {
+
+function OtdSection({ unit, ctx, dealer }: { unit: ScoredUnit; ctx: { province: string }; dealer: { province: string } }) {
   const b = unit.otdBreakdown;
   const row = (label: string, value: number, isCredit = false) => (
     <tr>
@@ -134,30 +163,96 @@ function OtdSection({ unit, ctx }: { unit: ScoredUnit; ctx: { province: string }
       </td>
     </tr>
   );
+  const fp = unit.otdPaths?.finance;
+  const lp = unit.otdPaths?.lease;
   return (
     <Section title={`Out-the-door (taxed in ${ctx.province})`}>
+      {/* Cash path */}
+      <div className="mb-3">
+        <div className="text-xxs uppercase tracking-wide text-fg-subtle mb-1">Cash</div>
+        <table className="w-full text-sm">
+          <tbody>
+            {row("MSRP", b.msrp)}
+            {row("Freight + PDI", b.freightPdi)}
+            {row(b.dealerAdjustment >= 0 ? "Dealer markup" : "Dealer discount", b.dealerAdjustment, b.dealerAdjustment < 0)}
+            {row("AC excise", b.acExciseTax)}
+            {row("OMVIC + tire stewardship + RDPRM + licensing", b.omvic + b.tireStewardship + b.rdprm + b.govLicensing)}
+            {b.transportCost > 0 && row(`Transport (${dealer.province} → ${b.salesTaxProvince}, est)`, b.transportCost)}
+            {row(`Sales tax (${b.salesTaxProvince})`, b.salesTax)}
+            {b.incentivesApplied.map((i) => (
+              <tr key={i.id} className="text-good">
+                <td className="py-1 pr-4">− {i.name}</td>
+                <td className="py-1 text-right tabular-nums">−{fmtCad(i.amountCad)}</td>
+              </tr>
+            ))}
+            <tr className="border-t border-border font-semibold">
+              <td className="py-2 pr-4">Total OTD (cash)</td>
+              <td className="py-2 text-right tabular-nums">{fmtCad(b.total)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {/* Finance path */}
+      {fp ? (
+        <FinanceSection fb={fp} />
+      ) : (
+        <p className="text-xs text-fg-subtle mb-2 italic">No finance promo on this trim.</p>
+      )}
+      {/* Lease path */}
+      {lp ? (
+        <LeaseSection lb={lp} />
+      ) : (
+        <p className="text-xs text-fg-subtle italic">No lease promo on this trim.</p>
+      )}
+    </Section>
+  );
+}
+
+function FinanceSection({ fb }: { fb: FinanceBreakdown }) {
+  return (
+    <div className="mt-3 print:mt-2">
+      <div className="text-xxs uppercase tracking-wide text-fg-subtle mb-1">Finance ({fb.termMonths} mo @ {fb.aprPercent}% APR)</div>
       <table className="w-full text-sm">
         <tbody>
-          {row("MSRP", b.msrp)}
-          {row("Freight + PDI", b.freightPdi)}
-          {row(b.dealerAdjustment >= 0 ? "Dealer markup" : "Dealer discount", b.dealerAdjustment, b.dealerAdjustment < 0)}
-          {row("AC excise", b.acExciseTax)}
-          {row("OMVIC + tire stewardship + RDPRM + licensing", b.omvic + b.tireStewardship + b.rdprm + b.govLicensing)}
-          {b.transportCost > 0 && row(`Transport from ${unit.dealerId.split("-")[0].toUpperCase()}`, b.transportCost)}
-          {row(`Sales tax (${b.salesTaxProvince})`, b.salesTax)}
-          {b.incentivesApplied.map((i) => (
-            <tr key={i.id} className="text-good">
-              <td className="py-1 pr-4">− {i.name}</td>
-              <td className="py-1 text-right tabular-nums">−{fmtCad(i.amountCad)}</td>
-            </tr>
-          ))}
+          <tr><td className="py-1 pr-4">Down payment</td><td className="py-1 text-right tabular-nums">{fmtCad(fb.downPaymentCad)}</td></tr>
+          <tr><td className="py-1 pr-4">Amount financed</td><td className="py-1 text-right tabular-nums">{fmtCad(fb.amountFinancedCad)}</td></tr>
+          <tr><td className="py-1 pr-4">Total interest</td><td className="py-1 text-right tabular-nums">{fmtCad(fb.totalInterestCad)}</td></tr>
           <tr className="border-t border-border font-semibold">
-            <td className="py-2 pr-4">Total OTD</td>
-            <td className="py-2 text-right tabular-nums">{fmtCad(b.total)}</td>
+            <td className="py-2 pr-4">Monthly payment</td>
+            <td className="py-2 text-right tabular-nums">{fmtCad(Math.round(fb.monthlyPaymentCad))}/mo</td>
+          </tr>
+          <tr className="text-xs text-fg-muted">
+            <td className="pr-4">Total cost</td>
+            <td className="text-right tabular-nums">{fmtCad(fb.totalCostCad)}</td>
           </tr>
         </tbody>
       </table>
-    </Section>
+    </div>
+  );
+}
+
+function LeaseSection({ lb }: { lb: LeaseBreakdown }) {
+  return (
+    <div className="mt-3 print:mt-2">
+      <div className="text-xxs uppercase tracking-wide text-fg-subtle mb-1">Lease ({lb.termMonths} mo, residual {lb.residualPercent}%)</div>
+      <table className="w-full text-sm">
+        <tbody>
+          <tr><td className="py-1 pr-4">Cap cost</td><td className="py-1 text-right tabular-nums">{fmtCad(lb.capCostCad)}</td></tr>
+          <tr><td className="py-1 pr-4">Signing down</td><td className="py-1 text-right tabular-nums">{fmtCad(lb.capCostReductionCad)}</td></tr>
+          <tr><td className="py-1 pr-4">Residual buyout</td><td className="py-1 text-right tabular-nums">{fmtCad(lb.residualBuyoutCad)}</td></tr>
+          <tr><td className="py-1 pr-4">Annual km</td><td className="py-1 text-right tabular-nums">{lb.annualMileageKm.toLocaleString("en-CA")} km</td></tr>
+          <tr><td className="py-1 pr-4">Overage</td><td className="py-1 text-right tabular-nums">{fmtCad(lb.overageCadPerKm)}/km</td></tr>
+          <tr className="border-t border-border font-semibold">
+            <td className="py-2 pr-4">Monthly (incl. tax)</td>
+            <td className="py-2 text-right tabular-nums">{fmtCad(Math.round(lb.monthlyPaymentWithTaxCad))}/mo</td>
+          </tr>
+          <tr className="text-xs text-fg-muted">
+            <td className="pr-4">Total lease cost</td>
+            <td className="text-right tabular-nums">{fmtCad(lb.totalLeaseCostCad)}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 }
 
