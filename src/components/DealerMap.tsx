@@ -6,6 +6,26 @@ import "leaflet/dist/leaflet.css";
 import type { Dealer, ScoredUnit } from "@/lib/types";
 import { MODEL_LABEL } from "@/lib/constants";
 import { fmtCad } from "@/lib/format";
+import dcfcData from "@/../data/dcfc_stations.json";
+
+type Station = {
+  id: string;
+  name: string;
+  network: string;
+  lat: number;
+  lng: number;
+  max_kw: number;
+  stalls: number;
+  status: string;
+};
+
+const STATIONS: Station[] = (dcfcData as { stations: Station[] }).stations;
+
+function dcfcColorFor(maxKw: number): string {
+  if (maxKw >= 250) return "#a855f7"; // purple — 250kW+ (Supercharger / EC 350)
+  if (maxKw >= 150) return "#3b82f6"; // blue — 150-249 (Ivy)
+  return "#0ea5e9"; // cyan — 50-149 (Flo, ChargePoint)
+}
 
 type Props = {
   dealers: Dealer[];
@@ -46,6 +66,31 @@ export function DealerMap({ dealers, units, pressureByDealer }: Props) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        {STATIONS.map((s) => (
+          <CircleMarker
+            key={s.id}
+            center={[s.lat, s.lng]}
+            radius={5}
+            pathOptions={{
+              color: dcfcColorFor(s.max_kw),
+              fillColor: dcfcColorFor(s.max_kw),
+              fillOpacity: 0.7,
+              weight: 1,
+            }}
+          >
+            <Popup>
+              <div style={{ minWidth: 180 }}>
+                <div style={{ fontWeight: 600 }}>{s.name}</div>
+                <div style={{ fontSize: 12, color: "#64748b", marginTop: 4 }}>
+                  {s.network} · {s.max_kw} kW · {s.stalls} stalls
+                </div>
+                <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 2 }}>
+                  Status: {s.status}
+                </div>
+              </div>
+            </Popup>
+          </CircleMarker>
+        ))}
         {placed.map((d) => {
           const score = pressureByDealer[d.id] ?? 0;
           const dealerUnits = unitsByDealer.get(d.id) ?? [];
@@ -108,16 +153,25 @@ export function DealerMap({ dealers, units, pressureByDealer }: Props) {
           );
         })}
       </MapContainer>
-      <div className="px-4 py-2 border-t border-border text-xxs text-fg-subtle flex flex-wrap gap-4">
-        <span>{placed.length} dealers placed{dealers.length > placed.length ? ` (${dealers.length - placed.length} missing coords)` : ""}</span>
+      <div className="px-4 py-2 border-t border-border text-xxs text-fg-subtle flex flex-wrap gap-x-4 gap-y-1">
+        <span>{placed.length} dealers · {STATIONS.length} DCFC stations (demo)</span>
         <span className="flex items-center gap-1">
-          <span style={{ width: 10, height: 10, borderRadius: 5, background: "#6ee7b7", display: "inline-block" }} /> high pressure (≥70)
+          <span style={{ width: 10, height: 10, borderRadius: 5, background: "#6ee7b7", display: "inline-block" }} /> dealer high (≥70)
         </span>
         <span className="flex items-center gap-1">
           <span style={{ width: 10, height: 10, borderRadius: 5, background: "#fbbf24", display: "inline-block" }} /> medium (40–69)
         </span>
         <span className="flex items-center gap-1">
           <span style={{ width: 10, height: 10, borderRadius: 5, background: "#94a3b8", display: "inline-block" }} /> low (&lt;40)
+        </span>
+        <span className="flex items-center gap-1">
+          <span style={{ width: 10, height: 10, borderRadius: 5, background: "#a855f7", display: "inline-block" }} /> DCFC 250kW+
+        </span>
+        <span className="flex items-center gap-1">
+          <span style={{ width: 10, height: 10, borderRadius: 5, background: "#3b82f6", display: "inline-block" }} /> 150–249kW
+        </span>
+        <span className="flex items-center gap-1">
+          <span style={{ width: 10, height: 10, borderRadius: 5, background: "#0ea5e9", display: "inline-block" }} /> &lt;150kW
         </span>
       </div>
     </div>
