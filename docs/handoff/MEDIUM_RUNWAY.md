@@ -976,6 +976,9 @@ Track shipped items here so the next session knows what's left. Format:
 ```
 - [deferred] 0.1: Chrome MCP not paired this session; switch_browser returned no-browsers-available at b90db655
 - [x] A1: format.test.ts — 19 specs covering fmtCad / fmtPercent / fmtDate / relativeDays. Total suite 57/57.
+- [x] A2: battery_degradation.test.ts — 10 specs (retentionAtYear x7, projectedRangeAtYear x3).
+- [x] A3: aggregations.test.ts — 14 specs (dealerPressureMap x3, inGGH x4, computeKpis x4, provinceRollup x3).
+- [x] A4: usedListingsLinks.test.ts — 14 specs (AutoTrader x5, Kijiji x4, Leasebusters x3, return shape x2). Total suite 95/95.
 ```
 
 ---

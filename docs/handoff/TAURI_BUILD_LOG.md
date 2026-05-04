@@ -103,3 +103,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04: Tier 0.1 Chrome MCP auto-pair flow added to MEDIUM_RUNWAY.md; session-local crons 8fde95ac + 8c43c24b cancelled (user winding down autonomous loop). Disk-persistent scheduled-tasks remain. Leasebusters re-classed BLOCKED → AUTO-RETRY. HEAD 4afde1c1.
 - 2026-05-04: Tier 0.1 attempted at HEAD b90db655 — list_connected_browsers empty, switch_browser returned 'No other browsers available'. Chrome not running with extension active this session. Deferred to next wake. Proceeding to Tier A drain.
 - 2026-05-04: A1 shipped — format.test.ts (19 specs). Total vitest 57/57. Predeploy clean.
+- 2026-05-04: A2+A3+A4 shipped — battery_degradation (10) + aggregations (14) + usedListingsLinks (14). Total vitest 57 → 95. Predeploy clean.
