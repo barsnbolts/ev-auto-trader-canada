@@ -369,3 +369,6 @@ again, refresh stale data, etc.
 - [x] Q1 data-unit-id: 8449ef2f
 - [x] Q2 a11y aria-labels (UnitPhotoGallery only — others already had labels or not icon-only): 8449ef2f
 - [blocked] Leasebusters Chrome MCP probe: no browser connected to Chrome MCP. User must open Chrome with extension.
+- [x] Q3 console-log audit (already clean, 0 hits): no commit needed
+- [x] Q4 dead-export sweep (4 truly-dead removed; 23 false-positives kept as internal-use): 31953566
+- [x] D1 JSDoc on types.ts (≥13 blocks): 4da1c5a2
