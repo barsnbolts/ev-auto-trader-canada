@@ -24,11 +24,30 @@ import { UnitVerifyChip } from "@/components/UnitVerifyChip";
 import { UnitPhotoGallery } from "@/components/UnitPhotoGallery";
 import { CrossSourceChip } from "@/components/CrossSourceChip";
 import { plainLang } from "@/lib/plainLang";
-import { ChargingCurveChart } from "@/components/ChargingCurveChart";
+import dynamic from "next/dynamic";
 import { BatteryHealthPanel } from "@/components/BatteryHealthPanel";
 import { OtdWaterfallChart } from "@/components/OtdWaterfallChart";
-import { WarmupRampChart } from "@/components/WarmupRampChart";
-import { DcChargeRampChart } from "@/components/DcChargeRampChart";
+
+// Lazy-load recharts-backed charts so the ~384 kB recharts chunk doesn't
+// ship in the dossier's initial bundle. Each chart loads on demand when
+// its section enters the DOM. ssr:false is required because recharts
+// touches `window` at import-time. Falls back to a small placeholder
+// while the chunk fetches.
+const chartFallback = (
+  <div className="h-48 w-full bg-bg-subtle rounded animate-pulse" />
+);
+const ChargingCurveChart = dynamic(
+  () => import("@/components/ChargingCurveChart").then((m) => m.ChargingCurveChart),
+  { ssr: false, loading: () => chartFallback },
+);
+const WarmupRampChart = dynamic(
+  () => import("@/components/WarmupRampChart").then((m) => m.WarmupRampChart),
+  { ssr: false, loading: () => chartFallback },
+);
+const DcChargeRampChart = dynamic(
+  () => import("@/components/DcChargeRampChart").then((m) => m.DcChargeRampChart),
+  { ssr: false, loading: () => chartFallback },
+);
 import { readNumeric } from "@/lib/types";
 
 type PageData = {

@@ -383,3 +383,4 @@ again, refresh stale data, etc.
 - [x] T3 schema-drift catcher (validate_data_schemas.py wired into predeploy + predeploy:tauri): (this commit)
 - [x] U4 native macOS menu bar (App / File / Edit / Window with Cmd+R refresh): (this commit)
 - [x] T2-extension scoring incentive specs (stackedOtdIncentives 4 + applicableIncentives 7 incl EVAP cap; 38 total): (this commit)
+- [x] Q5-followup lazy-load recharts charts on dossier (281 kB → 176 kB first-load): (this commit)
