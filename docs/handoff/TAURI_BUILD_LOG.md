@@ -97,3 +97,4 @@ cat docs/handoff/research/PHASE_D0_PROBE_*.md 2>/dev/null  # if D0 ran
 
 Phase A is shipped + verified. Phase B is shipped + verified. Phase C is the
 next mechanical step; Phase D needs D0 research first.
+- 2026-05-04 18:30 medium: U4 native macOS menu bar (App / File / Edit / Window submenus, Cmd+R refresh) — d87d716c. Tauri build 1m31s clean.
