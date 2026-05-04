@@ -84,7 +84,11 @@
     "generationLabel": "2025 refresh (84 kWh)",
     "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev6/MY25_EV6_APR1_ENG.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV6",
@@ -181,7 +185,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV6",
@@ -273,7 +281,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV6",
@@ -365,7 +377,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV6",
@@ -460,7 +476,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -564,7 +584,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -668,7 +692,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -761,7 +789,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -851,7 +883,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -957,7 +993,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -1044,7 +1084,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq6",
@@ -1149,7 +1193,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq6",
@@ -1242,7 +1290,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -1338,7 +1390,11 @@
     "generationLabel": "Gen 1 (2024+)",
     "heatPumpSource": "https://www.kia.ca/content/dam/marketing/content/vehicles/brochures/2025/ev9/MY25_EV9_ENG.pdf",
     "heatPumpConfidence": "High",
-    "heatPumpAccessed": "2026-05-02"
+    "heatPumpAccessed": "2026-05-02",
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -1443,7 +1499,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -1547,7 +1607,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -1651,7 +1715,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq9",
@@ -1756,7 +1824,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq9",
@@ -1861,7 +1933,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq9",
@@ -1966,7 +2042,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -2067,7 +2147,11 @@
     ],
     "bodyStyle": "SUV",
     "powertrain": "BEV",
-    "generationLabel": "Gen 1 (2024+)"
+    "generationLabel": "Gen 1 (2024+)",
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -2177,7 +2261,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -2282,7 +2370,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -2387,7 +2479,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -2496,7 +2592,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -2604,7 +2704,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq6",
@@ -2710,7 +2814,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "Ioniq5",
@@ -2813,7 +2921,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV6",
@@ -2910,7 +3022,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV6",
@@ -3002,7 +3118,11 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "nav-based"
   },
   {
     "model": "EV9",
@@ -3105,6 +3225,10 @@
       },
       "confidence": "Medium",
       "notes": "E-GMP heat pump uses battery-coolant heat exchanger + waste-heat capture from PE motor and battery cooling. Effective to ~-25\u00b0C per Hyundai/Kia engineering briefs, InsideEVs cold-weather reviews, and Bjorn Nyland 1000km tests. Below -25\u00b0C, fallback to PTC resistive heating engages automatically."
-    }
+    },
+    "chargingArchitectureVolts": 800,
+    "batteryThermalMassKjPerKwh": 10.5,
+    "packHeaterKw": 5.5,
+    "batteryPreconditioning": "manual"
   }
 ]

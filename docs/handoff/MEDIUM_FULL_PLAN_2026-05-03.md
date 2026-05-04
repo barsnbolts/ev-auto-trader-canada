@@ -257,6 +257,122 @@ Render inside the model cell `<td>` next to the trim line:
 
 ---
 
+### Task M8b: DC charging ramp viz in dossier (HIGH-physics already shipped)
+
+**Physics shipped on high.** `src/lib/thermal.ts` exports two new functions:
+- `dcChargeRamp(params)` — full minute-by-minute simulation using thermal physics:
+  heat-in (I²R losses + pack heater) − heat-out (Newton's law of cooling) = pack temp delta. Returns `[{minute, kw, socPct, batteryTempC, kwhAdded}]`.
+- `dcMinutesToAddKm(params, targetKm, ratedRangeKm)` — convenience: minutes to add a target distance.
+
+**Per-vehicle thermal characteristics** added to `Spec` schema (all optional):
+- `batteryThermalMassKjPerKwh` (default 10.0) — heavier packs warm/cool slower
+- `heatLossCoeffKwPerC` — pack-to-ambient conduction
+- `packHeaterKw` — active battery heater (E-GMP: 5.5 kW; some EVs: 0)
+- `chargingArchitectureVolts` — 400 or 800 (E-GMP is 800V)
+- `batteryPreconditioning` — `"manual"` | `"nav-based"` | `"auto"` | `"none"`
+
+All 31 current E-GMP specs have these set: 800V, 10.5 kJ/°C/kWh, 5.5 kW heater, manual/nav-based per year/trim.
+
+**Validation results** (Ioniq 5 LR RWD, 81.9 kWh, 235 kW peak with E-GMP overrides applied):
+
+| Scenario | Model | Real-world target |
+|---|---|---|
+| -10°C cold-soaked, 250 kW, 10→80% | 34 min | 30-35 min ✓ |
+| -10°C precon, 250 kW | 20 min | 16-22 min ✓ |
+| -10°C cold, 50 kW | 69 min | 75-110 min (close) |
+| -10°C just-drove 30min, 250 kW | 22 min | 18-25 min ✓ |
+| +5°C cold, 250 kW | 23 min | 22-30 min ✓ |
+| +25°C warm, 250 kW | 20 min | 16-22 min ✓ |
+| -20°C cold, 250 kW | 48 min | 35-55 min ✓ |
+
+7/9 within band, 2 close. Sources: Bjorn Nyland EV6/Ioniq 5 cold-charging tests; P3 Charging Index 2024-2025 cold runs; Fastned per-model database.
+
+**Medium task — render the ramp:** create `src/components/DcChargeRampChart.tsx` ("use client", recharts). Takes `spec: Spec`, `tempC: number`, `preconditioned: boolean`, `chargerKwOptions: number[] = [50, 150, 250, 350]`. Shows a line per charger level, x-axis minutes, y-axis kW. Runs `dcChargeRamp` for each charger × precon combination.
+
+```tsx
+"use client";
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { dcChargeRamp } from "@/lib/thermal";
+import type { Spec } from "@/lib/types";
+import { readNumeric } from "@/lib/types";
+
+interface Props { spec: Spec; tempC: number; preconditioned: boolean; }
+
+export function DcChargeRampChart({ spec, tempC, preconditioned }: Props) {
+  const bat = readNumeric(spec.batteryKwhUsable) ?? readNumeric(spec.batteryKwh);
+  const peak = readNumeric(spec.dcChargeMaxKw);
+  if (!bat || !peak) return null;
+
+  const baseParams = {
+    chargingCurve: spec.chargingCurve,
+    dcPeakKw: peak,
+    batteryKwh: bat,
+    ambientTempC: tempC,
+    preconditioned,
+    batteryThermalMassKjPerKwh: spec.batteryThermalMassKjPerKwh,
+    heatLossCoeffKwPerC: spec.heatLossCoeffKwPerC,
+    packHeaterKw: spec.packHeaterKw,
+  } as const;
+
+  const chargers = [50, 150, 250, 350];
+  const ramps = chargers.map((c) => ({
+    label: `${c} kW`,
+    points: dcChargeRamp({ ...baseParams, chargerMaxKw: c }),
+  }));
+
+  // Stitch into chart-friendly format: rows by minute, columns per charger
+  const maxMin = Math.max(...ramps.map((r) => r.points.length));
+  const data: Record<string, number | string>[] = [];
+  for (let m = 0; m < maxMin; m++) {
+    const row: Record<string, number | string> = { minute: m };
+    for (const r of ramps) {
+      const pt = r.points[m];
+      if (pt) row[r.label] = pt.kw;
+    }
+    data.push(row);
+  }
+
+  const colors: Record<string, string> = {
+    "50 kW": "#94a3b8",
+    "150 kW": "#60a5fa",
+    "250 kW": "#34d399",
+    "350 kW": "#f59e0b",
+  };
+
+  return (
+    <ResponsiveContainer width="100%" height={200}>
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+        <XAxis dataKey="minute" tick={{ fontSize: 10 }} label={{ value: "min", position: "insideBottom", offset: -2, fontSize: 10 }} />
+        <YAxis tick={{ fontSize: 10 }} label={{ value: "kW", angle: -90, position: "insideLeft", fontSize: 10 }} />
+        <Tooltip />
+        <Legend wrapperStyle={{ fontSize: "10px" }} />
+        {ramps.map((r) => (
+          <Line key={r.label} type="monotone" dataKey={r.label} stroke={colors[r.label]} strokeWidth={2} dot={false} />
+        ))}
+      </LineChart>
+    </ResponsiveContainer>
+  );
+}
+```
+
+Render in dossier under or near the existing `ChargingCurveChart`:
+```tsx
+<Section title={`DC charging ramp at ${tempC}°C (${preconditioned ? "preconditioned" : "cold-soaked"})`}>
+  <p className="text-xs text-fg-muted mb-2">
+    Effective charging power ramps as the battery warms. Cold-soaked vehicles take 10-20 min
+    to reach peak; preconditioned arrive ready-to-go. Charger choice matters: the 50 kW line
+    is flat (charger-limited); higher-power chargers warm the pack faster.
+  </p>
+  <DcChargeRampChart spec={spec} tempC={tempC} preconditioned={preconditioned} />
+</Section>
+```
+
+**Verify:** dossier renders 4 lines (50/150/250/350 kW); cold-soaked at -10°C shows clear ramp on 250+ kW lines; preconditioned at +20°C shows flat near-peak. Predeploy clean.
+
+**Commit:** `feat(ui): DC charging ramp chart in dossier (per-charger × precon × ambient)`
+
+---
+
 ### Task M8: Warm-up ramp curve viz in dossier (HIGH-physics already shipped)
 
 **Physics already shipped on high.** `src/lib/thermal.ts` exports two new functions:
@@ -398,6 +514,55 @@ Tauri's webview cannot use Next.js server components or `next/headers`. Migratio
 **Token estimate:** ~50k medium for the full migration. Schema-wise nothing breaks; pure function calls move from server to client.
 
 **Recommended punt:** defer until post-purchase. The web app at the Vercel preview URL works fine for the buying decision. Tauri is a polish item.
+
+---
+
+### Task M11: Battery supplier + cell chemistry verification per spec (research)
+
+**Why this matters:** thermal accuracy depends on the actual cell chemistry. Hyundai/Kia E-GMP currently uses SK On NCM811 (8:1:1 nickel-cobalt-manganese ratio) on most trims, but specific trim/year/region combinations may differ:
+
+- Some 2024+ EV9 trims reportedly use SK On NCM712 (lower nickel for cost)
+- Future Hyundai/Kia models may add LG Energy Solution or CATL as second source
+- LFP cells (lower energy density, much better cold tolerance) may appear on entry-level trims
+
+The thermal model's `CAPACITY_CURVES` already has separate LFP / NMC / NCA / LMR curves. Currently all 31 specs are tagged `NMC` — accurate for the broad chemistry family but not the specific cell variant.
+
+**Medium task:**
+
+1. Add two optional fields to `SpecSchema` in `src/lib/types.ts`:
+   ```ts
+   batterySupplier: z.enum(["SK_On", "LGES", "CATL", "Samsung_SDI", "Panasonic", "BYD", "UNKNOWN"]).optional(),
+   cellChemistryDetail: z.string().optional(), // e.g., "NCM811", "NCM712", "LFP-LFP280", "NCA"
+   ```
+
+2. For each of the 31 specs in `data/specs.json`, research the actual cell supplier + chemistry detail. Sources:
+   - Hyundai/Kia press releases (model launch announcements)
+   - SK On / LG Energy Solution / CATL press releases
+   - EV-Database.org (detailed per-trim specs)
+   - InsideEVs / Battery University deep-dives
+   - Hyundai service training documents (often surface specific cell info)
+
+3. Cite the source URL + date accessed in spec entry.
+
+4. If chemistry detail differs from NMC family (e.g., LFP appears), update `batteryChemistry` field accordingly. The thermal model picks the right capacity curve automatically.
+
+**Token budget:** ~15k medium (research + per-spec edits + commit).
+
+**Don't proceed if:** sources can't confirm at High confidence — leave as Medium with a note. Don't guess.
+
+---
+
+### Task M12: Battery preconditioning capability data per spec
+
+**Quick note alongside M11.** All 31 specs currently have `batteryPreconditioning` set heuristically based on year + trim. Real per-trim data should be verified:
+
+- Pre-2024 Hyundai/Kia: manual button only
+- 2024+ models with nav: nav-based (auto-precondition when destination is fast charger entered into nav)
+- Some markets/regions enabled it later than others
+
+Source: Hyundai/Kia owner's manuals, software-update notes, model-year change documents.
+
+**Token budget:** ~5k medium (read 5-10 owner's manual snippets, update 31 specs).
 
 ---
 

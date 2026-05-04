@@ -348,6 +348,14 @@ export const SpecSchema = z.object({
   thermalManagement: z
     .enum(["active_liquid", "passive", "active_refrigerant", "UNKNOWN"])
     .optional(),
+  // Per-vehicle thermal characteristics for accurate DC-charge ramp modelling.
+  // All optional — defaults in src/lib/thermal.ts are sensible for a generic
+  // 80 kWh NMC pack. Override per-vehicle when manufacturer data available.
+  batteryThermalMassKjPerKwh: z.number().optional(), // default 10.0
+  heatLossCoeffKwPerC: z.number().optional(),         // default 0.05 + 0.0008 × kWh
+  packHeaterKw: z.number().optional(),                // E-GMP ~5.5; some EVs lack one
+  chargingArchitectureVolts: z.union([z.literal(400), z.literal(800)]).optional(),
+  batteryPreconditioning: z.enum(["manual", "nav-based", "auto", "none"]).optional(),
   chargingCurve: z
     .array(z.object({ socPct: z.number(), kw: z.number() }))
     .optional(),
