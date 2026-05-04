@@ -404,3 +404,72 @@ Phase A + B are PRODUCTION READY. Phase C scaffolds (badge stub + photo gallery)
 - Phase D-core scrapers: skeletons that need Chrome MCP probe (~15-25k)
 
 Everything else is shipped, tested, in the .app. Resume at any of the above whenever you have the bandwidth.
+
+---
+
+## After the queue empties — autonomous mode
+
+**Read `docs/handoff/AUTONOMOUS_MODE.md` and follow it.**
+
+Once `docs/handoff/TODO_INDEX_2026-05-04.md` items are all shipped (or
+explicitly deferred per stop conditions), do NOT idle. Switch to the
+autonomous mode protocol — Tier 1-5 ladder of polish, verification,
+testing, and creative wins. The user explicitly authorized "keep working
+until I say stop" on 2026-05-04.
+
+The protocol is self-contained, has hard rules (CLAUDE.md NO list still
+binds), and a re-prime mechanism (when the ladder runs dry, generate the
+next batch). Subagent dispatch is allowed (default sonnet). No hard
+per-loop or per-session token cap, but checkpoint every ~100k cumulative
+into `docs/handoff/AUTONOMOUS_LOG.md`.
+
+**Stop conditions only:** user message in chat, hard build failure twice
+on same root cause, or about to violate CLAUDE.md NO list.
+
+---
+
+## Preview window — verification recipe (use the Claude Preview MCP)
+
+The Claude Code app on macOS supports an embedded preview pane via the
+`Claude_Preview` MCP. Launch config lives in `.claude/launch.json` —
+already wired with two configs:
+
+| Name | Port | Command |
+|---|---|---|
+| `Next.js dev` | 3000 | `npm run dev` |
+| `Next.js production preview` | 3000 | `npm run start` |
+
+Recipe to use it from the medium session:
+
+```
+# 1. Verify shell cwd is the EV trader project (not EV dashboard).
+cd ~/ev-auto-trader-canada
+
+# 2. Start the preview server.
+preview_start name="Next.js dev"
+# Returns serverId. Note it; pass to subsequent preview_* calls.
+
+# 3. Sanity-check it's running.
+preview_logs serverId="<id>" lines=10
+# Expect: "Ready in <Xms>" + "Local: http://localhost:3000"
+
+# 4. Take a screenshot of the homepage.
+preview_screenshot serverId="<id>"
+
+# 5. Inspect a chip's actual computed style.
+preview_inspect serverId="<id>" selector=".chip-accent" styles=["color","background"]
+
+# 6. Click a Dossier link and verify route navigation.
+preview_click serverId="<id>" selector="a[href*='/inventory/'][href*='/dossier']"
+preview_snapshot serverId="<id>"
+```
+
+The preview server is reused across calls — no need to restart between
+verifications. `preview_stop serverId="<id>"` kills it when done.
+
+**If two projects' preview servers collide on port:** the EV dashboard
+project (`/Users/ianmcadam/Documents/Claude/Projects/EV dashboard`)
+binds Vite to port 1420; ev-auto-trader-canada binds Next.js to port
+3000. They don't collide. But running two `preview_start` calls back to
+back may confuse `preview_list` — call `preview_list` first, reuse any
+existing serverId before launching new ones.

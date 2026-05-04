@@ -59,3 +59,12 @@ git push origin HEAD
 5. Append a one-line entry to docs/handoff/TAURI_BUILD_LOG.md "Shipped commits"
 6. Move to item 2
 ```
+
+## After the queue empties
+
+**Do NOT stop.** Read `docs/handoff/AUTONOMOUS_MODE.md` and switch into
+the autonomous loop. User said "keep working until I say stop." The
+autonomous protocol has a 5-tier ladder of polish/verification/testing/
+documentation/creative work, plus a re-prime mechanism when it runs dry.
+Stop conditions are: user chat message, hard build failure twice, or
+hitting a CLAUDE.md NO-list rule.
