@@ -100,3 +100,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04 18:30 medium: U4 native macOS menu bar (App / File / Edit / Window submenus, Cmd+R refresh) — d87d716c. Tauri build 1m31s clean.
 - 2026-05-04 19:25 medium: session wrap. 21 commits across 12 task IDs. Vitest 38/38. Predeploy + Tauri build clean. SESSION_2026-05-04_MEDIUM.md is the canonical close-out summary. Single blocker: Leasebusters Chrome MCP probe.
 - 2026-05-04 19:32 medium: deep pre-planning. MEDIUM_RUNWAY.md (60 pre-baked tasks across tiers A-G, ~220k token runway) + updated SESSION_2026-05-04_MEDIUM.md, TODO_INDEX_2026-05-04.md, .claude/RESTART_PROMPT.md to point at it. Predeploy + vitest 38/38 clean.
+- 2026-05-04: Tier 0.1 Chrome MCP auto-pair flow added to MEDIUM_RUNWAY.md; session-local crons 8fde95ac + 8c43c24b cancelled (user winding down autonomous loop). Disk-persistent scheduled-tasks remain. Leasebusters re-classed BLOCKED → AUTO-RETRY. HEAD 4afde1c1.
