@@ -20,6 +20,7 @@ import { fmtCad, fmtDate } from "@/lib/format";
 import type { ScoredUnit, Spec, FinanceBreakdown, LeaseBreakdown } from "@/lib/types";
 import { readHeatPump } from "@/lib/types";
 import { PrintButton } from "./PrintButton";
+import { UnitVerifyChip } from "@/components/UnitVerifyChip";
 import { plainLang } from "@/lib/plainLang";
 import { ChargingCurveChart } from "@/components/ChargingCurveChart";
 import { BatteryHealthPanel } from "@/components/BatteryHealthPanel";
@@ -276,6 +277,9 @@ function Header({ unit, dealer, spec }: { unit: ScoredUnit; dealer: { name: stri
           Listing on AutoTrader ↗
         </a>
       )}
+      <div className="mt-2 print:hidden">
+        <UnitVerifyChip unitId={unit.id} />
+      </div>
     </header>
   );
 }

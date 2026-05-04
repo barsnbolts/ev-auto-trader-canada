@@ -15,6 +15,8 @@ Output:
 """
 from __future__ import annotations
 
+import gzip
+import io
 import json
 import re
 import sys
@@ -29,6 +31,13 @@ USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 "
     "(KHTML, like Gecko) Version/17.5 Safari/605.1.15"
 )
+HEADERS = {
+    "User-Agent": USER_AGENT,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "en-CA,en-US;q=0.9,en;q=0.8",
+    "Accept-Encoding": "gzip, deflate",
+    "Connection": "keep-alive",
+}
 
 
 def find_unit(unit_id: str) -> dict | None:
@@ -40,12 +49,36 @@ def find_unit(unit_id: str) -> dict | None:
 
 
 def fetch(url: str) -> tuple[int, str]:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    # AutoTrader Imperva fingerprints HTTP/1.1 urllib requests and returns a
+    # ~950-byte placeholder while still emitting a 200 status. curl with
+    # HTTP/2 + browser-like headers gets the real body. We'd rather call
+    # curl than carry a giant deps tree (httpx, niquests).
+    import subprocess
+    cmd = [
+        "curl", "-sS", "-L", "--max-time", "15",
+        "--http2",
+        "-A", USER_AGENT,
+        "-H", "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "-H", "Accept-Language: en-CA,en-US;q=0.9,en;q=0.8",
+        "-H", "Accept-Encoding: gzip, deflate, br",
+        "--compressed",
+        "-o", "-",
+        "-w", "%{http_code}",
+        url,
+    ]
     try:
-        with urllib.request.urlopen(req, timeout=15) as resp:
-            return resp.status, resp.read().decode("utf-8", errors="replace")
-    except urllib.error.HTTPError as e:
-        return e.code, ""
+        proc = subprocess.run(cmd, capture_output=True, timeout=20, text=False)
+        if proc.returncode != 0:
+            return -1, proc.stderr.decode("utf-8", errors="replace")
+        body = proc.stdout
+        # last 3 bytes are the http_code from -w
+        status_str = body[-3:].decode("ascii", errors="replace")
+        try:
+            status = int(status_str)
+        except ValueError:
+            status = -1
+        body = body[:-3]
+        return status, body.decode("utf-8", errors="replace")
     except Exception as e:
         return -1, str(e)
 
@@ -88,14 +121,27 @@ def main() -> int:
             "scrapedAt": now,
         }
     else:
-        price = parse_price(body)
-        out = {
-            "unitId": unit_id,
-            "status": "active",
-            "httpStatus": 200,
-            "askingPrice": price,
-            "scrapedAt": now,
-        }
+        # Imperva returns 200 + ~1KB stub when fingerprinting flags us.
+        # Surface that as "challenged" so the UI can prompt the user to
+        # check manually rather than reporting a false "active" + null price.
+        challenged = len(body) < 5000 and "NOINDEX" in body
+        if challenged:
+            out = {
+                "unitId": unit_id,
+                "status": "challenged",
+                "httpStatus": 200,
+                "scrapedAt": now,
+                "note": "Bot wall returned a placeholder; click the AutoTrader link to verify manually.",
+            }
+        else:
+            price = parse_price(body)
+            out = {
+                "unitId": unit_id,
+                "status": "active",
+                "httpStatus": 200,
+                "askingPrice": price,
+                "scrapedAt": now,
+            }
     print(json.dumps(out))
     return 0
 

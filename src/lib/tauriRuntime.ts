@@ -13,11 +13,12 @@ export type RefreshLogLine = { ts: string; level: "info" | "warn" | "error"; mes
 
 export type VerifyResult = {
   unitId: string;
-  status: "active" | "removed" | "error";
+  status: "active" | "removed" | "error" | "challenged";
   httpStatus?: number;
   askingPrice?: number | null;
   scrapedAt?: string;
   error?: string;
+  note?: string;
 };
 
 export async function invokeRunRefresh(): Promise<{ ok: boolean; error?: string }> {

@@ -9,7 +9,7 @@ import { useState } from "react";
 import { invokeVerifyUnit, isTauri, type VerifyResult } from "@/lib/tauriRuntime";
 import { fmtCad } from "@/lib/format";
 
-type State = "idle" | "running" | "verified" | "removed" | "error";
+type State = "idle" | "running" | "verified" | "removed" | "error" | "challenged";
 
 export function UnitVerifyChip({ unitId }: { unitId: string }) {
   const [state, setState] = useState<State>("idle");
@@ -37,6 +37,7 @@ export function UnitVerifyChip({ unitId }: { unitId: string }) {
     setResult(r);
     if (r.status === "active") setState("verified");
     else if (r.status === "removed") setState("removed");
+    else if (r.status === "challenged") setState("challenged");
     else setState("error");
   }
 
@@ -63,6 +64,17 @@ export function UnitVerifyChip({ unitId }: { unitId: string }) {
       >
         ✗ Removed
       </span>
+    );
+  }
+  if (state === "challenged" && result) {
+    return (
+      <button
+        onClick={handleClick}
+        className="inline-block chip-warn text-xxs cursor-pointer"
+        title={result.note ?? "Bot wall blocked the verify; click the AutoTrader listing link directly."}
+      >
+        ⚠ Bot wall — verify manually
+      </button>
     );
   }
   if (state === "error" && result) {

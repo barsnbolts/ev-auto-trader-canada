@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { RefreshButton } from "./RefreshButton";
 
 const LINKS: { href: string; label: string }[] = [
   { href: "/", label: "Dashboard" },
@@ -30,6 +31,7 @@ export function Nav() {
           </Link>
         );
       })}
+      <RefreshButton />
     </nav>
   );
 }
