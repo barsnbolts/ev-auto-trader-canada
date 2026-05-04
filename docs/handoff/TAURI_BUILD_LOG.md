@@ -104,3 +104,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04: Tier 0.1 attempted at HEAD b90db655 — list_connected_browsers empty, switch_browser returned 'No other browsers available'. Chrome not running with extension active this session. Deferred to next wake. Proceeding to Tier A drain.
 - 2026-05-04: A1 shipped — format.test.ts (19 specs). Total vitest 57/57. Predeploy clean.
 - 2026-05-04: A2+A3+A4 shipped — battery_degradation (10) + aggregations (14) + usedListingsLinks (14). Total vitest 57 → 95. Predeploy clean.
+- 2026-05-04: A5+A6+A7 shipped — crossListings +5 specs (uncovered fallbackKey 4-vs-5 segment Python/TS asymmetry, documented), schema validator now enforces 9 enum sets + cross-reference integrity (dealerId + spec join). Total vitest 100/100.

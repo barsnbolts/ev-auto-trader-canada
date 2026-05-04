@@ -979,6 +979,9 @@ Track shipped items here so the next session knows what's left. Format:
 - [x] A2: battery_degradation.test.ts — 10 specs (retentionAtYear x7, projectedRangeAtYear x3).
 - [x] A3: aggregations.test.ts — 14 specs (dealerPressureMap x3, inGGH x4, computeKpis x4, provinceRollup x3).
 - [x] A4: usedListingsLinks.test.ts — 14 specs (AutoTrader x5, Kijiji x4, Leasebusters x3, return shape x2). Total suite 95/95.
+- [x] A5: crossListings.test.ts +5 specs for lookupCrossSource VIN-vs-fallback. Surfaced format asymmetry between Python merge (4-segment) and TS makeFallbackKey (5-segment) — documented in spec, fix queued as F-tier task.
+- [x] A6: validate_data_schemas.py +enum validation (UNIT_STATUS, DRIVETRAIN, INCENTIVE_SCOPE, INCENTIVE_STATUS, DEALER_BRAND, MODELS, SUPPORTED_YEARS, PROVINCES, CROSS_LISTING_SOURCES). Verified bad-enum injection fails predeploy.
+- [x] A7: validate_data_schemas.py +check_cross_references — units.dealerId resolves; units.(model,year,trim,drivetrain) resolves to a spec. "Trim unknown" units skipped (acknowledged parser gap). Total suite 100/100.
 ```
 
 ---
