@@ -1,11 +1,10 @@
-// Sanity-check the thermal model against physical expectations.
-// Ported verbatim from sibling EV dashboard (src/lib/thermal.test.ts).
-// Adapted: uses realRangeKm / computeThermalFull instead of computeThermal(Vehicle,...).
+// Vitest specs for the thermal model. Anchor against physical expectations
+// so cold-weather range, preconditioning, and DC peak derating stay sane
+// across refactors.
 //
-// Run with: npx tsx src/lib/thermal.test.ts    (requires `npm i -D tsx`)
-//
-// These are assertions, not a real framework, to keep dependencies minimal.
+// Run: npx vitest run
 
+import { describe, it, expect } from "vitest";
 import { realRangeKm, computeThermalFull } from "./thermal";
 import type { FullThermalSpec } from "./thermal";
 
@@ -18,55 +17,54 @@ const FIXTURE: FullThermalSpec = {
   overall_confidence: "High",
 };
 
-function assertNear(actual: number, expected: number, tol: number, label: string) {
-  const diff = Math.abs(actual - expected);
-  if (diff > tol) {
-    throw new Error(`${label}: expected ~${expected} ±${tol}, got ${actual.toFixed(2)}`);
-  }
-}
+describe("computeThermalFull", () => {
+  it("at 20°C, preconditioned, HVAC off → matches rated specs", () => {
+    const base = computeThermalFull(FIXTURE, { temp_c: 20, preconditioned: true, hvac_on: false });
+    expect(base.range_km).toBeCloseTo(500, -1);  // within ±5
+    expect(base.peak_dc_kw).toBeCloseTo(250, -1);
+    expect(base.usable_kwh).toBeCloseTo(75, 0);
+  });
 
-function assertLess(actual: number, bound: number, label: string) {
-  if (actual >= bound) throw new Error(`${label}: expected <${bound}, got ${actual.toFixed(2)}`);
-}
+  it("at -20°C cold-soaked, HVAC on → range <380, DC peak <100kW", () => {
+    const winter = computeThermalFull(FIXTURE, { temp_c: -20, preconditioned: false, hvac_on: true });
+    expect(winter.range_km).toBeLessThan(380);
+    expect(winter.peak_dc_kw).toBeLessThan(100);
+  });
 
-// Baseline: at 20 °C, HVAC off, preconditioned — should match rated specs closely.
-const base = computeThermalFull(FIXTURE, { temp_c: 20, preconditioned: true, hvac_on: false });
-assertNear(base.range_km, 500, 5, "20C baseline range");
-assertNear(base.peak_dc_kw, 250, 5, "20C baseline DC peak");
-assertNear(base.usable_kwh, 75, 0.5, "20C baseline usable kWh");
+  it("preconditioning raises DC peak + range vs cold-soaked", () => {
+    const winter = computeThermalFull(FIXTURE, { temp_c: -20, preconditioned: false, hvac_on: true });
+    const precon = computeThermalFull(FIXTURE, { temp_c: -20, preconditioned: true, hvac_on: false });
+    expect(precon.peak_dc_kw).toBeGreaterThan(winter.peak_dc_kw);
+    expect(precon.range_km).toBeGreaterThan(winter.range_km);
+  });
 
-// Winter cold-soaked -20C, HVAC on, heat pump: range should drop substantially, DC peak massively.
-const winter = computeThermalFull(FIXTURE, { temp_c: -20, preconditioned: false, hvac_on: true });
-assertLess(winter.range_km, 380, "-20C non-precon range should be <380");
-assertLess(winter.peak_dc_kw, 100, "-20C non-precon DC peak should be <100 kW");
+  it("hot day with HVAC derates vs 20°C baseline", () => {
+    const base = computeThermalFull(FIXTURE, { temp_c: 20, preconditioned: true, hvac_on: false });
+    const summer = computeThermalFull(FIXTURE, { temp_c: 35, preconditioned: true, hvac_on: true });
+    expect(summer.range_km).toBeLessThan(base.range_km);
+    expect(summer.peak_dc_kw).toBeLessThanOrEqual(base.peak_dc_kw + 1);
+  });
 
-// Same cold, but preconditioned + no HVAC -> DC peak recovers, range still dented by battery capacity.
-const winterPrecon = computeThermalFull(FIXTURE, { temp_c: -20, preconditioned: true, hvac_on: false });
-if (winterPrecon.peak_dc_kw <= winter.peak_dc_kw) {
-  throw new Error("Preconditioning should raise DC peak vs cold-soaked");
-}
-if (winterPrecon.range_km <= winter.range_km) {
-  throw new Error("HVAC-off should improve range vs HVAC-on");
-}
+  it("confidence downgrades at temperature extremes", () => {
+    const extreme = computeThermalFull(FIXTURE, { temp_c: -35, preconditioned: false, hvac_on: true });
+    expect(extreme.confidence).not.toBe("High");
+  });
+});
 
-// Hot day: +35C, HVAC on. Range should derate modestly; DC peak should derate some.
-const summer = computeThermalFull(FIXTURE, { temp_c: 35, preconditioned: true, hvac_on: true });
-if (summer.range_km >= base.range_km) throw new Error("Hot + HVAC should be worse than 20C idle");
-if (summer.peak_dc_kw >= base.peak_dc_kw + 1) throw new Error("Hot DC peak should not exceed 20C");
+describe("realRangeKm", () => {
+  it("cold (-20°C) returns less range than warm (+20°C) with heat pump", () => {
+    const warm = realRangeKm({ epaKm: 500, batteryKwh: 75, hasHeatPump: true, tempC: 20 });
+    const cold = realRangeKm({ epaKm: 500, batteryKwh: 75, hasHeatPump: true, tempC: -20 });
+    expect(warm).not.toBeNull();
+    expect(cold).not.toBeNull();
+    expect(cold!).toBeLessThan(warm!);
+  });
 
-// Confidence should downgrade at extremes.
-const extreme = computeThermalFull(FIXTURE, { temp_c: -35, preconditioned: false, hvac_on: true });
-if (extreme.confidence === "High") throw new Error("Confidence should downgrade at -35C");
-
-// realRangeKm surface test: cold-soaked -20°C with heat pump should be less than at +20°C.
-const warm = realRangeKm({ epaKm: 500, batteryKwh: 75, hasHeatPump: true, tempC: 20 });
-const cold = realRangeKm({ epaKm: 500, batteryKwh: 75, hasHeatPump: true, tempC: -20 });
-if (warm == null || cold == null) throw new Error("realRangeKm should not return null with valid inputs");
-if (cold >= warm) throw new Error("Cold range should be less than warm range");
-
-console.log("✓ thermal.test.ts — all assertions pass");
-console.log("  baseline (20C):", base.range_km.toFixed(0), "km,", base.peak_dc_kw.toFixed(0), "kW");
-console.log("  winter cold-soaked (-20C, HVAC on):", winter.range_km.toFixed(0), "km,", winter.peak_dc_kw.toFixed(0), "kW");
-console.log("  winter precon (-20C, HVAC off):", winterPrecon.range_km.toFixed(0), "km,", winterPrecon.peak_dc_kw.toFixed(0), "kW");
-console.log("  summer (35C, HVAC on):", summer.range_km.toFixed(0), "km,", summer.peak_dc_kw.toFixed(0), "kW");
-console.log("  realRangeKm warm/cold:", warm.toFixed(0), "km /", cold.toFixed(0), "km");
+  it("no heat pump degrades cold-weather range further", () => {
+    const withHP = realRangeKm({ epaKm: 500, batteryKwh: 75, hasHeatPump: true, tempC: -10 });
+    const noHP = realRangeKm({ epaKm: 500, batteryKwh: 75, hasHeatPump: false, tempC: -10 });
+    expect(withHP).not.toBeNull();
+    expect(noHP).not.toBeNull();
+    expect(noHP!).toBeLessThan(withHP!);
+  });
+});
