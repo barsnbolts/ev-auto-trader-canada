@@ -626,3 +626,28 @@ The bands ARE permissive enough to accept Tesla NCA, MEB NMC, BMW NMC, Lucid NCA
 - If user asks "is the range accurate for X vehicle?" → run `python3 scripts/validate_thermal_specs.py` and check the output. If pass, the model is producing physics-plausible numbers.
 - If user asks for a new feature, scan this doc + `MEDIUM_HANDOFF_UI_2026-05-03.md` first to see if it's already queued.
 - HEAD will move; refer to `git log --oneline -10` for current state, not memorized SHAs.
+
+---
+
+## STATUS — 2026-05-03 medium pass complete
+
+All M-tasks below executed and pushed. Verified via dev-server smoke test:
+inventory page renders 25 chips at correct severity tiers (🥶 at -20°C,
+❄ at -10°C, 🌡 at 0°C), 25 charging sparklines, hero stats, sliders work
+on `/inventory` (Max OTD) + `/pick-a-model` (MSRP + range). Dossier renders
+both warm-up and DC ramp charts. Compare winner bar shows leader correctly.
+
+| Task | Status | Commit |
+|---|---|---|
+| M1+M2 sliders | ✅ | `d9df9d20` |
+| M3 winner bar | ✅ | `2fd331d9` |
+| M4 chip tiers | ✅ | `2fd331d9` |
+| M5 hero stats | ✅ | `2fd331d9` |
+| M6 hover polish | ✅ | `2fd331d9` |
+| M7 sparkline | ✅ | `05caef94` |
+| M8 warm-up chart | ✅ | `988e856f` |
+| M8b DC ramp chart | ✅ | `988e856f` |
+| M11 SK On NCM811 + schema | ✅ | `87f471f6` |
+| M12 precon heuristic verified | ✅ | (no edits) |
+| M9 trip planner | ⏸ deferred (needs OSRM session) |
+| M10 Tauri | ⏸ deferred (post-purchase) |
