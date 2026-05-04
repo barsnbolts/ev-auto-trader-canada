@@ -372,3 +372,5 @@ again, refresh stale data, etc.
 - [x] Q3 console-log audit (already clean, 0 hits): no commit needed
 - [x] Q4 dead-export sweep (4 truly-dead removed; 23 false-positives kept as internal-use): 31953566
 - [x] D1 JSDoc on types.ts (≥13 blocks): 4da1c5a2
+- [x] U3 print stylesheet polish: 89910a7a
+- [x] D2 architecture diagram: (this commit)
