@@ -1,3 +1,5 @@
+"use client";
+
 // /pick-a-model/compare — side-by-side spec comparison for models chosen in
 // the picker tray. Driven by ?ids= URL param (comma-separated pickerKeys).
 //
@@ -7,17 +9,15 @@
 // This is the MODEL-level compare (pre-purchase research, spec-to-spec).
 // The separate /compare page does UNIT-level compare (picked from inventory).
 
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { loadSpecs } from "@/lib/data";
+import { loadSpecs } from "@/lib/dataClient";
 import { readNumeric, readHeatPump } from "@/lib/types";
 import { MODEL_BRAND, MODEL_LABEL } from "@/lib/constants";
 import { CompareWinnerBar } from "@/components/CompareWinnerBar";
 import type { Spec } from "@/lib/types";
 import type { Model } from "@/lib/constants";
-
-export const dynamic = "force-dynamic";
-
-type PageProps = { searchParams: Promise<{ ids?: string }> };
 
 function fmt(n: number | null | undefined, suffix: string): string {
   if (n == null) return "—";
@@ -74,37 +74,13 @@ function buildRows(selected: (Spec | null)[]): Row[] {
   });
 
   return [
-    {
-      label: "Year",
-      values: selected.map((s) => (s ? String(s.year) : null)),
-    },
-    {
-      label: "Powertrain",
-      values: selected.map((s) => s?.powertrain ?? null),
-    },
-    {
-      label: "Body style",
-      values: selected.map((s) => s?.bodyStyle ?? null),
-    },
-    {
-      label: "Drivetrain",
-      values: selected.map((s) => s?.drivetrain ?? null),
-    },
-    {
-      label: "EPA range",
-      values: rangeKms.map((r) => fmt(r, " km")),
-      highlight: "high",
-    },
-    {
-      label: "Battery (usable)",
-      values: batteryKwhs.map((b) => fmt(b, " kWh")),
-      highlight: "high",
-    },
-    {
-      label: "DC charge (peak)",
-      values: dcKws.map((d) => fmt(d, " kW")),
-      highlight: "high",
-    },
+    { label: "Year", values: selected.map((s) => (s ? String(s.year) : null)) },
+    { label: "Powertrain", values: selected.map((s) => s?.powertrain ?? null) },
+    { label: "Body style", values: selected.map((s) => s?.bodyStyle ?? null) },
+    { label: "Drivetrain", values: selected.map((s) => s?.drivetrain ?? null) },
+    { label: "EPA range", values: rangeKms.map((r) => fmt(r, " km")), highlight: "high" },
+    { label: "Battery (usable)", values: batteryKwhs.map((b) => fmt(b, " kWh")), highlight: "high" },
+    { label: "DC charge (peak)", values: dcKws.map((d) => fmt(d, " kW")), highlight: "high" },
     {
       label: "AC charge",
       values: selected.map((s) => {
@@ -124,15 +100,8 @@ function buildRows(selected: (Spec | null)[]): Row[] {
         return null;
       }),
     },
-    {
-      label: "0-100 km/h",
-      values: selected.map((s) => fmt(s?.zeroToHundredSec, " s")),
-      highlight: "low",
-    },
-    {
-      label: "Seats",
-      values: selected.map((s) => (s?.seats != null ? String(s.seats) : null)),
-    },
+    { label: "0-100 km/h", values: selected.map((s) => fmt(s?.zeroToHundredSec, " s")), highlight: "low" },
+    { label: "Seats", values: selected.map((s) => (s?.seats != null ? String(s.seats) : null)) },
     {
       label: "Cargo (seats up)",
       values: selected.map((s) => {
@@ -156,34 +125,20 @@ function buildRows(selected: (Spec | null)[]): Row[] {
         return "?";
       }),
     },
-    {
-      label: "Charge port",
-      values: selected.map((s) => s?.portType?.replace("_ONLY", "") ?? null),
-    },
-    {
-      label: "Battery chemistry",
-      values: selected.map((s) => s?.batteryChemistry ?? null),
-    },
+    { label: "Charge port", values: selected.map((s) => s?.portType?.replace("_ONLY", "") ?? null) },
+    { label: "Battery chemistry", values: selected.map((s) => s?.batteryChemistry ?? null) },
     {
       label: "Thermal mgmt",
-      values: selected.map((s) =>
-        s?.thermalManagement?.replace(/_/g, " ") ?? null,
-      ),
+      values: selected.map((s) => s?.thermalManagement?.replace(/_/g, " ") ?? null),
     },
     {
       label: "MSRP",
-      values: selected.map((s) =>
-        s?.msrpCad != null ? `$${s.msrpCad.toLocaleString("en-CA")}` : null,
-      ),
+      values: selected.map((s) => (s?.msrpCad != null ? `$${s.msrpCad.toLocaleString("en-CA")}` : null)),
       highlight: "low",
     },
     {
       label: "Freight & PDI",
-      values: selected.map((s) =>
-        s?.freightPdiCad != null
-          ? `$${s.freightPdiCad.toLocaleString("en-CA")}`
-          : null,
-      ),
+      values: selected.map((s) => (s?.freightPdiCad != null ? `$${s.freightPdiCad.toLocaleString("en-CA")}` : null)),
     },
   ];
 }
@@ -200,7 +155,6 @@ function bestIndices(values: (string | null)[], highlight: "low" | "high"): Set<
   return new Set(nums.map((n, i) => (n === best ? i : -1)).filter((i) => i >= 0));
 }
 
-// Returns bar widths 0–100% relative to max value in row (null = no bar).
 function barWidths(values: (string | null)[]): (number | null)[] {
   const nums = values.map((v) => {
     if (!v || v === "—") return null;
@@ -214,10 +168,21 @@ function barWidths(values: (string | null)[]): (number | null)[] {
   return nums.map((n) => (n !== null ? Math.round((n / max) * 100) : null));
 }
 
-export default async function PickerComparePage({ searchParams }: PageProps) {
-  const sp = await searchParams;
-  const rawIds = sp.ids ?? "";
+function PickerCompareInner() {
+  const sp = useSearchParams();
+  const rawIds = sp.get("ids") ?? "";
   const ids = parseIds(rawIds);
+
+  const [specs, setSpecs] = useState<Spec[] | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    loadSpecs().then((s) => {
+      if (!cancelled) setSpecs(s);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   if (ids.length === 0) {
     return (
@@ -233,7 +198,15 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
     );
   }
 
-  const specs = await loadSpecs();
+  if (!specs) {
+    return (
+      <div className="space-y-4 animate-pulse">
+        <div className="h-12 bg-bg-subtle rounded w-2/3" />
+        <div className="h-96 bg-bg-subtle rounded" />
+      </div>
+    );
+  }
+
   const selected = ids.map((id) => findSpec(specs, id));
   const found = selected.filter((s): s is Spec => s !== null);
 
@@ -260,10 +233,7 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
       const best = bestIndices(row.values, row.highlight);
       return best.has(colIdx);
     }).length;
-    return {
-      name: `${MODEL_LABEL[s.model as Model]} ${s.year}`,
-      wins,
-    };
+    return { name: `${MODEL_LABEL[s.model as Model]} ${s.year}`, wins };
   });
   const highlightedRowCount = rows.filter((r) => r.highlight).length;
 
@@ -331,11 +301,7 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
                       <td
                         key={i}
                         className={`px-4 py-2.5 num align-top ${
-                          isBest
-                            ? "text-good font-medium"
-                            : isEmpty
-                            ? "text-fg-subtle"
-                            : "text-fg"
+                          isBest ? "text-good font-medium" : isEmpty ? "text-fg-subtle" : "text-fg"
                         }`}
                       >
                         {val ?? "—"}
@@ -366,5 +332,20 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
 
       <CompareWinnerBar winCounts={winCounts} total={highlightedRowCount} />
     </div>
+  );
+}
+
+export default function PickerComparePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="space-y-4 animate-pulse">
+          <div className="h-12 bg-bg-subtle rounded w-2/3" />
+          <div className="h-96 bg-bg-subtle rounded" />
+        </div>
+      }
+    >
+      <PickerCompareInner />
+    </Suspense>
   );
 }

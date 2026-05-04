@@ -1,6 +1,15 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { loadScoredUnits, loadMeta, loadUsedListings, loadSpecs, computeUsedMarketStats } from "@/lib/data";
-import { getBuyerContext } from "@/lib/buyerContextServer";
+import {
+  loadScoredUnits,
+  loadMeta,
+  loadUsedListings,
+  loadSpecs,
+  computeUsedMarketStats,
+} from "@/lib/dataClient";
+import { useBuyerContext } from "@/lib/buyerContext";
 import { computeKpis, dealerPressureMap, inGGH, provinceRollup } from "@/lib/aggregations";
 import { MODELS, MODEL_LABEL, MODEL_BRAND, PROVINCE_NAMES } from "@/lib/constants";
 import { fmtCad, relativeDays } from "@/lib/format";
@@ -10,13 +19,48 @@ import { DealScoreBadge } from "@/components/DealScoreBadge";
 import { UsedMarketPanel } from "@/components/UsedMarketPanel";
 import type { ModelKpis } from "@/lib/aggregations";
 
-export const dynamic = "force-dynamic";
+type PageData = {
+  scored: Awaited<ReturnType<typeof loadScoredUnits>>;
+  meta: Awaited<ReturnType<typeof loadMeta>>;
+  usedListings: Awaited<ReturnType<typeof loadUsedListings>>;
+  specs: Awaited<ReturnType<typeof loadSpecs>>;
+};
 
-export default async function Dashboard() {
-  const buyerContext = await getBuyerContext();
-  const { units, dealers, dealerById, incentives } = await loadScoredUnits(buyerContext);
-  const meta = await loadMeta();
-  const [usedListings, specs] = await Promise.all([loadUsedListings(), loadSpecs()]);
+export default function Dashboard() {
+  const { buyerContext } = useBuyerContext();
+  const [data, setData] = useState<PageData | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([
+      loadScoredUnits(buyerContext),
+      loadMeta(),
+      loadUsedListings(),
+      loadSpecs(),
+    ]).then(([scored, meta, usedListings, specs]) => {
+      if (!cancelled) setData({ scored, meta, usedListings, specs });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [buyerContext]);
+
+  if (!data) {
+    return (
+      <div className="space-y-8 animate-pulse">
+        <div className="h-12 bg-bg-subtle rounded w-2/3" />
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          {[0, 1, 2, 3].map((i) => (
+            <div key={i} className="h-24 bg-bg-subtle rounded" />
+          ))}
+        </div>
+        <div className="h-64 bg-bg-subtle rounded" />
+      </div>
+    );
+  }
+
+  const { units, dealers, dealerById, incentives } = data.scored;
+  const { meta, usedListings, specs } = data;
   const usedStatsLongRange = computeUsedMarketStats(usedListings, specs, false);
   const usedStatsAllTrims = computeUsedMarketStats(usedListings, specs, true);
   const kpis = computeKpis(units, dealerById, [...MODELS]);
@@ -25,33 +69,31 @@ export default async function Dashboard() {
 
   // Exclude units whose MSRP we don't trust (trim parser failed → MSRP =
   // asking price, so any "discount" reading would be artifact, not signal).
-  // The msrpSource field is set per-unit by build_units_from_at.py; rows
-  // marked "asking-fallback" should never appear in best-deal surfaces.
-  // Phase 1.3 replaced an earlier $5k heuristic with this provenance gate.
   const topDeals = [...units]
     .filter((u) => u.msrpSource !== "asking-fallback")
     .sort((a, b) => b.dealScore - a.dealScore)
     .slice(0, 8);
   const gghCount = units.filter((u) => inGGH(u, dealerById)).length;
 
-  // EVAP-aware shopping signals. Eligible = unit's applicable list contains a
-  // fed-evap-* row (cap test happens upstream in scoring.ts). Cliff = within
-  // $1,500 over the cap → trimming dealer add-ons may unlock the rebate.
-  // Surface incentives ending within 7 days at the top — these are the ones
-  // dealers will use to pressure ("offer ends Friday") and the ones to lock
-  // in fast if they apply.
+  // EVAP-aware shopping signals + cliff alerts (within $1.5k of cap).
   const now = Date.now();
   const SEVEN_DAYS_MS = 7 * 86_400_000;
-  const expiringSoon = incentives.filter((i) => {
-    if (i.status !== "active" || !i.effectiveUntil) return false;
-    const t = new Date(i.effectiveUntil).getTime();
-    if (Number.isNaN(t)) return false;
-    return t > now && t - now <= SEVEN_DAYS_MS;
-  }).sort((a, b) =>
-    new Date(a.effectiveUntil ?? 0).getTime() - new Date(b.effectiveUntil ?? 0).getTime(),
-  );
+  const expiringSoon = incentives
+    .filter((i) => {
+      if (i.status !== "active" || !i.effectiveUntil) return false;
+      const t = new Date(i.effectiveUntil).getTime();
+      if (Number.isNaN(t)) return false;
+      return t > now && t - now <= SEVEN_DAYS_MS;
+    })
+    .sort(
+      (a, b) =>
+        new Date(a.effectiveUntil ?? 0).getTime() -
+        new Date(b.effectiveUntil ?? 0).getTime(),
+    );
 
-  const evapEligibleUnits = units.filter((u) => u.applicableIncentives.some((i) => i.id.startsWith("fed-evap")));
+  const evapEligibleUnits = units.filter((u) =>
+    u.applicableIncentives.some((i) => i.id.startsWith("fed-evap")),
+  );
   const cliffUnits = units.filter((u) => {
     if (u.applicableIncentives.some((i) => i.id.startsWith("fed-evap"))) return false;
     const effective = effectivePreTaxValue(u, u.applicableIncentives);
@@ -62,7 +104,11 @@ export default async function Dashboard() {
     : null;
 
   const highPressureDealers = dealers
-    .map((d) => ({ d, score: pressure[d.id] ?? 0, count: units.filter((u) => u.dealerId === d.id).length }))
+    .map((d) => ({
+      d,
+      score: pressure[d.id] ?? 0,
+      count: units.filter((u) => u.dealerId === d.id).length,
+    }))
     .filter((row) => row.count > 0)
     .sort((a, b) => b.score - a.score)
     .slice(0, 5);

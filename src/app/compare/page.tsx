@@ -1,22 +1,44 @@
-import { loadScoredUnits, loadSpecs, specMap } from "@/lib/data";
-import { getBuyerContext } from "@/lib/buyerContextServer";
+"use client";
+
+import { useEffect, useState } from "react";
+import { loadScoredUnits, loadSpecs, specMap } from "@/lib/dataClient";
+import { useBuyerContext } from "@/lib/buyerContext";
 import { CompareGrid } from "@/components/CompareGrid";
 import { fmtCad } from "@/lib/format";
 import { MODEL_LABEL } from "@/lib/constants";
 import type { ScoredUnit } from "@/lib/types";
 import { plainLang } from "@/lib/plainLang";
 
-export const dynamic = "force-dynamic";
+type PageData = {
+  scored: Awaited<ReturnType<typeof loadScoredUnits>>;
+  specs: Awaited<ReturnType<typeof loadSpecs>>;
+};
 
-export default async function ComparePage() {
-  const buyerContext = await getBuyerContext();
-  const [{ units, dealerById }, specs] = await Promise.all([
-    loadScoredUnits(buyerContext),
-    loadSpecs(),
-  ]);
-  const specByKey = specMap(specs);
+export default function ComparePage() {
+  const { buyerContext } = useBuyerContext();
+  const [data, setData] = useState<PageData | null>(null);
 
-  // Subset with at least one promo path available — compact reference matrix.
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([loadScoredUnits(buyerContext), loadSpecs()]).then(([scored, specs]) => {
+      if (!cancelled) setData({ scored, specs });
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [buyerContext]);
+
+  if (!data) {
+    return (
+      <div className="space-y-4 animate-pulse">
+        <div className="h-12 bg-bg-subtle rounded w-2/3" />
+        <div className="h-96 bg-bg-subtle rounded" />
+      </div>
+    );
+  }
+
+  const { units, dealerById } = data.scored;
+  const specByKey = specMap(data.specs);
   const unitsWithPaths = units.filter((u) => u.otdPaths?.finance || u.otdPaths?.lease);
 
   return (

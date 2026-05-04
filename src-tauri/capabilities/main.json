@@ -1,0 +1,19 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "main-capability",
+  "description": "Default permissions for the main window — plugin-fs scoped to repo data dir, plugin-shell for opening listing URLs",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "fs:default",
+    {
+      "identifier": "fs:scope",
+      "allow": [
+        { "path": "$HOME/ev-auto-trader-canada/data/**/*" }
+      ]
+    },
+    "fs:allow-read-text-file",
+    "fs:allow-read-dir",
+    "shell:allow-open"
+  ]
+}

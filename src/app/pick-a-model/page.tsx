@@ -1,8 +1,6 @@
 import { loadSpecs } from "@/lib/data";
 import { PickerClient } from "./PickerClient";
 
-export const dynamic = "force-dynamic";
-
 export default async function PickAModelPage() {
   const specs = await loadSpecs();
 

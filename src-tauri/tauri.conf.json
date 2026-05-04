@@ -1,0 +1,49 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "EV.trader CA",
+  "version": "0.1.0",
+  "identifier": "ca.evtrader.app",
+  "build": {
+    "beforeDevCommand": "BUILD_TARGET=tauri npm run dev",
+    "beforeBuildCommand": "BUILD_TARGET=tauri npm run build:tauri:web",
+    "frontendDist": "../out",
+    "devUrl": "http://localhost:3000"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "EV.trader CA",
+        "label": "main",
+        "width": 1440,
+        "height": 900,
+        "minWidth": 1024,
+        "minHeight": 700,
+        "center": true,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "transparent": false,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' https://upload.wikimedia.org https://*.autotrader.ca https://*.kijiji.ca https://*.hyundaicanada.com https://*.kia.ca data: blob: asset: http://asset.localhost; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' ipc: http://ipc.localhost https://www.autotrader.ca https://www.kijiji.ca https://www.hyundaicanada.com https://www.kia.ca https://www.leasebusters.com https://www.carfax.ca; font-src 'self' data:"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["app"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns"
+    ],
+    "macOS": {
+      "minimumSystemVersion": "11.0"
+    },
+    "category": "Utility"
+  },
+  "plugins": {}
+}

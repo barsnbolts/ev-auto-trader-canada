@@ -1,45 +1,63 @@
-import { loadScoredUnits, loadMeta, loadSpecs, specMap, specKey } from "@/lib/data";
+"use client";
+
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { loadScoredUnits, loadMeta, loadSpecs, specMap, specKey } from "@/lib/dataClient";
+import { useBuyerContext } from "@/lib/buyerContext";
 import { dealerPressureMap } from "@/lib/aggregations";
-import { getBuyerContext } from "@/lib/buyerContextServer";
 import { InventoryTable } from "@/components/InventoryTable";
 import { UpdatedStamp } from "@/components/UpdatedStamp";
 import { TempSlider } from "@/components/TempSlider";
 import { TempProvider } from "@/lib/tempContext";
 import type { Spec } from "@/lib/types";
 
-export const dynamic = "force-dynamic";
+type PageData = {
+  scored: Awaited<ReturnType<typeof loadScoredUnits>>;
+  meta: Awaited<ReturnType<typeof loadMeta>>;
+  specs: Awaited<ReturnType<typeof loadSpecs>>;
+};
 
-export default async function InventoryPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ tempC?: string; precon?: string; make?: string; model?: string; trim?: string }>;
-}) {
-  const sp = await searchParams;
-  const rawTemp = sp.tempC != null ? Number(sp.tempC) : 20;
+function InventoryInner() {
+  const sp = useSearchParams();
+  const rawTemp = sp.get("tempC") != null ? Number(sp.get("tempC")) : 20;
   const tempC = Number.isNaN(rawTemp) ? 20 : Math.max(-40, Math.min(40, rawTemp));
-  const preconditioned = sp.precon === "1";
+  const preconditioned = sp.get("precon") === "1";
+  const prefilterModel = sp.get("model");
+  const prefilterTrim = sp.get("trim");
 
-  // Pre-filter hint from /pick-a-model "Buy this model" deep-link.
-  // sp.make / sp.model / sp.trim are accepted query params; surfaced in the
-  // heading so the user sees the active filter context even before the table
-  // client-side filtering is wired to these params.
-  const prefilterModel = sp.model ?? null;
-  const prefilterTrim = sp.trim ?? null;
+  const { buyerContext } = useBuyerContext();
+  const [data, setData] = useState<PageData | null>(null);
 
-  const buyerContext = await getBuyerContext();
-  const [{ units, dealers, dealerById }, meta, specs] = await Promise.all([
-    loadScoredUnits(buyerContext),
-    loadMeta(),
-    loadSpecs(),
-  ]);
+  useEffect(() => {
+    let cancelled = false;
+    Promise.all([loadScoredUnits(buyerContext), loadMeta(), loadSpecs()]).then(
+      ([scored, meta, specs]) => {
+        if (!cancelled) setData({ scored, meta, specs });
+      },
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [buyerContext]);
+
+  if (!data) {
+    return (
+      <div className="space-y-4 animate-pulse">
+        <div className="h-12 bg-bg-subtle rounded w-2/3" />
+        <div className="h-12 bg-bg-subtle rounded" />
+        <div className="h-96 bg-bg-subtle rounded" />
+      </div>
+    );
+  }
+
+  const { units, dealers, dealerById } = data.scored;
+  const { meta, specs } = data;
   const pressure = dealerPressureMap(units, dealers);
   const sm = specMap(specs);
   const rangeByUnitId: Record<string, number | null> = {};
   const specByUnitId: Record<string, Spec> = {};
   for (const u of units) {
     const s = sm.get(specKey(u.model, u.year, u.trim, u.drivetrain));
-    // Prefer cited EPA range when available (post-F1.5b: all 31 specs carry it),
-    // fall back to legacy rangeKm field for any spec without an EPA citation.
     rangeByUnitId[u.id] = s?.rangeEpaKm?.value ?? s?.rangeKm ?? null;
     if (s) specByUnitId[u.id] = s;
   }
@@ -54,7 +72,8 @@ export default async function InventoryPage({
               Filter, sort, and rank every tracked unit. Defaults to all of Canada.
               {prefilterModel && (
                 <span className="ml-2 chip chip-accent">
-                  {prefilterModel}{prefilterTrim ? ` · ${prefilterTrim}` : ""}
+                  {prefilterModel}
+                  {prefilterTrim ? ` · ${prefilterTrim}` : ""}
                 </span>
               )}
             </p>
@@ -76,5 +95,21 @@ export default async function InventoryPage({
         />
       </div>
     </TempProvider>
+  );
+}
+
+export default function InventoryPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="space-y-4 animate-pulse">
+          <div className="h-12 bg-bg-subtle rounded w-2/3" />
+          <div className="h-12 bg-bg-subtle rounded" />
+          <div className="h-96 bg-bg-subtle rounded" />
+        </div>
+      }
+    >
+      <InventoryInner />
+    </Suspense>
   );
 }
