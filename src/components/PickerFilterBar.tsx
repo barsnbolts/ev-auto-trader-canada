@@ -98,28 +98,44 @@ export function PickerFilterBar({ filters, onChange }: Props) {
           ))}
         </div>
 
-        {/* Numeric filters */}
-        <div className="flex items-center gap-2 text-xs text-fg-muted">
-          <label>Max $:</label>
+        {/* MSRP slider */}
+        <div className="flex items-center gap-2 text-xs text-fg-muted min-w-[160px]">
+          <span className="shrink-0 text-xxs uppercase tracking-wide">Max $</span>
           <input
-            type="number"
-            placeholder="—"
-            value={filters.maxMsrp ?? ""}
-            onChange={(e) =>
-              onChange({ ...filters, maxMsrp: e.target.value ? Number(e.target.value) : null })
-            }
-            className="bg-bg border border-border rounded px-2 py-1 text-fg w-24"
+            type="range"
+            min={30000}
+            max={120000}
+            step={5000}
+            value={filters.maxMsrp ?? 120000}
+            onChange={(e) => {
+              const v = Number(e.target.value);
+              onChange({ ...filters, maxMsrp: v >= 120000 ? null : v });
+            }}
+            className="w-28 cursor-pointer accent-accent"
           />
-          <label>Min km:</label>
+          <span className="tabular-nums w-14 text-fg">
+            {filters.maxMsrp ? `$${(filters.maxMsrp / 1000).toFixed(0)}k` : "any"}
+          </span>
+        </div>
+
+        {/* Range slider */}
+        <div className="flex items-center gap-2 text-xs text-fg-muted min-w-[140px]">
+          <span className="shrink-0 text-xxs uppercase tracking-wide">Min km</span>
           <input
-            type="number"
-            placeholder="—"
-            value={filters.minRange ?? ""}
-            onChange={(e) =>
-              onChange({ ...filters, minRange: e.target.value ? Number(e.target.value) : null })
-            }
-            className="bg-bg border border-border rounded px-2 py-1 text-fg w-24"
+            type="range"
+            min={0}
+            max={600}
+            step={25}
+            value={filters.minRange ?? 0}
+            onChange={(e) => {
+              const v = Number(e.target.value);
+              onChange({ ...filters, minRange: v === 0 ? null : v });
+            }}
+            className="w-28 cursor-pointer accent-accent"
           />
+          <span className="tabular-nums w-12 text-fg">
+            {filters.minRange ? `${filters.minRange}km` : "any"}
+          </span>
         </div>
 
         <button

@@ -471,16 +471,25 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           <option value="on">All Ontario</option>
           <option value="all">All Canada</option>
         </select>
-        <label className="flex items-center gap-1 text-fg-muted">
-          Max OTD
+        <label className="flex items-center gap-2 text-fg-muted">
+          <span className="shrink-0">Max OTD</span>
           <input
-            type="number"
-            inputMode="numeric"
-            value={maxPrice}
-            onChange={(e) => setMaxPrice(e.target.value === "" ? "" : Number(e.target.value))}
-            placeholder="65000"
-            className="w-24 px-2 py-1.5 num"
+            type="range"
+            min={30000}
+            max={120000}
+            step={2500}
+            value={maxPrice === "" ? 120000 : Number(maxPrice)}
+            onChange={(e) => {
+              const v = Number(e.target.value);
+              setMaxPrice(v >= 120000 ? "" : v);
+            }}
+            className="w-28 cursor-pointer accent-accent"
           />
+          <span className="tabular-nums w-14 text-fg">
+            {maxPrice === "" || Number(maxPrice) >= 120000
+              ? "any"
+              : `$${(Number(maxPrice) / 1000).toFixed(0)}k`}
+          </span>
         </label>
         <label className="flex items-center gap-1.5 text-fg-muted cursor-pointer">
           <input
