@@ -10,6 +10,8 @@ Tauri-standalone migration. Append one line per session.
 | 2026-05-04 | `83d7f7b7` | A1 | Env-toggled `next.config.mjs` (`BUILD_TARGET=tauri` flips static export) |
 | 2026-05-04 | `5aaad6a9` | A2-A11 | Full Tauri Phase A — 192 static pages, dataClient.ts, route migration, src-tauri scaffold, plugin-fs, icon, .app bundle (6.2MB arm64) |
 | 2026-05-04 | `f44bb44d` | B1-B6 | Tauri IPC commands (run_refresh + run_verify_unit), RefreshModal + UnitVerifyChip wired into Nav + dossier |
+| 2026-05-04 | `0f5c3ce3` | C1-C3 + D0 | Dock badge stub (Tauri 2.11 lacks set_badge_count; NSDockTile binding deferred), UnitPhotoGallery + scrape_unit_gallery.py, D0 cross-source endpoint research |
+| 2026-05-04 | `240bd8c1` | D core scaffold | crossListings.ts schema + CrossSourceChip wired into InventoryTable + dossier; Kijiji + Leasebusters scraper skeletons + merge_cross_sources.py |
 
 ## How to build the .app
 
@@ -46,18 +48,26 @@ The window opens to `/`. Test sequence:
 
 ## Phase queue
 
-### Phase C (medium-tier next, ~12k tokens)
+### Phase C (PARTIAL — medium-tier next, ~5k remaining)
 
-- C1: Dock badge — count of new units since last app open. Use `tauri-plugin-os` or Apple-native NSDockTile. Track `lastAppOpenAt` in localStorage; on launch count `units.firstSeen > lastAppOpenAt`.
-- C2: `scripts/scrape_unit_gallery.py` — extract 6-15 photos per AutoTrader listing from JSON-LD. Write `data/unit-photos.json` keyed by unit ID.
-- C3: `src/components/UnitPhotoGallery.tsx` — lightbox swipe + arrow keys + pinch-zoom on macOS trackpad.
-- C4: Inventory row hover preview — second photo prefetched via existing ClientWarmup pattern.
+- C1: Dock badge — **stub shipped, NSDockTile binding deferred**. Tauri 2.11 `AppHandle::set_badge_count` doesn't exist; need `objc2` crate + unsafe block for NSDockTile.setBadgeLabel. Frontend wiring (`DockBadgeSync.tsx` + `setDockBadge` in tauriRuntime) is in place — only the Rust impl is no-op.
+- C2: `scripts/scrape_unit_gallery.py` — **shipped**. Cron-runs nightly. Imperva-aware (returns empty for stub pages, retries next cron).
+- C3: `UnitPhotoGallery.tsx` — **shipped**. Lightbox with arrow-keys + click navigation. Hidden when `data/unit-photos.json[unitId].photos` is empty.
+- C4: Inventory row hover preview (deferred to medium-tier) — second photo prefetched via existing ClientWarmup pattern.
 
-### Phase D (cross-source intelligence, ~100k total)
+### Phase D (PARTIAL — core scaffold shipped, scrapers need DOM iteration)
 
-- D0: Cross-source endpoint probe — see `docs/handoff/research/PHASE_D0_PROBE_*.md` (in progress as of 2026-05-04 by background research agent)
-- D1-D5: Per-source scrapers (Kijiji, Leasebusters, Hyundai dealer, Kia dealer, Carfax) + `scripts/merge_cross_sources.py` + `data/cross-listings.json` + `<CrossSourceChip />` UI
-- VIN-keyed merge architecture; VIN is the join key across sources
+- D0: **shipped** — `docs/handoff/PHASE_D0_CROSS_SOURCE_PROBE_2026-05-04.md`. Verdict: scrape Kijiji + Leasebusters first; defer Hyundai/Kia to D-bis; skip Carfax.
+- D-core architecture: **shipped** — `data/cross-listings.json` schema + `src/lib/crossListings.ts` lookup + `src/components/CrossSourceChip.tsx` (wired into InventoryTable + dossier) + `scripts/merge_cross_sources.py`.
+- D-core scrapers: **skeletons shipped** — `scripts/scrape_kijiji.py` + `scripts/scrape_leasebusters.py`. Both use `curl --http2` + regex/JSON-LD parsing. Selectors are best-effort; medium-tier next session needs to:
+  1. Run each scraper once against live URLs (`python3 scripts/scrape_kijiji.py`, `python3 scripts/scrape_leasebusters.py`).
+  2. Inspect `data/_kijiji_raw.json` / `data/_leasebusters_raw.json` — note which fields parsed successfully vs which returned null.
+  3. Adjust `parse_detail()` / `parse_card()` regex/selectors. Look for `TODO(D-core)` markers in each script.
+  4. Run `python3 scripts/merge_cross_sources.py` to populate `data/cross-listings.json`.
+  5. Restart the .app or `npm run dev` — CrossSourceChip should now light up on rows where cross-source data exists.
+- D-bis (Hyundai Click-to-Buy + Kia D2C Media): deferred. Cloudflare WAF-walled — needs Chrome MCP probe to capture XHR feed, then headless browser scrape. ~95k tokens. Wait until D-core has proven value.
+
+### Phase E (deferred, ~60-80k, V8+)
 
 ### Phase E (OEM API direct, ~60-80k, V8+)
 
