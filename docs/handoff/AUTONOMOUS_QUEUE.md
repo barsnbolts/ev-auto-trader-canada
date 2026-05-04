@@ -377,3 +377,4 @@ again, refresh stale data, etc.
 - [x] U1 keyboard shortcuts on dossier (← → c Esc): (this commit)
 - [x] U5 URL-encoded filters (was already mostly wired; added missing fav=1 sync): (this commit)
 - [x] T1 Vitest install + thermal model tests (7 specs, all pass): (this commit)
+- [x] T2 vitest crossListings + path-alias config (10 specs across makeFallbackKey, cheapestCash, leaseTakeover): (this commit)
