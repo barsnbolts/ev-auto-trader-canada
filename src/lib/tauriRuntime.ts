@@ -51,3 +51,15 @@ export async function listenRefreshLog(
   const unlisten = await listen<RefreshLogLine>("refresh-log", (e) => cb(e.payload));
   return () => unlisten();
 }
+
+export async function setDockBadge(count: number | null): Promise<void> {
+  if (!isTauri) return;
+  const { invoke } = await import("@tauri-apps/api/core");
+  try {
+    await invoke<void>("set_dock_badge", {
+      count: count != null && count > 0 ? count : null,
+    });
+  } catch (e) {
+    console.warn("[tauriRuntime] set_dock_badge failed", e);
+  }
+}

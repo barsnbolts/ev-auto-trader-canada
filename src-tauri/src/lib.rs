@@ -59,6 +59,16 @@ fn now_iso() -> String {
 }
 
 #[tauri::command]
+fn set_dock_badge(_count: Option<u64>) -> Result<(), String> {
+    // Phase C1 placeholder — Tauri 2.11 AppHandle doesn't expose
+    // set_badge_count directly. NSDockTile binding via the `objc2`
+    // crate is the right fix; deferred to a follow-up since it adds
+    // an Apple-specific dep + unsafe block. For now this is a no-op
+    // that returns Ok so the frontend invoke doesn't error.
+    Ok(())
+}
+
+#[tauri::command]
 fn run_verify_unit(unit_id: String) -> Result<String, String> {
     let root = repo_root()?;
     let script = root.join("scripts").join("verify_unit.py");
@@ -153,7 +163,7 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_shell::init())
-        .invoke_handler(tauri::generate_handler![run_verify_unit, run_refresh])
+        .invoke_handler(tauri::generate_handler![run_verify_unit, run_refresh, set_dock_badge])
         .setup(|app| {
             // Bring the main window to front on launch (helps when the
             // WebView is slow to paint on cold start).

@@ -21,6 +21,7 @@ import type { ScoredUnit, Spec, FinanceBreakdown, LeaseBreakdown } from "@/lib/t
 import { readHeatPump } from "@/lib/types";
 import { PrintButton } from "./PrintButton";
 import { UnitVerifyChip } from "@/components/UnitVerifyChip";
+import { UnitPhotoGallery } from "@/components/UnitPhotoGallery";
 import { plainLang } from "@/lib/plainLang";
 import { ChargingCurveChart } from "@/components/ChargingCurveChart";
 import { BatteryHealthPanel } from "@/components/BatteryHealthPanel";
@@ -97,6 +98,7 @@ function DossierInner({ unitId }: { unitId: string }) {
       </div>
 
       <Header unit={unit} dealer={dealer} spec={specForUnit} />
+      <UnitPhotoGallery unitId={unit.id} />
       <OtdSection unit={unit} ctx={ctx} dealer={dealer} />
       <TechSpecsSection spec={specForUnit} unit={unit} />
       <ThermalSection spec={specForUnit} tempC={tempC} preconditioned={preconditioned} />

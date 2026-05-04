@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Nav } from "@/components/Nav";
 import { BuyerContextSelector } from "@/components/BuyerContextSelector";
 import { ClientWarmup } from "@/components/ClientWarmup";
+import { DockBadgeSync } from "@/components/DockBadgeSync";
 import vehicleImages from "../../data/vehicle-images.json";
 
 export const metadata: Metadata = {
@@ -40,6 +41,7 @@ export default function RootLayout({
         <ClientWarmup
           heroUrls={Object.values((vehicleImages as { images: Record<string, { url: string }> }).images).map((v) => v.url)}
         />
+        <DockBadgeSync />
         <header className="border-b border-border bg-bg-subtle/80 backdrop-blur sticky top-0 z-10">
           <div className="max-w-[1400px] mx-auto px-6 py-3 flex items-center gap-6">
             <a href="/" className="font-semibold tracking-tight text-fg">
