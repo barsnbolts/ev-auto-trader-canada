@@ -11,9 +11,33 @@ import {
   transportCost,
   preTaxTransactionValue,
   dealerPressureIndex,
+  stackedOtdIncentives,
+  applicableIncentives,
 } from "./scoring";
 import { ON_DEALER_FEES } from "./constants";
-import type { InventoryUnit } from "./types";
+import type { Dealer, Incentive, InventoryUnit } from "./types";
+
+const baseIncentive = (over: Partial<Incentive>): Incentive =>
+  ({
+    id: "fed-evap",
+    scope: "federal",
+    name: "iZEV federal rebate",
+    status: "active",
+    lastVerified: "2026-05-04",
+    amountCad: 5000,
+    ...over,
+  } as Incentive);
+
+const baseDealer = (over: Partial<Dealer>): Dealer =>
+  ({
+    id: "d-1",
+    brand: "Hyundai",
+    name: "Test Hyundai",
+    address: "1 Test Way",
+    city: "Toronto",
+    province: "ON",
+    ...over,
+  } as Dealer);
 
 const baseUnit = (over: Partial<InventoryUnit>): InventoryUnit =>
   ({
@@ -98,5 +122,130 @@ describe("dealerPressureIndex", () => {
       baseUnit({ id: `u-${i}`, model: "Ioniq5", trim: "Preferred", daysOnLot: 0 }),
     );
     expect(dealerPressureIndex(target, fresh)).toBeCloseTo(0.5, 1);
+  });
+});
+
+describe("stackedOtdIncentives", () => {
+  const u = baseUnit({});
+
+  it("sums OTD-eligible cash scopes (federal + manufacturer + loyalty)", () => {
+    const stack = stackedOtdIncentives(u, [
+      baseIncentive({ id: "fed-other", scope: "federal", amountCad: 5000 }),
+      baseIncentive({ id: "kia-cash", scope: "manufacturer_cash", amountCad: 2500 }),
+      baseIncentive({ id: "kia-loyalty", scope: "loyalty", amountCad: 750 }),
+    ]);
+    expect(stack.totalCad).toBe(8250);
+    expect(stack.lines).toHaveLength(3);
+  });
+
+  it("ignores APR-based scopes (lease_promo / finance_promo)", () => {
+    const stack = stackedOtdIncentives(u, [
+      baseIncentive({ id: "kia-cash", scope: "manufacturer_cash", amountCad: 2000 }),
+      baseIncentive({ id: "lease-1", scope: "lease_promo", amountCad: 9999 }),
+      baseIncentive({ id: "fin-1", scope: "finance_promo", amountCad: 9999 }),
+    ]);
+    expect(stack.totalCad).toBe(2000);
+    expect(stack.lines).toHaveLength(1);
+  });
+
+  it("ignores ended/paused incentives", () => {
+    const stack = stackedOtdIncentives(u, [
+      baseIncentive({ id: "kia-cash", scope: "manufacturer_cash", amountCad: 2000 }),
+      baseIncentive({ id: "ended", scope: "manufacturer_cash", status: "ended", amountCad: 5000 }),
+      baseIncentive({ id: "paused", scope: "manufacturer_cash", status: "paused", amountCad: 5000 }),
+    ]);
+    expect(stack.totalCad).toBe(2000);
+  });
+
+  it("drops incentives in NON_OTD_INCENTIVE_IDS allowlist (loan rebates)", () => {
+    const stack = stackedOtdIncentives(u, [
+      baseIncentive({
+        id: "nl-takecharge-nlcu-loan-rebate-2026",
+        scope: "provincial",
+        amountCad: 5000,
+      }),
+    ]);
+    expect(stack.totalCad).toBe(0);
+  });
+});
+
+describe("applicableIncentives", () => {
+  const u = baseUnit({ model: "Ioniq5", trim: "Preferred", year: 2025 });
+  const dealer = baseDealer({ province: "ON" });
+
+  it("returns no-appliesTo entries unchanged", () => {
+    const r = applicableIncentives(u, dealer, [
+      baseIncentive({ id: "broad", scope: "manufacturer_cash", amountCad: 1000 }),
+    ]);
+    expect(r).toHaveLength(1);
+  });
+
+  it("filters by appliesTo.models", () => {
+    const r = applicableIncentives(u, dealer, [
+      baseIncentive({
+        id: "ev6-only",
+        appliesTo: { models: ["EV6"] },
+      }),
+    ]);
+    expect(r).toHaveLength(0);
+  });
+
+  it("filters by appliesTo.provinces", () => {
+    const r = applicableIncentives(u, dealer, [
+      baseIncentive({
+        id: "qc-only",
+        appliesTo: { provinces: ["QC"] },
+      }),
+    ]);
+    expect(r).toHaveLength(0);
+  });
+
+  it("excludes loyalty when buyerContext.loyalty=false", () => {
+    const r = applicableIncentives(
+      u,
+      dealer,
+      [baseIncentive({ id: "kia-loyalty", scope: "loyalty", amountCad: 750 })],
+      { province: "ON", loyalty: false, conquest: false },
+    );
+    expect(r).toHaveLength(0);
+  });
+
+  it("includes loyalty when buyerContext.loyalty=true", () => {
+    const r = applicableIncentives(
+      u,
+      dealer,
+      [baseIncentive({ id: "kia-loyalty", scope: "loyalty", amountCad: 750 })],
+      { province: "ON", loyalty: true, conquest: false },
+    );
+    expect(r).toHaveLength(1);
+  });
+
+  it("drops 'ended' incentives entirely", () => {
+    const r = applicableIncentives(u, dealer, [
+      baseIncentive({ id: "old", status: "ended", amountCad: 9999 }),
+    ]);
+    expect(r).toHaveLength(0);
+  });
+
+  it("enforces EVAP $50k post-OEM-cash cap", () => {
+    // Unit at $58k pre-tax with $16k OEM cash → effective $42k → under cap.
+    // Cap-applied EVAP should pass; without OEM cash, $58k > $50k → drop.
+    const expensive = baseUnit({ dealerAskingPrice: 58000, msrp: 58000 });
+    const oemCash = baseIncentive({
+      id: "kia-cash-big",
+      scope: "manufacturer_cash",
+      amountCad: 16000,
+    });
+    const evap = baseIncentive({
+      id: "fed-evap",
+      scope: "federal",
+      amountCad: 5000,
+      transactionValueCapCad: 50000,
+      capAppliesToImported: true,
+    });
+    const withCash = applicableIncentives(expensive, dealer, [oemCash, evap]);
+    expect(withCash.find((i) => i.id === "fed-evap")).toBeDefined();
+    const withoutCash = applicableIncentives(expensive, dealer, [evap]);
+    expect(withoutCash.find((i) => i.id === "fed-evap")).toBeUndefined();
   });
 });

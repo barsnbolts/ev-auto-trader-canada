@@ -382,3 +382,4 @@ again, refresh stale data, etc.
 - [x] Q5 bundle-size audit (BUNDLE_AUDIT_2026-05-04.md, identified recharts 357 chunk + polyfills as wins): (this commit)
 - [x] T3 schema-drift catcher (validate_data_schemas.py wired into predeploy + predeploy:tauri): (this commit)
 - [x] U4 native macOS menu bar (App / File / Edit / Window with Cmd+R refresh): (this commit)
+- [x] T2-extension scoring incentive specs (stackedOtdIncentives 4 + applicableIncentives 7 incl EVAP cap; 38 total): (this commit)
