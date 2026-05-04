@@ -125,6 +125,8 @@
 
 /* Dossier print stylesheet — single-page negotiation reference. */
 @media print {
+  /* Page margins + paper size */
+  @page { size: letter; margin: 0.5in; }
   /* Hide chrome that has no purpose on paper */
   nav, header[data-app-nav], .print\:hidden { display: none !important; }
   /* Force white background for ink savings + readability */
@@ -135,7 +137,20 @@
   .dossier .text-good { color: #0a6d2e !important; }
   .dossier .text-accent { color: #0050b5 !important; }
   .dossier table { width: 100%; border-collapse: collapse; }
-  .dossier section { page-break-inside: avoid; }
+  .dossier section, .dossier table { page-break-inside: avoid; break-inside: avoid; }
+  .dossier h1, .dossier h2, .dossier h3 { page-break-after: avoid; break-after: avoid; }
+  /* Force chart + chip colors to render (recharts SVG, chip backgrounds) */
+  .dossier svg, .dossier [class*="chip-"] {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
   /* Saner fixed-width layout for print */
   .dossier { font-size: 10.5pt; line-height: 1.35; max-width: none; }
+  /* Inline link URLs after anchor text — useful when reader holds paper */
+  .dossier a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555;
+    word-break: break-all;
+  }
 }
