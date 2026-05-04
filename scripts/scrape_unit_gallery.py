@@ -32,39 +32,31 @@ from __future__ import annotations
 
 import json
 import re
-import subprocess
 import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+# scripts/ is on the python path via cron; for direct invocations from the
+# repo root, add it explicitly so lib_* imports resolve.
+SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from lib_scrape_common import fetch_html  # noqa: E402
+from lib_scrape_metrics import record_run  # noqa: E402
+
+ROOT = SCRIPTS_DIR.parent
 UNITS_JSON = ROOT / "data" / "units.json"
 PHOTOS_JSON = ROOT / "data" / "unit-photos.json"
-USER_AGENT = (
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 "
-    "(KHTML, like Gecko) Version/17.5 Safari/605.1.15"
-)
 MAX_PHOTOS = 15
 THROTTLE_SECONDS = 2.0  # respectful pacing between fetches
 
 
 def fetch(url: str) -> str:
-    cmd = [
-        "curl", "-sS", "-L", "--max-time", "15",
-        "--http2",
-        "-A", USER_AGENT,
-        "-H", "Accept: text/html,*/*;q=0.8",
-        "-H", "Accept-Language: en-CA,en-US;q=0.9",
-        "-H", "Accept-Encoding: gzip, deflate, br",
-        "--compressed",
-        url,
-    ]
+    """Thin wrapper preserving the prior 'empty string on error' contract."""
     try:
-        proc = subprocess.run(cmd, capture_output=True, timeout=20, text=False)
-        if proc.returncode != 0:
-            return ""
-        return proc.stdout.decode("utf-8", errors="replace")
+        return fetch_html(url, timeout=20, http2=True)
     except Exception:
         return ""
 
@@ -127,6 +119,7 @@ def scrape_one(unit: dict) -> tuple[list[str], str]:
 
 
 def main() -> int:
+    started = time.time()
     units = load_units()
     existing = load_existing()
 
@@ -138,10 +131,12 @@ def main() -> int:
 
     fetched = 0
     skipped = 0
+    pages_walked = 0
     for unit in units:
         if unit["id"] not in target_ids:
             continue
         photos, note = scrape_one(unit)
+        pages_walked += 1
         if photos:
             existing[unit["id"]] = {
                 "photos": photos,
@@ -161,7 +156,20 @@ def main() -> int:
         time.sleep(THROTTLE_SECONDS)
 
     save(existing)
+    duration = time.time() - started
     print(f"unit-photos.json: fetched={fetched} skipped={skipped} target={len(target_ids)}")
+    record_run(
+        source="autotrader-gallery",
+        fetched=fetched,
+        unique=fetched,
+        vin_pct=0.0,
+        vin_checksum_ok_pct=0.0,
+        errors=skipped,  # treat Imperva-walled responses as soft errors
+        pages_walked=pages_walked,
+        duration_s=duration,
+        max_pages_hit=False,
+        notes=f"target={len(target_ids)}",
+    )
     return 0
 
 

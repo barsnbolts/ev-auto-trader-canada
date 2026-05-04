@@ -105,3 +105,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04: A1 shipped — format.test.ts (19 specs). Total vitest 57/57. Predeploy clean.
 - 2026-05-04: A2+A3+A4 shipped — battery_degradation (10) + aggregations (14) + usedListingsLinks (14). Total vitest 57 → 95. Predeploy clean.
 - 2026-05-04: A5+A6+A7 shipped — crossListings +5 specs (uncovered fallbackKey 4-vs-5 segment Python/TS asymmetry, documented), schema validator now enforces 9 enum sets + cross-reference integrity (dealerId + spec join). Total vitest 100/100.
+- 2026-05-04: A8 shipped — scrape_unit_gallery.py refactored onto lib_scrape_common.fetch_html + lib_scrape_metrics.record_run. Drops 30 lines of duplicate curl plumbing. Telemetry now flows to data/_scraper_metrics.jsonl alongside Kijiji + leasebusters.
