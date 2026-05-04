@@ -974,7 +974,8 @@ Track shipped items here so the next session knows what's left. Format:
 (Items checked off below are appended by the medium session as it works.)
 
 ```
-(empty — every line below is added by Medium as it ships)
+- [deferred] 0.1: Chrome MCP not paired this session; switch_browser returned no-browsers-available at b90db655
+- [x] A1: format.test.ts — 19 specs covering fmtCad / fmtPercent / fmtDate / relativeDays. Total suite 57/57.
 ```
 
 ---
