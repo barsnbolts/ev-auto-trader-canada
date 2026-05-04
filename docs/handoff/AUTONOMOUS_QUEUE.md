@@ -381,3 +381,4 @@ again, refresh stale data, etc.
 - [x] T2-extension scoring.test.ts (10 specs across transportCost, preTaxTransactionValue, dealerPressureIndex; 27 total): (this commit)
 - [x] Q5 bundle-size audit (BUNDLE_AUDIT_2026-05-04.md, identified recharts 357 chunk + polyfills as wins): (this commit)
 - [x] T3 schema-drift catcher (validate_data_schemas.py wired into predeploy + predeploy:tauri): (this commit)
+- [x] U4 native macOS menu bar (App / File / Edit / Window with Cmd+R refresh): (this commit)

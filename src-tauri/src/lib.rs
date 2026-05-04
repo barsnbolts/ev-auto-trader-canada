@@ -24,6 +24,7 @@ use std::process::{Command, Stdio};
 use std::thread;
 
 use serde::Serialize;
+use tauri::menu::{MenuBuilder, MenuItemBuilder, SubmenuBuilder};
 use tauri::{AppHandle, Emitter, Manager};
 
 const REPO_REL: &str = "ev-auto-trader-canada";
@@ -185,6 +186,62 @@ pub fn run() {
             if let Some(w) = app.get_webview_window("main") {
                 let _ = w.set_focus();
             }
+
+            // Native macOS menu — adds a "File" submenu with a Refresh
+            // item bound to Cmd+R. Standard App / Edit / Window / Help
+            // submenus are added via the SubmenuBuilder presets so the
+            // app feels like a normal Mac app (Cmd+H hide, Cmd+Q quit,
+            // Cmd+M minimize, copy/paste, etc.).
+            let refresh = MenuItemBuilder::new("Refresh Inventory")
+                .id("file_refresh")
+                .accelerator("CmdOrCtrl+R")
+                .build(app)?;
+            let file_submenu = SubmenuBuilder::new(app, "File")
+                .item(&refresh)
+                .build()?;
+            let menu = MenuBuilder::new(app)
+                .items(&[
+                    &SubmenuBuilder::new(app, "EV.trader CA")
+                        .about(None)
+                        .separator()
+                        .services()
+                        .separator()
+                        .hide()
+                        .hide_others()
+                        .show_all()
+                        .separator()
+                        .quit()
+                        .build()?,
+                    &file_submenu,
+                    &SubmenuBuilder::new(app, "Edit")
+                        .undo()
+                        .redo()
+                        .separator()
+                        .cut()
+                        .copy()
+                        .paste()
+                        .select_all()
+                        .build()?,
+                    &SubmenuBuilder::new(app, "Window")
+                        .minimize()
+                        .maximize()
+                        .close_window()
+                        .build()?,
+                ])
+                .build()?;
+            app.set_menu(menu)?;
+
+            // Dispatch menu events. Currently just routes file_refresh →
+            // run_refresh in a background thread so the UI stays live.
+            app.on_menu_event(move |app_handle, event| {
+                if event.id() == "file_refresh" {
+                    let h = app_handle.clone();
+                    thread::spawn(move || {
+                        let _ = run_refresh(h);
+                    });
+                }
+            });
+
             Ok(())
         })
         .run(tauri::generate_context!())
