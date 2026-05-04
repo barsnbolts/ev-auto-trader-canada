@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "predeploy": "npm run typecheck && npm run build",
+    "thermal-audit": "python3 scripts/validate_thermal_specs.py",
+    "predeploy": "npm run typecheck && npm run thermal-audit && npm run build",
     "snapshot": "node scripts/snapshot.mjs",
     "prepare": "simple-git-hooks"
   },

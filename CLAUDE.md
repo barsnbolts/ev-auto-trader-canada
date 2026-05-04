@@ -8,7 +8,8 @@ Personal-use Next.js 15 EV inventory + dossier tracker. Ian is buying a Hyundai 
 - **Branch:** `claude/verify-environment-setup-oTu3S` (never push to `main`)
 - **Origin:** `barsnbolts/ev-auto-trader-canada`
 - **Stack:** Next.js 15 App Router · Tailwind · Zustand · recharts · TS strict
-- **Predeploy gate:** `npm run predeploy` (= `tsc --noEmit && next build`) must pass before every push
+- **Predeploy gate:** `npm run predeploy` (= `tsc --noEmit && python3 scripts/validate_thermal_specs.py && next build`) must pass before every push
+- **Thermal audit:** `npm run thermal-audit` standalone — validates all 31 specs against required fields + physical-plausibility bands. Auto-runs in predeploy. Fails the gate if any spec violates.
 
 ## Cwd quirk
 
@@ -77,7 +78,10 @@ When user signals a tier-down ("switching to medium ASAP"): finish the in-progre
 ## What's done (context anchor — verify if uncertain)
 
 - All F0–F18 phases shipped (specs port, thermal model, mom-mode tooltips, charging curve, pick-a-model picker + compare, battery degradation, OTD waterfall chart)
-- 5-task UI handoff at `docs/handoff/MEDIUM_HANDOFF_UI_2026-05-03.md` (range sliders, sticky winner bar, hero stats, etc.)
+- Thermal model now per-vehicle accurate: chemistry + heat pump cutoff + preconditioning + soft cutoff transition. All 31 specs pass the auto-validator
+- BC lease tax bug fixed (was flat 12%, now uses BC PST progressive bracket per Bulletin 308)
+- TempSlider has preconditioning toggle (`?precon=1`)
+- Active medium plan: `docs/handoff/MEDIUM_FULL_PLAN_2026-05-03.md` (7 tasks, all pre-speced)
 - Vercel preview live at `barsnbolts-projects/ev-auto-trader-canada`
 - Daily refresh cron loaded via launchd
 
