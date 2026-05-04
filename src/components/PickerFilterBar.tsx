@@ -105,7 +105,7 @@ export function PickerFilterBar({ filters, onChange }: Props) {
             type="range"
             min={30000}
             max={120000}
-            step={5000}
+            step={1000}
             value={filters.maxMsrp ?? 120000}
             onChange={(e) => {
               const v = Number(e.target.value);
@@ -125,7 +125,7 @@ export function PickerFilterBar({ filters, onChange }: Props) {
             type="range"
             min={0}
             max={600}
-            step={25}
+            step={5}
             value={filters.minRange ?? 0}
             onChange={(e) => {
               const v = Number(e.target.value);

@@ -17,6 +17,7 @@ import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
 import { MiniChargingSparkline } from "./MiniChargingSparkline";
 import { plainLang } from "@/lib/plainLang";
+import { useTemp } from "@/lib/tempContext";
 import vehicleImages from "../../data/vehicle-images.json";
 
 // Days since lastSeen — used to chip rows that haven't been re-confirmed
@@ -113,17 +114,10 @@ function extractNum(v: number | { value: number | null } | null | undefined): nu
 }
 
 // Winter range chip — only renders when tempC < 5 and spec data is available.
-// Uses thermal physics model with per-vehicle chemistry, heat pump cutoff, and
-// optional preconditioning to estimate real-world range at the slider temp.
-function WinterRangeChip({
-  spec,
-  tempC,
-  preconditioned = false,
-}: {
-  spec: Spec | undefined;
-  tempC: number;
-  preconditioned?: boolean;
-}) {
+// Reads tempC + preconditioned from TempContext (synchronous client state) so
+// drag updates are instant without any SSR roundtrip.
+function WinterRangeChip({ spec }: { spec: Spec | undefined }) {
+  const { tempC, preconditioned } = useTemp();
   if (tempC >= 5) return null;
   if (!spec) return null;
   // Prefer new citedValue rangeEpaKm, fall back to legacy rangeKm
@@ -197,8 +191,6 @@ type Props = {
   rangeByUnitId?: Record<string, number | null>;
   specByUnitId?: Record<string, Spec>;
   buyerContext?: BuyerContext;
-  tempC?: number;
-  preconditioned?: boolean;
 };
 
 type SortKey = "deal" | "otd" | "discount" | "perKm" | "newest" | "oldest";
@@ -269,7 +261,7 @@ function activeFilterChips(s: {
   if (s.model !== "all") out.push({ key: "model", label: MODEL_LABEL[s.model] });
   if (s.year !== "all") out.push({ key: "year", label: `MY ${s.year}` });
   if (s.drivetrain !== "all") out.push({ key: "drivetrain", label: s.drivetrain });
-  if (s.region !== "ggh") out.push({ key: "region", label: s.region === "on" ? "All Ontario" : "All Canada" });
+  if (s.region !== "all") out.push({ key: "region", label: s.region === "ggh" ? "Greater Golden Horseshoe" : "All Ontario" });
   if (s.maxPrice !== "") out.push({ key: "maxPrice", label: `≤ $${s.maxPrice.toLocaleString("en-CA")}` });
   if (s.pressureOnly) out.push({ key: "pressureOnly", label: "High pressure" });
   if (s.evapOnly) out.push({ key: "evapOnly", label: "EVAP eligible" });
@@ -305,7 +297,7 @@ function exportCsv(
   URL.revokeObjectURL(url);
 }
 
-export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId, specByUnitId, buyerContext, tempC = 20, preconditioned = false }: Props) {
+export function InventoryTable({ units, dealerById, dealerPressureByDealer, rangeByUnitId, specByUnitId, buyerContext }: Props) {
   const province = buyerContext?.province ?? "ON";
   const rangeFor = (id: string): number | null => rangeByUnitId?.[id] ?? null;
   const perKmFor = (u: ScoredUnit): number | null => {
@@ -331,7 +323,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
       model: (m && (MODELS as readonly string[]).includes(m) ? (m as Model) : "all") as Model | "all",
       year: (y && SUPPORTED_YEARS.map(String).includes(y) ? Number(y) : "all") as number | "all",
       drivetrain: (dt === "RWD" || dt === "AWD" ? dt : "all") as "RWD" | "AWD" | "all",
-      region: (rg === "on" || rg === "all" ? rg : "ggh") as "ggh" | "on" | "all",
+      region: (rg === "ggh" || rg === "on" ? rg : "all") as "ggh" | "on" | "all",
       maxPrice: (mp && !Number.isNaN(Number(mp)) ? Number(mp) : "") as number | "",
       pressureOnly: po === "1",
       evapOnly: ev === "1",
@@ -360,7 +352,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
     if (model !== "all") p.set("model", model);
     if (year !== "all") p.set("year", String(year));
     if (drivetrain !== "all") p.set("dt", drivetrain);
-    if (region !== "ggh") p.set("region", region);
+    if (region !== "all") p.set("region", region);
     if (maxPrice !== "") p.set("maxOtd", String(maxPrice));
     if (pressureOnly) p.set("pressure", "1");
     if (evapOnly) p.set("evap", "1");
@@ -476,9 +468,9 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           onChange={(e) => setRegion(e.target.value as "ggh" | "on" | "all")}
           className="px-2 py-1.5"
         >
-          <option value="ggh">Greater Golden Horseshoe</option>
-          <option value="on">All Ontario</option>
           <option value="all">All Canada</option>
+          <option value="on">All Ontario</option>
+          <option value="ggh">Greater Golden Horseshoe</option>
         </select>
         <label className="flex items-center gap-2 text-fg-muted">
           <span className="shrink-0">Max OTD</span>
@@ -486,7 +478,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
             type="range"
             min={30000}
             max={120000}
-            step={2500}
+            step={500}
             value={maxPrice === "" ? 120000 : Number(maxPrice)}
             onChange={(e) => {
               const v = Number(e.target.value);
@@ -690,7 +682,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                       <HeatPumpChip hasHeatPump={readHeatPump(specByUnitId[u.id]?.hasHeatPump)} />
                     )}
                     {specByUnitId && (
-                      <WinterRangeChip spec={specByUnitId[u.id]} tempC={tempC} preconditioned={preconditioned} />
+                      <WinterRangeChip spec={specByUnitId[u.id]} />
                     )}
                   </td>
                   <td className="px-3 py-2 num">{u.year}</td>

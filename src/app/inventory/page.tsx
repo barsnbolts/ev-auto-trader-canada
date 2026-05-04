@@ -4,6 +4,7 @@ import { getBuyerContext } from "@/lib/buyerContextServer";
 import { InventoryTable } from "@/components/InventoryTable";
 import { UpdatedStamp } from "@/components/UpdatedStamp";
 import { TempSlider } from "@/components/TempSlider";
+import { TempProvider } from "@/lib/tempContext";
 import type { Spec } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
@@ -44,36 +45,36 @@ export default async function InventoryPage({
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-wrap items-end justify-between gap-3">
-        <div>
-          <h1 className="text-2xl font-semibold tracking-tight">Inventory</h1>
-          <p className="text-sm text-fg-muted">
-            Filter, sort, and rank every tracked unit. Defaults to the Greater Golden Horseshoe.
-            {prefilterModel && (
-              <span className="ml-2 chip chip-accent">
-                {prefilterModel}{prefilterTrim ? ` · ${prefilterTrim}` : ""}
-              </span>
-            )}
-          </p>
+    <TempProvider initialTempC={tempC} initialPreconditioned={preconditioned}>
+      <div className="space-y-4">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <h1 className="text-2xl font-semibold tracking-tight">Inventory</h1>
+            <p className="text-sm text-fg-muted">
+              Filter, sort, and rank every tracked unit. Defaults to all of Canada.
+              {prefilterModel && (
+                <span className="ml-2 chip chip-accent">
+                  {prefilterModel}{prefilterTrim ? ` · ${prefilterTrim}` : ""}
+                </span>
+              )}
+            </p>
+          </div>
+          <UpdatedStamp
+            rows={[
+              { label: "Units updated", iso: meta.unitsUpdatedAt },
+              { label: "Dealers updated", iso: meta.dealersUpdatedAt },
+            ]}
+          />
         </div>
-        <UpdatedStamp
-          rows={[
-            { label: "Units updated", iso: meta.unitsUpdatedAt },
-            { label: "Dealers updated", iso: meta.dealersUpdatedAt },
-          ]}
+        <TempSlider />
+        <InventoryTable
+          units={units}
+          dealerById={dealerById}
+          dealerPressureByDealer={pressure}
+          rangeByUnitId={rangeByUnitId}
+          specByUnitId={specByUnitId}
         />
       </div>
-      <TempSlider initial={tempC} preconditioned={preconditioned} />
-      <InventoryTable
-        units={units}
-        dealerById={dealerById}
-        dealerPressureByDealer={pressure}
-        rangeByUnitId={rangeByUnitId}
-        specByUnitId={specByUnitId}
-        tempC={tempC}
-        preconditioned={preconditioned}
-      />
-    </div>
+    </TempProvider>
   );
 }
