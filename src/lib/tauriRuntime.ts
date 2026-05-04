@@ -5,6 +5,15 @@
 //
 // All Tauri imports are dynamic so the web bundle doesn't ship the IPC
 // glue. Treat null returns as "feature unavailable" in the UI.
+//
+// TODO(medium): when Phase C dock badge is wired (NSDockTile in
+// src-tauri/src/lib.rs:set_dock_badge), this file needs no change —
+// setDockBadge() already invokes the command and gracefully no-ops
+// in the web build.
+//
+// TODO(medium): when Phase D-core scrapers ship and CrossSourceChip
+// starts rendering, this file needs no change — crossListings.ts is
+// the consumer, not tauriRuntime. Cross-source is a build-time bundle.
 
 export const isTauri =
   typeof window !== "undefined" && "__TAURI_INTERNALS__" in window;

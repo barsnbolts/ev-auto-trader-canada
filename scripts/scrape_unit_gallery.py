@@ -1,6 +1,15 @@
 #!/usr/bin/env python3
 """Phase C2: extract per-unit photo URLs from AutoTrader listings.
 
+TODO(medium): this script is functional but Imperva sometimes returns
+~1KB placeholder pages instead of real listing HTML. The script
+already handles this gracefully (empty photos array, "no photos
+(len=N)" note logged). Cron-runs nightly so transient walls retry
+the next day. No action needed unless Ian flags consistently empty
+unit-photos.json after a week of cron runs — then revisit by:
+  - Capturing the working Apify scrape XHR pattern (Phase B-bis), OR
+  - Adding a second source (Kijiji photos via the D-core scraper)
+
 For each unit in data/units.json with a listingUrl, fetch the listing and
 extract photo URLs from JSON-LD or embedded JSON. Output is keyed by
 unit ID. Cron-runs nightly via scripts/refresh_daily.sh.

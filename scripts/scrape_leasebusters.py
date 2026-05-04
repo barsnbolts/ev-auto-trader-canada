@@ -1,26 +1,47 @@
 #!/usr/bin/env python3
 """Phase D core: Leasebusters (leasebusters.com) lease-takeover scraper.
 
-Per D0 research: Leasebusters anonymizes the VIN. Our cross-source key
-falls back to year+make+model+trim+km bucket. Listings expose:
-- Monthly payment (incl. tax)
-- Months remaining
-- Cash incentive (the bounty paid by lessee to assignee)
-- Province
-- Kilometres on clock
-- Sale price (for buyout)
+TODO(medium): this scraper currently returns 0 listings. Root cause +
+fix below. The architecture is correct; the parser needs to be
+rewritten against the real API once captured via Chrome MCP.
 
-Search URL pattern (per D0):
-- Modern: /vehicle-search-result?gallery=LBUsed
-- Legacy ASP (still works): /en/lease-take-over-vehicle-gallery-results.asp?MakeID=Hyundai
+WHAT MAX SESSION CONFIRMED (2026-05-04 — do not redo this work):
+  1. The legacy .asp URL returns 33KB but is a SHELL — Bootstrap CSS,
+     ad scripts (Google Tag Manager, Cloudflare turnstile, Tawk
+     chat), and an empty viewport. Listing data is not in the SSR
+     HTML. The .asp filename is misleading; it's a Vue/SPA app.
+  2. The modern URL /vehicle-search-result?gallery=LBUsed has the
+     same shell-only behavior. Both endpoints rely on JS-rendered
+     content fetched after hydration.
+  3. There's no way to pull listing data with plain curl. The
+     XHR endpoint that hydrates the gallery is the real target.
 
-We use the legacy ASP for simpler parsing — light DOM, no Imperva.
+WHAT MEDIUM NEEDS TO DO:
+  1. Chrome MCP probe: open Leasebusters in the connected Chrome
+     window, navigate to the gallery for Hyundai or Kia, watch the
+     Network tab for XHR requests. Look for /api/, /json/, /service/,
+     or /handlers/ endpoints. The shape will probably be a JSON
+     listing array with monthly, months-remaining, cash-incentive,
+     and the LB stockId.
+  2. Update fetch() / search_listings() in this file to hit that
+     captured endpoint directly. Strip the regex card-parser; the
+     JSON body will give you fields directly.
+  3. CRITICAL question to answer during the probe: does Leasebusters
+     expose VIN at any point? D0 research said no, but this is worth
+     spot-checking on a logged-in detail page. If VIN appears
+     post-account-creation, Leasebusters becomes a VIN-keyed source
+     rather than fallbackKey-keyed.
+  4. If VIN never exposes: leave the merge logic in
+     scripts/merge_cross_sources.py as-is — it joins Leasebusters via
+     fallbackKey (year|make|model|trim|kmBucket).
+
+PER D0 RESEARCH (still trustworthy):
+  Listing schema fields exposed on cards:
+    Year, Make, Model, Monthly payment (incl. tax), Months remaining,
+    Cash incentive, Province (2-letter), Kilometres-on-clock, Sale
+    price for buyout, Photo URL.
 
 Output: data/_leasebusters_raw.json — keyed by Leasebusters listing ID.
-
-This is a SKELETON. Selectors are best-effort; medium-tier next session
-needs to verify against the actual DOM. Search "TODO(D-core)" for the
-iteration points.
 """
 from __future__ import annotations
 

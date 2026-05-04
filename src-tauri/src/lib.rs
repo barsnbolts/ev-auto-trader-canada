@@ -60,11 +60,24 @@ fn now_iso() -> String {
 
 #[tauri::command]
 fn set_dock_badge(_count: Option<u64>) -> Result<(), String> {
-    // Phase C1 placeholder — Tauri 2.11 AppHandle doesn't expose
-    // set_badge_count directly. NSDockTile binding via the `objc2`
-    // crate is the right fix; deferred to a follow-up since it adds
-    // an Apple-specific dep + unsafe block. For now this is a no-op
-    // that returns Ok so the frontend invoke doesn't error.
+    // TODO(medium): replace this no-op stub with an NSDockTile binding.
+    //
+    // Tauri 2.11 AppHandle doesn't expose set_badge_count. The fix:
+    //   1. Add to Cargo.toml under [target.'cfg(target_os = "macos")'.dependencies]:
+    //        objc2 = "0.5"
+    //        objc2-app-kit = "0.2"   (or current versions)
+    //        objc2-foundation = "0.2"
+    //   2. Replace the body with an unsafe block that calls
+    //      [[NSApplication sharedApplication] dockTile] setBadgeLabel:].
+    //      Use NSString::from_str(rust_string) for non-empty counts;
+    //      pass a null pointer (or empty NSString) to clear the badge.
+    //   3. Token estimate: ~5k. Single-file Rust change + recompile.
+    //   4. Frontend wiring is already done — DockBadgeSync.tsx mounts in
+    //      layout, calls setDockBadge() in tauriRuntime.ts, which invokes
+    //      this command. Just write the body and rebuild.
+    //
+    // See docs/handoff/MEDIUM_RESUME_2026-05-04.md "Phase C dock badge"
+    // for the full snippet skeleton.
     Ok(())
 }
 

@@ -1,6 +1,19 @@
 #!/usr/bin/env python3
 """Re-fetch a single AutoTrader listing and report freshness.
 
+TODO(medium, low priority): improve Imperva bypass. Currently when
+AutoTrader returns a 200 + ~1KB stub page (Imperva fingerprinting
+HTTP/1.1 / curl / non-Chromium clients), we honestly report
+"challenged" instead of false-positive "active". This is functional
+but loses signal when the listing IS active. Possible upgrades:
+  1. Use Tauri's WebView fetch (proxies through the WKWebView's
+     Chromium TLS stack; Imperva can't tell). Would need a new Rust
+     command that uses `tauri::webview::fetch` instead of subprocess.
+  2. Drive a headless Chrome via Apify or Playwright. Cost-prohibitive
+     for personal use.
+  3. Accept the limitation; the chip's "challenged" state correctly
+     directs the user to click the AutoTrader link manually.
+
 Phase B per-unit verify: dossier "Verify availability" chip calls this
 via the Tauri Rust `run_verify_unit` command. Output is JSON on stdout
 so the calling Rust can deserialize and emit to the WebView.
