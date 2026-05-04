@@ -1,0 +1,1 @@
+{"ts": "2026-05-04T18:48:58.810575Z", "source": "kijiji", "fetched": 242, "unique": 229, "vin_pct": 46.3, "vin_checksum_ok_pct": 100.0, "errors": 0, "pages_walked": 13, "duration_s": 31.6, "max_pages_hit": false, "notes": "max_pages=8, models=6"}
