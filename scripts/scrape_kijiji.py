@@ -62,16 +62,22 @@ TARGETS = [
 ]
 
 
-def parse_listings(html: str) -> list[dict]:
+def parse_listings(html: str) -> tuple[list[dict], int, int]:
+    """Returns (listings, total_seen, total_with_valid_vin) so caller
+    can compute true upstream VIN coverage (not post-filter)."""
     next_data = extract_next_data(html)
     if not next_data:
-        return []
+        return [], 0, 0
     out: list[dict] = []
+    total_seen = 0
+    total_with_vin = 0
     for _, listing in apollo_entities(next_data, "AutosListing"):
+        total_seen += 1
         attrs = _flatten_attrs(listing.get("attributes"))
         vin = attrs.get("vin")
         if not is_valid_vin(vin):
             continue  # ~5% of dealer ads omit VIN entirely
+        total_with_vin += 1
         # Soft validation: check-digit. Kijiji is mostly clean but a
         # handful of dealer typos slip through. Tag confidence rather
         # than reject — downstream merge can prefer check-digit-ok.
@@ -122,7 +128,7 @@ def parse_listings(html: str) -> list[dict]:
                 "imageCount": listing.get("imageCount"),
             }
         )
-    return out
+    return out, total_seen, total_with_vin
 
 
 def _flatten_attrs(attrs_obj) -> dict:
@@ -165,9 +171,9 @@ def main() -> int:
     fetched = 0
     pages_walked = 0
     errors = 0
-    vin_total = 0
-    vin_with_field = 0
-    vin_checksum_ok = 0
+    vin_total = 0          # total ads seen upstream (counted at parse time, includes page-dups)
+    vin_with_field = 0     # subset of above that carried a strict VIN
+    vin_checksum_ok = 0    # subset of vin_with_field that passed check-digit
     cap_hit_anywhere = False
     seen_total: set[str] = set()
     for make, model_slug, model_label in TARGETS:
@@ -185,8 +191,12 @@ def main() -> int:
                 print(f"  thin response ({len(html)} bytes) — stopping", file=sys.stderr)
                 errors += 1
                 break
-            listings = parse_listings(html)
-            vin_total += len(listings)
+            listings, page_seen, page_with_vin = parse_listings(html)
+            vin_total += page_seen
+            vin_with_field += page_with_vin
+            for entry in listings:
+                if entry.get("vinChecksumOk"):
+                    vin_checksum_ok += 1
             page_new = 0
             for entry in listings:
                 sid = str(entry["stockId"])
@@ -199,10 +209,6 @@ def main() -> int:
                 raw[sid] = entry
                 fetched += 1
                 page_new += 1
-                if entry.get("vin"):
-                    vin_with_field += 1
-                if entry.get("vinChecksumOk"):
-                    vin_checksum_ok += 1
             print(f"  {len(listings)} parsed, {page_new} new", file=sys.stderr)
             if page == max_pages:
                 cap_hit_anywhere = True

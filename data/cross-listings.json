@@ -1,1 +1,362 @@
-[]
+[
+  {
+    "fallbackKey": "2025|kia|ev6|land-awd",
+    "listings": [
+      {
+        "dealerName": "kia-red-deer",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 62628,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-fc69e5f7",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-heated-seats--heated-wheel--wireless-ch-electric-white-d0b2f40f-3636-461b-a429-a64843e062e2"
+      },
+      {
+        "dealerName": "kia-plaza",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 60441,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-cffbb428",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-2700lbs-tow-cap-l-smart-li-electric-grey-257ae05e-8d4e-4e16-8d8b-e737dae5a8ee"
+      },
+      {
+        "dealerName": "kia-vancouver",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 54288,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-3020c405",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land--dual-motor-awd--panoramic-digital-displays-electric-white-1e2cccc2-fc1c-43a3-a278-2fe20facd7bd"
+      },
+      {
+        "dealerName": "kia-401-dixie",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 59542,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-b80dc23e",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-3000-cash-rebate--2000-electric-grey-5d62caad-3dcb-4d10-b66c-daa2fb1272eb"
+      },
+      {
+        "dealerName": "kia-plaza",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 60441,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-ce0de3ee",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-2700lbs-tow-cap-l-smart-li-electric-grey-509bbc33-4c46-4f7c-810e-f2c5fcfaa953"
+      },
+      {
+        "dealerName": "kia-lallier-de-laval",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 56561,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-e9594f11",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-special-demo-5500-rabais-ev6-land-awd-20-gasoline-grey-627a7ed4-0c98-430f-b41a-ddf89967f0f5"
+      },
+      {
+        "dealerName": "kia-401-dixie",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 57292,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-3f5f5dd9",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-pwr-liftgate-adv-safety-t-electric-black-aa81b629-74ce-4dbe-a146-c0eddc9704eb"
+      },
+      {
+        "dealerName": "kia-angers-toyota",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 51995,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-bc9a1f21",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-groupe-premium-electric-grey-1030e1ca-e97e-40a0-8fec-00af9a296147"
+      },
+      {
+        "dealerName": "kia-401-dixie",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 57542,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-1c1f7921",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-3000-cash-rebate--2000-electric-grey-b36a7a05-4df2-473d-8714-85569d8b3b72"
+      },
+      {
+        "dealerName": "kia-north-york",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 59298,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-7b6f7cb3",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-electric-grey-baf21ea5-8003-40bb-9e1b-bf2fba773d7d"
+      },
+      {
+        "dealerName": "kia-clarington",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 63791,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0cebdf90",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-electric-white-4cc18d04-6a5a-4ff0-ad4f-1fc3ec65701b"
+      },
+      {
+        "dealerName": null,
+        "km": 128,
+        "lastVerified": "2026-05-04T18:54:43.260732Z",
+        "priceCad": 58694,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1724428425",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2025-kia-ev6-land-awd/1724428425"
+      },
+      {
+        "dealerName": null,
+        "km": 29,
+        "lastVerified": "2026-05-04T18:54:43.260739Z",
+        "priceCad": 62419,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1725786983",
+        "url": "https://www.kijiji.ca/v-cars-trucks/london/2025-kia-ev6-land-awd/1725786983"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV6",
+    "trim": "Land AWD",
+    "vin": "5XYC3DJC0SG001120",
+    "year": 2025
+  },
+  {
+    "fallbackKey": "2025|kia|ev6|wind-rwd",
+    "listings": [
+      {
+        "dealerName": "kia-west-coast",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 58495,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-ea02ce02",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-ebony-black-electric-black-5fe427de-2ed5-412e-be5c-2d043e8ef6bc"
+      },
+      {
+        "dealerName": "kia-north-york",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 59458,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-2e0b7893",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-electric-black-a1fdb331-041e-4ead-80f5-7571f3422baa"
+      },
+      {
+        "dealerName": "kia-joliette",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 57755,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-8eb27f8d",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-ev6-wind-ta-electric-white-695167fa-ea3c-4bde-b6e5-893b4b12175a"
+      },
+      {
+        "dealerName": "kia-georgetown",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 53390,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-43722df6",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind--513-km-ev-range--finance-from-0-with-lylt-electric-blue-1901cca5-2125-4f4d-ad0f-3dd14c5a1b47"
+      },
+      {
+        "dealerName": "kia-401-dixie",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 53542,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-16a80261",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-3000-cash-rebate--2000-dealer-incentiv-electric-white-428b8f70-0db9-469d-b610-f204bd89c12b"
+      },
+      {
+        "dealerName": "kia-georgetown",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 53390,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-6e0c1e62",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind--513-km-ev-range--finance-from-0-with-lylt-electric-grey-e54556e2-c3b0-4035-b7ba-1352f883f804"
+      },
+      {
+        "dealerName": "kia-401-dixie",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 52542,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-09ced952",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-3000-cash-rebate--2000-dealer-incentiv-electric-grey-ec1bc22d-f461-4304-a5f5-17830693cd97"
+      },
+      {
+        "dealerName": null,
+        "km": 161,
+        "lastVerified": "2026-05-04T18:54:43.260807Z",
+        "priceCad": 58614,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1724507460",
+        "url": "https://www.kijiji.ca/v-cars-trucks/medicine-hat/2025-kia-ev6-wind-rwd-modern-electric-suv-with-smart-comfort-e/1724507460"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV6",
+    "trim": "Wind RWD",
+    "vin": "5XYC34JA5SG001144",
+    "year": 2025
+  },
+  {
+    "fallbackKey": "2025|hyundai|ioniq6|preferred-rwd-long-range",
+    "listings": [
+      {
+        "dealerName": "hyundai-go-west",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 56999,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-4822fd01",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-ultimate--long-range--sunroof--local-trade-in--electric-blue-4a074819-c9c8-4cdc-995c-28506e0f845f"
+      },
+      {
+        "dealerName": "hyundai-strickland-s",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 39995,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-a1c6fab0",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-long-range-electric-white-bb027780-d837-4580-8715-0682451cf221"
+      },
+      {
+        "dealerName": "hyundai-myers-kanata",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 60223,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-7d5c30cd",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-rwd-long-range-197-17-wk-electric-grey-4279afd3-0448-422a-b0bd-35a4e57a267e"
+      },
+      {
+        "dealerName": "hyundai-stratford",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 57367,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-1b8107c7",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-rwd-long-range-electric-black-366862ae-a425-4e94-8c2a-05692f1e9c10"
+      },
+      {
+        "dealerName": "hyundai-boundary",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 46399,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-5cf50690",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-rwd-long-range-electric-grey-3b106111-ed74-4666-80b3-00a606107267"
+      },
+      {
+        "dealerName": "hyundai-bannister-kamloops",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 60799,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-68e4aa51",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-long-range-w-ultimate-package-electric-black-1a9efdd0-7d26-4696-93e8-02183211a991"
+      },
+      {
+        "dealerName": "hyundai-bank-street",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 49745,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-f6ff28b6",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-rwd-long-range-electric-black-86d31187-ceb2-4290-af14-2dcf909ad373"
+      },
+      {
+        "dealerName": "hyundai-ontario",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 57149,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-a8b0ff98",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-long-range-electric-white-a934dd97-b589-491e-a72c-0ca642b277e4"
+      },
+      {
+        "dealerName": "hyundai-west-edmonton",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 41409,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-979d6e97",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-rwd-long-range-electric-grey-caae0946-24a0-4f51-a488-cd2a2622a017"
+      },
+      {
+        "dealerName": "hyundai-ontario",
+        "km": null,
+        "lastVerified": "2026-05-04",
+        "priceCad": 56164,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-00257fa9",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-long-range-electric-white-44749e6a-f0c3-4d47-8d51-03ee87f4bd3a"
+      },
+      {
+        "dealerName": null,
+        "km": 75,
+        "lastVerified": "2026-05-04T18:55:05.716994Z",
+        "priceCad": 47046,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1729750761",
+        "url": "https://www.kijiji.ca/v-cars-trucks/oshawa-durham-region/2025-hyundai-ioniq-6-preferred-rwd-long-range/1729750761"
+      },
+      {
+        "dealerName": null,
+        "km": 24039,
+        "lastVerified": "2026-05-04T18:55:09.525769Z",
+        "priceCad": 39995,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1736598730",
+        "url": "https://www.kijiji.ca/v-cars-trucks/stratford-on/2025-hyundai-ioniq-6-preferred-rwd-long-range/1736598730"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq6",
+    "trim": "Preferred RWD Long Range",
+    "vin": "KMHM34AA5SA116603",
+    "year": 2025
+  }
+]

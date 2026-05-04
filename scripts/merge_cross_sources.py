@@ -67,14 +67,55 @@ def km_bucket(km) -> str:
     return str((n // 2000) * 2000)
 
 
+# Model name normalization across sources. AutoTrader uses PascalCase
+# (Ioniq5, EV6, NiroEV); Kijiji uses snake_case (ioniq_5, ev6, niro_ev).
+# Without this, fallbackKey never matches across sources.
+def normalize_model(m: str | None) -> str:
+    if not m:
+        return "?"
+    s = m.strip().lower()
+    # Strip spaces, hyphens, underscores → canonical alphanum
+    s = s.replace(" ", "").replace("-", "").replace("_", "")
+    # Aliases AutoTrader/Kijiji might use
+    aliases = {
+        "ioniq5": "ioniq5",
+        "ioniq6": "ioniq6",
+        "ioniq9": "ioniq9",
+        "ev6": "ev6",
+        "ev9": "ev9",
+        "niroev": "niroev",
+        "niro": "niroev",  # Kijiji sometimes drops EV suffix
+        "kona": "konaev",  # if/when Kona EV gets pulled in
+    }
+    return aliases.get(s, s)
+
+
+def normalize_trim(t: str | None) -> str:
+    """Normalize trim string: lowercase, strip, collapse whitespace,
+    drop punctuation. 'Land AWD' and 'land-awd' should match."""
+    if not t:
+        return "any"
+    s = t.strip().lower()
+    s = s.replace(",", " ").replace(".", " ").replace("/", " ")
+    s = " ".join(s.split())  # collapse whitespace
+    return s.replace(" ", "-")
+
+
 def fallback_key(year, make, model, trim, km) -> str:
+    # Note: km dropped from join key. AutoTrader rarely exposes km;
+    # Kijiji always does. If we keyed by km bucket, AT entries with
+    # km=None ("any") would never match Kijiji entries with real km.
+    # Trim+year+make+model is specific enough to identify a vehicle
+    # to within ~5 candidate listings, which all merge under one
+    # entry's listings[]. km is preserved per-listing for downstream
+    # filters.
+    _ = km  # explicitly unused
     return "|".join(
         [
             str(year or "?"),
             (make or "?").lower(),
-            (model or "?").lower(),
-            (trim or "any").lower().replace(" ", "-"),
-            km_bucket(km),
+            normalize_model(model),
+            normalize_trim(trim),
         ]
     )
 
