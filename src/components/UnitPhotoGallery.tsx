@@ -41,6 +41,7 @@ export function UnitPhotoGallery({ unitId }: { unitId: string }) {
               setLightbox(true);
             }}
             className="aspect-video bg-bg-subtle overflow-hidden rounded card-hover"
+            aria-label={`Open photo ${i + 1} in gallery`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -59,6 +60,7 @@ export function UnitPhotoGallery({ unitId }: { unitId: string }) {
               setLightbox(true);
             }}
             className="aspect-video bg-bg-subtle rounded text-xs text-fg-subtle hover:text-fg flex items-center justify-center"
+            aria-label={`Open photo gallery with ${photos.length - 5} more photos`}
           >
             +{photos.length - 5} more
           </button>
