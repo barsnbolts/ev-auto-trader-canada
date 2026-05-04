@@ -9,10 +9,68 @@
 | Item | Value |
 |---|---|
 | Branch | `claude/verify-environment-setup-oTu3S` |
-| HEAD | `7ddc467c` (will be 1 commit higher after this doc commits) |
-| Origin | `barsnbolts/ev-auto-trader-canada` |
-| Working tree | 3 modified files: `data/units.json`, `data/units-enrichment.json`, `data/meta-static.json` (all cron drift — leave them) |
+| HEAD | `e4d29c7d` (autonomous mode docs + preview MCP recipe) — will move with each commit |
+| Origin | `barsnbolts/ev-auto-trader-canada` (always pushed; HEAD == origin) |
+| Working tree | clean (cron drift committed as `6795f18c`) |
 | Built `.app` | `src-tauri/target/aarch64-apple-darwin/release/bundle/macos/EV.trader CA.app` (6.4MB arm64, 12:08 timestamp) |
+
+## State-of-data snapshot (taken 2026-05-04 14:00 ET)
+
+| Asset | Count / state | Notes |
+|---|---|---|
+| `data/units.json` | 100 records | Fresh from cron; SHA1 stable IDs `u-at-<8hex>` |
+| `data/dealers.json` | 80 records | Static; refreshed manually only |
+| `data/incentives.json` | 35 records | Federal $0 + provincial + manufacturer cash |
+| `data/specs.json` | 31 records | Phase 1 trims |
+| `data/cross-listings.json` | 0 records | EMPTY — Phase D-core scrapers haven't run yet (need Chrome MCP probe) |
+| `data/unit-photos.json` | 0 records | EMPTY — Phase C2 hasn't run successfully yet (Imperva walls) |
+| `data/oem-pricing.json` lastVerified | 2026-05-02 | OK; refresh if > 30 days |
+| `data/snapshots/` | 4 files | 2025-04-01, 2025-04-15, 2026-05-01, 2026-05-02 |
+| Apify spend cumulative | $0 | Cap is $30; haven't used yet |
+
+**Verification commands (run on resume to detect drift):**
+
+```bash
+cd ~/ev-auto-trader-canada
+jq '. | length' data/units.json           # expect 100
+jq '. | length' data/dealers.json         # expect 80
+jq '. | length' data/incentives.json      # expect 35
+jq '. | length' data/specs.json           # expect 31
+jq 'keys | length' data/cross-listings.json   # expect 0 until Phase D-core ships
+jq 'keys | length' data/unit-photos.json      # expect 0 until Phase C2 succeeds
+```
+
+If any of these counts drop unexpectedly: cron may have broken
+something. Check `git log --oneline data/` and `tail logs/cron.log` for
+recent errors before proceeding with new work.
+
+## Boot script (RUN FIRST on resume)
+
+Paste this verbatim into the first medium-tier turn:
+
+```bash
+cd ~/ev-auto-trader-canada \
+  && git fetch --all --prune \
+  && git status --short \
+  && git log --oneline -10 \
+  && echo "---" \
+  && jq '. | length' data/units.json \
+  && jq '. | length' data/dealers.json \
+  && jq '. | length' data/incentives.json \
+  && jq 'keys | length' data/cross-listings.json \
+  && echo "---" \
+  && npx tsc --noEmit \
+  && echo "OK"
+```
+
+Expected output:
+- working tree clean (or 3 cron-drift files; commit them as `data: cron drift snapshot <date>` separately)
+- HEAD ≥ `e4d29c7d`
+- counts match the table above (or are growing for cross-listings/photos)
+- typecheck OK
+
+If anything mismatches: investigate before picking work. Cron-drift in
+data/ is fine; schema breakage is not.
 
 ```bash
 # Verify state on resume:
@@ -407,9 +465,22 @@ Everything else is shipped, tested, in the .app. Resume at any of the above when
 
 ---
 
+## Pre-baked recipes (use these — don't reinvent)
+
+| Document | Use for | Token saving |
+|---|---|---|
+| `docs/handoff/DOCK_BADGE_RECIPE.md` | Phase C dock badge — exact Cargo.toml + lib.rs diff | ~3k (no R&D) |
+| `docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md` | Phase D-core Kijiji + Leasebusters scraper unblock | ~10k (no MCP figuring) |
+| `docs/handoff/AUTONOMOUS_QUEUE.md` | After the explicit queue empties — 17 pre-staged tasks (Tier 2-5) with file paths + commands + token estimates | huge (no inventing work) |
+| `docs/handoff/AUTONOMOUS_MODE.md` | Loop protocol after AUTONOMOUS_QUEUE also runs dry | n/a |
+
+**Read order on resume:** CLAUDE.md → MEDIUM_RESUME (this) → TODO_INDEX
+→ pick item → look up its row's "Pre-baked recipe" doc → apply.
+
 ## After the queue empties — autonomous mode
 
-**Read `docs/handoff/AUTONOMOUS_MODE.md` and follow it.**
+**Read `docs/handoff/AUTONOMOUS_QUEUE.md` first** (17 concrete pre-staged
+tasks). Then `docs/handoff/AUTONOMOUS_MODE.md` for the re-prime loop.
 
 Once `docs/handoff/TODO_INDEX_2026-05-04.md` items are all shipped (or
 explicitly deferred per stop conditions), do NOT idle. Switch to the

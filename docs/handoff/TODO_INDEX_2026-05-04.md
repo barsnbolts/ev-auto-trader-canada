@@ -10,13 +10,16 @@ grep -rn "TODO(medium" src/ src-tauri/ scripts/ 2>/dev/null
 
 ## Inline TODOs
 
-| Severity | File | Line ref | What |
-|---|---|---|---|
-| ★★★ unblocker | `scripts/scrape_kijiji.py` | top of file (header docstring) | Find Kijiji's real listing JSON XHR via Chrome MCP. Path A: capture endpoint. Path B: walk `__NEXT_DATA__`. Token: 15-25k. |
-| ★★★ unblocker | `scripts/scrape_leasebusters.py` | top of file (header docstring) | Find Leasebusters' XHR endpoint via Chrome MCP. Confirm whether VIN appears post-login. Token: 10-15k. |
-| ★★ ship-win | `src-tauri/src/lib.rs` | inside `set_dock_badge` fn | Replace stub with NSDockTile binding via objc2 crate. Token: 5k. |
-| ★ low-pri | `scripts/verify_unit.py` | top of file (header docstring) | Improve Imperva bypass. Optional — current "challenged" state honestly handles the wall. |
-| ★ low-pri | `scripts/scrape_unit_gallery.py` | top of file (header docstring) | Same Imperva walls as verify_unit.py. Cron retries nightly; no urgent action. |
+| Severity | File | Line ref | What | Pre-baked recipe |
+|---|---|---|---|---|
+| ★★★ unblocker | `scripts/scrape_kijiji.py` | top of file (header docstring) | Find Kijiji's real listing JSON XHR via Chrome MCP. | **`docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md` § Site 1: Kijiji** — exact MCP call sequence, capture script, decision matrix |
+| ★★★ unblocker | `scripts/scrape_leasebusters.py` | top of file (header docstring) | Find Leasebusters' XHR endpoint via Chrome MCP. Confirm whether VIN appears post-login. | **`docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md` § Site 2: Leasebusters** — same playbook + VIN-decision protocol |
+| ★★ ship-win | `src-tauri/src/lib.rs` | inside `set_dock_badge` fn | Replace stub with NSDockTile binding via objc2 crate. | **`docs/handoff/DOCK_BADGE_RECIPE.md`** — Cargo.toml + lib.rs diffs ready to apply, build + test instructions |
+| ★ low-pri | `scripts/verify_unit.py` | top of file (header docstring) | Improve Imperva bypass. Optional — current "challenged" state honestly handles the wall. | (none — see TODO header in file) |
+| ★ low-pri | `scripts/scrape_unit_gallery.py` | top of file (header docstring) | Same Imperva walls as verify_unit.py. Cron retries nightly; no urgent action. | (none) |
+
+**Revised total token estimate** (post-pre-baking): ~30-40k for all 3
+unblocker + ship-win items. Was 30-50k pre-playbook.
 
 ## Recommended order
 
