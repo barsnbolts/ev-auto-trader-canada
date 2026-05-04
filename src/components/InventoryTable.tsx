@@ -16,6 +16,7 @@ import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
 import { MiniChargingSparkline } from "./MiniChargingSparkline";
+import { CrossSourceChip } from "./CrossSourceChip";
 import { plainLang } from "@/lib/plainLang";
 import { useTemp } from "@/lib/tempContext";
 import vehicleImages from "../../data/vehicle-images.json";
@@ -684,6 +685,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                     {specByUnitId && (
                       <WinterRangeChip spec={specByUnitId[u.id]} />
                     )}
+                    <CrossSourceChip
+                      vin={u.vin ?? null}
+                      year={u.year}
+                      make={u.model.startsWith("Ioniq") ? "Hyundai" : "Kia"}
+                      model={u.model}
+                      trim={u.trim}
+                      thisPriceCad={u.dealerAskingPrice}
+                    />
                   </td>
                   <td className="px-3 py-2 num">{u.year}</td>
                   <td className="px-3 py-2 text-xs">

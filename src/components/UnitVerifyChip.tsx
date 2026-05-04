@@ -49,7 +49,7 @@ export function UnitVerifyChip({ unitId }: { unitId: string }) {
     return (
       <button
         onClick={handleClick}
-        className="inline-block chip-good text-xxs cursor-pointer"
+        className="inline-block chip-accent text-xxs cursor-pointer"
         title={`Verified ${result.scrapedAt ?? "just now"}. Click to re-verify.`}
       >
         ✓ Listed{priceStr}

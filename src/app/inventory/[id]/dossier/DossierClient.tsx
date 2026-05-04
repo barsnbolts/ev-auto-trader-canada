@@ -22,6 +22,7 @@ import { readHeatPump } from "@/lib/types";
 import { PrintButton } from "./PrintButton";
 import { UnitVerifyChip } from "@/components/UnitVerifyChip";
 import { UnitPhotoGallery } from "@/components/UnitPhotoGallery";
+import { CrossSourceChip } from "@/components/CrossSourceChip";
 import { plainLang } from "@/lib/plainLang";
 import { ChargingCurveChart } from "@/components/ChargingCurveChart";
 import { BatteryHealthPanel } from "@/components/BatteryHealthPanel";
@@ -279,8 +280,16 @@ function Header({ unit, dealer, spec }: { unit: ScoredUnit; dealer: { name: stri
           Listing on AutoTrader ↗
         </a>
       )}
-      <div className="mt-2 print:hidden">
+      <div className="mt-2 print:hidden flex flex-wrap gap-2">
         <UnitVerifyChip unitId={unit.id} />
+        <CrossSourceChip
+          vin={unit.vin ?? null}
+          year={unit.year}
+          make={unit.model.startsWith("Ioniq") ? "Hyundai" : "Kia"}
+          model={unit.model}
+          trim={unit.trim}
+          thisPriceCad={unit.dealerAskingPrice}
+        />
       </div>
     </header>
   );
