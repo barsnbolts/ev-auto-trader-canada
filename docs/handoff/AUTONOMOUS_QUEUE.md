@@ -384,3 +384,29 @@ again, refresh stale data, etc.
 - [x] U4 native macOS menu bar (App / File / Edit / Window with Cmd+R refresh): (this commit)
 - [x] T2-extension scoring incentive specs (stackedOtdIncentives 4 + applicableIncentives 7 incl EVAP cap; 38 total): (this commit)
 - [x] Q5-followup lazy-load recharts charts on dossier (281 kB → 176 kB first-load): (this commit)
+- [x] Re-prime: data refresh — 2026-05-04 snapshot + meta + daysOnLot: a5581fd6
+
+## Medium pass 2026-05-04 — final tally
+
+Shipped 19 commits across 11 task IDs:
+- Q1 data-unit-id, Q2 a11y, Q3 console-clean, Q4 dead-exports, Q5 bundle audit
+- U1 dossier shortcuts, U3 print CSS, U4 native menu, U5 URL filters
+- T1 vitest+thermal, T2 crossListings+scoring (38 specs total)
+- T3 schema-drift catcher (predeploy-gated)
+- D1 JSDoc, D2 ARCHITECTURE.md
+- Q5-followup recharts lazy-load (-105kB on dossier)
+- Re-prime data refresh (snapshot 2026-05-04 + meta + daysOnLot)
+
+Blocked: Leasebusters (Chrome MCP browser not connected — needs user
+to open Chrome with the extension installed).
+
+HEAD a5581fd6 pushed. Predeploy clean. Tauri build clean (1m31s last
+verified at U4). 38/38 vitest specs pass.
+
+Next session resume points (any unblocked):
+- U2 CrossSourceChip empty-state (judgment-deferred — would add a "·"
+  to every row without a cross-match; risk: visual noise on 100 rows)
+- U6 compare-tray persistence test (manual ad-hoc, not automatable)
+- D3 component READMEs (low-value; ARCHITECTURE.md covers most needs)
+- Polyfills drop for Tauri target (Q5 follow-up; needs Next 15 verify)
+- Leasebusters scraper (unblocks once Chrome MCP browser is paired)
