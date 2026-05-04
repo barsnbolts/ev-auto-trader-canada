@@ -589,7 +589,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
 
       <div className="overflow-x-auto">
         <table className="w-full">
-          <thead className="bg-bg-subtle text-xxs uppercase text-fg-subtle">
+          <thead className="bg-bg-subtle/85 backdrop-blur-md text-xxs uppercase text-fg-subtle sticky top-0 z-10 shadow-sm shadow-black/20">
             <tr>
               <th className="px-2 py-2"></th>
               <th className="px-2 py-2"></th>
@@ -618,7 +618,8 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
               return (
                 <tr
                   key={u.id}
-                  className={`border-t border-border cursor-pointer transition-colors duration-150 ${isActive ? "bg-accent-dim/20" : "card-hover"}`}
+                  className={`border-t border-border cursor-pointer transition-colors duration-150 will-change-transform ${isActive ? "bg-accent-dim/20" : "card-hover"}`}
+                  style={{ contain: "layout paint" }}
                   onClick={() => setSelectedId(u.id)}
                 >
                   <td className="px-2 py-2 text-center">

@@ -1,20 +1,20 @@
 "use client";
 /**
  * TempSlider — LEFT = warm (+40°C), RIGHT = cold (-40°C).
- * Internally negated so HTML range increases L→R while displayed temp decreases.
  *
- * URL params (both via router.replace, no page reload):
- *   ?tempC=N      — outside temperature in °C (default 20 → param omitted)
- *   ?precon=1     — battery + cabin preconditioning ON (default off → param omitted)
+ * Snappy: drag updates local state at GPU rate; URL syncs via 200ms debounce
+ * (one SSR roundtrip per pause, not per pixel). Display label/color update
+ * instantly off local state.
  *
- * Preconditioning toggle is a small ⚡ button next to the slider. When on,
- * the thermal model treats the battery as ~15°C warmer (capped at 20°C) and
- * cabin HVAC draw as ~30% lower — modeling the typical Hyundai/Kia E-GMP
- * "Battery Conditioning" + cabin pre-heat behaviour.
+ * URL params (router.replace, no scroll):
+ *   ?tempC=N    outside temperature in °C (default 20 omits param)
+ *   ?precon=1   battery + cabin preconditioning ON
  */
+import { useEffect, useRef, useState, useTransition } from "react";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 const DEFAULT_TEMP = 20;
+const DEBOUNCE_MS = 200;
 
 function tempColor(t: number): string {
   if (t >= 10) return "text-good";
@@ -32,23 +32,59 @@ export function TempSlider({ initial, preconditioned = false }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [localTemp, setLocalTemp] = useState(initial);
+  const [localPrecon, setLocalPrecon] = useState(preconditioned);
+  const [isPending, startTransition] = useTransition();
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  function updateParams(patch: { tempC?: number | null; precon?: boolean | null }) {
+  // Sync if parent prop changes (e.g. user lands with different URL).
+  useEffect(() => {
+    setLocalTemp(initial);
+  }, [initial]);
+  useEffect(() => {
+    setLocalPrecon(preconditioned);
+  }, [preconditioned]);
+
+  function pushUrl(temp: number, precon: boolean) {
     const params = new URLSearchParams(searchParams.toString());
-    if (patch.tempC !== undefined) {
-      if (patch.tempC === null || patch.tempC === DEFAULT_TEMP) params.delete("tempC");
-      else params.set("tempC", String(patch.tempC));
-    }
-    if (patch.precon !== undefined) {
-      if (patch.precon) params.set("precon", "1");
-      else params.delete("precon");
-    }
+    if (temp === DEFAULT_TEMP) params.delete("tempC");
+    else params.set("tempC", String(temp));
+    if (precon) params.set("precon", "1");
+    else params.delete("precon");
     const qs = params.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    startTransition(() => {
+      router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    });
   }
 
-  const sliderValue = -initial; // negate so left = warm
-  const label = initial >= 0 ? `+${initial}°C` : `${initial}°C`;
+  function scheduleUrl(temp: number, precon: boolean) {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => pushUrl(temp, precon), DEBOUNCE_MS);
+  }
+
+  function onTempChange(next: number) {
+    setLocalTemp(next);
+    scheduleUrl(next, localPrecon);
+  }
+
+  function onPreconToggle() {
+    const next = !localPrecon;
+    setLocalPrecon(next);
+    // Precon toggle is single-shot, push immediately for instant feedback.
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    pushUrl(localTemp, next);
+  }
+
+  function onReset() {
+    setLocalTemp(DEFAULT_TEMP);
+    setLocalPrecon(false);
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    pushUrl(DEFAULT_TEMP, false);
+  }
+
+  const sliderValue = -localTemp;
+  const label = localTemp >= 0 ? `+${localTemp}°C` : `${localTemp}°C`;
+  const dirty = localTemp !== DEFAULT_TEMP || localPrecon;
 
   return (
     <div className="flex items-center gap-2 px-3 py-2 text-xs select-none">
@@ -60,40 +96,41 @@ export function TempSlider({ initial, preconditioned = false }: Props) {
         max={40}
         step={5}
         value={sliderValue}
-        onChange={(e) => updateParams({ tempC: -Number(e.target.value) })}
-        className="flex-1 max-w-xs cursor-pointer accent-accent"
+        onChange={(e) => onTempChange(-Number(e.target.value))}
+        className="flex-1 max-w-xs cursor-pointer accent-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 rounded-full"
         aria-label="Outside temperature in Celsius"
         aria-valuetext={label}
       />
       <span className="text-[#f87171] text-xxs shrink-0 hidden sm:inline">−40°C</span>
-      <span className={`font-mono w-14 text-right tabular-nums shrink-0 font-medium ${tempColor(initial)}`}>
+      <span
+        className={`font-mono w-14 text-right tabular-nums shrink-0 font-medium transition-colors duration-150 ${tempColor(localTemp)} ${isPending ? "opacity-70" : ""}`}
+      >
         {label}
       </span>
 
-      {/* Preconditioning toggle */}
       <button
         type="button"
         role="switch"
-        aria-checked={preconditioned}
-        onClick={() => updateParams({ precon: !preconditioned })}
-        className={`shrink-0 ml-1 px-2 py-1 rounded text-xxs font-medium transition border ${
-          preconditioned
+        aria-checked={localPrecon}
+        onClick={onPreconToggle}
+        className={`shrink-0 ml-1 px-2 py-1 rounded text-xxs font-medium transition-all duration-150 border focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 ${
+          localPrecon
             ? "bg-accent-dim/30 border-accent text-accent"
             : "bg-bg border-border text-fg-subtle hover:text-fg hover:bg-bg-hover"
         }`}
         title={
-          preconditioned
-            ? "Preconditioning ON — battery + cabin warmed before drive (typical: +8-15% range at -20°C). Click to disable."
-            : "Preconditioning OFF — cold-soaked vehicle (worst case). Click to model preconditioning ON (E-GMP Winter Mode)."
+          localPrecon
+            ? "Preconditioning ON — battery + cabin warmed before drive. Click to disable."
+            : "Preconditioning OFF — cold-soaked vehicle. Click to enable (E-GMP Winter Mode)."
         }
       >
-        ⚡ {preconditioned ? "Precon ON" : "Precon"}
+        ⚡ {localPrecon ? "Precon ON" : "Precon"}
       </button>
 
-      {(initial !== DEFAULT_TEMP || preconditioned) && (
+      {dirty && (
         <button
-          onClick={() => updateParams({ tempC: DEFAULT_TEMP, precon: false })}
-          className="text-xxs text-fg-subtle hover:text-fg transition shrink-0 ml-1"
+          onClick={onReset}
+          className="text-xxs text-fg-subtle hover:text-fg transition shrink-0 ml-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/60 rounded"
           aria-label="Reset to defaults"
         >
           reset
