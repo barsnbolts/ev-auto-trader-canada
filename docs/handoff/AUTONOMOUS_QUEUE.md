@@ -374,3 +374,4 @@ again, refresh stale data, etc.
 - [x] D1 JSDoc on types.ts (≥13 blocks): 4da1c5a2
 - [x] U3 print stylesheet polish: 89910a7a
 - [x] D2 architecture diagram: (this commit)
+- [x] U1 keyboard shortcuts on dossier (← → c Esc): (this commit)

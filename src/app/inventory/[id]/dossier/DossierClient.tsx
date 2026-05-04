@@ -12,7 +12,7 @@
 //   6. Talking points — pre-written, numbers interpolated
 
 import React, { Suspense, useEffect, useState } from "react";
-import { useSearchParams, notFound } from "next/navigation";
+import { useSearchParams, notFound, useRouter } from "next/navigation";
 import Link from "next/link";
 import { loadScoredUnits, loadSpecs, loadUsedListings, computeUsedMarketStats } from "@/lib/dataClient";
 import { useBuyerContext } from "@/lib/buyerContext";
@@ -39,6 +39,7 @@ type PageData = {
 
 function DossierInner({ unitId }: { unitId: string }) {
   const sp = useSearchParams();
+  const router = useRouter();
   const tempC = sp.get("tempC") != null ? Number(sp.get("tempC")) : 20;
   const preconditioned = sp.get("precon") === "1";
   const { buyerContext: ctx } = useBuyerContext();
@@ -55,6 +56,41 @@ function DossierInner({ unitId }: { unitId: string }) {
       cancelled = true;
     };
   }, [ctx]);
+
+  // Keyboard shortcuts on dossier:
+  //   ←   navigate to previous unit (by score order)
+  //   →   navigate to next unit
+  //   c   copy dealer phone to clipboard
+  //   Esc back to inventory
+  useEffect(() => {
+    if (!data) return;
+    const ids = data.scored.units.map((u) => u.id);
+    const idx = ids.indexOf(unitId);
+    const dealer = data.scored.dealerById.get(
+      data.scored.units.find((u) => u.id === unitId)?.dealerId ?? "",
+    );
+    function onKey(e: KeyboardEvent) {
+      // Skip when user is typing in an input/textarea/contentEditable
+      const t = e.target as HTMLElement | null;
+      if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === "ArrowLeft" && idx > 0) {
+        e.preventDefault();
+        router.push(`/inventory/${ids[idx - 1]}/dossier`);
+      } else if (e.key === "ArrowRight" && idx >= 0 && idx < ids.length - 1) {
+        e.preventDefault();
+        router.push(`/inventory/${ids[idx + 1]}/dossier`);
+      } else if (e.key === "c" && dealer?.phone) {
+        e.preventDefault();
+        navigator.clipboard?.writeText(dealer.phone).catch(() => {});
+      } else if (e.key === "Escape") {
+        e.preventDefault();
+        router.push("/inventory");
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [data, unitId, router]);
 
   if (!data) {
     return (
