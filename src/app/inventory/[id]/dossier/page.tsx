@@ -33,13 +33,22 @@ import { plainLang } from "@/lib/plainLang";
 import { ChargingCurveChart } from "@/components/ChargingCurveChart";
 import { BatteryHealthPanel } from "@/components/BatteryHealthPanel";
 import { OtdWaterfallChart } from "@/components/OtdWaterfallChart";
+import { WarmupRampChart } from "@/components/WarmupRampChart";
+import { DcChargeRampChart } from "@/components/DcChargeRampChart";
+import { readNumeric } from "@/lib/types";
 
 export const dynamic = "force-dynamic";
 
-type PageProps = { params: Promise<{ id: string }> };
+type PageProps = {
+  params: Promise<{ id: string }>;
+  searchParams: Promise<{ tempC?: string; precon?: string }>;
+};
 
-export default async function DossierPage({ params }: PageProps) {
+export default async function DossierPage({ params, searchParams }: PageProps) {
   const { id } = await params;
+  const sp = await searchParams;
+  const tempC = sp.tempC != null ? Number(sp.tempC) : 20;
+  const preconditioned = sp.precon === "1";
   const ctx = await getBuyerContext();
   const [{ units, dealerById }, specs, used] = await Promise.all([
     loadScoredUnits(ctx),
@@ -86,6 +95,7 @@ export default async function DossierPage({ params }: PageProps) {
       <Header unit={unit} dealer={dealer} spec={specForUnit} />
       <OtdSection unit={unit} ctx={ctx} dealer={dealer} />
       <TechSpecsSection spec={specForUnit} unit={unit} />
+      <ThermalSection spec={specForUnit} tempC={tempC} preconditioned={preconditioned} />
       <CohortSection unit={unit} cohort={cohort} dealerById={dealerById} />
       <DealerPressureSection
         dealerName={dealer.name}
@@ -148,6 +158,69 @@ function TechSpecsSection({
         </div>
       )}
     </Section>
+  );
+}
+
+function ThermalSection({
+  spec,
+  tempC,
+  preconditioned,
+}: {
+  spec?: Spec;
+  tempC: number;
+  preconditioned: boolean;
+}) {
+  if (!spec) return null;
+  const epa = readNumeric(spec.rangeEpaKm) ?? spec.rangeKm ?? null;
+  const battery: number | null =
+    readNumeric(spec.batteryKwhUsable) ??
+    (typeof spec.batteryKwh === "number"
+      ? spec.batteryKwh
+      : readNumeric(spec.batteryKwh as Parameters<typeof readNumeric>[0])) ??
+    null;
+  const hpMinC = readNumeric(spec.heatPumpMinEffectiveC) ?? undefined;
+  if (epa == null) return null;
+
+  const showWarmup = tempC < 5;
+  const hasCurve = spec.chargingCurve && spec.chargingCurve.length > 0;
+  const hasDcPeak = readNumeric(spec.dcChargeMaxKw) != null;
+  const showDcRamp = hasCurve || hasDcPeak;
+  if (!showWarmup && !showDcRamp) return null;
+
+  return (
+    <>
+      {showWarmup && (
+        <Section title={`Cold-start range ramp at ${tempC}°C`}>
+          <p className="text-xs text-fg-muted mb-2">
+            Why a Sunday-morning short trip burns more than rated. Cold-soaked battery
+            + cabin heat-up surge cost the most in the first 10–15 min, then range
+            converges to steady-state. Preconditioning erases most of the early-trip penalty.
+          </p>
+          <WarmupRampChart
+            params={{
+              epaKm: epa,
+              batteryKwh: battery,
+              hasHeatPump: readHeatPump(spec.hasHeatPump),
+              tempC,
+              chemistry: spec.batteryChemistry,
+              heatPumpMinEffectiveC: hpMinC,
+            }}
+          />
+        </Section>
+      )}
+      {showDcRamp && (
+        <Section
+          title={`DC charging ramp at ${tempC}°C (${preconditioned ? "preconditioned" : "cold-soaked"})`}
+        >
+          <p className="text-xs text-fg-muted mb-2">
+            Effective charging power as the battery warms during the session. Cold-soaked packs
+            take 10–20 min to reach peak; preconditioned arrive ready-to-go. Charger choice matters:
+            the 50 kW line is flat (charger-limited); higher-power chargers warm the pack faster.
+          </p>
+          <DcChargeRampChart spec={spec} tempC={tempC} preconditioned={preconditioned} />
+        </Section>
+      )}
+    </>
   );
 }
 
