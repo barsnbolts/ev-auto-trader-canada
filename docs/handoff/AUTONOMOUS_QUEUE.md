@@ -375,3 +375,4 @@ again, refresh stale data, etc.
 - [x] U3 print stylesheet polish: 89910a7a
 - [x] D2 architecture diagram: (this commit)
 - [x] U1 keyboard shortcuts on dossier (← → c Esc): (this commit)
+- [x] U5 URL-encoded filters (was already mostly wired; added missing fav=1 sync): (this commit)

@@ -320,6 +320,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
     const so = searchParams.get("sort");
     const q = searchParams.get("q");
     const uid = searchParams.get("u");
+    const fav = searchParams.get("fav");
     return {
       model: (m && (MODELS as readonly string[]).includes(m) ? (m as Model) : "all") as Model | "all",
       year: (y && SUPPORTED_YEARS.map(String).includes(y) ? Number(y) : "all") as number | "all",
@@ -331,6 +332,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
       sort: ((so && VALID_SORTS.includes(so as SortKey)) ? (so as SortKey) : "deal") as SortKey,
       query: q ?? "",
       unitId: uid ?? null,
+      favoritesOnly: fav === "1",
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -345,7 +347,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
   const [sort, setSort] = useState<SortKey>(initial.sort);
   const [query, setQuery] = useState<string>(initial.query);
   const [selectedId, setSelectedId] = useState<string | null>(initial.unitId);
-  const [favoritesOnly, setFavoritesOnly] = useState(false);
+  const [favoritesOnly, setFavoritesOnly] = useState(initial.favoritesOnly);
   const { isFavorite, toggle: toggleFavorite, count: favoriteCount } = useFavorites();
 
   useEffect(() => {
@@ -360,9 +362,10 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
     if (sort !== "deal") p.set("sort", sort);
     if (query.trim()) p.set("q", query.trim());
     if (selectedId) p.set("u", selectedId);
+    if (favoritesOnly) p.set("fav", "1");
     const qs = p.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-  }, [model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, sort, query, selectedId, pathname, router]);
+  }, [model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, sort, query, selectedId, favoritesOnly, pathname, router]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
