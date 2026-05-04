@@ -103,24 +103,30 @@ available via `git log a96fa676..82e1f435`.
 
 ## Resume protocol for next session
 
+**TL;DR — open `docs/handoff/MEDIUM_RUNWAY.md`.** It contains 60
+pre-baked tasks across 7 actionable tiers (~220k tokens of mechanical
+work). Each task has file paths, expected diff/content, verify command,
+token estimate, risk class.
+
 ```bash
 # 1. State check
 cd ~/ev-auto-trader-canada
 git fetch origin
 git status --short                           # expect clean
-git rev-parse HEAD                            # expect 82e1f435 or newer
+git rev-parse HEAD                            # expect 0d5ccf2d or newer
 git rev-parse origin/claude/verify-environment-setup-oTu3S
 npm run typecheck                             # expect clean
-npx vitest run                                # expect 38/38
+npx vitest run                                # expect 38/38 (or current)
 
 # 2. Check Chrome MCP availability
 mcp__Claude_in_Chrome__list_connected_browsers
-# If non-empty → Leasebusters probe is unblocked. Use
-# docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md § Site 2.
-# If empty → skip Leasebusters, pick from "Unstarted" list above.
+# If non-empty → Leasebusters probe is unblocked (Tier I1).
+# If empty → skip Leasebusters, drain MEDIUM_RUNWAY tiers A-G in order.
 
-# 3. Pick highest-ROI unstarted item.
-# 4. Ship. Verify gate. Commit + push. Append to TAURI_BUILD_LOG.md.
+# 3. Read docs/handoff/MEDIUM_RUNWAY.md → pick highest-ROI unblocked
+#    item from Tier A. Ship. Verify. Commit + push. Append to
+#    TAURI_BUILD_LOG.md. Mark `- [x] <id>: <sha>` in the runway's Done
+#    log section. Loop.
 ```
 
 ## Files newly created or significantly modified

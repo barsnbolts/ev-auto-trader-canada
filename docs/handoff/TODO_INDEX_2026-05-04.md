@@ -62,14 +62,18 @@ git push origin HEAD
 
 ```
 1. Read CLAUDE.md (operating rules)
-2. Read docs/handoff/SESSION_2026-05-04_MEDIUM.md (state-at-close of last pass)
-3. Read this doc (TODO_INDEX_2026-05-04.md) for what's still open
-4. Check Chrome MCP availability: mcp__Claude_in_Chrome__list_connected_browsers
-5. If browser paired → run Leasebusters playbook from
-   docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md § Site 2
-6. If NOT paired → pick from "Recommended order" #2-5 above, or open
-   AUTONOMOUS_QUEUE.md for the remaining Tier 2-5 staged items
-7. Ship → predeploy gate → commit → push → append to TAURI_BUILD_LOG.md
+2. Read docs/handoff/SESSION_2026-05-04_MEDIUM.md (state-at-close)
+3. Open docs/handoff/MEDIUM_RUNWAY.md — 60 pre-baked tasks across
+   tiers A-G (~220k tokens of work, all with file paths, expected
+   diffs, verify commands, token estimates)
+4. Check Chrome MCP: mcp__Claude_in_Chrome__list_connected_browsers
+   - browser paired → Leasebusters (Tier I1 in RUNWAY) unblocked, run
+     CHROME_MCP_PROBE_PLAYBOOK.md § Site 2
+   - empty → drain RUNWAY tiers A → B → C → D → E → F → G in order
+5. Each task: ship → npm run predeploy → commit (specific files) →
+   git push → append to TAURI_BUILD_LOG.md → mark done in RUNWAY
+6. After RUNWAY drains: re-prime per AUTONOMOUS_MODE.md § "When the
+   ladder is exhausted"
 ```
 
 ## After the queue empties

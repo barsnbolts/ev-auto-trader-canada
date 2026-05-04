@@ -41,27 +41,32 @@ is the safety net for token-limit recovery.
 Resume protocol — execute IN ORDER without re-checking with the user:
 
 1. cd ~/ev-auto-trader-canada
-2. Run the boot script in docs/handoff/MEDIUM_RESUME_2026-05-04.md
-   § "Boot script (RUN FIRST on resume)" — verifies typecheck + git
-   state + data counts. If any check fails, investigate before proceeding.
+2. Run the boot script at the top of docs/handoff/MEDIUM_RUNWAY.md
+   § "Boot script (RUN FIRST)". Verifies typecheck + git state +
+   vitest. If any check fails, investigate before proceeding.
 3. git fetch + check origin/HEAD == local HEAD. If origin is ahead,
    git pull --ff-only.
-4. Read docs/handoff/TODO_INDEX_2026-05-04.md § "Inline TODOs" table.
-   Pick the highest unblocker not yet shipped (look at git log for "feat(tauri)"
-   or "feat(scrape)" commits to deduce what's done).
-5. For the chosen item, open the doc named in column 5 ("Pre-baked recipe").
-   Three docs exist:
-   - docs/handoff/DOCK_BADGE_RECIPE.md (Phase C dock badge)
-   - docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md (Kijiji + Leasebusters scrapers)
-6. Apply the recipe verbatim. Run the verification gauntlet at the bottom
-   of the recipe doc.
-7. Commit + push. Append one line to docs/handoff/TAURI_BUILD_LOG.md.
-8. Repeat from step 4 until the queue is empty.
-9. After explicit queue empty: open docs/handoff/AUTONOMOUS_QUEUE.md (17
-   pre-staged Tier 2-5 tasks). Pick highest unblocked, ship it, repeat.
-10. After AUTONOMOUS_QUEUE empty: open docs/handoff/AUTONOMOUS_MODE.md
-    § "When the ladder is exhausted (it never really is)" — re-prime by
-    re-walking routes, re-grepping TODO/FIXME, refreshing stale data, etc.
+4. Open docs/handoff/MEDIUM_RUNWAY.md — 60 pre-baked tasks across
+   tiers A-G (~220k tokens). Each task has file paths, expected diff,
+   verify command, token estimate.
+5. Check Chrome MCP availability:
+     mcp__Claude_in_Chrome__list_connected_browsers
+   - Non-empty → Tier I1 (Leasebusters) unblocked. Run
+     CHROME_MCP_PROBE_PLAYBOOK.md § Site 2.
+   - Empty → drain Tier A first (15 items, all low-risk + high-value),
+     then B (perf), C (UX), D (test depth), E (data hygiene),
+     F (code quality), G (docs).
+6. For each task: apply changes per the diff sketch, run the verify
+   command, run npm run predeploy, commit (HEREDOC msg, specific files),
+   git push origin HEAD.
+7. Append one line to docs/handoff/TAURI_BUILD_LOG.md.
+8. Mark `- [x] <task-id>: <commit-sha>` in MEDIUM_RUNWAY.md § "Done log".
+9. Loop step 4.
+10. After RUNWAY tiers A-G drain: re-prime per AUTONOMOUS_MODE.md
+    § "When the ladder is exhausted (it never really is)" — re-walk
+    routes, re-grep TODO/FIXME, refresh stale data, audit bundle.
+11. Tier H (speculative features) and Tier I (paid/blocked) require
+    explicit user approval — pause + ping in chat, do NOT auto-execute.
 
 Hard rules (NEVER violate, even via creative framing):
 - Branch stays on `claude/verify-environment-setup-oTu3S`
