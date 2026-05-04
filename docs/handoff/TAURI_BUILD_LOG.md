@@ -12,6 +12,7 @@ Tauri-standalone migration. Append one line per session.
 | 2026-05-04 | `f44bb44d` | B1-B6 | Tauri IPC commands (run_refresh + run_verify_unit), RefreshModal + UnitVerifyChip wired into Nav + dossier |
 | 2026-05-04 | `0f5c3ce3` | C1-C3 + D0 | Dock badge stub (Tauri 2.11 lacks set_badge_count; NSDockTile binding deferred), UnitPhotoGallery + scrape_unit_gallery.py, D0 cross-source endpoint research |
 | 2026-05-04 | `240bd8c1` | D core scaffold | crossListings.ts schema + CrossSourceChip wired into InventoryTable + dossier; Kijiji + Leasebusters scraper skeletons + merge_cross_sources.py |
+| 2026-05-04 | (medium-tier) | C — dock badge | NSDockTile binding via objc2-app-kit (features: NSApplication+NSDockTile+NSResponder+NSString+NSThread). Replaces no-op stub at lib.rs:62. .app rebuilt 1m18s release; verified via `cargo check` + full `tauri build`. SHA: `git log --oneline -- src-tauri/src/lib.rs \| head -2`. |
 
 ## How to build the .app
 

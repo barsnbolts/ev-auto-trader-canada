@@ -20,6 +20,11 @@ tauri-plugin-shell = "2"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.5"
+objc2-app-kit = { version = "0.2", features = ["NSApplication", "NSDockTile", "NSResponder"] }
+objc2-foundation = { version = "0.2", features = ["NSString", "NSThread"] }
+
 [profile.release]
 panic = "abort"
 codegen-units = 1

@@ -59,25 +59,27 @@ fn now_iso() -> String {
 }
 
 #[tauri::command]
-fn set_dock_badge(_count: Option<u64>) -> Result<(), String> {
-    // TODO(medium): replace this no-op stub with an NSDockTile binding.
-    //
-    // Tauri 2.11 AppHandle doesn't expose set_badge_count. The fix:
-    //   1. Add to Cargo.toml under [target.'cfg(target_os = "macos")'.dependencies]:
-    //        objc2 = "0.5"
-    //        objc2-app-kit = "0.2"   (or current versions)
-    //        objc2-foundation = "0.2"
-    //   2. Replace the body with an unsafe block that calls
-    //      [[NSApplication sharedApplication] dockTile] setBadgeLabel:].
-    //      Use NSString::from_str(rust_string) for non-empty counts;
-    //      pass a null pointer (or empty NSString) to clear the badge.
-    //   3. Token estimate: ~5k. Single-file Rust change + recompile.
-    //   4. Frontend wiring is already done — DockBadgeSync.tsx mounts in
-    //      layout, calls setDockBadge() in tauriRuntime.ts, which invokes
-    //      this command. Just write the body and rebuild.
-    //
-    // See docs/handoff/MEDIUM_RESUME_2026-05-04.md "Phase C dock badge"
-    // for the full snippet skeleton.
+fn set_dock_badge(count: Option<u64>) -> Result<(), String> {
+    #[cfg(target_os = "macos")]
+    {
+        use objc2::rc::autoreleasepool;
+        use objc2_app_kit::NSApplication;
+        use objc2_foundation::{MainThreadMarker, NSString};
+
+        let mtm = MainThreadMarker::new()
+            .ok_or_else(|| "set_dock_badge must run on main thread".to_string())?;
+
+        autoreleasepool(|_| {
+            let app = NSApplication::sharedApplication(mtm);
+            let dock_tile = unsafe { app.dockTile() };
+            let label = match count {
+                Some(n) if n > 0 => Some(NSString::from_str(&n.to_string())),
+                _ => None,
+            };
+            unsafe { dock_tile.setBadgeLabel(label.as_deref()) };
+        });
+    }
+    let _ = count; // suppress unused-warn on non-macOS
     Ok(())
 }
 
