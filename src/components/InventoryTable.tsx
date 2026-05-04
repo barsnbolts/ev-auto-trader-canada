@@ -15,6 +15,7 @@ import { usedListingsFor } from "@/lib/usedListingsLinks";
 import { DealScoreBadge } from "./DealScoreBadge";
 import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
+import { MiniChargingSparkline } from "./MiniChargingSparkline";
 import { plainLang } from "@/lib/plainLang";
 import vehicleImages from "../../data/vehicle-images.json";
 
@@ -650,7 +651,17 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                   </td>
                   <td className="px-3 py-2"><DealScoreBadge score={u.dealScore} /></td>
                   <td className="px-3 py-2">
-                    <div className="font-medium">{MODEL_LABEL[u.model]}</div>
+                    <div className="font-medium flex items-center gap-1">
+                      {MODEL_LABEL[u.model]}
+                      {(() => {
+                        const spec = specByUnitId?.[u.id];
+                        const curve = spec?.chargingCurve;
+                        const peak = extractNum(spec?.dcChargeMaxKw) ?? 230;
+                        return curve && curve.length > 1 ? (
+                          <MiniChargingSparkline curve={curve} peakKw={peak} />
+                        ) : null;
+                      })()}
+                    </div>
                     <div className="text-xxs text-fg-muted">{u.trim} · {u.drivetrain}</div>
                     {(() => {
                       const spec = specByUnitId?.[u.id];
