@@ -143,14 +143,22 @@ function WinterRangeChip({
     preconditioned,
   });
   if (km == null) return null;
+  // Severity tiers
   let cls = "bg-blue-900 text-blue-200";
   let icon = "🌡";
-  if (tempC <= -10) { cls = "bg-red-900 text-red-200"; icon = "🥶"; }
+  if (tempC < -15) {
+    cls = "bg-red-900 text-red-200";
+    icon = "🥶";
+  } else if (tempC < -5) {
+    cls = "bg-amber-900 text-amber-200";
+    icon = "❄";
+  }
+  const ringCls = preconditioned ? " ring-1 ring-good/40" : "";
   const label = tempC >= 0 ? `+${tempC}°C` : `${tempC}°C`;
   const preconNote = preconditioned ? " (preconditioned)" : " (cold-soaked)";
   return (
     <span
-      className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xxs ${cls} block w-fit mt-1`}
+      className={`inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-xxs ${cls}${ringCls} block w-fit mt-1`}
       title={`Estimated real-world range at ${label}${preconNote}. Chemistry: ${chemistry ?? "unknown"}. Heat pump: ${hasHP === true ? `yes (effective ≥${hpMinC ?? -20}°C)` : hasHP === false ? "no" : "unknown"}.`}
     >
       {icon} {label}: {Math.round(km)} km{preconditioned ? " ⚡" : ""}
@@ -609,7 +617,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
               return (
                 <tr
                   key={u.id}
-                  className={`border-t border-border cursor-pointer ${isActive ? "bg-accent-dim/20" : "card-hover"}`}
+                  className={`border-t border-border cursor-pointer transition-colors duration-150 ${isActive ? "bg-accent-dim/20" : "card-hover"}`}
                   onClick={() => setSelectedId(u.id)}
                 >
                   <td className="px-2 py-2 text-center">
@@ -644,6 +652,28 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                   <td className="px-3 py-2">
                     <div className="font-medium">{MODEL_LABEL[u.model]}</div>
                     <div className="text-xxs text-fg-muted">{u.trim} · {u.drivetrain}</div>
+                    {(() => {
+                      const spec = specByUnitId?.[u.id];
+                      const r = rangeByUnitId?.[u.id];
+                      const dc = extractNum(spec?.dcChargeMaxKw);
+                      return (
+                        <div className="flex gap-2 mt-1 text-xxs text-fg-muted">
+                          <span className="text-fg font-medium num">{fmtCad(u.otdBreakdown.total)}</span>
+                          {r != null && (
+                            <span>
+                              <span className="text-fg num">{r}</span>
+                              <span className="text-fg-subtle"> km</span>
+                            </span>
+                          )}
+                          {dc != null && (
+                            <span>
+                              <span className="text-fg num">{Math.round(dc)}</span>
+                              <span className="text-fg-subtle"> kW</span>
+                            </span>
+                          )}
+                        </div>
+                      );
+                    })()}
                     {specByUnitId && (
                       <HeatPumpChip hasHeatPump={readHeatPump(specByUnitId[u.id]?.hasHeatPump)} />
                     )}

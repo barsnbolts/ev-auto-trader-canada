@@ -11,6 +11,7 @@ import Link from "next/link";
 import { loadSpecs } from "@/lib/data";
 import { readNumeric, readHeatPump } from "@/lib/types";
 import { MODEL_BRAND, MODEL_LABEL } from "@/lib/constants";
+import { CompareWinnerBar } from "@/components/CompareWinnerBar";
 import type { Spec } from "@/lib/types";
 import type { Model } from "@/lib/constants";
 
@@ -252,6 +253,20 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
 
   const rows = buildRows(selected);
 
+  const winCounts = selected.map((s, colIdx) => {
+    if (!s) return { name: "", wins: 0 };
+    const wins = rows.filter((row) => {
+      if (!row.highlight) return false;
+      const best = bestIndices(row.values, row.highlight);
+      return best.has(colIdx);
+    }).length;
+    return {
+      name: `${MODEL_LABEL[s.model as Model]} ${s.year}`,
+      wins,
+    };
+  });
+  const highlightedRowCount = rows.filter((r) => r.highlight).length;
+
   return (
     <div className="space-y-4">
       <div className="flex flex-wrap items-baseline justify-between gap-3">
@@ -348,6 +363,8 @@ export default async function PickerComparePage({ searchParams }: PageProps) {
           Modify selection
         </Link>
       </p>
+
+      <CompareWinnerBar winCounts={winCounts} total={highlightedRowCount} />
     </div>
   );
 }
