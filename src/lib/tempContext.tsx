@@ -97,9 +97,3 @@ export function useTemp(): TempCtx {
   if (!ctx) throw new Error("useTemp must be used inside <TempProvider>");
   return ctx;
 }
-
-/** Soft variant — returns null when no provider exists. Lets components
- *  fall back to props when rendered outside the inventory context. */
-export function useTempOptional(): TempCtx | null {
-  return useContext(Ctx);
-}

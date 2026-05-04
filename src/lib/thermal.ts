@@ -248,14 +248,6 @@ export function realRangeKm(params: RealRangeParams): number | null {
   return rangeKm;
 }
 
-/**
- * Confidence of the thermal estimate at a given temperature.
- * Downgrades automatically at extremes where real-world data is sparse.
- */
-export function thermalConfidence(base: Confidence, tempC: number): Confidence {
-  return rollupConfidence(base, tempC);
-}
-
 // ---------- Warm-up ramp model ----------------------------------------------
 //
 // Real-world EV range when cold-soaked is NOT static — it changes minute by
@@ -602,25 +594,6 @@ export function dcChargeRamp(p: DcRampParams): DcRampPoint[] {
   }
 
   return out;
-}
-
-/**
- * Convenience: minutes to add a given range, starting from given SoC.
- * Uses dcChargeRamp() internally and integrates until target km accumulated.
- */
-export function dcMinutesToAddKm(
-  params: DcRampParams,
-  targetAddKm: number,
-  ratedRangeKm: number,
-): number | null {
-  const ramp = dcChargeRamp({ ...params, targetSocPct: 100 });
-  if (ramp.length === 0) return null;
-  const kwhPerKm = params.batteryKwh / ratedRangeKm;
-  const targetKwh = targetAddKm * kwhPerKm;
-  for (const pt of ramp) {
-    if (pt.kwhAdded >= targetKwh) return pt.minute;
-  }
-  return null; // didn't reach target within session
 }
 
 // ---------- Full model (for completeness — matches sibling API) -------------

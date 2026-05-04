@@ -51,11 +51,6 @@ export const PLAIN: Record<string, string> = {
   "iZEV eligible": "Gets federal rebate?",
 };
 
-export function labelFor(key: string, momMode: boolean): string {
-  if (!momMode) return key;
-  return PLAIN[key] ?? key;
-}
-
 // --- PROJECT-SPECIFIC TOOLTIP GLOSSARY ---
 // Used via plainLang(termKey) to populate title= attributes for hover tooltips.
 // Pattern: <span title={plainLang("OTD")} className="cursor-help underline decoration-dotted underline-offset-2">OTD</span>
