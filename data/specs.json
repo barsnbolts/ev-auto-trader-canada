@@ -88,7 +88,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV6",
@@ -189,7 +191,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV6",
@@ -285,7 +289,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV6",
@@ -381,7 +387,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV6",
@@ -480,7 +488,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -588,7 +598,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -696,7 +708,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -793,7 +807,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -887,7 +903,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -997,7 +1015,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -1088,7 +1108,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq6",
@@ -1197,7 +1219,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq6",
@@ -1294,7 +1318,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -1394,7 +1420,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -1503,7 +1531,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -1611,7 +1641,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -1719,7 +1751,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq9",
@@ -1828,7 +1862,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq9",
@@ -1937,7 +1973,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq9",
@@ -2046,7 +2084,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -2151,7 +2191,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -2265,7 +2307,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -2374,7 +2418,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -2483,7 +2529,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -2596,7 +2644,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -2708,7 +2758,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq6",
@@ -2818,7 +2870,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "Ioniq5",
@@ -2925,7 +2979,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV6",
@@ -3026,7 +3082,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV6",
@@ -3122,7 +3180,9 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "nav-based"
+    "batteryPreconditioning": "nav-based",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   },
   {
     "model": "EV9",
@@ -3229,6 +3289,8 @@
     "chargingArchitectureVolts": 800,
     "batteryThermalMassKjPerKwh": 10.5,
     "packHeaterKw": 5.5,
-    "batteryPreconditioning": "manual"
+    "batteryPreconditioning": "manual",
+    "batterySupplier": "SK_On",
+    "cellChemistryDetail": "NCM811"
   }
 ]

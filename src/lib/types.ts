@@ -356,6 +356,14 @@ export const SpecSchema = z.object({
   packHeaterKw: z.number().optional(),                // E-GMP ~5.5; some EVs lack one
   chargingArchitectureVolts: z.union([z.literal(400), z.literal(800)]).optional(),
   batteryPreconditioning: z.enum(["manual", "nav-based", "auto", "none"]).optional(),
+  // Cell supplier and chemistry detail for thermal-model accuracy.
+  // Hyundai/Kia E-GMP currently uses SK On NCM811 on most trims; some 2024+
+  // EV9 reportedly use NCM712. Citations live in research notes (research
+  // queue). Fields are optional — leave null if confidence < High.
+  batterySupplier: z
+    .enum(["SK_On", "LGES", "CATL", "Samsung_SDI", "Panasonic", "BYD", "UNKNOWN"])
+    .optional(),
+  cellChemistryDetail: z.string().optional(), // e.g. "NCM811", "NCM712", "LFP"
   chargingCurve: z
     .array(z.object({ socPct: z.number(), kw: z.number() }))
     .optional(),
