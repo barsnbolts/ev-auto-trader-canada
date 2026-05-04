@@ -48,7 +48,9 @@ export function readNumeric(
   return v.value ?? undefined;
 }
 
+/** Canadian province / territory code (e.g. "ON", "QC"). */
 export const ProvinceSchema = z.enum(PROVINCES);
+/** Hyundai/Kia EV model slug we track (e.g. "Ioniq5", "EV6"). */
 export const ModelSchema = z.enum(MODELS);
 
 // Buyer context = the household-level facts that swing incentive
@@ -64,6 +66,7 @@ export const BuyerContextSchema = z.object({
 });
 export type BuyerContext = z.infer<typeof BuyerContextSchema>;
 
+/** Model years we accept. Anything outside SUPPORTED_YEARS is rejected at parse. */
 export const YearSchema = z.union(
   SUPPORTED_YEARS.map((y) => z.literal(y)) as [
     z.ZodLiteral<2024>,
@@ -72,6 +75,7 @@ export const YearSchema = z.union(
   ],
 );
 
+/** A Hyundai/Kia franchise dealer in Canada. Sourced from data/dealers.json. */
 export const DealerSchema = z.object({
   id: z.string(),
   brand: z.enum(["Kia", "Hyundai"]),
@@ -87,6 +91,7 @@ export const DealerSchema = z.object({
 });
 export type Dealer = z.infer<typeof DealerSchema>;
 
+/** Lifecycle of an inventory unit on a dealer lot. */
 export const UnitStatus = z.enum([
   "in_stock",
   "in_transit",
@@ -96,6 +101,11 @@ export const UnitStatus = z.enum([
 ]);
 export type UnitStatus = z.infer<typeof UnitStatus>;
 
+/**
+ * One vehicle on a dealer lot. Built per-day by scripts/build_units_from_at.py
+ * from AutoTrader scrapes. Persisted in data/units.json. Read at runtime by
+ * loadScoredUnits → routes.
+ */
 export const InventoryUnitSchema = z.object({
   id: z.string(),                    // stable hash of vin or stock#+dealer
   vin: z.string().optional(),
@@ -130,6 +140,7 @@ export const InventoryUnitSchema = z.object({
 });
 export type InventoryUnit = z.infer<typeof InventoryUnitSchema>;
 
+/** Categorical bucket for an incentive — gates eligibility + stack rules. */
 export const IncentiveScopeSchema = z.enum([
   "federal",
   "provincial",
@@ -142,6 +153,11 @@ export const IncentiveScopeSchema = z.enum([
 ]);
 export type IncentiveScope = z.infer<typeof IncentiveScopeSchema>;
 
+/**
+ * One eligibility-gated cash-or-rate offer (federal, provincial, OEM, or
+ * dealer-locked). Combined per-unit by applicableIncentives() in scoring.ts.
+ * Lives in data/incentives.json.
+ */
 export const IncentiveSchema = z.object({
   id: z.string(),
   scope: IncentiveScopeSchema,
@@ -295,6 +311,11 @@ function citedValue<T extends z.ZodTypeAny>(inner: T) {
 
 // ── Spec ─────────────────────────────────────────────────────────────────────
 
+/**
+ * Per-(model, year, trim, drivetrain) factory specification. CitedValue
+ * fields carry provenance + confidence. Lives in data/specs.json.
+ * Read by loadSpecs(); joined to InventoryUnit by buildSpecKey().
+ */
 export const SpecSchema = z.object({
   model: ModelSchema,
   year: YearSchema,
@@ -406,6 +427,7 @@ export type UsedMarketStat = {
   retentionPercent: number | null;
 };
 
+/** Daily snapshot of inventory state. Used for daysOnLot derivation + diffs. */
 export const SnapshotSchema = z.object({
   takenAt: z.string(),                        // ISO
   unitCount: z.number().int(),
