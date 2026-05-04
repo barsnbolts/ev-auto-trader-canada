@@ -13,16 +13,18 @@ grep -rn "TODO(medium" src/ src-tauri/ scripts/ 2>/dev/null
 | Severity | File | What | Status |
 |---|---|---|---|
 | ~~★★★~~ | `scripts/scrape_kijiji.py` | Walks `__NEXT_DATA__` Apollo cache via lib_scrape_common — 251 unique listings, 97.6% VIN coverage. | **SHIPPED** `abeacb64` |
-| ★★★ unblocker | `scripts/scrape_leasebusters.py` | Find Leasebusters XHR endpoint via Chrome MCP. Recipe: `CHROME_MCP_PROBE_PLAYBOOK.md` § Site 2. | **BLOCKED** — Chrome MCP browser not paired |
+| ★★★ unblocker | `scripts/scrape_leasebusters.py` | Find Leasebusters XHR endpoint via Chrome MCP. Recipe: `CHROME_MCP_PROBE_PLAYBOOK.md` § Site 2. Auto-pair flow at `MEDIUM_RUNWAY.md` Tier 0.1. | **AUTO-RETRY each session** (extension installed; pair via `switch_browser`) |
 | ~~★★~~ | `src-tauri/src/lib.rs` `set_dock_badge` | NSDockTile via objc2 (feature-gated `cfg(target_os = "macos")`). | **SHIPPED** `a737e92a` |
 | ★ low-pri | `scripts/verify_unit.py` | Improve Imperva bypass. "challenged" state already honest. | open |
 | ★ low-pri | `scripts/scrape_unit_gallery.py` | Same Imperva walls. Cron retries nightly. | open |
 
 ## Recommended order (post 2026-05-04 medium pass)
 
-1. **Leasebusters scraper** — single remaining D-core blocker. Needs
-   user to pair Chrome MCP browser (open Chrome, install extension,
-   click Connect). Then any session can run the playbook.
+1. **Leasebusters scraper** — extension is installed (confirmed
+   2026-05-04). Every session auto-attempts pair via
+   `switch_browser` (2-min timeout) per `MEDIUM_RUNWAY.md` Tier 0.1.
+   If user clicks Connect, scraper rewrite ships inline. If timeout,
+   logs + retries next session. No longer a hard block.
 2. **Polyfills drop on Tauri target** (~3k tokens, ~100 kB save). See
    `docs/handoff/BUNDLE_AUDIT_2026-05-04.md`.
 3. **`computeOtd` realistic-fixture vitest specs** (~6k tokens). 38
@@ -66,10 +68,11 @@ git push origin HEAD
 3. Open docs/handoff/MEDIUM_RUNWAY.md — 60 pre-baked tasks across
    tiers A-G (~220k tokens of work, all with file paths, expected
    diffs, verify commands, token estimates)
-4. Check Chrome MCP: mcp__Claude_in_Chrome__list_connected_browsers
-   - browser paired → Leasebusters (Tier I1 in RUNWAY) unblocked, run
-     CHROME_MCP_PROBE_PLAYBOOK.md § Site 2
-   - empty → drain RUNWAY tiers A → B → C → D → E → F → G in order
+4. Run Tier 0.1 from MEDIUM_RUNWAY.md — Chrome MCP auto-pair attempt:
+   a. mcp__Claude_in_Chrome__list_connected_browsers
+   b. If empty: mcp__Claude_in_Chrome__switch_browser (2-min wait)
+   c. Either → ship Leasebusters scraper rewrite inline.
+      Both empty after switch → log + skip; drain Tier A → G in order.
 5. Each task: ship → npm run predeploy → commit (specific files) →
    git push → append to TAURI_BUILD_LOG.md → mark done in RUNWAY
 6. After RUNWAY drains: re-prime per AUTONOMOUS_MODE.md § "When the

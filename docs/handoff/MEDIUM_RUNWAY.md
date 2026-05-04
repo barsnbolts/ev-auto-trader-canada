@@ -20,11 +20,15 @@ git rev-parse HEAD == $(git rev-parse origin/claude/verify-environment-setup-oTu
 npm run typecheck                                                    # expect exit=0
 npx vitest run                                                       # expect 38/38 (or current count)
 npm run predeploy                                                    # expect exit=0
-mcp__Claude_in_Chrome__list_connected_browsers                      # if non-empty → Leasebusters unblocked
 ```
 
-If any check fails: investigate before picking a task. If all pass: pick
-from the queue below.
+**Then run Tier 0 § "Chrome MCP self-pair attempt"** — the user has the
+Claude-in-Chrome extension installed (confirmed 2026-05-04) and uses it
+across sessions, so Leasebusters is *probably* unblocked. Always probe
+before falling through to Tier A.
+
+If any check fails: investigate before picking a task. If all pass:
+proceed to Tier 0, then drain Tier A onward.
 
 ## Hard rules (NEVER violate)
 
@@ -59,11 +63,99 @@ from the queue below.
 
 ---
 
-# THE QUEUE — 60 tasks
+# THE QUEUE — 61 tasks
 
 Tiers ranked by ROI-per-token. Within a tier, items are roughly equal
-priority; pick whichever feels concrete. **Total runway: ~280k tokens
-of focused, mechanical work.**
+priority; pick whichever feels concrete. **Total runway: ~230k tokens
+of focused, mechanical work** (Tier 0 + A through G).
+
+## Tier 0 — Auto-checks at session start (run BEFORE Tier A)
+
+> **Why this tier exists.** User Ian explicitly confirmed
+> (2026-05-04) that the Claude-in-Chrome extension is already
+> downloaded and that pairing happens automatically on his machine.
+> So instead of treating Leasebusters as a permanent block, every
+> medium session probes for a paired browser first and pivots to the
+> Leasebusters scraper rewrite (huge ROI, ~10-15k tokens) if one is
+> found. If no browser pairs within the timeout, fall through to
+> Tier A and don't block the queue.
+
+### 0.1 Chrome MCP self-pair attempt + Leasebusters probe
+
+**Purpose:** unblock cross-source Leasebusters lease-takeover listings
+(currently 0 entries → potentially 50+ once scraper rewritten with the
+real XHR endpoint).
+
+**Token est:** ~3k for the probe + auto-pair logic; ~15k more if
+unblocked and the scraper rewrite proceeds inline this session.
+
+**Risk:** none for the probe itself; scraper rewrite is medium-risk
+(new XHR endpoint shape may differ from Kijiji).
+
+**Decision flow:**
+
+```
+Step 1. mcp__Claude_in_Chrome__list_connected_browsers
+        ├─ non-empty → cache deviceId; jump to Step 3 (probe)
+        └─ empty     → Step 2
+
+Step 2. mcp__Claude_in_Chrome__switch_browser
+        (broadcasts pair request to every Chrome with extension; waits
+         up to 2 minutes for user to click Connect)
+        ├─ pairs successfully → jump to Step 3
+        └─ timeout / declined →
+              - log one line to TAURI_BUILD_LOG.md:
+                "Tier 0.1: Chrome MCP not paired this session — Leasebusters deferred"
+              - DO NOT halt. Skip to Tier A.
+              - Try again on next cron / restart (extension may auto-reconnect later).
+
+Step 3. Run docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md § Site 2 verbatim:
+        - Open about:blank tab, install fetch+XHR hook
+        - Navigate Leasebusters Hyundai gallery URL
+        - Capture XHR responses
+        - Click first listing card → capture detail page
+        - Save raw captures to docs/handoff/research/LEASEBUSTERS_XHR_CAPTURE_2026-05-04.json
+        - Save 1-page decision summary to docs/handoff/research/LEASEBUSTERS_VIN_DECISION_2026-05-04.md
+
+Step 4. Update scripts/scrape_leasebusters.py per the captured XHR
+        endpoint (mirror the scrape_kijiji.py rewrite pattern from
+        commit abeacb64). Use lib_scrape_common helpers.
+
+Step 5. Verify:
+        python3 scripts/scrape_leasebusters.py
+        python3 scripts/merge_cross_sources.py
+        jq 'keys | length' data/cross-listings.json   # expect > 0
+        npx vitest run                                # 38/38 still
+        npm run predeploy                             # clean
+
+Step 6. Commit (HEREDOC):
+        feat(D-core): leasebusters scraper rewrite via captured XHR
+
+        - Live XHR endpoint <url> captured via Chrome MCP
+        - <N> listings for Hyundai/Kia EVs in Canada
+        - Merged into cross-listings.json (VIN as primary key if found,
+          else fallbackKey year+make+model+trim+kmBucket)
+        - CrossSourceChip now lights up on inventory rows with matches
+        - Closes the last D-core blocker
+
+Step 7. Push, append TAURI_BUILD_LOG.md line, mark "0.1: <sha>" in Done log.
+```
+
+**Stop conditions specific to Tier 0.1:**
+- Cloudflare WAF on Leasebusters → halt this task, document in
+  research log, defer to Tier I (Apify-walled). Don't fight WAF.
+- VIN-only-after-login → document, do NOT pursue login flow (per
+  CLAUDE.md NO list).
+- Probe captures empty after 3 trigger attempts → save the empty
+  captures as evidence, log "needs probe re-run with different
+  starting URL", defer.
+
+**Fallback if no browser pairs:** Leasebusters stays scoped via
+fallbackKey (year+make+model+trim) the way it works today, and the
+next scheduled session re-tries the pair attempt. The auto-pair flow
+is idempotent — running it on every session start is fine.
+
+---
 
 ## Tier A — High-value, low-risk (ship in any order, ~50k total)
 
@@ -853,9 +945,12 @@ Each ~10-30k tokens. Rough sketches only — flesh out only after user OK.
 
 > **NEVER auto-execute. Pause + ping user.**
 
-### I1. Leasebusters scraper (BLOCKED on Chrome MCP browser pairing)
-- Recipe ready in `CHROME_MCP_PROBE_PLAYBOOK.md` § Site 2.
-- ~10-15k tokens once unblocked.
+### I1. Leasebusters scraper — MOVED to Tier 0.1
+- See **Tier 0.1** at top of queue. User confirmed the Claude-in-Chrome
+  extension is installed (2026-05-04), so every session auto-attempts
+  the pairing via `switch_browser` and runs the probe inline if it
+  succeeds. No longer treated as a hard block.
+- Recipe still lives in `CHROME_MCP_PROBE_PLAYBOOK.md` § Site 2.
 
 ### I2. Phase D-bis: Hyundai Click-to-Buy + Kia D2C Media (PAID)
 - Apify-walled. ~$0.10-$0.50/run. Within $30 budget.
@@ -888,7 +983,8 @@ Track shipped items here so the next session knows what's left. Format:
 
 | Tier | Item count | Token est | Risk | When to drain |
 |---|---|---|---|---|
-| A — High-value low-risk | 15 | ~50k | low | Always first |
+| 0 — Auto-checks (Chrome MCP pair) | 1 | ~3k probe + ~15k if unblocked | low | EVERY session start |
+| A — High-value low-risk | 15 | ~50k | low | After Tier 0 |
 | B — Performance | 7 | ~30k | medium | After A |
 | C — UX polish | 11 | ~30k | low-medium | Anytime |
 | D — Test depth | 6 | ~35k | medium | After A's tests pass |
@@ -896,8 +992,8 @@ Track shipped items here so the next session knows what's left. Format:
 | F — Code quality | 7 | ~25k | medium | After tests |
 | G — Documentation | 7 | ~25k | none | Anytime |
 | H — Speculative | 8 | (needs user) | (need OK) | Pause + ping |
-| I — Big/blocked/paid | 4 | (needs user) | (need OK) | Pause + ping |
-| **Total auto-runway (A-G)** | **60** | **~220k** | mixed | — |
+| I — Big/blocked/paid | 3 | (needs user) | (need OK) | Pause + ping |
+| **Total auto-runway (0 + A-G)** | **61** | **~235k** | mixed | — |
 
 Even at 10k tokens per task average, this is **~22 days of recurring
 4-hour cron fires**. Should be plenty.

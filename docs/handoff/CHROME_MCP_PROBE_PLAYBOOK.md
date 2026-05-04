@@ -10,10 +10,37 @@
 
 ## Prereqs
 
+User Ian has the Claude-in-Chrome extension installed (confirmed
+2026-05-04). Pairing is the only friction — it's per-Claude-Code-session,
+so a fresh medium session may show 0 connected browsers even though the
+extension is healthy. Always try the auto-pair flow before declaring
+the probe blocked.
+
 ```
+# Step 1 — fast path: list cached pairings
 mcp__Claude_in_Chrome__list_connected_browsers
-# Expect ≥1 browser. If 0: ask user to install / connect the extension.
+# Returns array of {deviceId, displayName, ...}.
+# Non-empty → skip Step 2; jump straight to navigation.
+
+# Step 2 — slow path: broadcast pair request
+mcp__Claude_in_Chrome__switch_browser
+# Sends a connection request to every Chrome with the extension and
+# WAITS UP TO 2 MINUTES for the user to click "Connect" in the popup.
+# If the user is at the keyboard: returns paired-browser metadata.
+# If timeout: returns empty/error → the probe is genuinely blocked
+# this session (user is asleep / away / Chrome closed). DO NOT halt
+# the queue — log + defer to next session.
+
+# Step 3 — once paired, optionally lock to a specific browser by ID
+mcp__Claude_in_Chrome__select_browser
+  deviceId: <from list_connected_browsers>
+# Use this if Step 1 returned multiple browsers and you want to
+# disambiguate. Otherwise skip.
 ```
+
+**For autonomous medium / cron-fired sessions:** treat the auto-pair as
+a 2-minute polite knock at the door. If the user is around they'll
+click; if not, log + move on. Never block the runway on this.
 
 ## Pattern (applies to BOTH sites)
 

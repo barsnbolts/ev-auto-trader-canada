@@ -5,7 +5,8 @@
 > below into a fresh Claude Code session in `~/ev-auto-trader-canada`
 > and medium will pick up exactly where it left off.
 >
-> **FOUR safety nets are armed (defense in depth):**
+> **TWO safety nets remain armed** (session-local backups #3 + #4
+> were cancelled by user 2026-05-04 to wind down the autonomous loop):
 >
 > 1. **Disk-persistent one-shot** — `scheduled-tasks` MCP, taskId
 >    `ev-trader-restart-2026-05-04-1814`, fires once at
@@ -18,14 +19,11 @@
 >    hours at :23 past). Persists indefinitely (no 7-day expiry).
 >    File: `/Users/ianmcadam/.claude/scheduled-tasks/ev-trader-autonomous-loop-4h/SKILL.md`
 >
-> 3. **Session-local one-shot** — `CronCreate` job 8fde95ac, fires
->    `14 18 4 5 *`. Lost if THIS session ends, but redundant with #1.
+> ~~3. Session-local one-shot — CronCreate 8fde95ac~~ — **CANCELLED**
+> ~~4. Session-local recurring — CronCreate 8c43c24b~~ — **CANCELLED**
 >
-> 4. **Session-local recurring** — `CronCreate` job 8c43c24b, fires
->    `17 */4 * * *`. Lost if THIS session ends, but redundant with #2.
->
-> If all four fail (highly unlikely), paste the prompt body below
-> manually into a fresh Claude Code session.
+> If both disk-persistent nets fail (highly unlikely), paste the prompt
+> body below manually into a fresh Claude Code session.
 
 ## The prompt
 
@@ -49,13 +47,20 @@ Resume protocol — execute IN ORDER without re-checking with the user:
 4. Open docs/handoff/MEDIUM_RUNWAY.md — 60 pre-baked tasks across
    tiers A-G (~220k tokens). Each task has file paths, expected diff,
    verify command, token estimate.
-5. Check Chrome MCP availability:
-     mcp__Claude_in_Chrome__list_connected_browsers
-   - Non-empty → Tier I1 (Leasebusters) unblocked. Run
-     CHROME_MCP_PROBE_PLAYBOOK.md § Site 2.
-   - Empty → drain Tier A first (15 items, all low-risk + high-value),
-     then B (perf), C (UX), D (test depth), E (data hygiene),
-     F (code quality), G (docs).
+5. Run Tier 0.1 — Chrome MCP auto-pair attempt:
+     a. mcp__Claude_in_Chrome__list_connected_browsers
+        - Non-empty → cache deviceId, run CHROME_MCP_PROBE_PLAYBOOK.md
+          § Site 2 verbatim, then ship the leasebusters scraper rewrite.
+     b. Empty → mcp__Claude_in_Chrome__switch_browser
+        (broadcasts pair request, 2-min timeout for user to click Connect).
+        - Pairs → run probe + scraper rewrite.
+        - Times out → log "Tier 0.1 deferred" to TAURI_BUILD_LOG.md
+          and proceed to Tier A. Try again next session.
+   The user has the Claude-in-Chrome extension installed (confirmed
+   2026-05-04). Always attempt the pair before declaring blocked.
+   Then drain Tier A (15 items, all low-risk + high-value), then B
+   (perf), C (UX), D (test depth), E (data hygiene), F (code quality),
+   G (docs).
 6. For each task: apply changes per the diff sketch, run the verify
    command, run npm run predeploy, commit (HEREDOC msg, specific files),
    git push origin HEAD.
@@ -106,8 +111,10 @@ Expect to see both:
 Ask: "list active crons via CronList"
 ```
 
-Expect to see two more (session-local backups). If session ended,
-these will be gone — relies on the disk-persistent ones above.
+Expect: empty. The session-local CronCreate backups were cancelled
+on 2026-05-04 — the disk-persistent scheduled-tasks above are now
+the only nets. If you want to add more session-local belts-and-suspenders
+backups, use CronCreate to recreate them, but it's optional.
 
 ## Manage / cancel
 
