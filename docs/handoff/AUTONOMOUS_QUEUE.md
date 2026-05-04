@@ -363,3 +363,9 @@ Track shipped items here so the next session knows what's left.
 After all 17 ship: re-prime via `AUTONOMOUS_MODE.md` § "When the ladder
 is exhausted (it never really is)" — re-grep TODO/FIXME, walk routes
 again, refresh stale data, etc.
+
+## Completed (medium pass 2026-05-04)
+
+- [x] Q1 data-unit-id: 8449ef2f
+- [x] Q2 a11y aria-labels (UnitPhotoGallery only — others already had labels or not icon-only): 8449ef2f
+- [blocked] Leasebusters Chrome MCP probe: no browser connected to Chrome MCP. User must open Chrome with extension.
