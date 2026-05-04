@@ -256,6 +256,149 @@ export function thermalConfidence(base: Confidence, tempC: number): Confidence {
   return rollupConfidence(base, tempC);
 }
 
+// ---------- Warm-up ramp model ----------------------------------------------
+//
+// Real-world EV range when cold-soaked is NOT static — it changes minute by
+// minute as the cabin and battery warm. The averaged `realRangeKm` above is
+// the integrated effective range across a typical 60-min trip. The ramp
+// model below returns range at minute T, useful for visualising why a
+// short cold trip uses MORE energy per km than a long one.
+//
+// Physics modeled (first-order time-constant approximations):
+//
+// 1. HVAC draw decays from peak at t=0 to steady-state with tau_hvac ≈ 8 min
+//    (cold-soaked) or tau_hvac ≈ 3 min (preconditioned cabin starts warm).
+//    HVAC(t) = steady + (peak - steady) * exp(-t/tau_hvac)
+//    Peak HVAC at -20°C cold-soaked: 8.5 kW (cabin heat-up surge).
+//
+// 2. Battery capacity rises from cold value toward steady-state with
+//    tau_batt ≈ 25 min as regen/PE waste heat warms the pack. For pre-
+//    conditioned vehicles the battery starts already at +15°C from ambient.
+//    cap(t) = cap_warm - (cap_warm - cap_initial) * exp(-t/tau_batt)
+//
+// 3. Effective range at minute T is the AVERAGED range over [0, T] using
+//    the integrated HVAC + capacity at each minute. Conservative — a buyer
+//    pulling stats at T=10 min sees the worst-case "first 10 min" number,
+//    not the steady-state.
+//
+// Real-world calibration: Hyundai Bluelink + Bjorn Nyland telemetry both show
+// ~25-35% range hit on the FIRST 10 km of cold-soaked winter drive, climbing
+// to the steady-state ~30% hit by km 30-50. Preconditioning erases most of
+// the first-10-km penalty.
+
+const TAU_HVAC_COLD_MIN = 8;     // minutes — HVAC peak decay time when cold-soaked
+const TAU_HVAC_PRECON_MIN = 3;   // minutes — HVAC peak decay time when preconditioned
+const TAU_BATTERY_MIN = 25;      // minutes — battery warm-up time under driving load
+const HVAC_PEAK_KW = 8.5;        // peak HVAC draw at -20°C cold-soaked
+
+export interface RampParams extends RealRangeParams {
+  /** Minutes elapsed since drive start (0 = just started, 60+ = steady-state) */
+  minutesElapsed: number;
+}
+
+/**
+ * Estimate cumulative averaged range from minute 0 to `minutesElapsed`.
+ *
+ * At T=0 returns the worst-case (peak HVAC + cold battery).
+ * At T=60+ converges to `realRangeKm` (steady-state).
+ *
+ * Used by the dossier ramp chart to show "range at the first 10 min vs the
+ * first 30 min vs steady-state" — explains why Sunday-morning short trips
+ * burn so much more than rated.
+ */
+export function realRangeRampKm(params: RampParams): number | null {
+  const {
+    epaKm,
+    batteryKwh,
+    hasHeatPump,
+    tempC,
+    chemistry = "UNKNOWN",
+    speedKph = 100,
+    preconditioned = false,
+    heatPumpMinEffectiveC = -20,
+    minutesElapsed,
+  } = params;
+
+  if (!epaKm || epaKm <= 0) return null;
+  if (minutesElapsed < 0) return null;
+
+  const temp = Math.max(-40, Math.min(40, tempC));
+  const t = Math.max(0, minutesElapsed);
+
+  const ratedEfficiency =
+    batteryKwh != null && batteryKwh > 0 && epaKm > 0
+      ? (batteryKwh * 1000) / epaKm
+      : 175;
+  const usableKwh = batteryKwh ?? (epaKm * ratedEfficiency) / 1000;
+
+  // ── 1. Steady-state HVAC (the value `realRangeKm` uses) ────────────────
+  let hvacSteady: number;
+  if (hasHeatPump !== true) {
+    hvacSteady = interp(HVAC_RESISTIVE, temp);
+  } else {
+    const transitionTop = heatPumpMinEffectiveC + 5;
+    if (temp >= transitionTop) hvacSteady = interp(HVAC_HEAT_PUMP, temp);
+    else if (temp <= heatPumpMinEffectiveC) hvacSteady = interp(HVAC_RESISTIVE, temp);
+    else {
+      const frac = (temp - heatPumpMinEffectiveC) / 5;
+      hvacSteady = interp(HVAC_RESISTIVE, temp) + frac *
+        (interp(HVAC_HEAT_PUMP, temp) - interp(HVAC_RESISTIVE, temp));
+    }
+  }
+  if (preconditioned) hvacSteady *= 0.7;
+
+  // ── 2. Peak HVAC at t=0 ────────────────────────────────────────────────
+  // Preconditioned vehicles start near steady-state; cold-soaked vehicles
+  // start at HVAC_PEAK_KW (cabin heating surge), capped at the colder of
+  // {steady, peak} so warm-temp scenarios don't surge artificially.
+  const peakHvac = preconditioned
+    ? hvacSteady * 1.15
+    : Math.max(hvacSteady, temp < 5 ? HVAC_PEAK_KW : hvacSteady * 1.4);
+
+  const tauHvac = preconditioned ? TAU_HVAC_PRECON_MIN : TAU_HVAC_COLD_MIN;
+  // Time-averaged HVAC over [0, t]:
+  // ∫₀ᵗ HVAC(s) ds / t = steady + (peak - steady) * (tau/t) * (1 - e^(-t/tau))
+  const hvacAvg = t === 0
+    ? peakHvac
+    : hvacSteady + (peakHvac - hvacSteady) * (tauHvac / t) * (1 - Math.exp(-t / tauHvac));
+
+  // ── 3. Battery capacity rises over time ────────────────────────────────
+  // Steady-state cap (battery at op temp): use min(20°C, ambient+15°C) for
+  // preconditioned vehicles, else ambient.
+  const capCurve = CAPACITY_CURVES[chemistry] ?? CAPACITY_CURVES.UNKNOWN;
+  const capInitialTemp = preconditioned ? Math.min(20, temp + 15) : temp;
+  const capInitial = interp(capCurve, capInitialTemp);
+  const capWarm = interp(capCurve, Math.min(20, temp + 20)); // pack warms ~20°C above ambient under load
+  const tauBatt = preconditioned ? TAU_BATTERY_MIN * 0.5 : TAU_BATTERY_MIN;
+  // Time-averaged capacity over [0, t]
+  const capAvg = t === 0
+    ? capInitial
+    : capWarm - (capWarm - capInitial) * (tauBatt / t) * (1 - Math.exp(-t / tauBatt));
+
+  // ── 4. Range at this point in the trip ────────────────────────────────
+  const effectiveKwh = usableKwh * capAvg;
+  const hvacWhKm = speedKph > 0 ? (hvacAvg * 1000) / speedKph : 0;
+  const effectiveEfficiency = ratedEfficiency + hvacWhKm;
+  if (effectiveEfficiency <= 0) return null;
+  return (effectiveKwh * 1000) / effectiveEfficiency;
+}
+
+/**
+ * Generate a ramp curve [{minute, rangeKm}] for plotting in the dossier.
+ * Default: 0, 5, 10, 15, 20, 30, 45, 60 min sample points.
+ */
+export function realRangeRampCurve(
+  params: Omit<RampParams, "minutesElapsed">,
+  samplesMin: number[] = [0, 5, 10, 15, 20, 30, 45, 60],
+): { minute: number; rangeKm: number }[] {
+  const out: { minute: number; rangeKm: number }[] = [];
+  for (const m of samplesMin) {
+    const r = realRangeRampKm({ ...params, minutesElapsed: m });
+    if (r != null) out.push({ minute: m, rangeKm: Math.round(r) });
+  }
+  return out;
+}
+
 // ---------- Full model (for completeness — matches sibling API) -------------
 // Note: this version requires caller to pass the fields inline rather than
 // a Vehicle object (since we don't import that type here).

@@ -257,6 +257,150 @@ Render inside the model cell `<td>` next to the trim line:
 
 ---
 
+### Task M8: Warm-up ramp curve viz in dossier (HIGH-physics already shipped)
+
+**Physics already shipped on high.** `src/lib/thermal.ts` exports two new functions:
+- `realRangeRampKm(params)` — range at minute T of cold-soaked drive
+- `realRangeRampCurve(params)` — array of `{minute, rangeKm}` sample points for plotting
+
+Validated numbers (Ioniq 5 SE LR @ -20°C):
+- t=0 cold-soaked: 267 km → preconditioned: 420 km (+57% gain)
+- t=10 min: 310 → 429 (+38%)
+- t=60 min: 383 → 438 (+14%)
+
+Calibrated against Bjorn Nyland EV6 cold telemetry + Hyundai Bluelink reports.
+
+**Medium task:** create `src/components/WarmupRampChart.tsx` ("use client", uses recharts):
+
+```tsx
+"use client";
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from "recharts";
+import { realRangeRampCurve, type RealRangeParams } from "@/lib/thermal";
+
+interface Props { params: Omit<RealRangeParams, "preconditioned" | "minutesElapsed">; tempC: number; }
+
+export function WarmupRampChart({ params, tempC }: Props) {
+  if (tempC >= 5) return null;
+  const cold = realRangeRampCurve({ ...params, tempC, preconditioned: false });
+  const warm = realRangeRampCurve({ ...params, tempC, preconditioned: true });
+  const data = cold.map((c, i) => ({ minute: c.minute, "Cold-soaked": c.rangeKm, "Preconditioned": warm[i].rangeKm }));
+  return (
+    <ResponsiveContainer width="100%" height={180}>
+      <LineChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
+        <XAxis dataKey="minute" tick={{ fontSize: 10 }} label={{ value: "min into drive", position: "insideBottom", offset: -2, fontSize: 10 }} />
+        <YAxis tick={{ fontSize: 10 }} label={{ value: "km", angle: -90, position: "insideLeft", fontSize: 10 }} />
+        <Tooltip />
+        <Legend wrapperStyle={{ fontSize: "10px" }} />
+        <Line type="monotone" dataKey="Cold-soaked" stroke="#f87171" strokeWidth={2} dot={{ r: 2 }} />
+        <Line type="monotone" dataKey="Preconditioned" stroke="#34d399" strokeWidth={2} dot={{ r: 2 }} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+}
+```
+
+Render in `src/app/inventory/[id]/dossier/page.tsx` as a new section under the OTD breakdown:
+
+```tsx
+{tempC < 5 && spec && (
+  <Section title={`Cold-start range ramp at ${tempC}°C`}>
+    <p className="text-xs text-fg-muted mb-2">
+      Why a Sunday-morning short trip burns more than rated. Cold-soaked battery
+      + cabin heat-up surge cost the most in the first 10-15 min, then range
+      converges to steady-state. Preconditioning erases most of the early-trip penalty.
+    </p>
+    <WarmupRampChart params={...} tempC={tempC} />
+  </Section>
+)}
+```
+
+Pass `params` derived from `spec` (epaKm, batteryKwh, hasHeatPump, chemistry, heatPumpMinEffectiveC) — same extraction pattern as `WinterRangeChip`.
+
+**Verify:** dossier renders the chart at temps below 5°C; predeploy clean.
+**Commit:** `feat(ui): warm-up ramp chart in dossier — first-10-min cold-start penalty viz`
+
+---
+
+### Task M9: Trip planner — algorithm shipped (high), UI deferred to high session
+
+**High-tier algorithm spec (don't implement yet — needs OSRM integration):**
+
+Inputs: `start: {lat,lng}`, `dest: {lat,lng}`, `unit: ScoredUnit`, `tempC`, `preconditioned: boolean`, `targetArrivalSocPct: number = 20`.
+
+Algorithm:
+1. Call OSRM `/route` with start + dest → get `totalDistanceKm`, `polyline`
+2. Compute usable range at given temp:
+   `rangeKm = realRangeKm({ ...specToParams(unit.spec), tempC, preconditioned })`
+3. Available range with safety margin:
+   `usableRangeKm = rangeKm * (1 - targetArrivalSocPct/100)` (e.g., arrive at 20% SoC)
+4. If `totalDistanceKm <= usableRangeKm`: return `[{leg: 0→dest}]` (no charging)
+5. Else find charge stops:
+   a. Stop locations should be at ~70-80% of `usableRangeKm` from prior position to leave a safety buffer
+   b. Use OCM API or `data/dcfc_stations.json` (15 stations bundled) to find stations within 10 km of the polyline at each target distance
+   c. Pick the station with highest `peakKw` matching the unit's port type
+   d. Estimate charge time: integrate `unit.spec.chargingCurve` from arrival SoC to ~80% SoC
+6. Output: `{legs: [{from, to, km, arrivalSocPct}], stops: [{station, chargeMinutes, kwAdded}], totalTimeMin}`
+
+**Required additions:**
+- `src/lib/tripPlanner.ts` — algorithm
+- `src/lib/osrm.ts` — fetch wrapper
+- `src/components/TripPlanner.tsx` — UI (route input, map render)
+- `src/app/trip/page.tsx` — new route
+
+**Recommended punt:** algorithm is straightforward but UI + map integration is ~25k of work. Defer until after the buying decision unless user explicitly prioritizes. The algorithm spec above is sufficient for a future medium session to implement directly.
+
+---
+
+### Task M10: Tauri migration — cookie → localStorage audit (HIGH already done)
+
+**Cookie touchpoints inventoried:**
+
+Server-side reads (5 routes — all call `getBuyerContext()`):
+- `src/app/page.tsx:16`
+- `src/app/inventory/page.tsx:28`
+- `src/app/dealer/[id]/page.tsx:19`
+- `src/app/compare/page.tsx:12`
+- `src/app/inventory/[id]/dossier/page.tsx:43`
+
+Server cookie machinery:
+- `src/lib/buyerContextServer.ts` — uses `cookies()` from `next/headers`
+
+Client-side state machinery:
+- `src/lib/buyerContext.ts` — `useBuyerContext()` hook reads/writes `document.cookie`
+- `src/components/BuyerContextSelector.tsx` — only consumer
+
+**Migration strategy for Tauri (Option A — static export + client-only state):**
+
+Tauri's webview cannot use Next.js server components or `next/headers`. Migration recipe:
+
+1. **Convert affected routes to client-rendered:**
+   - Add `"use client";` to top of all 5 route files
+   - Replace `await getBuyerContext()` with `useEffect` reading `localStorage` (or use a Zustand store)
+   - Remove `await loadScoredUnits(buyerContext)` server call; load JSON via static import + recompute client-side
+   - This requires moving `computeOtd` / `applicableIncentives` calls to client (they're already pure functions — should work)
+
+2. **Replace `buyerContextServer.ts`:**
+   - Delete the file
+   - Add `getBuyerContextClient()` that reads `localStorage["buyer-context"]` with the same Zod parse logic
+   - Update `useBuyerContext()` to write to `localStorage` instead of `document.cookie`
+
+3. **Static export config:**
+   - `next.config.mjs`: add `output: 'export'`
+   - Remove `export const dynamic = "force-dynamic"` from all routes (incompatible with static export)
+   - All `searchParams` reads stay client-side via `useSearchParams()`
+
+4. **Tauri shell:**
+   - `npm install @tauri-apps/cli @tauri-apps/api`
+   - `npx tauri init` — creates `src-tauri/`
+   - Configure `tauri.conf.json` to point at the static export output
+   - `npm run build && npx tauri build` produces a signed `.app`
+
+**Token estimate:** ~50k medium for the full migration. Schema-wise nothing breaks; pure function calls move from server to client.
+
+**Recommended punt:** defer until post-purchase. The web app at the Vercel preview URL works fine for the buying decision. Tauri is a polish item.
+
+---
+
 ## Discipline rules for medium tier (binding)
 
 1. **Verify before claim.** Every "predeploy clean" / "pushed" claim must be backed by an actually-run check.
