@@ -98,3 +98,4 @@ cat docs/handoff/research/PHASE_D0_PROBE_*.md 2>/dev/null  # if D0 ran
 Phase A is shipped + verified. Phase B is shipped + verified. Phase C is the
 next mechanical step; Phase D needs D0 research first.
 - 2026-05-04 18:30 medium: U4 native macOS menu bar (App / File / Edit / Window submenus, Cmd+R refresh) — d87d716c. Tauri build 1m31s clean.
+- 2026-05-04 19:25 medium: session wrap. 21 commits across 12 task IDs. Vitest 38/38. Predeploy + Tauri build clean. SESSION_2026-05-04_MEDIUM.md is the canonical close-out summary. Single blocker: Leasebusters Chrome MCP probe.

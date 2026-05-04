@@ -10,24 +10,30 @@ grep -rn "TODO(medium" src/ src-tauri/ scripts/ 2>/dev/null
 
 ## Inline TODOs
 
-| Severity | File | Line ref | What | Pre-baked recipe |
-|---|---|---|---|---|
-| ★★★ unblocker | `scripts/scrape_kijiji.py` | top of file (header docstring) | Find Kijiji's real listing JSON XHR via Chrome MCP. | **`docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md` § Site 1: Kijiji** — exact MCP call sequence, capture script, decision matrix |
-| ★★★ unblocker | `scripts/scrape_leasebusters.py` | top of file (header docstring) | Find Leasebusters' XHR endpoint via Chrome MCP. Confirm whether VIN appears post-login. | **`docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md` § Site 2: Leasebusters** — same playbook + VIN-decision protocol |
-| ★★ ship-win | `src-tauri/src/lib.rs` | inside `set_dock_badge` fn | Replace stub with NSDockTile binding via objc2 crate. | **`docs/handoff/DOCK_BADGE_RECIPE.md`** — Cargo.toml + lib.rs diffs ready to apply, build + test instructions |
-| ★ low-pri | `scripts/verify_unit.py` | top of file (header docstring) | Improve Imperva bypass. Optional — current "challenged" state honestly handles the wall. | (none — see TODO header in file) |
-| ★ low-pri | `scripts/scrape_unit_gallery.py` | top of file (header docstring) | Same Imperva walls as verify_unit.py. Cron retries nightly; no urgent action. | (none) |
+| Severity | File | What | Status |
+|---|---|---|---|
+| ~~★★★~~ | `scripts/scrape_kijiji.py` | Walks `__NEXT_DATA__` Apollo cache via lib_scrape_common — 251 unique listings, 97.6% VIN coverage. | **SHIPPED** `abeacb64` |
+| ★★★ unblocker | `scripts/scrape_leasebusters.py` | Find Leasebusters XHR endpoint via Chrome MCP. Recipe: `CHROME_MCP_PROBE_PLAYBOOK.md` § Site 2. | **BLOCKED** — Chrome MCP browser not paired |
+| ~~★★~~ | `src-tauri/src/lib.rs` `set_dock_badge` | NSDockTile via objc2 (feature-gated `cfg(target_os = "macos")`). | **SHIPPED** `a737e92a` |
+| ★ low-pri | `scripts/verify_unit.py` | Improve Imperva bypass. "challenged" state already honest. | open |
+| ★ low-pri | `scripts/scrape_unit_gallery.py` | Same Imperva walls. Cron retries nightly. | open |
 
-**Revised total token estimate** (post-pre-baking): ~30-40k for all 3
-unblocker + ship-win items. Was 30-50k pre-playbook.
+## Recommended order (post 2026-05-04 medium pass)
 
-## Recommended order
+1. **Leasebusters scraper** — single remaining D-core blocker. Needs
+   user to pair Chrome MCP browser (open Chrome, install extension,
+   click Connect). Then any session can run the playbook.
+2. **Polyfills drop on Tauri target** (~3k tokens, ~100 kB save). See
+   `docs/handoff/BUNDLE_AUDIT_2026-05-04.md`.
+3. **`computeOtd` realistic-fixture vitest specs** (~6k tokens). 38
+   specs already exist; OTD/finance/lease functions need their own
+   pass with `data/incentives.json` fixtures.
+4. **Phase D-bis** Hyundai Click-to-Buy + Kia D2C Media (~95k, paid Apify, needs user approval).
+5. **Phase E** OEM dealer API direct (~60-80k, V8+).
 
-1. **Phase C dock badge** (`src-tauri/src/lib.rs`) — smallest, mechanical, ships an IPC win. Forces a Tauri rebuild, gives medium a sanity-check cycle through the build process. ~5k tokens. ~30 min.
-2. **Phase D-core Kijiji scraper** (`scripts/scrape_kijiji.py`) — once Chrome MCP is connected, capture the XHR, swap fetch body, verify `data/_kijiji_raw.json` populates, run merge, see CrossSourceChip light up. ~15-25k. ~2 hr.
-3. **Phase D-core Leasebusters scraper** (`scripts/scrape_leasebusters.py`) — same pattern. ~10-15k. ~1.5 hr.
-4. **Phase D-bis** (Hyundai Click-to-Buy + Kia D2C Media) — defer until D-core is shipping data. ~95k total.
-5. **Phase E** (OEM dealer API direct) — defer further. V8+. ~60-80k.
+See `docs/handoff/SESSION_2026-05-04_MEDIUM.md` for the state-at-close
+of the medium pass that closed Q1, Q2, Q3, Q4, Q5 + Q5-followup,
+U1, U3, U4, U5, T1, T2, T3, D1, D2 (21 commits).
 
 ## Verification ritual after EACH item ships
 
@@ -56,11 +62,14 @@ git push origin HEAD
 
 ```
 1. Read CLAUDE.md (operating rules)
-2. Read docs/handoff/MEDIUM_RESUME_2026-05-04.md (state-of-everything)
-3. Read this doc (TODO_INDEX_2026-05-04.md) for the work queue
-4. Pick item 1 above (dock badge) and ship it
-5. Append a one-line entry to docs/handoff/TAURI_BUILD_LOG.md "Shipped commits"
-6. Move to item 2
+2. Read docs/handoff/SESSION_2026-05-04_MEDIUM.md (state-at-close of last pass)
+3. Read this doc (TODO_INDEX_2026-05-04.md) for what's still open
+4. Check Chrome MCP availability: mcp__Claude_in_Chrome__list_connected_browsers
+5. If browser paired → run Leasebusters playbook from
+   docs/handoff/CHROME_MCP_PROBE_PLAYBOOK.md § Site 2
+6. If NOT paired → pick from "Recommended order" #2-5 above, or open
+   AUTONOMOUS_QUEUE.md for the remaining Tier 2-5 staged items
+7. Ship → predeploy gate → commit → push → append to TAURI_BUILD_LOG.md
 ```
 
 ## After the queue empties
