@@ -984,6 +984,9 @@ Track shipped items here so the next session knows what's left. Format:
 - [x] A7: validate_data_schemas.py +check_cross_references — units.dealerId resolves; units.(model,year,trim,drivetrain) resolves to a spec. "Trim unknown" units skipped (acknowledged parser gap). Total suite 100/100.
 - [x] A8: scrape_unit_gallery.py uses lib_scrape_common.fetch_html + lib_scrape_metrics.record_run. Telemetry to data/_scraper_metrics.jsonl. Smoke test on u-at-fc69e5f7 ok (exit 0, recorded "errors=1" for Imperva-walled response — expected behavior).
 - [x] A9: lib_scrape_common.nhtsa_decode now caches in data/_vin_cache.json with 30-day TTL. Verified: first call 470ms (network), second call <1ms (cache hit), payloads identical.
+- [x] A10: InventoryTable.README.md — what it renders, props, state, deps, perf notes.
+- [x] A11: DossierClient.README.md — tab structure, keyboard shortcuts, recharts dynamic-import callout, perf budget.
+- [x] A12: CompareGrid.README.md — distinguishes inventory-unit compare flow from model-picker flow + the two-compare-tools rationale.
 ```
 
 ---

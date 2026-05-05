@@ -107,3 +107,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04: A5+A6+A7 shipped — crossListings +5 specs (uncovered fallbackKey 4-vs-5 segment Python/TS asymmetry, documented), schema validator now enforces 9 enum sets + cross-reference integrity (dealerId + spec join). Total vitest 100/100.
 - 2026-05-04: A8 shipped — scrape_unit_gallery.py refactored onto lib_scrape_common.fetch_html + lib_scrape_metrics.record_run. Drops 30 lines of duplicate curl plumbing. Telemetry now flows to data/_scraper_metrics.jsonl alongside Kijiji + leasebusters.
 - 2026-05-04: A9 shipped — nhtsa_decode 30-day cache in data/_vin_cache.json. 470ms→<1ms hit. Cache survives cron restarts; bulk decoding now ~free.
+- 2026-05-04: A10+A11+A12 shipped — three component READMEs (InventoryTable, DossierClient, CompareGrid). Each covers what/props/state/deps/perf+a11y notes.
