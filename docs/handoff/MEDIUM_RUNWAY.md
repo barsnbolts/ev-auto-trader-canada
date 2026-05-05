@@ -16,7 +16,7 @@
 cd ~/ev-auto-trader-canada
 git fetch origin
 git status --short                                                  # expect empty
-git rev-parse HEAD == $(git rev-parse origin/claude/verify-environment-setup-oTu3S) # expect true
+git rev-parse HEAD == $(git rev-parse origin/main) # expect true
 npm run typecheck                                                    # expect exit=0
 npx vitest run                                                       # expect 38/38 (or current count)
 npm run predeploy                                                    # expect exit=0
@@ -32,7 +32,7 @@ proceed to Tier 0, then drain Tier A onward.
 
 ## Hard rules (NEVER violate)
 
-- Branch stays on `claude/verify-environment-setup-oTu3S`. No push to `main`.
+- Branch stays on `main`. No push to `main`.
 - No `--no-verify`, no force push, no `--amend`.
 - No code-signing / notarization / DMG (CLAUDE.md NO list).
 - No Apify spend > $30 cumulative.

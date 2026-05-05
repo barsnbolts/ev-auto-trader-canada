@@ -288,7 +288,7 @@ each task runs in its own context window. For UI verification, use
 ### Critical hygiene (do before any task)
 
 1. `cd ~/ev-auto-trader-canada && git fetch origin && git pull --ff-only`
-2. Confirm HEAD ≥ `b627a68f` and branch is `claude/verify-environment-setup-oTu3S`.
+2. Confirm HEAD ≥ `b627a68f` and branch is `main`.
 3. `npm install && npm run predeploy` — must pass before starting.
 4. If predeploy fails, halt + post in chat. Don't paper over.
 
@@ -332,7 +332,7 @@ Edit `package.json`: add `"prepare": "simple-git-hooks"` to scripts; add top-lev
 npx simple-git-hooks                    # wires .git/hooks/pre-commit
 git add package.json package-lock.json
 git commit -m "chore(M17): simple-git-hooks pre-commit typecheck"
-git push origin claude/verify-environment-setup-oTu3S
+git push origin main
 ```
 
 Verify: plant a deliberate type error, attempt commit, expect block. Revert.
@@ -376,7 +376,7 @@ Expected delta: only intentional MSRP changes per trim, plus daily date drift in
 npm run predeploy
 git add data/oem-pricing.json data/units.json docs/handoff/research/M15_msrp_2026-05-02.md
 git commit -m "data(M15): per-trim Canadian MSRP refresh from OEM brochures + showroom pages"
-git push origin claude/verify-environment-setup-oTu3S
+git push origin main
 ```
 
 ### 5a. M16 Snapshot-diff daysOnLot `[MEDIUM]`
@@ -415,7 +415,7 @@ git push
 
 **OPEN QUESTION before writing this script:** Plan §5/M11 says cron does `git push origin main`, but project non-negotiable says "never push to main". Resolutions to ask the user:
 
-- **(a)** Cron pushes to the working branch `claude/verify-environment-setup-oTu3S` (data refreshes accumulate; operator merges to main via PR weekly).
+- **(a)** Cron pushes to the working branch `main` (data refreshes accumulate; operator merges to main via PR weekly).
 - **(b)** Cron creates daily branches `data-refresh/YYYY-MM-DD` and opens a PR to main (cleaner audit trail, more PR noise).
 - **(c)** Cron commits locally but doesn't push (operator pushes after morning review).
 

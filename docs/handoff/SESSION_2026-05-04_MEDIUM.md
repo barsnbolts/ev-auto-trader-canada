@@ -7,7 +7,7 @@
 ## State at close
 
 - **HEAD:** `82e1f435` — pushed to origin
-- **Branch:** `claude/verify-environment-setup-oTu3S`
+- **Branch:** `main`
 - **Working tree:** clean
 - **Predeploy:** clean (typecheck + thermal-audit + schema-audit + build, 192 static pages)
 - **Vitest:** 38/38 specs across 3 files (~530 ms)
@@ -114,7 +114,7 @@ cd ~/ev-auto-trader-canada
 git fetch origin
 git status --short                           # expect clean
 git rev-parse HEAD                            # expect 0d5ccf2d or newer
-git rev-parse origin/claude/verify-environment-setup-oTu3S
+git rev-parse origin/main
 npm run typecheck                             # expect clean
 npx vitest run                                # expect 38/38 (or current)
 
@@ -158,7 +158,7 @@ DEL   src/lib/thermal.ts                            (thermalConfidence + dcMinut
 
 ## Hard guardrails honored
 
-- ✓ Branch stayed on `claude/verify-environment-setup-oTu3S`
+- ✓ Branch stayed on `main`
 - ✓ Zero pushes to `main`
 - ✓ Zero `--no-verify`, zero force-push, zero `--amend`
 - ✓ Zero new code-signing / notarization / DMG work

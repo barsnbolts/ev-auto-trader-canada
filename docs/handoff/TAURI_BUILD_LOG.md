@@ -41,7 +41,7 @@ The window opens to `/`. Test sequence:
 
 ## Current state
 
-- Branch: `claude/verify-environment-setup-oTu3S`
+- Branch: `main`
 - Origin: `barsnbolts/ev-auto-trader-canada`
 - HEAD: `f44bb44d`
 - Working tree: cron-drift in `data/units.json` + `data/units-enrichment.json` is uncommitted (expected daily drift; commit when an organic data refresh lands)
@@ -116,3 +116,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04 evening: handoff polish — bloat cleanup (20 stale docs deleted: 30→10 active in docs/handoff/), 4 reference fixes (ARCHITECTURE/TODO_INDEX/AUTONOMOUS_MODE/TOOL_DECISION_MATRIX → MEDIUM_RUNWAY.md), Tier C math clarified (6/11 done, 5 remaining). Predeploy clean, vitest 100/100.
 - 2026-05-04 evening: cloud-portability pass — CLOUD_REMOTE_BOOT.md (clone-anywhere recipe + Mac-only-vs-portable matrix + Semble per-agent install + backup discipline + DR). SESSION_HANDOFF cross-refs updated with local-vs-remote note.
 - 2026-05-04 evening: CLOUD_REMOTE_BOOT.md hardened — explicit warning that main is 132+ commits behind by design, force-sync recipe via git reset --hard origin/<work-branch>, branch-drift recovery cookbook. User flagged that cloud version is super-stale; root cause is cloud was likely viewing main.
+- 2026-05-04 evening: branch surgery — old stale main archived as tag archive/main-pre-merge-2026-05-04 (1689129a); 3 dead auto-generated branches deleted; work branch renamed to main on origin; all docs updated to reference main; CLAUDE.md hard rules updated (push freely to main, no force-push / amend / --no-verify still hold). ONE remote branch (main at dde07db6) + ONE archive tag. Cloud-staleness eliminated permanently.

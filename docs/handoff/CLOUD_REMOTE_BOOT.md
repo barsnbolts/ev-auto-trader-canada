@@ -7,7 +7,7 @@
 >
 > **Canonical truth lives on GitHub.** The repo at
 > `https://github.com/barsnbolts/ev-auto-trader-canada` **branch
-> `claude/verify-environment-setup-oTu3S`** is the only source of
+> `main`** is the only source of
 > state that survives across machines and sessions. Anything not
 > committed there is local-only.
 
@@ -15,19 +15,19 @@
 
 **`main` is intentionally 132+ commits behind the working branch.** Per
 CLAUDE.md NO list, we never push to `main`; all work lands on
-`claude/verify-environment-setup-oTu3S`. Any cloud system, browser
+`main`. Any cloud system, browser
 view, sandbox, or sibling clone that defaults to `main` will show a
 super-stale snapshot from early May 2026 and miss everything since.
 
 If your session lands on `main` (or any branch other than
-`claude/verify-environment-setup-oTu3S`):
+`main`):
 
 ```bash
 git fetch origin
-git checkout claude/verify-environment-setup-oTu3S \
-  || git checkout -b claude/verify-environment-setup-oTu3S \
-       origin/claude/verify-environment-setup-oTu3S
-git reset --hard origin/claude/verify-environment-setup-oTu3S
+git checkout main \
+  || git checkout -b main \
+       origin/main
+git reset --hard origin/main
 git clean -fd       # nuke any stray untracked files
 ```
 
@@ -63,7 +63,7 @@ Ian's Mac.
 
 ```bash
 # 1. Clone OR force-sync to the work branch — never trust local cloud state.
-WORK_BRANCH=claude/verify-environment-setup-oTu3S
+WORK_BRANCH=main
 REPO_URL=https://github.com/barsnbolts/ev-auto-trader-canada.git
 
 if [ ! -d ev-auto-trader-canada ]; then
@@ -160,7 +160,7 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
 
 **Update protocol** (works locally + remote):
 ```bash
-git pull --ff-only origin claude/verify-environment-setup-oTu3S
+git pull --ff-only origin main
 npm install                       # if package-lock changed
 npm run predeploy                 # confirm clean
 ```
@@ -174,10 +174,10 @@ If origin is ahead and contains commits the local doesn't have:
 sits on a stale branch / wrong branch / divergent state):**
 ```bash
 git fetch origin --prune
-git checkout claude/verify-environment-setup-oTu3S \
-  || git checkout -b claude/verify-environment-setup-oTu3S \
-       origin/claude/verify-environment-setup-oTu3S
-git reset --hard origin/claude/verify-environment-setup-oTu3S
+git checkout main \
+  || git checkout -b main \
+       origin/main
+git reset --hard origin/main
 git clean -fd
 ```
 Use only on cloud / non-canonical workspaces where local state is
@@ -195,12 +195,12 @@ To check what your environment actually has:
 ```bash
 git rev-parse --abbrev-ref HEAD          # current branch
 git rev-parse HEAD                       # current commit SHA
-git rev-list --count HEAD..origin/claude/verify-environment-setup-oTu3S
+git rev-list --count HEAD..origin/main
                                           # commits behind canonical
 ```
 
 If `current branch` reports `main` or anything other than
-`claude/verify-environment-setup-oTu3S`, run the branch-drift recovery
+`main`, run the branch-drift recovery
 above to switch + sync.
 
 **Vercel preview URL note:** Vercel auto-deploys per push on every

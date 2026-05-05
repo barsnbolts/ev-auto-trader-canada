@@ -95,7 +95,7 @@
 
 ## Build + deploy
 
-### Branch lock — `claude/verify-environment-setup-oTu3S`
+### Branch lock — `main`
 - **What:** all autonomous work commits to this branch. Vercel deploys
   preview URLs from this branch. Production main is hands-off.
 - **Enforced:** by convention + every commit message + RESTART_PROMPT

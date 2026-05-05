@@ -74,7 +74,7 @@ Resume protocol — execute IN ORDER without re-checking with the user:
     explicit user approval — pause + ping in chat, do NOT auto-execute.
 
 Hard rules (NEVER violate, even via creative framing):
-- Branch stays on `claude/verify-environment-setup-oTu3S`
+- Branch stays on `main`
 - No push to `main`
 - No `--no-verify`, no force push, no `--amend`
 - No code-signing / notarization / DMG (CLAUDE.md NO list)

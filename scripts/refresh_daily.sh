@@ -9,7 +9,7 @@
 set -euo pipefail
 
 REPO="$HOME/ev-auto-trader-canada"
-BRANCH="claude/verify-environment-setup-oTu3S"
+BRANCH="main"
 LOG_DIR="$REPO/logs"
 
 mkdir -p "$LOG_DIR"

@@ -1,6 +1,6 @@
 # Deployment runbook — ev-auto-trader-canada → Vercel
 
-Per V5 plan decision: working branch `claude/verify-environment-setup-oTu3S`
+Per V5 plan decision: working branch `main`
 is production. No preview-vs-production split until project stabilizes.
 
 ## First-time setup (one-time, ~10 min)
@@ -30,7 +30,7 @@ vercel link
 
 # 4. Set production branch (dashboard only — no CLI flag)
 # Open https://vercel.com/<your-account>/ev-auto-trader-canada/settings/git
-# → "Production Branch" → enter: claude/verify-environment-setup-oTu3S
+# → "Production Branch" → enter: main
 # → Save
 
 # 5. First deploy
@@ -45,7 +45,7 @@ curl -sI https://ev-auto-trader-canada.vercel.app/ | head -1
 
 ## Daily auto-deploy (after step 4)
 
-Every push to `claude/verify-environment-setup-oTu3S` triggers a fresh
+Every push to `main` triggers a fresh
 Vercel build + production swap. The daily cron at 7 AM local pushes new
 data; that push deploys automatically. No manual `vercel --prod` needed
 after first-time setup.

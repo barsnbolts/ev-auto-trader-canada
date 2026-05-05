@@ -10,7 +10,7 @@
 | | |
 |---|---|
 | HEAD | `08686b39` (pushed to origin) |
-| Branch | `claude/verify-environment-setup-oTu3S` |
+| Branch | `main` |
 | Working tree | clean (after `__pycache__` gitignore added) |
 | Vitest | 100/100 across 7 test files |
 | Predeploy | clean (typecheck + thermal-audit + schema-audit + Next build) |
@@ -88,7 +88,7 @@ cd ~/ev-auto-trader-canada
 git fetch origin
 git status --short                                                  # expect empty
 git rev-parse HEAD                                                  # expect 08686b39 or newer
-git rev-parse origin/claude/verify-environment-setup-oTu3S          # should match HEAD
+git rev-parse origin/main          # should match HEAD
 npm run typecheck                                                   # expect exit=0
 npx vitest run                                                      # expect 100/100 (or current count)
 npm run predeploy                                                   # expect exit=0
@@ -120,7 +120,7 @@ across the codebase" which is exactly Semble's strength), Tier G (docs,
 
 ## Hard rules (NEVER violate)
 
-- Branch stays on `claude/verify-environment-setup-oTu3S`. No push to `main`.
+- Branch stays on `main`. No push to `main`.
 - No `--no-verify`, no force push, no `--amend`.
 - No code-signing / notarization / DMG (CLAUDE.md NO list).
 - No Apify spend > $30 cumulative.

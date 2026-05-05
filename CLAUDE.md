@@ -5,7 +5,7 @@ Personal-use Next.js 15 EV inventory + dossier tracker. Ian is buying a Hyundai 
 ## Repo facts (verify, don't memorize)
 
 - **Path:** `~/ev-auto-trader-canada` (NOT `~/Documents/Claude/Projects/EV dashboard/` — that's a sibling project; never cd into it)
-- **Branch:** `claude/verify-environment-setup-oTu3S` (never push to `main`)
+- **Branch:** `main` (THE working branch — push freely. The auto-generated `claude/verify-environment-setup-oTu3S` was renamed to `main` on 2026-05-04 evening; the prior stale `main` is preserved as tag `archive/main-pre-merge-2026-05-04`.)
 - **Origin:** `barsnbolts/ev-auto-trader-canada`
 - **Stack:** Next.js 15 App Router · Tailwind · Zustand · recharts · TS strict
 - **Predeploy gate:** `npm run predeploy` (= `tsc --noEmit && python3 scripts/validate_thermal_specs.py && next build`) must pass before every push
@@ -65,8 +65,7 @@ When user signals a tier-down ("switching to medium ASAP"): finish the in-progre
 
 ## What NOT to do
 
-- Push to `main` (ever)
-- `--no-verify`, `--amend`, force-push (ever)
+- `--no-verify`, `--amend`, force-push to `main` (the standing rule — push freely to main with normal commits, but never bypass hooks or rewrite pushed history)
 - `cd ~/Documents/Claude/Projects/EV\ dashboard/` (sibling project trap)
 - Spend Apify > $30 cumulative without explicit user OK
 - Modify `data/specs.json` heat pump values without a queue source backing it
