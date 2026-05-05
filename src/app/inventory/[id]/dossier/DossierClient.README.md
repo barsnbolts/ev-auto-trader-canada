@@ -54,8 +54,9 @@ keeps shortcuts from firing while user types in a search box.
 ## What depends on it
 
 `src/app/inventory/[id]/dossier/page.tsx` is the only consumer. The
-route uses `generateStaticParams()` to pre-render all 100 units in the
-Tauri export build.
+route uses `generateStaticParams()` to pre-render every unit in
+`data/units.json` at build time (~1400 units post-I0e AT scrape;
+build still completes well under 60s).
 
 ## Performance + accessibility notes
 

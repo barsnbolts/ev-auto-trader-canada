@@ -5,6 +5,12 @@ _Auto-generated from `git log` since 180.days.ago. Run `scripts/generate_changel
 
 ## 2026-05-05
 
+- `d86501fc` SESSION HANDOFF · 2026-05-05 medium-tier closeout (TIER I0 fully drained)
+- `65ee9438` data refresh II: today's snapshot + daysOnLot enrichment for 1392 units
+- `7c249abc` G7 · HOW_TO_ADD_MODEL recipe — 10-step end-to-end for adding a vehicle
+- `6cf55bbc` D6 · dealerPressureMap multi-dealer independence spec
+- `e64832ff` D5 · loadScoredUnits integration spec — OTD finite + dealer-FK + buyer ctx
+- `fc36c42a` Tier E4+E5+E7 batch + transport-bands neighbour drift fix
 - `b3f703de` F3 + D4 + G2 + crossListings TS/Python alignment
 - `0b304d68` Tier E + Tier F + Tier G batch + AT throttle/budget tuning
 - `e146459a` TIER C: 14d/30d staleness chips + dossier last-seen + skeleton mirrors columns
