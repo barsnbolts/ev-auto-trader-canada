@@ -63,11 +63,147 @@ proceed to Tier 0, then drain Tier A onward.
 
 ---
 
-# THE QUEUE — 61 tasks
+# THE QUEUE — TIER I0/I1/I2 inserted at top (2026-05-04 Phase R/F closeout)
+
+**TIER I0 + I1 + I2 = the inventory rebuild work.** All have free-path
+specs in `docs/handoff/research/*_DECISION_2026-05-04.md` +
+`*_PROBE_CAPTURE_2026-05-04.md` + `*_REPLAY_SPEC_2026-05-04.md`. Phase
+R + Phase F closed all architectural decisions; medium picks the top
+item from I0, executes per spec, ships, repeats.
+
+Headline doc: `docs/handoff/research/PHASE_F_SUMMARY_2026-05-04.md`.
+
+---
+
+## TIER I0 — Daily inventory drain (~32k tokens, FREE PATH)
+
+Highest-priority. Inventory has been frozen for 4 days because cron
+broke + AT scraper never existed. After I0 closes, AT/Kijiji/Leasebusters
+all refresh daily with cross-source merge working.
+
+### I0a · Cron PATH fix · ~1k tokens
+File: `scripts/com.evautotrader.refresh.plist`
+Add `<key>EnvironmentVariables</key>` with `PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin`.
+`launchctl unload`/`launchctl load` to reload. Force-trigger via
+`launchctl start com.evautotrader.refresh`. Verify cron.log shows
+the full predeploy → commit → push path.
+
+### I0b-1 · Add VIN-keyed merge as primary join · ~3k tokens
+File: `scripts/merge_cross_sources.py`
+Per `docs/handoff/research/SANITY_CHECK_2026-05-04_evening.md`:
+- Build `entries_by_vin: dict[str, dict]` alongside `entries`.
+- Layering loop: if listing has VIN AND VIN exists in `entries_by_vin`,
+  append to that entry; else fall through to fallback-key path.
+- Dedupe: AT entry without VIN may have created a fallback-key entry
+  that should merge with a Kijiji-VIN-keyed entry for the same car.
+- Vitest spec: `crossListings.test.ts` "VIN-key wins over fallback
+  when both present."
+Expected lift: 8 high-value matches for the 8 AT-with-VIN units.
+
+### I0b-2 · Drop trim from fallback_key + UI disambiguation · ~3k tokens
+Files: `scripts/merge_cross_sources.py`, `src/components/InventoryTable.tsx`,
+`src/lib/crossListings.ts`, `docs/INVARIANTS.md`.
+Per SANITY_CHECK doc:
+- `fallback_key()` drops trim. New shape: `year|make|model`.
+- Per-listing trim is preserved + visible in UI.
+- New cross-source chip text: "13 listings of 2025 Kia EV6 across
+  sources, prices $X-$Y, your AT entry is $Z (rank N)."
+- Vitest spec: collapses 5 trim variants of same model under one entry.
+- Patch INVARIANTS.md line 70 to reflect 3-segment fallback key.
+Expected join rate jump: 3 → ~30-50 cross-source matches.
+
+### I0c · Wire Kijiji + cross-merge into refresh_daily.sh · ~2k tokens
+File: `scripts/refresh_daily.sh`
+After build_units_from_at.py block:
+```bash
+python3 scripts/scrape_kijiji.py 2>&1 || echo "KIJIJI WARN — continuing"
+python3 scripts/merge_cross_sources.py 2>&1
+```
+
+### I0d · Leasebusters HTML parser per existing spec · ~6k tokens
+File: `scripts/scrape_leasebusters.py`
+Execute the spec already in
+`docs/handoff/research/LEASEBUSTERS_VIN_DECISION_2026-05-04.md`:
+HTML parser against new URL pattern, postal-code POST, fallbackKey only.
+
+### I0e · AutoTrader scraper per AT_REPLAY_SPEC · ~7k tokens
+Files: `scripts/scrape_autotrader.py` (NEW),
+`scripts/scrape_autotrader_apify_fallback.py` (NEW skeleton only —
+no spend until user OK), `scripts/build_units_from_at.py` (input path
+swap from `/tmp/at_listings.json` → `data/_autotrader_raw.json`),
+`scripts/refresh_daily.sh`.
+Full spec in `docs/handoff/research/AT_REPLAY_SPEC_2026-05-04.md`.
+Parses `__NEXT_DATA__` from search-results + detail pages. Free-path,
+$0/mo. Apify fallback gated on 2× consecutive 403s (exit 2).
+
+### I0f · End-to-end cron verification · ~2k tokens
+`launchctl start com.evautotrader.refresh` → tail cron.log → confirm
+fresh AT scrape → fresh units.json → predeploy clean → commit + push.
+Append to TAURI_BUILD_LOG.md.
+
+### I0g · Live preview after each visible change · continuous, ~0k overhead
+Use `mcp__Claude_Preview__preview_start` with name `ev-auto-trader-dev`
+(launch.json entry already added cross-project from EV dashboard's
+launch.json — works from any session).
+After UI changes (esp. I0b-2 cross-source chip): take a screenshot
+to verify rendering. Resize to mobile/tablet/desktop with
+`preview_resize` to verify responsive.
+
+---
+
+## TIER I1 — Multi-source weekly drain (~32k tokens, FREE PATH)
+
+After I0 stable.
+
+### I1a · jdcodes1/facebook-marketplace-mcp install + integration · ~10k tokens
+Per `FB_MARKETPLACE_DECISION_2026-05-04.md` (REVISED).
+Clone + install MCP + capture cookies once + wire into refresh_weekly.
+New `Source` enum entry "facebook" in `src/lib/crossListings.ts`.
+Output: `data/_facebook_raw.json`.
+
+### I1b · Crawl4AI install + dealer scraper · ~12k tokens
+Per `DEALER_INVENTORY_DECISION_2026-05-04.md` (REVISED).
+**CRITICAL**: pin Python 3.11/3.12 (NOT 3.13). Bundled Chromium only.
+JSON-LD-first extraction strategy.
+Files: `scripts/scrape_dealers_inventory.py` (NEW),
+`scripts/classify_dealer_platforms.py` (NEW),
+`data/_dealers_raw.json` (NEW).
+Add to merge as 5th source.
+
+### I1c · Ollama + Qwen2.5-VL banner extraction + DealerPromoChip · ~10k tokens
+Per `DEALER_PROMO_DECISION_2026-05-04.md` (REVISED — pivoted from
+PaddleOCR-VL to Qwen2.5-VL via Ollama).
+Files: `scripts/screenshot_dealer_pages.py` (NEW),
+`scripts/extract_dealer_promos.py` (NEW),
+`data/_dealer_promos.json` (NEW),
+`src/components/DealerPromoChip.tsx` (NEW).
+Total ongoing cost: ~$0.21/mo if every fallback fires.
+
+---
+
+## TIER I2 — Bonus sources (opportunistic, all free)
+
+### I2a · Carfax Canada — surface VINs as click-through links (no scrape) · ~3k tokens
+No automated history (Carfax requires paid B2B agreement). Just expose
+the dealer-supplied Carfax link from each listing in DossierClient.
+
+### I2b · OEM Click-to-Buy (Hyundai/Kia eShop) via Crawl4AI · ~8k tokens
+D2C inventory. Crawl4AI `__NEXT_DATA__` extraction. May hit Cloudflare;
+halt if so.
+
+### I2c · Toronto Auto Auction wholesale feed · ~5k tokens
+Open API. Dealer cost basis for negotiation leverage.
+
+---
+
+# THE ORIGINAL QUEUE — 61 tasks (Tier 0 + A-G)
 
 Tiers ranked by ROI-per-token. Within a tier, items are roughly equal
 priority; pick whichever feels concrete. **Total runway: ~230k tokens
 of focused, mechanical work** (Tier 0 + A through G).
+
+**TIER 0/A/B already complete** (see Done log). **TIER C remaining:
+C1, C3, C4** — pick up after I0+I1 ship.
 
 ## Tier 0 — Auto-checks at session start (run BEFORE Tier A)
 
