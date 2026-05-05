@@ -21,8 +21,7 @@ agent-chosen repo. Ian completes registration manually.
 # 1. Capture FB cookies from your logged-in Chrome session.
 #    (Site uses macOS Keychain — no password prompt unless OS asks.)
 cd ~/.claude/mcp-servers/fb-marketplace
-node scripts/capture-queries.js   # one-time GraphQL doc_id capture
-# Or: npm run capture (if package.json exposes it)
+npm run capture-queries   # one-time GraphQL doc_id capture (runs via tsx)
 
 # 2. Register the MCP with Claude Code.
 claude mcp add facebook-marketplace -- node /Users/ianmcadam/.claude/mcp-servers/fb-marketplace/dist/index.js
@@ -72,7 +71,7 @@ GPT, no scraping-as-a-service.
 ## Re-probe trigger
 
 If FB rotates `doc_id` query hashes (monthly), MCP returns errors.
-Re-run `node scripts/capture-queries.js` to refresh hash store.
+Re-run `npm run capture-queries` to refresh hash store.
 
 ## Open question for Ian
 
