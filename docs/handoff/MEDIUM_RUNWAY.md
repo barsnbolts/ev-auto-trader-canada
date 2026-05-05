@@ -1007,6 +1007,8 @@ Track shipped items here so the next session knows what's left. Format:
 - [x] C10: Skip-to-content link in layout.tsx (sr-only until focused, jumps to <main id="main-content">).
 - [done-prior] C11: TempSlider already has aria-label + aria-valuetext + role="switch" on preconditioning toggle. Verified, no change needed.
 - [done-prior] C2: /history empty state already renders "No snapshots yet" with `npm run snapshot` CTA. Verified adequate, no change needed.
+- [x] C5: /dealer/[id] print stylesheet — .dealer-page class, hide back-link + external CTA, tighten tile grid + units table, inline external link URLs after anchor (855b311).
+- [x] C6: /compare print stylesheet — .compare-grid class, smaller font + tighter padding, hide remove buttons, named landscape @page so 4 vehicles fit on letter (855b311).
 ```
 
 ---
