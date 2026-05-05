@@ -63,6 +63,24 @@ describe("dealerPressureMap", () => {
     const out = dealerPressureMap(units, dealers);
     expect(Object.keys(out)).toEqual(["d1"]);
   });
+
+  it("D6 · multi-dealer aggregation produces independent pressures per dealer", () => {
+    const dealers = [
+      mkDealer({ id: "low" }),
+      mkDealer({ id: "high" }),
+    ];
+    // "high" dealer has 4 same-trim units all at 100d (max pressure signal).
+    // "low" has 1 fresh unit (minimal pressure).
+    const units = [
+      mkUnit({ id: "u-low", dealerId: "low", daysOnLot: 1 }),
+      mkUnit({ id: "u-h1", dealerId: "high", daysOnLot: 100 }),
+      mkUnit({ id: "u-h2", dealerId: "high", daysOnLot: 100 }),
+      mkUnit({ id: "u-h3", dealerId: "high", daysOnLot: 100 }),
+      mkUnit({ id: "u-h4", dealerId: "high", daysOnLot: 100 }),
+    ];
+    const out = dealerPressureMap(units, dealers);
+    expect(out.high).toBeGreaterThan(out.low);
+  });
 });
 
 describe("inGGH", () => {
