@@ -234,6 +234,36 @@ def check_taxes_and_fees() -> None:
             err(ctx, f"unknown province key {prov!r}; expected one of {sorted(PROVINCES)}")
 
 
+def check_transport_bands() -> None:
+    """E7 — every neighbour relationship must be bidirectional.
+    A→B in `neighbours` requires B→A. Same for `regionalGroups`."""
+    p = DATA / "transport-bands.json"
+    if not p.exists():
+        return
+    t = json.loads(p.read_text())
+
+    def check_symmetric(graph: dict, label: str) -> None:
+        if not isinstance(graph, dict):
+            err(f"transport-bands.{label}", "expected object")
+            return
+        for a, peers in graph.items():
+            if not isinstance(peers, list):
+                err(f"transport-bands.{label}[{a}]", "expected list")
+                continue
+            for b in peers:
+                back = graph.get(b, [])
+                if a not in back:
+                    err(
+                        f"transport-bands.{label}[{a}]",
+                        f"missing reciprocal: {a}→{b} requires {b}→{a}",
+                    )
+
+    # Only neighbours is a province→province graph (must be symmetric).
+    # regionalGroups is groupName→[provinces] — different shape, no
+    # reciprocity check applies.
+    check_symmetric(t.get("neighbours", {}), "neighbours")
+
+
 def check_cross_references() -> None:
     """Validate referential integrity across data/*.json:
     - units[].dealerId resolves in dealers.json
@@ -323,6 +353,7 @@ def main() -> int:
         check_specs,
         check_cross_listings,
         check_taxes_and_fees,
+        check_transport_bands,
         check_cross_references,
     ]
     for fn in checkers:
@@ -337,7 +368,7 @@ def main() -> int:
         for line in ERRORS:
             print(line, file=sys.stderr)
         return 1
-    print("data schemas OK across 6 files (+ cross-references)")
+    print("data schemas OK across 7 files (+ cross-references + transport bands)")
     return 0
 
 

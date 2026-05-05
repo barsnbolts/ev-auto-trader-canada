@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "purpose": "Rough flat-rate transport cost estimate for cross-province purchases. NOT a quote — just enough to make out-of-province deals comparable on the dashboard. Buyer should get a real quote from a transport broker (e.g. uShip) before committing.",
+    "purpose": "Rough flat-rate transport cost estimate for cross-province purchases. NOT a quote \u2014 just enough to make out-of-province deals comparable on the dashboard. Buyer should get a real quote from a transport broker (e.g. uShip) before committing.",
     "source": "Hand-calibrated 2026-05 against typical enclosed/open transport quotes for sedans/SUVs.",
     "lastVerified": "2026-05-01"
   },
@@ -9,25 +9,92 @@
   "regional": 2000,
   "crossCountry": 2500,
   "neighbours": {
-    "AB": ["BC", "SK", "NT"],
-    "BC": ["AB", "YT"],
-    "MB": ["SK", "ON", "NU"],
-    "NB": ["NS", "PE", "QC"],
-    "NL": ["NS", "QC"],
-    "NS": ["NB", "PE"],
-    "NT": ["AB", "BC", "SK", "YT", "NU"],
-    "NU": ["NT", "MB"],
-    "ON": ["QC", "MB"],
-    "PE": ["NB", "NS"],
-    "QC": ["ON", "NB", "NL"],
-    "SK": ["AB", "MB", "NT"],
-    "YT": ["BC", "NT"]
+    "AB": [
+      "BC",
+      "SK",
+      "NT"
+    ],
+    "BC": [
+      "AB",
+      "NT",
+      "YT"
+    ],
+    "MB": [
+      "SK",
+      "ON",
+      "NU"
+    ],
+    "NB": [
+      "NS",
+      "PE",
+      "QC"
+    ],
+    "NL": [
+      "NS",
+      "QC"
+    ],
+    "NS": [
+      "NB",
+      "NL",
+      "PE"
+    ],
+    "NT": [
+      "AB",
+      "BC",
+      "SK",
+      "YT",
+      "NU"
+    ],
+    "NU": [
+      "NT",
+      "MB"
+    ],
+    "ON": [
+      "QC",
+      "MB"
+    ],
+    "PE": [
+      "NB",
+      "NS"
+    ],
+    "QC": [
+      "ON",
+      "NB",
+      "NL"
+    ],
+    "SK": [
+      "AB",
+      "MB",
+      "NT"
+    ],
+    "YT": [
+      "BC",
+      "NT"
+    ]
   },
   "regionalGroups": {
-    "atlantic": ["NB", "NS", "PE", "NL"],
-    "prairies": ["AB", "SK", "MB"],
-    "central": ["ON", "QC"],
-    "west": ["BC", "YT"],
-    "north": ["NT", "NU"]
+    "atlantic": [
+      "NB",
+      "NS",
+      "PE",
+      "NL"
+    ],
+    "prairies": [
+      "AB",
+      "SK",
+      "MB"
+    ],
+    "central": [
+      "ON",
+      "QC"
+    ],
+    "west": [
+      "BC",
+      "YT"
+    ],
+    "north": [
+      "NT",
+      "NU"
+    ]
   }
 }
