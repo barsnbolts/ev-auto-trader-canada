@@ -16,7 +16,7 @@
 ## When to enter
 
 After the last item in the work queue ships AND the verification gauntlet
-(`docs/handoff/MEDIUM_RESUME_2026-05-04.md` § "Verification ritual") passes:
+(`docs/handoff/MEDIUM_RUNWAY.md` § "Verification ritual") passes:
 
 1. The .app rebuilds clean.
 2. `npx tsc --noEmit` exit=0.
@@ -42,7 +42,7 @@ These NEVER bend, even in autonomous mode:
 - ❌ No spawning Phase D-bis or Phase E without user approval (token budget alone ~95k+60k).
 
 If a creative task brushes any of these, **halt** and queue it for user
-review. Append to `docs/handoff/AUTONOMOUS_QUEUE.md` (create if missing):
+review. Append to `docs/handoff/MEDIUM_RUNWAY.md` (create if missing):
 `- <ISO date>: <task> (blocked: <which rule>)`.
 
 ## Priority ladder (top-down — pick the highest unblocked)
@@ -160,7 +160,7 @@ review. Append to `docs/handoff/AUTONOMOUS_QUEUE.md` (create if missing):
 
 ### Tier 6 — speculative / wait for user (do NOT pick autonomously)
 
-These need user input. Append to `docs/handoff/AUTONOMOUS_QUEUE.md` if
+These need user input. Append to `docs/handoff/MEDIUM_RUNWAY.md` if
 you discover something interesting; do NOT execute:
 
 - Phase D-bis (Hyundai Click-to-Buy + Kia D2C Media)
@@ -183,7 +183,7 @@ while not stopped:
         git push origin HEAD
         append one line to TAURI_BUILD_LOG.md
     else:
-        revert; document blocker in AUTONOMOUS_QUEUE.md; pick next task
+        revert; document blocker in MEDIUM_RUNWAY.md; pick next task
     repeat
 ```
 
@@ -222,7 +222,7 @@ If a wakeup or new user message arrives mid-loop:
 
 1. Finish the current commit cleanly. Don't leave a half-shipped change.
 2. Push.
-3. Read user message + `docs/handoff/AUTONOMOUS_QUEUE.md` for any flagged items.
+3. Read user message + `docs/handoff/MEDIUM_RUNWAY.md` for any flagged items.
 4. Decide whether to continue the loop or pivot. If unclear: ask.
 
 ## Scheduling self-pings (optional)
@@ -287,7 +287,7 @@ you've cycled through it once, GENERATE THE NEXT MENU. Sources:
    tooltip too slow, color contrast off, keyboard nav incomplete.)
 6. **Performance.** `BUILD_TARGET=tauri npm run build:tauri:web`,
    inspect `out/_next/static/chunks/`, find the biggest, dynamic-import it.
-7. **Documentation drift.** `docs/handoff/MEDIUM_RESUME_2026-05-04.md`
+7. **Documentation drift.** `docs/handoff/MEDIUM_RUNWAY.md`
    may be stale after your commits. Update it.
 8. **Dataset enrichment.** `data/incentives.json` — any entries with
    `expiresAt` < today? Mark stale or refresh from OEM page.

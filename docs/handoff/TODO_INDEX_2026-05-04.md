@@ -1,7 +1,7 @@
 # TODO Index — 2026-05-04 (medium-tier work queue)
 
 Every `TODO(medium)` marker in the codebase, indexed for grep + browse.
-Read `docs/handoff/MEDIUM_RESUME_2026-05-04.md` for the full context.
+Read `docs/handoff/MEDIUM_RUNWAY.md` for the full context.
 
 ```bash
 # Find every TODO(medium) marker:

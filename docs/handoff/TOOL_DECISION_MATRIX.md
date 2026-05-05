@@ -68,7 +68,7 @@ Use this judiciously — don't bloat package.json or pip env. Vetted list:
 
 | Lib | Why we'd add it | Status |
 |---|---|---|
-| `vitest` | Test runner — already pre-staged in `AUTONOMOUS_QUEUE.md` T1 | not yet installed |
+| `vitest` | Test runner — already pre-staged in `MEDIUM_RUNWAY.md` T1 | not yet installed |
 | `zod-to-json-schema` | Could auto-generate Python validators from `src/lib/types.ts` for the schema-drift catcher (T3) | candidate |
 | `cheerio` | Server-side jQuery-like HTML parsing in Node — not currently used; sticking with regex | rejected for scope |
 

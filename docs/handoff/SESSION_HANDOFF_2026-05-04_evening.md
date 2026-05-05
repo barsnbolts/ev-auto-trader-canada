@@ -36,7 +36,16 @@
 | `a6c173e8` | C7+C8 — Copy-as-JSON + VINless row tint | UX, both web + Tauri |
 | `08686b39` | C9+C10 — aria-live RefreshModal + skip-to-content link | a11y |
 
-**Tier A: 15/15 ✓ · Tier B: drained (1 ship + 3 already-done + 1 closed + 2 deferred) · Tier C: 4/11 ✓**
+**Tier progress:**
+- **Tier A — 15/15 ✓** (all shipped this session)
+- **Tier B — drained:** 1 active ship (B1) + 3 already-optimized (B2, B4, B7) + 1 architecturally closed (B3, Next 15 removed flag) + 2 deferred (B5 needs profiling, B6 file too small)
+- **Tier C — 6/11 done · 5 remaining:** shipped C7+C8+C9+C10 (4); verified already-adequate C2+C11 (2); **remaining = C1, C3, C4, C5, C6**
+
+**Bloat cleanup (this turn):** 20 stale handoff docs deleted (old session
+plans, sandbox-era docs, superseded pre-Tier-A queues). External
+references in ARCHITECTURE.md / TODO_INDEX / AUTONOMOUS_MODE / TOOL_DECISION_MATRIX
+all rewritten to point at MEDIUM_RUNWAY.md or this handoff. `docs/handoff/`
+went from 30 → 10 active files (228 KB).
 
 ## Try Semble FIRST (it's new this session)
 

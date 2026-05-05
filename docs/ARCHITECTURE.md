@@ -171,7 +171,7 @@
 
 1. `CLAUDE.md` (root) — project overrides + caveman style
 2. `docs/handoff/AUTONOMOUS_MODE.md` — never-stop loop
-3. `docs/handoff/AUTONOMOUS_QUEUE.md` — staged tasks
+3. `docs/handoff/MEDIUM_RUNWAY.md` — staged tasks
 4. `docs/handoff/TOOL_DECISION_MATRIX.md` — pick the right tool BEFORE
    writing scraper code
 5. This file — when something feels unfamiliar, check the diagram
