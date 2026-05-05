@@ -143,3 +143,5 @@ logs/cron.log
 # Python bytecode
 scripts/__pycache__/
 *.pyc
+.venv/
+data/.lb_cookies.txt

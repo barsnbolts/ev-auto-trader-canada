@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """Build dealers.json + units.json from scraped AutoTrader listings.
 
-Input:  /tmp/at_listings.json (array of {model,year,title,priceCad,dealerName,city,province,url})
+Input (PRIMARY):  data/_autotrader_raw.json (produced by scripts/scrape_autotrader.py
+                  via Next.js __NEXT_DATA__ SSR JSON parsing — the I0e free path).
+                  Schema: array of {crossReferenceId, vin, year, make, model, trim,
+                  priceCad, mileageKm, city, provinceCode, dealerName, url, ...}.
+Input (LEGACY):   /tmp/at_listings.json (orphan blob from old scraper) — used only
+                  if the primary input is missing. Schema: {model,year,title,priceCad,
+                  dealerName,city,province,url}.
 Output: data/dealers.json, data/units.json (validated against existing schema invariants)
 
 Run:    python3 scripts/build_units_from_at.py
@@ -11,7 +17,70 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-INPUT = Path("/tmp/at_listings.json")
+INPUT_PRIMARY = ROOT / "data" / "_autotrader_raw.json"
+INPUT_LEGACY = Path("/tmp/at_listings.json")
+INPUT = INPUT_PRIMARY if INPUT_PRIMARY.exists() else INPUT_LEGACY
+
+# Map AT Next.js model strings → our canonical model keys (used in TRIMS,
+# MODEL_BRAND, etc.). Anything not in this map gets skipped during translation
+# (likely a non-EV that slipped into a search result page).
+AT_MODEL_MAP = {
+    "IONIQ 5": "Ioniq5",
+    "IONIQ 6": "Ioniq6",
+    "IONIQ 9": "Ioniq9",
+    "EV6": "EV6",
+    "EV9": "EV9",
+    "NIRO EV": "NiroEV",   # not in TRIMS today but reserved for future expansion
+}
+
+
+def translate_raw_to_legacy(raw_entries: list) -> list:
+    """Convert _autotrader_raw.json shape → legacy /tmp/at_listings.json shape.
+
+    Skips entries with availability=removed (we only build units for live
+    listings — removal handling lives in the scraper's own raw output).
+    """
+    out = []
+    for r in raw_entries:
+        if r.get("availability") == "removed":
+            continue
+        # Scope: new inventory only. Old scraper filtered server-side to "new",
+        # producing only MY 2025+2026 units that joined cleanly to specs.json.
+        # The new __NEXT_DATA__ scraper returns mixed N/U listings — filter
+        # used here so the predeploy schema-audit (which checks spec-join
+        # coverage) keeps passing. Used inventory tracking is a TIER I2 feature.
+        if r.get("offerType") == "U":
+            continue
+        # Belt-and-suspenders: also drop pre-2025 entries that slipped through
+        # without an offerType (rare on AT; defensive).
+        if isinstance(r.get("year"), int) and r["year"] < 2025:
+            continue
+        model_at = (r.get("model") or "").upper().strip()
+        model = AT_MODEL_MAP.get(model_at)
+        if not model or model not in MODEL_BRAND:
+            continue
+        if not r.get("url") or not r.get("priceCad") or not r.get("year"):
+            continue
+        # Synthesize the "title" string from year+make+model+trim — matches
+        # what AT's old card title used to look like, so match_trim()
+        # heuristics work unchanged.
+        trim = r.get("trim") or ""
+        title = f"{r['year']} {r.get('make','')} {r.get('model','')} {trim}".strip()
+        out.append({
+            "model": model,
+            "year": r["year"],
+            "title": title,
+            "priceCad": r["priceCad"],
+            "dealerName": r.get("dealerName") or f"AT Seller {r.get('sellerId','unknown')}",
+            "city": r.get("city") or "Unknown",
+            "province": r.get("provinceCode") or "ON",
+            "url": r["url"],
+            # Preserve VIN through translation so build_units can attach it
+            # to the unit. Optional in legacy schema; ignored if absent.
+            "vin": r.get("vin"),
+        })
+    return out
+
 SPECS = ROOT / "data" / "specs.json"
 DEALERS_OUT = ROOT / "data" / "dealers.json"
 UNITS_OUT = ROOT / "data" / "units.json"
@@ -153,7 +222,15 @@ def detect_status(title):
     return "in_stock"
 
 def main():
-    listings = json.loads(INPUT.read_text())
+    raw_input = json.loads(INPUT.read_text())
+    # Auto-detect schema: new raw output is dicts with "crossReferenceId";
+    # legacy is dicts with "title". Translate new → legacy if needed.
+    if INPUT == INPUT_PRIMARY or (raw_input and "crossReferenceId" in raw_input[0]):
+        listings = translate_raw_to_legacy(raw_input)
+        print(f"AT input: translated {len(raw_input)} raw entries → {len(listings)} build-ready", file=sys.stderr)
+    else:
+        listings = raw_input
+        print(f"AT input: legacy /tmp/at_listings.json ({len(listings)} entries)", file=sys.stderr)
     specs = json.loads(SPECS.read_text())
 
     # Build (model,year,trim) → msrpCad lookup. Also build a year-relaxed
@@ -269,7 +346,7 @@ def main():
 
         first_seen = prev_first_seen.get(L["url"], today)
 
-        units.append({
+        unit = {
             "id": uid,
             "model": model, "year": L["year"], "trim": trim,
             "drivetrain": dt,
@@ -283,7 +360,13 @@ def main():
             "dealerId": did,
             "listingUrl": L["url"],
             "notes": f"Auto-imported from AutoTrader {today}. Title: {L['title']}",
-        })
+        }
+        # VIN flows through from the new raw schema when present (8/100 today,
+        # expected to grow as the daily cron detail-fetches more listings).
+        # Cross-source VIN merge in merge_cross_sources.py keys off this.
+        if L.get("vin"):
+            unit["vin"] = L["vin"]
+        units.append(unit)
 
     # Sort dealers by province, city, brand
     dealers = sorted(by_id.values(), key=lambda d: (d["province"], d["city"], d["brand"]))

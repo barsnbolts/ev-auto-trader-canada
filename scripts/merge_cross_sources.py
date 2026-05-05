@@ -102,20 +102,18 @@ def normalize_trim(t: str | None) -> str:
 
 
 def fallback_key(year, make, model, trim, km) -> str:
-    # Note: km dropped from join key. AutoTrader rarely exposes km;
-    # Kijiji always does. If we keyed by km bucket, AT entries with
-    # km=None ("any") would never match Kijiji entries with real km.
-    # Trim+year+make+model is specific enough to identify a vehicle
-    # to within ~5 candidate listings, which all merge under one
-    # entry's listings[]. km is preserved per-listing for downstream
-    # filters.
-    _ = km  # explicitly unused
+    # km AND trim dropped from join key. Empirical sanity-check 2026-05-04
+    # showed AT trims like "Land Long Range AWD" don't match Kijiji's
+    # "Land AWD w/ Plus Package" — same car, different format. Year +
+    # make + model is coarser but joins ~92% of VIN-less AT entries.
+    # Trim still preserved per-listing in `trim` field for UI display +
+    # downstream filters.
+    _ = km, trim  # explicitly unused in join key
     return "|".join(
         [
             str(year or "?"),
             (make or "?").lower(),
             normalize_model(model),
-            normalize_trim(trim),
         ]
     )
 
@@ -125,19 +123,33 @@ def main() -> int:
     kijiji = load_json(KIJIJI_RAW, {})
     lb = load_json(LB_RAW, {})
 
-    # Build entries indexed by fallbackKey (VIN tracks alongside).
-    entries: dict[str, dict] = {}
+    # Build entries with TWO indexes: VIN (primary) and fallbackKey
+    # (fallback). VIN-key wins when present — same VIN across sources
+    # always means same vehicle. Fallback-key collapses VIN-less
+    # listings by year+make+model.
+    entries: dict[str, dict] = {}  # canonical key -> entry
+    vin_index: dict[str, str] = {}  # vin (uppercased) -> canonical key
+
+    def canonical_key(vin, year, make, model, trim, km) -> str:
+        if vin:
+            v = vin.strip().upper()
+            if v in vin_index:
+                return vin_index[v]
+            k = f"vin:{v}"
+            vin_index[v] = k
+            return k
+        return f"fk:{fallback_key(year, make, model, trim, km)}"
 
     def get_or_create(year, make, model, trim, km, vin) -> dict:
-        key = fallback_key(year, make, model, trim, km)
+        key = canonical_key(vin, year, make, model, trim, km)
         if key in entries:
             e = entries[key]
             if vin and not e.get("vin"):
-                e["vin"] = vin
+                e["vin"] = vin.strip().upper()
             return e
         entries[key] = {
-            "vin": vin,
-            "fallbackKey": key,
+            "vin": vin.strip().upper() if vin else None,
+            "fallbackKey": fallback_key(year, make, model, trim, km),
             "year": year,
             "make": make,
             "model": model,
@@ -218,12 +230,15 @@ def main() -> int:
             }
         )
 
-    # Emit only entries with cross-source value
+    # Emit entries with comparison value:
+    # - multi-source (true cross-listing)
+    # - multi-listing same source (>1 dealer selling same year+make+model)
+    # - leasebusters (always — solo lease-takeover entry is its own value)
     out: list[dict] = []
     for e in entries.values():
         sources = {l["source"] for l in e["listings"]}
         has_lease = any(l["source"] == "leasebusters" for l in e["listings"])
-        if len(sources) > 1 or has_lease:
+        if len(sources) > 1 or len(e["listings"]) > 1 or has_lease:
             out.append(e)
 
     OUT.write_text(json.dumps(out, indent=2, sort_keys=True) + "\n", encoding="utf-8")

@@ -1,0 +1,11 @@
+# Python deps for scraper scripts.
+# Install in repo .venv:
+#   python3 -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
+#
+# refresh_daily.sh auto-bootstraps the venv on cron's first run if .venv
+# is absent.
+
+# curl_cffi: ja3-impersonating HTTPS client. Required by scrape_autotrader.py
+# to bypass autotrader.ca's Imperva TLS-fingerprint challenge. MIT license,
+# no recurring cost.
+curl_cffi>=0.7

@@ -44,11 +44,27 @@
     "province": "AB"
   },
   {
+    "id": "kia-at-seller-47943484",
+    "brand": "Kia",
+    "name": "AT Seller 47943484",
+    "address": "Address not yet captured",
+    "city": "Edmonton",
+    "province": "AB"
+  },
+  {
     "id": "kia-red-deer",
     "brand": "Kia",
     "name": "Kia Red Deer",
     "address": "Address not yet captured",
     "city": "Red Deer",
+    "province": "AB"
+  },
+  {
+    "id": "hyundai-at-seller-47941250",
+    "brand": "Hyundai",
+    "name": "AT Seller 47941250",
+    "address": "Address not yet captured",
+    "city": "SHERWOOD PARK",
     "province": "AB"
   },
   {
@@ -100,6 +116,22 @@
     "province": "BC"
   },
   {
+    "id": "kia-north-shore",
+    "brand": "Kia",
+    "name": "North Shore Kia",
+    "address": "Address not yet captured",
+    "city": "NORTH VANCOUVER",
+    "province": "BC"
+  },
+  {
+    "id": "kia-at-seller-47941074",
+    "brand": "Kia",
+    "name": "AT Seller 47941074",
+    "address": "Address not yet captured",
+    "city": "NORTH VANCOUVER",
+    "province": "BC"
+  },
+  {
     "id": "hyundai-penticton",
     "brand": "Hyundai",
     "name": "Penticton Hyundai",
@@ -129,6 +161,14 @@
     "name": "Murray Hyundai White Rock",
     "address": "Address not yet captured",
     "city": "Surrey",
+    "province": "BC"
+  },
+  {
+    "id": "kia-at-seller-47942761",
+    "brand": "Kia",
+    "name": "AT Seller 47942761",
+    "address": "Address not yet captured",
+    "city": "VANCOUVER",
     "province": "BC"
   },
   {
@@ -216,6 +256,30 @@
     "province": "ON"
   },
   {
+    "id": "hyundai-at-seller-47945587",
+    "brand": "Hyundai",
+    "name": "AT Seller 47945587",
+    "address": "Address not yet captured",
+    "city": "Guelph",
+    "province": "ON"
+  },
+  {
+    "id": "kia-at-seller-47945587",
+    "brand": "Kia",
+    "name": "AT Seller 47945587",
+    "address": "Address not yet captured",
+    "city": "Guelph",
+    "province": "ON"
+  },
+  {
+    "id": "kia-at-seller-47946166",
+    "brand": "Kia",
+    "name": "AT Seller 47946166",
+    "address": "Address not yet captured",
+    "city": "Guelph",
+    "province": "ON"
+  },
+  {
     "id": "hyundai-hamilton",
     "brand": "Hyundai",
     "name": "Hamilton Hyundai",
@@ -245,6 +309,14 @@
     "id": "hyundai-myers-kanata",
     "brand": "Hyundai",
     "name": "Myers Kanata Hyundai",
+    "address": "Address not yet captured",
+    "city": "Kanata",
+    "province": "ON"
+  },
+  {
+    "id": "hyundai-at-seller-47943122",
+    "brand": "Hyundai",
+    "name": "AT Seller 47943122",
     "address": "Address not yet captured",
     "city": "Kanata",
     "province": "ON"
@@ -281,6 +353,22 @@
     "name": "Empire Auto East",
     "address": "Address not yet captured",
     "city": "London",
+    "province": "ON"
+  },
+  {
+    "id": "kia-at-seller-47941395",
+    "brand": "Kia",
+    "name": "AT Seller 47941395",
+    "address": "Address not yet captured",
+    "city": "London",
+    "province": "ON"
+  },
+  {
+    "id": "kia-at-seller-47946171",
+    "brand": "Kia",
+    "name": "AT Seller 47946171",
+    "address": "Address not yet captured",
+    "city": "MILTON",
     "province": "ON"
   },
   {
@@ -360,6 +448,14 @@
     "province": "ON"
   },
   {
+    "id": "hyundai-at-seller-47943322",
+    "brand": "Hyundai",
+    "name": "AT Seller 47943322",
+    "address": "Address not yet captured",
+    "city": "Mississauga",
+    "province": "ON"
+  },
+  {
     "id": "kia-mississauga",
     "brand": "Kia",
     "name": "Kia of Mississauga",
@@ -376,6 +472,14 @@
     "id": "kia-401-dixie",
     "brand": "Kia",
     "name": "401 Dixie Kia",
+    "address": "Address not yet captured",
+    "city": "Mississauga",
+    "province": "ON"
+  },
+  {
+    "id": "kia-at-seller-47944923",
+    "brand": "Kia",
+    "name": "AT Seller 47944923",
     "address": "Address not yet captured",
     "city": "Mississauga",
     "province": "ON"
@@ -407,6 +511,14 @@
     "name": "Cardinal Kia",
     "address": "Address not yet captured",
     "city": "Niagara Falls",
+    "province": "ON"
+  },
+  {
+    "id": "hyundai-at-seller-47946692",
+    "brand": "Hyundai",
+    "name": "AT Seller 47946692",
+    "address": "Address not yet captured",
+    "city": "OAKVILLE",
     "province": "ON"
   },
   {
@@ -574,9 +686,33 @@
     "province": "ON"
   },
   {
+    "id": "kia-bmw-autohaus",
+    "brand": "Kia",
+    "name": "BMW Autohaus",
+    "address": "Address not yet captured",
+    "city": "THORNHILL",
+    "province": "ON"
+  },
+  {
+    "id": "hyundai-at-seller-47939645",
+    "brand": "Hyundai",
+    "name": "AT Seller 47939645",
+    "address": "Address not yet captured",
+    "city": "Tilbury",
+    "province": "ON"
+  },
+  {
     "id": "hyundai-gyro",
     "brand": "Hyundai",
     "name": "GYRO HYUNDAI",
+    "address": "Address not yet captured",
+    "city": "Toronto",
+    "province": "ON"
+  },
+  {
+    "id": "hyundai-at-seller-47942852",
+    "brand": "Hyundai",
+    "name": "AT Seller 47942852",
     "address": "Address not yet captured",
     "city": "Toronto",
     "province": "ON"
@@ -640,6 +776,14 @@
     "province": "ON"
   },
   {
+    "id": "hyundai-hgr-goire-carignan",
+    "brand": "Hyundai",
+    "name": "HGr\u00e9goire Carignan",
+    "address": "Address not yet captured",
+    "city": "CARIGNAN",
+    "province": "QC"
+  },
+  {
     "id": "kia-candiac-toyota",
     "brand": "Kia",
     "name": "Candiac Toyota",
@@ -656,11 +800,27 @@
     "province": "QC"
   },
   {
+    "id": "kia-at-seller-47941002",
+    "brand": "Kia",
+    "name": "AT Seller 47941002",
+    "address": "Address not yet captured",
+    "city": "Dorval",
+    "province": "QC"
+  },
+  {
     "id": "hyundai-drummondville",
     "brand": "Hyundai",
     "name": "Hyundai Drummondville",
     "address": "Address not yet captured",
     "city": "Drummondville",
+    "province": "QC"
+  },
+  {
+    "id": "hyundai-at-seller-60268460",
+    "brand": "Hyundai",
+    "name": "AT Seller 60268460",
+    "address": "Address not yet captured",
+    "city": "GRANBY",
     "province": "QC"
   },
   {
@@ -672,6 +832,14 @@
     "province": "QC"
   },
   {
+    "id": "hyundai-at-seller-47946441",
+    "brand": "Hyundai",
+    "name": "AT Seller 47946441",
+    "address": "Address not yet captured",
+    "city": "JOLIETTE",
+    "province": "QC"
+  },
+  {
     "id": "kia-joliette",
     "brand": "Kia",
     "name": "Kia Joliette",
@@ -680,11 +848,43 @@
     "province": "QC"
   },
   {
+    "id": "hyundai-at-seller-47941054",
+    "brand": "Hyundai",
+    "name": "AT Seller 47941054",
+    "address": "Address not yet captured",
+    "city": "LAVAL",
+    "province": "QC"
+  },
+  {
     "id": "kia-lallier-de-laval",
     "brand": "Kia",
     "name": "Lallier Kia De Laval",
     "address": "Address not yet captured",
     "city": "Laval",
+    "province": "QC"
+  },
+  {
+    "id": "kia-at-seller-47942015",
+    "brand": "Kia",
+    "name": "AT Seller 47942015",
+    "address": "Address not yet captured",
+    "city": "Laval",
+    "province": "QC"
+  },
+  {
+    "id": "kia-at-seller-47941633",
+    "brand": "Kia",
+    "name": "AT Seller 47941633",
+    "address": "Address not yet captured",
+    "city": "MIRABEL",
+    "province": "QC"
+  },
+  {
+    "id": "kia-at-seller-47943772",
+    "brand": "Kia",
+    "name": "AT Seller 47943772",
+    "address": "Address not yet captured",
+    "city": "MONTR\u00c9AL",
     "province": "QC"
   },
   {
@@ -703,6 +903,14 @@
     "name": "Kia Gabriel Nord",
     "address": "Address not yet captured",
     "city": "Montr\u00e9al-Nord",
+    "province": "QC"
+  },
+  {
+    "id": "hyundai-st-j-r-me-chrysler-jeep-dodge-ram",
+    "brand": "Hyundai",
+    "name": "St-J\u00e9r\u00f4me Chrysler Jeep Dodge Ram",
+    "address": "Address not yet captured",
+    "city": "ST-J\u00c9R\u00d4ME",
     "province": "QC"
   },
   {
@@ -729,6 +937,14 @@
     "name": "Riendeau Hyundai",
     "address": "Address not yet captured",
     "city": "Ste-Julie",
+    "province": "QC"
+  },
+  {
+    "id": "kia-at-seller-47946469",
+    "brand": "Kia",
+    "name": "AT Seller 47946469",
+    "address": "Address not yet captured",
+    "city": "Vaudreuil-Dorion",
     "province": "QC"
   }
 ]

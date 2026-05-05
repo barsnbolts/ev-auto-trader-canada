@@ -1,41 +1,32 @@
 #!/usr/bin/env python3
 """Phase D core: Leasebusters (leasebusters.com) lease-takeover scraper.
 
-TODO(medium): this scraper currently returns 0 listings. SUPERSEDED
-architectural notes from the old "Vue/SPA + XHR" theory have been
-removed; see Chrome MCP probe results below.
+REWRITE 2026-05-05 (medium-tier I0d execution):
+  Replaced legacy .asp gallery scrape with hybrid SPA POST against the
+  ASP.NET MVC Razor Pages backend at /vehicle-search-result.
+  Architecture per docs/handoff/research/LEASEBUSTERS_VIN_DECISION_2026-05-04.md.
 
-CHROME MCP PROBE 2026-05-04 EVENING (Opus, paired Browser 1):
-  - Site is fully server-rendered ASP.NET MVC, NOT a Vue/SPA.
-  - Zero XHR fired during navigation under universal capture hook.
-  - Legacy .asp URLs all 302 -> homepage (the entire URL scheme changed).
-  - Detail-page HTML does NOT expose VIN. fallbackKey approach stays.
+  Flow:
+    1. GET /vehicle-search/Leasing  → harvest cookies + map make->makeId
+       from `<input name="makes" value="N">` checkbox elements
+    2. GET /vehicle-search-result   → harvest fresh __RequestVerificationToken
+    3. POST /vehicle-search-result  → with token (header + form), serialized
+       hidden inputs, and `makes` filter. Returns partial HTML.
+    4. Parse partial HTML for /details/{id}/{slug} link patterns.
+    5. For each detail page, fetch + parse fields (no VIN exposed).
 
-  Full findings + new URL pattern + make-ID map + postal-code gate
-  details: docs/handoff/research/LEASEBUSTERS_VIN_DECISION_2026-05-04.md
-  Raw probe data: docs/handoff/research/LEASEBUSTERS_XHR_CAPTURE_2026-05-04.json
+  Anti-bot: site is plain ASP.NET, no Cloudflare WAF observed during
+  probe. Throttle 1.5s between requests (polite default).
 
-WHAT MEDIUM NEEDS TO DO (mechanical, ~5-8k tokens):
-  1. Replace fetch_listings() body with HTML parser, NOT XHR replay:
-       - GET /vehicle-search/Leasing -> harvest __RequestVerificationToken
-         + map make names -> makeIds from checkbox values
-       - POST /vehicle-search-result with makes={id} + default postal code
-         (try K1A 0B1 or M5V 0A1)
-       - Parse response HTML for /details/{listingId}/{slug} link patterns
-       - For each listingId, fetch detail page, parse Year/Make/Model/
-         Style/Odometer/Province/Engine Type
-  2. Build fallbackKey = f"{year}|{make.lower()}|{model.lower()}|{trim_norm}|{km_bucket(km)}"
-  3. Do NOT add VIN extraction (it does not exist on the page).
-  4. Run scripts/merge_cross_sources.py - already joins via fallbackKey.
-  5. Verify: jq 'keys | length' data/cross-listings.json > 0.
+  Empirical state at I0d landing: server consistently returns "No Vehicle
+  Matches" for any Hyundai/Kia query with the documented form payload.
+  Either (a) Hyundai/Kia EV lease-takeover inventory is genuinely zero
+  (plausible — small market, fast turnover), or (b) the form requires
+  another hidden field we haven't identified. Scraper exits 0 with empty
+  output in either case — non-blocking for the daily refresh pipeline.
+  Re-probe on next high-tier session if Leasebusters value climbs.
 
-PER D0 RESEARCH (still trustworthy):
-  Listing schema fields exposed on cards:
-    Year, Make, Model, Monthly payment (incl. tax), Months remaining,
-    Cash incentive, Province (2-letter), Kilometres-on-clock, Sale
-    price for buyout, Photo URL.
-
-Output: data/_leasebusters_raw.json - keyed by Leasebusters listing ID.
+  No VIN extraction (confirmed absent on detail pages).
 """
 from __future__ import annotations
 
@@ -46,111 +37,139 @@ import sys
 import time
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import urlencode
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "_leasebusters_raw.json"
+COOKIE_JAR = ROOT / "data" / ".lb_cookies.txt"
+
 USER_AGENT = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_5) AppleWebKit/605.1.15 "
     "(KHTML, like Gecko) Version/17.5 Safari/605.1.15"
 )
-THROTTLE_SECONDS = 1.5  # Leasebusters has no WAF — be polite anyway
+THROTTLE_SECONDS = 1.5
+POSTAL_CODE = "M5V0A1"  # downtown Toronto, sane Canadian default
+MAX_DISTANCE_KM = 10000  # all-Canada
+TARGET_MAKES = ["Hyundai", "Kia"]
 
-MAKES = ["Hyundai", "Kia"]
+BASE = "https://www.leasebusters.com"
 
 
-def fetch(url: str) -> str:
+def curl(url: str, *, post_data: str | None = None, headers: list[str] | None = None) -> str:
+    """Wrap curl with cookie jar reuse."""
+    COOKIE_JAR.parent.mkdir(parents=True, exist_ok=True)
     cmd = [
-        "curl", "-sS", "-L", "--max-time", "20",
+        "curl", "-sS", "-L", "--max-time", "25",
+        "-b", str(COOKIE_JAR), "-c", str(COOKIE_JAR),
         "-A", USER_AGENT,
-        "-H", "Accept: text/html,*/*;q=0.8",
-        "-H", "Accept-Language: en-CA,en-US;q=0.9",
-        "-H", "Accept-Encoding: gzip, deflate",
         "--compressed",
-        url,
     ]
+    for h in headers or []:
+        cmd.extend(["-H", h])
+    if post_data is not None:
+        cmd.extend(["-X", "POST", "--data", post_data])
+    cmd.append(url)
     try:
-        proc = subprocess.run(cmd, capture_output=True, timeout=25, text=False)
-        if proc.returncode != 0:
-            return ""
-        return proc.stdout.decode("utf-8", errors="replace")
+        proc = subprocess.run(cmd, capture_output=True, timeout=30, text=False)
+        return proc.stdout.decode("utf-8", errors="replace") if proc.returncode == 0 else ""
     except Exception:
         return ""
 
 
-def search_listings(make: str) -> list[dict]:
-    """Phase 1+2 combined for Leasebusters: gallery results page exposes
-    most fields per card; detail page is only needed for the cash
-    incentive number.
-
-    TODO(D-core): verify selectors against an actual DOM dump. Card
-    boundaries on the legacy ASP page are typically `<div class="lb-card">`
-    or table rows. Need to confirm.
-    """
-    url = (
-        f"https://www.leasebusters.com/en/lease-take-over-vehicle-gallery-results.asp"
-        f"?MakeID={make}&view=slower&leftside=false"
-    )
-    html = fetch(url)
-    if len(html) < 5000:
-        print(f"  [{make}] thin response ({len(html)} bytes)", file=sys.stderr)
-        return []
-    listings: list[dict] = []
-    # Best-guess card boundary based on classic ASP markup conventions.
-    # TODO(D-core): replace with confirmed selector after first probe.
-    cards = re.findall(
-        r'<div[^>]*class="[^"]*(?:vehicle-card|lb-card|leasecard)[^"]*"[^>]*>(.*?)</div>\s*</div>',
+def harvest_make_ids() -> dict[str, int]:
+    """Parse the search-builder page for makeName -> makeId."""
+    html = curl(f"{BASE}/vehicle-search/Leasing")
+    if not html:
+        return {}
+    out: dict[str, int] = {}
+    for m in re.finditer(
+        r'<input\s+name="makes"[^>]*value="(\d+)"[^>]*>\s*<img[^>]*>\s*<label[^>]*>([A-Za-z][\w\s-]*?)</label>',
         html,
-        re.DOTALL | re.IGNORECASE,
+    ):
+        out[m.group(2).strip()] = int(m.group(1))
+    return out
+
+
+def harvest_token() -> str:
+    """Get a fresh __RequestVerificationToken from the search-result page."""
+    html = curl(f"{BASE}/vehicle-search-result?gallery=Leasing")
+    m = re.search(
+        r'name="__RequestVerificationToken"[^>]*value="([^"]+)"',
+        html,
     )
-    if not cards:
-        # Fallback: try table-row layout (the asp page is sometimes a table)
-        cards = re.findall(r"<tr[^>]*>(.*?)</tr>", html, re.DOTALL)
-    for card in cards:
-        entry = parse_card(card)
-        if entry:
-            listings.append(entry)
-    return listings
+    return m.group(1) if m else ""
 
 
-def parse_card(card_html: str) -> dict | None:
-    """Extract fields from a single listing card.
+def search_post(token: str, make_ids: list[int]) -> str:
+    """POST search form, return partial HTML body."""
+    fields = [
+        ("__RequestVerificationToken", token),
+        ("SearchResult.VehicleSearchResultsEr.ReverseOrderBy", "False"),
+        ("SearchResult.VehicleSearchResultsEr.SelectedGallery", "Leasing"),
+        ("SearchResult.VehicleSearchResultsEr.ListingID", ""),
+        ("SearchResult.VehicleSearchResultsEr.Top", "100"),
+        ("SearchResult.VehicleSearchResultsEr.Skip", "0"),
+        ("SearchResult.VehicleSearchResultsEr.MaximumDistanceToSeller", str(MAX_DISTANCE_KM)),
+        ("SearchResult.VehicleSearchResultsEr.PostalCode", POSTAL_CODE),
+        ("SearchResult.VehicleSearchResultsEr.OrderBy", "3"),
+        ("SearchResult.CurrentPage", "0"),
+    ]
+    for mid in make_ids:
+        fields.append(("makes", str(mid)))
+    body = urlencode(fields)
+    return curl(
+        f"{BASE}/vehicle-search-result",
+        post_data=body,
+        headers=[
+            f"RequestVerificationToken: {token}",
+            "Content-Type: application/x-www-form-urlencoded",
+            "X-Requested-With: XMLHttpRequest",
+            f"Referer: {BASE}/vehicle-search-result?gallery=Leasing",
+        ],
+    )
 
-    TODO(D-core): regex anchors are best-effort. Real Leasebusters DOM
-    has labels like 'Lease Term Remaining', 'Monthly Payment Including
-    Tax', 'Cash Incentive'. Confirm exact spans with WebFetch.
-    """
+
+def parse_listing_links(html: str) -> list[tuple[int, str]]:
+    """Extract (listingId, detailUrl) pairs from result partial."""
+    found = re.findall(r'href="(/details/(\d+)/[^"]+)"', html)
+    seen: dict[int, str] = {}
+    for url, sid in found:
+        seen[int(sid)] = f"{BASE}{url}"
+    return list(seen.items())
+
+
+def parse_detail(html: str) -> dict:
+    """Parse fields from a detail page. No VIN extraction."""
     out: dict = {}
-    # Listing detail URL → contains the stable ID
-    m = re.search(r'href="([^"]*lease-takeover[^"]*\?[^"]*ID=(\d+))', card_html)
-    if not m:
-        return None
-    out["url"] = m.group(1) if m.group(1).startswith("http") else f"https://www.leasebusters.com/{m.group(1).lstrip('/')}"
-    out["stockId"] = m.group(2)
-    # Year + Make + Model + Trim from card title
-    t = re.search(r"(\d{4})\s+([A-Za-z]+)\s+([\w\s\-]+?)(?:\s+\$|\s*<)", card_html)
-    if t:
-        out["year"] = int(t.group(1))
-        out["make"] = t.group(2).strip()
-        out["model"] = t.group(3).strip()
-    # Monthly payment + tax
-    m = re.search(r"\$\s?([\d,]+(?:\.\d+)?)\s*(?:/mo|monthly|per month)", card_html, re.IGNORECASE)
+    # Year + Make + Model from the H1 / title
+    m = re.search(r'<h1[^>]*>(\d{4})\s+([A-Za-z]+)\s+([\w\s-]+?)</h1>', html)
+    if m:
+        out["year"] = int(m.group(1))
+        out["make"] = m.group(2).strip()
+        out["model"] = m.group(3).strip()
+    # Trim/Style
+    m = re.search(r'(?:Style|Trim)[^<]*</[^>]+>\s*<[^>]+>([^<]+)<', html, re.IGNORECASE)
+    if m:
+        out["trim"] = m.group(1).strip()
+    # Odometer
+    m = re.search(r'(?:Odometer|Kilometres|km on)[^<]*</[^>]+>[^<]*<[^>]+>\s*([\d,]+)', html, re.IGNORECASE)
+    if m:
+        out["mileageKm"] = int(m.group(1).replace(",", ""))
+    # Monthly payment
+    m = re.search(r'\$\s?([\d,]+(?:\.\d+)?)\s*(?:/mo|monthly)', html, re.IGNORECASE)
     if m:
         out["monthlyPaymentCad"] = float(m.group(1).replace(",", ""))
     # Months remaining
-    m = re.search(r"(\d+)\s*(?:months?|mo)\s*(?:remaining|left|to go)", card_html, re.IGNORECASE)
+    m = re.search(r'(\d+)\s*month', html, re.IGNORECASE)
     if m:
         out["monthsRemaining"] = int(m.group(1))
     # Cash incentive
-    m = re.search(r"(?:cash\s+incentive|incentive)[:\s]*\$\s?([\d,]+)", card_html, re.IGNORECASE)
+    m = re.search(r'(?:cash\s+incentive|incentive)[^$]*\$\s?([\d,]+)', html, re.IGNORECASE)
     if m:
         out["cashIncentiveCad"] = int(m.group(1).replace(",", ""))
-    # km
-    m = re.search(r"([\d,]+)\s*km", card_html, re.IGNORECASE)
-    if m:
-        out["mileageKm"] = int(m.group(1).replace(",", ""))
     # Province (2-letter)
-    m = re.search(r">\s*([A-Z]{2})\s*<", card_html)
-    if m and m.group(1) in {"AB", "BC", "MB", "NB", "NL", "NS", "ON", "PE", "QC", "SK"}:
+    m = re.search(r'\b(AB|BC|MB|NB|NL|NS|ON|PE|QC|SK)\b', html)
+    if m:
         out["province"] = m.group(1)
     return out
 
@@ -166,18 +185,46 @@ def main() -> int:
             raw = json.loads(OUT.read_text())
         except Exception:
             raw = {}
-    total = 0
-    for make in MAKES:
+
+    print("[lb] harvesting make IDs…", file=sys.stderr)
+    make_ids = harvest_make_ids()
+    targets = [make_ids[m] for m in TARGET_MAKES if m in make_ids]
+    if not targets:
+        print(f"[lb] WARN: target makes not found in {list(make_ids)[:10]}…", file=sys.stderr)
+        # Still write empty to keep merge happy.
+        OUT.write_text(json.dumps(raw, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        return 0
+
+    time.sleep(THROTTLE_SECONDS)
+    token = harvest_token()
+    if not token:
+        print("[lb] WARN: token harvest failed", file=sys.stderr)
+        OUT.write_text(json.dumps(raw, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        return 0
+
+    time.sleep(THROTTLE_SECONDS)
+    print(f"[lb] searching makes={targets}…", file=sys.stderr)
+    partial = search_post(token, targets)
+    links = parse_listing_links(partial)
+    print(f"[lb] {len(links)} detail links from search", file=sys.stderr)
+
+    fetched = 0
+    for sid, url in links:
         time.sleep(THROTTLE_SECONDS)
-        print(f"[{make}] enumerating…", file=sys.stderr)
-        listings = search_listings(make)
-        print(f"[{make}] {len(listings)} cards parsed", file=sys.stderr)
-        for entry in listings:
-            entry["scrapedAt"] = now_iso()
-            raw[entry["stockId"]] = entry
-            total += 1
+        detail_html = curl(url)
+        if not detail_html:
+            continue
+        entry = parse_detail(detail_html)
+        if not entry.get("year") or not entry.get("make"):
+            continue
+        entry["url"] = url
+        entry["stockId"] = str(sid)
+        entry["scrapedAt"] = now_iso()
+        raw[str(sid)] = entry
+        fetched += 1
+
     OUT.write_text(json.dumps(raw, indent=2, sort_keys=True) + "\n", encoding="utf-8")
-    print(f"_leasebusters_raw.json: total={total}")
+    print(f"_leasebusters_raw.json: total={len(raw)} (fresh={fetched})", file=sys.stderr)
     return 0
 
 
