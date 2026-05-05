@@ -1,39 +1,33 @@
 #!/usr/bin/env python3
 """Phase D core: Leasebusters (leasebusters.com) lease-takeover scraper.
 
-TODO(medium): this scraper currently returns 0 listings. Root cause +
-fix below. The architecture is correct; the parser needs to be
-rewritten against the real API once captured via Chrome MCP.
+TODO(medium): this scraper currently returns 0 listings. SUPERSEDED
+architectural notes from the old "Vue/SPA + XHR" theory have been
+removed; see Chrome MCP probe results below.
 
-WHAT MAX SESSION CONFIRMED (2026-05-04 — do not redo this work):
-  1. The legacy .asp URL returns 33KB but is a SHELL — Bootstrap CSS,
-     ad scripts (Google Tag Manager, Cloudflare turnstile, Tawk
-     chat), and an empty viewport. Listing data is not in the SSR
-     HTML. The .asp filename is misleading; it's a Vue/SPA app.
-  2. The modern URL /vehicle-search-result?gallery=LBUsed has the
-     same shell-only behavior. Both endpoints rely on JS-rendered
-     content fetched after hydration.
-  3. There's no way to pull listing data with plain curl. The
-     XHR endpoint that hydrates the gallery is the real target.
+CHROME MCP PROBE 2026-05-04 EVENING (Opus, paired Browser 1):
+  - Site is fully server-rendered ASP.NET MVC, NOT a Vue/SPA.
+  - Zero XHR fired during navigation under universal capture hook.
+  - Legacy .asp URLs all 302 -> homepage (the entire URL scheme changed).
+  - Detail-page HTML does NOT expose VIN. fallbackKey approach stays.
 
-WHAT MEDIUM NEEDS TO DO:
-  1. Chrome MCP probe: open Leasebusters in the connected Chrome
-     window, navigate to the gallery for Hyundai or Kia, watch the
-     Network tab for XHR requests. Look for /api/, /json/, /service/,
-     or /handlers/ endpoints. The shape will probably be a JSON
-     listing array with monthly, months-remaining, cash-incentive,
-     and the LB stockId.
-  2. Update fetch() / search_listings() in this file to hit that
-     captured endpoint directly. Strip the regex card-parser; the
-     JSON body will give you fields directly.
-  3. CRITICAL question to answer during the probe: does Leasebusters
-     expose VIN at any point? D0 research said no, but this is worth
-     spot-checking on a logged-in detail page. If VIN appears
-     post-account-creation, Leasebusters becomes a VIN-keyed source
-     rather than fallbackKey-keyed.
-  4. If VIN never exposes: leave the merge logic in
-     scripts/merge_cross_sources.py as-is — it joins Leasebusters via
-     fallbackKey (year|make|model|trim|kmBucket).
+  Full findings + new URL pattern + make-ID map + postal-code gate
+  details: docs/handoff/research/LEASEBUSTERS_VIN_DECISION_2026-05-04.md
+  Raw probe data: docs/handoff/research/LEASEBUSTERS_XHR_CAPTURE_2026-05-04.json
+
+WHAT MEDIUM NEEDS TO DO (mechanical, ~5-8k tokens):
+  1. Replace fetch_listings() body with HTML parser, NOT XHR replay:
+       - GET /vehicle-search/Leasing -> harvest __RequestVerificationToken
+         + map make names -> makeIds from checkbox values
+       - POST /vehicle-search-result with makes={id} + default postal code
+         (try K1A 0B1 or M5V 0A1)
+       - Parse response HTML for /details/{listingId}/{slug} link patterns
+       - For each listingId, fetch detail page, parse Year/Make/Model/
+         Style/Odometer/Province/Engine Type
+  2. Build fallbackKey = f"{year}|{make.lower()}|{model.lower()}|{trim_norm}|{km_bucket(km)}"
+  3. Do NOT add VIN extraction (it does not exist on the page).
+  4. Run scripts/merge_cross_sources.py - already joins via fallbackKey.
+  5. Verify: jq 'keys | length' data/cross-listings.json > 0.
 
 PER D0 RESEARCH (still trustworthy):
   Listing schema fields exposed on cards:
@@ -41,7 +35,7 @@ PER D0 RESEARCH (still trustworthy):
     Cash incentive, Province (2-letter), Kilometres-on-clock, Sale
     price for buyout, Photo URL.
 
-Output: data/_leasebusters_raw.json — keyed by Leasebusters listing ID.
+Output: data/_leasebusters_raw.json - keyed by Leasebusters listing ID.
 """
 from __future__ import annotations
 

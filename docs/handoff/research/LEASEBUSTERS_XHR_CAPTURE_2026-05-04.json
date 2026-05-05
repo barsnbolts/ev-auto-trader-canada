@@ -1,0 +1,42 @@
+{
+  "probe_date": "2026-05-04",
+  "probe_method": "Chrome MCP via paired Browser 1 (macOS) on Ian's Mac",
+  "captures": [],
+  "captures_note": "Zero XHR requests fired during navigation. Site is fully server-rendered ASP.NET MVC, NOT a SPA. Pre-existing scraper docstring assumed a Vue/SPA hydration XHR that does not exist in the new architecture (the legacy .asp URL Max session 2026-05-04 noted is now a 302 redirect to the homepage; the new architecture is fully SSR).",
+  "url_pattern_findings": {
+    "legacy_redirect_to_home": [
+      "https://www.leasebusters.com/en/lease-take-over-vehicle-gallery-results.asp?MakeID=Hyundai",
+      "https://www.leasebusters.com/en/vehicle-search-result?gallery=LBUsed&MakeID=Hyundai"
+    ],
+    "search_builder_hub": "https://www.leasebusters.com/vehicle-search/Leasing",
+    "search_results_endpoint": "https://www.leasebusters.com/vehicle-search-result?makes={makeId}&gallery=Leasing",
+    "detail_page_pattern": "https://www.leasebusters.com/details/{listingId}/{year}-{make}-{model-slug}",
+    "make_id_map_partial": {
+      "Tesla": 46,
+      "Hyundai": 17,
+      "Kia": 22,
+      "Polestar": 1001
+    },
+    "form_method": "POST with __RequestVerificationToken anti-forgery (per .NET MVC)",
+    "search_param_postal_required": true,
+    "search_param_postal_field": "SearchResult.VehicleSearchResultsEr.PostalCode (placeholder '--- ---')"
+  },
+  "rendered_results_for_makes_17_no_postal": {
+    "url": "https://www.leasebusters.com/vehicle-search-result?makes=17&gallery=Leasing",
+    "result_count_displayed": 0,
+    "fallback_to_featured": true,
+    "featured_listings_sample": [
+      "Mercedes-Benz EQS (id=600981)",
+      "GMC HUMMER EV SUV (id=600081)",
+      "Alfa Romeo Stelvio (id=589297)",
+      "GMC Acadia (id=593256)"
+    ],
+    "vin_in_result_html": false
+  },
+  "detail_page_probe": {
+    "tested_url": "https://www.leasebusters.com/details/600981/2023-Mercedes-Benz-EQS",
+    "fields_exposed": ["Name", "City", "Province", "Mobile", "Year", "Make", "Model", "Style", "Odometer (kms)", "Seating Capacity", "Exterior", "Interior", "Cylinders", "Engine Size (L)", "Engine Type"],
+    "vin_field_present": false,
+    "vin_pattern_in_html": "no 17-char VIN matches anywhere in detail page HTML"
+  }
+}

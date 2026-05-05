@@ -13,6 +13,7 @@ Tauri-standalone migration. Append one line per session.
 | 2026-05-04 | `0f5c3ce3` | C1-C3 + D0 | Dock badge stub (Tauri 2.11 lacks set_badge_count; NSDockTile binding deferred), UnitPhotoGallery + scrape_unit_gallery.py, D0 cross-source endpoint research |
 | 2026-05-04 | `240bd8c1` | D core scaffold | crossListings.ts schema + CrossSourceChip wired into InventoryTable + dossier; Kijiji + Leasebusters scraper skeletons + merge_cross_sources.py |
 | 2026-05-04 | (medium-tier) | C — dock badge | NSDockTile binding via objc2-app-kit (features: NSApplication+NSDockTile+NSResponder+NSString+NSThread). Replaces no-op stub at lib.rs:62. .app rebuilt 1m18s release; verified via `cargo check` + full `tauri build`. SHA: `git log --oneline -- src-tauri/src/lib.rs \| head -2`. |
+| 2026-05-04 | (opus-tier) | 0.1 re-probe | Chrome MCP paired (Browser 1). Leasebusters probe complete: site is fully SSR ASP.NET MVC (not Vue/SPA), no VIN on detail pages. URL pattern + makeId map + postal-code gate documented. Scraper rewrite now mechanical (~5-8k tokens), deferred to medium tier with full spec in docs/handoff/research/LEASEBUSTERS_VIN_DECISION_2026-05-04.md. |
 
 ## How to build the .app
 

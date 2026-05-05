@@ -1009,6 +1009,7 @@ Track shipped items here so the next session knows what's left. Format:
 - [done-prior] C2: /history empty state already renders "No snapshots yet" with `npm run snapshot` CTA. Verified adequate, no change needed.
 - [x] C5: /dealer/[id] print stylesheet — .dealer-page class, hide back-link + external CTA, tighten tile grid + units table, inline external link URLs after anchor (855b311).
 - [x] C6: /compare print stylesheet — .compare-grid class, smaller font + tighter padding, hide remove buttons, named landscape @page so 4 vehicles fit on letter (855b311).
+- [partial] 0.1 (re-attempted): Chrome MCP paired (Browser 1, isLocal=true) — probe shipped findings to docs/handoff/research/LEASEBUSTERS_VIN_DECISION_2026-05-04.md + LEASEBUSTERS_XHR_CAPTURE_2026-05-04.json. Key inversion: site is fully server-rendered ASP.NET MVC (NOT Vue/SPA per old docstring) — zero XHR fired under universal capture hook. Detail HTML does NOT expose VIN. URL pattern + makeId map + postal-code gate documented; scraper rewrite is now mechanical (~5-8k tokens) and deferred to medium tier per the decision doc.
 ```
 
 ---
