@@ -259,7 +259,7 @@ function CompareTable({
   ];
 
   return (
-    <div className="card overflow-hidden">
+    <div className="card overflow-hidden compare-grid">
       <div className="px-4 py-3 border-b border-border">
         <h2 className="text-sm uppercase tracking-wide text-fg-subtle">Side-by-side</h2>
       </div>

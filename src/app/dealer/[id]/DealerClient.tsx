@@ -56,9 +56,9 @@ export function DealerClient({ dealerId }: { dealerId: string }) {
     : 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 dealer-page">
       <div>
-        <Link href="/inventory" className="text-xs text-accent hover:text-accent-strong">← All inventory</Link>
+        <Link href="/inventory" className="text-xs text-accent hover:text-accent-strong print:hidden">← All inventory</Link>
         <h1 className="text-2xl font-semibold tracking-tight mt-1">{dealer.name}</h1>
         <p className="text-sm text-fg-muted">
           {dealer.brand} dealer · {dealer.address}, {dealer.city}, {PROVINCE_NAMES[dealer.province]}
@@ -79,7 +79,7 @@ export function DealerClient({ dealerId }: { dealerId: string }) {
           href={dealer.inventoryUrl}
           target="_blank"
           rel="noreferrer"
-          className="text-sm text-accent hover:text-accent-strong inline-block"
+          className="text-sm text-accent hover:text-accent-strong inline-block print:hidden"
         >
           Visit dealer site →
         </a>

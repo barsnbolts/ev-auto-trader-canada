@@ -153,4 +153,41 @@
     color: #555;
     word-break: break-all;
   }
+
+  /* Dealer page print — compact contact + units table for showroom hand-off. */
+  .dealer-page { color: black !important; font-size: 10.5pt; line-height: 1.35; }
+  .dealer-page h1, .dealer-page h2 { color: black !important; }
+  .dealer-page .text-fg-subtle, .dealer-page .text-fg-muted { color: #444 !important; }
+  .dealer-page .card { border: 1px solid #999 !important; box-shadow: none !important; background: white !important; }
+  /* Tiles: collapse 4-col grid into a tight 2x2 inline strip */
+  .dealer-page section.grid { display: grid !important; grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 0.25rem !important; }
+  .dealer-page section.grid .card { padding: 0.4rem !important; }
+  .dealer-page section.grid .text-2xl { font-size: 14pt !important; }
+  /* Units table: tight padding, no row hover, keep on one page if possible */
+  .dealer-page table { width: 100%; border-collapse: collapse; page-break-inside: auto; break-inside: auto; }
+  .dealer-page thead { background: #f3f3f3 !important; }
+  .dealer-page th, .dealer-page td { padding: 4px 6px !important; border-bottom: 1px solid #ddd !important; }
+  .dealer-page tr { page-break-inside: avoid; break-inside: avoid; }
+  .dealer-page .card-hover:hover { background: transparent !important; }
+  /* Inline external links after anchor (same trick as dossier) */
+  .dealer-page a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 8pt;
+    color: #555;
+    word-break: break-all;
+  }
+
+  /* Compare grid print — tighten table + force landscape page so 4 vehicles fit. */
+  .compare-grid { color: black !important; box-shadow: none !important; border: 1px solid #999 !important; }
+  .compare-grid table { font-size: 9pt !important; line-height: 1.25 !important; table-layout: fixed; }
+  .compare-grid thead { background: #f3f3f3 !important; }
+  .compare-grid th, .compare-grid td { padding: 3px 5px !important; border-bottom: 1px solid #ddd !important; word-break: break-word; }
+  .compare-grid th.min-w-\[180px\] { min-width: 0 !important; width: auto !important; }
+  .compare-grid tr { page-break-inside: avoid; break-inside: avoid; }
+  /* Suppress winner-row tint + remove-button on paper */
+  .compare-grid .bg-accent-dim { background: transparent !important; font-weight: 600; }
+  .compare-grid button[aria-label^="Remove"] { display: none !important; }
+  /* Use named landscape page so the table fits 4 vehicles wide. */
+  .compare-grid { page: compare-print; }
 }
+@page compare-print { size: letter landscape; margin: 0.4in; }
