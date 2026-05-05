@@ -88,6 +88,23 @@ When user signals a tier-down ("switching to medium ASAP"): finish the in-progre
 - Vercel preview live at `barsnbolts-projects/ev-auto-trader-canada`
 - Daily refresh cron loaded via launchd
 
+## Compaction & session-handoff directives
+
+When `/compact` runs, preserve verbatim:
+1. **All file paths touched this session** (full list, not "various files").
+2. **The exact last test/build command run** + its outcome (pass/fail/error text).
+3. **Every user correction** — quoted, attributed to the user turn it came from.
+4. **Open questions blocked on the user** (e.g. spend approvals, MCP registers).
+
+Drop: pleasantries, re-injected system context, exploration that didn't pan out.
+
+Use the cookbook 6-section template for handoff docs:
+`User Intent · Completed Work · Errors & Corrections · Active Work · Pending Tasks · Key References`
+
+Compact at ~60% context utilization, NOT at the 80–95% warning. By the warning the model is already degraded and the summary inherits the rot. For unrelated task shifts, prefer `/clear` over `/compact`.
+
+After 2 failed corrections on the same root cause, `/clear` and re-prompt with what was learned. Don't push to a 3rd attempt — it pollutes future compaction.
+
 ## Carryover (out of current scope)
 
 - O3: Snapshot retention pruning (defer until disk pressure)
