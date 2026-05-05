@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { loadSnapshots, loadMeta } from "@/lib/data";
-import { fmtCad, fmtDate } from "@/lib/format";
+import { fmtCad, fmtDate, isoDay } from "@/lib/format";
 import { MODELS, MODEL_LABEL } from "@/lib/constants";
 import { HistoryCountChart, HistoryPriceChart, type SeriesPoint } from "@/components/HistoryChartsLazy";
 import { UpdatedStamp } from "@/components/UpdatedStamp";
@@ -32,7 +32,7 @@ export default async function HistoryPage() {
   }
 
   const countData: SeriesPoint[] = snapshots.map((s) => {
-    const point: SeriesPoint = { date: s.takenAt.slice(0, 10) };
+    const point: SeriesPoint = { date: isoDay(s.takenAt) };
     for (const model of MODELS) {
       point[model] = s.units.filter((u) => u.model === model).length;
     }
@@ -40,7 +40,7 @@ export default async function HistoryPage() {
   });
 
   const priceData: SeriesPoint[] = snapshots.map((s) => {
-    const point: SeriesPoint = { date: s.takenAt.slice(0, 10) };
+    const point: SeriesPoint = { date: isoDay(s.takenAt) };
     for (const model of MODELS) {
       const subset = s.units.filter((u) => u.model === model);
       point[model] = subset.length

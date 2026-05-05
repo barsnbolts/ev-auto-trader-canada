@@ -27,6 +27,16 @@ export function fmtDate(iso: string): string {
   });
 }
 
+/**
+ * Coerce an ISO timestamp (or date) to its YYYY-MM-DD prefix.
+ * Centralizes the `iso.slice(0, 10)` idiom used in chart series binning,
+ * snapshot dedup keys, and any "what day did X happen" comparison. Robust
+ * to inputs already in YYYY-MM-DD form (returns unchanged).
+ */
+export function isoDay(iso: string): string {
+  return iso.slice(0, 10);
+}
+
 export function relativeDays(iso: string): string {
   const ms = Date.now() - new Date(iso).getTime();
   const days = Math.floor(ms / 86_400_000);

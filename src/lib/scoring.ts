@@ -1,4 +1,4 @@
-import { ON_DEALER_FEES, PROVINCE_TAX, bcPstRateFor, type Province } from "./constants";
+import { ON_DEALER_FEES, PROVINCE_TAX, SCORING, bcPstRateFor, type Province } from "./constants";
 import transportBandsData from "../../data/transport-bands.json";
 import type {
   BuyerContext,
@@ -135,7 +135,7 @@ export function stackedOtdIncentives(
 // keyed off the pre-tax base. Other provinces: flat PROVINCE_TAX rate.
 function salesTaxFor(province: string, preTaxBase: number, vehiclePrice: number): number {
   if (province === "BC") {
-    const gst = preTaxBase * 0.05;
+    const gst = preTaxBase * SCORING.GST_RATE;
     const pst = vehiclePrice * bcPstRateFor(vehiclePrice);
     return +(gst + pst).toFixed(2);
   }
@@ -256,8 +256,8 @@ function priceVsMsrpScore(unit: InventoryUnit): number {
 
 function daysOnLotScore(unit: InventoryUnit): number {
   const d = unit.daysOnLot ?? 0;
-  // 0 days -> 0; 60 days -> ~0.6; 120+ days -> 1.0 (very negotiable)
-  return clamp01(d / 120);
+  // 0 days -> 0; 60 days -> ~0.5; SCORING.DAYS_ON_LOT_MAX days -> 1.0.
+  return clamp01(d / SCORING.DAYS_ON_LOT_MAX);
 }
 
 // "Pressure" = how leverageable a dealer is for a buyer. High pressure when:
@@ -270,10 +270,10 @@ export function dealerPressureIndex(
     (u) => u.model === unit.model && u.trim === unit.trim,
   );
   if (sameTrim.length === 0) return 0;
-  const depth = Math.min(sameTrim.length / 4, 1); // 4+ same-trim = max depth signal
+  const depth = Math.min(sameTrim.length / SCORING.PRESSURE_DEPTH_MAX, 1);
   const avgAge =
     sameTrim.reduce((s, u) => s + (u.daysOnLot ?? 0), 0) / sameTrim.length;
-  const ageSignal = clamp01(avgAge / 90);
+  const ageSignal = clamp01(avgAge / SCORING.PRESSURE_AGE_MAX_DAYS);
   // Equal weight; both signals must be present for a high score.
   return clamp01(0.5 * depth + 0.5 * ageSignal);
 }

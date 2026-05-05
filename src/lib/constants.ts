@@ -106,6 +106,36 @@ export const GGH_CITIES = [
 // Updated 2026-05-01 from cross-source DR (OMVIC bulletin Sep 2025; RPRA
 // 2026 producer-pass-through ~$5.69/tire; multiple Ontario dealer
 // disclosures showing $22 OMVIC and $25 tire on retail bills of sale).
+/**
+ * Scoring calibration constants (per F4 cleanup). Centralized so changes
+ * surface in one place + the comments document the empirical reasoning
+ * for each magic number rather than burying it in scoring.ts.
+ */
+export const SCORING = {
+  /**
+   * daysOnLot ceiling: at this many days, the dealer is maximally
+   * negotiable. 0 days → 0 score. 60 days → ~0.5. 120+ → 1.0.
+   * Calibrated against Ontario dealer behavior — most lots cycle
+   * inventory in 60-90d; 120 captures the upper tail without saturating.
+   */
+  DAYS_ON_LOT_MAX: 120,
+  /**
+   * dealerPressure depth: 4+ same-trim units at one dealer signals they
+   * over-stocked that variant and want it gone. Below 4 = normal stock.
+   */
+  PRESSURE_DEPTH_MAX: 4,
+  /**
+   * dealerPressure age: 90d average across the cluster signals the
+   * over-stocked variant has been aging — dealer pain peaks here.
+   */
+  PRESSURE_AGE_MAX_DAYS: 90,
+  /**
+   * Federal GST rate (5%) applied at every OTD calculation. Constant
+   * across all provinces; provincial portion lives in PROVINCE_TAX.
+   */
+  GST_RATE: 0.05,
+} as const;
+
 export const ON_DEALER_FEES = {
   airConditioningExciseTax: 100, // federal AC tax
   rdprmFee: 5,                   // RDPRM/lien registration (cash deals usually skip)

@@ -70,6 +70,11 @@ SEARCH_URLS = [
 ]
 
 PAGE_SAFETY_CAP = 25  # AT shows max ~7-15 pages per query in practice
+# Cap detail-fetches per run so bootstrap doesn't run multi-hour. Listings
+# beyond the cap stay un-VIN-enriched until the next sweep. ~250 fetches
+# at 2-4s sleep ≈ 8-15 min for the detail loop alone, plus ~3 min for
+# search-page enumeration. Total cron budget: ~12-20 min comfortable.
+MAX_DETAIL_FETCHES_PER_RUN = 250
 
 
 def _ua() -> str:
@@ -77,7 +82,10 @@ def _ua() -> str:
 
 
 def _sleep_jittered():
-    time.sleep(random.uniform(5, 8))
+    # 2-4s jitter — empirically AT/Imperva tolerates this through curl_cffi's
+    # Chrome impersonation. Was 5-8s in spec; halved after bootstrap timing
+    # estimates blew past 3h with 2k+ detail-fetches on cold cache.
+    time.sleep(random.uniform(2, 4))
 
 
 _session: "cffi_requests.Session | None" = None
@@ -293,10 +301,19 @@ def main() -> int:
         f"{len(removed)} removed)"
     )
 
-    # 4. Detail-fetch new/changed
+    # 4. Detail-fetch new/changed (capped per run for cron budget).
     out: list[dict] = []
+    detail_budget = MAX_DETAIL_FETCHES_PER_RUN
+    deferred = 0
     for i, cr in enumerate(new_or_changed, 1):
         entry = search_entries[cr]
+        if detail_budget <= 0:
+            # Beyond budget: emit a partial entry without detail so the
+            # listing still counts as "active" today. Next sweep will
+            # detail-fetch it (because vin still None).
+            out.append(normalize_listing(entry, None))
+            deferred += 1
+            continue
         url = entry.get("url")
         if not url:
             out.append(normalize_listing(entry, None))
@@ -306,9 +323,12 @@ def main() -> int:
         detail_html = fetch_html(url)
         detail = parse_detail_page(detail_html) if detail_html else None
         out.append(normalize_listing(entry, detail))
+        detail_budget -= 1
         if i % 25 == 0:
-            print(f"  detail-fetched {i}/{len(new_or_changed)}", file=sys.stderr)
+            print(f"  detail-fetched {i}/{len(new_or_changed)} (budget left: {detail_budget})", file=sys.stderr)
         _sleep_jittered()
+    if deferred:
+        print(f"  deferred {deferred} detail-fetches to next sweep (budget exhausted)", file=sys.stderr)
 
     # 5. Reuse cached for persistent
     for cr in persistent:
