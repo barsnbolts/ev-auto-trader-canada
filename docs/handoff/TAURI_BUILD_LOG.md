@@ -111,3 +111,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04: A13+A14+A15 shipped — INVARIANTS.md (11 contracts) + scripts/README.md (data pipeline map) + CLAUDE.md updated with vitest + schema-audit + INVARIANTS pointers. Tier A complete (15/15).
 - 2026-05-04: Tier B drained — B1 shipped (-104 kB on /history), B2/B4/B7 already optimized, B3 closed (Next 15 removed flag), B5/B6 deferred. Same -104 kB win pattern as dossier. Vercel + Tauri both benefit.
 - 2026-05-04: C7+C8 shipped — Copy-as-JSON button on dossier (1.5s 'Copied!' state) + VINless row tint with title tooltip + data-no-vin selector. Both web + Tauri benefit.
+- 2026-05-04: C9+C10 shipped (a11y batch) — RefreshModal log aria-live + skip-to-content link in layout. C11+C2 verified already adequate.

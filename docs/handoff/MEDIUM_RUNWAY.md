@@ -1003,6 +1003,10 @@ Track shipped items here so the next session knows what's left. Format:
 **Tier B complete (1 shipped + 3 already-done + 1 skipped + 2 deferred).** ~104 kB win on /history.
 - [x] C7: CopyJsonButton on dossier — copies unit + dealer + ctx + OTD + spec to clipboard. State pill flashes "Copied!" / "Copy failed" for feedback.
 - [x] C8: VINless rows now render with subtle warn-tint border-left on InventoryTable + native title tooltip explaining "no VIN — verify identity at dealer". Stable selector via data-no-vin attribute for future tests.
+- [x] C9: RefreshModal log container — role=log + aria-live=polite + aria-atomic=false + aria-label. Screen readers announce new log lines as they stream from the backend.
+- [x] C10: Skip-to-content link in layout.tsx (sr-only until focused, jumps to <main id="main-content">).
+- [done-prior] C11: TempSlider already has aria-label + aria-valuetext + role="switch" on preconditioning toggle. Verified, no change needed.
+- [done-prior] C2: /history empty state already renders "No snapshots yet" with `npm run snapshot` CTA. Verified adequate, no change needed.
 ```
 
 ---

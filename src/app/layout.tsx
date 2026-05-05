@@ -38,6 +38,13 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className="min-h-screen flex flex-col">
+        {/* Skip-to-content for keyboard + screen-reader users. Hidden until focused. */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-3 focus:py-1.5 focus:bg-accent focus:text-bg focus:rounded-md focus:text-sm focus:font-medium"
+        >
+          Skip to content
+        </a>
         <ClientWarmup
           heroUrls={Object.values((vehicleImages as { images: Record<string, { url: string }> }).images).map((v) => v.url)}
         />
@@ -51,7 +58,7 @@ export default function RootLayout({
             <BuyerContextSelector />
           </div>
         </header>
-        <main className="flex-1 max-w-[1400px] w-full mx-auto px-6 py-6">
+        <main id="main-content" tabIndex={-1} className="flex-1 max-w-[1400px] w-full mx-auto px-6 py-6">
           {children}
         </main>
         <footer className="border-t border-border text-xxs text-fg-subtle">

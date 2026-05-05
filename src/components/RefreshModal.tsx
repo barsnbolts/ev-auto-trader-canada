@@ -107,6 +107,10 @@ export function RefreshModal({ onClose }: { onClose: () => void }) {
             </div>
             <div
               ref={logRef}
+              role="log"
+              aria-live="polite"
+              aria-atomic="false"
+              aria-label="Refresh script output"
               className="bg-bg-subtle rounded p-3 max-h-72 overflow-y-auto font-mono text-xxs leading-relaxed"
             >
               {lines.map((l, i) => (
