@@ -657,6 +657,19 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           Export CSV
         </button>
       </div>
+      {(() => {
+        // Days-on-lot honesty banner: stable-ID-based tracking only started
+        // 2026-05-02; until snapshot history deepens, the column will read 0-3
+        // for every unit. Show this once at the top so users don't think the
+        // sort is broken or every car was just listed today.
+        const maxDays = filtered.reduce((m, u) => Math.max(m, u.daysOnLot ?? 0), 0);
+        if (maxDays >= 14 || filtered.length === 0) return null;
+        return (
+          <div className="px-3 py-2 border-b border-border bg-amber-500/5 text-xxs text-amber-200/80">
+            ⓘ Days-on-lot tracking is still warming up — daily snapshots have only been collecting under stable IDs since 2026-05-02. Values will climb accurately over the coming weeks.
+          </div>
+        );
+      })()}
       {activeFilterChips({ models, years, trims, drivetrain, region, maxPrice, pressureOnly, evapOnly, query }).length > 0 && (
         <div className="px-3 py-2 border-b border-border flex flex-wrap items-center gap-1.5 text-xxs">
           <span className="text-fg-subtle uppercase tracking-wide">Active:</span>

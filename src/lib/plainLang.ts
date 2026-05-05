@@ -68,7 +68,7 @@ const GLOSSARY: Record<string, string> = {
   "conquest": "Conquest cash — Hyundai/Kia gives a discount if you currently own a competing brand (Toyota, Honda, Tesla, etc.).",
   "EVAP": "Electric Vehicle Availability Program — Canadian federal rebate scheme, currently inactive.",
   "iZEV": "Federal Zero-Emission Vehicle rebate. Currently $0 (program paused).",
-  "daysOnLot": "How long the dealer has had this exact vehicle. Longer = more negotiation room.",
+  "daysOnLot": "Days since we first saw this listing in our daily AutoTrader sweep. Longer = more negotiation room. (Tracking started 2026-05-02 with the new stable-ID scheme — values will keep climbing accurately from here as the daily cron accumulates history.)",
   "msrp": "Manufacturer's Suggested Retail Price — what Hyundai/Kia publish. Dealer asking is usually different.",
   "asking": "What the dealer's listing shows. The starting point of negotiation.",
   "finance": "You borrow money, take the car home, and own it after the loan ends.",
