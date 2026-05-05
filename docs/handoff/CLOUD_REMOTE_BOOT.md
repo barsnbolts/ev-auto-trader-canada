@@ -6,10 +6,42 @@
 > Codex, or anywhere else with `git` + Node + Python + Bash.
 >
 > **Canonical truth lives on GitHub.** The repo at
-> `https://github.com/barsnbolts/ev-auto-trader-canada` (branch
-> `claude/verify-environment-setup-oTu3S`) is the only source of
+> `https://github.com/barsnbolts/ev-auto-trader-canada` **branch
+> `claude/verify-environment-setup-oTu3S`** is the only source of
 > state that survives across machines and sessions. Anything not
 > committed there is local-only.
+
+## ⚠ CRITICAL: NEVER USE `main`
+
+**`main` is intentionally 132+ commits behind the working branch.** Per
+CLAUDE.md NO list, we never push to `main`; all work lands on
+`claude/verify-environment-setup-oTu3S`. Any cloud system, browser
+view, sandbox, or sibling clone that defaults to `main` will show a
+super-stale snapshot from early May 2026 and miss everything since.
+
+If your session lands on `main` (or any branch other than
+`claude/verify-environment-setup-oTu3S`):
+
+```bash
+git fetch origin
+git checkout claude/verify-environment-setup-oTu3S \
+  || git checkout -b claude/verify-environment-setup-oTu3S \
+       origin/claude/verify-environment-setup-oTu3S
+git reset --hard origin/claude/verify-environment-setup-oTu3S
+git clean -fd       # nuke any stray untracked files
+```
+
+`git reset --hard origin/<work-branch>` is **safe** here — it only
+mutates the LOCAL workspace to match the remote work branch. It does
+NOT push, force-push, or modify the remote. It's the cloud-side
+equivalent of "throw away whatever stale state I have, take
+GitHub's word for canonical."
+
+If `git pull` reports a divergent history (e.g., the cloud workspace
+made unrelated commits while idle), prefer `git reset --hard` — the
+local cloud commits are NOT canonical and should be discarded. The
+only canonical state is what's pushed to origin's work branch from
+Ian's Mac.
 
 ## What's portable vs Mac-only
 
@@ -27,15 +59,31 @@
 | `mcp__Claude_in_Chrome` extension | — | ✗ paired browser on local Mac |
 | Semble MCP install at `~/.claude.json` | per-machine | both — install once on each machine you use |
 
-## Cloud-mode-safe boot
+## Cloud-mode-safe boot (force-sync to canonical)
 
 ```bash
-# 1. Clone OR pull
-[ -d ev-auto-trader-canada ] && cd ev-auto-trader-canada || \
-  git clone -b claude/verify-environment-setup-oTu3S \
-    https://github.com/barsnbolts/ev-auto-trader-canada.git \
-  && cd ev-auto-trader-canada
-git pull --ff-only origin claude/verify-environment-setup-oTu3S
+# 1. Clone OR force-sync to the work branch — never trust local cloud state.
+WORK_BRANCH=claude/verify-environment-setup-oTu3S
+REPO_URL=https://github.com/barsnbolts/ev-auto-trader-canada.git
+
+if [ ! -d ev-auto-trader-canada ]; then
+  git clone -b "$WORK_BRANCH" "$REPO_URL"
+fi
+cd ev-auto-trader-canada
+
+# Force the local checkout to match origin's work branch exactly.
+# Discards any stale local commits, untracked files, or branch drift.
+git fetch origin --prune
+git checkout "$WORK_BRANCH" \
+  || git checkout -b "$WORK_BRANCH" "origin/$WORK_BRANCH"
+git reset --hard "origin/$WORK_BRANCH"
+git clean -fd
+
+# Verify we're on the latest pushed state.
+LOCAL=$(git rev-parse HEAD)
+REMOTE=$(git rev-parse "origin/$WORK_BRANCH")
+[ "$LOCAL" = "$REMOTE" ] || { echo "DRIFT: $LOCAL != $REMOTE — investigate"; exit 1; }
+echo "Synced to $LOCAL on $WORK_BRANCH"
 
 # 2. Install deps (idempotent — npm + Python stdlib only)
 npm install                # restores node_modules from package-lock
@@ -121,6 +169,46 @@ If origin is ahead and contains commits the local doesn't have:
 - Pull. Don't rebase. Don't merge sideways.
 - If your local HAS unpushed commits AND origin moved: stash, pull, replay.
   Never force-push to resolve a divergence on this branch.
+
+**Branch-drift recovery (cloud-side only — for when the cloud workspace
+sits on a stale branch / wrong branch / divergent state):**
+```bash
+git fetch origin --prune
+git checkout claude/verify-environment-setup-oTu3S \
+  || git checkout -b claude/verify-environment-setup-oTu3S \
+       origin/claude/verify-environment-setup-oTu3S
+git reset --hard origin/claude/verify-environment-setup-oTu3S
+git clean -fd
+```
+Use only on cloud / non-canonical workspaces where local state is
+known stale. Never run on Ian's Mac (his local IS the canonical
+source of pushes).
+
+## Why `main` looks "super super old"
+
+If a cloud system / browser tab / Vercel-production-deploy / sibling
+checkout shows the project at an early-May-2026 snapshot, it's pointing
+at the `main` branch. `main` is **132+ commits behind** the working
+branch by design. We never push to `main` per CLAUDE.md NO list.
+
+To check what your environment actually has:
+```bash
+git rev-parse --abbrev-ref HEAD          # current branch
+git rev-parse HEAD                       # current commit SHA
+git rev-list --count HEAD..origin/claude/verify-environment-setup-oTu3S
+                                          # commits behind canonical
+```
+
+If `current branch` reports `main` or anything other than
+`claude/verify-environment-setup-oTu3S`, run the branch-drift recovery
+above to switch + sync.
+
+**Vercel preview URL note:** Vercel auto-deploys per push on every
+branch by default, so the preview URL for the working branch is
+always current. The "production" URL (whatever's tied to `main` in
+Vercel project settings) is intentionally stale until a separate
+release process. Use the working-branch preview URL to verify live
+behavior, not production.
 
 ## Disaster recovery
 
