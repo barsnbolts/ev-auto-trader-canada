@@ -139,3 +139,7 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 logs/cron.log
 .vercel
+
+# Python bytecode
+scripts/__pycache__/
+*.pyc

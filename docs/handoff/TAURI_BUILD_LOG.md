@@ -112,3 +112,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04: Tier B drained — B1 shipped (-104 kB on /history), B2/B4/B7 already optimized, B3 closed (Next 15 removed flag), B5/B6 deferred. Same -104 kB win pattern as dossier. Vercel + Tauri both benefit.
 - 2026-05-04: C7+C8 shipped — Copy-as-JSON button on dossier (1.5s 'Copied!' state) + VINless row tint with title tooltip + data-no-vin selector. Both web + Tauri benefit.
 - 2026-05-04: C9+C10 shipped (a11y batch) — RefreshModal log aria-live + skip-to-content link in layout. C11+C2 verified already adequate.
+- 2026-05-04 evening: SESSION_HANDOFF_2026-05-04_evening.md created — 5k-token boot doc for next session. Semble MCP installed at user-scope, verified end-to-end (server v1.27.0, search returned UnitDrawer.tsx OTD code in <2s on first index). Next-session first action: Semble smoke test + Tier 0.1 + resume Tier C drain (C1/C3/C4/C5/C6 remain).
