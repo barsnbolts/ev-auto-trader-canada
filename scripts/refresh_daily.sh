@@ -33,6 +33,10 @@ fi
 # shellcheck disable=SC1091
 source "$REPO/.venv/bin/activate"
 
+# Dirty-tree guard — manual edit between cron runs would block rebase + wedge
+# the cron via set -e. Catch it with a clear message instead.
+git diff --quiet && git diff --cached --quiet || { echo "DIRTY TREE — uncommitted changes block rebase. Commit or stash, then re-run."; exit 1; }
+
 # Pull working-branch updates (rebase to handle out-of-band commits cleanly).
 git fetch origin "$BRANCH" 2>&1 || { echo "FETCH FAIL"; exit 1; }
 git rebase "origin/$BRANCH" 2>&1 || { echo "REBASE FAIL — manual intervention"; exit 1; }
