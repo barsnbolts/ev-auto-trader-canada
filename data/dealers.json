@@ -229,6 +229,15 @@
     "province": "AB"
   },
   {
+    "id": "hyundai-murray-medicine-hat",
+    "brand": "Hyundai",
+    "name": "Murray Hyundai Medicine Hat",
+    "address": "Address not yet captured",
+    "city": "MEDICINE HAT",
+    "province": "AB",
+    "inventoryUrl": "https://www.murrayhyundaimedicinehat.com/"
+  },
+  {
     "id": "kia-at-seller-47946463",
     "brand": "Kia",
     "name": "AT Seller 47946463",
@@ -341,6 +350,15 @@
     "address": "Address not yet captured",
     "city": "CASTLEGAR",
     "province": "BC"
+  },
+  {
+    "id": "hyundai-castlegar",
+    "brand": "Hyundai",
+    "name": "Castlegar Hyundai",
+    "address": "Address not yet captured",
+    "city": "CASTLEGAR",
+    "province": "BC",
+    "inventoryUrl": "http://www.castlegarhyundai.com/"
   },
   {
     "id": "kia-at-seller-47941618",
@@ -458,6 +476,15 @@
     "province": "BC"
   },
   {
+    "id": "hyundai-maple-ridge",
+    "brand": "Hyundai",
+    "name": "Maple Ridge Hyundai",
+    "address": "Address not yet captured",
+    "city": "Maple Ridge",
+    "province": "BC",
+    "inventoryUrl": "https://www.mapleridgehyundai.com/"
+  },
+  {
     "id": "kia-at-seller-47940079",
     "brand": "Kia",
     "name": "AT Seller 47940079",
@@ -505,6 +532,15 @@
     "address": "Address not yet captured",
     "city": "PRINCE GEORGE",
     "province": "BC"
+  },
+  {
+    "id": "hyundai-northland",
+    "brand": "Hyundai",
+    "name": "Northland Hyundai",
+    "address": "Address not yet captured",
+    "city": "PRINCE GEORGE",
+    "province": "BC",
+    "inventoryUrl": "https://www.northland-hyundai.ca/"
   },
   {
     "id": "hyundai-penticton",
@@ -569,7 +605,8 @@
     "name": "Richmond Hyundai",
     "address": "Address not yet captured",
     "city": "Richmond",
-    "province": "BC"
+    "province": "BC",
+    "inventoryUrl": "https://www.richmondhyundai.ca/"
   },
   {
     "id": "hyundai-at-seller-47942786",
@@ -683,6 +720,15 @@
     "province": "MB"
   },
   {
+    "id": "hyundai-winnipeg",
+    "brand": "Hyundai",
+    "name": "Winnipeg Hyundai",
+    "address": "Address not yet captured",
+    "city": "WINNIPEG",
+    "province": "MB",
+    "inventoryUrl": "https://www.winnipeghyundai.com/"
+  },
+  {
     "id": "kia-at-seller-47946514",
     "brand": "Kia",
     "name": "AT Seller 47946514",
@@ -780,12 +826,30 @@
     "province": "NS"
   },
   {
+    "id": "hyundai-scotia",
+    "brand": "Hyundai",
+    "name": "Scotia Hyundai",
+    "address": "Address not yet captured",
+    "city": "AMHERST",
+    "province": "NS",
+    "inventoryUrl": "https://www.scotiahyundai.com/"
+  },
+  {
     "id": "hyundai-at-seller-47940660",
     "brand": "Hyundai",
     "name": "AT Seller 47940660",
     "address": "Address not yet captured",
     "city": "DARTMOUTH",
     "province": "NS"
+  },
+  {
+    "id": "hyundai-o-regan-s-dartmouth",
+    "brand": "Hyundai",
+    "name": "O'Regan's Dartmouth Hyundai",
+    "address": "Address not yet captured",
+    "city": "DARTMOUTH",
+    "province": "NS",
+    "inventoryUrl": "https://www.oreganshyundaidartmouth.com/"
   },
   {
     "id": "hyundai-at-seller-47939958",
@@ -796,12 +860,30 @@
     "province": "NS"
   },
   {
+    "id": "hyundai-steele",
+    "brand": "Hyundai",
+    "name": "Steele Hyundai",
+    "address": "Address not yet captured",
+    "city": "HALIFAX",
+    "province": "NS",
+    "inventoryUrl": "https://www.steelehyundai.com/"
+  },
+  {
     "id": "hyundai-at-seller-47940403",
     "brand": "Hyundai",
     "name": "AT Seller 47940403",
     "address": "Address not yet captured",
     "city": "NEW GLASGOW",
     "province": "NS"
+  },
+  {
+    "id": "hyundai-central-nova-motors",
+    "brand": "Hyundai",
+    "name": "Central Nova Motors Hyundai",
+    "address": "Address not yet captured",
+    "city": "NEW GLASGOW",
+    "province": "NS",
+    "inventoryUrl": "https://www.centralnovamotors.ca/"
   },
   {
     "id": "kia-at-seller-47940769",
@@ -834,7 +916,8 @@
     "name": "Hyundai of Aurora",
     "address": "Address not yet captured",
     "city": "Aurora",
-    "province": "ON"
+    "province": "ON",
+    "inventoryUrl": "http://hyundaiofaurora.ca/"
   },
   {
     "id": "hyundai-at-seller-47941630",
@@ -984,6 +1067,15 @@
     "province": "ON"
   },
   {
+    "id": "hyundai-cambridge",
+    "brand": "Hyundai",
+    "name": "Cambridge Hyundai",
+    "address": "Address not yet captured",
+    "city": "CAMBRIDGE",
+    "province": "ON",
+    "inventoryUrl": "https://www.cambridgehyundai.com/"
+  },
+  {
     "id": "kia-at-seller-47940218",
     "brand": "Kia",
     "name": "AT Seller 47940218",
@@ -1023,6 +1115,15 @@
     "address": "Address not yet captured",
     "city": "Etobicoke",
     "province": "ON"
+  },
+  {
+    "id": "hyundai-queensway",
+    "brand": "Hyundai",
+    "name": "Queensway Hyundai",
+    "address": "Address not yet captured",
+    "city": "Etobicoke",
+    "province": "ON",
+    "inventoryUrl": "https://www.queenswayhyundai.ca"
   },
   {
     "id": "kia-at-seller-47939695",
@@ -1092,6 +1193,15 @@
     "province": "ON"
   },
   {
+    "id": "hyundai-guelph",
+    "brand": "Hyundai",
+    "name": "Guelph Hyundai",
+    "address": "Address not yet captured",
+    "city": "Guelph",
+    "province": "ON",
+    "inventoryUrl": "https://www.guelphhyundai.com/"
+  },
+  {
     "id": "kia-at-seller-47945587",
     "brand": "Kia",
     "name": "AT Seller 47945587",
@@ -1122,6 +1232,15 @@
     "address": "Address not yet captured",
     "city": "HUNTSVILLE",
     "province": "ON"
+  },
+  {
+    "id": "hyundai-of-muskoka",
+    "brand": "Hyundai",
+    "name": "Hyundai of Muskoka",
+    "address": "Address not yet captured",
+    "city": "HUNTSVILLE",
+    "province": "ON",
+    "inventoryUrl": "https://www.hyundaiofmuskoka.com/"
   },
   {
     "id": "hyundai-hamilton",
@@ -1264,6 +1383,15 @@
     "address": "Address not yet captured",
     "city": "LONDON",
     "province": "ON"
+  },
+  {
+    "id": "hyundai-east-london",
+    "brand": "Hyundai",
+    "name": "East London Hyundai",
+    "address": "Address not yet captured",
+    "city": "LONDON",
+    "province": "ON",
+    "inventoryUrl": "https://www.eastlondonhyundai.com/"
   },
   {
     "id": "kia-at-seller-47940943",
@@ -1428,7 +1556,8 @@
     "name": "401 Dixie Hyundai",
     "address": "Address not yet captured",
     "city": "Mississauga",
-    "province": "ON"
+    "province": "ON",
+    "inventoryUrl": "https://www.401dixiehyundai.com/"
   },
   {
     "id": "hyundai-at-seller-47943322",
@@ -1437,6 +1566,15 @@
     "address": "Address not yet captured",
     "city": "Mississauga",
     "province": "ON"
+  },
+  {
+    "id": "hyundai-streetsville-nav-bhatia",
+    "brand": "Hyundai",
+    "name": "Streetsville Hyundai (Nav Bhatia)",
+    "address": "Address not yet captured",
+    "city": "Mississauga",
+    "province": "ON",
+    "inventoryUrl": "http://www.streetsvillehyundai.com/"
   },
   {
     "id": "kia-mississauga",
@@ -1604,6 +1742,15 @@
     "province": "ON"
   },
   {
+    "id": "hyundai-surgenor",
+    "brand": "Hyundai",
+    "name": "Surgenor Hyundai",
+    "address": "Address not yet captured",
+    "city": "OTTAWA",
+    "province": "ON",
+    "inventoryUrl": "http://www.surgenorhyundai.com"
+  },
+  {
     "id": "kia-at-seller-47941966",
     "brand": "Kia",
     "name": "AT Seller 47941966",
@@ -1687,7 +1834,8 @@
     "name": "Pathway Hyundai",
     "address": "Address not yet captured",
     "city": "Ottawa",
-    "province": "ON"
+    "province": "ON",
+    "inventoryUrl": "https://www.pathwayhyundai.com/"
   },
   {
     "id": "hyundai-bank-street",
@@ -1791,6 +1939,15 @@
     "province": "ON"
   },
   {
+    "id": "hyundai-harmony",
+    "brand": "Hyundai",
+    "name": "HARMONY HYUNDAI",
+    "address": "Address not yet captured",
+    "city": "ROCKLAND",
+    "province": "ON",
+    "inventoryUrl": "https://www.harmonyhyundai.com/"
+  },
+  {
     "id": "kia-plaza",
     "brand": "Kia",
     "name": "Plaza Kia",
@@ -1813,6 +1970,15 @@
     "address": "Address not yet captured",
     "city": "SCARBOROUGH",
     "province": "ON"
+  },
+  {
+    "id": "hyundai-agincourt",
+    "brand": "Hyundai",
+    "name": "AGINCOURT HYUNDAI",
+    "address": "Address not yet captured",
+    "city": "SCARBOROUGH",
+    "province": "ON",
+    "inventoryUrl": "http://www.agincourthyundai.com/"
   },
   {
     "id": "kia-at-seller-47945091",
@@ -1957,6 +2123,15 @@
     "address": "Address not yet captured",
     "city": "TORONTO",
     "province": "ON"
+  },
+  {
+    "id": "hyundai-downtown",
+    "brand": "Hyundai",
+    "name": "Downtown Hyundai",
+    "address": "Address not yet captured",
+    "city": "TORONTO",
+    "province": "ON",
+    "inventoryUrl": "https://www.downtownhyundai.com/"
   },
   {
     "id": "kia-at-seller-47944070",
@@ -2368,6 +2543,15 @@
     "address": "Address not yet captured",
     "city": "MONTR\u00c9AL",
     "province": "QC"
+  },
+  {
+    "id": "hyundai-st-laurent",
+    "brand": "Hyundai",
+    "name": "Hyundai St-Laurent",
+    "address": "Address not yet captured",
+    "city": "MONTR\u00c9AL",
+    "province": "QC",
+    "inventoryUrl": "https://www.hyundai-montreal.com/fr"
   },
   {
     "id": "kia-at-seller-47943772",

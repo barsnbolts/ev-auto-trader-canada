@@ -4089,6 +4089,11 @@
     "daysOnLotFirstSeen": "2026-05-05",
     "daysOnLotSource": "snapshot-diff"
   },
+  "u-at-992b29c5": {
+    "daysOnLot": 0,
+    "daysOnLotFirstSeen": "2026-05-05",
+    "daysOnLotSource": "snapshot-diff"
+  },
   "u-at-9930ca2e": {
     "daysOnLot": 0,
     "daysOnLotFirstSeen": "2026-05-05",
@@ -4400,11 +4405,6 @@
     "daysOnLotSource": "snapshot-diff"
   },
   "u-at-a32bc602": {
-    "daysOnLot": 0,
-    "daysOnLotFirstSeen": "2026-05-05",
-    "daysOnLotSource": "snapshot-diff"
-  },
-  "u-at-a340bc7f": {
     "daysOnLot": 0,
     "daysOnLotFirstSeen": "2026-05-05",
     "daysOnLotSource": "snapshot-diff"

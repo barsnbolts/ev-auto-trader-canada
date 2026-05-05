@@ -3,687 +3,7 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
-        "dealerName": "hyundai-birchwood",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55268,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0c99447e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-white-359d9656-3d11-44f8-b80c-fd6fecf07a02"
-      },
-      {
-        "dealerName": null,
-        "km": 26,
-        "lastVerified": "2026-05-04T18:55:05.716961Z",
-        "priceCad": 55268,
-        "province": "MB",
-        "source": "kijiji_autos",
-        "stockId": "1736981913",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1736981913"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KNDDC4TU399087",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-crowfoot",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0aa262f8",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-blue-9aab71b0-56f6-4522-95b2-7c96cca5bd61"
-      },
-      {
-        "dealerName": null,
-        "km": 20,
-        "lastVerified": "2026-05-05T17:31:41.065910Z",
-        "priceCad": 55698,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1736013288",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred/1736013288"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KNDDC2TU404559",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-crowfoot",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53733,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1d70780e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--504km-range--fast-charging--remote-s-electric-black-16a45dbe-d4bc-4954-b4c9-5d9ad8a02416"
-      },
-      {
-        "dealerName": null,
-        "km": 17,
-        "lastVerified": "2026-05-05T17:31:41.065940Z",
-        "priceCad": 53733,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1729372331",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred-504km-range-fast-charging/1729372331"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD Long Range",
-    "vin": "KM8KN4DAXTU386861",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-river-city",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60948,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a7f5723c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-electric-grey-631edaa9-44b6-4935-90da-01cf36e0ea5e"
-      },
-      {
-        "dealerName": null,
-        "km": 0,
-        "lastVerified": "2026-05-05T17:31:41.065918Z",
-        "priceCad": 60948,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1732599060",
-        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-hyundai-ioniq-5-ultimate/1732599060"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KRDDC4TU400159",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-birchwood",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61000,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-07876cac",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-demo-deal-save-2-583-electric-black-475a6480-1cc4-4343-be09-86392d04bdec"
-      },
-      {
-        "dealerName": null,
-        "km": 3121,
-        "lastVerified": "2026-05-04T18:55:05.716953Z",
-        "priceCad": 61000,
-        "province": "MB",
-        "source": "kijiji_autos",
-        "stockId": "1728180472",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-ultimate-demo-deal-save-2-583/1728180472"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KRDDCXTU390401",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-crowfoot",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9c6ca5d2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--463km-range--fast-charging--awd-electric-grey-86fbbd59-6250-4f5e-b9ca-dd55ea3dec88"
-      },
-      {
-        "dealerName": null,
-        "km": 17,
-        "lastVerified": "2026-05-04T18:55:01.130794Z",
-        "priceCad": 55698,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1729208080",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred-463km-range-fast-charging/1729208080"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred AWD Long Range",
-    "vin": "KM8KNDDC5TU390396",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-birchwood",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55518,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3d7e0be2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-green-7af0f99f-19ba-4fc5-a2aa-d3c14a3c65f2"
-      },
-      {
-        "dealerName": null,
-        "km": 18,
-        "lastVerified": "2026-05-04T18:55:05.716959Z",
-        "priceCad": 55518,
-        "province": "MB",
-        "source": "kijiji_autos",
-        "stockId": "1733973251",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1733973251"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KNDDC6TU399754",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-crowfoot",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-4820db51",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--463km-range--fast-charging--awd-electric-black-5667b0c6-5f74-49ce-8038-c089029cd52f"
-      },
-      {
-        "dealerName": null,
-        "km": 17,
-        "lastVerified": "2026-05-05T17:31:41.065938Z",
-        "priceCad": 55698,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1729372332",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred-463km-range-fast-charging/1729372332"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred AWD Long Range",
-    "vin": "KM8KNDDC5TU382475",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-birchwood",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 63542,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2d238f61",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-in-stock-take-home-today-electric-grey-22cdb087-fa82-48d8-9f51-1155df5fe47f"
-      },
-      {
-        "dealerName": null,
-        "km": 1890,
-        "lastVerified": "2026-05-04T18:55:05.716967Z",
-        "priceCad": 63542,
-        "province": "MB",
-        "source": "kijiji_autos",
-        "stockId": "1729812508",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-ultimate-in-stock-take-home-today/1729812508"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KRDDCXTU393587",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-river-city",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 64988,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-4b245291",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-electric-black-7599891e-5a8a-4552-925d-34521cbdc367"
-      },
-      {
-        "dealerName": null,
-        "km": 0,
-        "lastVerified": "2026-05-05T17:31:41.065922Z",
-        "priceCad": 64988,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1727672827",
-        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-hyundai-ioniq-5-ultimate/1727672827"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KRDDC2TU390568",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-at-seller-48846437",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66898,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-66b776c9",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-package-electric-black-98d17779-dd2f-47e4-ae0e-f66d0ac41314"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67690,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9ebcd825",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-a5358784-12f9-4154-8f9c-0c778447bc0b"
-      },
-      {
-        "dealerName": "hyundai-at-seller-48793612",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60841,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-512709b6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-93d3de7c-434a-4860-8a06-e893d132567e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e9fa10f6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-black-9a8f2644-c9b1-429f-9ff3-af2985c63009"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-558ffedd",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-green-ed20e75b-e00c-475f-a719-39df87ae428e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943545",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 52082,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-12d6986a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-grey-47678cf0-3112-431a-b141-5cf4519e248e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60440,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ec393678",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-450ee4ca-58c3-4849-bad5-ea2fd6457f07"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940135",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67047,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-4607a7a6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-pkg-electric-white-f23bddfb-8a70-45f5-9db7-548c191e055c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6bb93fbd",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-49441a63-551f-455b-b6a0-fc7f287bceaf"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47937382",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 58845,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-4fc7d4e2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--backup-camera--heated-seats--electric-green-38edfe6a-226b-48b1-b7a2-4b3040d018c9"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941260",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60544,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6d614f13",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-green-19024ff4-7714-435b-909b-3f98a6d6fca2"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-b560e1e6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-white-72215a5c-5a10-4aec-9931-83d2e37b1991"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940679",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66718,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a7cae4b6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-in-stock-take-home-today-electric-grey-e05bc0fa-dbc8-477b-8eba-8eb264118637"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 57649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2f33812b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-white-cc8c7060-1805-47b0-b30f-ecf40bcdbe16"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67948,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8378fc9c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-d0ce9a85-de29-46da-8f52-10d470476c3f"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-79435309",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-44ee1f49-a37f-4ca6-a9a4-45c86fbe126a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945976",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 58494,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-58b9345e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-708bf04a-1621-45dc-8560-3367d8ac620c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-eb79bad0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-e59f1de2-3763-4085-aa98-71c3f9ed8e7c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941048",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65594,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-40b21505",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ev-ultimate-leather-nav-wireless-charging-heads-up-electric-grey-b9ded8b6-e462-489e-b987-d8530c105a13"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940151",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59627,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a6bf6537",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-white-441dfb62-329d-459a-aa91-a591ef328662"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47937382",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60845,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ee17f6e9",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--backup-camera--heated-seats--electric-green-b05cd505-999c-4cf6-a986-93fe14e02e18"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0b19b92d",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-8c72eaf0-662e-4220-8200-51298f9891d1"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940081",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55209,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d43fc7c7",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-white-5828ba85-2cfb-46db-af28-e0157bae569b"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66530,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-919c2ba7",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-a8aec1ef-17c0-4932-8dfe-ca2eee4684b5"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939958",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61018,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-52f621c5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-a0b8ba05-bb36-4859-b4d5-65867fb975fa"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939958",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61018,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6ee9d0ee",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-21c8ad87-0334-4933-a156-1388160f46be"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47944439",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 52899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-09cfecd7",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-5bc5bf08-7816-4d6a-a722-2ee495a7a670"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942178",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8acb6850",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-blue-e24c4710-0242-44bb-b14c-92899a4b58be"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ade5d026",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-e7c09059-35c9-4770-8478-7e387a9ae9b7"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-33bc8558",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-blue-88c29bb1-b758-40ee-b6bd-0e044da5c60e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941860",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8615e728",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-a1e9acfc-d243-4803-af2c-aa906e070d95"
-      },
-      {
-        "dealerName": "hyundai-at-seller-48300698",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67923,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c05fad77",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-329ff6cd-acb1-48f1-bf0d-bfb8ca573845"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945036",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65549,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c88ed8d9",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-eed09066-04a3-403a-b122-72d78c320206"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940151",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59627,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-33262cc6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-white-1e4bf333-5c6b-4a24-be45-9257dda8f2a4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66440,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-65216ed8",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-bfbfc4a2-0812-4ee0-ac82-9be22d2ac560"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f8152c63",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-1e28be11-2edf-4d53-988c-35bec85c85c4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941109",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7bafcdd1",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-package-electric-grey-fd892671-81ee-416e-9140-d5016800869c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-451aaec0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-e1f4bde3-8d7d-4559-abb0-c0843a888fd2"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941109",
+        "dealerName": "hyundai-gyro",
         "km": null,
         "lastVerified": "2026-05-05",
         "priceCad": 67149,
@@ -693,1717 +13,7 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-package-electric-white-3b8dc78b-629b-4c95-8fb5-3ef171959a0a"
       },
       {
-        "dealerName": "hyundai-at-seller-47945579",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66283,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f702d382",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-f64ee63b-b490-401b-bd42-1ab5998c27a4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940110",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-03016d93",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-54fc3219-239c-4e99-89cc-7c99ea98648a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 57899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5b6c251e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-grey-eb0fc1f9-496c-4288-a88a-1b8929ddf404"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943169",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d394126a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-aaece68b-ac99-4378-8e89-bdcdb62e3cb8"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940679",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66718,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-12148684",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-in-stock-take-home-today-electric-black-f42c9296-70d4-42eb-965c-faf9553aa6d4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940679",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60518,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-4b7aed1e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-blue-3b83d4f3-8159-493d-a5a2-622e5feb4b32"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 57899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-fcabb3e1",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-black-a7564738-83b2-4462-bfd8-f1baba788f9a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945225",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60494,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7dfe595e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-electric-white-ad27f052-7bf6-457c-bca7-6efe5b76badf"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-83fb78be",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-blue-f5f49d0d-9166-43cc-9ac7-d00ed8404fc2"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60438,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-19d2f5fe",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-4d402d1c-d28f-4fb4-a8bd-64cdde521b93"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60438,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-cd3996b7",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-3c037a9c-f31c-4994-ba6b-e4e440fafdb1"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941277",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60490,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a60acec8",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-0f4ba3bb-bb67-413d-974b-3ad9e8b86279"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940081",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53959,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-36201710",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-7bda513f-eb44-4daf-bac7-396fc81a62ff"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-79fb648f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-2dc60c1f-097d-4020-b196-3cd7316f3856"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941277",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 58490,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-40bdf95f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-43be43f7-c057-4afd-a7c8-9339a2b1f664"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941630",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66744,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5cace0f5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-package-electric-grey-2af01f2f-e830-4d0f-97ff-cbb5c3a4654d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-b77f347b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-green-d2b8530e-d2d2-4c90-92eb-fcf81ea376b7"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5536c7e4",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-white-7bfe39ee-740c-4253-b8e1-c0f3af5a2797"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942202",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-df11c5fb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-electric-white-ee7c5e02-d928-4755-8663-5571a3b47e52"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940110",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d96aeb1e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-3ec9278f-8265-4475-bb2e-1a5e95fbc3f9"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943908",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 68169,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d32762c3",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-264ad883-ef8d-4181-b548-40d5d3047e47"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 51035,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-471ed844",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-rwd-long-range-electric-black-4369c746-7071-472b-983f-c1bd9dd95810"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 51160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6424cabc",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-rwd-long-range-electric-black-2725d8c4-472a-4ecf-bf26-64b6b4efa2e3"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 51160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3f7c2075",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-rwd-long-range-electric-black-e026dc34-e663-4c29-8f7f-3dfd1cc95381"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943545",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 52082,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ca858063",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-black-f3aec69c-e5ff-478a-8e5a-08f3a2019e03"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53035,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-063ee6b3",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-441ae25f-448c-4f07-9ced-e147a063c9e1"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53035,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a3ac2059",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-c28dde29-23c6-4bdf-9bbf-265b771cf9d5"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943545",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 52082,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d75357d0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-grey-356ffac9-2efe-49b5-a96c-9cd6607fea59"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-71cbd13f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-51893687-6158-462b-a972-68a03127266f"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-b6405b06",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-green-944cc7c9-dce2-4619-a8b8-9bc0a2bf35a2"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-bf1e0667",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-c3fdb37a-3ca4-4657-a230-b4674cde8f15"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6977c305",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-ed71981c-d50e-455b-a944-c3cdc46f9fec"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-b0256bb7",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-6a4ac1d2-4fd0-4353-b142-8aaac0ee0ae8"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d251e7ab",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-4514c2b4-6eff-4120-9e26-bc607865c12d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943545",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54082,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2b734136",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-cf6dc05c-e155-4efc-8822-d5da728ce668"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d068b3fb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-e068b65f-765c-49c5-9d9a-a0c748db9e66"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940075",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53160,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-bbb67442",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-44e9f5f4-2c4b-4a10-83fe-a438737f23f5"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c47314a0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-83285179-f4fa-4780-b614-9067b7c4a495"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945582",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 53977,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f46e9501",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-electric-grey-428df7c3-e611-4517-89e7-7700a071a3aa"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943545",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54082,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f5be211a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-92d6aed5-0fd6-448a-9780-6d9db638f856"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-aead2518",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-bacf2d50-271c-4635-adef-f04bde70cda8"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-329c521e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-3f31e4d2-342c-4e66-877b-49f2ab0eb54c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9686d7e2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-6aa538eb-a724-469d-9149-8d70a348417a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7c10a410",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-e1219ba9-67ff-4f5b-bf9c-a995b40a50cb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-757783c1",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-ba81d3f9-de69-407a-8ecd-135e2101c8de"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55321,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6c90d374",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-d6fe3731-92ba-4014-8951-6ce4888d3903"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55818,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c82f3067",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-7cee4ed1-fd8b-47a1-bf9f-bbbe389c88dc"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55818,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a2c2e898",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-0235d743-1bfc-47bf-8cf7-84999ecb966d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55818,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6d732f4f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-bc18b345-7d8c-49ff-a32b-013e684c4570"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55818,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ee8d0e02",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-blue-93a95581-a90e-418c-ad00-1423cb1cd2e0"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55321,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1cf70c3f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-white-d1a7d86b-a260-4b8f-a336-9961f0ab94bb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55818,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a586c401",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-blue-b7c22695-b494-4508-8449-b7cc4d8a9d43"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55818,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-b8faa6c2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-f11fc94f-a9a6-4e79-9be0-c1531d2d3d2c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55818,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1f894266",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-blue-e4954dfa-dd13-4b18-863c-b943cb772226"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55818,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e95ece38",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-73c463db-fbbe-4090-b390-f330e5760433"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51360978",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 57068,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-794e0a4d",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-white-5b42960b-327a-4b8c-8f80-ae474d876ea4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943417",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60071,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d233f402",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-green-29017a20-a4fb-4c57-a730-dc2457e6deeb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 58530,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-76428434",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-9f9c0daa-283e-432d-8aea-95fd2cfc6b76"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-03975bb9",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-white-d1f6b0c5-b0c2-4e6d-8fbe-c8d3294aa99d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60438,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e12c64d3",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-9b59cb36-bcfc-45a2-a018-71172ac878cb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7cabc78e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-blue-316e0afc-225f-47b9-a472-7b1db20dfd26"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5fd5dc87",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-black-5ab06eae-04ae-4469-800b-82aa543033c5"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-bc50170e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-grey-96f42a61-6ae1-4cc1-a7fb-95fa51b25423"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-75a5ca9c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-blue-76f99ff6-ba5b-4644-a91e-9cec97861590"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-17135d85",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-blue-d7592900-252e-41b3-95e3-573542d34c62"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-04bb0e35",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-blue-89341c5d-0d96-490d-81ea-fef294de2684"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5000aa0e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-grey-d4f02d94-07a0-49de-bd1d-1650815059f1"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47937898",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-71bfb8dd",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-b92f85aa-e1a1-48dd-a38a-0aa8ffacba28"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60190,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9c846f61",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-6e178ce0-8bda-4a51-934f-bf5bf90a39cd"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0d0e58dc",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-white-b12dd368-95b5-4cdb-9db4-88c414a8da9f"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d3ebf505",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-e83e3f5e-d1bb-43ae-8ae8-87a821b3394b"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2cba3e2c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-c9319f8d-3607-4c75-925c-b28b72bdd2b0"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-dba367c4",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-76bde635-4c1e-4b6f-9bcd-e759d4c8f079"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940679",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60518,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a1556342",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-grey-35a81a88-7976-4c33-9ec3-92200221efef"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59888,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-408f5ba9",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-999981d4-653a-4515-ae8d-2fecfc4237e3"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60530,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-14019690",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-8f278216-456c-45d7-b406-0eb0793613c4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-05d686a5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-blue-07c44a2a-8de1-4c2f-84f9-324ffa368a47"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-37a1da23",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-4582a517-8770-478a-ad9c-19beefdfa034"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5e8b8da5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-4ed2d9d6-762c-42e6-96c8-21f001c7f9d8"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60530,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1462c950",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-154c88a4-27b4-41d8-b73e-0a2fd9316e4e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2481a522",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-c4618dec-ced8-45b4-81bd-d3710e69e3c5"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60780,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f8b977b2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-36cbc67d-9689-41ae-9bcb-012577d0da66"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1fbec3ec",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-a2147b5c-3cc2-471e-b724-0189c1c2448e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60440,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-55899004",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-cd0a8834-ccbc-4d6a-b77e-06b08700c5a8"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945976",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60744,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-b7bbd5e6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-641f3c06-2c64-47f1-93b6-c4e2821888eb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2f0343b3",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-70181576-c323-47cd-b89b-423b2bcec332"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945582",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60298,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2dc852c4",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-electric-grey-4ba59825-966e-48a3-a4eb-3d776681e283"
-      },
-      {
-        "dealerName": "hyundai-at-seller-48846437",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60898,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-658da2c8",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-electric-grey-ec061b01-5fa9-4638-8459-7aa8a4688333"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941048",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60374,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9eeeb875",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ev-preferred-awd-apple-car-play-back-up-cam-heat-electric-grey-17c66d71-c1a8-4058-a2e7-892f05b06a07"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d5d26c88",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-grey-ed74b364-79ba-455d-b3ae-ee67c7c3479d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6f4d60e2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-83bbc9fa-2b6c-42d2-8aa0-13294f511e4e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945225",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60494,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-aeec2ae3",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-electric-white-db6a1d8d-93d7-4688-887d-79e652541fc0"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942178",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d4e9bd0a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-28177940-6c63-40c9-9ee4-9a7ad8f3c63c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941260",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61794,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-718ee038",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-0ee10c5a-384d-4850-9d12-9e571042eef6"
-      },
-      {
-        "dealerName": "hyundai-at-seller-48300698",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61923,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ddbda269",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-4a91241f-4d50-47c6-85ff-9eb797ad4caa"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939958",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61018,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ae2ce7b1",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-blue-7da0fbfb-8b62-4951-ba71-a6b690b55f6c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61688,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-30967905",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-fca79348-773c-4a42-ad1a-b0f037699e54"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61870,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-02e9b23c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-white-20a1292c-31f0-4a57-81c7-fb4608442a8d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-48300698",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61923,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d52a129b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-de23a49e-50cd-4492-a053-49a1ccef638d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939958",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 62268,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-fff0afbb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-a7b3c109-b482-4fc9-b417-06486cccd28b"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945582",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 62048,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5eadd6fb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-electric-white-649c6ba0-00ee-4720-a806-682238fd8e2f"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f5bbaab3",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-71f8a516-d441-4e24-afe7-cbc8b59c42b6"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f4cbc2de",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-96752d94-49e4-4a2e-8e9a-337a536d6055"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941860",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-4204a06c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-e3b80992-eeb4-4426-b1b0-edd4caea23dd"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945579",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66383,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3ec38b05",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-9e461eef-9119-4af5-9aa9-2da27f90b3da"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945579",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66383,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a725fb36",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-0cf89c4b-778c-43ec-b927-8ce01ce775cf"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-79f16b0f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-8e561604-953e-4963-bc00-38cfdc0ae723"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941860",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67049,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-aaa27695",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-50940eaa-475b-4123-a721-eccb38ace7bf"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a8399716",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-880af0c5-16eb-4ed9-a79f-af9d305b651d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47946236",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66278,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3e987a02",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-614b1c75-407a-451e-985f-467ce0bf736c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47946236",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66278,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a4a34abd",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-fabdf65d-9b72-4853-9090-ab1fc7d1176b"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1c5045ba",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-grey-c5e3a143-93e5-412a-b418-10d00e7d038d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940606",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8ecf720b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-with-ultimate-package-electric-black-b1c9efd5-7103-4576-bf97-b7d2ea4a36fd"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66440,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ede0d511",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-0f169b4f-fe5d-4d15-8aac-6ffe9e4f8409"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941860",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-20c0dcec",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-54239cf4-f06e-4179-96c6-ed146f25f06c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8335a1c6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-9854de41-4e75-4648-b7e8-b8bd5a3dfb4d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e447b4df",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-66b2880e-962f-4e3b-8ac3-55fe4fc249fb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-89992bfe",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-2ebbbdf6-e4b2-46c8-8971-ddecd79d3458"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940606",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f62b809e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-with-ultimate-package-electric-blue-71c41ae6-fe44-4e85-9d3c-10182e40f25f"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-56cb6d95",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-f73fcd02-f0b5-41f4-b784-097b4a457d72"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47946236",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66528,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f8be2f16",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-black-398f4ac8-ac77-4f1d-b6b9-e545a68ee403"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f6dea265",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-black-ad2a405f-9e17-41ab-a171-552818c30da2"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d093e755",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-black-4490e15b-a91a-4ebc-8ae3-d0bfeec7a8e7"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c6f7975e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-11e27ee2-e671-4722-a5ff-6f0a97d52d69"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66370,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a5230957",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-white-9072a305-969f-4a34-b59c-5a784c7d91cd"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941260",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66294,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3a209d94",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-1bb8243d-f9b1-417d-a1db-770aeb0cc9d8"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945036",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66294,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a142c40d",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-4d5d96ef-4048-46b0-91ef-6edfe93d97b6"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47946236",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66528,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c929232f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-black-b6079f3e-db39-4bb9-90db-59d4c5f94d83"
-      },
-      {
-        "dealerName": "hyundai-at-seller-48793612",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66590,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d9c934af",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-white-5cc5f020-4716-49e5-91e6-0cf86f75572d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941260",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66544,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-cfe87afa",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-741477b5-ca4f-44f9-bcd5-b8e83c7441fa"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941260",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66544,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-b9c5c078",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-d0042b99-4cf4-49db-bb32-55a61f7d790b"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66780,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-92fd2b7c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-cb13c06f-eca3-4e8b-ae2c-fa10ad27108a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d80eaaeb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-blue-53d68c85-aedb-44c2-9a46-7a33421b8624"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943118",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67466,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2e845d7a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-71c444c6-8191-4fdf-8b82-f32b248deb2f"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66438,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9b435748",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-a2a7acb7-6530-4789-aec2-83f0abd3d502"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47938279",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66438,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-180ee96e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-0ffaa3ff-8360-464b-9e5e-9d67b4b717f4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945976",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67058,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9f50071b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-5084fa82-f4b3-407e-ac0f-baccc605dfd8"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945350",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-66aa9fcf",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-b59a7d06-016c-4110-aa29-22d349844231"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d19e6e81",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-063d528f-b270-4bad-80a3-c36a6339da51"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-eb26b9c4",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-blue-1addf6c3-1644-4851-a357-5053e23f57a2"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66370,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c37b6131",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-white-1be46809-92a3-4135-972b-509fc189881f"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945036",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66544,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-086e6aa0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-2b6f3dfe-7468-437c-86a0-9e3a7a339c8c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47944349",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67322,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e1454668",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-blue-6588e026-bfcb-4283-aebf-32683d4765fd"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941621",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66009,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5c5a75c6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-grey-bea8f34c-3028-43d4-b653-1f58b3e3fbc9"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940679",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66718,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7f0dd15a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-in-stock-take-home-today-electric-black-f9304fda-305e-4dab-b417-707e3645ac5f"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941596",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67165,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-64aea2f1",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-pkg--overstocked-electric-white-de10e2d7-e7d1-4a11-8610-83ffcad13103"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941596",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67165,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6e0601c5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-pkg--overstocked-electric-white-0eb90b4c-edb0-4da8-bdcc-3314b03358ea"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939293",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66620,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-b2c79ff1",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-ultimate-electric-black-c3ed79d6-6d15-4aa6-abc7-f5abaea6fbf6"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941630",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66494,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-80977020",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-package-electric-white-d6f0b146-f1af-41c0-8a44-86db39999cd5"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941951",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67427,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-85bc6ae3",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-f03090d6-3e6a-439b-8fca-2d1cf3e806c5"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941596",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67165,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0b6184a4",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-pkg--overstocked-electric-white-e6b32279-01b4-4998-956a-cf8887c4a5b0"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940917",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67428,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e35e6702",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-34c90d74-e42e-4d62-a413-d97da9c30d2a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67504,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8dd6f9c8",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-black-3831bc59-4210-4cf5-bb38-0d90c80413f4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47942233",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67149,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-46f09dd6",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-24b4cbd1-1b8c-4b2c-a808-def1742ba907"
-      },
-      {
-        "dealerName": "hyundai-at-seller-48846437",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66898,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ca5b769b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-package-electric-grey-3cd9db2b-e9e1-48bd-a78b-4ac2a64972d0"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940679",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 68218,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-862e57ec",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-in-stock-take-home-today-electric-white-ac7250c8-3954-45a0-adac-e9e1151b4794"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940135",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67297,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-904f08ed",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-pkg-electric-black-4edc2cd9-6284-4962-be63-1e6241aaaa0a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940135",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67297,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1f7ff329",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-pkg-electric-black-ac9d1111-6a12-43ce-81d0-e1501361eda6"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943736",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67948,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-447ab304",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-b14c8e8e-ef6c-401a-b9a4-571a82b98f71"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940135",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 68547,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8587155a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-w-ultimate-pkg-electric-white-3b286d02-3aed-46f0-8c00-5c926473f3f5"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940135",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61297,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e8abb9fa",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-electric-grey-72828c7e-7b53-48f0-9c6d-137e4a19c167"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940135",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61297,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9f85fd27",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-electric-black-35ac9c73-99f4-495d-99d2-8128b2cd844e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940660",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c910fb26",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-5338ffd9-15c1-42f8-b88d-dc3424c5dc03"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940660",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8e9a299d",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-e24f93df-f343-4b7e-ab9b-e716f450b09c"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940660",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6d83ceba",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-637a0265-f46a-4b07-a23d-61d55555262d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941822",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 69930,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e878170e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-lr-w-ultimate-electric-grey-912d0101-2211-457f-85ae-cf8bc7dfa542"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940403",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d29cac8a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-65b3d8ec-23b6-4fa3-9587-ed348d0b3501"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941822",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 68729,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-cafbd8f7",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-lr-w-ultimate-electric-grey-a19f5feb-057f-416b-a43c-e79d85c662fd"
-      },
-      {
-        "dealerName": "hyundai-at-seller-50771942",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 65549,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9234442a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-pre-long-range-w-ult-pkg-electric-white-39f035b6-0c5e-46bf-9444-ba6c7e6dc9cb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-50771942",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8696dee5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-40fad7b1-d5a8-4af3-8b31-e9186f24000a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-50763393",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61349,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0b7441c5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-39559b0f-beec-414d-931a-033547af8790"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941260",
+        "dealerName": "hyundai-401-dixie",
         "km": null,
         "lastVerified": "2026-05-05",
         "priceCad": 66194,
@@ -2413,194 +23,184 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-white-a133f2ef-5cc3-4399-b91a-499a7ba29a59"
       },
       {
-        "dealerName": "hyundai-at-seller-47941822",
+        "dealerName": null,
+        "km": 15,
+        "lastVerified": "2026-05-05T17:31:41.065874Z",
+        "priceCad": 66194,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1736920207",
+        "url": "https://www.kijiji.ca/v-cars-trucks/mississauga-peel-region/2026-hyundai-ioniq-5-preferred/1736920207"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD Long Range",
+    "vin": "KM8KRDDC9TU394018",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-401-dixie",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 61479,
+        "priceCad": 60544,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-8c4858b0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-green-56ced900-82e8-4549-ad82-4ca5b77d2fc5"
+        "stockId": "u-at-6d614f13",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-green-19024ff4-7714-435b-909b-3f98a6d6fca2"
       },
       {
-        "dealerName": "hyundai-at-seller-47941822",
+        "dealerName": null,
+        "km": 18,
+        "lastVerified": "2026-05-05T17:31:41.065906Z",
+        "priceCad": 60544,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1735646626",
+        "url": "https://www.kijiji.ca/v-cars-trucks/mississauga-peel-region/2026-hyundai-ioniq-5-preferred/1735646626"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC2TU404285",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-cambridge",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 67479,
+        "priceCad": 58494,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-f7729cbb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-lr-w-ultimate-electric-blue-7354eb61-3711-4d88-aff5-62aaa6119ab8"
+        "stockId": "u-at-58b9345e",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-708bf04a-1621-45dc-8560-3367d8ac620c"
       },
       {
-        "dealerName": "hyundai-at-seller-47942786",
+        "dealerName": null,
+        "km": 22,
+        "lastVerified": "2026-05-05T17:31:41.065876Z",
+        "priceCad": 58494,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1729587787",
+        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-5-preferred/1729587787"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KN4DA8TU390018",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-crowfoot",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 59799,
+        "priceCad": 66283,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-19a4b1f4",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-d85dfccd-04c9-4608-ac43-1cc0b82ed134"
+        "stockId": "u-at-f702d382",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-f64ee63b-b490-401b-bd42-1ab5998c27a4"
       },
       {
-        "dealerName": "hyundai-at-seller-47941630",
+        "dealerName": null,
+        "km": 18,
+        "lastVerified": "2026-05-05T17:31:41.065897Z",
+        "priceCad": 66283,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1733691922",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred/1733691922"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDC2TU399982",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-birchwood",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 58744,
+        "priceCad": 60518,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-63c4a305",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-long-range-electric-grey-65961a5a-40db-4ba8-ad97-cfd5b9468cf0"
+        "stockId": "u-at-4b7aed1e",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-blue-3b83d4f3-8159-493d-a5a2-622e5feb4b32"
       },
       {
-        "dealerName": "hyundai-at-seller-47940478",
+        "dealerName": null,
+        "km": 16,
+        "lastVerified": "2026-05-05T17:31:41.065946Z",
+        "priceCad": 60518,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1733973570",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1733973570"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC6TU396448",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2025|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-st-laurent",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 60997,
+        "priceCad": 50966,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-2be4355d",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-grey-4db20cf2-7ab6-4210-b19c-e1c052b023d4"
+        "stockId": "u-at-ec657331",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-hyundai-ioniq-5-preferred-2025-a-standard-portee-electric-white-414dd5ac-a813-494a-be9e-45eafc8ecaef"
       },
       {
-        "dealerName": "hyundai-at-seller-47940478",
+        "dealerName": "hyundai-at-seller-47940292",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 60997,
+        "priceCad": 57849,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-581803da",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-green-124862d9-69b8-4f4c-93b4-d57836e46b0b"
-      },
+        "stockId": "u-at-ec78926e",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-electric-grey-e627c5ee-6401-43dc-8086-fbc648355761"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": null,
+    "year": 2025
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
       {
-        "dealerName": "hyundai-at-seller-47944931",
+        "dealerName": "hyundai-at-seller-47940075",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 65649,
+        "priceCad": 53160,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-fa2a71ff",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-grey-af55c5c8-3fdb-431e-938b-5a9dd3b73ccf"
-      },
-      {
-        "dealerName": "hyundai-at-seller-50763393",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 67349,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-affacd27",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-6740da8e-1dfc-4727-bf2e-7df6f6455a29"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941648",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60810,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-df198700",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-black-91b85d66-f72f-4200-8a65-66fb734bbf29"
-      },
-      {
-        "dealerName": "hyundai-at-seller-50763393",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66099,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d41e5583",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-green-959ea2e1-8231-4dff-bdba-6b78f1ff39d4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47944931",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59649,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5f943bf5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-blue-903d97c4-71ea-45ba-a05d-da7b90c0b961"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941822",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 61229,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-787e5397",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-5fc29403-7fb9-4d97-92fb-4ffbf47a00a6"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943322",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 58540,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a5651d68",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-faa56223-8371-4b55-9697-2c818d2d5935"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941648",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60810,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-55db4cf2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-electric-grey-3605e422-6dd2-4d9f-8b6d-2e2c4f276cf4"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941648",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66810,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-78721beb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-awd-long-range-w-ultimate-pkg-electric-black-71549ddb-b531-428d-95a2-af5b75e8463e"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940151",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 57627,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-38cdd3e5",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-long-range-electric-white-a8b38c76-a861-4479-827c-17e5088bfd72"
-      },
-      {
-        "dealerName": "hyundai-at-seller-50771942",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3b3e3b0e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-e535e7d0-1f69-4f70-ad1e-8815dd284d22"
-      },
-      {
-        "dealerName": "hyundai-at-seller-50771942",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7b53e662",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-8825c28d-f154-4732-97f9-89810bf8dcf7"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47943322",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60742,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-47fb82dd",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-green-ddfe1a9e-1db4-47b1-90c2-8af832465469"
+        "stockId": "u-at-71cbd13f",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ioniq-5-preferred-awd-long-range-electric-black-51893687-6158-462b-a972-68a03127266f"
       },
       {
         "dealerName": "hyundai-at-seller-47943322",
@@ -2635,99 +235,249 @@
     ],
     "make": "Hyundai",
     "model": "Ioniq5",
-    "trim": "Preferred RWD Long Range",
+    "trim": "Preferred AWD Long Range",
     "vin": null,
     "year": 2026
   },
   {
-    "fallbackKey": "2025|hyundai|ioniq5",
+    "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
-        "dealerName": "hyundai-at-seller-47940582",
+        "dealerName": "hyundai-guelph",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 58498,
+        "priceCad": 60530,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-cb4b78cb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-electric-grey-1d228450-d3c1-4d83-94f6-609ea56b14a7"
+        "stockId": "u-at-1462c950",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-154c88a4-27b4-41d8-b73e-0a2fd9316e4e"
       },
       {
-        "dealerName": "hyundai-at-seller-47945036",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 80249,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c5283edb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-awd-electric-black-f819f5ae-1f2c-40ee-9d96-c430bc779b4a"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 57599,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9359a94c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-electric-white-5549cfbe-4528-49dc-8a95-d89a3b4f4b52"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940451",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 50966,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ec657331",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-hyundai-ioniq-5-preferred-2025-a-standard-portee-electric-white-414dd5ac-a813-494a-be9e-45eafc8ecaef"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59099,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-d1483e17",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-electric-grey-8189d810-8484-4097-86a4-586ada7a41d7"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55299,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-700d8784",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-electric-grey-72030d10-b61a-4455-bde7-56fd0e85758d"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 55299,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0af9eea0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-electric-black-1bec320b-3c84-4d60-a1b5-f2ce8ddba8d0"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940292",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 57849,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ec78926e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-rwd-electric-grey-e627c5ee-6401-43dc-8086-fbc648355761"
+        "dealerName": null,
+        "km": 14,
+        "lastVerified": "2026-05-05T17:31:41.065880Z",
+        "priceCad": 60530,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1728343499",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-hyundai-ioniq-5-preferred/1728343499"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq5",
     "trim": "Preferred RWD",
-    "vin": null,
-    "year": 2025
+    "vin": "KM8KNDDCXTU382729",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-cambridge",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 60744,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-b7bbd5e6",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-641f3c06-2c64-47f1-93b6-c4e2821888eb"
+      },
+      {
+        "dealerName": null,
+        "km": 11,
+        "lastVerified": "2026-05-05T17:31:41.065904Z",
+        "priceCad": 60744,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1730843500",
+        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-5-preferred/1730843500"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC1TU390847",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-401-dixie",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 61794,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-718ee038",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-0ee10c5a-384d-4850-9d12-9e571042eef6"
+      },
+      {
+        "dealerName": null,
+        "km": 15,
+        "lastVerified": "2026-05-05T17:31:41.065892Z",
+        "priceCad": 61794,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1727897372",
+        "url": "https://www.kijiji.ca/v-cars-trucks/mississauga-peel-region/2026-hyundai-ioniq-5-preferred/1727897372"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC9TU387095",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-crowfoot",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 66383,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-3ec38b05",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-9e461eef-9119-4af5-9aa9-2da27f90b3da"
+      },
+      {
+        "dealerName": null,
+        "km": 10,
+        "lastVerified": "2026-05-05T17:31:41.065878Z",
+        "priceCad": 66383,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1736118704",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred/1736118704"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDC2TU408311",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-crowfoot",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 66383,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-a725fb36",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-0cf89c4b-778c-43ec-b927-8ce01ce775cf"
+      },
+      {
+        "dealerName": null,
+        "km": 10,
+        "lastVerified": "2026-05-05T17:31:41.065908Z",
+        "priceCad": 66383,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1735307430",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred/1735307430"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDC0TU408615",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-401-dixie",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 66294,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-3a209d94",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-1bb8243d-f9b1-417d-a1db-770aeb0cc9d8"
+      },
+      {
+        "dealerName": null,
+        "km": 15,
+        "lastVerified": "2026-05-05T17:31:41.065888Z",
+        "priceCad": 66294,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1728291675",
+        "url": "https://www.kijiji.ca/v-cars-trucks/mississauga-peel-region/2026-hyundai-ioniq-5-preferred/1728291675"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDC6TU390590",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-401-dixie",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 66544,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-b9c5c078",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-black-d0042b99-4cf4-49db-bb32-55a61f7d790b"
+      },
+      {
+        "dealerName": null,
+        "km": 15,
+        "lastVerified": "2026-05-05T17:31:41.065870Z",
+        "priceCad": 66544,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1731333040",
+        "url": "https://www.kijiji.ca/v-cars-trucks/mississauga-peel-region/2026-hyundai-ioniq-5-preferred/1731333040"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDC2TU396161",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-northland",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 67322,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-e1454668",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-blue-6588e026-bfcb-4283-aebf-32683d4765fd"
+      },
+      {
+        "dealerName": null,
+        "km": 157,
+        "lastVerified": "2026-05-05T17:31:41.065895Z",
+        "priceCad": 67322,
+        "province": "BC",
+        "source": "kijiji_autos",
+        "stockId": "1727090647",
+        "url": "https://www.kijiji.ca/v-cars-trucks/prince-george/2026-hyundai-ioniq-5-preferred/1727090647"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDC9TU382788",
+    "year": 2026
   },
   {
     "fallbackKey": "2025|hyundai|ioniq6",
@@ -3023,16 +773,6 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
-        "dealerName": "hyundai-at-seller-47944796",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 83770,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1dc3cedb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-ultimate-calligraphy-package-htd-ac-electric-white-e111af21-2145-4077-b9c6-a2423a41fdbd"
-      },
-      {
         "dealerName": "hyundai-at-seller-51586492",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -3061,16 +801,6 @@
         "source": "autotrader",
         "stockId": "u-at-74acacec",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-awd-luxury-pkg-electric-black-4193b249-02ef-4cd9-8852-d19c266ccef3"
-      },
-      {
-        "dealerName": "hyundai-at-seller-51586492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 81499,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3fd76f8d",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ioniq-9-preferred-awd-ultimate-electric-black-a84c0918-c95f-46dc-bd28-33355b93fc2a"
       },
       {
         "dealerName": "hyundai-at-seller-47943169",
@@ -3116,16 +846,6 @@
         "dealerName": "hyundai-at-seller-47939464",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 85822,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ba25954b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-package-electric-grey-b9d1e9b9-72f1-4185-be9a-a035ec1818cb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47939464",
-        "km": null,
-        "lastVerified": "2026-05-05",
         "priceCad": 80820,
         "province": null,
         "source": "autotrader",
@@ -3163,14 +883,24 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-white-46533359-76ae-4e94-bbe5-e20aee59a9a2"
       },
       {
-        "dealerName": "hyundai-at-seller-47943908",
+        "dealerName": "hyundai-at-seller-47941109",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 84919,
+        "priceCad": 83899,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-6a23e7f0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-black-f29dfe4e-1a90-48d5-b199-8afcd74b11aa"
+        "stockId": "u-at-104b5619",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-ultimate-calligraphy-package-electric-grey-d3ca1eee-1052-4c22-b438-aa2099e5af18"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47941109",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 83899,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-5f72d80f",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-ultimate-calligraphy-package-electric-black-4165ac80-e1c6-4163-ac4b-e046ad5e362b"
       },
       {
         "dealerName": "hyundai-at-seller-47946520",
@@ -3213,14 +943,14 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-luxury-package-electric-black-52b1eec9-ef4f-405c-b387-9a3ce2ace522"
       },
       {
-        "dealerName": "hyundai-at-seller-47943908",
+        "dealerName": "hyundai-at-seller-47941109",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 84919,
+        "priceCad": 78899,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-76628d99",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-black-53708e8c-9913-4adb-bc15-590e80b0b6bc"
+        "stockId": "u-at-ecd460ad",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-luxury-package-electric-black-4e6c6d92-52f2-4fd0-931b-ffeda2ef8653"
       },
       {
         "dealerName": "hyundai-at-seller-47943122",
@@ -3233,26 +963,6 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-luxury-pkg-253-35-wk-electric-green-e8339cce-b160-4f5a-925e-f846b7eec63f"
       },
       {
-        "dealerName": "hyundai-at-seller-47943559",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 85169,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c22a94e4",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-electric-grey-1a2b37e2-37b2-404a-b993-1fb8efe5e5b2"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941109",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 78899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f3ca233c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-luxury-package-electric-grey-6abe96ed-de4a-4149-8e32-8e2f4752881e"
-      },
-      {
         "dealerName": "hyundai-at-seller-47937898",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -3261,6 +971,16 @@
         "source": "autotrader",
         "stockId": "u-at-7835d9c3",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-grey-e0a73564-0f05-42a5-9cbc-b31c25449972"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47940532",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 85240,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-29a0e669",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-grey-0c609b3c-2cc1-411b-87fb-10aa40811e99"
       },
       {
         "dealerName": "hyundai-at-seller-47941109",
@@ -3291,6 +1011,16 @@
         "source": "autotrader",
         "stockId": "u-at-ff7bd458",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-black-97ff4a95-01df-419f-815f-9c42470801e7"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47946520",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 85037,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-7244ddec",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-gasoline-black-398d94e3-e749-4375-bfd1-3fe714679159"
       },
       {
         "dealerName": "hyundai-at-seller-47939464",
@@ -3333,16 +1063,6 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-luxury-pkg-electric-grey-2b75ed6d-a82b-435f-a6f3-d230a619e306"
       },
       {
-        "dealerName": "hyundai-at-seller-47942786",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 78799,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-11a53352",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-62342c0e-cf88-47f2-b43f-7e7714aa05d5"
-      },
-      {
         "dealerName": "hyundai-at-seller-47943169",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -3381,16 +1101,6 @@
         "source": "autotrader",
         "stockId": "u-at-01133c0d",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-1ccb1e65-a495-4759-81db-b56856ea11dd"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47940081",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 84698,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ade41b91",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-black-278d54ac-2043-4731-ad54-9f5a65948750"
       },
       {
         "dealerName": "hyundai-at-seller-47942786",
@@ -3893,6 +1603,16 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-package-d-electric-black-9cf50307-f959-441b-86b2-41c84438cab0"
       },
       {
+        "dealerName": "hyundai-at-seller-51586492",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 81499,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-3fd76f8d",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ioniq-9-preferred-awd-ultimate-electric-black-a84c0918-c95f-46dc-bd28-33355b93fc2a"
+      },
+      {
         "dealerName": "hyundai-at-seller-47942178",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -4193,6 +1913,16 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-0f4a121e-310d-424d-9bc6-bca5ee7b6831"
       },
       {
+        "dealerName": "hyundai-at-seller-47939464",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 85822,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-ba25954b",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-package-electric-grey-b9d1e9b9-72f1-4185-be9a-a035ec1818cb"
+      },
+      {
         "dealerName": "hyundai-at-seller-47941260",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -4303,16 +2033,6 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ioniq-9-preferred-awd-electric-20ea12ea-031d-4aa4-b180-88d2ebb332dc"
       },
       {
-        "dealerName": "hyundai-at-seller-47941492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 84780,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-cb401030",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-ab2864b9-3c82-4c81-9aaf-74a07bea7d61"
-      },
-      {
         "dealerName": "hyundai-at-seller-47945579",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -4341,6 +2061,16 @@
         "source": "autotrader",
         "stockId": "u-at-a296aa48",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-grey-069e5799-094c-4b7f-9c27-2e15964196ab"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47941492",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 84780,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-cb401030",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-ab2864b9-3c82-4c81-9aaf-74a07bea7d61"
       },
       {
         "dealerName": "hyundai-at-seller-47937706",
@@ -4463,6 +2193,16 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-luxury-pkg-electric-black-545067a4-2510-4eab-9b53-39caf3852120"
       },
       {
+        "dealerName": "hyundai-at-seller-47943908",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 84919,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-6a23e7f0",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-black-f29dfe4e-1a90-48d5-b199-8afcd74b11aa"
+      },
+      {
         "dealerName": "hyundai-at-seller-47939958",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -4553,16 +2293,6 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-6b15b6b0-241d-405a-980a-a6ccdef6781a"
       },
       {
-        "dealerName": "hyundai-at-seller-47941109",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 83899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-104b5619",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-ultimate-calligraphy-package-electric-grey-d3ca1eee-1052-4c22-b438-aa2099e5af18"
-      },
-      {
         "dealerName": "hyundai-at-seller-47939293",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -4611,16 +2341,6 @@
         "source": "autotrader",
         "stockId": "u-at-e5c2c33f",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-9654767f-40d0-41ac-9a96-96443afbddeb"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47941109",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 83899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-5f72d80f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-ultimate-calligraphy-package-electric-black-4165ac80-e1c6-4163-ac4b-e046ad5e362b"
       },
       {
         "dealerName": "hyundai-at-seller-47941596",
@@ -4713,6 +2433,16 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-white-9021b60e-bcc1-4a1b-b6f8-0643b50f4269"
       },
       {
+        "dealerName": "hyundai-at-seller-47943908",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 84919,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-76628d99",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-black-53708e8c-9913-4adb-bc15-590e80b0b6bc"
+      },
+      {
         "dealerName": "hyundai-at-seller-47941648",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -4773,16 +2503,6 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-c674c3fa-1b47-434e-9919-7e915da9f210"
       },
       {
-        "dealerName": "hyundai-at-seller-47941109",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 78899,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-ecd460ad",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-luxury-package-electric-black-4e6c6d92-52f2-4fd0-931b-ffeda2ef8653"
-      },
-      {
         "dealerName": "hyundai-at-seller-47944179",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -4791,6 +2511,16 @@
         "source": "autotrader",
         "stockId": "u-at-da6c0d04",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-ultimate-calligraphy-package-preferr-electric-blue-3372b6ef-65f2-4d4a-a294-2c9126a6ea04"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47943559",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 85169,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-c22a94e4",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-electric-grey-1a2b37e2-37b2-404a-b993-1fb8efe5e5b2"
       },
       {
         "dealerName": "hyundai-at-seller-47940660",
@@ -5043,6 +2773,16 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-789ea369-c844-4725-b5c6-4b460dbe548f"
       },
       {
+        "dealerName": "hyundai-at-seller-47941109",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 78899,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-f3ca233c",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-luxury-package-electric-grey-6abe96ed-de4a-4149-8e32-8e2f4752881e"
+      },
+      {
         "dealerName": "hyundai-at-seller-47942055",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -5151,16 +2891,6 @@
         "source": "autotrader",
         "stockId": "u-at-7aa76b84",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-luxury-pkg-electric-black-7f0a2c6b-e576-4bfb-8856-7543be770b51"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945350",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 83549,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a340bc7f",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-white-165961ad-8c17-4f1b-9a14-a2ff3b978a6e"
       },
       {
         "dealerName": "hyundai-at-seller-47939958",
@@ -5363,16 +3093,6 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ultimate-calligraphy-electric-green-7b0e838a-d3c7-4223-8252-8468325da725"
       },
       {
-        "dealerName": "hyundai-at-seller-47940532",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 85240,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-29a0e669",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-grey-0c609b3c-2cc1-411b-87fb-10aa40811e99"
-      },
-      {
         "dealerName": "hyundai-at-seller-47940606",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -5483,16 +3203,6 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-b7a33166-501b-4c77-a25a-a5728611b148"
       },
       {
-        "dealerName": "hyundai-at-seller-47941492",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 84780,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0fbfe96b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-c8f74832-c1aa-43d6-9809-d6145a7818d2"
-      },
-      {
         "dealerName": "hyundai-at-seller-47937706",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -5501,6 +3211,16 @@
         "source": "autotrader",
         "stockId": "u-at-0a0b80d2",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-c3fe0d5c-10b8-4c0f-8f54-122926374904"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47941492",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 84780,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0fbfe96b",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-c8f74832-c1aa-43d6-9809-d6145a7818d2"
       },
       {
         "dealerName": "hyundai-at-seller-47938279",
@@ -5711,16 +3431,6 @@
         "source": "autotrader",
         "stockId": "u-at-0c00b1e5",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-eafaa15f-e7d9-460d-a500-8d4bb53fd933"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47946520",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 85037,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7244ddec",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-gasoline-black-398d94e3-e749-4375-bfd1-3fe714679159"
       },
       {
         "dealerName": "hyundai-at-seller-48846437",
@@ -5981,6 +3691,16 @@
         "source": "autotrader",
         "stockId": "u-at-1838bf52",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-black-031e4714-b3c7-427e-a36f-80860d2af0a1"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47942786",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 78799,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-11a53352",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-62342c0e-cf88-47f2-b43f-7e7714aa05d5"
       },
       {
         "dealerName": "hyundai-at-seller-47944598",
@@ -6359,26 +4079,6 @@
         "priceCad": 84516,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-da03db39",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-black-3fc94a57-2e93-4b4b-b8d1-89263e3bbd74"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945582",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 84516,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f992e696",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-black-38c96b12-709e-4559-b1de-7100fd4728ca"
-      },
-      {
-        "dealerName": "hyundai-at-seller-47945582",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 84516,
-        "province": null,
-        "source": "autotrader",
         "stockId": "u-at-0e1aa462",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-grey-ca6841e2-1d99-4ff2-bfbd-5f89ea2c00e2"
       },
@@ -6403,6 +4103,26 @@
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-black-1b3097a8-c375-49c4-a05d-3af9d5b603e7"
       },
       {
+        "dealerName": "hyundai-at-seller-47945582",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 84516,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-da03db39",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-black-3fc94a57-2e93-4b4b-b8d1-89263e3bbd74"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47945582",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 84516,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-f992e696",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-black-38c96b12-709e-4559-b1de-7100fd4728ca"
+      },
+      {
         "dealerName": "hyundai-at-seller-47941822",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -6411,6 +4131,16 @@
         "source": "autotrader",
         "stockId": "u-at-dca18bd8",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-ultimate-electric-black-c9fa0e3d-a67a-4762-9d9b-0f12600adc8f"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47940081",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 84698,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-ade41b91",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-electric-black-278d54ac-2043-4731-ad54-9f5a65948750"
       },
       {
         "dealerName": "hyundai-at-seller-51360978",
@@ -6541,6 +4271,16 @@
         "source": "autotrader",
         "stockId": "u-at-8d8fa694",
         "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg-electric-black-b8f78169-cf8d-434c-9ab9-4c0b7a7a6d84"
+      },
+      {
+        "dealerName": "hyundai-at-seller-47944796",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 83770,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-1dc3cedb",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-w-ultimate-calligraphy-package-htd-ac-electric-white-e111af21-2145-4077-b9c6-a2423a41fdbd"
       },
       {
         "dealerName": "hyundai-at-seller-47941109",
@@ -6745,7 +4485,7 @@
     ],
     "make": "Hyundai",
     "model": "Ioniq9",
-    "trim": "Performance Calligraphy AWD",
+    "trim": "Preferred Long Range AWD",
     "vin": null,
     "year": 2026
   },
@@ -6766,11 +4506,11 @@
         "dealerName": "kia-at-seller-47944923",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 53542,
+        "priceCad": 57542,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-16a80261",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-3000-cash-rebate--2000-dealer-incentiv-electric-white-428b8f70-0db9-469d-b610-f204bd89c12b"
+        "stockId": "u-at-1c1f7921",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-3000-cash-rebate--2000-electric-grey-b36a7a05-4df2-473d-8714-85569d8b3b72"
       },
       {
         "dealerName": "kia-at-seller-47946612",
@@ -6793,6 +4533,26 @@
         "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-heated-seats--heated-whee-electric-black-d53c9fe6-e2f7-469c-89a8-3d47e4d66139"
       },
       {
+        "dealerName": "kia-at-seller-47944193",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 62628,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-fc69e5f7",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-heated-seats--heated-wheel--wireless-ch-electric-white-d0b2f40f-3636-461b-a429-a64843e062e2"
+      },
+      {
+        "dealerName": "kia-at-seller-47937547",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 54755,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-8eb27f8d",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-ev6-wind-ta-electric-white-695167fa-ea3c-4bde-b6e5-893b4b12175a"
+      },
+      {
         "dealerName": "kia-at-seller-47939695",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -6803,14 +4563,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev6-wind513-km-ev-range-11-300-lease-finance-rebate-electric-blue-1901cca5-2125-4f4d-ad0f-3dd14c5a1b47"
       },
       {
-        "dealerName": "kia-at-seller-47944923",
+        "dealerName": "kia-at-seller-47941091",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 52542,
+        "priceCad": 59298,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-09ced952",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-3000-cash-rebate--2000-dealer-incentiv-electric-grey-ec1bc22d-f461-4304-a5f5-17830693cd97"
+        "stockId": "u-at-7b6f7cb3",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-electric-grey-baf21ea5-8003-40bb-9e1b-bf2fba773d7d"
       },
       {
         "dealerName": "kia-at-seller-47942363",
@@ -6846,21 +4606,21 @@
         "dealerName": "kia-at-seller-47945475",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 59865,
+        "priceCad": 64115,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-52de6567",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-electric-black-46b2257c-b832-4f60-85da-c9342ad65291"
+        "stockId": "u-at-301ef651",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-w-premium-pkg-awd-electric-black-18b8e36d-36df-4af3-a5bf-2a18ac4f31ec"
       },
       {
-        "dealerName": "kia-at-seller-47945176",
+        "dealerName": "kia-at-seller-47942363",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 59685,
+        "priceCad": 63791,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-f809d855",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-electric-blue-2cd31df7-9868-4fd8-a8de-0cf828924698"
+        "stockId": "u-at-0cebdf90",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-electric-white-4cc18d04-6a5a-4ff0-ad4f-1fc3ec65701b"
       },
       {
         "dealerName": "kia-at-seller-50752365",
@@ -6973,16 +4733,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev6-land--awd--android-auto-and-apple-car-play--all-electric-grey-04848d13-39b4-4669-b510-81534cf6b91a"
       },
       {
-        "dealerName": "kia-at-seller-47944923",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 57542,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1c1f7921",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-3000-cash-rebate--2000-electric-grey-b36a7a05-4df2-473d-8714-85569d8b3b72"
-      },
-      {
         "dealerName": "kia-at-seller-47944080",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -7033,6 +4783,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev6-wind--nav--heat-pump--wireless-phone-charger--electric-black-2efa9d19-ebb3-40d7-92d6-96d1463a2cd2"
       },
       {
+        "dealerName": "kia-at-seller-47944923",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 53542,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-16a80261",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-3000-cash-rebate--2000-dealer-incentiv-electric-white-428b8f70-0db9-469d-b610-f204bd89c12b"
+      },
+      {
         "dealerName": "kia-at-seller-47946463",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -7041,26 +4801,6 @@
         "source": "autotrader",
         "stockId": "u-at-c147de3d",
         "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-modern-electric-suv-with-smart-comfort-electric-black-c9eb6e20-0b62-4a8b-b80f-7144eea6f021"
-      },
-      {
-        "dealerName": "kia-at-seller-47944193",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 62628,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-fc69e5f7",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-heated-seats--heated-wheel--wireless-ch-electric-white-d0b2f40f-3636-461b-a429-a64843e062e2"
-      },
-      {
-        "dealerName": "kia-at-seller-47937547",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 54755,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-8eb27f8d",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-ev6-wind-ta-electric-white-695167fa-ea3c-4bde-b6e5-893b4b12175a"
       },
       {
         "dealerName": "kia-at-seller-47938133",
@@ -7113,6 +4853,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev6-land-w-premium-pkg-awd-electric-blue-57279475-561a-49ab-ae9c-46f1b7061da5"
       },
       {
+        "dealerName": "kia-at-seller-47944923",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 52542,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-09ced952",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-3000-cash-rebate--2000-dealer-incentiv-electric-grey-ec1bc22d-f461-4304-a5f5-17830693cd97"
+      },
+      {
         "dealerName": "kia-at-seller-47945844",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -7131,16 +4881,6 @@
         "source": "autotrader",
         "stockId": "u-at-f53c6f23",
         "url": "https://www.autotrader.ca/offers/kia-ev6-gtlineland-w-gt-line-pkg-awd-electric-red-a78e05b3-d654-4f76-ad34-e9d950aa6b2a"
-      },
-      {
-        "dealerName": "kia-at-seller-47941091",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 59298,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7b6f7cb3",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-electric-grey-baf21ea5-8003-40bb-9e1b-bf2fba773d7d"
       },
       {
         "dealerName": "kia-at-seller-47941706",
@@ -7303,16 +5043,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev6-wind-electric-white-ad45aa08-c85c-4a95-ab01-a44d5076f75f"
       },
       {
-        "dealerName": "kia-at-seller-47945475",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 64115,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-301ef651",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-land-w-premium-pkg-awd-electric-black-18b8e36d-36df-4af3-a5bf-2a18ac4f31ec"
-      },
-      {
         "dealerName": "kia-at-seller-47943601",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -7363,16 +5093,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-electric-black-4ab0687f-f9f3-41f1-83d1-5b3967cee5c9"
       },
       {
-        "dealerName": "kia-at-seller-47942363",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 63791,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0cebdf90",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-land-electric-white-4cc18d04-6a5a-4ff0-ad4f-1fc3ec65701b"
-      },
-      {
         "dealerName": "kia-at-seller-47945590",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -7411,6 +5131,16 @@
         "source": "autotrader",
         "stockId": "u-at-cf694cfa",
         "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-wireless-charging-l-heated-steering-electric-grey-c56bbfa4-496d-417d-8835-2e3e40255b66"
+      },
+      {
+        "dealerName": "kia-at-seller-47945475",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 59865,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-52de6567",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-rwd-electric-black-46b2257c-b832-4f60-85da-c9342ad65291"
       },
       {
         "dealerName": "kia-at-seller-47943601",
@@ -7471,6 +5201,16 @@
         "source": "autotrader",
         "stockId": "u-at-c219bf2f",
         "url": "https://www.autotrader.ca/offers/kia-ev6-ev6-land-electric-grey-fb942602-834b-48e0-b373-73ec599f30db"
+      },
+      {
+        "dealerName": "kia-at-seller-47945176",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 59685,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-f809d855",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-wind-electric-blue-2cd31df7-9868-4fd8-a8de-0cf828924698"
       },
       {
         "dealerName": "kia-at-seller-47945987",
@@ -7563,26 +5303,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-light-rwd-2000-dealer-incentive-finance-starting-electric-black-e98bb82c-68d1-40ec-9d9a-a1fc4ec17065"
       },
       {
-        "dealerName": "kia-at-seller-47945590",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 74247,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-600cd054",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-grey-0656dfaa-fe88-48f6-b48c-dd38075c2f81"
-      },
-      {
-        "dealerName": "kia-at-seller-47940529",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 78119,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-90aa1123",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-with-premium-package-awd-6-passenger-nav-le-electric-blue-2870c9d1-b895-4586-9a46-07332b5d2492"
-      },
-      {
         "dealerName": "kia-at-seller-47941651",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -7591,16 +5311,6 @@
         "source": "autotrader",
         "stockId": "u-at-a78f1e97",
         "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-wind-ta-electric-white-d75e1fed-b93d-4f81-a3c5-243bbe860955"
-      },
-      {
-        "dealerName": "kia-at-seller-47937547",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 66655,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-67f8df80",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-electric-white-a8f88067-20e5-48fe-8e4a-2abb20ad92a2"
       },
       {
         "dealerName": "kia-at-seller-47940559",
@@ -7613,6 +5323,26 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-awd-land-electric-grey-34fd3bd5-ba6c-401e-ade7-fd04baab4f60"
       },
       {
+        "dealerName": "kia-at-seller-47939695",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 60500,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-9d9c8120",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-light--370-km-range--finance-from-0-99-electric-white-308b2eac-caa8-4006-a834-87e28e0167f2"
+      },
+      {
+        "dealerName": "kia-at-seller-47937547",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 74739,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-15b93040",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-electric-white-30f9bf32-ddaf-4245-b43d-8385e9918b4e"
+      },
+      {
         "dealerName": "kia-at-seller-47940559",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -7623,14 +5353,24 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-awd-land-w-gt-line-electric-grey-6756f418-cee8-4331-bf61-b2d20a89a26a"
       },
       {
-        "dealerName": "kia-at-seller-47945475",
+        "dealerName": "kia-at-seller-47940529",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 74650,
+        "priceCad": 73119,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-73bae815",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-grey-ab823e0b-9fdf-4e0a-ad74-1392144f5e50"
+        "stockId": "u-at-662ed003",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-plus-pkg-7-pass-leather-dual-sunroof-45-electric-white-83314889-ace2-48b0-ae12-8f609d6a0e52"
+      },
+      {
+        "dealerName": "kia-at-seller-47945620",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 87894,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-6447e101",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-gt-awd-electric-blue-53eb2c1a-bee8-4d0e-ba1c-d415d227d65e"
       },
       {
         "dealerName": "kia-at-seller-47940529",
@@ -7723,14 +5463,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-grey-d0d4f974-f5bf-4441-8a20-620b8f611b50"
       },
       {
-        "dealerName": "kia-at-seller-47941651",
+        "dealerName": "kia-at-seller-47940529",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 82994,
+        "priceCad": 73119,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-92468a08",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-gt-line-electric-grey-940d30c9-10da-4afd-bc07-fff0c60764fb"
+        "stockId": "u-at-33a0a6a7",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-with-plus-package-awd-7-passenger-nav-dual-electric-grey-0effde4c-eba1-426c-b4cb-3cd333ca9a33"
       },
       {
         "dealerName": "kia-at-seller-47942363",
@@ -7743,14 +5483,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-white-f451ceee-01d2-4e14-8f7f-cb1bebca10ae"
       },
       {
-        "dealerName": "kia-at-seller-47938782",
+        "dealerName": "kia-at-seller-47941117",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 83103,
+        "priceCad": 79722,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-873e57a6",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-blue-127fd617-0da7-43c2-aec6-66ae9dff5b6d"
+        "stockId": "u-at-2de09696",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-premium-electric-green-43185fc6-4bde-49ae-9514-b6c865d47ba5"
       },
       {
         "dealerName": "kia-at-seller-47945475",
@@ -7793,16 +5533,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-with-gt-line-pkg-electric-black-f5329479-a1e2-4773-88ed-bb622b9cd8b4"
       },
       {
-        "dealerName": "kia-at-seller-47944331",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 79187,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-656a362f",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-with-premium-pkg-electric-grey-d7315370-4528-4168-a1a9-cd199f20d9eb"
-      },
-      {
         "dealerName": "kia-at-seller-47945475",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -7843,14 +5573,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-silver-e4a68684-2e68-4752-83ae-763951e723d9"
       },
       {
-        "dealerName": "kia-at-seller-47942363",
+        "dealerName": "kia-at-seller-47945475",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 68291,
+        "priceCad": 68865,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-9d2f93b4",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-wind-electric-white-bccd496e-4951-487a-8f7d-982233597bb7"
+        "stockId": "u-at-118d8bdc",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-electric-black-2e4b8a45-881b-421c-9e6e-7aadbd02cd14"
       },
       {
         "dealerName": "kia-at-seller-47940529",
@@ -7863,14 +5593,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-gt-line-pkg-6-passenger-nav-leather-d-electric-white-f4081f95-03b3-4871-a9c6-341d173d063d"
       },
       {
-        "dealerName": "kia-at-seller-47941117",
+        "dealerName": "kia-at-seller-47938782",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 74472,
+        "priceCad": 79103,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-f623e215",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-plus-package-electric-black-b24c7a29-5e8e-46a0-9bf3-3faf81f836b4"
+        "stockId": "u-at-c148c257",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-white-21edd662-5cb1-47a6-8b1e-d8512f734bce"
       },
       {
         "dealerName": "kia-at-seller-47945475",
@@ -7903,14 +5633,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-premium-electric-grey-cb5d3d47-b3a3-4982-8019-bebf2159cbd0"
       },
       {
-        "dealerName": "kia-at-seller-47945475",
+        "dealerName": "kia-at-seller-47941091",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 68865,
+        "priceCad": 74048,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-fa6025bd",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-electric-black-bba51981-c2d1-48c2-b816-b9001a6812aa"
+        "stockId": "u-at-f5df84f1",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-black-15c04994-7705-4d91-9ffc-0fc94de8110d"
       },
       {
         "dealerName": "kia-at-seller-47941091",
@@ -7921,16 +5651,6 @@
         "source": "autotrader",
         "stockId": "u-at-f28eab2d",
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-electric-grey-d5ad4039-13a2-47e8-8df6-9442a1745105"
-      },
-      {
-        "dealerName": "kia-at-seller-47945475",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 74400,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-980fb4c6",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-black-5d04266f-d486-429a-b933-23f1b5300bdd"
       },
       {
         "dealerName": "kia-at-seller-47942363",
@@ -7953,24 +5673,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-electric-grey-19cd735d-3c5f-428f-bff0-d1d0b32bacbf"
       },
       {
-        "dealerName": "kia-at-seller-47938782",
+        "dealerName": "kia-at-seller-47945475",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 88903,
+        "priceCad": 83464,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-dfd006d1",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-gt-awd-electric-blue-b6ed458c-2caf-4bda-9d54-86426851abd5"
-      },
-      {
-        "dealerName": "kia-at-seller-47945620",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 78094,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0b336da5",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-premium-package-electric-blue-36970013-5d1f-48cf-a720-44c73d20103e"
+        "stockId": "u-at-3592907d",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-black-f7d0d399-b0d9-44a1-b944-8dd4643e6f14"
       },
       {
         "dealerName": "kia-at-seller-47946612",
@@ -7996,21 +5706,21 @@
         "dealerName": "kia-at-seller-47940413",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 82039,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-fe2112d8",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-gt-line-package-electric-blue-eb78c8a0-fd7f-448e-a68b-4820e861ae37"
-      },
-      {
-        "dealerName": "kia-at-seller-47940413",
-        "km": null,
-        "lastVerified": "2026-05-05",
         "priceCad": 65539,
         "province": null,
         "source": "autotrader",
         "stockId": "u-at-dabd5524",
         "url": "https://www.autotrader.ca/offers/kia-ev9-wind-rwd-electric-white-99f9564f-6d38-4ddf-b0ef-c7a1e89fb434"
+      },
+      {
+        "dealerName": "kia-at-seller-47944923",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 82042,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-aca2acbd",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-gt-line-gt-line-design-elements-front-electric-white-a7e1a42e-3148-43e9-a6a9-8272c31bf9aa"
       },
       {
         "dealerName": "kia-at-seller-47945176",
@@ -8033,6 +5743,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-gt-line-electric-5554c65a-e93a-4040-8d87-348fd4ceaa77"
       },
       {
+        "dealerName": "kia-at-seller-47945620",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 72844,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-095354ba",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-plus-package-electric-black-239f00a6-b498-40f1-9479-c0409275ee70"
+      },
+      {
         "dealerName": "kia-at-seller-47940413",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -8043,14 +5763,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-plus-package-electric-red-c3202660-5440-4f98-9200-477c93e8004a"
       },
       {
-        "dealerName": "kia-at-seller-47937547",
+        "dealerName": "kia-at-seller-47945176",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 78994,
+        "priceCad": 83187,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-49cfdbbd",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-groupe-premium-electric-1ed15898-3054-4eb7-8dd7-c44e49ed4523"
+        "stockId": "u-at-001dc3fc",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-electric-grey-bc5956a9-c027-469b-aa15-49034c2da029"
       },
       {
         "dealerName": "kia-at-seller-47945475",
@@ -8073,14 +5793,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-premium-package-electric-black-f7ad5908-35ae-45d6-b3de-2400ed5524ad"
       },
       {
-        "dealerName": "kia-at-seller-47939695",
+        "dealerName": "kia-at-seller-47941768",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 67513,
+        "priceCad": 78039,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-29676c1a",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-sold-land-awd--more-available-inventory-electric-white-a216c19d-eebf-48b9-84f8-ae762b1561c9"
+        "stockId": "u-at-6ee45c84",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-premium-package-electric-grey-e5c50d5e-851a-4ee1-8955-7f04321162f5"
       },
       {
         "dealerName": "kia-at-seller-47944070",
@@ -8231,6 +5951,16 @@
         "source": "autotrader",
         "stockId": "u-at-5072b62c",
         "url": "https://www.autotrader.ca/offers/kia-ev9-land--plus-pkg--dual-roof--quilt-leather-electric-red-1299589a-993e-4549-948b-ee3ad8341669"
+      },
+      {
+        "dealerName": "kia-at-seller-47940529",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 78119,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-90aa1123",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-with-premium-package-awd-6-passenger-nav-le-electric-blue-2870c9d1-b895-4586-9a46-07332b5d2492"
       },
       {
         "dealerName": "kia-at-seller-47944070",
@@ -8433,24 +6163,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-electric-black-e6353f3f-3ded-492f-ad91-efe9921bb00c"
       },
       {
-        "dealerName": "kia-at-seller-47939695",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 60500,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9d9c8120",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-light--370-km-range--finance-from-0-99-electric-white-308b2eac-caa8-4006-a834-87e28e0167f2"
-      },
-      {
         "dealerName": "kia-at-seller-47937547",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 74739,
+        "priceCad": 66655,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-15b93040",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-electric-white-30f9bf32-ddaf-4245-b43d-8385e9918b4e"
+        "stockId": "u-at-67f8df80",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-electric-white-a8f88067-20e5-48fe-8e4a-2abb20ad92a2"
       },
       {
         "dealerName": "kia-at-seller-50752365",
@@ -8773,16 +6493,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-premium-package-electric-blue-ce511bb2-29c7-4967-b7dd-54f1832a4dd2"
       },
       {
-        "dealerName": "kia-at-seller-47940529",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 73119,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-662ed003",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-plus-pkg-7-pass-leather-dual-sunroof-45-electric-white-83314889-ace2-48b0-ae12-8f609d6a0e52"
-      },
-      {
         "dealerName": "kia-at-seller-47941618",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -8863,16 +6573,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-electric-silver-c785b12a-290e-4a50-b881-0164612f2e19"
       },
       {
-        "dealerName": "kia-at-seller-47945620",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 87894,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6447e101",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-gt-awd-electric-blue-53eb2c1a-bee8-4d0e-ba1c-d415d227d65e"
-      },
-      {
         "dealerName": "kia-at-seller-47941706",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -8921,6 +6621,16 @@
         "source": "autotrader",
         "stockId": "u-at-35f85a72",
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-plus-package-20-alloy-wheels-with-aer-electric-white-3586315c-2a0a-491e-bf2c-9c5c43628855"
+      },
+      {
+        "dealerName": "kia-at-seller-47945475",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 74650,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-73bae815",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-grey-ab823e0b-9fdf-4e0a-ad74-1392144f5e50"
       },
       {
         "dealerName": "kia-at-seller-47939264",
@@ -9403,16 +7113,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-electric-grey-0ad896c1-f2b7-4c21-bb03-ce7692d52d12"
       },
       {
-        "dealerName": "kia-at-seller-47940529",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 73119,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-33a0a6a7",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-with-plus-package-awd-7-passenger-nav-dual-electric-grey-0effde4c-eba1-426c-b4cb-3cd333ca9a33"
-      },
-      {
         "dealerName": "kia-at-seller-47946192",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -9421,6 +7121,16 @@
         "source": "autotrader",
         "stockId": "u-at-003929d0",
         "url": "https://www.autotrader.ca/offers/kia-ev9-gt-electric-blue-2a9ca299-3805-462d-b181-6b071f477f5c"
+      },
+      {
+        "dealerName": "kia-at-seller-47941651",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 82994,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-92468a08",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-gt-line-electric-grey-940d30c9-10da-4afd-bc07-fff0c60764fb"
       },
       {
         "dealerName": "kia-at-seller-47941292",
@@ -9603,16 +7313,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-gt--sunroof--heads-up-display-electric-grey-b5f68c5a-4c46-4c39-8308-d9cf656f4f66"
       },
       {
-        "dealerName": "kia-at-seller-47941117",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 79722,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2de09696",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-premium-electric-green-43185fc6-4bde-49ae-9514-b6c865d47ba5"
-      },
-      {
         "dealerName": "kia-at-seller-47943978",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -9631,6 +7331,16 @@
         "source": "autotrader",
         "stockId": "u-at-c99e521a",
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-aurora-black-pearl-electric-black-6d3a616a-8fb8-4724-81cd-4bc6769024a6"
+      },
+      {
+        "dealerName": "kia-at-seller-47938782",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 83103,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-873e57a6",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-blue-127fd617-0da7-43c2-aec6-66ae9dff5b6d"
       },
       {
         "dealerName": "kia-at-seller-47946192",
@@ -9973,6 +7683,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package--navigation--leather-seat-electric-grey-e67a8dda-b0ff-4579-9bc7-18e54caac7ad"
       },
       {
+        "dealerName": "kia-at-seller-47944331",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 79187,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-656a362f",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-with-premium-pkg-electric-grey-d7315370-4528-4168-a1a9-cd199f20d9eb"
+      },
+      {
         "dealerName": "kia-at-seller-47943601",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -10073,6 +7793,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-gt-line-electric-black-2d497380-ac73-430c-ae53-8578a0138ff0"
       },
       {
+        "dealerName": "kia-at-seller-47942363",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 68291,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-9d2f93b4",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-wind-electric-white-bccd496e-4951-487a-8f7d-982233597bb7"
+      },
+      {
         "dealerName": "kia-at-seller-47941706",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -10081,16 +7811,6 @@
         "source": "autotrader",
         "stockId": "u-at-2a243f58",
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-premium-package-surround-view-l-up-to-electric-black-147277c4-4546-42d8-9586-730cf30c9015"
-      },
-      {
-        "dealerName": "kia-at-seller-47945475",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 68865,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-118d8bdc",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-electric-black-2e4b8a45-881b-421c-9e6e-7aadbd02cd14"
       },
       {
         "dealerName": "kia-at-seller-47945590",
@@ -10153,14 +7873,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-plus-package-electric-silver-1e1f26d3-0ff8-434a-9744-c661403fc8c6"
       },
       {
-        "dealerName": "kia-at-seller-47938782",
+        "dealerName": "kia-at-seller-47941117",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 79103,
+        "priceCad": 74472,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-c148c257",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-white-21edd662-5cb1-47a6-8b1e-d8512f734bce"
+        "stockId": "u-at-f623e215",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-plus-package-electric-black-b24c7a29-5e8e-46a0-9bf3-3faf81f836b4"
       },
       {
         "dealerName": "kia-at-seller-47943601",
@@ -10191,16 +7911,6 @@
         "source": "autotrader",
         "stockId": "u-at-2ce16a17",
         "url": "https://www.autotrader.ca/offers/kia-ev9-gt-electric-grey-5b7516c8-3984-4ec9-a551-0dc35f9e81cb"
-      },
-      {
-        "dealerName": "kia-at-seller-47941091",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 74048,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f5df84f1",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-black-15c04994-7705-4d91-9ffc-0fc94de8110d"
       },
       {
         "dealerName": "kia-at-seller-47943411",
@@ -10443,6 +8153,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd--7-passenger--tesla-supercharger-compat-electric-white-6f38bca1-d1c2-4e77-aaab-3bcc19841680"
       },
       {
+        "dealerName": "kia-at-seller-47945475",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 68865,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-fa6025bd",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-electric-black-bba51981-c2d1-48c2-b816-b9001a6812aa"
+      },
+      {
         "dealerName": "kia-at-seller-47943978",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -10671,6 +8391,16 @@
         "source": "autotrader",
         "stockId": "u-at-fcec5464",
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-pkg-awd--in-stock-electric-white-512ec003-0193-4a56-ad3c-d590e50bfa78"
+      },
+      {
+        "dealerName": "kia-at-seller-47945475",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 74400,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-980fb4c6",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-black-5d04266f-d486-429a-b933-23f1b5300bdd"
       },
       {
         "dealerName": "kia-at-seller-47939888",
@@ -11103,16 +8833,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-black-1d7ee0b5-a7b8-419d-88be-da66852cbabe"
       },
       {
-        "dealerName": "kia-at-seller-47942139",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 81797,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6dabbff3",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-black-6645a42b-703f-4b1a-970a-1eb8e1005d7e"
-      },
-      {
         "dealerName": "kia-at-seller-47939264",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -11123,14 +8843,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package--sunroof--deluxe-pedals-electric-grey-9e29e072-e90d-44da-98b5-27d306d2745f"
       },
       {
-        "dealerName": "kia-at-seller-47945475",
+        "dealerName": "kia-at-seller-47942139",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 83464,
+        "priceCad": 81797,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-3592907d",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-black-f7d0d399-b0d9-44a1-b944-8dd4643e6f14"
+        "stockId": "u-at-6dabbff3",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-black-6645a42b-703f-4b1a-970a-1eb8e1005d7e"
       },
       {
         "dealerName": "kia-at-seller-47940524",
@@ -11293,6 +9013,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd--navigation--heat-pump--blind-spot-det-electric-grey-3f600ca7-12ff-49bb-ac89-0416680aff28"
       },
       {
+        "dealerName": "kia-at-seller-47938782",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 88903,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-dfd006d1",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-gt-awd-electric-blue-b6ed458c-2caf-4bda-9d54-86426851abd5"
+      },
+      {
         "dealerName": "kia-at-seller-47941743",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -11381,6 +9111,16 @@
         "source": "autotrader",
         "stockId": "u-at-81a59115",
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package--navigation--leather-seat-electric-grey-59c1930d-a1f2-4591-ab91-d94d206661de"
+      },
+      {
+        "dealerName": "kia-at-seller-47945620",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 78094,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0b336da5",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-premium-package-electric-blue-36970013-5d1f-48cf-a720-44c73d20103e"
       },
       {
         "dealerName": "kia-at-seller-47943601",
@@ -11553,6 +9293,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd-electric-grey-5614bb87-1508-468f-ae92-b529532b6e80"
       },
       {
+        "dealerName": "kia-at-seller-47940413",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 82039,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-fe2112d8",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-gt-line-package-electric-blue-eb78c8a0-fd7f-448e-a68b-4820e861ae37"
+      },
+      {
         "dealerName": "kia-at-seller-47941641",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -11571,16 +9321,6 @@
         "source": "autotrader",
         "stockId": "u-at-cb98a20a",
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd--navigation--heat-pump--blind-spot-det-electric-silver-55b31435-c6c5-4ada-b9ea-428943f8e0bc"
-      },
-      {
-        "dealerName": "kia-at-seller-47944923",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 82042,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-aca2acbd",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-gt-line-gt-line-design-elements-front-electric-white-a7e1a42e-3148-43e9-a6a9-8272c31bf9aa"
       },
       {
         "dealerName": "kia-at-seller-47942206",
@@ -11639,8 +9379,8 @@
         "priceCad": 66398,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-02640e51",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd--navigation--heat-pump--blind-spot-det-electric-black-144b3572-150c-4e8e-a5ad-a164f552fe0b"
+        "stockId": "u-at-47c70dc4",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd--navigation--heat-pump--blind-spot-det-electric-white-38cea95d-7ab1-4928-addf-cd66e61ffd91"
       },
       {
         "dealerName": "kia-at-seller-47941618",
@@ -11649,8 +9389,8 @@
         "priceCad": 66398,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-47c70dc4",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd--navigation--heat-pump--blind-spot-det-electric-white-38cea95d-7ab1-4928-addf-cd66e61ffd91"
+        "stockId": "u-at-02640e51",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd--navigation--heat-pump--blind-spot-det-electric-black-144b3572-150c-4e8e-a5ad-a164f552fe0b"
       },
       {
         "dealerName": "kia-at-seller-47940171",
@@ -11731,16 +9471,6 @@
         "source": "autotrader",
         "stockId": "u-at-ef89e543",
         "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-groupe-plus-electric-grey-27648d83-b230-465f-8a74-4f385a4f05cf"
-      },
-      {
-        "dealerName": "kia-at-seller-47945620",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 72844,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-095354ba",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-plus-package-electric-black-239f00a6-b498-40f1-9479-c0409275ee70"
       },
       {
         "dealerName": "kia-at-seller-47941641",
@@ -11896,6 +9626,16 @@
         "dealerName": "kia-at-seller-47940171",
         "km": null,
         "lastVerified": "2026-05-05",
+        "priceCad": 77745,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-2a16a016",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd-electric-black-c20e16a4-19cf-49f8-9aa0-b8ca2decda99"
+      },
+      {
+        "dealerName": "kia-at-seller-47940171",
+        "km": null,
+        "lastVerified": "2026-05-05",
         "priceCad": 77995,
         "province": null,
         "source": "autotrader",
@@ -11903,14 +9643,14 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd-electric-grey-0f44643a-e2a3-4ef3-bb55-b8efea958b93"
       },
       {
-        "dealerName": "kia-at-seller-47940171",
+        "dealerName": "kia-at-seller-47937547",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 77745,
+        "priceCad": 78994,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-2a16a016",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd-electric-black-c20e16a4-19cf-49f8-9aa0-b8ca2decda99"
+        "stockId": "u-at-49cfdbbd",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-groupe-premium-electric-1ed15898-3054-4eb7-8dd7-c44e49ed4523"
       },
       {
         "dealerName": "kia-at-seller-47941641",
@@ -12013,16 +9753,6 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-ev9-land-gt-line-electric-blue-69e45353-6bbe-4ec9-8a23-937b58807273"
       },
       {
-        "dealerName": "kia-at-seller-47945176",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 83187,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-001dc3fc",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-electric-grey-bc5956a9-c027-469b-aa15-49034c2da029"
-      },
-      {
         "dealerName": "kia-at-seller-47939264",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -12093,14 +9823,34 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-gt--nav--leather--sunroof--heated-seats--blin-electric-grey-c896ba0a-e8e0-4f28-b200-d84db6ec4940"
       },
       {
-        "dealerName": "kia-at-seller-47941768",
+        "dealerName": "kia-at-seller-47939695",
         "km": null,
         "lastVerified": "2026-05-05",
-        "priceCad": 78039,
+        "priceCad": 67513,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-6ee45c84",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-premium-package-electric-grey-e5c50d5e-851a-4ee1-8955-7f04321162f5"
+        "stockId": "u-at-29676c1a",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-sold-land-awd--more-available-inventory-electric-white-a216c19d-eebf-48b9-84f8-ae762b1561c9"
+      },
+      {
+        "dealerName": "kia-at-seller-47945590",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 74247,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-600cd054",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-awd-electric-grey-0656dfaa-fe88-48f6-b48c-dd38075c2f81"
+      },
+      {
+        "dealerName": "kia-at-seller-47940559",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 68124,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-992b29c5",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-awd-land-electric-white-6292d779-1701-4cdd-95dd-338a962a3841"
       },
       {
         "dealerName": "kia-at-seller-47938782",
@@ -12122,16 +9872,6 @@
   {
     "fallbackKey": "2025|kia|ev9",
     "listings": [
-      {
-        "dealerName": "kia-at-seller-47944193",
-        "km": null,
-        "lastVerified": "2026-05-05",
-        "priceCad": 70128,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-512dc39e",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-wind-rwd-heated-seats--heated-steering-wheel--co-electric-grey-96f05faa-7375-49b3-9ea5-89253de22cb2"
-      },
       {
         "dealerName": "kia-at-seller-47945759",
         "km": null,
@@ -12213,6 +9953,16 @@
         "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-blue-3aa0c515-e490-4680-b166-10fc305bbf54"
       },
       {
+        "dealerName": "kia-at-seller-47944193",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 70128,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-512dc39e",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-wind-rwd-heated-seats--heated-steering-wheel--co-electric-grey-96f05faa-7375-49b3-9ea5-89253de22cb2"
+      },
+      {
         "dealerName": "kia-at-seller-47940180",
         "km": null,
         "lastVerified": "2026-05-05",
@@ -12225,9 +9975,309 @@
     ],
     "make": "Kia",
     "model": "EV9",
-    "trim": "Light RWD",
+    "trim": "Land Long Range AWD",
     "vin": null,
     "year": 2025
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-birchwood",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 55268,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0c99447e",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-white-359d9656-3d11-44f8-b80c-fd6fecf07a02"
+      },
+      {
+        "dealerName": null,
+        "km": 26,
+        "lastVerified": "2026-05-04T18:55:05.716961Z",
+        "priceCad": 55268,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1736981913",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1736981913"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC4TU399087",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-crowfoot",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 55698,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0aa262f8",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-blue-9aab71b0-56f6-4522-95b2-7c96cca5bd61"
+      },
+      {
+        "dealerName": null,
+        "km": 20,
+        "lastVerified": "2026-05-05T17:31:41.065910Z",
+        "priceCad": 55698,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1736013288",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred/1736013288"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC2TU404559",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-crowfoot",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 53733,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-1d70780e",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--504km-range--fast-charging--remote-s-electric-black-16a45dbe-d4bc-4954-b4c9-5d9ad8a02416"
+      },
+      {
+        "dealerName": null,
+        "km": 17,
+        "lastVerified": "2026-05-05T17:31:41.065940Z",
+        "priceCad": 53733,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1729372331",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred-504km-range-fast-charging/1729372331"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD Long Range",
+    "vin": "KM8KN4DAXTU386861",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-river-city",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 60948,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-a7f5723c",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-electric-grey-631edaa9-44b6-4935-90da-01cf36e0ea5e"
+      },
+      {
+        "dealerName": null,
+        "km": 0,
+        "lastVerified": "2026-05-05T17:31:41.065918Z",
+        "priceCad": 60948,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1732599060",
+        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-hyundai-ioniq-5-ultimate/1732599060"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDC4TU400159",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-birchwood",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 61000,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-07876cac",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-demo-deal-save-2-583-electric-black-475a6480-1cc4-4343-be09-86392d04bdec"
+      },
+      {
+        "dealerName": null,
+        "km": 3121,
+        "lastVerified": "2026-05-04T18:55:05.716953Z",
+        "priceCad": 61000,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1728180472",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-ultimate-demo-deal-save-2-583/1728180472"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDCXTU390401",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-crowfoot",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 55698,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-9c6ca5d2",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--463km-range--fast-charging--awd-electric-grey-86fbbd59-6250-4f5e-b9ca-dd55ea3dec88"
+      },
+      {
+        "dealerName": null,
+        "km": 17,
+        "lastVerified": "2026-05-04T18:55:01.130794Z",
+        "priceCad": 55698,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1729208080",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred-463km-range-fast-charging/1729208080"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred AWD Long Range",
+    "vin": "KM8KNDDC5TU390396",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-birchwood",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 55518,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-3d7e0be2",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-green-7af0f99f-19ba-4fc5-a2aa-d3c14a3c65f2"
+      },
+      {
+        "dealerName": null,
+        "km": 18,
+        "lastVerified": "2026-05-04T18:55:05.716959Z",
+        "priceCad": 55518,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1733973251",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1733973251"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC6TU399754",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-crowfoot",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 55698,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-4820db51",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--463km-range--fast-charging--awd-electric-black-5667b0c6-5f74-49ce-8038-c089029cd52f"
+      },
+      {
+        "dealerName": null,
+        "km": 17,
+        "lastVerified": "2026-05-05T17:31:41.065938Z",
+        "priceCad": 55698,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1729372332",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred-463km-range-fast-charging/1729372332"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred AWD Long Range",
+    "vin": "KM8KNDDC5TU382475",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-birchwood",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 63542,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-2d238f61",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-in-stock-take-home-today-electric-grey-22cdb087-fa82-48d8-9f51-1155df5fe47f"
+      },
+      {
+        "dealerName": null,
+        "km": 1890,
+        "lastVerified": "2026-05-04T18:55:05.716967Z",
+        "priceCad": 63542,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1729812508",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-ultimate-in-stock-take-home-today/1729812508"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDCXTU393587",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
+        "dealerName": "hyundai-river-city",
+        "km": null,
+        "lastVerified": "2026-05-05",
+        "priceCad": 64988,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-4b245291",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-electric-black-7599891e-5a8a-4552-925d-34521cbdc367"
+      },
+      {
+        "dealerName": null,
+        "km": 0,
+        "lastVerified": "2026-05-05T17:31:41.065922Z",
+        "priceCad": 64988,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1727672827",
+        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-hyundai-ioniq-5-ultimate/1727672827"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDC2TU390568",
+    "year": 2026
   },
   {
     "fallbackKey": "2026|kia|ev9",
