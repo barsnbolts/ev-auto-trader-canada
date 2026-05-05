@@ -146,3 +146,4 @@ scripts/__pycache__/
 .venv/
 data/.lb_cookies.txt
 .venv-crawl/
+docs/handoff/_pre_compact_state.md

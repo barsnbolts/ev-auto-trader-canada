@@ -90,6 +90,8 @@ When user signals a tier-down ("switching to medium ASAP"): finish the in-progre
 
 ## Compaction & session-handoff directives
 
+**Post-compact session FIRST ACTION**: read `docs/handoff/_pre_compact_state.md` if it exists. That file has the verbatim recent state (HEAD sha, last test command + outcome, modified files, in-flight background processes, last cron output, last scraper telemetry) that the post-compact summary will have lossy-compressed. It's auto-captured by `scripts/pre_compact_dump.sh` via the global PreCompact hook (registered in `~/.claude/settings.json`). Treats the filesystem as the durable tail-preservation primitive Codex has built-in but Claude Code CLI doesn't.
+
 When `/compact` runs, preserve verbatim:
 1. **All file paths touched this session** (full list, not "various files").
 2. **The exact last test/build command run** + its outcome (pass/fail/error text).
