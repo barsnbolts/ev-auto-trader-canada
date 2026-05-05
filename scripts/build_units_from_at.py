@@ -78,6 +78,9 @@ def translate_raw_to_legacy(raw_entries: list) -> list:
             # Preserve VIN through translation so build_units can attach it
             # to the unit. Optional in legacy schema; ignored if absent.
             "vin": r.get("vin"),
+            # Pass-through for dealer-record backfill (inventoryUrl unlock for
+            # the Crawl4AI per-dealer scraper).
+            "dealerHomepageUrl": r.get("dealerHomepageUrl"),
         })
     return out
 
@@ -302,6 +305,12 @@ def main():
                 # Omit inventoryUrl entirely — schema marks it optional and
                 # rendering layers prefer absent over placeholder.
             }
+        # Backfill inventoryUrl from AT-detail dealerHomepageUrl when present.
+        # Crawl4AI dealer scraper (TIER I1b) consumes dealers[*].inventoryUrl,
+        # so growing this field is the unlock for per-dealer inventory + promo.
+        homepage = L.get("dealerHomepageUrl")
+        if homepage and not by_id[did].get("inventoryUrl"):
+            by_id[did]["inventoryUrl"] = homepage
 
         trim, matched_via = match_trim(model, L["title"])
         dt = detect_drivetrain(L["title"]) or ("AWD" if "AWD" in trim.upper() else "RWD")

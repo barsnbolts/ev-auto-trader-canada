@@ -145,3 +145,4 @@ scripts/__pycache__/
 *.pyc
 .venv/
 data/.lb_cookies.txt
+.venv-crawl/

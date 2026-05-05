@@ -1,0 +1,15 @@
+# Heavy deps for scrape_dealers_inventory.py + future Qwen banner OCR.
+# Lives in a separate .venv-crawl because:
+#   - crawl4ai REQUIRES python 3.11 / 3.12 (greenlet wheel issue #291 on M-series)
+#   - The lightweight .venv (curl_cffi only) runs daily; this venv runs weekly.
+#
+# Install:
+#   python3.12 -m venv .venv-crawl
+#   source .venv-crawl/bin/activate
+#   pip install -r requirements-crawl.txt
+#   crawl4ai-setup    # downloads bundled Chromium (~92 MiB, one-time)
+#
+# Per DEALER_INVENTORY_DECISION_2026-05-04.md: do NOT set chrome_channel='chrome'
+# in BrowserConfig — keep bundled Chromium (issue #377).
+
+crawl4ai>=0.4
