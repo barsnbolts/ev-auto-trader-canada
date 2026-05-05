@@ -17,7 +17,8 @@ import json
 import re
 import subprocess
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
 from typing import Any, Iterable
 
 USER_AGENT = (
@@ -189,21 +190,76 @@ NHTSA_DECODE_URL = (
 )
 
 
-def nhtsa_decode(vin: str, timeout: int = 8) -> dict | None:
+# 30-day VIN-decode cache. NHTSA results are immutable for the lifetime
+# of a vehicle (year/make/model never change), so even longer TTL is fine.
+# 30 days keeps the cache file from growing forever if a VIN typo's been
+# encoded once and is later corrected — the bad VIN entry rolls off.
+_VIN_CACHE_PATH = Path(__file__).resolve().parent.parent / "data" / "_vin_cache.json"
+_VIN_CACHE_TTL_DAYS = 30
+_VIN_CACHE: dict[str, dict] | None = None  # lazy-loaded singleton
+
+
+def _load_vin_cache() -> dict[str, dict]:
+    global _VIN_CACHE
+    if _VIN_CACHE is not None:
+        return _VIN_CACHE
+    if _VIN_CACHE_PATH.exists():
+        try:
+            _VIN_CACHE = json.loads(_VIN_CACHE_PATH.read_text(encoding="utf-8"))
+            if not isinstance(_VIN_CACHE, dict):
+                _VIN_CACHE = {}
+        except Exception:
+            _VIN_CACHE = {}
+    else:
+        _VIN_CACHE = {}
+    return _VIN_CACHE
+
+
+def _save_vin_cache() -> None:
+    if _VIN_CACHE is None:
+        return
+    _VIN_CACHE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    _VIN_CACHE_PATH.write_text(
+        json.dumps(_VIN_CACHE, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+
+
+def _cache_fresh(entry: dict) -> bool:
+    ts = entry.get("cachedAt")
+    if not isinstance(ts, str):
+        return False
+    try:
+        cached = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return datetime.now(timezone.utc) - cached < timedelta(days=_VIN_CACHE_TTL_DAYS)
+
+
+def nhtsa_decode(vin: str, timeout: int = 8, use_cache: bool = True) -> dict | None:
     """Decode a VIN via NHTSA vPIC. Returns the 'Results' dict (single
     entry) on success, None on any failure.
+
+    Caches successful decodes in data/_vin_cache.json with a 30-day TTL.
+    Pass use_cache=False to force a re-decode (debugging only).
 
     Useful when a source (e.g. Facebook Marketplace) has VIN in
     free-text but no structured make/model/year. NHTSA validates the
     VIN AND returns canonical make/model/year/trim — gold-standard
     cross-source validation.
 
-    Note: NHTSA can be slow + occasionally rate-limits. Don't call in
-    a tight loop. Cache results in data/_vin_cache.json if you do
-    bulk decoding.
+    Note: NHTSA can be slow + occasionally rate-limits. The cache makes
+    repeated decodes within the TTL essentially free.
     """
     if not is_valid_vin(vin):
         return None
+
+    if use_cache:
+        cache = _load_vin_cache()
+        hit = cache.get(vin)
+        if hit and _cache_fresh(hit):
+            return hit.get("result")
+
     url = NHTSA_DECODE_URL.format(vin=vin)
     try:
         with urllib.request.urlopen(url, timeout=timeout) as resp:
@@ -211,9 +267,19 @@ def nhtsa_decode(vin: str, timeout: int = 8) -> dict | None:
     except Exception:
         return None
     results = payload.get("Results")
-    if isinstance(results, list) and results:
-        return results[0]
-    return None
+    if not (isinstance(results, list) and results):
+        return None
+    out = results[0]
+
+    if use_cache:
+        cache = _load_vin_cache()
+        cache[vin] = {
+            "cachedAt": now_iso(),
+            "result": out,
+        }
+        _save_vin_cache()
+
+    return out
 
 
 def fallback_key(year: int | None, make: str | None, model: str | None,
