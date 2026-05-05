@@ -81,7 +81,11 @@ When user signals a tier-down ("switching to medium ASAP"): finish the in-progre
 - Thermal model now per-vehicle accurate: chemistry + heat pump cutoff + preconditioning + soft cutoff transition. All 31 specs pass the auto-validator
 - BC lease tax bug fixed (was flat 12%, now uses BC PST progressive bracket per Bulletin 308)
 - TempSlider has preconditioning toggle (`?precon=1`)
-- Active medium plan: `docs/handoff/MEDIUM_FULL_PLAN_2026-05-03.md` (7 tasks, all pre-speced)
+- **Vitest harness installed** — `npx vitest run` for the suite, `npm test` for watch mode. 100+ specs across format, thermal, scoring, crossListings, aggregations, battery_degradation, usedListingsLinks. New library code should ship with vitest specs alongside (`foo.ts` → `foo.test.ts`).
+- **Schema-audit gate** — `scripts/validate_data_schemas.py` runs in `npm run predeploy`. Enforces presence + leaf type + 9 enum sets + cross-references (units.dealerId resolves; units.(model,year,trim,drivetrain) resolves to a spec). Run ad-hoc: `npm run schema-audit`.
+- **Codebase contracts documented** at `docs/INVARIANTS.md`. Read before changing data shapes, ID schemes, or build pipelines.
+- **Component READMEs** for InventoryTable, DossierClient, CompareGrid (co-located). `scripts/README.md` documents the data-pipeline scripts.
+- Active medium plan: `docs/handoff/MEDIUM_RUNWAY.md` (61 tasks across tiers 0-G, ~235k tokens of mechanical work). Tier 0 auto-pair flow at top.
 - Vercel preview live at `barsnbolts-projects/ev-auto-trader-canada`
 - Daily refresh cron loaded via launchd
 

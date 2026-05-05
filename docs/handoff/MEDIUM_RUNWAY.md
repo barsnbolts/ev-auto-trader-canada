@@ -987,6 +987,11 @@ Track shipped items here so the next session knows what's left. Format:
 - [x] A10: InventoryTable.README.md — what it renders, props, state, deps, perf notes.
 - [x] A11: DossierClient.README.md — tab structure, keyboard shortcuts, recharts dynamic-import callout, perf budget.
 - [x] A12: CompareGrid.README.md — distinguishes inventory-unit compare flow from model-picker flow + the two-compare-tools rationale.
+- [x] A13: docs/INVARIANTS.md — 11 codebase contracts with what/where-enforced/what-breaks. Captures the makeFallbackKey 4-vs-5-segment asymmetry as a known issue.
+- [x] A14: scripts/README.md — daily refresh chain + per-script table + library helper API + output-file map + NO-list.
+- [x] A15: CLAUDE.md updated — vitest + schema-audit + INVARIANTS.md + component READMEs flagged in "What's done." MEDIUM_RUNWAY pointer updated to 61 tasks.
+
+**Tier A complete (15/15).** Ready to drain Tier B (perf) next.
 ```
 
 ---

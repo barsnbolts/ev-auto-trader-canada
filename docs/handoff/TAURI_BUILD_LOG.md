@@ -108,3 +108,4 @@ next mechanical step; Phase D needs D0 research first.
 - 2026-05-04: A8 shipped — scrape_unit_gallery.py refactored onto lib_scrape_common.fetch_html + lib_scrape_metrics.record_run. Drops 30 lines of duplicate curl plumbing. Telemetry now flows to data/_scraper_metrics.jsonl alongside Kijiji + leasebusters.
 - 2026-05-04: A9 shipped — nhtsa_decode 30-day cache in data/_vin_cache.json. 470ms→<1ms hit. Cache survives cron restarts; bulk decoding now ~free.
 - 2026-05-04: A10+A11+A12 shipped — three component READMEs (InventoryTable, DossierClient, CompareGrid). Each covers what/props/state/deps/perf+a11y notes.
+- 2026-05-04: A13+A14+A15 shipped — INVARIANTS.md (11 contracts) + scripts/README.md (data pipeline map) + CLAUDE.md updated with vitest + schema-audit + INVARIANTS pointers. Tier A complete (15/15).
