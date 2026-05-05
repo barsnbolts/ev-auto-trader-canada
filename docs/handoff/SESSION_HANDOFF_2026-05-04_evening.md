@@ -137,12 +137,27 @@ across the codebase" which is exactly Semble's strength), Tier G (docs,
 ## Cross-references
 
 - `docs/handoff/MEDIUM_RUNWAY.md` — full 61-task queue with specs + Done log
+- `docs/handoff/CLOUD_REMOTE_BOOT.md` — **READ IF SESSION IS REMOTE / NOT ON IAN'S MAC.** Covers cloud clone, Mac-only-vs-portable matrix, Semble per-agent install, backup discipline, disaster recovery.
 - `docs/INVARIANTS.md` — 11 codebase contracts (read before changing data shapes)
 - `scripts/README.md` — data-pipeline script catalog
 - `CLAUDE.md` — operating rules (this file is the user-side ops contract)
 - `docs/handoff/SESSION_2026-05-04_MEDIUM.md` — prior medium-pass close-out (still relevant context)
 - `docs/handoff/TAURI_BUILD_LOG.md` — append-only commit narrative
 - `.claude/RESTART_PROMPT.md` — paste-prompt fallback if disk-persistent crons fail
+
+## Local vs cloud / remote
+
+If this session runs on Ian's Mac at `~/ev-auto-trader-canada`:
+follow the boot script as written; everything works.
+
+If this session is on a remote sandbox / cloud Claude / different
+machine: **read `docs/handoff/CLOUD_REMOTE_BOOT.md` FIRST.** Then
+treat any path of the form `~/ev-auto-trader-canada` or
+`/Users/ianmcadam/...` as "the repo root, wherever it's cloned." The
+boot script's `cd ~/ev-auto-trader-canada` becomes
+`cd $(git rev-parse --show-toplevel || echo .)`. The Semble `repo:`
+parameter accepts the GitHub URL as a fallback if no local clone path
+is available.
 
 ## What user said when this handoff was written
 
