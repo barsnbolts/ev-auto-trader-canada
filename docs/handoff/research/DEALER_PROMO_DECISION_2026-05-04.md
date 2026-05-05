@@ -7,41 +7,69 @@ survey found Gemini 2.5 Flash vision at ~$0.0001/image** — roughly
 50× cheaper. The earlier user-OK gate ($15/mo recurring spend) is
 now ~$0.30-1/mo. **Much smaller approval bar.**
 
-## Architecture decision (FREE PATH PRIMARY per user 2026-05-05)
+## Architecture decision (REVISED post-Mac-research-2026-05-05)
 
-**Primary: PaddleOCR-VL-0.9B self-hosted** (HuggingFace). $0/mo.
-Tops OmniDocBench v1.5 at 94.5 % accuracy, beats Qwen3-VL-235B and
-Gemini 3 Pro at document-parsing benchmarks. Installs via pip; runs
-locally on Ian's Mac during the weekly cron.
+**Primary: Qwen2.5-VL-7B via Ollama** (running locally on Apple
+Silicon Mac via MLX). $0/mo. Pivot from PaddleOCR-VL because:
 
+- PaddleOCR-VL is **document-tuned** (109 langs, tables, formulas).
+  Will work on banners but isn't optimized for marketing graphics
+  with stylized fonts + colored backgrounds + "$1500 SAVE NOW" style
+  layouts.
+- Apple Silicon install for paddlepaddle requires the mlx-vlm-server
+  backend OR the Swift+MLX port (`mlx-community/paddleocr-vl.swift`)
+  to be "fully optimized" per official PaddleOCR docs — extra
+  install dance.
+- **Qwen2.5-VL-7B is better-aligned for our task** (arbitrary
+  visual content, not documents), runs natively on Apple Silicon
+  via MLX, simpler stack (Ollama already a common Mac dev tool).
+- Throughput: ~500 banners/week is trivial for any local VLM.
+
+Install:
 ```bash
-pip install paddleocr paddlepaddle
-# First call downloads PaddleOCR-VL-0.9B weights (~1 GB).
+brew install ollama
+ollama serve &                   # background
+ollama pull qwen2.5-vl:7b        # ~4.5 GB, one-time
+# Verify: ollama run qwen2.5-vl:7b "describe this image" --image=test.png
 ```
 
-**Fallback: Gemini 2.5 Flash vision API** (~$0.0001/banner). Use only
-on banners where PaddleOCR-VL output's confidence < 0.7 OR
-structured-output parse fails. At ~500 banners/sweep × ~5 % low-
-confidence × 4 weeks = ~100 Gemini calls/mo = ~$0.01/mo. Effectively
-free even as fallback.
+Python integration via the `ollama` Python package:
+```python
+import ollama
+resp = ollama.chat(
+    model="qwen2.5-vl:7b",
+    messages=[{
+        "role": "user",
+        "content": "Extract dealer promotions visible in this banner. Return JSON.",
+        "images": [str(banner_path)],
+    }],
+    format="json",  # Ollama structured output mode
+)
+promos = json.loads(resp["message"]["content"])
+```
+
+**Fallback: Gemini 2.5 Flash vision API** (~$0.0001/banner). Use
+only on banners where Qwen output's confidence < 0.7 OR JSON parse
+fails. At ~500 banners/sweep × ~5 % low-confidence × 4 weeks = ~100
+Gemini calls/mo = ~$0.01/mo. Effectively free.
 
 **Last-resort fallback: Claude 3.5 Haiku/Sonnet vision** at
-~$0.013/image — only invoked on the rare banners where both
-PaddleOCR-VL and Gemini fail. Likely <10 calls/mo = <$0.20/mo.
+~$0.013/image — only invoked on the rare banners where both Qwen
+and Gemini fail. Likely <10 calls/mo = <$0.20/mo.
 
-**Rejected alternatives** (per R1):
-- Tesseract / EasyOCR — chokes on stylized fonts and complex
-  backgrounds typical of dealer promo banners.
-- GPT-4o vision — 50× more expensive than Gemini.
+**Rejected alternatives**:
+- **PaddleOCR-VL** — see above, document-tuned, Mac install
+  friction, not banner-aligned.
+- Tesseract / EasyOCR — chokes on stylized fonts (per R1).
+- GPT-4o vision — 50× more expensive than Gemini (per R1).
 
-**Why PaddleOCR-VL primary**:
+**Why Qwen2.5-VL-7B primary**:
 - $0 ongoing cost.
-- Highest accuracy in OmniDocBench v1.5 (94.5 %, beats all hosted
-  vision APIs benchmarked).
-- Fully local — no API key, no network roundtrip during cron, no
-  per-call latency budget.
-- Trade-off: ~1 GB model weights + ~30s cold-start per cron run.
-  Acceptable for weekly cadence.
+- Native Apple Silicon performance via MLX.
+- Banner-aligned task profile.
+- Ollama is already widely used; install is one brew + one pull.
+- Trade-off: ~4.5 GB model + ~10s cold-start per cron run. Fine
+  for weekly cadence.
 
 ## Cost projection
 

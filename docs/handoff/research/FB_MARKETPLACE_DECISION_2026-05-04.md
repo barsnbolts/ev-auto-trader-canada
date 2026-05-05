@@ -26,8 +26,36 @@ GraphQL capture-hook pattern (install `window.fetch` monkey-patch
 via JS exec) is therefore blocked. See
 `FB_PROBE_CAPTURE_2026-05-04.md` for the F2 findings.
 
-**Recommendation: defer FB to TIER I2** (bonus sources). Ship
-AT + Kijiji + dealers + promos first; revisit FB after I0 ships.
+**REVISED RECOMMENDATION (post-Q3 research 2026-05-05): use
+`jdcodes1/facebook-marketplace-mcp` — purpose-built MCP that
+replays FB GraphQL via macOS-extracted Chrome cookies. Self
+rate-limits 3 req/min. Updates `doc_id` via included Playwright
+capture script when FB rotates. No Chrome extension dependency, no
+Apify spend, no Tampermonkey ceremony.** This is the actual free
+path that works.
+
+Repo: https://github.com/jdcodes1/facebook-marketplace-mcp
+
+Install (medium-tier I1a):
+```bash
+git clone https://github.com/jdcodes1/facebook-marketplace-mcp \
+  ~/.claude/mcp-servers/fb-marketplace
+cd ~/.claude/mcp-servers/fb-marketplace
+pip install -r requirements.txt
+# Configure via Claude Code MCP config to add it.
+# Run included cookie-capture script once on Ian's Mac:
+python scripts/capture_cookies.py
+```
+
+Wraps as a Claude MCP. We then use it from Python via
+subprocess/cli, OR call the MCP from any Claude session. Either way
+this becomes the FB scrape source — no longer deferred.
+
+**Fallback (if jdcodes1 MCP regresses)**: TIER I2 deferral, OR Apify
+`apify/facebook-marketplace-scraper` (~$6-7/mo, paid) per original
+R1 finding.
+
+
 AT + Kijiji together cover ~95 % of dealer-level Hyundai/Kia EV
 inventory in Canada — FB's marginal value is private-seller used
 cars below market, narrower-but-real but not blocking.

@@ -1,17 +1,46 @@
 # Dealer-website inventory scrape · decision · 2026-05-04
 
-## Architecture decision (FREE PATH PRIMARY per user 2026-05-05)
+## Architecture decision (FREE PATH PRIMARY per user 2026-05-05 · post-Mac-research-2026-05-05)
 
 **Primary: Crawl4AI** (unclecode/crawl4ai · ★65k · MIT · v0.8.5
 from 2026-03-18) for ALL dealer sites including the 4 big
-platforms. $0/mo. Self-hosted Playwright + JSON-LD/CSS-selector +
-LLM-extraction.
+platforms. $0/mo.
 
-Pip install:
+**Strategy: JSON-LD first, LLM extraction second.** Per
+mini-research 2026-05-05: the battle-tested Apify actor
+`copious_atoll/dealer-website-inventory-scraper` already covers
+exactly our 4-platform target (DealerOn / Dealer.com / Dealer
+Inspire / CDK) with JSON-LD-first extraction + HTML fallback +
+auto-platform detection. **Mirror that pattern.** JSON-LD per-
+vehicle listings are the path of least resistance on these
+templated sites; LLM extraction is overkill until the long-tail
+custom-template dealers force it.
+
+Pip install (Apple Silicon Mac, 2026-05-05 verified):
 ```bash
+# CRITICAL: pin Python 3.11 or 3.12 (NOT 3.13 — greenlet wheel
+# build fails on M-series chips per crawl4ai issue #291)
+python3.11 -m venv .venv-crawl4ai
+source .venv-crawl4ai/bin/activate
 pip install -U crawl4ai
-crawl4ai-setup  # downloads stealth Chromium + warms LLM extractors
+crawl4ai-setup           # downloads stealth Chromium
+crawl4ai-doctor          # verifies Playwright bundled Chromium loads
 ```
+
+Best-practice config:
+- `BrowserConfig(headless=True, browser_type="chromium")` — bundled
+  Chromium only. **DO NOT set `chrome_channel="chrome"`** — it
+  triggers `playwright install chrome` errors per issue #377.
+- Stealth mode on.
+- Modest UA rotation (3-5 modern macOS/iOS UAs).
+- Extraction strategy ordering:
+  1. JSON-LD per-vehicle (Schema.org Vehicle markup) — first try.
+  2. CSS selectors per platform (4 templates: DealerOn, Dealer.com,
+     Dealer Inspire, CDK) — fallback for sites that don't ship
+     JSON-LD.
+  3. Local LLM extraction via Ollama (llama3.2 or similar) — only
+     for the long-tail custom-template dealers (~5-10 dealers, ~10
+     min/dealer one-time CSS-tuning beats the LLM cost).
 
 Per-dealer template-detection lets us tune CSS selectors once per
 platform and reuse:
