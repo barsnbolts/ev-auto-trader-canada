@@ -2,7 +2,7 @@ import Link from "next/link";
 import { loadSnapshots, loadMeta } from "@/lib/data";
 import { fmtCad, fmtDate } from "@/lib/format";
 import { MODELS, MODEL_LABEL } from "@/lib/constants";
-import { HistoryCountChart, HistoryPriceChart, type SeriesPoint } from "@/components/HistoryCharts";
+import { HistoryCountChart, HistoryPriceChart, type SeriesPoint } from "@/components/HistoryChartsLazy";
 import { UpdatedStamp } from "@/components/UpdatedStamp";
 import type { Snapshot } from "@/lib/types";
 

@@ -66,3 +66,25 @@
 
 None are blocking; bundle size is acceptable for a personal-use Tauri
 app where startup is one-time per relaunch. Document for the next pass.
+
+---
+
+## B3 status (Tier B, MEDIUM_RUNWAY) — SKIPPED 2026-05-04
+
+`experimental.legacyBrowsers` was the Next 13 / Next 14 lever for
+dropping IE-targeted polyfills at build time. **Next 15 has removed
+this flag entirely** — automatic legacy polyfills are gone, and modern
+browsers are the default target.
+
+Verified by:
+- Inspection of `next.config.mjs` schema in Next 15.x — no
+  `experimental.legacyBrowsers` field accepted.
+- Bundle output already shows the 128 kB shared chunk is core
+  React + Next runtime, not legacy polyfills.
+
+If we want to push the modern-only target further (e.g. drop
+specific polyfills for WKWebView Safari 17+ baseline), the lever is
+`browserslist` in package.json or a `.browserslistrc` file. **Not
+worth it now** — the chunk is already minimal.
+
+**Decision:** B3 closed without code change. Runway updated.

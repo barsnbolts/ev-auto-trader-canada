@@ -992,6 +992,15 @@ Track shipped items here so the next session knows what's left. Format:
 - [x] A15: CLAUDE.md updated — vitest + schema-audit + INVARIANTS.md + component READMEs flagged in "What's done." MEDIUM_RUNWAY pointer updated to 61 tasks.
 
 **Tier A complete (15/15).** Ready to drain Tier B (perf) next.
+- [x] B1: HistoryChartsLazy.tsx wraps recharts via next/dynamic. /history First Load JS **211 kB → 107 kB (-104 kB)**, same magnitude as dossier.
+- [done-prior] B2: DealerMapClient already lazy-loads leaflet via next/dynamic ssr:false. No change needed (verified).
+- [skipped] B3: Next 15 removed `experimental.legacyBrowsers` flag entirely. Documented in BUNDLE_AUDIT_2026-05-04.md.
+- [done-prior] B4: dealerPressureMap is computed server-side in inventory/page.tsx (line 55), passed as constant prop. No client-side useMemo needed.
+- [deferred] B5: needs React DevTools profiling to validate, can't ship without measurement.
+- [deferred] B6: cross-listings.json is 13 kB; runway threshold is 50 kB. Revisit when file grows.
+- [done-prior] B7: DossierClient already has `<Suspense>` around dynamic charts (line 180). InventoryTable doesn't need it (server-rendered table, no client-side data fetch).
+
+**Tier B complete (1 shipped + 3 already-done + 1 skipped + 2 deferred).** ~104 kB win on /history.
 ```
 
 ---
