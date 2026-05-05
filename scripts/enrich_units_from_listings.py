@@ -23,8 +23,9 @@ Notes:
     fetches via Claude / a paid proxy) gets through; raw curl does not.
   - Designed to be resumable — already-enriched ids are skipped unless
     --force is passed.
-  - Be polite: 2-3 sec sleep between fetches. ~80 dealers * ~1.2 listings
-    each = ~100 fetches = ~5 minutes wall time.
+  - Be polite: 2-3 sec sleep between fetches. At current scale (~1391 units
+    across ~332 dealers as of 2026-05-05) capped via MAX_DETAIL_FETCHES_PER_RUN
+    in the AT scraper.
 """
 import argparse
 import json

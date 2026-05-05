@@ -353,7 +353,7 @@ def main():
         # Stable ID: 8-char hash of the listing URL. Survives result-order
         # changes between scrapes, lets snapshot diffs and enrichment
         # overlays survive re-runs. Collisions across 8 hex chars at our
-        # scale (~100 units) are negligible; verify uniqueness explicitly.
+        # scale (~1391 units as of 2026-05-05) are negligible; verify explicitly.
         uid = f"u-at-{hashlib.sha1(L['url'].encode()).hexdigest()[:8]}"
         if uid in seen_ids:
             # SHA1 collision or duplicate listing — append URL hash second

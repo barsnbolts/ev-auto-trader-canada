@@ -5,7 +5,8 @@ Per docs/handoff/research/DEALER_PROMO_DECISION_2026-05-04.md:
 - Playwright headless via crawl4ai's bundled Chromium.
 - For each dealer with inventoryUrl, screenshot homepage + /offers (if exists).
 - Output: data/_dealer_promo_screenshots/{dealerId}/{slug}.png
-- Cap: ~80 dealers × 2 pages = ~160 PNGs/sweep.
+- Cap: ~332 dealers × 2 pages = ~664 PNGs/sweep (per data/dealers.json count
+  as of 2026-05-05; was ~80 in early planning notes).
 
 Cadence: weekly (paired with extract_dealer_promos.py).
 

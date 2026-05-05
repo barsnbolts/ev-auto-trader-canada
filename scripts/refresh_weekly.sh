@@ -4,7 +4,7 @@
 # (separate plist; mirror com.evautotrader.refresh.plist with weekly cal).
 #
 # Pipeline:
-#   1. Per-dealer inventory crawl (Crawl4AI, ~80 dealers × ~3 paths)
+#   1. Per-dealer inventory crawl (Crawl4AI, ~332 dealers × ~3 paths)
 #   2. Dealer hero/offers screenshots (Playwright via Crawl4AI)
 #   3. Promo banner extraction (Ollama Qwen2.5-VL local)
 #   4. (Future I1a-bis) FB Marketplace via jdcodes1 MCP
