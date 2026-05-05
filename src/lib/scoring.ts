@@ -12,6 +12,11 @@ import type {
   ScoredUnit,
 } from "./types";
 
+// transport-bands.json shape — kept in sync with data file. JSON-import's
+// inferred type is wide (Record<string, unknown>); the assertion below
+// narrows it without losing the runtime data. validate_data_schemas.py
+// guards the JSON against drift at predeploy time, so the assertion is
+// safe under the existing audit gate.
 type TransportBands = {
   sameProvince: number;
   neighbour: number;
@@ -20,7 +25,7 @@ type TransportBands = {
   neighbours: Record<string, string[]>;
   regionalGroups: Record<string, string[]>;
 };
-const TRANSPORT_BANDS = transportBandsData as unknown as TransportBands;
+const TRANSPORT_BANDS: TransportBands = transportBandsData as TransportBands;
 
 // Flat-rate transport heuristic. NOT a quote — just enough to make
 // cross-province deals comparable on the dashboard. Adds a separate line

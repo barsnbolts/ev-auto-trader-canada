@@ -80,13 +80,18 @@ export function makeFallbackKey(args: {
   trim?: string | null;
   km?: number | null;
 }): string {
-  const kmBucket = args.km != null ? Math.floor(args.km / 2000) * 2000 : "any";
+  // Aligned with scripts/merge_cross_sources.py I0b-2 update — trim + km
+  // dropped because they don't survive cross-source format normalization
+  // (AT writes "Land Long Range AWD", Kijiji writes "Land AWD w/ Plus
+  // Package"; AT km=null, Kijiji km=42103). Year + make + model is coarser
+  // but joins ~92 % of VIN-less AT entries empirically.
+  // trim + km still passed in for API stability (callers don't care).
+  void args.trim;
+  void args.km;
   return [
     args.year,
     args.make.toLowerCase(),
     args.model.toLowerCase(),
-    (args.trim ?? "any").toLowerCase().replace(/\s+/g, "-"),
-    kmBucket,
   ].join("|");
 }
 

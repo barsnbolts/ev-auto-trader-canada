@@ -13,6 +13,7 @@ import {
   dealerPressureIndex,
   stackedOtdIncentives,
   applicableIncentives,
+  evapEligibleAmount,
 } from "./scoring";
 import { ON_DEALER_FEES } from "./constants";
 import type { Dealer, Incentive, InventoryUnit } from "./types";
@@ -225,6 +226,42 @@ describe("applicableIncentives", () => {
       baseIncentive({ id: "old", status: "ended", amountCad: 9999 }),
     ]);
     expect(r).toHaveLength(0);
+  });
+
+  it("D4 · evapEligibleAmount: 48mo+ lease prorates to full $5k", () => {
+    const evap = baseIncentive({
+      id: "fed-evap",
+      scope: "federal",
+      amountCad: 5000,
+      leaseTermProration: { "12": 1250, "24": 2500, "36": 3750, "48": 5000 },
+    });
+    const u = baseUnit({});
+    expect(evapEligibleAmount(u, evap, [evap])).toBe(5000);
+  });
+
+  it("D4 · evapEligibleAmount: returns 0 when EVAP missing or paused", () => {
+    const u = baseUnit({});
+    expect(evapEligibleAmount(u, undefined, [])).toBe(0);
+    const paused = baseIncentive({ id: "fed-evap", status: "paused", amountCad: 5000 });
+    expect(evapEligibleAmount(u, paused, [paused])).toBe(0);
+  });
+
+  it("D4 · evapEligibleAmount: enforces transactionValueCap on imports", () => {
+    const evap = baseIncentive({
+      id: "fed-evap",
+      scope: "federal",
+      amountCad: 5000,
+      transactionValueCapCad: 50000,
+      capAppliesToImported: true,
+    });
+    const expensive = baseUnit({ dealerAskingPrice: 60000, msrp: 60000 });
+    // No OEM cash to bring effective price below cap → blocked.
+    expect(evapEligibleAmount(expensive, evap, [evap])).toBe(0);
+    // With $15k OEM cash → effective $45k → under cap → full amount.
+    const oem = baseIncentive({
+      id: "kia-cash", scope: "manufacturer_cash", amountCad: 15000,
+    });
+    expect(evapEligibleAmount(expensive, evap, [evap, oem])).toBe(5000);
   });
 
   it("enforces EVAP $50k post-OEM-cash cap", () => {

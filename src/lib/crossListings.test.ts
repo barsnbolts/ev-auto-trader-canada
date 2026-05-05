@@ -18,7 +18,9 @@ const baseListing = (over: Partial<CrossListing>): CrossListing => ({
 });
 
 describe("makeFallbackKey", () => {
-  it("lowercases make/model/trim and dashifies whitespace", () => {
+  // Post-I0b-2 (commit 68c9e56b): trim + km dropped from join key.
+  // See docs/CROSS_LISTINGS.md for the format-mismatch rationale.
+  it("lowercases make/model and ignores trim/km", () => {
     const k = makeFallbackKey({
       year: 2025,
       make: "Hyundai",
@@ -26,23 +28,25 @@ describe("makeFallbackKey", () => {
       trim: "Preferred Long Range",
       km: 22000,
     });
-    expect(k).toBe("2025|hyundai|ioniq 5|preferred-long-range|22000");
+    expect(k).toBe("2025|hyundai|ioniq 5");
   });
 
-  it("buckets km in 2000-unit increments", () => {
+  it("ignores km bucketing entirely (key invariant under km change)", () => {
     const a = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6", trim: "GT", km: 23999 });
-    const b = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6", trim: "GT", km: 22000 });
+    const b = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6", trim: "GT", km: 0 });
     expect(a).toBe(b);
   });
 
-  it("treats missing km as 'any'", () => {
-    const k = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6", trim: "GT" });
-    expect(k).toContain("|any");
+  it("ignores trim entirely (key invariant under trim change)", () => {
+    const a = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6", trim: "GT" });
+    const b = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6", trim: "Land AWD" });
+    expect(a).toBe(b);
   });
 
-  it("treats missing trim as 'any'", () => {
-    const k = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6", km: 0 });
-    expect(k).toContain("|any|");
+  it("missing trim/km still produces a clean 3-segment key", () => {
+    const k = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6" });
+    expect(k).toBe("2024|kia|ev6");
+    expect(k.split("|")).toHaveLength(3);
   });
 });
 
@@ -148,19 +152,13 @@ describe("lookupCrossSource — VIN-vs-fallback resolution", () => {
     expect(hit?.vin).toBe(sample.vin);
   });
 
-  it("documents fallbackKey format asymmetry: TS makeFallbackKey writes 5 segments, Python merge writes 4", () => {
-    // KNOWN ISSUE: scripts/merge_cross_sources.py emits keys like
-    // "2025|kia|ev6|land-awd" (year|make|model|trim, no km).
-    // src/lib/crossListings.ts makeFallbackKey emits keys with a km
-    // bucket appended ("2025|kia|ev6|land-awd|22000" or "...|any").
-    // → Fallback-key lookups against on-disk data ALWAYS miss when
-    //   VIN is unavailable. Today every cross-listing entry has a VIN,
-    //   so this hasn't bitten in production.
-    // → Fix path: align Python and TS to the same key shape (drop km
-    //   from TS, or add km bucket to Python). Tracked in
-    //   docs/handoff/MEDIUM_RUNWAY.md (consider as F-tier code-quality task).
+  it("TS makeFallbackKey + Python merge agree on year|make|model 3-segment key (post-I0b-2)", () => {
+    // FIX SHIPPED 2026-05-05 (I0b-2 commit 68c9e56b): both Python merge
+    // and TS makeFallbackKey now emit 3-segment year|make|model keys
+    // (trim + km dropped because they don't survive cross-source format
+    // normalization). Cross-source fallback lookups now actually match.
     const sample = realEntries[0];
-    expect(sample.fallbackKey.split("|")).toHaveLength(4);
+    expect(sample.fallbackKey.split("|")).toHaveLength(3);
     const tsKey = makeFallbackKey({
       year: sample.year,
       make: sample.make,
@@ -168,7 +166,8 @@ describe("lookupCrossSource — VIN-vs-fallback resolution", () => {
       trim: sample.trim,
       km: null,
     });
-    expect(tsKey.split("|")).toHaveLength(5);
+    expect(tsKey.split("|")).toHaveLength(3);
+    expect(tsKey).toBe(sample.fallbackKey);
   });
 
   it("treats supplied VIN as the only join attempt when fallback paths can't reconstruct", () => {
