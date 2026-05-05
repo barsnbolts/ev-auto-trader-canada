@@ -194,7 +194,9 @@ type Props = {
   buyerContext?: BuyerContext;
 };
 
-type SortKey = "deal" | "otd" | "discount" | "perKm" | "newest" | "oldest";
+type SortKey = "deal" | "otd" | "discount" | "perKm" | "newest" | "oldest"
+  | "model" | "year" | "asking" | "msrp" | "days" | "color" | "dealer" | "pressureCol";
+type SortDir = "asc" | "desc";
 
 const SORTS: { key: SortKey; label: string }[] = [
   { key: "deal", label: "Best deal score" },
@@ -221,7 +223,8 @@ function iccuAffected(model: Model, year: number): boolean {
   return false;
 }
 
-const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "perKm", "newest", "oldest"];
+const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "perKm", "newest", "oldest",
+  "model", "year", "asking", "msrp", "days", "color", "dealer", "pressureCol"];
 
 const CSV_COLS = [
   "model", "year", "trim", "drivetrain", "exteriorColor", "interiorColor",
@@ -345,6 +348,24 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
   const [pressureOnly, setPressureOnly] = useState(initial.pressureOnly);
   const [evapOnly, setEvapOnly] = useState(initial.evapOnly);
   const [sort, setSort] = useState<SortKey>(initial.sort);
+  // Direction for click-sortable columns. Default desc=biggest first for
+  // numeric "good" columns; asc for alphabetical. Toggled by header clicks.
+  const [sortDir, setSortDir] = useState<SortDir>(() => {
+    const sd = searchParams.get("sortDir");
+    return sd === "asc" ? "asc" : "desc";
+  });
+  function clickSort(key: SortKey, defaultDir: SortDir) {
+    if (sort === key) {
+      setSortDir(sortDir === "asc" ? "desc" : "asc");
+    } else {
+      setSort(key);
+      setSortDir(defaultDir);
+    }
+  }
+  function sortIndicator(key: SortKey): string {
+    if (sort !== key) return "";
+    return sortDir === "asc" ? " ▲" : " ▼";
+  }
   const [query, setQuery] = useState<string>(initial.query);
   const [selectedId, setSelectedId] = useState<string | null>(initial.unitId);
   const [favoritesOnly, setFavoritesOnly] = useState(initial.favoritesOnly);
@@ -360,6 +381,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
     if (pressureOnly) p.set("pressure", "1");
     if (evapOnly) p.set("evap", "1");
     if (sort !== "deal") p.set("sort", sort);
+    if (sortDir !== "desc") p.set("sortDir", sortDir);
     if (query.trim()) p.set("q", query.trim());
     if (selectedId) p.set("u", selectedId);
     if (favoritesOnly) p.set("fav", "1");
@@ -389,12 +411,25 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
         return true;
       })
       .sort((a, b) => {
-        if (sort === "deal") return b.dealScore - a.dealScore;
-        if (sort === "otd") return a.otdCad - b.otdCad;
+        // Each comparator returns its "natural desc" ordering (biggest first
+        // for numerics, A→Z for strings). Direction multiplier flips for asc.
+        // Per-column header clicks toggle dir; legacy dropdown sorts use
+        // their natural direction (sortDir defaults to desc).
+        const dirMult = sortDir === "asc" ? -1 : 1;
+        const cmpStr = (sa: string, sb: string) => sa.localeCompare(sb) * -1; // desc default = Z→A; flipped by dirMult to A→Z when asc clicked
+        const cmpNum = (na: number, nb: number) => nb - na; // desc default
+        const cmpNumNullable = (na: number | null | undefined, nb: number | null | undefined) => {
+          if (na == null && nb == null) return 0;
+          if (na == null) return 1;
+          if (nb == null) return -1;
+          return nb - na;
+        };
+        if (sort === "deal") return cmpNum(a.dealScore, b.dealScore) * dirMult;
+        if (sort === "otd") return (a.otdCad - b.otdCad) * dirMult; // legacy: asc-natural
         if (sort === "discount") {
           const da = (a.msrp - a.dealerAskingPrice) / a.msrp;
           const db = (b.msrp - b.dealerAskingPrice) / b.msrp;
-          return db - da;
+          return (db - da) * dirMult;
         }
         if (sort === "perKm") {
           const pa = perKmFor(a);
@@ -402,19 +437,39 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           if (pa == null && pb == null) return 0;
           if (pa == null) return 1;
           if (pb == null) return -1;
-          return pa - pb;
+          return (pa - pb) * dirMult;
         }
-        if (sort === "newest") return new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime();
-        // "oldest" = longest on lot. Sort by daysOnLot desc — matches the
-        // visible column shoppers read (firstSeen is internal-only).
-        // Falls back to firstSeen when daysOnLot is missing on either side.
-        const da = a.daysOnLot ?? null;
-        const db = b.daysOnLot ?? null;
-        if (da != null && db != null) return db - da;
-        if (da == null && db == null) return new Date(a.firstSeen).getTime() - new Date(b.firstSeen).getTime();
-        return da == null ? 1 : -1;
+        if (sort === "newest") return (new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime()) * dirMult;
+        if (sort === "oldest") {
+          const da = a.daysOnLot ?? null;
+          const db = b.daysOnLot ?? null;
+          if (da != null && db != null) return (db - da) * dirMult;
+          if (da == null && db == null) return new Date(a.firstSeen).getTime() - new Date(b.firstSeen).getTime();
+          return da == null ? 1 : -1;
+        }
+        // Click-sortable column keys
+        if (sort === "model") {
+          const r = cmpStr(`${a.model} ${a.trim}`, `${b.model} ${b.trim}`);
+          return r * dirMult;
+        }
+        if (sort === "year") return cmpNum(a.year, b.year) * dirMult;
+        if (sort === "asking") return cmpNum(a.dealerAskingPrice, b.dealerAskingPrice) * dirMult;
+        if (sort === "msrp") return cmpNum(a.msrp, b.msrp) * dirMult;
+        if (sort === "days") return cmpNumNullable(a.daysOnLot, b.daysOnLot) * dirMult;
+        if (sort === "color") return cmpStr(a.exteriorColor ?? "", b.exteriorColor ?? "") * dirMult;
+        if (sort === "dealer") {
+          const da = dealerById.get(a.dealerId);
+          const db = dealerById.get(b.dealerId);
+          return cmpStr(da?.name ?? "", db?.name ?? "") * dirMult;
+        }
+        if (sort === "pressureCol") {
+          const pa = dealerPressureByDealer[a.dealerId] ?? 0;
+          const pb = dealerPressureByDealer[b.dealerId] ?? 0;
+          return cmpNum(pa, pb) * dirMult;
+        }
+        return 0;
       });
-  }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, favoritesOnly, isFavorite, sort, query]);
+  }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, favoritesOnly, isFavorite, sort, sortDir, query]);
 
   const selected = useMemo(
     () => (selectedId ? units.find((u) => u.id === selectedId) ?? null : null),
@@ -596,18 +651,18 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
             <tr>
               <th className="px-2 py-2"></th>
               <th className="px-2 py-2"></th>
-              <th className="px-3 py-2">Deal</th>
-              <th className="px-3 py-2">Model / Trim</th>
-              <th className="px-3 py-2">Year</th>
-              <th className="px-3 py-2">Color</th>
-              <th className="px-3 py-2 text-right"><span title={plainLang("msrp")} className="cursor-help underline decoration-dotted underline-offset-2">MSRP</span></th>
-              <th className="px-3 py-2 text-right"><span title={plainLang("asking")} className="cursor-help underline decoration-dotted underline-offset-2">Asking</span></th>
-              <th className="px-3 py-2 text-right"><span title={plainLang("OTD")} className="cursor-help underline decoration-dotted underline-offset-2">OTD</span></th>
-              <th className="px-3 py-2 text-right" title="OTD ÷ EPA / NRCan range. Lower = more car per dollar.">$/km</th>
-              <th className="px-3 py-2 text-right"><span title={plainLang("daysOnLot")} className="cursor-help underline decoration-dotted underline-offset-2">Days</span></th>
+              <th className="px-3 py-2"><button onClick={() => clickSort("deal", "desc")} className="hover:text-fg uppercase tracking-wide">Deal{sortIndicator("deal")}</button></th>
+              <th className="px-3 py-2"><button onClick={() => clickSort("model", "asc")} className="hover:text-fg uppercase tracking-wide">Model / Trim{sortIndicator("model")}</button></th>
+              <th className="px-3 py-2"><button onClick={() => clickSort("year", "desc")} className="hover:text-fg uppercase tracking-wide">Year{sortIndicator("year")}</button></th>
+              <th className="px-3 py-2"><button onClick={() => clickSort("color", "asc")} className="hover:text-fg uppercase tracking-wide">Color{sortIndicator("color")}</button></th>
+              <th className="px-3 py-2 text-right"><button onClick={() => clickSort("msrp", "desc")} className="hover:text-fg uppercase tracking-wide" title={plainLang("msrp")}>MSRP{sortIndicator("msrp")}</button></th>
+              <th className="px-3 py-2 text-right"><button onClick={() => clickSort("asking", "asc")} className="hover:text-fg uppercase tracking-wide" title={plainLang("asking")}>Asking{sortIndicator("asking")}</button></th>
+              <th className="px-3 py-2 text-right"><button onClick={() => clickSort("otd", "asc")} className="hover:text-fg uppercase tracking-wide" title={plainLang("OTD")}>OTD{sortIndicator("otd")}</button></th>
+              <th className="px-3 py-2 text-right"><button onClick={() => clickSort("perKm", "asc")} className="hover:text-fg uppercase tracking-wide" title="OTD ÷ EPA / NRCan range. Lower = more car per dollar.">$/km{sortIndicator("perKm")}</button></th>
+              <th className="px-3 py-2 text-right"><button onClick={() => clickSort("days", "desc")} className="hover:text-fg uppercase tracking-wide" title={plainLang("daysOnLot")}>Days{sortIndicator("days")}</button></th>
               <th className="px-3 py-2">Status</th>
-              <th className="px-3 py-2">Dealer</th>
-              <th className="px-3 py-2 text-right">Pressure</th>
+              <th className="px-3 py-2"><button onClick={() => clickSort("dealer", "asc")} className="hover:text-fg uppercase tracking-wide">Dealer{sortIndicator("dealer")}</button></th>
+              <th className="px-3 py-2 text-right"><button onClick={() => clickSort("pressureCol", "desc")} className="hover:text-fg uppercase tracking-wide">Pressure{sortIndicator("pressureCol")}</button></th>
               <th className="px-3 py-2"></th>
             </tr>
           </thead>
