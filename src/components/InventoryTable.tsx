@@ -610,7 +610,15 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
               const pressure = dealerPressureByDealer[u.dealerId] ?? 0;
               const isActive = u.id === selectedId;
               const fav = isFavorite(u.id);
-              const stale = daysSince(u.lastSeen) > 7;
+              // Two-tier staleness: >14d = neutral chip ("might be sold"),
+              // >30d = warn chip ("almost certainly gone — verify"). The
+              // 7-day threshold under-counted: AT cron repulses slightly
+              // older listings as "lastSeen" simply because dealers don't
+              // always touch the listing weekly. 14d gives confidence the
+              // data is genuinely cold.
+              const staleDays = daysSince(u.lastSeen);
+              const stale = staleDays > 14;
+              const veryStale = staleDays > 30;
               const noVin = !u.vin;
               return (
                 <tr
@@ -756,12 +764,20 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
                     {isAgingOutgoing(u.year, u.daysOnLot) && (
                       <span className="chip-warn block w-fit">Aging MY{String(u.year).slice(-2)}</span>
                     )}
-                    {stale && (
+                    {stale && !veryStale && (
                       <span
                         className="chip-neutral block w-fit text-fg-subtle"
-                        title={`Last seen ${daysSince(u.lastSeen)} days ago — may have sold. Verify before quoting.`}
+                        title={`Last seen ${staleDays} days ago — may have sold. Verify before quoting.`}
                       >
-                        Stale {daysSince(u.lastSeen)}d
+                        🕒 Stale {staleDays}d
+                      </span>
+                    )}
+                    {veryStale && (
+                      <span
+                        className="chip-warn block w-fit"
+                        title={`Last seen ${staleDays} days ago — almost certainly gone. Verify before quoting.`}
+                      >
+                        ⚠ Very stale {staleDays}d
                       </span>
                     )}
                     {iccuAffected(u.model, u.year) && (

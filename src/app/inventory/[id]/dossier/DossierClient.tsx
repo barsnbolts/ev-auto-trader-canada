@@ -320,6 +320,21 @@ function HeatPumpChip({ hasHeatPump }: { hasHeatPump?: boolean | null }) {
   );
 }
 
+// Mom-mode "8d ago" rendering for an ISO date. Falls back to raw string
+// if parse fails. Cuts the date-fns dep — this is small enough.
+function formatLastSeen(iso: string): string {
+  const d = new Date(iso + (iso.includes("T") ? "" : "T00:00:00"));
+  if (Number.isNaN(d.getTime())) return iso;
+  const ms = Date.now() - d.getTime();
+  const days = Math.max(0, Math.floor(ms / 86_400_000));
+  if (days === 0) return "today";
+  if (days === 1) return "yesterday";
+  if (days < 14) return `${days} days ago`;
+  const weeks = Math.floor(days / 7);
+  if (weeks < 8) return `${weeks} weeks ago`;
+  return `${Math.floor(days / 30)} months ago`;
+}
+
 function Header({ unit, dealer, spec }: { unit: ScoredUnit; dealer: { name: string; city: string; province: string; phone?: string }; spec?: Spec }) {
   return (
     <header className="border-b border-border pb-4">
@@ -328,6 +343,20 @@ function Header({ unit, dealer, spec }: { unit: ScoredUnit; dealer: { name: stri
         {unit.exteriorColor} / {unit.interiorColor}
         {unit.vin && ` · VIN ${unit.vin}`}
         {unit.stockNumber && ` · Stock #${unit.stockNumber}`}
+      </div>
+      {/* Per-listing freshness stamp. Mirrors the InventoryTable stale chip
+          but verbose — mom-mode prefers "last confirmed Apr 28 (8d ago)"
+          over a pill. Also surfaces firstSeen so user can intuit how long
+          this car has been on the market vs how recently we re-verified. */}
+      <div className="mt-1 text-xs text-fg-subtle">
+        {unit.lastSeen && (
+          <span title={`Last refresh observed this listing on ${unit.lastSeen}`}>
+            Last seen {formatLastSeen(unit.lastSeen)}
+          </span>
+        )}
+        {unit.firstSeen && unit.firstSeen !== unit.lastSeen && (
+          <span> · first seen {unit.firstSeen}</span>
+        )}
       </div>
       {spec !== undefined && <HeatPumpChip hasHeatPump={readHeatPump(spec.hasHeatPump)} />}
       <div className="mt-2 text-sm">
