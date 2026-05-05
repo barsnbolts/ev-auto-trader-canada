@@ -33,7 +33,16 @@ export default function MultiSelectFilter<T extends string | number>({
   triggerClassName,
 }: Props<T>) {
   const [open, setOpen] = useState(false);
+  const [filter, setFilter] = useState("");
   const ref = useRef<HTMLDivElement>(null);
+
+  // Show inline filter input when option count justifies it. Helps with
+  // the trim list (15+ trims after model selection narrows it).
+  const showFilter = options.length > 12;
+  const visibleOptions =
+    filter.trim() === ""
+      ? options
+      : options.filter((o) => o.label.toLowerCase().includes(filter.toLowerCase()));
 
   useEffect(() => {
     if (!open) return;
@@ -82,6 +91,16 @@ export default function MultiSelectFilter<T extends string | number>({
       </button>
       {open && (
         <div className="absolute z-30 mt-1 min-w-[12rem] max-h-72 overflow-auto bg-bg-subtle border border-border rounded shadow-lg p-2 text-xs">
+          {showFilter && (
+            <input
+              type="text"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              placeholder={`Filter ${label.toLowerCase()}…`}
+              className="w-full mb-1 px-2 py-1 text-xs"
+              autoFocus
+            />
+          )}
           {selected.size > 0 && (
             <button
               type="button"
@@ -91,10 +110,10 @@ export default function MultiSelectFilter<T extends string | number>({
               Clear all
             </button>
           )}
-          {options.length === 0 && (
-            <div className="px-2 py-1 text-fg-subtle italic">No options</div>
+          {visibleOptions.length === 0 && (
+            <div className="px-2 py-1 text-fg-subtle italic">No matches</div>
           )}
-          {options.map((o) => {
+          {visibleOptions.map((o) => {
             const checked = selected.has(o.value);
             return (
               <label

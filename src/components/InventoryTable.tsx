@@ -434,11 +434,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
 
   // Trim list is dynamic — derived from units passing the OTHER filters so
   // the dropdown stays manageable as model/year selections narrow it.
+  // Filters out "Trim unknown (...)" sentinels because they're per-unit
+  // unique strings (no value as filter targets).
   const availableTrims = useMemo(() => {
     const s = new Set<string>();
     for (const u of units) {
       if (models.size > 0 && !models.has(u.model)) continue;
       if (years.size > 0 && !years.has(u.year)) continue;
+      if (u.trim.startsWith("Trim unknown")) continue;
       s.add(u.trim);
     }
     return [...s].sort();
