@@ -196,7 +196,7 @@ type Props = {
 };
 
 type SortKey = "deal" | "otd" | "discount" | "perKm" | "newest" | "oldest"
-  | "model" | "year" | "asking" | "msrp" | "days" | "color" | "dealer" | "pressureCol";
+  | "model" | "year" | "asking" | "msrp" | "days" | "color" | "dealer" | "pressureCol" | "status";
 type SortDir = "asc" | "desc";
 
 const SORTS: { key: SortKey; label: string }[] = [
@@ -225,7 +225,14 @@ function iccuAffected(model: Model, year: number): boolean {
 }
 
 const VALID_SORTS: SortKey[] = ["deal", "otd", "discount", "perKm", "newest", "oldest",
-  "model", "year", "asking", "msrp", "days", "color", "dealer", "pressureCol"];
+  "model", "year", "asking", "msrp", "days", "color", "dealer", "pressureCol", "status"];
+
+// Status sort order: most actionable first. "in_stock" = ready to deal,
+// then demo/loaner (negotiable), then in_transit (forces a wait),
+// sold_pending last (basically gone).
+const STATUS_RANK: Record<string, number> = {
+  in_stock: 0, demo: 1, loaner: 2, in_transit: 3, sold_pending: 4,
+};
 
 const CSV_COLS = [
   "model", "year", "trim", "drivetrain", "exteriorColor", "interiorColor",
@@ -511,6 +518,13 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           const db = dealerById.get(b.dealerId);
           return cmpStr(da?.name ?? "", db?.name ?? "") * dirMult;
         }
+        if (sort === "status") {
+          // STATUS_RANK orders most-actionable-first as natural "asc" — so
+          // sortDir asc = in_stock at top. Flip dirMult by * -1 to invert.
+          const ra = STATUS_RANK[a.status] ?? 99;
+          const rb = STATUS_RANK[b.status] ?? 99;
+          return (ra - rb) * dirMult * -1;
+        }
         if (sort === "pressureCol") {
           const pa = dealerPressureByDealer[a.dealerId] ?? 0;
           const pb = dealerPressureByDealer[b.dealerId] ?? 0;
@@ -728,7 +742,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
               <th className="px-3 py-2 text-right"><button onClick={() => clickSort("otd", "asc")} className="hover:text-fg uppercase tracking-wide" title={plainLang("OTD")}>OTD{sortIndicator("otd")}</button></th>
               <th className="px-3 py-2 text-right"><button onClick={() => clickSort("perKm", "asc")} className="hover:text-fg uppercase tracking-wide" title="OTD ÷ EPA / NRCan range. Lower = more car per dollar.">$/km{sortIndicator("perKm")}</button></th>
               <th className="px-3 py-2 text-right"><button onClick={() => clickSort("days", "desc")} className="hover:text-fg uppercase tracking-wide" title={plainLang("daysOnLot")}>Days{sortIndicator("days")}</button></th>
-              <th className="px-3 py-2">Status</th>
+              <th className="px-3 py-2"><button onClick={() => clickSort("status", "asc")} className="hover:text-fg uppercase tracking-wide" title="In stock first, then demo / loaner / in-transit / sold pending.">Status{sortIndicator("status")}</button></th>
               <th className="px-3 py-2"><button onClick={() => clickSort("dealer", "asc")} className="hover:text-fg uppercase tracking-wide">Dealer{sortIndicator("dealer")}</button></th>
               <th className="px-3 py-2 text-right"><button onClick={() => clickSort("pressureCol", "desc")} className="hover:text-fg uppercase tracking-wide">Pressure{sortIndicator("pressureCol")}</button></th>
               <th className="px-3 py-2"></th>
