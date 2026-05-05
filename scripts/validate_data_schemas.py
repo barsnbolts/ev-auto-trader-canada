@@ -312,6 +312,10 @@ def check_cross_references() -> None:
     # 2. Spec join — only flag if specs.json is non-empty (skips dev-empty case)
     # Trims starting with "Trim unknown" are an acknowledged parser-gap state;
     # don't fail predeploy on them — they're tracked in TODO_INDEX as data hygiene.
+    # Units whose msrpSource is "default-table" or "asking-fallback" intentionally
+    # bypass specs.json (build_units consulted oem-pricing.json or used asking
+    # price). Don't fail spec-join on those — the data quality signal is already
+    # encoded in msrpSource downstream.
     if spec_keys:
         misses = 0
         for i, u in enumerate(units):
@@ -319,6 +323,8 @@ def check_cross_references() -> None:
                 continue
             trim = u.get("trim", "")
             if isinstance(trim, str) and trim.startswith("Trim unknown"):
+                continue
+            if u.get("msrpSource") in ("default-table", "asking-fallback"):
                 continue
             key = (
                 u.get("model"),

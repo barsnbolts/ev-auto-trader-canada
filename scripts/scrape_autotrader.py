@@ -29,6 +29,15 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Optional: emit per-run telemetry to data/_scraper_metrics.jsonl so
+# scripts/scraper_health.py can roll up vin_pct, error rate, and flag
+# regressions across days.
+try:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from lib_scrape_metrics import record_run  # type: ignore
+except Exception:
+    record_run = None  # silently skip if helper missing
+
 # Imperva on autotrader.ca blocks bare urllib (TLS fingerprint). curl_cffi
 # impersonates Chrome's BoringSSL ja3 fingerprint, gets through cleanly
 # after a single warm-up request. Free dependency, MIT license.
@@ -236,6 +245,7 @@ def _bump_failure_flag():
 
 
 def main() -> int:
+    started = time.time()
     # 1. Load existing raw for caching
     existing: dict[str, dict] = {}
     if OUT.exists():
@@ -350,6 +360,26 @@ def main() -> int:
     # 8. Clear failure flag on success
     if FAILURE_FLAG.exists():
         FAILURE_FLAG.unlink()
+
+    # 9. Telemetry — feed scraper_health.py rolling stats.
+    if record_run is not None:
+        active_out = [r for r in out if r.get("availability") == "active"]
+        with_vin = [r for r in active_out if r.get("vin")]
+        try:
+            record_run(
+                source="autotrader",
+                fetched=len(out),
+                unique=len({r.get("crossReferenceId") for r in out if r.get("crossReferenceId")}),
+                vin_pct=round(100 * len(with_vin) / max(1, len(active_out)), 1),
+                vin_checksum_ok_pct=100.0,  # AT VINs are first-party; trust upstream
+                errors=page_failures,
+                pages_walked=sum(1 for _ in SEARCH_URLS) * 5,  # rough estimate
+                duration_s=round(time.time() - started, 1),
+                max_pages_hit=False,
+                notes=f"new_or_changed={len(new_or_changed)} persistent={len(persistent)} removed={len(removed)} deferred={deferred}",
+            )
+        except Exception as e:
+            print(f"WARN telemetry failed: {e}", file=sys.stderr)
 
     return 0
 
