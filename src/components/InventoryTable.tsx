@@ -405,7 +405,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           return pa - pb;
         }
         if (sort === "newest") return new Date(b.firstSeen).getTime() - new Date(a.firstSeen).getTime();
-        return new Date(a.firstSeen).getTime() - new Date(b.firstSeen).getTime();
+        // "oldest" = longest on lot. Sort by daysOnLot desc — matches the
+        // visible column shoppers read (firstSeen is internal-only).
+        // Falls back to firstSeen when daysOnLot is missing on either side.
+        const da = a.daysOnLot ?? null;
+        const db = b.daysOnLot ?? null;
+        if (da != null && db != null) return db - da;
+        if (da == null && db == null) return new Date(a.firstSeen).getTime() - new Date(b.firstSeen).getTime();
+        return da == null ? 1 : -1;
       });
   }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, favoritesOnly, isFavorite, sort, query]);
 
