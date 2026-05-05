@@ -73,6 +73,33 @@ export function lookupCrossSource(args: {
   return FALLBACK_INDEX.get(key) ?? null;
 }
 
+/**
+ * Mirrors scripts/merge_cross_sources.normalize_model — must stay in sync.
+ * Strips spaces / hyphens / underscores, then maps known aliases (e.g.
+ * "ioniq 5" → "ioniq5", "niro" → "niroev"). Without this, a Kijiji-side
+ * model string of "Ioniq 5" wouldn't match an AT "Ioniq5" via fallbackKey.
+ *
+ * AUDIT FINDING (2026-05-05): the previous implementation just lowercased,
+ * which silently misaligned with the Python normalizer. Pinned by spec
+ * `crossListings.test.ts > makeFallbackKey > model normalization`.
+ */
+export function normalizeModelForFallback(m: string): string {
+  const s = m.trim().toLowerCase().replace(/[\s\-_]/g, "");
+  const aliases: Record<string, string> = {
+    ioniq5: "ioniq5",
+    ioniq6: "ioniq6",
+    ioniq9: "ioniq9",
+    ev6: "ev6",
+    ev9: "ev9",
+    niroev: "niroev",
+    niro: "niroev",
+    kona: "konaev",
+    konaev: "konaev",
+    konaelectric: "konaev",
+  };
+  return aliases[s] ?? s;
+}
+
 export function makeFallbackKey(args: {
   year: number;
   make: string;
@@ -90,8 +117,8 @@ export function makeFallbackKey(args: {
   void args.km;
   return [
     args.year,
-    args.make.toLowerCase(),
-    args.model.toLowerCase(),
+    args.make.trim().toLowerCase(),
+    normalizeModelForFallback(args.model),
   ].join("|");
 }
 

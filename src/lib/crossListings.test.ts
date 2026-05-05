@@ -20,7 +20,7 @@ const baseListing = (over: Partial<CrossListing>): CrossListing => ({
 describe("makeFallbackKey", () => {
   // Post-I0b-2 (commit 68c9e56b): trim + km dropped from join key.
   // See docs/CROSS_LISTINGS.md for the format-mismatch rationale.
-  it("lowercases make/model and ignores trim/km", () => {
+  it("lowercases make/normalizes model and ignores trim/km", () => {
     const k = makeFallbackKey({
       year: 2025,
       make: "Hyundai",
@@ -28,7 +28,9 @@ describe("makeFallbackKey", () => {
       trim: "Preferred Long Range",
       km: 22000,
     });
-    expect(k).toBe("2025|hyundai|ioniq 5");
+    // Per normalizeModelForFallback: "Ioniq 5" → "ioniq5" (whitespace
+    // stripped, alias-mapped). Mirrors Python normalize_model.
+    expect(k).toBe("2025|hyundai|ioniq5");
   });
 
   it("ignores km bucketing entirely (key invariant under km change)", () => {
@@ -47,6 +49,22 @@ describe("makeFallbackKey", () => {
     const k = makeFallbackKey({ year: 2024, make: "Kia", model: "EV6" });
     expect(k).toBe("2024|kia|ev6");
     expect(k.split("|")).toHaveLength(3);
+  });
+
+  it("normalizes model whitespace + aliases (mirrors Python normalize_model)", () => {
+    // Python emits "ioniq5" for both "IONIQ 5" (AT) and "ioniq_5" (Kijiji).
+    // TS must match — otherwise cross-source chips silently miss.
+    const at = makeFallbackKey({ year: 2025, make: "Hyundai", model: "IONIQ 5" });
+    const kij = makeFallbackKey({ year: 2025, make: "Hyundai", model: "ioniq_5" });
+    const cs = makeFallbackKey({ year: 2025, make: "Hyundai", model: "Ioniq-5" });
+    expect(at).toBe("2025|hyundai|ioniq5");
+    expect(at).toBe(kij);
+    expect(at).toBe(cs);
+    // "Niro" alias resolves to "niroev"
+    const niroShort = makeFallbackKey({ year: 2025, make: "Kia", model: "Niro" });
+    const niroFull = makeFallbackKey({ year: 2025, make: "Kia", model: "Niro EV" });
+    expect(niroShort).toBe("2025|kia|niroev");
+    expect(niroShort).toBe(niroFull);
   });
 });
 

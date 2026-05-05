@@ -80,10 +80,13 @@ SEARCH_URLS = [
 
 PAGE_SAFETY_CAP = 25  # AT shows max ~7-15 pages per query in practice
 # Cap detail-fetches per run so bootstrap doesn't run multi-hour. Listings
-# beyond the cap stay un-VIN-enriched until the next sweep. ~250 fetches
-# at 2-4s sleep ≈ 8-15 min for the detail loop alone, plus ~3 min for
-# search-page enumeration. Total cron budget: ~12-20 min comfortable.
-MAX_DETAIL_FETCHES_PER_RUN = 250
+# beyond the cap stay un-VIN-enriched until the next sweep. ~600 fetches
+# at 2-4s sleep ≈ 20-40 min for the detail loop alone, plus ~5 min for
+# search-page enumeration. Total cron budget: ~30-50 min — fine for 7am
+# off-peak window. With 2k-listing backlog, this catches up in ~4 days
+# instead of 8. Bumped from 250 after audit findings (vin_pct stuck at
+# 12% on first sweep was unhelpful for cross-source merge).
+MAX_DETAIL_FETCHES_PER_RUN = 600
 
 
 def _ua() -> str:
@@ -208,6 +211,13 @@ def normalize_listing(search_entry: dict, detail: dict | None) -> dict:
         # we re-fetch the detail page next sweep.
         dealer_name = f"AT Seller {seller.get('id', 'unknown')}"
 
+    # Trim sanity: AT's modelVersionInput sometimes contains dealer addenda
+    # ("GT ! Free Winter Tires on R", "Land AWD | Demo", "PML:METAL"). These
+    # break the (model,year,trim) spec lookup downstream. Cut at the first
+    # !, |, :, , or ; character — leaves the canonical trim intact.
+    raw_trim = veh.get("modelVersionInput") or ""
+    clean_trim = re.split(r"[!|:,;]", raw_trim, maxsplit=1)[0].strip()
+
     return {
         "id": search_entry.get("id"),
         "crossReferenceId": search_entry.get("crossReferenceId"),
@@ -215,7 +225,7 @@ def normalize_listing(search_entry: dict, detail: dict | None) -> dict:
         "year": veh.get("modelYear"),
         "make": veh.get("make"),
         "model": veh.get("model"),
-        "trim": veh.get("modelVersionInput"),
+        "trim": clean_trim or None,
         "mileageKm": mileage,
         "priceCad": price_cad,
         "fuel": veh.get("fuel"),

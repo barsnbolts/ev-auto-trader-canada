@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 # Daily EV Auto Trader Canada refresh.
-# Runs free SSR scrape → rebuild units → snapshot → predeploy → commit + push
-# to working branch. Per project rule: never push to main from cron — operator
-# merges to main via manual PR after weekly review.
+# Runs free AT scrape → rebuild units → Kijiji + Leasebusters → cross-merge
+# → snapshot → days-on-market → predeploy → commit + push to main.
 #
-# Triggered by mcp__scheduled-tasks at 11:00 UTC = 7am ET DST.
+# NOTE: this script DOES push to main directly (BRANCH=main below). The
+# original branch-protection plan from V5 was relaxed once predeploy gates
+# (typecheck + thermal + schema + 100+ vitest specs + next build) gave
+# enough confidence. If you want the cron to land on a separate branch
+# instead, change BRANCH below and add the merge step in the operator runbook.
+#
+# Triggered by launchd (com.evautotrader.refresh.plist) at 11:00 UTC = 7am ET DST.
 # Log file at logs/cron.log (gitignored). Tail with: tail -30 logs/cron.log
 set -euo pipefail
 
@@ -31,11 +36,6 @@ source "$REPO/.venv/bin/activate"
 # Pull working-branch updates (rebase to handle out-of-band commits cleanly).
 git fetch origin "$BRANCH" 2>&1 || { echo "FETCH FAIL"; exit 1; }
 git rebase "origin/$BRANCH" 2>&1 || { echo "REBASE FAIL — manual intervention"; exit 1; }
-
-# Free SSR scrape (re-fetches AutoTrader listings; idempotent).
-if [ -x scripts/scrape_search_json.py ]; then
-  python3 scripts/scrape_search_json.py 2>&1 || echo "SCRAPE WARN — continuing with existing data"
-fi
 
 # AT __NEXT_DATA__ scraper (free path, primary). Writes data/_autotrader_raw.json.
 # Exit 2 = consecutive free-path failures → trigger Apify fallback (TODO I0e-bis).

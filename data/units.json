@@ -23878,28 +23878,6 @@
     "daysOnLotSource": "snapshot-diff"
   },
   {
-    "id": "u-at-24a43b6f",
-    "model": "EV9",
-    "year": 2026,
-    "trim": "GT-Line AWD",
-    "drivetrain": "AWD",
-    "exteriorColor": "Grey",
-    "interiorColor": "Unknown",
-    "msrp": 78995,
-    "msrpSource": "spec-lookup",
-    "freightPdi": 1995,
-    "dealerAskingPrice": 407,
-    "status": "in_stock",
-    "firstSeen": "2026-05-05",
-    "lastSeen": "2026-05-05",
-    "dealerId": "kia-at-seller-47940921",
-    "listingUrl": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-grey-c0af22b8-60c6-41d4-a9b0-57b445e85375",
-    "notes": "Auto-imported from AutoTrader 2026-05-05. Title: 2026 Kia EV9 Land w-GT-Line Package AWD",
-    "daysOnLot": 0,
-    "daysOnLotFirstSeen": "2026-05-05",
-    "daysOnLotSource": "snapshot-diff"
-  },
-  {
     "id": "u-at-7835b39c",
     "model": "EV9",
     "year": 2026,

@@ -61,6 +61,14 @@ def translate_raw_to_legacy(raw_entries: list) -> list:
             continue
         if not r.get("url") or not r.get("priceCad") or not r.get("year"):
             continue
+        # Sanity-floor: AT occasionally surfaces bi-weekly lease or service-
+        # package prices in the main price field (we've seen $235 / $407 /
+        # $1398 entries for $50-80k vehicles). Drop anything implausibly
+        # low — no real EV is sold for under $10k. Keeps OTD math honest
+        # (negative OTDs were leaking when stacked incentives outsized a
+        # bogus $407 transaction value).
+        if r["priceCad"] < 10_000:
+            continue
         # Synthesize the "title" string from year+make+model+trim — matches
         # what AT's old card title used to look like, so match_trim()
         # heuristics work unchanged.
