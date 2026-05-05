@@ -17,6 +17,7 @@ import { StatusChip } from "./StatusChip";
 import { UnitDrawer } from "./UnitDrawer";
 import { MiniChargingSparkline } from "./MiniChargingSparkline";
 import { CrossSourceChip } from "./CrossSourceChip";
+import MultiSelectFilter from "./MultiSelectFilter";
 import { plainLang } from "@/lib/plainLang";
 import { useTemp } from "@/lib/tempContext";
 import vehicleImages from "../../data/vehicle-images.json";
@@ -252,8 +253,9 @@ function modelBreakdown(units: ScoredUnit[]): string {
 }
 
 function activeFilterChips(s: {
-  model: Model | "all";
-  year: number | "all";
+  models: Set<Model>;
+  years: Set<number>;
+  trims: Set<string>;
   drivetrain: "RWD" | "AWD" | "all";
   region: "ggh" | "on" | "all";
   maxPrice: number | "";
@@ -262,8 +264,9 @@ function activeFilterChips(s: {
   query: string;
 }): { key: string; label: string }[] {
   const out: { key: string; label: string }[] = [];
-  if (s.model !== "all") out.push({ key: "model", label: MODEL_LABEL[s.model] });
-  if (s.year !== "all") out.push({ key: "year", label: `MY ${s.year}` });
+  for (const m of s.models) out.push({ key: `model:${m}`, label: MODEL_LABEL[m] });
+  for (const y of s.years) out.push({ key: `year:${y}`, label: `MY ${y}` });
+  for (const t of s.trims) out.push({ key: `trim:${t}`, label: t });
   if (s.drivetrain !== "all") out.push({ key: "drivetrain", label: s.drivetrain });
   if (s.region !== "all") out.push({ key: "region", label: s.region === "ggh" ? "Greater Golden Horseshoe" : "All Ontario" });
   if (s.maxPrice !== "") out.push({ key: "maxPrice", label: `≤ $${s.maxPrice.toLocaleString("en-CA")}` });
@@ -313,8 +316,13 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
   const searchParams = useSearchParams();
 
   const initial = useMemo(() => {
-    const m = searchParams.get("model");
-    const y = searchParams.get("year");
+    // Multi-select params (new): comma-separated lists.
+    // Backwards compat: also read legacy singular ?model= and ?year= params.
+    const ms = searchParams.get("models");
+    const ys = searchParams.get("years");
+    const ts = searchParams.get("trims");
+    const legacyM = searchParams.get("model");
+    const legacyY = searchParams.get("year");
     const dt = searchParams.get("dt");
     const rg = searchParams.get("region");
     const mp = searchParams.get("maxOtd");
@@ -324,9 +332,35 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
     const q = searchParams.get("q");
     const uid = searchParams.get("u");
     const fav = searchParams.get("fav");
+
+    const modelsSet = new Set<Model>();
+    if (ms) {
+      for (const v of ms.split(",").filter(Boolean)) {
+        if ((MODELS as readonly string[]).includes(v)) modelsSet.add(v as Model);
+      }
+    } else if (legacyM && (MODELS as readonly string[]).includes(legacyM)) {
+      modelsSet.add(legacyM as Model);
+    }
+
+    const yearsSet = new Set<number>();
+    if (ys) {
+      for (const v of ys.split(",").filter(Boolean)) {
+        const n = Number(v);
+        if ((SUPPORTED_YEARS as readonly number[]).includes(n)) yearsSet.add(n);
+      }
+    } else if (legacyY && SUPPORTED_YEARS.map(String).includes(legacyY)) {
+      yearsSet.add(Number(legacyY));
+    }
+
+    const trimsSet = new Set<string>();
+    if (ts) {
+      for (const v of ts.split(",").filter(Boolean)) trimsSet.add(v);
+    }
+
     return {
-      model: (m && (MODELS as readonly string[]).includes(m) ? (m as Model) : "all") as Model | "all",
-      year: (y && SUPPORTED_YEARS.map(String).includes(y) ? Number(y) : "all") as number | "all",
+      models: modelsSet,
+      years: yearsSet,
+      trims: trimsSet,
       drivetrain: (dt === "RWD" || dt === "AWD" ? dt : "all") as "RWD" | "AWD" | "all",
       region: (rg === "ggh" || rg === "on" ? rg : "all") as "ggh" | "on" | "all",
       maxPrice: (mp && !Number.isNaN(Number(mp)) ? Number(mp) : "") as number | "",
@@ -340,8 +374,9 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [model, setModel] = useState<Model | "all">(initial.model);
-  const [year, setYear] = useState<number | "all">(initial.year);
+  const [models, setModels] = useState<Set<Model>>(initial.models);
+  const [years, setYears] = useState<Set<number>>(initial.years);
+  const [trims, setTrims] = useState<Set<string>>(initial.trims);
   const [drivetrain, setDrivetrain] = useState<"RWD" | "AWD" | "all">(initial.drivetrain);
   const [region, setRegion] = useState<"ggh" | "on" | "all">(initial.region);
   const [maxPrice, setMaxPrice] = useState<number | "">(initial.maxPrice);
@@ -373,8 +408,9 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
 
   useEffect(() => {
     const p = new URLSearchParams();
-    if (model !== "all") p.set("model", model);
-    if (year !== "all") p.set("year", String(year));
+    if (models.size > 0) p.set("models", [...models].join(","));
+    if (years.size > 0) p.set("years", [...years].join(","));
+    if (trims.size > 0) p.set("trims", [...trims].join(","));
     if (drivetrain !== "all") p.set("dt", drivetrain);
     if (region !== "all") p.set("region", region);
     if (maxPrice !== "") p.set("maxOtd", String(maxPrice));
@@ -387,14 +423,27 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
     if (favoritesOnly) p.set("fav", "1");
     const qs = p.toString();
     router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
-  }, [model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, sort, query, selectedId, favoritesOnly, pathname, router]);
+  }, [models, years, trims, drivetrain, region, maxPrice, pressureOnly, evapOnly, sort, sortDir, query, selectedId, favoritesOnly, pathname, router]);
+
+  // Trim list is dynamic — derived from units passing the OTHER filters so
+  // the dropdown stays manageable as model/year selections narrow it.
+  const availableTrims = useMemo(() => {
+    const s = new Set<string>();
+    for (const u of units) {
+      if (models.size > 0 && !models.has(u.model)) continue;
+      if (years.size > 0 && !years.has(u.year)) continue;
+      s.add(u.trim);
+    }
+    return [...s].sort();
+  }, [units, models, years]);
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return units
       .filter((u) => {
-        if (model !== "all" && u.model !== model) return false;
-        if (year !== "all" && u.year !== year) return false;
+        if (models.size > 0 && !models.has(u.model)) return false;
+        if (years.size > 0 && !years.has(u.year)) return false;
+        if (trims.size > 0 && !trims.has(u.trim)) return false;
         if (drivetrain !== "all" && u.drivetrain !== drivetrain) return false;
         const dealer = dealerById.get(u.dealerId);
         if (!dealer) return false;
@@ -469,7 +518,7 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
         }
         return 0;
       });
-  }, [units, dealerById, dealerPressureByDealer, model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, favoritesOnly, isFavorite, sort, sortDir, query]);
+  }, [units, dealerById, dealerPressureByDealer, models, years, trims, drivetrain, region, maxPrice, pressureOnly, evapOnly, favoritesOnly, isFavorite, sort, sortDir, query]);
 
   const selected = useMemo(
     () => (selectedId ? units.find((u) => u.id === selectedId) ?? null : null),
@@ -500,26 +549,24 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           placeholder="Search trim, color, dealer, VIN…"
           className="px-2 py-1.5 w-56"
         />
-        <select
-          value={model}
-          onChange={(e) => setModel(e.target.value as Model | "all")}
-          className="px-2 py-1.5"
-        >
-          <option value="all">All models</option>
-          {MODELS.map((m) => (
-            <option key={m} value={m}>{MODEL_LABEL[m]}</option>
-          ))}
-        </select>
-        <select
-          value={year}
-          onChange={(e) => setYear(e.target.value === "all" ? "all" : Number(e.target.value))}
-          className="px-2 py-1.5"
-        >
-          <option value="all">All years</option>
-          <option value={2024}>2024</option>
-          <option value={2025}>2025</option>
-          <option value={2026}>2026</option>
-        </select>
+        <MultiSelectFilter
+          label="Models"
+          options={MODELS.map((m) => ({ value: m, label: MODEL_LABEL[m] }))}
+          selected={models}
+          onChange={setModels}
+        />
+        <MultiSelectFilter
+          label="Years"
+          options={SUPPORTED_YEARS.map((y) => ({ value: y, label: String(y) }))}
+          selected={years}
+          onChange={setYears}
+        />
+        <MultiSelectFilter
+          label="Trims"
+          options={availableTrims.map((t) => ({ value: t, label: t }))}
+          selected={trims}
+          onChange={setTrims}
+        />
         <select
           value={drivetrain}
           onChange={(e) => setDrivetrain(e.target.value as "RWD" | "AWD" | "all")}
@@ -610,17 +657,24 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           Export CSV
         </button>
       </div>
-      {activeFilterChips({ model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, query }).length > 0 && (
+      {activeFilterChips({ models, years, trims, drivetrain, region, maxPrice, pressureOnly, evapOnly, query }).length > 0 && (
         <div className="px-3 py-2 border-b border-border flex flex-wrap items-center gap-1.5 text-xxs">
           <span className="text-fg-subtle uppercase tracking-wide">Active:</span>
-          {activeFilterChips({ model, year, drivetrain, region, maxPrice, pressureOnly, evapOnly, query }).map((c) => (
+          {activeFilterChips({ models, years, trims, drivetrain, region, maxPrice, pressureOnly, evapOnly, query }).map((c) => (
             <button
               key={c.key}
               type="button"
               onClick={() => {
-                if (c.key === "model") setModel("all");
-                else if (c.key === "year") setYear("all");
-                else if (c.key === "drivetrain") setDrivetrain("all");
+                if (c.key.startsWith("model:")) {
+                  const v = c.key.slice(6) as Model;
+                  const next = new Set(models); next.delete(v); setModels(next);
+                } else if (c.key.startsWith("year:")) {
+                  const v = Number(c.key.slice(5));
+                  const next = new Set(years); next.delete(v); setYears(next);
+                } else if (c.key.startsWith("trim:")) {
+                  const v = c.key.slice(5);
+                  const next = new Set(trims); next.delete(v); setTrims(next);
+                } else if (c.key === "drivetrain") setDrivetrain("all");
                 else if (c.key === "region") setRegion("ggh");
                 else if (c.key === "maxPrice") setMaxPrice("");
                 else if (c.key === "pressureOnly") setPressureOnly(false);
@@ -635,7 +689,8 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
           <button
             type="button"
             onClick={() => {
-              setModel("all"); setYear("all"); setDrivetrain("all"); setRegion("ggh");
+              setModels(new Set()); setYears(new Set()); setTrims(new Set());
+              setDrivetrain("all"); setRegion("ggh");
               setMaxPrice(""); setPressureOnly(false); setEvapOnly(false); setQuery("");
             }}
             className="text-fg-muted hover:text-fg ml-1 underline"
