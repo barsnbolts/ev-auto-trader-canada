@@ -17,18 +17,32 @@ plan. STATUS comment is explicit: "not runnable yet." The skeleton
 documented a Chrome-MCP-with-Ian's-FB-login path that we're now
 abandoning in favor of the actor.
 
-## Architecture decision (FREE PATH PRIMARY per user 2026-05-05)
+## Architecture decision (REVISED post-F2 probe — was free path, now NOT VIABLE as written)
 
-**Primary: Chrome MCP GraphQL probe + Python replay** with Ian's
-existing FB session. $0/mo. Capture
-`CometMarketplaceSearchContentContainerQuery` + auth tokens once,
-replay weekly from cron until cookies expire (~30-90 days typical).
-On expiry: re-probe.
+**Original "Chrome MCP probe + Python replay" approach is NOT
+VIABLE.** F2 probe found that `mcp__Claude_in_Chrome__javascript_tool`
+calls to `www.facebook.com` return `permission_required`. The
+GraphQL capture-hook pattern (install `window.fetch` monkey-patch
+via JS exec) is therefore blocked. See
+`FB_PROBE_CAPTURE_2026-05-04.md` for the F2 findings.
 
-**Fallback: `apify/facebook-marketplace-scraper` Apify actor**
-(~$5-6/1k listings). Official actor, updated 2026-05-05, 99.2 %
-success rate. Use when the free replayer hits 401 (credentials
-expired) AND a re-probe can't be scheduled before the next sweep.
+**Recommendation: defer FB to TIER I2** (bonus sources). Ship
+AT + Kijiji + dealers + promos first; revisit FB after I0 ships.
+AT + Kijiji together cover ~95 % of dealer-level Hyundai/Kia EV
+inventory in Canada — FB's marginal value is private-seller used
+cars below market, narrower-but-real but not blocking.
+
+**When/if FB is wanted, three options exist** (full discussion in
+F2 capture doc):
+- **Option A**: `apify/facebook-marketplace-scraper` (~$6-7/mo)
+  — easiest, paid.
+- **Option B**: Chrome-MCP-driven runtime scrape using `find` tool
+  (no JS exec needed) — free but needs Mac+Chrome+MCP at cron time.
+- **Option C**: Manual periodic capture page (~5min Ian-time/week)
+  — free, low-friction tech, high user-friction.
+
+**User-OK gate** required before shipping any of A/B/C. See F2 doc
+for the question to ask.
 
 **Rejected alternatives** (per R1):
 - `kyleronayne/marketplace-api` — abandoned pattern.

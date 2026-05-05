@@ -19,11 +19,16 @@ but does not exist. This is the missing scraper.
 
 ## Architecture decision (FREE PATH PRIMARY per user 2026-05-05)
 
-**Primary: build a `window['ngVdpModel']` HTML-extract parser
-ourselves.** Chrome MCP probe confirms the hydration-object shape on
-one page → Python `requests.get()` + regex extractor for daily sweep.
-$0/mo. Uses Ian's paired Browser 1 for the one-time probe; production
-sweeps run as plain `requests.get()` from cron.
+**SUPERSEDED — see `AT_PROBE_CAPTURE_2026-05-04.md` for actual probe
+findings.** The `window['ngVdpModel']` premise was wrong. AT.ca was
+re-architected to standard Next.js with all data in `__NEXT_DATA__`
+SSR JSON. The replayer parses that instead of `ngVdpModel` regex.
+
+**Primary: parse `__NEXT_DATA__` JSON from search-results + detail
+pages.** $0/mo. Plain `requests.get()` + regex extract `<script
+id="__NEXT_DATA__">...</script>` + `json.loads()`. No Imperva
+challenges hit during F1 probe; site is friendlier than the audit
+expected.
 
 **Fallback A: `fayoussef/autotrader-canada` Apify actor** ($1.00/1k
 listings, "Per-Results" variant). Already does exactly this
