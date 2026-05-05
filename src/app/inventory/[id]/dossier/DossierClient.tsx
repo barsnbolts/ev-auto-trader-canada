@@ -20,6 +20,7 @@ import { fmtCad, fmtDate } from "@/lib/format";
 import type { ScoredUnit, Spec, FinanceBreakdown, LeaseBreakdown } from "@/lib/types";
 import { readHeatPump } from "@/lib/types";
 import { PrintButton } from "./PrintButton";
+import { CopyJsonButton } from "./CopyJsonButton";
 import { UnitVerifyChip } from "@/components/UnitVerifyChip";
 import { UnitPhotoGallery } from "@/components/UnitPhotoGallery";
 import { CrossSourceChip } from "@/components/CrossSourceChip";
@@ -150,7 +151,10 @@ function DossierInner({ unitId }: { unitId: string }) {
     <div className="dossier max-w-3xl mx-auto px-6 py-8 print:py-2 print:px-0 print:max-w-none">
       <div className="flex items-center justify-between print:hidden mb-4">
         <Link href="/inventory" className="text-xs text-fg-muted hover:text-fg">← Back to inventory</Link>
-        <PrintButton />
+        <div className="flex gap-2">
+          <CopyJsonButton unit={unit} dealer={dealer} spec={specForUnit} ctx={ctx} />
+          <PrintButton />
+        </div>
       </div>
 
       <Header unit={unit} dealer={dealer} spec={specForUnit} />

@@ -611,11 +611,14 @@ export function InventoryTable({ units, dealerById, dealerPressureByDealer, rang
               const isActive = u.id === selectedId;
               const fav = isFavorite(u.id);
               const stale = daysSince(u.lastSeen) > 7;
+              const noVin = !u.vin;
               return (
                 <tr
                   key={u.id}
                   data-unit-id={u.id}
-                  className={`border-t border-border cursor-pointer transition-colors duration-150 will-change-transform ${isActive ? "bg-accent-dim/20" : "card-hover"}`}
+                  data-no-vin={noVin || undefined}
+                  title={noVin ? "No VIN — AutoTrader didn't expose one. Verify identity at dealer." : undefined}
+                  className={`border-t border-border cursor-pointer transition-colors duration-150 will-change-transform ${isActive ? "bg-accent-dim/20" : "card-hover"} ${noVin ? "border-l-2 border-l-warn/50" : ""}`}
                   style={{ contain: "layout paint", contentVisibility: "auto", containIntrinsicSize: "0 64px" }}
                   onClick={() => setSelectedId(u.id)}
                 >

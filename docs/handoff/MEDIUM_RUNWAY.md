@@ -1001,6 +1001,8 @@ Track shipped items here so the next session knows what's left. Format:
 - [done-prior] B7: DossierClient already has `<Suspense>` around dynamic charts (line 180). InventoryTable doesn't need it (server-rendered table, no client-side data fetch).
 
 **Tier B complete (1 shipped + 3 already-done + 1 skipped + 2 deferred).** ~104 kB win on /history.
+- [x] C7: CopyJsonButton on dossier — copies unit + dealer + ctx + OTD + spec to clipboard. State pill flashes "Copied!" / "Copy failed" for feedback.
+- [x] C8: VINless rows now render with subtle warn-tint border-left on InventoryTable + native title tooltip explaining "no VIN — verify identity at dealer". Stable selector via data-no-vin attribute for future tests.
 ```
 
 ---
