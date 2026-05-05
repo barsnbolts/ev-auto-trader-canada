@@ -9,7 +9,7 @@
 
 | | |
 |---|---|
-| HEAD | `08686b39` (pushed to origin) |
+| HEAD | `766e1c4d` (pushed to origin/main; absorbs cloud-session ships of C5+C6) |
 | Branch | `main` |
 | Working tree | clean (after `__pycache__` gitignore added) |
 | Vitest | 100/100 across 7 test files |
@@ -37,9 +37,13 @@
 | `08686b39` | C9+C10 — aria-live RefreshModal + skip-to-content link | a11y |
 
 **Tier progress:**
-- **Tier A — 15/15 ✓** (all shipped this session)
+- **Tier A — 15/15 ✓** (all shipped earlier in this session block)
 - **Tier B — drained:** 1 active ship (B1) + 3 already-optimized (B2, B4, B7) + 1 architecturally closed (B3, Next 15 removed flag) + 2 deferred (B5 needs profiling, B6 file too small)
-- **Tier C — 6/11 done · 5 remaining:** shipped C7+C8+C9+C10 (4); verified already-adequate C2+C11 (2); **remaining = C1, C3, C4, C5, C6**
+- **Tier C — 8/11 done · 3 remaining:**
+  - shipped C7+C8+C9+C10 (earlier session block)
+  - **C5+C6 shipped from cloud session** (commit `855b3114` — print stylesheets for /dealer/[id] and /compare)
+  - verified already-adequate C2+C11
+  - **remaining = C1, C3, C4** (stale chip threshold bump, dossier UpdatedStamp, inventory loading skeleton)
 
 **Bloat cleanup (this turn):** 20 stale handoff docs deleted (old session
 plans, sandbox-era docs, superseded pre-Tier-A queues). External
@@ -99,18 +103,18 @@ Then:
 2. Run **Tier 0.1** from `docs/handoff/MEDIUM_RUNWAY.md` (Chrome MCP
    auto-pair attempt — `list_connected_browsers` then `switch_browser`
    if empty, 2-min timeout, then proceed regardless).
-3. Resume **Tier C** drain. **Remaining Tier C items: C1, C3, C4, C5,
-   C6.** All low-risk UX polish. Specs in `MEDIUM_RUNWAY.md`.
+3. Resume **Tier C** drain. **Remaining Tier C items: C1, C3, C4.**
+   (C5+C6 shipped from cloud session in commit `855b3114`.)
 
 ## Next concrete tasks (in priority order)
 
 | ID | What | Tokens | Files |
 |---|---|---|---|
-| C5 | Print stylesheet for `/dealer/[id]` (hide map widget, single-column units, inline contact) | ~3k | `src/app/globals.css` |
-| C6 | Print preview for `/compare` (4-col → 2-col wrap on letter portrait) | ~3k | `src/app/globals.css` |
 | C4 | Better loading skeleton for inventory table (column-structure-aware) | ~3k | `src/app/inventory/loading.tsx` |
 | C1 | Stale-listing chip: bump threshold from 7d (current) to 14d + escalate styling | ~3k | `src/components/InventoryTable.tsx:613-761` |
 | C3 | UpdatedStamp on dossier header (currently inventory + history only) | ~3k | `src/app/inventory/[id]/dossier/DossierClient.tsx` |
+| ✓ C5 | Print stylesheet for `/dealer/[id]` — **SHIPPED `855b3114`** | — | — |
+| ✓ C6 | Print preview for `/compare` — **SHIPPED `855b3114`** | — | — |
 
 After Tier C: drain Tier D (test depth, ~35k), Tier E (data hygiene,
 ~25k), Tier F (code quality, ~25k — first natural Semble spot:
