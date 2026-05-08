@@ -1,571 +1,11 @@
 [
   {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-performance-mayfield",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 83464,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3592907d",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-black-f7d0d399-b0d9-44a1-b944-8dd4643e6f14"
-      },
-      {
-        "dealerName": "kia-yorkdale",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 81745,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-28dd5f25",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-electric-black-0e83cc48-884a-47ea-936c-488f749654ec"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "GT-Line AWD",
-    "vin": "KNDAEFS58T6077668",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-stratford",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 79414,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6360fc3c",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-w-premium-package-electric-white-cd0f81eb-e13d-4d80-8530-7215d8b17aba"
-      },
-      {
-        "dealerName": null,
-        "km": 45,
-        "lastVerified": "2026-05-07T11:45:28.430561Z",
-        "priceCad": 79414,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1736870090",
-        "url": "https://www.kijiji.ca/v-cars-trucks/stratford-on/2026-kia-ev9-land-w-premium-package/1736870090"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Trim unknown (2026 Kia EV9 W/PREMIUM PACKAGE)",
-    "vin": "KNDADFS59T6071588",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-west-edmonton",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 80645,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-01634c3d",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-electric-blue-85845378-e2cc-4552-9b9c-ac395f095260"
-      },
-      {
-        "dealerName": null,
-        "km": 1,
-        "lastVerified": "2026-05-07T11:45:28.430585Z",
-        "priceCad": 81645,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1729391393",
-        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-kia-ev9-land-w-gt-line/1729391393"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "GT-Line AWD",
-    "vin": "KNDAEFS5XT6069622",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-of-hamilton",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 77995,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0130dd46",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd-electric-blue-45c1786f-3ae4-432c-ae7c-0d58bb13bdc7"
-      },
-      {
-        "dealerName": null,
-        "km": 2,
-        "lastVerified": "2026-05-07T11:45:28.430565Z",
-        "priceCad": 77995,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1735507069",
-        "url": "https://www.kijiji.ca/v-cars-trucks/hamilton/2026-kia-ev9-land-w-premium-package-awd/1735507069"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS55T6081700",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2025|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-west-edmonton",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 70995,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-f7d30a58",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-black-9f761d40-d996-4cc5-a726-0162dbcfe739"
-      },
-      {
-        "dealerName": null,
-        "km": 1,
-        "lastVerified": "2026-05-07T11:45:28.430589Z",
-        "priceCad": 78995,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1729391332",
-        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2025-kia-ev9-land-w-premium-package/1729391332"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS51S6060695",
-    "year": 2025
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-birchwood-on-regent",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 78784,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-9f47a51a",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-actual-incoming-vehicle-electric-grey-0e0c32f4-ca71-4632-ac1a-f831b4aff278"
-      },
-      {
-        "dealerName": "kia-south-trail-k-ltd-o-a-south-trail",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 78025,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-bb97610b",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd-electric-grey-5614bb87-1508-468f-ae92-b529532b6e80"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS57T6079916",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-west-edmonton",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 71645,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-37a49e72",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-electric-grey-fa89f225-8e7f-4294-b668-a761ec15b699"
-      },
-      {
-        "dealerName": null,
-        "km": 1,
-        "lastVerified": "2026-05-07T11:45:28.430587Z",
-        "priceCad": 72645,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1729391269",
-        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-kia-ev9-land-w-plus-package/1729391269"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS50T6061743",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-guelph",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 70320,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-cae944da",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-plus-electric-white-3f281345-eb80-43c2-85ae-0dc0748b881b"
-      },
-      {
-        "dealerName": null,
-        "km": 99,
-        "lastVerified": "2026-05-07T11:45:28.430544Z",
-        "priceCad": 70320,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1724414054",
-        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land-awd-plus/1724414054"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS55T6066260",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-london",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 81745,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-4c28664d",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-electric-black-ebfe7fb2-a2fe-4998-b543-a8cc2a48c523"
-      },
-      {
-        "dealerName": null,
-        "km": 4536,
-        "lastVerified": "2026-05-07T11:45:28.430571Z",
-        "priceCad": 81745,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1726739648",
-        "url": "https://www.kijiji.ca/v-cars-trucks/london/2026-kia-ev9-land-w-gt-line-package/1726739648"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "GT-Line AWD",
-    "vin": "KNDAEFS58T6069571",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-guelph",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 73616,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-20ea6159",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-plus-electric-silver-bdcd7a83-501d-42f0-99a9-f160a1823008"
-      },
-      {
-        "dealerName": null,
-        "km": 168,
-        "lastVerified": "2026-05-07T11:45:28.430553Z",
-        "priceCad": 73616,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1724356367",
-        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land-awd-plus/1724356367"
-      },
-      {
-        "dealerName": null,
-        "km": 87,
-        "lastVerified": "2026-05-07T11:45:28.430529Z",
-        "priceCad": null,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1736380391",
-        "url": "https://www.kijiji.ca/v-cars-trucks/london/2026-kia-ev9-land-awd/1736380391"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS51T6069950",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-guelph",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 78616,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-36dabd45",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-premium-electric-blue-318c44e2-58b9-40d3-a054-dc5e5630341e"
-      },
-      {
-        "dealerName": null,
-        "km": 87,
-        "lastVerified": "2026-05-07T11:45:28.430556Z",
-        "priceCad": 78616,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1725910658",
-        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land-premium/1725910658"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS58T6071579",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-guelph",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 78616,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2469c9a3",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-electric-grey-5838f243-f7b3-4b27-a25f-b331bae81762"
-      },
-      {
-        "dealerName": null,
-        "km": 30,
-        "lastVerified": "2026-05-07T11:45:28.430531Z",
-        "priceCad": 78616,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1724465654",
-        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land/1724465654"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS51T6069138",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-birchwood-on-regent",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 78784,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-4806cedf",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-actual-incoming-vehicle-electric-black-a200117a-7429-48fe-be10-5231305af4e3"
-      },
-      {
-        "dealerName": "kia-gauthier",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 79839,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-33957fdb",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-black-33a69eb9-1ab6-4ed2-865e-c546f568a7fd"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS52T6081699",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-guelph",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 73616,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-a9cda465",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-electric-grey-b1a3b35d-097f-49dd-b401-e2cd779554b0"
-      },
-      {
-        "dealerName": null,
-        "km": 38,
-        "lastVerified": "2026-05-07T11:45:28.430525Z",
-        "priceCad": 73616,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1724411300",
-        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land/1724411300"
-      },
-      {
-        "dealerName": null,
-        "km": 88,
-        "lastVerified": "2026-05-07T11:45:28.430518Z",
-        "priceCad": null,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1736809935",
-        "url": "https://www.kijiji.ca/v-cars-trucks/london/2026-kia-ev9-land/1736809935"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS50T6066411",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-of-hamilton",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 77995,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-c32caed7",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd--brown-interior-electric-white-87049c1e-938a-4579-82d3-91ca8f7ca7d4"
-      },
-      {
-        "dealerName": null,
-        "km": 20,
-        "lastVerified": "2026-05-07T11:45:28.430576Z",
-        "priceCad": 77995,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1730511114",
-        "url": "https://www.kijiji.ca/v-cars-trucks/hamilton/2026-kia-ev9-land-w-premium-package-awd-brown-interior/1730511114"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS56T6070642",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-london",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 79419,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2a5fd193",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land--prem-electric-white-65d5cd5a-c354-4568-aff6-4344e338a1a5"
-      },
-      {
-        "dealerName": null,
-        "km": 50,
-        "lastVerified": "2026-05-07T11:45:28.430539Z",
-        "priceCad": 79419,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1729368167",
-        "url": "https://www.kijiji.ca/v-cars-trucks/london/2026-kia-ev9-land-prem/1729368167"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS5XT6074998",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-straightline",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 73030,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-2b01f98d",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-plus-package-455-km-range-includes-l-electric-grey-05761413-d891-4019-bfba-f710b932c612"
-      },
-      {
-        "dealerName": null,
-        "km": 136,
-        "lastVerified": "2026-05-07T11:45:28.430598Z",
-        "priceCad": 73929,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1724549461",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-kia-ev9-land-awd-w-plus-package-455-km-range-includes-le/1724549461"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDADFS51T6069446",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|kia|ev9",
-    "listings": [
-      {
-        "dealerName": "kia-straightline",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 87830,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-7a5944d1",
-        "url": "https://www.autotrader.ca/offers/kia-ev9-gt-awd-418-km-range-incoming-unit-electric-blue-639cadb2-ee61-4e00-8cc5-81c13f6df739"
-      },
-      {
-        "dealerName": null,
-        "km": 16,
-        "lastVerified": "2026-05-07T11:45:28.430595Z",
-        "priceCad": 87830,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1730219494",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-kia-ev9-gt-awd-418-km-range-incoming-unit/1730219494"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV9",
-    "trim": "Land Long Range AWD",
-    "vin": "KNDAAFS71T6076164",
-    "year": 2026
-  },
-  {
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
         "dealerName": "hyundai-gyro",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 67149,
         "province": null,
         "source": "autotrader",
@@ -575,7 +15,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 66194,
         "province": null,
         "source": "autotrader",
@@ -585,7 +25,7 @@
       {
         "dealerName": null,
         "km": 15,
-        "lastVerified": "2026-05-07T11:45:42.066333Z",
+        "lastVerified": "2026-05-08T11:57:12.144247Z",
         "priceCad": 66194,
         "province": "ON",
         "source": "kijiji_autos",
@@ -603,39 +43,9 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
-        "dealerName": "hyundai-birchwood",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 55268,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0c99447e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-white-359d9656-3d11-44f8-b80c-fd6fecf07a02"
-      },
-      {
-        "dealerName": null,
-        "km": 26,
-        "lastVerified": "2026-05-04T18:55:05.716961Z",
-        "priceCad": 55268,
-        "province": "MB",
-        "source": "kijiji_autos",
-        "stockId": "1736981913",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1736981913"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KNDDC4TU399087",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
         "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 53733,
         "province": null,
         "source": "autotrader",
@@ -663,9 +73,39 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
+        "dealerName": "hyundai-birchwood",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 55268,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0c99447e",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-white-359d9656-3d11-44f8-b80c-fd6fecf07a02"
+      },
+      {
+        "dealerName": null,
+        "km": 26,
+        "lastVerified": "2026-05-08T11:57:16.891389Z",
+        "priceCad": 55268,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1736981913",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1736981913"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC4TU399087",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
         "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 55698,
         "province": null,
         "source": "autotrader",
@@ -675,7 +115,7 @@
       {
         "dealerName": null,
         "km": 20,
-        "lastVerified": "2026-05-07T11:45:38.572981Z",
+        "lastVerified": "2026-05-08T11:57:12.144236Z",
         "priceCad": 55698,
         "province": "AB",
         "source": "kijiji_autos",
@@ -693,39 +133,9 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
-        "dealerName": "hyundai-birchwood",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 55518,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3d7e0be2",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-green-7af0f99f-19ba-4fc5-a2aa-d3c14a3c65f2"
-      },
-      {
-        "dealerName": null,
-        "km": 18,
-        "lastVerified": "2026-05-04T18:55:05.716959Z",
-        "priceCad": 55518,
-        "province": "MB",
-        "source": "kijiji_autos",
-        "stockId": "1733973251",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1733973251"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KNDDC6TU399754",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
         "dealerName": "hyundai-river-city",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 60948,
         "province": null,
         "source": "autotrader",
@@ -735,7 +145,7 @@
       {
         "dealerName": null,
         "km": 0,
-        "lastVerified": "2026-05-07T11:45:42.066396Z",
+        "lastVerified": "2026-05-08T11:57:12.144269Z",
         "priceCad": 60948,
         "province": "AB",
         "source": "kijiji_autos",
@@ -753,30 +163,30 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
-        "dealerName": "hyundai-birchwood",
+        "dealerName": "hyundai-northland",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 61000,
+        "lastVerified": "2026-05-08",
+        "priceCad": 67322,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-07876cac",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-demo-deal-save-2-583-electric-black-475a6480-1cc4-4343-be09-86392d04bdec"
+        "stockId": "u-at-e1454668",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-blue-6588e026-bfcb-4283-aebf-32683d4765fd"
       },
       {
         "dealerName": null,
-        "km": 3121,
-        "lastVerified": "2026-05-07T11:45:38.573018Z",
-        "priceCad": 61000,
-        "province": "MB",
+        "km": 157,
+        "lastVerified": "2026-05-08T11:57:12.144223Z",
+        "priceCad": 62322,
+        "province": "BC",
         "source": "kijiji_autos",
-        "stockId": "1728180472",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-ultimate-demo-deal-save-2-583/1728180472"
+        "stockId": "1727090647",
+        "url": "https://www.kijiji.ca/v-cars-trucks/prince-george/2026-hyundai-ioniq-5-preferred/1727090647"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq5",
     "trim": "Preferred RWD",
-    "vin": "KM8KRDDCXTU390401",
+    "vin": "KM8KRDDC9TU382788",
     "year": 2026
   },
   {
@@ -785,7 +195,7 @@
       {
         "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 55698,
         "province": null,
         "source": "autotrader",
@@ -813,9 +223,39 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
+        "dealerName": "hyundai-birchwood",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 55518,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-3d7e0be2",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-green-7af0f99f-19ba-4fc5-a2aa-d3c14a3c65f2"
+      },
+      {
+        "dealerName": null,
+        "km": 18,
+        "lastVerified": "2026-05-08T11:57:16.891388Z",
+        "priceCad": 55518,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1733973251",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1733973251"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC6TU399754",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
         "dealerName": "hyundai-sherwood-park",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 50094,
         "province": null,
         "source": "autotrader",
@@ -843,30 +283,30 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
-        "dealerName": "hyundai-crowfoot",
+        "dealerName": "hyundai-birchwood",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 55698,
+        "lastVerified": "2026-05-08",
+        "priceCad": 61000,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-4820db51",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--463km-range--fast-charging--awd-electric-black-5667b0c6-5f74-49ce-8038-c089029cd52f"
+        "stockId": "u-at-07876cac",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-ultimate-demo-deal-save-2-583-electric-black-475a6480-1cc4-4343-be09-86392d04bdec"
       },
       {
         "dealerName": null,
-        "km": 17,
-        "lastVerified": "2026-05-07T11:45:38.572999Z",
-        "priceCad": 55698,
-        "province": "AB",
+        "km": 3121,
+        "lastVerified": "2026-05-08T11:57:16.891383Z",
+        "priceCad": 61000,
+        "province": "MB",
         "source": "kijiji_autos",
-        "stockId": "1729372332",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred-463km-range-fast-charging/1729372332"
+        "stockId": "1728180472",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-ultimate-demo-deal-save-2-583/1728180472"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq5",
-    "trim": "Preferred AWD Long Range",
-    "vin": "KM8KNDDC5TU382475",
+    "trim": "Preferred RWD",
+    "vin": "KM8KRDDCXTU390401",
     "year": 2026
   },
   {
@@ -875,7 +315,7 @@
       {
         "dealerName": "hyundai-birchwood",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 63542,
         "province": null,
         "source": "autotrader",
@@ -903,9 +343,39 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
+        "dealerName": "hyundai-crowfoot",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 55698,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-4820db51",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred--463km-range--fast-charging--awd-electric-black-5667b0c6-5f74-49ce-8038-c089029cd52f"
+      },
+      {
+        "dealerName": null,
+        "km": 17,
+        "lastVerified": "2026-05-07T11:45:38.572999Z",
+        "priceCad": 55698,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1729372332",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred-463km-range-fast-charging/1729372332"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred AWD Long Range",
+    "vin": "KM8KNDDC5TU382475",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
         "dealerName": "hyundai-river-city",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 64988,
         "province": null,
         "source": "autotrader",
@@ -915,7 +385,7 @@
       {
         "dealerName": null,
         "km": 0,
-        "lastVerified": "2026-05-07T11:45:42.066401Z",
+        "lastVerified": "2026-05-08T11:57:12.144273Z",
         "priceCad": 58988,
         "province": "AB",
         "source": "kijiji_autos",
@@ -933,39 +403,9 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
-        "dealerName": "hyundai-northland",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 67322,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-e1454668",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-blue-6588e026-bfcb-4283-aebf-32683d4765fd"
-      },
-      {
-        "dealerName": null,
-        "km": 157,
-        "lastVerified": "2026-05-07T11:45:42.066385Z",
-        "priceCad": 67322,
-        "province": "BC",
-        "source": "kijiji_autos",
-        "stockId": "1727090647",
-        "url": "https://www.kijiji.ca/v-cars-trucks/prince-george/2026-hyundai-ioniq-5-preferred/1727090647"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KRDDC9TU382788",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 60544,
         "province": null,
         "source": "autotrader",
@@ -975,7 +415,7 @@
       {
         "dealerName": null,
         "km": 18,
-        "lastVerified": "2026-05-07T11:45:38.572974Z",
+        "lastVerified": "2026-05-08T11:57:12.144238Z",
         "priceCad": 60544,
         "province": "ON",
         "source": "kijiji_autos",
@@ -995,7 +435,7 @@
       {
         "dealerName": "hyundai-cambridge",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 58494,
         "province": null,
         "source": "autotrader",
@@ -1005,7 +445,7 @@
       {
         "dealerName": null,
         "km": 22,
-        "lastVerified": "2026-05-07T11:45:42.066369Z",
+        "lastVerified": "2026-05-08T11:57:12.144249Z",
         "priceCad": 58494,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1023,30 +463,30 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
-        "dealerName": "hyundai-birchwood",
+        "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 60518,
+        "lastVerified": "2026-05-08",
+        "priceCad": 66383,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-4b7aed1e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-blue-3b83d4f3-8159-493d-a5a2-622e5feb4b32"
+        "stockId": "u-at-3ec38b05",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-9e461eef-9119-4af5-9aa9-2da27f90b3da"
       },
       {
         "dealerName": null,
-        "km": 16,
-        "lastVerified": "2026-05-05T17:31:41.065946Z",
-        "priceCad": 60518,
-        "province": "MB",
+        "km": 10,
+        "lastVerified": "2026-05-08T11:57:12.144251Z",
+        "priceCad": 66383,
+        "province": "AB",
         "source": "kijiji_autos",
-        "stockId": "1733973570",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1733973570"
+        "stockId": "1736118704",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred/1736118704"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq5",
     "trim": "Preferred RWD",
-    "vin": "KM8KNDDC6TU396448",
+    "vin": "KM8KRDDC2TU408311",
     "year": 2026
   },
   {
@@ -1055,7 +495,7 @@
       {
         "dealerName": "hyundai-guelph",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 60530,
         "province": null,
         "source": "autotrader",
@@ -1065,7 +505,7 @@
       {
         "dealerName": null,
         "km": 14,
-        "lastVerified": "2026-05-07T11:45:42.066377Z",
+        "lastVerified": "2026-05-08T11:57:12.144221Z",
         "priceCad": 60530,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1083,9 +523,39 @@
     "fallbackKey": "2026|hyundai|ioniq5",
     "listings": [
       {
+        "dealerName": "hyundai-birchwood",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 60518,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-4b7aed1e",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-in-stock-take-home-today-electric-blue-3b83d4f3-8159-493d-a5a2-622e5feb4b32"
+      },
+      {
+        "dealerName": null,
+        "km": 16,
+        "lastVerified": "2026-05-08T11:57:16.891386Z",
+        "priceCad": 60518,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1733973570",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-5-preferred-in-stock-take-home-today/1733973570"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq5",
+    "trim": "Preferred RWD",
+    "vin": "KM8KNDDC6TU396448",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq5",
+    "listings": [
+      {
         "dealerName": "hyundai-cambridge",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 60744,
         "province": null,
         "source": "autotrader",
@@ -1095,7 +565,7 @@
       {
         "dealerName": null,
         "km": 11,
-        "lastVerified": "2026-05-07T11:45:38.572963Z",
+        "lastVerified": "2026-05-08T11:57:12.144225Z",
         "priceCad": 60744,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1115,7 +585,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 61794,
         "province": null,
         "source": "autotrader",
@@ -1125,7 +595,7 @@
       {
         "dealerName": null,
         "km": 15,
-        "lastVerified": "2026-05-07T11:45:42.066387Z",
+        "lastVerified": "2026-05-08T11:57:12.144232Z",
         "priceCad": 61794,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1145,37 +615,7 @@
       {
         "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 66383,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-3ec38b05",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-5-preferred-electric-white-9e461eef-9119-4af5-9aa9-2da27f90b3da"
-      },
-      {
-        "dealerName": null,
-        "km": 10,
-        "lastVerified": "2026-05-07T11:45:42.066373Z",
-        "priceCad": 66383,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1736118704",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-5-preferred/1736118704"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq5",
-    "trim": "Preferred RWD",
-    "vin": "KM8KRDDC2TU408311",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq5",
-    "listings": [
-      {
-        "dealerName": "hyundai-crowfoot",
-        "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 66383,
         "province": null,
         "source": "autotrader",
@@ -1185,7 +625,7 @@
       {
         "dealerName": null,
         "km": 10,
-        "lastVerified": "2026-05-07T11:45:38.572977Z",
+        "lastVerified": "2026-05-08T11:57:12.144234Z",
         "priceCad": 66383,
         "province": "AB",
         "source": "kijiji_autos",
@@ -1205,7 +645,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 66294,
         "province": null,
         "source": "autotrader",
@@ -1215,7 +655,7 @@
       {
         "dealerName": null,
         "km": 15,
-        "lastVerified": "2026-05-07T11:45:42.066383Z",
+        "lastVerified": "2026-05-08T11:57:12.144228Z",
         "priceCad": 66294,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1235,7 +675,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 66544,
         "province": null,
         "source": "autotrader",
@@ -1245,7 +685,7 @@
       {
         "dealerName": null,
         "km": 15,
-        "lastVerified": "2026-05-07T11:45:38.572995Z",
+        "lastVerified": "2026-05-08T11:57:12.144241Z",
         "priceCad": 66544,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1265,7 +705,7 @@
       {
         "dealerName": "hyundai-river-city",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 43988,
         "province": null,
         "source": "autotrader",
@@ -1275,7 +715,7 @@
       {
         "dealerName": null,
         "km": 0,
-        "lastVerified": "2026-05-07T11:45:46.751599Z",
+        "lastVerified": "2026-05-08T11:57:20.453000Z",
         "priceCad": 43988,
         "province": "AB",
         "source": "kijiji_autos",
@@ -1293,30 +733,30 @@
     "fallbackKey": "2025|hyundai|ioniq6",
     "listings": [
       {
-        "dealerName": "hyundai-cambridge",
+        "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 57994,
+        "lastVerified": "2026-05-08",
+        "priceCad": 57694,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-d5a3cd61",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-electric-white-bad56483-8918-4ba2-b892-1f75dbe974f0"
+        "stockId": "u-at-14062fd7",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-electric-red-b192c1d3-aa35-48fc-86b2-b2b6952b4342"
       },
       {
         "dealerName": null,
-        "km": 148,
-        "lastVerified": "2026-05-07T11:45:46.751541Z",
-        "priceCad": 57994,
+        "km": 61,
+        "lastVerified": "2026-05-08T11:57:16.891334Z",
+        "priceCad": 57694,
         "province": "ON",
         "source": "kijiji_autos",
-        "stockId": "1725850175",
-        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2025-hyundai-ioniq-6-preferred/1725850175"
+        "stockId": "1736816573",
+        "url": "https://www.kijiji.ca/v-cars-trucks/mississauga-peel-region/2025-hyundai-ioniq-6-preferred/1736816573"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq6",
     "trim": "Preferred RWD",
-    "vin": "KMHM34AA3SA113943",
+    "vin": "KMHM34AA4SA102644",
     "year": 2025
   },
   {
@@ -1325,7 +765,7 @@
       {
         "dealerName": "hyundai-ajax",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 57399,
         "province": null,
         "source": "autotrader",
@@ -1335,7 +775,7 @@
       {
         "dealerName": null,
         "km": 75,
-        "lastVerified": "2026-05-07T11:45:46.751564Z",
+        "lastVerified": "2026-05-08T11:57:20.452968Z",
         "priceCad": 47046,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1353,30 +793,30 @@
     "fallbackKey": "2025|hyundai|ioniq6",
     "listings": [
       {
-        "dealerName": "hyundai-401-dixie",
+        "dealerName": "hyundai-cambridge",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 57694,
+        "lastVerified": "2026-05-08",
+        "priceCad": 57994,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-14062fd7",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-electric-red-b192c1d3-aa35-48fc-86b2-b2b6952b4342"
+        "stockId": "u-at-d5a3cd61",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-6-preferred-electric-white-bad56483-8918-4ba2-b892-1f75dbe974f0"
       },
       {
         "dealerName": null,
-        "km": 61,
-        "lastVerified": "2026-05-07T11:45:46.751544Z",
-        "priceCad": 57694,
+        "km": 148,
+        "lastVerified": "2026-05-08T11:57:16.891349Z",
+        "priceCad": 57994,
         "province": "ON",
         "source": "kijiji_autos",
-        "stockId": "1736816573",
-        "url": "https://www.kijiji.ca/v-cars-trucks/mississauga-peel-region/2025-hyundai-ioniq-6-preferred/1736816573"
+        "stockId": "1725850175",
+        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2025-hyundai-ioniq-6-preferred/1725850175"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq6",
     "trim": "Preferred RWD",
-    "vin": "KMHM34AA4SA102644",
+    "vin": "KMHM34AA3SA113943",
     "year": 2025
   },
   {
@@ -1385,7 +825,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79544,
         "province": null,
         "source": "autotrader",
@@ -1395,7 +835,7 @@
       {
         "dealerName": null,
         "km": 2197,
-        "lastVerified": "2026-05-07T11:45:55.149244Z",
+        "lastVerified": "2026-05-08T11:57:25.392027Z",
         "priceCad": 79544,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1415,28 +855,28 @@
       {
         "dealerName": "hyundai-birchwood",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 88000,
+        "lastVerified": "2026-05-08",
+        "priceCad": 79718,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-206b185c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ultimate-calligraphy-demo-deal-1-411-off-electric-black-002ad182-c574-47c7-8e39-13871a833649"
+        "stockId": "u-at-bac6dd63",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-luxury-in-stock-take-home-today-electric-black-77846b76-a5ab-4dcc-8a37-b8ba8f0bb4f6"
       },
       {
         "dealerName": null,
-        "km": 682,
-        "lastVerified": "2026-05-04T18:55:14.625692Z",
-        "priceCad": 88000,
+        "km": 16,
+        "lastVerified": "2026-05-04T18:55:14.625737Z",
+        "priceCad": 79718,
         "province": "MB",
         "source": "kijiji_autos",
-        "stockId": "1732461193",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-9-ultimate-calligraphy-demo-deal-1-411-off/1732461193"
+        "stockId": "1725796720",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-9-luxury-in-stock-take-home-today/1725796720"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq9",
-    "trim": "Performance Calligraphy AWD",
-    "vin": "KM8MYFS53TA008903",
+    "trim": "Preferred Long Range RWD",
+    "vin": "KM8MWFS36TA011587",
     "year": 2026
   },
   {
@@ -1445,37 +885,7 @@
       {
         "dealerName": "hyundai-birchwood",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 83000,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-572d53e0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ultimate-calligraphy-demo-deal-save-1-718-electric-white-c613457e-f97c-423b-9df4-c48fbafd51ee"
-      },
-      {
-        "dealerName": null,
-        "km": 3490,
-        "lastVerified": "2026-05-05T17:31:51.133552Z",
-        "priceCad": 83000,
-        "province": "MB",
-        "source": "kijiji_autos",
-        "stockId": "1724436402",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-9-ultimate-calligraphy-demo-deal-save-1-71/1724436402"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq9",
-    "trim": "Performance Calligraphy AWD",
-    "vin": "KM8MYFS51TA002999",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq9",
-    "listings": [
-      {
-        "dealerName": "hyundai-birchwood",
-        "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 82500,
         "province": null,
         "source": "autotrader",
@@ -1505,7 +915,7 @@
       {
         "dealerName": "hyundai-leduc",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 75434,
         "province": null,
         "source": "autotrader",
@@ -1535,7 +945,7 @@
       {
         "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 68233,
         "province": null,
         "source": "autotrader",
@@ -1545,7 +955,7 @@
       {
         "dealerName": null,
         "km": 10,
-        "lastVerified": "2026-05-07T11:45:55.149263Z",
+        "lastVerified": "2026-05-08T11:57:25.392103Z",
         "priceCad": 68233,
         "province": "AB",
         "source": "kijiji_autos",
@@ -1563,30 +973,30 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
-        "dealerName": "hyundai-sherwood-park",
+        "dealerName": "hyundai-birchwood",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 81094,
+        "lastVerified": "2026-05-08",
+        "priceCad": 88000,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-2bba646a",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg--manag-electric-black-fab3d199-e0e6-4812-bbc9-1900333f6db4"
+        "stockId": "u-at-206b185c",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ultimate-calligraphy-demo-deal-1-411-off-electric-black-002ad182-c574-47c7-8e39-13871a833649"
       },
       {
         "dealerName": null,
-        "km": 20,
-        "lastVerified": "2026-05-06T11:44:54.897055Z",
-        "priceCad": 81094,
-        "province": "AB",
+        "km": 682,
+        "lastVerified": "2026-05-04T18:55:14.625692Z",
+        "priceCad": 88000,
+        "province": "MB",
         "source": "kijiji_autos",
-        "stockId": "1724343951",
-        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg/1724343951"
+        "stockId": "1732461193",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-9-ultimate-calligraphy-demo-deal-1-411-off/1732461193"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq9",
     "trim": "Performance Calligraphy AWD",
-    "vin": "KM8MYFS53TA006892",
+    "vin": "KM8MYFS53TA008903",
     "year": 2026
   },
   {
@@ -1595,7 +1005,7 @@
       {
         "dealerName": "hyundai-guelph",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 82520,
         "province": null,
         "source": "autotrader",
@@ -1605,7 +1015,7 @@
       {
         "dealerName": null,
         "km": 7452,
-        "lastVerified": "2026-05-07T11:45:55.149219Z",
+        "lastVerified": "2026-05-08T11:57:25.392073Z",
         "priceCad": 82520,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1623,9 +1033,69 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
+        "dealerName": "hyundai-sherwood-park",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 81094,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-2bba646a",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg--manag-electric-black-fab3d199-e0e6-4812-bbc9-1900333f6db4"
+      },
+      {
+        "dealerName": null,
+        "km": 20,
+        "lastVerified": "2026-05-08T11:57:25.392101Z",
+        "priceCad": 81094,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1724343951",
+        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-hyundai-ioniq-9-preferred-awd-w-ultimate-calligraphy-pkg/1724343951"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq9",
+    "trim": "Performance Calligraphy AWD",
+    "vin": "KM8MYFS53TA006892",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq9",
+    "listings": [
+      {
+        "dealerName": "hyundai-birchwood",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 83000,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-572d53e0",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ultimate-calligraphy-demo-deal-save-1-718-electric-white-c613457e-f97c-423b-9df4-c48fbafd51ee"
+      },
+      {
+        "dealerName": null,
+        "km": 3490,
+        "lastVerified": "2026-05-05T17:31:51.133552Z",
+        "priceCad": 83000,
+        "province": "MB",
+        "source": "kijiji_autos",
+        "stockId": "1724436402",
+        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-9-ultimate-calligraphy-demo-deal-save-1-71/1724436402"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq9",
+    "trim": "Performance Calligraphy AWD",
+    "vin": "KM8MYFS51TA002999",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq9",
+    "listings": [
+      {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79544,
         "province": null,
         "source": "autotrader",
@@ -1635,7 +1105,7 @@
       {
         "dealerName": null,
         "km": 19,
-        "lastVerified": "2026-05-07T11:45:55.149209Z",
+        "lastVerified": "2026-05-08T11:57:25.392061Z",
         "priceCad": 79544,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1653,39 +1123,9 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
-        "dealerName": "hyundai-cambridge",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 85994,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-1b266043",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-2013be8b-9c5b-4c3a-b94f-806d61798c88"
-      },
-      {
-        "dealerName": null,
-        "km": 21,
-        "lastVerified": "2026-05-07T11:45:55.149226Z",
-        "priceCad": 85994,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1733644386",
-        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-9-preferred/1733644386"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq9",
-    "trim": "Preferred Long Range RWD",
-    "vin": "KM8MYFS50TA017915",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq9",
-    "listings": [
-      {
         "dealerName": "hyundai-leduc",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 75434,
         "province": null,
         "source": "autotrader",
@@ -1695,7 +1135,7 @@
       {
         "dealerName": null,
         "km": 29,
-        "lastVerified": "2026-05-07T11:45:55.149261Z",
+        "lastVerified": "2026-05-08T11:57:25.392098Z",
         "priceCad": 75434,
         "province": "AB",
         "source": "kijiji_autos",
@@ -1715,7 +1155,7 @@
       {
         "dealerName": "hyundai-river-city",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79988,
         "province": null,
         "source": "autotrader",
@@ -1725,7 +1165,7 @@
       {
         "dealerName": null,
         "km": 0,
-        "lastVerified": "2026-05-07T11:45:55.149251Z",
+        "lastVerified": "2026-05-08T11:57:25.392096Z",
         "priceCad": 79988,
         "province": "AB",
         "source": "kijiji_autos",
@@ -1743,9 +1183,39 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
+        "dealerName": "hyundai-cambridge",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 67994,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-6084cfdb",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-white-a40cfd08-2029-4741-aef7-1ad11d4b85b6"
+      },
+      {
+        "dealerName": null,
+        "km": 11,
+        "lastVerified": "2026-05-08T11:57:25.392059Z",
+        "priceCad": 67994,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1734831106",
+        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-9-preferred/1734831106"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq9",
+    "trim": "Preferred Long Range RWD",
+    "vin": "KM8MUFS34TA019323",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq9",
+    "listings": [
+      {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79194,
         "province": null,
         "source": "autotrader",
@@ -1755,7 +1225,7 @@
       {
         "dealerName": null,
         "km": 55,
-        "lastVerified": "2026-05-07T11:45:55.149172Z",
+        "lastVerified": "2026-05-08T11:57:25.392016Z",
         "priceCad": 79194,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1773,9 +1243,39 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
+        "dealerName": "hyundai-cambridge",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 85994,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-1b266043",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-2013be8b-9c5b-4c3a-b94f-806d61798c88"
+      },
+      {
+        "dealerName": null,
+        "km": 21,
+        "lastVerified": "2026-05-08T11:57:25.392077Z",
+        "priceCad": 85994,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1733644386",
+        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-9-preferred/1733644386"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq9",
+    "trim": "Preferred Long Range RWD",
+    "vin": "KM8MYFS50TA017915",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq9",
+    "listings": [
+      {
         "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79733,
         "province": null,
         "source": "autotrader",
@@ -1785,7 +1285,7 @@
       {
         "dealerName": null,
         "km": 17,
-        "lastVerified": "2026-05-07T11:45:55.149178Z",
+        "lastVerified": "2026-05-08T11:57:25.392020Z",
         "priceCad": 79733,
         "province": "AB",
         "source": "kijiji_autos",
@@ -1803,9 +1303,39 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
+        "dealerName": "hyundai-cambridge",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 79744,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-bcf6d223",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-21f6d16f-c587-4e28-86c7-88d5a1d66988"
+      },
+      {
+        "dealerName": null,
+        "km": 11,
+        "lastVerified": "2026-05-08T11:57:25.392012Z",
+        "priceCad": 79744,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1735302517",
+        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-9-preferred/1735302517"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq9",
+    "trim": "Preferred Long Range RWD",
+    "vin": "KM8MWFS33TA017962",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq9",
+    "listings": [
+      {
         "dealerName": "hyundai-northland",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84697,
         "province": null,
         "source": "autotrader",
@@ -1815,7 +1345,7 @@
       {
         "dealerName": null,
         "km": 10,
-        "lastVerified": "2026-05-07T11:45:55.149257Z",
+        "lastVerified": "2026-05-08T11:57:25.392044Z",
         "priceCad": 84697,
         "province": "BC",
         "source": "kijiji_autos",
@@ -1835,7 +1365,37 @@
       {
         "dealerName": "hyundai-guelph",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
+        "priceCad": 84780,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0fbfe96b",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-c8f74832-c1aa-43d6-9809-d6145a7818d2"
+      },
+      {
+        "dealerName": null,
+        "km": 8,
+        "lastVerified": "2026-05-08T11:57:25.392075Z",
+        "priceCad": 84780,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1731379762",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-hyundai-ioniq-9-preferred/1731379762"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq9",
+    "trim": "Preferred Long Range RWD",
+    "vin": "KM8MYFS52TA017396",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq9",
+    "listings": [
+      {
+        "dealerName": "hyundai-guelph",
+        "km": null,
+        "lastVerified": "2026-05-08",
         "priceCad": 84780,
         "province": null,
         "source": "autotrader",
@@ -1845,7 +1405,7 @@
       {
         "dealerName": null,
         "km": 12,
-        "lastVerified": "2026-05-07T11:45:55.149187Z",
+        "lastVerified": "2026-05-08T11:57:25.392036Z",
         "priceCad": 84780,
         "province": "ON",
         "source": "kijiji_autos",
@@ -1863,129 +1423,9 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
-        "dealerName": "hyundai-cambridge",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 67994,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-6084cfdb",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-white-a40cfd08-2029-4741-aef7-1ad11d4b85b6"
-      },
-      {
-        "dealerName": null,
-        "km": 11,
-        "lastVerified": "2026-05-07T11:45:55.149199Z",
-        "priceCad": 67994,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1734831106",
-        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-9-preferred/1734831106"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq9",
-    "trim": "Preferred Long Range RWD",
-    "vin": "KM8MUFS34TA019323",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq9",
-    "listings": [
-      {
-        "dealerName": "hyundai-birchwood",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 79718,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-bac6dd63",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-luxury-in-stock-take-home-today-electric-black-77846b76-a5ab-4dcc-8a37-b8ba8f0bb4f6"
-      },
-      {
-        "dealerName": null,
-        "km": 16,
-        "lastVerified": "2026-05-04T18:55:14.625737Z",
-        "priceCad": 79718,
-        "province": "MB",
-        "source": "kijiji_autos",
-        "stockId": "1725796720",
-        "url": "https://www.kijiji.ca/v-cars-trucks/winnipeg/2026-hyundai-ioniq-9-luxury-in-stock-take-home-today/1725796720"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq9",
-    "trim": "Preferred Long Range RWD",
-    "vin": "KM8MWFS36TA011587",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq9",
-    "listings": [
-      {
         "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 79733,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-45c9d1f0",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-6b15b6b0-241d-405a-980a-a6ccdef6781a"
-      },
-      {
-        "dealerName": null,
-        "km": 17,
-        "lastVerified": "2026-05-07T11:45:55.149180Z",
-        "priceCad": 79733,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1729372334",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-9-preferred/1729372334"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq9",
-    "trim": "Preferred Long Range RWD",
-    "vin": "KM8MWFS37TA008729",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq9",
-    "listings": [
-      {
-        "dealerName": "hyundai-cambridge",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 79744,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0488a67e",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-f2549afc-9ae0-4b9b-afbb-b5586d11dec1"
-      },
-      {
-        "dealerName": null,
-        "km": 11,
-        "lastVerified": "2026-05-07T11:45:55.149227Z",
-        "priceCad": 79744,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1734780076",
-        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-9-preferred/1734780076"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq9",
-    "trim": "Preferred Long Range RWD",
-    "vin": "KM8MWFS36TA017891",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq9",
-    "listings": [
-      {
-        "dealerName": "hyundai-crowfoot",
-        "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79995,
         "province": null,
         "source": "autotrader",
@@ -1995,7 +1435,7 @@
       {
         "dealerName": null,
         "km": 17521,
-        "lastVerified": "2026-05-07T11:45:55.149238Z",
+        "lastVerified": "2026-05-08T11:57:25.392090Z",
         "priceCad": 79995,
         "province": "AB",
         "source": "kijiji_autos",
@@ -2013,30 +1453,30 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
-        "dealerName": "hyundai-cambridge",
+        "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 79744,
+        "lastVerified": "2026-05-08",
+        "priceCad": 79733,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-bcf6d223",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-21f6d16f-c587-4e28-86c7-88d5a1d66988"
+        "stockId": "u-at-45c9d1f0",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-6b15b6b0-241d-405a-980a-a6ccdef6781a"
       },
       {
         "dealerName": null,
-        "km": 11,
-        "lastVerified": "2026-05-07T11:45:55.149127Z",
-        "priceCad": 79744,
-        "province": "ON",
+        "km": 17,
+        "lastVerified": "2026-05-08T11:57:25.392023Z",
+        "priceCad": 79733,
+        "province": "AB",
         "source": "kijiji_autos",
-        "stockId": "1735302517",
-        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-9-preferred/1735302517"
+        "stockId": "1729372334",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-hyundai-ioniq-9-preferred/1729372334"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq9",
     "trim": "Preferred Long Range RWD",
-    "vin": "KM8MWFS33TA017962",
+    "vin": "KM8MWFS37TA008729",
     "year": 2026
   },
   {
@@ -2045,7 +1485,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79544,
         "province": null,
         "source": "autotrader",
@@ -2055,7 +1495,7 @@
       {
         "dealerName": null,
         "km": 16,
-        "lastVerified": "2026-05-07T11:45:55.149175Z",
+        "lastVerified": "2026-05-08T11:57:25.392018Z",
         "priceCad": 79544,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2073,9 +1513,39 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
+        "dealerName": "hyundai-cambridge",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 79744,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0488a67e",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-grey-f2549afc-9ae0-4b9b-afbb-b5586d11dec1"
+      },
+      {
+        "dealerName": null,
+        "km": 11,
+        "lastVerified": "2026-05-08T11:57:25.392084Z",
+        "priceCad": 79744,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1734780076",
+        "url": "https://www.kijiji.ca/v-cars-trucks/cambridge/2026-hyundai-ioniq-9-preferred/1734780076"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq9",
+    "trim": "Preferred Long Range RWD",
+    "vin": "KM8MWFS36TA017891",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq9",
+    "listings": [
+      {
         "dealerName": "hyundai-northland",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79697,
         "province": null,
         "source": "autotrader",
@@ -2085,7 +1555,7 @@
       {
         "dealerName": null,
         "km": 12,
-        "lastVerified": "2026-05-07T11:45:55.149230Z",
+        "lastVerified": "2026-05-08T11:57:25.391998Z",
         "priceCad": 79697,
         "province": "BC",
         "source": "kijiji_autos",
@@ -2105,7 +1575,7 @@
       {
         "dealerName": "hyundai-northland",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 79697,
         "province": null,
         "source": "autotrader",
@@ -2115,7 +1585,7 @@
       {
         "dealerName": null,
         "km": 16,
-        "lastVerified": "2026-05-07T11:45:55.149234Z",
+        "lastVerified": "2026-05-08T11:57:25.392008Z",
         "priceCad": 79697,
         "province": "BC",
         "source": "kijiji_autos",
@@ -2135,7 +1605,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84194,
         "province": null,
         "source": "autotrader",
@@ -2144,8 +1614,8 @@
       },
       {
         "dealerName": null,
-        "km": 16,
-        "lastVerified": "2026-05-07T11:45:55.149213Z",
+        "km": 17,
+        "lastVerified": "2026-05-08T11:57:25.392067Z",
         "priceCad": 84544,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2165,7 +1635,7 @@
       {
         "dealerName": "hyundai-crowfoot",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84483,
         "province": null,
         "source": "autotrader",
@@ -2175,7 +1645,7 @@
       {
         "dealerName": null,
         "km": 10,
-        "lastVerified": "2026-05-07T11:45:55.149259Z",
+        "lastVerified": "2026-05-08T11:57:25.392065Z",
         "priceCad": 84483,
         "province": "AB",
         "source": "kijiji_autos",
@@ -2195,7 +1665,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84294,
         "province": null,
         "source": "autotrader",
@@ -2205,7 +1675,7 @@
       {
         "dealerName": null,
         "km": 16,
-        "lastVerified": "2026-05-07T11:45:55.149221Z",
+        "lastVerified": "2026-05-08T11:57:25.392069Z",
         "priceCad": 84294,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2225,7 +1695,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84294,
         "province": null,
         "source": "autotrader",
@@ -2235,7 +1705,7 @@
       {
         "dealerName": null,
         "km": 17,
-        "lastVerified": "2026-05-07T11:45:55.149254Z",
+        "lastVerified": "2026-05-08T11:57:25.392040Z",
         "priceCad": 84294,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2255,7 +1725,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84294,
         "province": null,
         "source": "autotrader",
@@ -2265,7 +1735,7 @@
       {
         "dealerName": null,
         "km": 15,
-        "lastVerified": "2026-05-07T11:45:55.149236Z",
+        "lastVerified": "2026-05-08T11:57:25.392088Z",
         "priceCad": 84294,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2285,7 +1755,7 @@
       {
         "dealerName": "hyundai-grande-prairie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 85632,
         "province": null,
         "source": "autotrader",
@@ -2295,7 +1765,7 @@
       {
         "dealerName": null,
         "km": 6,
-        "lastVerified": "2026-05-07T11:45:55.149185Z",
+        "lastVerified": "2026-05-08T11:57:25.392032Z",
         "priceCad": 85632,
         "province": "AB",
         "source": "kijiji_autos",
@@ -2315,7 +1785,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84544,
         "province": null,
         "source": "autotrader",
@@ -2325,7 +1795,7 @@
       {
         "dealerName": null,
         "km": 16,
-        "lastVerified": "2026-05-07T11:45:55.149256Z",
+        "lastVerified": "2026-05-08T11:57:25.392042Z",
         "priceCad": 84544,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2345,7 +1815,7 @@
       {
         "dealerName": "hyundai-401-dixie",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84544,
         "province": null,
         "source": "autotrader",
@@ -2355,7 +1825,7 @@
       {
         "dealerName": null,
         "km": 35,
-        "lastVerified": "2026-05-07T11:45:55.149204Z",
+        "lastVerified": "2026-05-08T11:57:25.392063Z",
         "priceCad": 84544,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2375,7 +1845,7 @@
       {
         "dealerName": "hyundai-northland",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84697,
         "province": null,
         "source": "autotrader",
@@ -2385,7 +1855,7 @@
       {
         "dealerName": null,
         "km": 20,
-        "lastVerified": "2026-05-07T11:45:55.149190Z",
+        "lastVerified": "2026-05-08T11:57:25.392038Z",
         "priceCad": 84697,
         "province": "BC",
         "source": "kijiji_autos",
@@ -2403,69 +1873,9 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
-        "dealerName": "hyundai-guelph",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 84780,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-75e45019",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-b7a33166-501b-4c77-a25a-a5728611b148"
-      },
-      {
-        "dealerName": null,
-        "km": 18,
-        "lastVerified": "2026-05-07T11:45:55.149249Z",
-        "priceCad": 84780,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1724519046",
-        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-hyundai-ioniq-9-preferred/1724519046"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq9",
-    "trim": "Preferred Long Range RWD",
-    "vin": "KM8MYFS56TA009205",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq9",
-    "listings": [
-      {
-        "dealerName": "hyundai-guelph",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 84780,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-0fbfe96b",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-c8f74832-c1aa-43d6-9809-d6145a7818d2"
-      },
-      {
-        "dealerName": null,
-        "km": 8,
-        "lastVerified": "2026-05-07T11:45:55.149224Z",
-        "priceCad": 84780,
-        "province": "ON",
-        "source": "kijiji_autos",
-        "stockId": "1731379762",
-        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-hyundai-ioniq-9-preferred/1731379762"
-      }
-    ],
-    "make": "Hyundai",
-    "model": "Ioniq9",
-    "trim": "Preferred Long Range RWD",
-    "vin": "KM8MYFS52TA017396",
-    "year": 2026
-  },
-  {
-    "fallbackKey": "2026|hyundai|ioniq9",
-    "listings": [
-      {
         "dealerName": "hyundai-cambridge",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 84744,
         "province": null,
         "source": "autotrader",
@@ -2475,7 +1885,7 @@
       {
         "dealerName": null,
         "km": 11,
-        "lastVerified": "2026-05-07T11:45:55.149215Z",
+        "lastVerified": "2026-05-08T11:57:25.392071Z",
         "priceCad": 84744,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2493,30 +1903,30 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
-        "dealerName": "hyundai-river-city",
+        "dealerName": "hyundai-guelph",
         "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 83948,
+        "lastVerified": "2026-05-08",
+        "priceCad": 84780,
         "province": null,
         "source": "autotrader",
-        "stockId": "u-at-9ab5ce2c",
-        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ultimate-calligraphy-electric-black-c6d0fb2c-0d5f-406c-9139-02a1f8c2bcd7"
+        "stockId": "u-at-75e45019",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-preferred-electric-black-b7a33166-501b-4c77-a25a-a5728611b148"
       },
       {
         "dealerName": null,
-        "km": 0,
-        "lastVerified": "2026-05-07T11:45:55.149270Z",
-        "priceCad": 83948,
-        "province": "AB",
+        "km": 18,
+        "lastVerified": "2026-05-08T11:57:25.392030Z",
+        "priceCad": 84780,
+        "province": "ON",
         "source": "kijiji_autos",
-        "stockId": "1724501268",
-        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-hyundai-ioniq-9-ultimate-calligraphy/1724501268"
+        "stockId": "1724519046",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-hyundai-ioniq-9-preferred/1724519046"
       }
     ],
     "make": "Hyundai",
     "model": "Ioniq9",
-    "trim": "Performance Calligraphy AWD",
-    "vin": "KM8MYFS55TA009020",
+    "trim": "Preferred Long Range RWD",
+    "vin": "KM8MYFS56TA009205",
     "year": 2026
   },
   {
@@ -2525,7 +1935,7 @@
       {
         "dealerName": "hyundai-river-city",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 83948,
         "province": null,
         "source": "autotrader",
@@ -2553,9 +1963,39 @@
     "fallbackKey": "2026|hyundai|ioniq9",
     "listings": [
       {
+        "dealerName": "hyundai-river-city",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 83948,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-9ab5ce2c",
+        "url": "https://www.autotrader.ca/offers/hyundai-ioniq-9-ultimate-calligraphy-electric-black-c6d0fb2c-0d5f-406c-9139-02a1f8c2bcd7"
+      },
+      {
+        "dealerName": null,
+        "km": 0,
+        "lastVerified": "2026-05-07T11:45:55.149270Z",
+        "priceCad": 83948,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1724501268",
+        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-hyundai-ioniq-9-ultimate-calligraphy/1724501268"
+      }
+    ],
+    "make": "Hyundai",
+    "model": "Ioniq9",
+    "trim": "Performance Calligraphy AWD",
+    "vin": "KM8MYFS55TA009020",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|hyundai|ioniq9",
+    "listings": [
+      {
         "dealerName": "hyundai-rexdale",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 83899,
         "province": null,
         "source": "autotrader",
@@ -2565,7 +2005,7 @@
       {
         "dealerName": "hyundai-downtown",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 83899,
         "province": null,
         "source": "autotrader",
@@ -2585,7 +2025,7 @@
       {
         "dealerName": "hyundai-river-city",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 64988,
         "province": null,
         "source": "autotrader",
@@ -2595,7 +2035,7 @@
       {
         "dealerName": null,
         "km": 0,
-        "lastVerified": "2026-05-07T11:45:55.149201Z",
+        "lastVerified": "2026-05-08T11:57:25.392057Z",
         "priceCad": 64988,
         "province": "AB",
         "source": "kijiji_autos",
@@ -2615,7 +2055,7 @@
       {
         "dealerName": "hyundai-river-city",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 67198,
         "province": null,
         "source": "autotrader",
@@ -2645,7 +2085,7 @@
       {
         "dealerName": "kia-stratford",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 59464,
         "province": null,
         "source": "autotrader",
@@ -2655,7 +2095,7 @@
       {
         "dealerName": null,
         "km": 5,
-        "lastVerified": "2026-05-07T11:45:22.756187Z",
+        "lastVerified": "2026-05-08T11:56:57.504404Z",
         "priceCad": 62464,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2675,7 +2115,7 @@
       {
         "dealerName": "kia-of-hamilton",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 52195,
         "province": null,
         "source": "autotrader",
@@ -2685,7 +2125,7 @@
       {
         "dealerName": null,
         "km": 21,
-        "lastVerified": "2026-05-07T11:45:22.756210Z",
+        "lastVerified": "2026-05-08T11:56:57.504483Z",
         "priceCad": 52195,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2703,39 +2143,9 @@
     "fallbackKey": "2025|kia|ev6",
     "listings": [
       {
-        "dealerName": "kia-straightline",
-        "km": null,
-        "lastVerified": "2026-05-07",
-        "priceCad": 59530,
-        "province": null,
-        "source": "autotrader",
-        "stockId": "u-at-cfb6463c",
-        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-455-km-range-electric-white-6c3075b1-3226-4bc0-aca9-6e165a2e50d5"
-      },
-      {
-        "dealerName": null,
-        "km": 40,
-        "lastVerified": "2026-05-07T11:45:22.756244Z",
-        "priceCad": 60429,
-        "province": "AB",
-        "source": "kijiji_autos",
-        "stockId": "1735298873",
-        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2025-kia-ev6-land-awd-w-premium-pkg-455-km-range/1735298873"
-      }
-    ],
-    "make": "Kia",
-    "model": "EV6",
-    "trim": "Land AWD",
-    "vin": "5XYC3DJC9SG001262",
-    "year": 2025
-  },
-  {
-    "fallbackKey": "2025|kia|ev6",
-    "listings": [
-      {
         "dealerName": "kia-straightline-medicine-hat",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 58614,
         "province": null,
         "source": "autotrader",
@@ -2745,7 +2155,7 @@
       {
         "dealerName": null,
         "km": 161,
-        "lastVerified": "2026-05-07T11:45:22.756248Z",
+        "lastVerified": "2026-05-08T11:56:57.504528Z",
         "priceCad": 58614,
         "province": "AB",
         "source": "kijiji_autos",
@@ -2765,7 +2175,37 @@
       {
         "dealerName": "kia-straightline",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
+        "priceCad": 59530,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-cfb6463c",
+        "url": "https://www.autotrader.ca/offers/kia-ev6-land-awd-w-premium-pkg-455-km-range-electric-white-6c3075b1-3226-4bc0-aca9-6e165a2e50d5"
+      },
+      {
+        "dealerName": null,
+        "km": 40,
+        "lastVerified": "2026-05-08T11:56:57.504523Z",
+        "priceCad": 60429,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1735298873",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2025-kia-ev6-land-awd-w-premium-pkg-455-km-range/1735298873"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV6",
+    "trim": "Land AWD",
+    "vin": "5XYC3DJC9SG001262",
+    "year": 2025
+  },
+  {
+    "fallbackKey": "2025|kia|ev6",
+    "listings": [
+      {
+        "dealerName": "kia-straightline",
+        "km": null,
+        "lastVerified": "2026-05-08",
         "priceCad": 59530,
         "province": null,
         "source": "autotrader",
@@ -2775,7 +2215,7 @@
       {
         "dealerName": null,
         "km": 58,
-        "lastVerified": "2026-05-07T11:45:22.756253Z",
+        "lastVerified": "2026-05-08T11:56:57.504535Z",
         "priceCad": 60429,
         "province": "AB",
         "source": "kijiji_autos",
@@ -2795,7 +2235,7 @@
       {
         "dealerName": "kia-london",
         "km": null,
-        "lastVerified": "2026-05-07",
+        "lastVerified": "2026-05-08",
         "priceCad": 62419,
         "province": null,
         "source": "autotrader",
@@ -2805,7 +2245,7 @@
       {
         "dealerName": null,
         "km": 29,
-        "lastVerified": "2026-05-07T11:45:22.756178Z",
+        "lastVerified": "2026-05-08T11:56:57.504453Z",
         "priceCad": 62419,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2818,6 +2258,566 @@
     "trim": "Land AWD",
     "vin": "5XYC3DJC4SG004344",
     "year": 2025
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-stratford",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 79414,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-6360fc3c",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-w-premium-package-electric-white-cd0f81eb-e13d-4d80-8530-7215d8b17aba"
+      },
+      {
+        "dealerName": null,
+        "km": 45,
+        "lastVerified": "2026-05-08T11:57:02.205395Z",
+        "priceCad": 79414,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1736870090",
+        "url": "https://www.kijiji.ca/v-cars-trucks/stratford-on/2026-kia-ev9-land-w-premium-package/1736870090"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Trim unknown (2026 Kia EV9 W/PREMIUM PACKAGE)",
+    "vin": "KNDADFS59T6071588",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-performance-mayfield",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 83464,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-3592907d",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-awd-electric-black-f7d0d399-b0d9-44a1-b944-8dd4643e6f14"
+      },
+      {
+        "dealerName": "kia-yorkdale",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 81745,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-28dd5f25",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-electric-black-0e83cc48-884a-47ea-936c-488f749654ec"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "GT-Line AWD",
+    "vin": "KNDAEFS58T6077668",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-west-edmonton",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 80645,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-01634c3d",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-electric-blue-85845378-e2cc-4552-9b9c-ac395f095260"
+      },
+      {
+        "dealerName": null,
+        "km": 1,
+        "lastVerified": "2026-05-08T11:57:02.205427Z",
+        "priceCad": 81645,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1729391393",
+        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-kia-ev9-land-w-gt-line/1729391393"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "GT-Line AWD",
+    "vin": "KNDAEFS5XT6069622",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-west-edmonton",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 71645,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-37a49e72",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-plus-package-electric-grey-fa89f225-8e7f-4294-b668-a761ec15b699"
+      },
+      {
+        "dealerName": null,
+        "km": 1,
+        "lastVerified": "2026-05-08T11:57:02.205429Z",
+        "priceCad": 72645,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1729391269",
+        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2026-kia-ev9-land-w-plus-package/1729391269"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS50T6061743",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2025|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-west-edmonton",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 70995,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-f7d30a58",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-black-9f761d40-d996-4cc5-a726-0162dbcfe739"
+      },
+      {
+        "dealerName": null,
+        "km": 1,
+        "lastVerified": "2026-05-08T11:57:02.205423Z",
+        "priceCad": 78995,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1729391332",
+        "url": "https://www.kijiji.ca/v-cars-trucks/edmonton/2025-kia-ev9-land-w-premium-package/1729391332"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS51S6060695",
+    "year": 2025
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-of-hamilton",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 77995,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-0130dd46",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd-electric-blue-45c1786f-3ae4-432c-ae7c-0d58bb13bdc7"
+      },
+      {
+        "dealerName": null,
+        "km": 2,
+        "lastVerified": "2026-05-08T11:57:02.205401Z",
+        "priceCad": 77995,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1735507069",
+        "url": "https://www.kijiji.ca/v-cars-trucks/hamilton/2026-kia-ev9-land-w-premium-package-awd/1735507069"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS55T6081700",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-birchwood-on-regent",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 78784,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-9f47a51a",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-actual-incoming-vehicle-electric-grey-0e0c32f4-ca71-4632-ac1a-f831b4aff278"
+      },
+      {
+        "dealerName": "kia-south-trail-k-ltd-o-a-south-trail",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 78025,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-bb97610b",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd-electric-grey-5614bb87-1508-468f-ae92-b529532b6e80"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS57T6079916",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-london",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 81745,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-4c28664d",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-gt-line-package-electric-black-ebfe7fb2-a2fe-4998-b543-a8cc2a48c523"
+      },
+      {
+        "dealerName": null,
+        "km": 10397,
+        "lastVerified": "2026-05-08T11:57:02.205389Z",
+        "priceCad": 81745,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1726739648",
+        "url": "https://www.kijiji.ca/v-cars-trucks/london/2026-kia-ev9-land-w-gt-line-package/1726739648"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "GT-Line AWD",
+    "vin": "KNDAEFS58T6069571",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-guelph",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 70320,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-cae944da",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-plus-electric-white-3f281345-eb80-43c2-85ae-0dc0748b881b"
+      },
+      {
+        "dealerName": null,
+        "km": 99,
+        "lastVerified": "2026-05-08T11:57:02.205375Z",
+        "priceCad": 70320,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1724414054",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land-awd-plus/1724414054"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS55T6066260",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-guelph",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 78616,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-2469c9a3",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-electric-grey-5838f243-f7b3-4b27-a25f-b331bae81762"
+      },
+      {
+        "dealerName": null,
+        "km": 30,
+        "lastVerified": "2026-05-08T11:57:02.205366Z",
+        "priceCad": 78616,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1724465654",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land/1724465654"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS51T6069138",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-guelph",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 73616,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-20ea6159",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-plus-electric-silver-bdcd7a83-501d-42f0-99a9-f160a1823008"
+      },
+      {
+        "dealerName": null,
+        "km": 168,
+        "lastVerified": "2026-05-08T11:57:02.205382Z",
+        "priceCad": 73616,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1724356367",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land-awd-plus/1724356367"
+      },
+      {
+        "dealerName": null,
+        "km": 87,
+        "lastVerified": "2026-05-08T11:57:02.205363Z",
+        "priceCad": null,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1736380391",
+        "url": "https://www.kijiji.ca/v-cars-trucks/london/2026-kia-ev9-land-awd/1736380391"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS51T6069950",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-guelph",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 73616,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-a9cda465",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-electric-grey-b1a3b35d-097f-49dd-b401-e2cd779554b0"
+      },
+      {
+        "dealerName": null,
+        "km": 38,
+        "lastVerified": "2026-05-08T11:57:02.205346Z",
+        "priceCad": 73616,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1724411300",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land/1724411300"
+      },
+      {
+        "dealerName": null,
+        "km": 88,
+        "lastVerified": "2026-05-08T11:57:02.205334Z",
+        "priceCad": null,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1736809935",
+        "url": "https://www.kijiji.ca/v-cars-trucks/london/2026-kia-ev9-land/1736809935"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS50T6066411",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-of-hamilton",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 77995,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-c32caed7",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-awd--brown-interior-electric-white-87049c1e-938a-4579-82d3-91ca8f7ca7d4"
+      },
+      {
+        "dealerName": null,
+        "km": 20,
+        "lastVerified": "2026-05-08T11:57:02.205412Z",
+        "priceCad": 77995,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1730511114",
+        "url": "https://www.kijiji.ca/v-cars-trucks/hamilton/2026-kia-ev9-land-w-premium-package-awd-brown-interior/1730511114"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS56T6070642",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-birchwood-on-regent",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 78784,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-4806cedf",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-actual-incoming-vehicle-electric-black-a200117a-7429-48fe-be10-5231305af4e3"
+      },
+      {
+        "dealerName": "kia-gauthier",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 79839,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-33957fdb",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-w-premium-package-electric-black-33a69eb9-1ab6-4ed2-865e-c546f568a7fd"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS52T6081699",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-guelph",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 78616,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-36dabd45",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-premium-electric-blue-318c44e2-58b9-40d3-a054-dc5e5630341e"
+      },
+      {
+        "dealerName": null,
+        "km": 87,
+        "lastVerified": "2026-05-08T11:57:02.205353Z",
+        "priceCad": 78616,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1725910658",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-ev9-land-premium/1725910658"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS58T6071579",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-london",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 79419,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-2a5fd193",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land--prem-electric-white-65d5cd5a-c354-4568-aff6-4344e338a1a5"
+      },
+      {
+        "dealerName": null,
+        "km": 50,
+        "lastVerified": "2026-05-08T11:57:02.205369Z",
+        "priceCad": 79419,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1729368167",
+        "url": "https://www.kijiji.ca/v-cars-trucks/london/2026-kia-ev9-land-prem/1729368167"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS5XT6074998",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-straightline",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 73030,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-2b01f98d",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-land-awd-w-plus-package-455-km-range-includes-l-electric-grey-05761413-d891-4019-bfba-f710b932c612"
+      },
+      {
+        "dealerName": null,
+        "km": 136,
+        "lastVerified": "2026-05-08T11:57:02.205441Z",
+        "priceCad": 73929,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1724549461",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-kia-ev9-land-awd-w-plus-package-455-km-range-includes-le/1724549461"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDADFS51T6069446",
+    "year": 2026
+  },
+  {
+    "fallbackKey": "2026|kia|ev9",
+    "listings": [
+      {
+        "dealerName": "kia-straightline",
+        "km": null,
+        "lastVerified": "2026-05-08",
+        "priceCad": 87830,
+        "province": null,
+        "source": "autotrader",
+        "stockId": "u-at-7a5944d1",
+        "url": "https://www.autotrader.ca/offers/kia-ev9-gt-awd-418-km-range-incoming-unit-electric-blue-639cadb2-ee61-4e00-8cc5-81c13f6df739"
+      },
+      {
+        "dealerName": null,
+        "km": 16,
+        "lastVerified": "2026-05-08T11:57:02.205438Z",
+        "priceCad": 87830,
+        "province": "AB",
+        "source": "kijiji_autos",
+        "stockId": "1730219494",
+        "url": "https://www.kijiji.ca/v-cars-trucks/calgary/2026-kia-ev9-gt-awd-418-km-range-incoming-unit/1730219494"
+      }
+    ],
+    "make": "Kia",
+    "model": "EV9",
+    "trim": "Land Long Range AWD",
+    "vin": "KNDAAFS71T6076164",
+    "year": 2026
   },
   {
     "fallbackKey": "2023|kia|niroev",
@@ -2895,7 +2895,7 @@
       {
         "dealerName": null,
         "km": 1961,
-        "lastVerified": "2026-05-07T11:45:22.756123Z",
+        "lastVerified": "2026-05-08T11:56:57.504407Z",
         "priceCad": 43487,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2925,7 +2925,7 @@
       {
         "dealerName": null,
         "km": 1200,
-        "lastVerified": "2026-05-07T11:45:46.751605Z",
+        "lastVerified": "2026-05-08T11:57:20.453006Z",
         "priceCad": 380,
         "province": null,
         "source": "kijiji_autos",
@@ -2940,12 +2940,42 @@
     "year": 2025
   },
   {
+    "fallbackKey": "2026|kia|niroev",
+    "listings": [
+      {
+        "dealerName": null,
+        "km": 10,
+        "lastVerified": "2026-05-07T11:45:33.465245Z",
+        "priceCad": 57364,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1734835729",
+        "url": "https://www.kijiji.ca/v-cars-trucks/stratford-on/2026-kia-niro-ev/1734835729"
+      },
+      {
+        "dealerName": null,
+        "km": 10,
+        "lastVerified": "2026-05-08T11:57:07.469474Z",
+        "priceCad": null,
+        "province": "ON",
+        "source": "kijiji_autos",
+        "stockId": "1737239721",
+        "url": "https://www.kijiji.ca/v-cars-trucks/guelph/2026-kia-niro-ev-wave/1737239721"
+      }
+    ],
+    "make": "kia",
+    "model": "niro ev",
+    "trim": "Other",
+    "vin": "KNDCT3L19T5151615",
+    "year": 2026
+  },
+  {
     "fallbackKey": "2024|hyundai|ioniq6",
     "listings": [
       {
         "dealerName": null,
         "km": 48858,
-        "lastVerified": "2026-05-07T11:45:46.751572Z",
+        "lastVerified": "2026-05-08T11:57:16.891381Z",
         "priceCad": 37390,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2955,7 +2985,7 @@
       {
         "dealerName": null,
         "km": 48858,
-        "lastVerified": "2026-05-07T11:45:46.751584Z",
+        "lastVerified": "2026-05-08T11:57:20.452990Z",
         "priceCad": 37390,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2965,7 +2995,7 @@
       {
         "dealerName": null,
         "km": 48858,
-        "lastVerified": "2026-05-07T11:45:46.751582Z",
+        "lastVerified": "2026-05-08T11:57:20.452986Z",
         "priceCad": 37390,
         "province": "NS",
         "source": "kijiji_autos",
@@ -2985,7 +3015,7 @@
       {
         "dealerName": null,
         "km": 6394,
-        "lastVerified": "2026-05-07T11:45:46.751598Z",
+        "lastVerified": "2026-05-08T11:57:20.452998Z",
         "priceCad": 50090,
         "province": "ON",
         "source": "kijiji_autos",
@@ -2995,7 +3025,7 @@
       {
         "dealerName": null,
         "km": 6394,
-        "lastVerified": "2026-05-07T11:45:46.751596Z",
+        "lastVerified": "2026-05-08T11:57:20.452996Z",
         "priceCad": 50090,
         "province": "ON",
         "source": "kijiji_autos",
@@ -3005,7 +3035,7 @@
       {
         "dealerName": null,
         "km": 6394,
-        "lastVerified": "2026-05-07T11:45:46.751593Z",
+        "lastVerified": "2026-05-08T11:57:20.452994Z",
         "priceCad": 50090,
         "province": "NS",
         "source": "kijiji_autos",
@@ -3025,7 +3055,7 @@
       {
         "dealerName": null,
         "km": 52286,
-        "lastVerified": "2026-05-07T11:45:22.756259Z",
+        "lastVerified": "2026-05-08T11:56:57.504541Z",
         "priceCad": 39590,
         "province": "ON",
         "source": "kijiji_autos",
@@ -3035,7 +3065,7 @@
       {
         "dealerName": null,
         "km": 52286,
-        "lastVerified": "2026-05-07T11:45:22.756261Z",
+        "lastVerified": "2026-05-08T11:56:57.504539Z",
         "priceCad": 39590,
         "province": "ON",
         "source": "kijiji_autos",
@@ -3045,7 +3075,7 @@
       {
         "dealerName": null,
         "km": 52286,
-        "lastVerified": "2026-05-07T11:45:22.756250Z",
+        "lastVerified": "2026-05-08T11:56:57.504531Z",
         "priceCad": 39590,
         "province": "NS",
         "source": "kijiji_autos",
@@ -3075,7 +3105,7 @@
       {
         "dealerName": null,
         "km": 16,
-        "lastVerified": "2026-05-06T11:44:54.897052Z",
+        "lastVerified": "2026-05-08T11:57:16.891377Z",
         "priceCad": null,
         "province": "AB",
         "source": "kijiji_autos",
@@ -3095,7 +3125,7 @@
       {
         "dealerName": null,
         "km": 11712,
-        "lastVerified": "2026-05-07T11:45:46.751561Z",
+        "lastVerified": "2026-05-08T11:57:20.452966Z",
         "priceCad": 49490,
         "province": "ON",
         "source": "kijiji_autos",
@@ -3105,7 +3135,7 @@
       {
         "dealerName": null,
         "km": 11712,
-        "lastVerified": "2026-05-07T11:45:46.751559Z",
+        "lastVerified": "2026-05-08T11:57:20.452963Z",
         "priceCad": 49490,
         "province": "ON",
         "source": "kijiji_autos",
@@ -3115,7 +3145,7 @@
       {
         "dealerName": null,
         "km": 11712,
-        "lastVerified": "2026-05-07T11:45:46.751556Z",
+        "lastVerified": "2026-05-08T11:57:20.452922Z",
         "priceCad": 49490,
         "province": "NS",
         "source": "kijiji_autos",
@@ -3128,6 +3158,36 @@
     "trim": "Preferred",
     "vin": "KMHM34AC5SA107479",
     "year": 2025
+  },
+  {
+    "fallbackKey": "2024|hyundai|ioniq6",
+    "listings": [
+      {
+        "dealerName": null,
+        "km": 26142,
+        "lastVerified": "2026-05-07T11:45:46.751588Z",
+        "priceCad": 32495,
+        "province": "QC",
+        "source": "kijiji_autos",
+        "stockId": "1736548561",
+        "url": "https://www.kijiji.ca/v-cars-trucks/shawinigan/hyundai-ioniq-6-preferred-long-range-2024-a-vendre/1736548561"
+      },
+      {
+        "dealerName": null,
+        "km": 26142,
+        "lastVerified": "2026-05-08T11:57:16.891308Z",
+        "priceCad": 32495,
+        "province": "QC",
+        "source": "kijiji_autos",
+        "stockId": "1737243376",
+        "url": "https://www.kijiji.ca/v-cars-trucks/shawinigan/hyundai-ioniq-6-preferred-long-range-2024-a-vendre/1737243376"
+      }
+    ],
+    "make": "hyundai",
+    "model": "ioniq_6",
+    "trim": "Preferred Long Range",
+    "vin": "KMHM34AA6RA068054",
+    "year": 2024
   },
   {
     "fallbackKey": "2023|kia|ev6",
@@ -3145,7 +3205,7 @@
       {
         "dealerName": null,
         "km": 41823,
-        "lastVerified": "2026-05-07T11:45:22.756224Z",
+        "lastVerified": "2026-05-08T11:56:57.504512Z",
         "priceCad": 37995,
         "province": "QC",
         "source": "kijiji_autos",
@@ -3175,7 +3235,7 @@
       {
         "dealerName": null,
         "km": 58517,
-        "lastVerified": "2026-05-07T11:45:38.572953Z",
+        "lastVerified": "2026-05-08T11:57:12.144230Z",
         "priceCad": 43821,
         "province": "ON",
         "source": "kijiji_autos",
@@ -3195,7 +3255,7 @@
       {
         "dealerName": null,
         "km": 43992,
-        "lastVerified": "2026-05-07T11:45:28.430583Z",
+        "lastVerified": "2026-05-08T11:57:02.205419Z",
         "priceCad": 71490,
         "province": "ON",
         "source": "kijiji_autos",
@@ -3205,7 +3265,7 @@
       {
         "dealerName": null,
         "km": 43992,
-        "lastVerified": "2026-05-07T11:45:28.430581Z",
+        "lastVerified": "2026-05-08T11:57:02.205415Z",
         "priceCad": 71490,
         "province": "ON",
         "source": "kijiji_autos",
@@ -3215,7 +3275,7 @@
       {
         "dealerName": null,
         "km": 43992,
-        "lastVerified": "2026-05-07T11:45:28.430578Z",
+        "lastVerified": "2026-05-08T11:57:02.205421Z",
         "priceCad": 71490,
         "province": "NS",
         "source": "kijiji_autos",
@@ -3295,7 +3355,7 @@
       {
         "dealerName": null,
         "km": 63076,
-        "lastVerified": "2026-05-07T11:45:46.751565Z",
+        "lastVerified": "2026-05-08T11:57:16.891359Z",
         "priceCad": 29995,
         "province": "QC",
         "source": "kijiji_autos",
